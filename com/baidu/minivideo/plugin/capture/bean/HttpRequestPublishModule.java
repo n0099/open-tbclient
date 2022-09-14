@@ -249,20 +249,20 @@ public class HttpRequestPublishModule {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
                     jSONObject = new JSONObject();
-                } catch (Exception e2) {
-                    jSONObject = null;
-                    e = e2;
-                }
-                try {
-                    jSONObject.put("title", this.title);
-                    jSONObject.put("content", this.content);
-                    jSONObject.put("link", this.link);
-                    jSONObject.put("icon", this.icon);
-                    jSONObject.put("shareText", this.shareText);
+                    try {
+                        jSONObject.put("title", this.title);
+                        jSONObject.put("content", this.content);
+                        jSONObject.put("link", this.link);
+                        jSONObject.put("icon", this.icon);
+                        jSONObject.put("shareText", this.shareText);
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        return jSONObject;
+                    }
                 } catch (Exception e3) {
+                    jSONObject = null;
                     e = e3;
-                    e.printStackTrace();
-                    return jSONObject;
                 }
                 return jSONObject;
             }

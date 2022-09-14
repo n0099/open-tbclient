@@ -1,52 +1,137 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public final class f82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
-            } catch (Exception e) {
-                ay1.d("SwanAppSubscribeMsg", "createTable", e);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static int a = -1;
+        public static int b = -1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-848830324, "Lcom/baidu/tieba/f82$a;")) == null) {
+                return;
             }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-848830324, "Lcom/baidu/tieba/f82$a;");
+            }
+        }
+
+        public static String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab") : (String) invokeV.objValue;
+        }
+
+        public static boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                if (f82.a) {
+                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
+                    String a2 = a();
+                    char c = 65535;
+                    int hashCode = a2.hashCode();
+                    if (hashCode != 251117829) {
+                        if (hashCode != 547804557) {
+                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
+                                c = 1;
+                            }
+                        } else if (a2.equals("debug_ab")) {
+                            c = 2;
+                        }
+                    } else if (a2.equals("debug_on_app_launch")) {
+                        c = 0;
+                    }
+                    if (c == 0) {
+                        return true;
+                    }
+                    if (c == 1) {
+                        return false;
+                    }
+                }
+                if (a < 0) {
+                    fm2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
+                    a = 0;
+                }
+                if (f82.a) {
+                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
+                }
+                return a == 1;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (b == -1) {
+                    fm2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
+                    b = 0;
+                }
+                return b == 1;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    @WorkerThread
-    public static void b(@Nullable String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
-            Application c = hk2.c();
-            if (c != null && strArr != null) {
-                StringBuilder sb = new StringBuilder();
-                int length = strArr.length;
-                for (int i = 0; i < length; i++) {
-                    String str = strArr[i];
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append(str);
-                        if (i < length - 1) {
-                            sb.append(",");
-                        }
-                    }
-                }
-                int delete = c.getContentResolver().delete(SwanAppSubscribeMsgProvider.c, "appKey in (?)", new String[]{sb.toString()});
-                ay1.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717929, "Lcom/baidu/tieba/f82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947717929, "Lcom/baidu/tieba/f82;");
                 return;
             }
-            ay1.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
+        }
+        a = ij1.a;
+    }
+
+    public static void b(xz2 xz2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, xz2Var, bundle) == null) {
+            if (a) {
+                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
+            }
+            Bundle bundle2 = new Bundle();
+            bundle2.putBundle("swan_app_on_launch_event", bundle);
+            qz2 qz2Var = new qz2(122, bundle2);
+            if (!xz2Var.T() && a.c()) {
+                xz2Var.f0(qz2Var.h());
+            } else {
+                oz2 e = oz2.e();
+                qz2Var.b(xz2Var.b);
+                qz2Var.p(true);
+                e.h(qz2Var);
+            }
+            if (a) {
+                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+            }
         }
     }
 }

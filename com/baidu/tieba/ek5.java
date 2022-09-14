@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
-public interface ek5<T> {
-    void a();
+public interface ek5 {
+    boolean a(String str);
 
-    void b(String str);
+    void b(int i);
 
-    void c(T t);
+    boolean c(ak5 ak5Var);
 
-    String getTitle();
+    void dismiss();
 
-    void onDestroy();
+    void show();
 }

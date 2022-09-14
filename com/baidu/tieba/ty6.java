@@ -1,90 +1,187 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.FrsTabInfo;
+import tbclient.HotThreadList.DataRes;
+import tbclient.HotThreadList.HotThreadListResIdl;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class ty6 implements gy6 {
+public class ty6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hy6 a;
-    public fy6 b;
 
-    public ty6(hy6 hy6Var) {
+    public static List<Cdo> a(List<ThreadData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hy6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            for (ThreadData threadData : list) {
+                int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                    threadData.position = i;
+                    ot4 ot4Var = new ot4();
+                    ot4Var.t = threadData;
+                    ot4Var.position = i;
+                    ot4Var.r = true;
+                    ot4Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList.add(ot4Var);
+                    ot4 ot4Var2 = new ot4();
+                    ot4Var2.t = threadData;
+                    ot4Var2.position = i;
+                    if (threadData.isBJHNormalThreadType()) {
+                        ot4Var2.f = true;
+                    } else if (threadData.picCount() == 1) {
+                        ot4Var2.d = true;
+                        ot4Var2.u = imageWidthAndHeight[0];
+                        ot4Var2.v = imageWidthAndHeight[1];
+                    } else if (threadData.picCount() >= 2) {
+                        ot4Var2.e = true;
+                    } else {
+                        ot4Var2.b = true;
+                    }
+                    ot4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList.add(ot4Var2);
+                    e(threadData, arrayList, i);
+                    ot4 ot4Var3 = new ot4();
+                    ot4Var3.g = true;
+                    ot4Var3.t = threadData;
+                    ot4Var3.position = i;
+                    ot4Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList.add(ot4Var3);
+                } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
+                    threadData.position = i;
+                    ot4 ot4Var4 = new ot4();
+                    ot4Var4.t = threadData;
+                    ot4Var4.position = i;
+                    ot4Var4.r = true;
+                    ot4Var4.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList.add(ot4Var4);
+                    ot4 ot4Var5 = new ot4();
+                    ot4Var5.t = threadData;
+                    ot4Var5.position = i;
+                    ot4Var5.i = true;
+                    ot4Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList.add(ot4Var5);
+                    e(threadData, arrayList, i);
+                    ot4 ot4Var6 = new ot4();
+                    ot4Var6.g = true;
+                    ot4Var6.t = threadData;
+                    ot4Var6.position = i;
+                    ot4Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList.add(ot4Var6);
+                } else {
+                    threadData.setSupportType(BaseCardInfo.SupportType.TOP);
+                }
+                i++;
+                threadData.setSupportType(BaseCardInfo.SupportType.TOP);
+            }
+            return arrayList;
         }
-        this.a = hy6Var;
-        this.b = new sy6(this);
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gy6
-    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    public static List<Cdo> b(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            fy6 fy6Var = this.b;
-            if (fy6Var != null) {
-                return fy6Var.a(bdUniqueId, str, str2, str3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            return false;
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.isFromHotRankTab = true;
+                threadData.parserProtobuf(threadInfo);
+                f(threadData);
+                arrayList.add(threadData);
+            }
+            return a(arrayList);
         }
-        return invokeLLLL.booleanValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gy6
-    public boolean b(int i, ry6 ry6Var) {
-        InterceptResult invokeIL;
-        hy6 hy6Var;
+    public static List<Cdo> c(HotThreadListResIdl hotThreadListResIdl) {
+        InterceptResult invokeL;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ry6Var)) == null) {
-            if (ry6Var == null || (hy6Var = this.a) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hotThreadListResIdl)) == null) {
+            if (hotThreadListResIdl == null || (dataRes = hotThreadListResIdl.data) == null || ListUtils.isEmpty(dataRes.thread_info)) {
+                return null;
             }
-            hy6Var.setData(ry6Var.getDataList());
-            return true;
+            return b(hotThreadListResIdl.data.thread_info);
         }
-        return invokeIL.booleanValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gy6
-    public boolean c(int i) {
-        InterceptResult invokeI;
+    public static hz6 d(List<FrsTabInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            hy6 hy6Var = this.a;
-            if (hy6Var != null) {
-                hy6Var.b(i);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
+            ArrayList arrayList = new ArrayList();
+            frsTabInfoData.tabList = arrayList;
+            FrsTabItemData frsTabItemData = new FrsTabItemData();
+            frsTabItemData.tabCode = "all";
+            frsTabItemData.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0895);
+            int i = 0;
+            frsTabItemData.tabId = 0;
+            arrayList.add(frsTabItemData);
+            if (!ListUtils.isEmpty(list)) {
+                for (FrsTabInfo frsTabInfo : list) {
+                    if (frsTabInfo != null && !dj.isEmpty(frsTabInfo.tab_code) && !dj.isEmpty(frsTabInfo.tab_name)) {
+                        i++;
+                        FrsTabItemData frsTabItemData2 = new FrsTabItemData(frsTabInfo);
+                        frsTabItemData2.tabId = i;
+                        arrayList.add(frsTabItemData2);
+                    }
+                }
             }
-            return false;
+            return new hz6(frsTabInfoData);
         }
-        return invokeI.booleanValue;
+        return (hz6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gy6
-    public void setData(List<pn> list) {
-        hy6 hy6Var;
+    public static void e(ThreadData threadData, ArrayList<Cdo> arrayList, int i) {
+        ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (hy6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, arrayList, i) == null) || threadData == null || arrayList == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0)) == null || TextUtils.isEmpty(threadRecommendInfoData.recommendReason)) {
             return;
         }
-        hy6Var.setData(list);
+        ot4 ot4Var = new ot4();
+        ot4Var.s = true;
+        ot4Var.t = threadData;
+        ot4Var.position = i;
+        ot4Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+        arrayList.add(ot4Var);
+    }
+
+    public static void f(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, threadData) == null) {
+            String lengthLimitName = threadData.getLengthLimitName();
+            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
+            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
+                lengthLimitName = lengthLimitName + "   " + formatTimeForHomeC;
+            }
+            threadData.setThreadExtendInfo(lengthLimitName);
+        }
     }
 }

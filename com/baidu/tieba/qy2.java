@@ -1,57 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class qy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SharedPreferences a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qy2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948108095, "Lcom/baidu/tieba/qy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948108095, "Lcom/baidu/tieba/qy2;");
+                return;
+            }
+        }
+        a = ij1.a;
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && a && !TextUtils.isEmpty(str)) {
+            yz1.c("Module-Plugin", str);
         }
     }
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? c(context).getInt("softinput.height", i) : invokeLI.intValue;
-    }
-
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) ? c(context).edit().putInt("softinput.height", i).commit() : invokeLI.booleanValue;
-    }
-
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (qy2.class) {
-                    if (a == null) {
-                        a = new n93("swan.publisher", false);
-                    }
-                }
-            }
-            return a;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a && !TextUtils.isEmpty(str)) {
+            yz1.i("Module-Plugin", str);
         }
-        return (SharedPreferences) invokeL.objValue;
+    }
+
+    public static void c(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a(str);
+        }
     }
 }

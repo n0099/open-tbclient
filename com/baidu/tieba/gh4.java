@@ -1,88 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class gh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+    public static final Object[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        if (inputStream == null) {
-            return null;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[1024];
-        while (true) {
-            try {
-                i = inputStream.read(bArr, 0, 1024);
-            } catch (IOException unused) {
-                i = 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947793910, "Lcom/baidu/tieba/gh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (i != -1) {
-                byteArrayOutputStream.write(bArr, 0, i);
-            } else {
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                ch4.d(byteArrayOutputStream);
-                return byteArray;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947793910, "Lcom/baidu/tieba/gh4;");
+                return;
             }
         }
+        a = new int[0];
+        b = new Object[0];
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static int a(int[] iArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    ch4.d(inputStream);
-                    return str;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
+            int i3 = i - 1;
+            int i4 = 0;
+            while (i4 <= i3) {
+                int i5 = (i4 + i3) >>> 1;
+                int i6 = iArr[i5];
+                if (i6 < i2) {
+                    i4 = i5 + 1;
+                } else if (i6 <= i2) {
+                    return i5;
+                } else {
+                    i3 = i5 - 1;
                 }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                ch4.d(inputStream);
-                throw th;
             }
-            ch4.d(inputStream);
-            return null;
+            return ~i4;
         }
-        return (String) invokeL.objValue;
+        return invokeLII.intValue;
+    }
+
+    public static boolean b(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            for (int i2 = 4; i2 < 32; i2++) {
+                int i3 = (1 << i2) - 12;
+                if (i <= i3) {
+                    return i3;
+                }
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? c(i * 4) / 4 : invokeI.intValue;
     }
 }

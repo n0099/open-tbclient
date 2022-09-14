@@ -39,7 +39,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<RequestBuilder<TranscodeType>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DOWNLOAD_ONLY_OPTIONS;
@@ -69,7 +69,7 @@ public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<Requ
     public TransitionOptions<?, ? super TranscodeType> transitionOptions;
 
     /* renamed from: com.bumptech.glide.RequestBuilder$2  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$Priority;
@@ -250,7 +250,7 @@ public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<Requ
                 throw new IllegalStateException("You cannot use a request as both the main request and a thumbnail, consider using clone() on the request(s) passed to thumbnail()");
             } else if (this.thumbSizeMultiplier != null) {
                 ThumbnailRequestCoordinator thumbnailRequestCoordinator2 = new ThumbnailRequestCoordinator(requestCoordinator);
-                thumbnailRequestCoordinator2.setRequests(obtainRequest(target, requestListener, requestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2), obtainRequest(target, requestListener, requestOptions.m75clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2));
+                thumbnailRequestCoordinator2.setRequests(obtainRequest(target, requestListener, requestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2), obtainRequest(target, requestListener, requestOptions.m76clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2));
                 return thumbnailRequestCoordinator2;
             } else {
                 return obtainRequest(target, requestListener, requestOptions, requestCoordinator, transitionOptions, priority, i, i2);
@@ -372,7 +372,7 @@ public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<Requ
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             RequestOptions requestOptions = this.defaultRequestOptions;
             RequestOptions requestOptions2 = this.requestOptions;
-            return requestOptions == requestOptions2 ? requestOptions2.m75clone() : requestOptions2;
+            return requestOptions == requestOptions2 ? requestOptions2.m76clone() : requestOptions2;
         }
         return (RequestOptions) invokeV.objValue;
     }
@@ -438,14 +438,14 @@ public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<Requ
     /* JADX DEBUG: Method merged with bridge method */
     @CheckResult
     /* renamed from: clone */
-    public RequestBuilder<TranscodeType> m73clone() {
+    public RequestBuilder<TranscodeType> m74clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 RequestBuilder<TranscodeType> requestBuilder = (RequestBuilder) super.clone();
-                requestBuilder.requestOptions = requestBuilder.requestOptions.m75clone();
-                requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m74clone();
+                requestBuilder.requestOptions = requestBuilder.requestOptions.m76clone();
+                requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m75clone();
                 return requestBuilder;
             } catch (CloneNotSupportedException e) {
                 throw new RuntimeException(e);
@@ -685,18 +685,18 @@ public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<Requ
             if (!requestOptions.isTransformationSet() && requestOptions.isTransformationAllowed() && imageView.getScaleType() != null) {
                 switch (AnonymousClass2.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()]) {
                     case 1:
-                        requestOptions = requestOptions.m75clone().optionalCenterCrop();
+                        requestOptions = requestOptions.m76clone().optionalCenterCrop();
                         break;
                     case 2:
-                        requestOptions = requestOptions.m75clone().optionalCenterInside();
+                        requestOptions = requestOptions.m76clone().optionalCenterInside();
                         break;
                     case 3:
                     case 4:
                     case 5:
-                        requestOptions = requestOptions.m75clone().optionalFitCenter();
+                        requestOptions = requestOptions.m76clone().optionalFitCenter();
                         break;
                     case 6:
-                        requestOptions = requestOptions.m75clone().optionalCenterInside();
+                        requestOptions = requestOptions.m76clone().optionalCenterInside();
                         break;
                 }
             }

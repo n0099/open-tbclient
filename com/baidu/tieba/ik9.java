@@ -1,73 +1,196 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.nk9;
+import com.baidu.tieba.pk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.components.core.response.model.AdResultData;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ik9 extends BaseAdRipper {
+public final class ik9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public int c;
+    public lk9 d;
+    public final Set<Ssp> e;
+    public final Set<pk9> f;
+    public final Set<nk9> g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ik9(Ssp.Pid pid) {
-        super(pid);
+    public ik9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new HashSet();
+        this.f = new HashSet();
+        this.g = new HashSet();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        List<AdTemplate> adTemplateList;
-        AdInfo adInfo;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                Field declaredField = obj.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
-                    return null;
-                }
-                AdResultData adResultData = obj2 instanceof AdResultData ? (AdResultData) obj2 : null;
-                if ((adResultData != null) && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
-                    AdTemplate adTemplate = adTemplateList.get(0);
-                    List<AdInfo> list = adTemplate == null ? null : adTemplate.adInfoList;
-                    if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                        return null;
-                    }
-                    return lk9.a(adInfo);
-                }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            int i = this.b;
+            int i2 = this.c;
+            zj9 zj9Var = new zj9(this.e, this.f, this.g);
+            lk9 lk9Var = this.d;
+            Object obj = wk9.a;
+            String d = fk9.d(zj9Var);
+            Object[] objArr = new Object[1];
+            objArr[0] = Integer.valueOf(d == null ? -1 : d.length());
+            LogPrinter.v("sspsUTF len:%d", objArr);
+            wk9.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", fk9.d(lk9Var)).apply();
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                c(str);
+                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
+                if (d()) {
+                    a();
+                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
+                    return true;
+                }
+            } catch (JSONException e) {
+                LogPrinter.e(e);
+            }
+            this.e.clear();
+            this.f.clear();
+            this.g.clear();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @VisibleForTesting
+    public void c(String str) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
+            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
+            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.c = NumberUtils.adjustInt(jSONObject2.optInt("V", 1), 1);
+            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
+                for (Ssp.Pid pid : ssp.pids) {
+                    hashMap.put(Long.valueOf(pid.id), pid);
+                }
+                this.e.add(ssp);
+            }
+            JSONArray jSONArray2 = jSONObject3.getJSONArray("sids");
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                this.f.add(new pk9(jSONArray2.getJSONObject(i2), hashMap));
+            }
+            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.g.add(new nk9(optJSONArray.getJSONObject(i3), hashMap));
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
+            if (optJSONObject == null) {
+                return;
+            }
+            this.d = new lk9(optJSONObject);
+        }
+    }
+
+    @VisibleForTesting
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashSet hashSet = new HashSet();
+            HashSet hashSet2 = new HashSet();
+            for (Ssp ssp : this.e) {
+                if (hashSet.contains(ssp.type)) {
+                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+                    return false;
+                }
+                hashSet.add(ssp.type);
+                for (Ssp.Pid pid : ssp.pids) {
+                    if (hashSet2.contains(Long.valueOf(pid.id))) {
+                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
+                        return false;
+                    }
+                    hashSet2.add(Long.valueOf(pid.id));
+                }
+            }
+            HashSet hashSet3 = new HashSet();
+            for (pk9 pk9Var : this.f) {
+                if (hashSet3.contains(pk9Var.a)) {
+                    LogPrinter.e("Duplicate sid(%s) found in SlotId", pk9Var.a);
+                    return false;
+                }
+                hashSet3.add(pk9Var.a);
+                for (pk9.c cVar : pk9Var.e) {
+                    HashSet hashSet4 = new HashSet();
+                    for (pk9.b bVar : cVar.b) {
+                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
+                            return false;
+                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), pk9Var.a);
+                            return false;
+                        } else {
+                            hashSet4.add(Long.valueOf(bVar.a));
+                        }
+                    }
+                }
+            }
+            if (this.c == 2) {
+                for (nk9 nk9Var : this.g) {
+                    if (hashSet3.contains(nk9Var.a)) {
+                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", nk9Var.a);
+                        return false;
+                    }
+                    hashSet3.add(nk9Var.a);
+                    for (nk9.b bVar2 : nk9Var.b) {
+                        for (nk9.a aVar : bVar2.b) {
+                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
+                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

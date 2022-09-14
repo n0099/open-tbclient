@@ -1,105 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Esport;
-import tbclient.EsportRank;
-import tbclient.EsportStatic;
 /* loaded from: classes5.dex */
-public class ot6 implements pn {
+public class ot6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<nt6> b;
-    public String c;
-    public String d;
+    public FrsFragment a;
+    public NavigationBarCoverTip b;
+    public TextView c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043832, "Lcom/baidu/tieba/ot6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948043832, "Lcom/baidu/tieba/ot6;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public ot6() {
+    public ot6(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, navigationBarCoverTip};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = frsFragment;
+        this.b = navigationBarCoverTip;
+        b();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(String str) {
+        int i;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public List<nt6> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public void c(Esport esport) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) || esport == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || dj.isEmpty(str) || this.b == null || !this.a.isPrimary() || (i = this.d) > 0) {
             return;
         }
-        this.a = esport.floor_no.intValue();
-        EsportStatic esportStatic = esport._static;
-        if (esportStatic != null) {
-            this.c = esportStatic.img;
-            this.d = esportStatic.url;
+        this.d = i + 1;
+        if (str.length() < 20) {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06db) + "\n" + str;
+        } else if (str.length() < 34) {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06db) + str;
+        } else {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06db) + str.substring(0, 34);
         }
-        this.b = new ArrayList();
-        if (!StringUtils.isNull(this.c)) {
-            nt6 nt6Var = new nt6();
-            nt6Var.i(this.c);
-            nt6Var.j(this.d);
-            this.b.add(nt6Var);
-        }
-        if (ListUtils.isEmpty(esport.billboard)) {
-            return;
-        }
-        for (EsportRank esportRank : esport.billboard) {
-            nt6 nt6Var2 = new nt6();
-            nt6Var2.h(esportRank);
-            this.b.add(nt6Var2);
+        this.c.setText(str2);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+        SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
+        this.b.n(this.a.getActivity(), this.c, 5000);
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = 0;
+            this.c = new TextView(this.a.getActivity());
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(3);
+            } else {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(19);
+            }
+            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+            this.c.setMaxLines(2);
+            this.c.setEllipsize(TextUtils.TruncateAt.END);
         }
     }
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c() {
+        NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.b) == null) {
+            return;
+        }
+        navigationBarCoverTip.i();
     }
 }

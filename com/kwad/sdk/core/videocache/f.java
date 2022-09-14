@@ -286,7 +286,7 @@ public final class f {
         return i;
     }
 
-    public final boolean a(String str, int i, a.C0611a c0611a) {
+    public final boolean a(String str, int i, a.C0616a c0616a) {
         HttpURLConnection httpURLConnection;
         com.kwad.sdk.core.e.b.d("HttpProxyCacheServer", "preloadSync preloadUrl " + str);
         if (cB(str)) {
@@ -325,7 +325,7 @@ public final class f {
                     th = th;
                     bufferedInputStream = bufferedInputStream2;
                     try {
-                        c0611a.Qd = Log.getStackTraceString(th);
+                        c0616a.Qd = Log.getStackTraceString(th);
                         com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                         com.kwad.sdk.core.e.b.e("HttpProxyCacheServer", "downloadUrlToStream file crash", th);
                         com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);

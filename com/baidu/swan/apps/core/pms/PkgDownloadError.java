@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.core.pms;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tc3;
-import com.baidu.tieba.w94;
+import com.baidu.tieba.re3;
+import com.baidu.tieba.wb4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PkgDownloadError extends Throwable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tc3 mErrCode;
-    public w94 mPackage;
+    public re3 mErrCode;
+    public wb4 mPackage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PkgDownloadError(w94 w94Var, tc3 tc3Var) {
-        super(tc3Var.e());
+    public PkgDownloadError(wb4 wb4Var, re3 re3Var) {
+        super(re3Var.e());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {w94Var, tc3Var};
+            Object[] objArr = {wb4Var, re3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,20 +33,20 @@ public class PkgDownloadError extends Throwable {
                 return;
             }
         }
-        this.mPackage = w94Var;
-        this.mErrCode = tc3Var;
+        this.mPackage = wb4Var;
+        this.mErrCode = re3Var;
     }
 
-    public tc3 getErrCode() {
+    public re3 getErrCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mErrCode : (tc3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mErrCode : (re3) invokeV.objValue;
     }
 
-    public w94 getPackage() {
+    public wb4 getPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPackage : (w94) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPackage : (wb4) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable

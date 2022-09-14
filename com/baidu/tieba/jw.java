@@ -1,193 +1,200 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class jw<K, V> {
+public final class jw {
     public static /* synthetic */ Interceptable $ic;
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
+    public static b b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<K, V> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
 
-    public jw(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ b(Looper looper, a aVar) {
+            this(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
+                jw.d();
+                jw.b.sendEmptyMessageDelayed(0, 15000L);
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308736, "Lcom/baidu/tieba/jw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308736, "Lcom/baidu/tieba/jw;");
                 return;
             }
         }
-        if (i > 0) {
-            this.c = i;
-            this.a = new LinkedHashMap<>(0, 0.75f, true);
+        a = new ConcurrentHashMap<>();
+        c = false;
+        b bVar = new b(nw.a("PreferenceQueue").getLooper(), null);
+        b = bVar;
+        bVar.sendEmptyMessageDelayed(0, 15000L);
+    }
+
+    public static void c(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || str == null) {
             return;
         }
-        throw new IllegalArgumentException("maxSize <= 0");
-    }
-
-    public V a(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            return null;
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public void b(boolean z, K k, V v, V v2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
-        }
-    }
-
-    public final V c(K k) {
-        InterceptResult invokeL;
-        V put;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
-            if (k != null) {
-                synchronized (this) {
-                    V v = this.a.get(k);
-                    if (v != null) {
-                        this.g++;
-                        return v;
-                    }
-                    this.h++;
-                    V a = a(k);
-                    if (a == null) {
-                        return null;
-                    }
-                    synchronized (this) {
-                        this.e++;
-                        put = this.a.put(k, a);
-                        if (put != null) {
-                            this.a.put(k, put);
-                        } else {
-                            this.b += e(k, a);
-                        }
-                    }
-                    if (put != null) {
-                        b(false, k, a, put);
-                        return put;
-                    }
-                    g(this.c);
-                    return a;
-                }
+        if (!a.containsKey(str)) {
+            if (obj == null || str2 == null) {
+                return;
             }
-            throw new NullPointerException("key == null");
+            ConcurrentHashMap<String, Object> concurrentHashMap = new ConcurrentHashMap<>();
+            concurrentHashMap.put(str2, obj);
+            a.put(str, concurrentHashMap);
+            return;
         }
-        return (V) invokeL.objValue;
-    }
-
-    public final V d(K k, V v) {
-        InterceptResult invokeLL;
-        V put;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
-            if (k != null && v != null) {
-                synchronized (this) {
-                    this.d++;
-                    this.b += e(k, v);
-                    put = this.a.put(k, v);
-                    if (put != null) {
-                        this.b -= e(k, put);
-                    }
-                }
-                if (put != null) {
-                    b(false, k, put, v);
-                }
-                g(this.c);
-                return put;
+        ConcurrentHashMap<String, Object> concurrentHashMap2 = a.get(str);
+        if (concurrentHashMap2 != null) {
+            if (obj != null) {
+                concurrentHashMap2.put(str2, obj);
+            } else {
+                concurrentHashMap2.remove(str2);
             }
-            throw new NullPointerException("key == null || value == null");
+        } else if (obj == null || str2 == null) {
+        } else {
+            ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
+            concurrentHashMap3.put(str2, obj);
+            a.put(str, concurrentHashMap3);
         }
-        return (V) invokeLL.objValue;
     }
 
-    public final int e(K k, V v) {
-        InterceptResult invokeLL;
+    public static void d() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
-            int f = f(k, v);
-            if (f >= 0) {
-                return f;
-            }
-            throw new IllegalStateException("Negative size: " + k + "=" + v);
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || c) {
+            return;
         }
-        return invokeLL.intValue;
-    }
-
-    public int f(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, v)) == null) {
-            return 1;
-        }
-        return invokeLL.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
-        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void g(int i) {
-        K key;
-        V value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            while (true) {
-                synchronized (this) {
-                    if (this.b >= 0 && (!this.a.isEmpty() || this.b == 0)) {
-                        if (this.b <= i || this.a.isEmpty()) {
-                            break;
-                        }
-                        Map.Entry<K, V> next = this.a.entrySet().iterator().next();
-                        key = next.getKey();
-                        value = next.getValue();
-                        this.a.remove(key);
-                        this.b -= e(key, value);
-                        this.f++;
+        c = true;
+        try {
+            try {
+                Context baseContext = fw.a().getBaseContext();
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + a.size());
+                for (String str : a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+                    if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
+                        i = 0;
                     } else {
-                        break;
+                        SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
+                        i = 0;
+                        for (String str2 : concurrentHashMap.keySet()) {
+                            Object obj = concurrentHashMap.get(str2);
+                            if (obj != null) {
+                                if (obj instanceof Integer) {
+                                    edit.putInt(str2, ((Integer) obj).intValue());
+                                } else if (obj instanceof Long) {
+                                    edit.putLong(str2, ((Long) obj).longValue());
+                                } else if (obj instanceof Float) {
+                                    edit.putFloat(str2, ((Float) obj).floatValue());
+                                } else if (obj instanceof Boolean) {
+                                    edit.putBoolean(str2, ((Boolean) obj).booleanValue());
+                                } else if (obj instanceof String) {
+                                    edit.putString(str2, (String) obj);
+                                } else if (obj instanceof Set) {
+                                    edit.putStringSet(str2, (Set) obj);
+                                }
+                                i++;
+                            }
+                        }
+                        edit.commit();
+                    }
+                    concurrentHashMap.clear();
+                    if (i > 0) {
+                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
                     }
                 }
-                b(true, key, value, null);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        } finally {
+            c = false;
         }
     }
 
-    public final synchronized String toString() {
-        InterceptResult invokeV;
-        String format;
+    public static void e(String str) {
+        ConcurrentHashMap<String, Object> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                int i = this.g + this.h;
-                format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.c), Integer.valueOf(this.g), Integer.valueOf(this.h), Integer.valueOf(i != 0 ? (this.g * 100) / i : 0));
-            }
-            return format;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || str == null || (concurrentHashMap = a.get(str)) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        concurrentHashMap.clear();
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || b.hasMessages(0)) {
+            return;
+        }
+        b.sendEmptyMessageDelayed(0, 15000L);
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            Log.d("BdPreferenceQueueWorker", "wait to finish");
+            b.removeMessages(0);
+            d();
+            f();
+        }
     }
 }

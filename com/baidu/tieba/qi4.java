@@ -1,119 +1,154 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.SwanVideoView;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class qi4 implements MediaGestureLayout.b {
+public class qi4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public MediaGestureLayout b;
-    public MediaGestureLayout.c c;
+    public int a;
+    public int b;
+    public String c;
+    public JSONObject d;
+    public List<gi4> e;
 
-    public qi4(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092781, "Lcom/baidu/tieba/qi4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948092781, "Lcom/baidu/tieba/qi4;");
+                return;
+            }
+        }
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+        f = concurrentHashMap;
+        concurrentHashMap.put("1415", "66");
+    }
+
+    public qi4(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        g(context);
+        this.e = new ArrayList();
+        this.c = str;
+        this.d = jSONObject;
     }
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void a(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.a(motionEvent);
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.b(motionEvent, mediaGestureMode);
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void c(int i) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.c(i);
-    }
-
-    public void d(SwanVideoView swanVideoView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
-            this.b.h(swanVideoView);
-        }
-    }
-
-    public void e(ni4 ni4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ni4Var) == null) {
-            this.b.g(ni4Var);
-        }
-    }
-
-    public ViewGroup f() {
+    public List<gi4> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
-    public final void g(Context context) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.a = context;
-            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
-            this.b = mediaGestureLayout;
-            mediaGestureLayout.setMediaGestureListener(this);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void h(MediaGestureLayout.c cVar) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.c = cVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void onDoubleTap(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) || (cVar = this.c) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean e() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                JSONObject jSONObject = this.d;
+                this.a = jSONObject.getInt("threshold");
+                this.b = jSONObject.getInt("timeup");
+                JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                    String string = jSONObject2.getString("ubcid");
+                    if (TextUtils.isEmpty(string) || !f.containsKey(string)) {
+                        str = string;
+                    } else {
+                        String optString = jSONObject2.optString("bizid");
+                        f.get(string);
+                        str = optString;
+                    }
+                    String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
+                    String string3 = jSONObject2.getString(Constant.IS_REAL);
+                    String string4 = jSONObject2.getString("isAbtest");
+                    int parseInt = Integer.parseInt(jSONObject2.getString("timeout"));
+                    String string5 = jSONObject2.getString("type");
+                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
+                        gi4 gi4Var = new gi4(str, string2, string3, parseInt, string5, string4);
+                        if (jSONObject2.has("rate")) {
+                            gi4Var.g = Integer.parseInt(jSONObject2.getString("rate"));
+                        }
+                        if (jSONObject2.has("bizid")) {
+                            jSONObject2.getString("bizid");
+                        }
+                        if (jSONObject2.has("c")) {
+                            gi4Var.h = jSONObject2.getString("c");
+                        }
+                        if (jSONObject2.has("limitUnit")) {
+                            gi4Var.i = Integer.parseInt(jSONObject2.getString("limitUnit"));
+                        }
+                        if (jSONObject2.has("limitCnt")) {
+                            gi4Var.j = Integer.parseInt(jSONObject2.getString("limitCnt"));
+                        }
+                        if (jSONObject2.has(Constant.ID_TYPE)) {
+                            gi4Var.k = jSONObject2.getString(Constant.ID_TYPE);
+                        }
+                        if (jSONObject2.has("appblacklist")) {
+                            jSONObject2.getString("appblacklist");
+                        }
+                        this.e.add(gi4Var);
+                    }
+                }
+                return true;
+            } catch (NumberFormatException | JSONException unused) {
+                return false;
+            }
         }
-        cVar.onDoubleTap(motionEvent);
+        return invokeV.booleanValue;
     }
 }

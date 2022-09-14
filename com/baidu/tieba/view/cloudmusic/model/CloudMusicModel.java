@@ -11,9 +11,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d9;
+import com.baidu.tieba.pz8;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class CloudMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xx8<CloudMusicData> a;
+    public pz8<CloudMusicData> a;
     public final HttpMessageListener b;
 
     /* loaded from: classes6.dex */
@@ -104,18 +104,18 @@ public class CloudMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CloudMusicModel(d9 d9Var) {
-        super(d9Var);
+    public CloudMusicModel(r9 r9Var) {
+        super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -128,13 +128,13 @@ public class CloudMusicModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(xx8<CloudMusicData> xx8Var) {
+    public void A(pz8<CloudMusicData> pz8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, xx8Var) == null) || xx8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pz8Var) == null) || pz8Var == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.a = xx8Var;
+        this.a = pz8Var;
     }
 
     public final void B() {

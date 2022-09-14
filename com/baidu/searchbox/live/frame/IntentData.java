@@ -85,18 +85,18 @@ public final class IntentData implements State {
             return (String) invokeL.objValue;
         }
 
-        /* JADX WARN: Can't wrap try/catch for region: R(6:131|(2:133|134)(8:196|197|198|(7:213|214|216|217|219|220|221)(1:200)|201|(1:203)(2:207|(1:209))|204|205)|(3:(4:(10:(3:174|175|(21:177|(1:179)|180|181|(3:183|(1:185)|186)|137|138|140|141|143|144|145|146|147|148|149|150|151|152|153|154))|146|147|148|149|150|151|152|153|154)|143|144|145)|140|141)|136|137|138) */
-        /* JADX WARN: Can't wrap try/catch for region: R(7:(4:(3:174|175|(21:177|(1:179)|180|181|(3:183|(1:185)|186)|137|138|140|141|143|144|145|146|147|148|149|150|151|152|153|154))|152|153|154)|146|147|148|149|150|151) */
-        /* JADX WARN: Code restructure failed: missing block: B:146:0x0337, code lost:
+        /* JADX WARN: Can't wrap try/catch for region: R(7:(4:(3:173|174|(21:176|(1:178)|179|180|(3:182|(1:184)|185)|136|137|139|140|142|143|144|145|146|147|148|149|150|151|152|153))|151|152|153)|145|146|147|148|149|150) */
+        /* JADX WARN: Can't wrap try/catch for region: R(7:123|124|(3:125|126|(4:128|129|130|(2:132|133)(8:195|196|197|(7:212|213|215|216|218|219|220)(1:199)|200|(1:202)(2:206|(1:208))|203|204)))|(3:(4:(10:(3:173|174|(21:176|(1:178)|179|180|(3:182|(1:184)|185)|136|137|139|140|142|143|144|145|146|147|148|149|150|151|152|153))|145|146|147|148|149|150|151|152|153)|142|143|144)|139|140)|135|136|137) */
+        /* JADX WARN: Code restructure failed: missing block: B:146:0x033d, code lost:
             r0 = e;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:147:0x0338, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:147:0x033e, code lost:
             r7 = r10;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:156:0x03e8, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:156:0x03ee, code lost:
             r0 = e;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:157:0x03e9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:157:0x03ef, code lost:
             r69 = r6;
             r78 = r1;
             r79 = r2;
@@ -169,52 +169,63 @@ public final class IntentData implements State {
             Integer num;
             String str23;
             String str24;
+            JSONObject jSONObject12;
+            String optString;
             String str25;
+            String optString2;
             String str26;
+            String liveSource;
             String str27;
             String str28;
-            JSONObject parseJSONObject;
             String str29;
+            String str30;
+            String str31;
+            String str32;
+            String str33;
+            JSONObject parseJSONObject;
+            String str34;
             JSONObject parseJSONObject2;
             JSONObject parseJSONObject3;
             JSONObject parseJSONObject4;
             JSONObject parseJSONObject5;
-            String optString;
-            String optString2;
+            JSONObject parseJSONObject6;
+            JSONObject parseJSONObject7;
+            JSONObject parseJSONObject8;
             String optString3;
             String optString4;
             String optString5;
             String optString6;
-            String str30;
-            String str31;
-            JSONObject jSONObject12;
-            JSONObject optJSONObject;
             String optString7;
+            String str35;
+            String str36;
+            JSONObject jSONObject13;
+            JSONObject optJSONObject;
             String optString8;
+            String optString9;
             JSONObject optJSONObject2;
             JSONObject optJSONObject3;
-            JSONObject jSONObject13;
-            String str32;
-            String str33;
-            String str34;
+            JSONObject jSONObject14;
+            String str37;
+            String str38;
+            String str39;
             Integer num2;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) != null) {
                 return (SchemeModel) invokeL.objValue;
             }
-            String str35 = "";
+            String str40 = "";
             try {
-                JSONObject jSONObject14 = new JSONObject(str);
-                String optString9 = jSONObject14.optString(ILiveNPSPlugin.PARAMS_ROOM_ID);
-                if (optString9 == null) {
-                    optString9 = "";
+                jSONObject12 = new JSONObject(str);
+                optString = jSONObject12.optString(ILiveNPSPlugin.PARAMS_ROOM_ID);
+                if (optString == null) {
+                    optString = "";
                 }
                 try {
-                    if (TextUtils.isEmpty(optString9)) {
+                    if (TextUtils.isEmpty(optString)) {
                         try {
-                            optString9 = jSONObject14.optString("room_id");
-                            if (optString9 == null) {
-                                optString9 = "";
+                            optString = jSONObject12.optString("room_id");
+                            if (optString == null) {
+                                optString = "";
                             }
                         } catch (Exception e) {
                             e = e;
@@ -230,7 +241,7 @@ public final class IntentData implements State {
                             str12 = str11;
                             str13 = str12;
                             str14 = str13;
-                            str2 = optString9;
+                            str2 = optString;
                             str24 = null;
                             str23 = null;
                             num = null;
@@ -261,1390 +272,67 @@ public final class IntentData implements State {
                             return schemeModel;
                         }
                     }
+                } catch (Exception e2) {
+                    e = e2;
+                    str25 = "";
+                    str2 = optString;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                str2 = "";
+                str3 = str2;
+            }
+            try {
+                optString2 = jSONObject12.optString("inviterId");
+                try {
+                    String optString10 = jSONObject12.optString("roomType");
+                    str26 = optString10 != null ? optString10 : "";
                     try {
-                        String optString10 = jSONObject14.optString("inviterId");
+                        String optString11 = jSONObject12.optString("source");
+                        if (optString11 == null) {
+                            optString11 = "";
+                        }
+                        liveSource = getLiveSource(optString11);
                         try {
-                            String optString11 = jSONObject14.optString("roomType");
-                            String str36 = optString11 != null ? optString11 : "";
+                            String optString12 = jSONObject12.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+                            str28 = optString12 != null ? optString12 : "";
                             try {
-                                String optString12 = jSONObject14.optString("source");
-                                if (optString12 == null) {
-                                    optString12 = "";
-                                }
-                                String liveSource = getLiveSource(optString12);
+                                String optString13 = jSONObject12.optString("playUrl");
+                                str29 = optString13 != null ? optString13 : "";
                                 try {
-                                    String optString13 = jSONObject14.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-                                    String str37 = optString13 != null ? optString13 : "";
+                                    String optString14 = jSONObject12.optString("status");
+                                    str30 = optString14 != null ? optString14 : "";
                                     try {
-                                        String optString14 = jSONObject14.optString("playUrl");
-                                        String str38 = optString14 != null ? optString14 : "";
+                                        String optString15 = jSONObject12.optString("format");
+                                        str31 = optString15 != null ? optString15 : "";
                                         try {
-                                            String optString15 = jSONObject14.optString("status");
-                                            String str39 = optString15 != null ? optString15 : "";
+                                            String optString16 = jSONObject12.optString("screen");
+                                            str32 = optString16 != null ? optString16 : "";
                                             try {
-                                                String optString16 = jSONObject14.optString("format");
-                                                String str40 = optString16 != null ? optString16 : "";
+                                                String optString17 = jSONObject12.optString(MediaTrackConfig.AE_IMPORT_TEMPLATE);
+                                                str33 = optString17 != null ? optString17 : "";
                                                 try {
-                                                    String optString17 = jSONObject14.optString("screen");
-                                                    str27 = optString17 != null ? optString17 : "";
-                                                    try {
-                                                        String optString18 = jSONObject14.optString(MediaTrackConfig.AE_IMPORT_TEMPLATE);
-                                                        str28 = optString18 != null ? optString18 : "";
-                                                        try {
-                                                            parseJSONObject = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "ext");
-                                                        } catch (Exception e2) {
-                                                            e = e2;
-                                                            str26 = liveSource;
-                                                            str2 = optString9;
-                                                            str11 = "";
-                                                            str12 = str11;
-                                                            str13 = str12;
-                                                            str14 = optString10;
-                                                            str3 = str36;
-                                                            str5 = str37;
-                                                            str6 = str38;
-                                                            str7 = str39;
-                                                            str8 = str40;
-                                                            str9 = str27;
-                                                            str10 = str28;
-                                                            str4 = str26;
-                                                            str24 = null;
-                                                            str23 = null;
-                                                            num = null;
-                                                            jSONObject11 = null;
-                                                            jSONObject10 = null;
-                                                            jSONObject9 = null;
-                                                            jSONObject8 = null;
-                                                            jSONObject7 = null;
-                                                            str22 = null;
-                                                            str21 = null;
-                                                            jSONObject6 = null;
-                                                            jSONObject5 = null;
-                                                            jSONObject4 = null;
-                                                            jSONObject3 = null;
-                                                            str20 = null;
-                                                            str19 = null;
-                                                            str18 = null;
-                                                            str17 = null;
-                                                            jSONObject2 = null;
-                                                            str16 = null;
-                                                            str15 = null;
-                                                            jSONObject = null;
-                                                            e.printStackTrace();
-                                                            SchemeModel schemeModel2 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                            schemeModel2.setPlayerCacheKey(str24);
-                                                            schemeModel2.setPlayerCacheCodeC(num);
-                                                            schemeModel2.setKabrSpts(str23);
-                                                            return schemeModel2;
-                                                        }
-                                                    } catch (Exception e3) {
-                                                        e = e3;
-                                                        str26 = liveSource;
-                                                        str2 = optString9;
-                                                        str10 = "";
-                                                        str11 = str10;
-                                                        str12 = str11;
-                                                        str13 = str12;
-                                                        str14 = optString10;
-                                                        str3 = str36;
-                                                        str5 = str37;
-                                                        str6 = str38;
-                                                        str7 = str39;
-                                                        str8 = str40;
-                                                        str9 = str27;
-                                                    }
+                                                    parseJSONObject = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "ext");
                                                 } catch (Exception e4) {
                                                     e = e4;
-                                                    str26 = liveSource;
-                                                    str2 = optString9;
-                                                    str9 = "";
-                                                    str10 = str9;
-                                                    str11 = str10;
-                                                    str12 = str11;
-                                                    str13 = str12;
-                                                    str14 = optString10;
-                                                    str3 = str36;
-                                                    str5 = str37;
-                                                    str6 = str38;
-                                                    str7 = str39;
-                                                    str8 = str40;
-                                                }
-                                                try {
-                                                    JSONObject parseJSONObject6 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "otherParams");
-                                                    if (parseJSONObject6 == null) {
-                                                        try {
-                                                            String optString19 = jSONObject14.optString("otherParams");
-                                                            Intrinsics.checkExpressionValueIsNotNull(optString19, "json.optString(\"otherParams\")");
-                                                            if (!TextUtils.isEmpty(optString19)) {
-                                                                try {
-                                                                    parseJSONObject6 = new JSONObject(URLDecoder.decode(optString19));
-                                                                } catch (JSONException unused) {
-                                                                    parseJSONObject6 = null;
-                                                                }
-                                                            }
-                                                        } catch (Exception e5) {
-                                                            e = e5;
-                                                            str11 = "";
-                                                            str12 = str11;
-                                                            str13 = str12;
-                                                            str2 = optString9;
-                                                            jSONObject11 = parseJSONObject;
-                                                            jSONObject6 = parseJSONObject6;
-                                                            str4 = liveSource;
-                                                            str14 = optString10;
-                                                            str3 = str36;
-                                                            str5 = str37;
-                                                            str6 = str38;
-                                                            str7 = str39;
-                                                            str8 = str40;
-                                                            str9 = str27;
-                                                            str10 = str28;
-                                                            str24 = null;
-                                                            str23 = null;
-                                                            num = null;
-                                                            jSONObject10 = null;
-                                                            jSONObject9 = null;
-                                                            jSONObject8 = null;
-                                                            jSONObject7 = null;
-                                                            str22 = null;
-                                                            str21 = null;
-                                                            jSONObject5 = null;
-                                                            jSONObject4 = null;
-                                                            jSONObject3 = null;
-                                                            str20 = null;
-                                                            str19 = null;
-                                                            str18 = null;
-                                                            str17 = null;
-                                                            jSONObject2 = null;
-                                                            str16 = null;
-                                                            str15 = null;
-                                                            jSONObject = null;
-                                                            e.printStackTrace();
-                                                            SchemeModel schemeModel22 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                            schemeModel22.setPlayerCacheKey(str24);
-                                                            schemeModel22.setPlayerCacheCodeC(num);
-                                                            schemeModel22.setKabrSpts(str23);
-                                                            return schemeModel22;
-                                                        }
-                                                    }
-                                                    try {
-                                                        JSONObject parseJSONObject7 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "otherParams");
-                                                        try {
-                                                            JSONObject parseJSONObject8 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "query");
-                                                            try {
-                                                                JSONObject parseJSONObject9 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "extRequest");
-                                                                try {
-                                                                    parseJSONObject2 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "extLog");
-                                                                    try {
-                                                                        parseJSONObject3 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "extParams");
-                                                                    } catch (Exception e6) {
-                                                                        e = e6;
-                                                                        str2 = optString9;
-                                                                        jSONObject11 = parseJSONObject;
-                                                                        str11 = "";
-                                                                        str12 = str11;
-                                                                        str13 = str12;
-                                                                        str14 = optString10;
-                                                                        str3 = str36;
-                                                                        str5 = str37;
-                                                                        str6 = str38;
-                                                                        str7 = str39;
-                                                                        str8 = str40;
-                                                                        str9 = str27;
-                                                                        str10 = str28;
-                                                                        jSONObject6 = parseJSONObject7;
-                                                                        jSONObject8 = parseJSONObject8;
-                                                                        jSONObject10 = parseJSONObject9;
-                                                                        jSONObject9 = parseJSONObject2;
-                                                                        str4 = liveSource;
-                                                                        str24 = null;
-                                                                        str23 = null;
-                                                                        num = null;
-                                                                        jSONObject7 = null;
-                                                                        str22 = null;
-                                                                        str21 = null;
-                                                                        jSONObject5 = null;
-                                                                        jSONObject4 = null;
-                                                                        jSONObject3 = null;
-                                                                        str20 = null;
-                                                                        str19 = null;
-                                                                        str18 = null;
-                                                                        str17 = null;
-                                                                        jSONObject2 = null;
-                                                                        str16 = null;
-                                                                        str15 = null;
-                                                                        jSONObject = null;
-                                                                        e.printStackTrace();
-                                                                        SchemeModel schemeModel222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                        schemeModel222.setPlayerCacheKey(str24);
-                                                                        schemeModel222.setPlayerCacheCodeC(num);
-                                                                        schemeModel222.setKabrSpts(str23);
-                                                                        return schemeModel222;
-                                                                    }
-                                                                } catch (Exception e7) {
-                                                                    e = e7;
-                                                                    str2 = optString9;
-                                                                    jSONObject11 = parseJSONObject;
-                                                                    str11 = "";
-                                                                    str12 = str11;
-                                                                    str13 = str12;
-                                                                    str14 = optString10;
-                                                                    str3 = str36;
-                                                                    str5 = str37;
-                                                                    str6 = str38;
-                                                                    str7 = str39;
-                                                                    str8 = str40;
-                                                                    str9 = str27;
-                                                                    str10 = str28;
-                                                                    jSONObject6 = parseJSONObject7;
-                                                                    jSONObject8 = parseJSONObject8;
-                                                                    jSONObject10 = parseJSONObject9;
-                                                                    str4 = liveSource;
-                                                                    str24 = null;
-                                                                    str23 = null;
-                                                                    num = null;
-                                                                    jSONObject9 = null;
-                                                                    jSONObject7 = null;
-                                                                    str22 = null;
-                                                                    str21 = null;
-                                                                    jSONObject5 = null;
-                                                                    jSONObject4 = null;
-                                                                    jSONObject3 = null;
-                                                                    str20 = null;
-                                                                    str19 = null;
-                                                                    str18 = null;
-                                                                    str17 = null;
-                                                                    jSONObject2 = null;
-                                                                    str16 = null;
-                                                                    str15 = null;
-                                                                    jSONObject = null;
-                                                                    e.printStackTrace();
-                                                                    SchemeModel schemeModel2222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                    schemeModel2222.setPlayerCacheKey(str24);
-                                                                    schemeModel2222.setPlayerCacheCodeC(num);
-                                                                    schemeModel2222.setKabrSpts(str23);
-                                                                    return schemeModel2222;
-                                                                }
-                                                                try {
-                                                                    parseJSONObject4 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "invokePop");
-                                                                    try {
-                                                                        parseJSONObject5 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "shareTaskInfo");
-                                                                        try {
-                                                                            optString = jSONObject14.optString("askId");
-                                                                            try {
-                                                                                optString2 = jSONObject14.optString("templateId");
-                                                                            } catch (Exception e8) {
-                                                                                e = e8;
-                                                                                str2 = optString9;
-                                                                                jSONObject11 = parseJSONObject;
-                                                                                str11 = "";
-                                                                                str12 = str11;
-                                                                                str13 = str12;
-                                                                                str14 = optString10;
-                                                                                str3 = str36;
-                                                                                str5 = str37;
-                                                                                str6 = str38;
-                                                                                str7 = str39;
-                                                                                str8 = str40;
-                                                                                str9 = str27;
-                                                                                str10 = str28;
-                                                                                jSONObject6 = parseJSONObject7;
-                                                                                jSONObject8 = parseJSONObject8;
-                                                                                jSONObject10 = parseJSONObject9;
-                                                                                jSONObject9 = parseJSONObject2;
-                                                                                jSONObject5 = parseJSONObject4;
-                                                                                jSONObject2 = parseJSONObject5;
-                                                                                str22 = optString;
-                                                                                jSONObject7 = parseJSONObject3;
-                                                                                str4 = liveSource;
-                                                                                str24 = null;
-                                                                                str23 = null;
-                                                                                num = null;
-                                                                                str21 = null;
-                                                                                jSONObject4 = null;
-                                                                                jSONObject3 = null;
-                                                                                str20 = null;
-                                                                                str19 = null;
-                                                                                str18 = null;
-                                                                                str17 = null;
-                                                                                str16 = null;
-                                                                                str15 = null;
-                                                                                jSONObject = null;
-                                                                                e.printStackTrace();
-                                                                                SchemeModel schemeModel22222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                schemeModel22222.setPlayerCacheKey(str24);
-                                                                                schemeModel22222.setPlayerCacheCodeC(num);
-                                                                                schemeModel22222.setKabrSpts(str23);
-                                                                                return schemeModel22222;
-                                                                            }
-                                                                        } catch (Exception e9) {
-                                                                            e = e9;
-                                                                            str2 = optString9;
-                                                                            jSONObject11 = parseJSONObject;
-                                                                            str11 = "";
-                                                                            str12 = str11;
-                                                                            str13 = str12;
-                                                                            str14 = optString10;
-                                                                            str3 = str36;
-                                                                            str5 = str37;
-                                                                            str6 = str38;
-                                                                            str7 = str39;
-                                                                            str8 = str40;
-                                                                            str9 = str27;
-                                                                            str10 = str28;
-                                                                            jSONObject6 = parseJSONObject7;
-                                                                            jSONObject8 = parseJSONObject8;
-                                                                            jSONObject10 = parseJSONObject9;
-                                                                            jSONObject9 = parseJSONObject2;
-                                                                            jSONObject5 = parseJSONObject4;
-                                                                            jSONObject2 = parseJSONObject5;
-                                                                            jSONObject7 = parseJSONObject3;
-                                                                            str4 = liveSource;
-                                                                            str24 = null;
-                                                                            str23 = null;
-                                                                            num = null;
-                                                                            str22 = null;
-                                                                        }
-                                                                    } catch (Exception e10) {
-                                                                        e = e10;
-                                                                        str2 = optString9;
-                                                                        jSONObject11 = parseJSONObject;
-                                                                        str11 = "";
-                                                                        str12 = str11;
-                                                                        str13 = str12;
-                                                                        str14 = optString10;
-                                                                        str3 = str36;
-                                                                        str5 = str37;
-                                                                        str6 = str38;
-                                                                        str7 = str39;
-                                                                        str8 = str40;
-                                                                        str9 = str27;
-                                                                        str10 = str28;
-                                                                        jSONObject6 = parseJSONObject7;
-                                                                        jSONObject8 = parseJSONObject8;
-                                                                        jSONObject10 = parseJSONObject9;
-                                                                        jSONObject9 = parseJSONObject2;
-                                                                        jSONObject5 = parseJSONObject4;
-                                                                        jSONObject7 = parseJSONObject3;
-                                                                        str4 = liveSource;
-                                                                        str24 = null;
-                                                                        str23 = null;
-                                                                        num = null;
-                                                                        str22 = null;
-                                                                        str21 = null;
-                                                                        jSONObject4 = null;
-                                                                        jSONObject3 = null;
-                                                                        str20 = null;
-                                                                        str19 = null;
-                                                                        str18 = null;
-                                                                        str17 = null;
-                                                                        jSONObject2 = null;
-                                                                        str16 = null;
-                                                                        str15 = null;
-                                                                        jSONObject = null;
-                                                                        e.printStackTrace();
-                                                                        SchemeModel schemeModel222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                        schemeModel222222.setPlayerCacheKey(str24);
-                                                                        schemeModel222222.setPlayerCacheCodeC(num);
-                                                                        schemeModel222222.setKabrSpts(str23);
-                                                                        return schemeModel222222;
-                                                                    }
-                                                                } catch (Exception e11) {
-                                                                    e = e11;
-                                                                    str2 = optString9;
-                                                                    jSONObject11 = parseJSONObject;
-                                                                    str11 = "";
-                                                                    str12 = str11;
-                                                                    str13 = str12;
-                                                                    str14 = optString10;
-                                                                    str3 = str36;
-                                                                    str5 = str37;
-                                                                    str6 = str38;
-                                                                    str7 = str39;
-                                                                    str8 = str40;
-                                                                    str9 = str27;
-                                                                    str10 = str28;
-                                                                    jSONObject6 = parseJSONObject7;
-                                                                    jSONObject8 = parseJSONObject8;
-                                                                    jSONObject10 = parseJSONObject9;
-                                                                    jSONObject9 = parseJSONObject2;
-                                                                    jSONObject7 = parseJSONObject3;
-                                                                    str4 = liveSource;
-                                                                    str24 = null;
-                                                                    str23 = null;
-                                                                    num = null;
-                                                                    str22 = null;
-                                                                    str21 = null;
-                                                                    jSONObject5 = null;
-                                                                    jSONObject4 = null;
-                                                                    jSONObject3 = null;
-                                                                    str20 = null;
-                                                                    str19 = null;
-                                                                    str18 = null;
-                                                                    str17 = null;
-                                                                    jSONObject2 = null;
-                                                                    str16 = null;
-                                                                    str15 = null;
-                                                                    jSONObject = null;
-                                                                    e.printStackTrace();
-                                                                    SchemeModel schemeModel2222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                    schemeModel2222222.setPlayerCacheKey(str24);
-                                                                    schemeModel2222222.setPlayerCacheCodeC(num);
-                                                                    schemeModel2222222.setKabrSpts(str23);
-                                                                    return schemeModel2222222;
-                                                                }
-                                                                try {
-                                                                    String optString20 = jSONObject14.optString("avcUrl");
-                                                                    try {
-                                                                        optString3 = jSONObject14.optString("hevcUrl");
-                                                                    } catch (Exception e12) {
-                                                                        e = e12;
-                                                                        str2 = optString9;
-                                                                        jSONObject11 = parseJSONObject;
-                                                                        str11 = "";
-                                                                        str12 = str11;
-                                                                        str13 = str12;
-                                                                        str14 = optString10;
-                                                                        str3 = str36;
-                                                                        str5 = str37;
-                                                                        str6 = str38;
-                                                                        str7 = str39;
-                                                                        str8 = str40;
-                                                                        str9 = str27;
-                                                                        str10 = str28;
-                                                                        jSONObject6 = parseJSONObject7;
-                                                                        jSONObject8 = parseJSONObject8;
-                                                                        jSONObject10 = parseJSONObject9;
-                                                                        jSONObject9 = parseJSONObject2;
-                                                                        jSONObject5 = parseJSONObject4;
-                                                                        jSONObject2 = parseJSONObject5;
-                                                                        str22 = optString;
-                                                                        str21 = optString2;
-                                                                        str20 = optString20;
-                                                                        jSONObject7 = parseJSONObject3;
-                                                                        str4 = liveSource;
-                                                                        str24 = null;
-                                                                        str23 = null;
-                                                                        num = null;
-                                                                        jSONObject4 = null;
-                                                                        jSONObject3 = null;
-                                                                        str19 = null;
-                                                                        str18 = null;
-                                                                        str17 = null;
-                                                                        str16 = null;
-                                                                        str15 = null;
-                                                                        jSONObject = null;
-                                                                        e.printStackTrace();
-                                                                        SchemeModel schemeModel22222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                        schemeModel22222222.setPlayerCacheKey(str24);
-                                                                        schemeModel22222222.setPlayerCacheCodeC(num);
-                                                                        schemeModel22222222.setKabrSpts(str23);
-                                                                        return schemeModel22222222;
-                                                                    }
-                                                                    try {
-                                                                        optString4 = jSONObject14.optString("rtcUrl");
-                                                                        try {
-                                                                            optString5 = jSONObject14.optString("title");
-                                                                        } catch (Exception e13) {
-                                                                            e = e13;
-                                                                            str2 = optString9;
-                                                                            jSONObject11 = parseJSONObject;
-                                                                            str11 = "";
-                                                                            str12 = str11;
-                                                                            str13 = str12;
-                                                                            str14 = optString10;
-                                                                            str3 = str36;
-                                                                            str5 = str37;
-                                                                            str6 = str38;
-                                                                            str7 = str39;
-                                                                            str8 = str40;
-                                                                            str9 = str27;
-                                                                            str10 = str28;
-                                                                            jSONObject6 = parseJSONObject7;
-                                                                            jSONObject8 = parseJSONObject8;
-                                                                            jSONObject10 = parseJSONObject9;
-                                                                            jSONObject9 = parseJSONObject2;
-                                                                            jSONObject5 = parseJSONObject4;
-                                                                            jSONObject2 = parseJSONObject5;
-                                                                            str22 = optString;
-                                                                            str21 = optString2;
-                                                                            str20 = optString20;
-                                                                            str19 = optString3;
-                                                                            str18 = optString4;
-                                                                            jSONObject7 = parseJSONObject3;
-                                                                            str4 = liveSource;
-                                                                            str24 = null;
-                                                                            str23 = null;
-                                                                            num = null;
-                                                                            jSONObject4 = null;
-                                                                            jSONObject3 = null;
-                                                                            str17 = null;
-                                                                            str16 = null;
-                                                                            str15 = null;
-                                                                            jSONObject = null;
-                                                                            e.printStackTrace();
-                                                                            SchemeModel schemeModel222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                            schemeModel222222222.setPlayerCacheKey(str24);
-                                                                            schemeModel222222222.setPlayerCacheCodeC(num);
-                                                                            schemeModel222222222.setKabrSpts(str23);
-                                                                            return schemeModel222222222;
-                                                                        }
-                                                                    } catch (Exception e14) {
-                                                                        e = e14;
-                                                                        str2 = optString9;
-                                                                        jSONObject11 = parseJSONObject;
-                                                                        str11 = "";
-                                                                        str12 = str11;
-                                                                        str13 = str12;
-                                                                        str14 = optString10;
-                                                                        str3 = str36;
-                                                                        str5 = str37;
-                                                                        str6 = str38;
-                                                                        str7 = str39;
-                                                                        str8 = str40;
-                                                                        str9 = str27;
-                                                                        str10 = str28;
-                                                                        jSONObject6 = parseJSONObject7;
-                                                                        jSONObject8 = parseJSONObject8;
-                                                                        jSONObject10 = parseJSONObject9;
-                                                                        jSONObject9 = parseJSONObject2;
-                                                                        jSONObject5 = parseJSONObject4;
-                                                                        jSONObject2 = parseJSONObject5;
-                                                                        str22 = optString;
-                                                                        str21 = optString2;
-                                                                        str20 = optString20;
-                                                                        str19 = optString3;
-                                                                        jSONObject7 = parseJSONObject3;
-                                                                        str4 = liveSource;
-                                                                        str24 = null;
-                                                                        str23 = null;
-                                                                        num = null;
-                                                                        jSONObject4 = null;
-                                                                        jSONObject3 = null;
-                                                                        str18 = null;
-                                                                        str17 = null;
-                                                                        str16 = null;
-                                                                        str15 = null;
-                                                                        jSONObject = null;
-                                                                        e.printStackTrace();
-                                                                        SchemeModel schemeModel2222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                        schemeModel2222222222.setPlayerCacheKey(str24);
-                                                                        schemeModel2222222222.setPlayerCacheCodeC(num);
-                                                                        schemeModel2222222222.setKabrSpts(str23);
-                                                                        return schemeModel2222222222;
-                                                                    }
-                                                                    try {
-                                                                        String optString21 = jSONObject14.optString("quic");
-                                                                        try {
-                                                                            optString6 = jSONObject14.optString("highLightUrl");
-                                                                        } catch (Exception e15) {
-                                                                            e = e15;
-                                                                            str2 = optString9;
-                                                                            jSONObject11 = parseJSONObject;
-                                                                            str11 = "";
-                                                                            str12 = str11;
-                                                                            str13 = str12;
-                                                                            str14 = optString10;
-                                                                            str3 = str36;
-                                                                            str5 = str37;
-                                                                            str6 = str38;
-                                                                            str7 = str39;
-                                                                            str8 = str40;
-                                                                            str9 = str27;
-                                                                            str10 = str28;
-                                                                            jSONObject6 = parseJSONObject7;
-                                                                            jSONObject8 = parseJSONObject8;
-                                                                            jSONObject10 = parseJSONObject9;
-                                                                            jSONObject9 = parseJSONObject2;
-                                                                            jSONObject5 = parseJSONObject4;
-                                                                            jSONObject2 = parseJSONObject5;
-                                                                            str22 = optString;
-                                                                            str21 = optString2;
-                                                                            str20 = optString20;
-                                                                            str19 = optString3;
-                                                                            str18 = optString4;
-                                                                            str17 = optString5;
-                                                                            str16 = optString21;
-                                                                            jSONObject7 = parseJSONObject3;
-                                                                            str4 = liveSource;
-                                                                            str24 = null;
-                                                                            str23 = null;
-                                                                            num = null;
-                                                                            jSONObject4 = null;
-                                                                            jSONObject3 = null;
-                                                                            str15 = null;
-                                                                            jSONObject = null;
-                                                                            e.printStackTrace();
-                                                                            SchemeModel schemeModel22222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                            schemeModel22222222222.setPlayerCacheKey(str24);
-                                                                            schemeModel22222222222.setPlayerCacheCodeC(num);
-                                                                            schemeModel22222222222.setKabrSpts(str23);
-                                                                            return schemeModel22222222222;
-                                                                        }
-                                                                        try {
-                                                                            JSONObject parseJSONObject10 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject14, "introduce_tips");
-                                                                            try {
-                                                                                String optString22 = jSONObject14.optString("playerIdentifier");
-                                                                                try {
-                                                                                    num = Integer.valueOf(jSONObject14.optInt("codec_id"));
-                                                                                    try {
-                                                                                        str23 = jSONObject14.optString(LivePreStartPlayServiceImpl.PARAM_KABR_SPTS);
-                                                                                        try {
-                                                                                            if (parseJSONObject == null) {
-                                                                                                JSONObject jSONObject15 = new JSONObject();
-                                                                                                JSONObject jSONObject16 = new JSONObject();
-                                                                                                jSONObject16.put("source", liveSource);
-                                                                                                Unit unit = Unit.INSTANCE;
-                                                                                                jSONObject15.put("ext", jSONObject16);
-                                                                                                Unit unit2 = Unit.INSTANCE;
-                                                                                                jSONObject12 = jSONObject15;
-                                                                                                str31 = "";
-                                                                                                str30 = str31;
-                                                                                            } else {
-                                                                                                try {
-                                                                                                    optJSONObject = parseJSONObject.optJSONObject("ext");
-                                                                                                    if (optJSONObject != null) {
-                                                                                                        try {
-                                                                                                            String optString23 = optJSONObject.optString("share_uid");
-                                                                                                            try {
-                                                                                                                optString7 = optJSONObject.optString("zb_tag");
-                                                                                                            } catch (JSONException unused2) {
-                                                                                                                str30 = "";
-                                                                                                                str31 = optString23;
-                                                                                                            } catch (Exception e16) {
-                                                                                                                e = e16;
-                                                                                                                str11 = "";
-                                                                                                                str13 = str11;
-                                                                                                                str2 = optString9;
-                                                                                                                jSONObject11 = parseJSONObject;
-                                                                                                                str24 = optString22;
-                                                                                                                jSONObject7 = parseJSONObject3;
-                                                                                                                str4 = liveSource;
-                                                                                                                str12 = optString23;
-                                                                                                            }
-                                                                                                            try {
-                                                                                                                Unit unit3 = Unit.INSTANCE;
-                                                                                                                str31 = optString23;
-                                                                                                                str30 = "";
-                                                                                                                str35 = optString7;
-                                                                                                            } catch (JSONException unused3) {
-                                                                                                                str31 = optString23;
-                                                                                                                str30 = "";
-                                                                                                                str35 = optString7;
-                                                                                                            } catch (Exception e17) {
-                                                                                                                e = e17;
-                                                                                                                str11 = "";
-                                                                                                                str2 = optString9;
-                                                                                                                jSONObject11 = parseJSONObject;
-                                                                                                                str24 = optString22;
-                                                                                                                jSONObject7 = parseJSONObject3;
-                                                                                                                str4 = liveSource;
-                                                                                                                str12 = optString23;
-                                                                                                                str13 = optString7;
-                                                                                                                str14 = optString10;
-                                                                                                                str3 = str36;
-                                                                                                                str5 = str37;
-                                                                                                                str6 = str38;
-                                                                                                                str7 = str39;
-                                                                                                                str8 = str40;
-                                                                                                                str9 = str27;
-                                                                                                                str10 = str28;
-                                                                                                                jSONObject6 = parseJSONObject7;
-                                                                                                                jSONObject8 = parseJSONObject8;
-                                                                                                                jSONObject10 = parseJSONObject9;
-                                                                                                                jSONObject9 = parseJSONObject2;
-                                                                                                                jSONObject5 = parseJSONObject4;
-                                                                                                                jSONObject2 = parseJSONObject5;
-                                                                                                                str22 = optString;
-                                                                                                                str21 = optString2;
-                                                                                                                str20 = optString20;
-                                                                                                                str19 = optString3;
-                                                                                                                str18 = optString4;
-                                                                                                                str17 = optString5;
-                                                                                                                str16 = optString21;
-                                                                                                                str15 = optString6;
-                                                                                                                jSONObject = parseJSONObject10;
-                                                                                                                jSONObject4 = null;
-                                                                                                                jSONObject3 = null;
-                                                                                                                e.printStackTrace();
-                                                                                                                SchemeModel schemeModel222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                                                schemeModel222222222222.setPlayerCacheKey(str24);
-                                                                                                                schemeModel222222222222.setPlayerCacheCodeC(num);
-                                                                                                                schemeModel222222222222.setKabrSpts(str23);
-                                                                                                                return schemeModel222222222222;
-                                                                                                            }
-                                                                                                        } catch (JSONException unused4) {
-                                                                                                            str31 = "";
-                                                                                                            str30 = str31;
-                                                                                                        }
-                                                                                                    } else {
-                                                                                                        str31 = "";
-                                                                                                        str30 = str31;
-                                                                                                    }
-                                                                                                } catch (JSONException unused5) {
-                                                                                                    str30 = "";
-                                                                                                    str31 = "";
-                                                                                                } catch (Exception e18) {
-                                                                                                    e = e18;
-                                                                                                    str2 = optString9;
-                                                                                                    jSONObject11 = parseJSONObject;
-                                                                                                    str24 = optString22;
-                                                                                                    jSONObject7 = parseJSONObject3;
-                                                                                                    str4 = liveSource;
-                                                                                                    str11 = "";
-                                                                                                    str12 = str11;
-                                                                                                    str13 = str12;
-                                                                                                }
-                                                                                                try {
-                                                                                                    if (optJSONObject == null) {
-                                                                                                        JSONObject jSONObject17 = new JSONObject();
-                                                                                                        jSONObject17.put("source", liveSource);
-                                                                                                        jSONObject17.put("share_uid", str31);
-                                                                                                        jSONObject17.put("zb_tag", str35);
-                                                                                                        Unit unit4 = Unit.INSTANCE;
-                                                                                                        parseJSONObject.put("ext", jSONObject17);
-                                                                                                    } else if (!optJSONObject.has("source")) {
-                                                                                                        optJSONObject.put("source", liveSource);
-                                                                                                        optJSONObject.put("share_uid", str31);
-                                                                                                        optJSONObject.put("zb_tag", str35);
-                                                                                                    }
-                                                                                                } catch (JSONException unused6) {
-                                                                                                } catch (Exception e19) {
-                                                                                                    e = e19;
-                                                                                                    str13 = str35;
-                                                                                                    str12 = str31;
-                                                                                                    str2 = optString9;
-                                                                                                    jSONObject11 = parseJSONObject;
-                                                                                                    str24 = optString22;
-                                                                                                    jSONObject7 = parseJSONObject3;
-                                                                                                    str4 = liveSource;
-                                                                                                    str11 = str30;
-                                                                                                    str14 = optString10;
-                                                                                                    str3 = str36;
-                                                                                                    str5 = str37;
-                                                                                                    str6 = str38;
-                                                                                                    str7 = str39;
-                                                                                                    str8 = str40;
-                                                                                                    str9 = str27;
-                                                                                                    str10 = str28;
-                                                                                                    jSONObject6 = parseJSONObject7;
-                                                                                                    jSONObject8 = parseJSONObject8;
-                                                                                                    jSONObject10 = parseJSONObject9;
-                                                                                                    jSONObject9 = parseJSONObject2;
-                                                                                                    jSONObject5 = parseJSONObject4;
-                                                                                                    jSONObject2 = parseJSONObject5;
-                                                                                                    str22 = optString;
-                                                                                                    str21 = optString2;
-                                                                                                    str20 = optString20;
-                                                                                                    str19 = optString3;
-                                                                                                    str18 = optString4;
-                                                                                                    str17 = optString5;
-                                                                                                    str16 = optString21;
-                                                                                                    str15 = optString6;
-                                                                                                    jSONObject = parseJSONObject10;
-                                                                                                    jSONObject4 = null;
-                                                                                                    jSONObject3 = null;
-                                                                                                    e.printStackTrace();
-                                                                                                    SchemeModel schemeModel2222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                                    schemeModel2222222222222.setPlayerCacheKey(str24);
-                                                                                                    schemeModel2222222222222.setPlayerCacheCodeC(num);
-                                                                                                    schemeModel2222222222222.setKabrSpts(str23);
-                                                                                                    return schemeModel2222222222222;
-                                                                                                }
-                                                                                                jSONObject12 = parseJSONObject;
-                                                                                            }
-                                                                                            try {
-                                                                                                try {
-                                                                                                    try {
-                                                                                                        try {
-                                                                                                            if (parseJSONObject3 != null) {
-                                                                                                                try {
-                                                                                                                    JSONObject optJSONObject4 = parseJSONObject3.optJSONObject("ext");
-                                                                                                                    if (optJSONObject4 != null) {
-                                                                                                                        optString8 = optJSONObject4.optString("live_back_scheme");
-                                                                                                                        if (optString8 == null) {
-                                                                                                                            optString8 = str30;
-                                                                                                                        }
-                                                                                                                        try {
-                                                                                                                            if (TextUtils.isEmpty(optString8)) {
-                                                                                                                                String optString24 = optJSONObject4.optString("live_back_for_both_scheme");
-                                                                                                                                if (optString24 == null) {
-                                                                                                                                    optString24 = str30;
-                                                                                                                                }
-                                                                                                                                optString8 = optString24;
-                                                                                                                            }
-                                                                                                                            optJSONObject2 = jSONObject14.optJSONObject("queryECLive");
-                                                                                                                            optJSONObject3 = jSONObject14.optJSONObject("hlReplay");
-                                                                                                                            str33 = optString9;
-                                                                                                                            jSONObject13 = parseJSONObject3;
-                                                                                                                            str32 = liveSource;
-                                                                                                                            SchemeModel schemeModel3 = new SchemeModel(optString9, str36, liveSource, str37, str38, str39, str40, str27, str28, optString8, jSONObject12, parseJSONObject9, parseJSONObject2, parseJSONObject8, jSONObject13, optString, optString2, parseJSONObject7, parseJSONObject4, optJSONObject2, optJSONObject3, str31, str35, optString20, optString3, optString4, optString5, parseJSONObject5, optString21, optString10, optString6, parseJSONObject10);
-                                                                                                                            schemeModel3.setPlayerCacheKey(optString22);
-                                                                                                                            num2 = num;
-                                                                                                                            schemeModel3.setPlayerCacheCodeC(num2);
-                                                                                                                            str34 = str23;
-                                                                                                                            schemeModel3.setKabrSpts(str34);
-                                                                                                                            return schemeModel3;
-                                                                                                                        } catch (Exception e20) {
-                                                                                                                            e = e20;
-                                                                                                                            str11 = optString8;
-                                                                                                                            jSONObject11 = jSONObject12;
-                                                                                                                            str13 = str35;
-                                                                                                                            str12 = str31;
-                                                                                                                            str2 = optString9;
-                                                                                                                            str24 = optString22;
-                                                                                                                            jSONObject7 = parseJSONObject3;
-                                                                                                                            str4 = liveSource;
-                                                                                                                            str14 = optString10;
-                                                                                                                            str3 = str36;
-                                                                                                                            str5 = str37;
-                                                                                                                            str6 = str38;
-                                                                                                                            str7 = str39;
-                                                                                                                            str8 = str40;
-                                                                                                                            str9 = str27;
-                                                                                                                            str10 = str28;
-                                                                                                                            jSONObject6 = parseJSONObject7;
-                                                                                                                            jSONObject8 = parseJSONObject8;
-                                                                                                                            jSONObject10 = parseJSONObject9;
-                                                                                                                            jSONObject9 = parseJSONObject2;
-                                                                                                                            jSONObject5 = parseJSONObject4;
-                                                                                                                            jSONObject2 = parseJSONObject5;
-                                                                                                                            str22 = optString;
-                                                                                                                            str21 = optString2;
-                                                                                                                            str20 = optString20;
-                                                                                                                            str19 = optString3;
-                                                                                                                            str18 = optString4;
-                                                                                                                            str17 = optString5;
-                                                                                                                            str16 = optString21;
-                                                                                                                            str15 = optString6;
-                                                                                                                            jSONObject = parseJSONObject10;
-                                                                                                                            jSONObject4 = null;
-                                                                                                                            jSONObject3 = null;
-                                                                                                                            e.printStackTrace();
-                                                                                                                            SchemeModel schemeModel22222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                                                            schemeModel22222222222222.setPlayerCacheKey(str24);
-                                                                                                                            schemeModel22222222222222.setPlayerCacheCodeC(num);
-                                                                                                                            schemeModel22222222222222.setKabrSpts(str23);
-                                                                                                                            return schemeModel22222222222222;
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                } catch (Exception e21) {
-                                                                                                                    e = e21;
-                                                                                                                    jSONObject11 = jSONObject12;
-                                                                                                                    str13 = str35;
-                                                                                                                    str12 = str31;
-                                                                                                                    str2 = optString9;
-                                                                                                                    str24 = optString22;
-                                                                                                                    jSONObject7 = parseJSONObject3;
-                                                                                                                    str4 = liveSource;
-                                                                                                                    str11 = str30;
-                                                                                                                    str14 = optString10;
-                                                                                                                    str3 = str36;
-                                                                                                                    str5 = str37;
-                                                                                                                    str6 = str38;
-                                                                                                                    str7 = str39;
-                                                                                                                    str8 = str40;
-                                                                                                                    str9 = str27;
-                                                                                                                    str10 = str28;
-                                                                                                                    jSONObject6 = parseJSONObject7;
-                                                                                                                    jSONObject8 = parseJSONObject8;
-                                                                                                                    jSONObject10 = parseJSONObject9;
-                                                                                                                    jSONObject9 = parseJSONObject2;
-                                                                                                                    jSONObject5 = parseJSONObject4;
-                                                                                                                    jSONObject2 = parseJSONObject5;
-                                                                                                                    str22 = optString;
-                                                                                                                    str21 = optString2;
-                                                                                                                    str20 = optString20;
-                                                                                                                    str19 = optString3;
-                                                                                                                    str18 = optString4;
-                                                                                                                    str17 = optString5;
-                                                                                                                    str16 = optString21;
-                                                                                                                    str15 = optString6;
-                                                                                                                    jSONObject = parseJSONObject10;
-                                                                                                                    jSONObject4 = null;
-                                                                                                                    jSONObject3 = null;
-                                                                                                                    e.printStackTrace();
-                                                                                                                    SchemeModel schemeModel222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                                                    schemeModel222222222222222.setPlayerCacheKey(str24);
-                                                                                                                    schemeModel222222222222222.setPlayerCacheCodeC(num);
-                                                                                                                    schemeModel222222222222222.setKabrSpts(str23);
-                                                                                                                    return schemeModel222222222222222;
-                                                                                                                }
-                                                                                                            }
-                                                                                                            schemeModel3.setKabrSpts(str34);
-                                                                                                            return schemeModel3;
-                                                                                                        } catch (Exception e22) {
-                                                                                                            e = e22;
-                                                                                                            str2 = str33;
-                                                                                                            str11 = optString8;
-                                                                                                            jSONObject11 = jSONObject12;
-                                                                                                            str13 = str35;
-                                                                                                            str12 = str31;
-                                                                                                            jSONObject3 = optJSONObject3;
-                                                                                                            str24 = optString22;
-                                                                                                            str23 = str34;
-                                                                                                            num = num2;
-                                                                                                            str14 = optString10;
-                                                                                                            str3 = str36;
-                                                                                                            str5 = str37;
-                                                                                                            str6 = str38;
-                                                                                                            str7 = str39;
-                                                                                                            str8 = str40;
-                                                                                                            str9 = str27;
-                                                                                                            str10 = str28;
-                                                                                                            jSONObject6 = parseJSONObject7;
-                                                                                                            jSONObject8 = parseJSONObject8;
-                                                                                                            jSONObject10 = parseJSONObject9;
-                                                                                                            jSONObject9 = parseJSONObject2;
-                                                                                                            jSONObject5 = parseJSONObject4;
-                                                                                                            jSONObject2 = parseJSONObject5;
-                                                                                                            str22 = optString;
-                                                                                                            str21 = optString2;
-                                                                                                            str20 = optString20;
-                                                                                                            str19 = optString3;
-                                                                                                            str18 = optString4;
-                                                                                                            str17 = optString5;
-                                                                                                            str16 = optString21;
-                                                                                                            str15 = optString6;
-                                                                                                            jSONObject = parseJSONObject10;
-                                                                                                            jSONObject4 = optJSONObject2;
-                                                                                                            jSONObject7 = jSONObject13;
-                                                                                                            str4 = str32;
-                                                                                                            e.printStackTrace();
-                                                                                                            SchemeModel schemeModel2222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                                            schemeModel2222222222222222.setPlayerCacheKey(str24);
-                                                                                                            schemeModel2222222222222222.setPlayerCacheCodeC(num);
-                                                                                                            schemeModel2222222222222222.setKabrSpts(str23);
-                                                                                                            return schemeModel2222222222222222;
-                                                                                                        }
-                                                                                                        SchemeModel schemeModel32 = new SchemeModel(optString9, str36, liveSource, str37, str38, str39, str40, str27, str28, optString8, jSONObject12, parseJSONObject9, parseJSONObject2, parseJSONObject8, jSONObject13, optString, optString2, parseJSONObject7, parseJSONObject4, optJSONObject2, optJSONObject3, str31, str35, optString20, optString3, optString4, optString5, parseJSONObject5, optString21, optString10, optString6, parseJSONObject10);
-                                                                                                        schemeModel32.setPlayerCacheKey(optString22);
-                                                                                                        num2 = num;
-                                                                                                        schemeModel32.setPlayerCacheCodeC(num2);
-                                                                                                        str34 = str23;
-                                                                                                    } catch (Exception e23) {
-                                                                                                        e = e23;
-                                                                                                        str34 = str23;
-                                                                                                        num2 = num;
-                                                                                                    }
-                                                                                                    str33 = optString9;
-                                                                                                    jSONObject13 = parseJSONObject3;
-                                                                                                    str32 = liveSource;
-                                                                                                } catch (Exception e24) {
-                                                                                                    e = e24;
-                                                                                                    jSONObject13 = parseJSONObject3;
-                                                                                                    str32 = liveSource;
-                                                                                                    str2 = optString9;
-                                                                                                    str11 = optString8;
-                                                                                                    jSONObject11 = jSONObject12;
-                                                                                                    str13 = str35;
-                                                                                                    str12 = str31;
-                                                                                                    jSONObject3 = optJSONObject3;
-                                                                                                    str24 = optString22;
-                                                                                                }
-                                                                                                optJSONObject3 = jSONObject14.optJSONObject("hlReplay");
-                                                                                            } catch (Exception e25) {
-                                                                                                e = e25;
-                                                                                                str2 = optString9;
-                                                                                                str11 = optString8;
-                                                                                                jSONObject11 = jSONObject12;
-                                                                                                str13 = str35;
-                                                                                                str12 = str31;
-                                                                                                str24 = optString22;
-                                                                                                str14 = optString10;
-                                                                                                str3 = str36;
-                                                                                                str5 = str37;
-                                                                                                str6 = str38;
-                                                                                                str7 = str39;
-                                                                                                str8 = str40;
-                                                                                                str9 = str27;
-                                                                                                str10 = str28;
-                                                                                                jSONObject6 = parseJSONObject7;
-                                                                                                jSONObject8 = parseJSONObject8;
-                                                                                                jSONObject10 = parseJSONObject9;
-                                                                                                jSONObject9 = parseJSONObject2;
-                                                                                                jSONObject5 = parseJSONObject4;
-                                                                                                jSONObject2 = parseJSONObject5;
-                                                                                                str22 = optString;
-                                                                                                str21 = optString2;
-                                                                                                str20 = optString20;
-                                                                                                str19 = optString3;
-                                                                                                str18 = optString4;
-                                                                                                str17 = optString5;
-                                                                                                str16 = optString21;
-                                                                                                str15 = optString6;
-                                                                                                jSONObject = parseJSONObject10;
-                                                                                                jSONObject4 = optJSONObject2;
-                                                                                                jSONObject7 = parseJSONObject3;
-                                                                                                str4 = liveSource;
-                                                                                                jSONObject3 = null;
-                                                                                                e.printStackTrace();
-                                                                                                SchemeModel schemeModel22222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                                schemeModel22222222222222222.setPlayerCacheKey(str24);
-                                                                                                schemeModel22222222222222222.setPlayerCacheCodeC(num);
-                                                                                                schemeModel22222222222222222.setKabrSpts(str23);
-                                                                                                return schemeModel22222222222222222;
-                                                                                            }
-                                                                                            optString8 = str30;
-                                                                                            optJSONObject2 = jSONObject14.optJSONObject("queryECLive");
-                                                                                        } catch (Exception e26) {
-                                                                                            e = e26;
-                                                                                            str11 = "";
-                                                                                            str12 = str11;
-                                                                                            str13 = str12;
-                                                                                            str2 = optString9;
-                                                                                            jSONObject11 = parseJSONObject;
-                                                                                        }
-                                                                                    } catch (Exception e27) {
-                                                                                        e = e27;
-                                                                                        str2 = optString9;
-                                                                                        str24 = optString22;
-                                                                                        jSONObject11 = parseJSONObject;
-                                                                                        str11 = "";
-                                                                                        str12 = str11;
-                                                                                        str13 = str12;
-                                                                                        str14 = optString10;
-                                                                                        str3 = str36;
-                                                                                        str5 = str37;
-                                                                                        str6 = str38;
-                                                                                        str7 = str39;
-                                                                                        str8 = str40;
-                                                                                        str9 = str27;
-                                                                                        str10 = str28;
-                                                                                        jSONObject6 = parseJSONObject7;
-                                                                                        jSONObject8 = parseJSONObject8;
-                                                                                        jSONObject10 = parseJSONObject9;
-                                                                                        jSONObject9 = parseJSONObject2;
-                                                                                        jSONObject5 = parseJSONObject4;
-                                                                                        jSONObject2 = parseJSONObject5;
-                                                                                        str22 = optString;
-                                                                                        str21 = optString2;
-                                                                                        str20 = optString20;
-                                                                                        str19 = optString3;
-                                                                                        str18 = optString4;
-                                                                                        str17 = optString5;
-                                                                                        str16 = optString21;
-                                                                                        str15 = optString6;
-                                                                                        jSONObject = parseJSONObject10;
-                                                                                        jSONObject7 = parseJSONObject3;
-                                                                                        str4 = liveSource;
-                                                                                        str23 = null;
-                                                                                    }
-                                                                                } catch (Exception e28) {
-                                                                                    e = e28;
-                                                                                    str2 = optString9;
-                                                                                    str24 = optString22;
-                                                                                    jSONObject11 = parseJSONObject;
-                                                                                    str11 = "";
-                                                                                    str12 = str11;
-                                                                                    str13 = str12;
-                                                                                    str14 = optString10;
-                                                                                    str3 = str36;
-                                                                                    str5 = str37;
-                                                                                    str6 = str38;
-                                                                                    str7 = str39;
-                                                                                    str8 = str40;
-                                                                                    str9 = str27;
-                                                                                    str10 = str28;
-                                                                                    jSONObject6 = parseJSONObject7;
-                                                                                    jSONObject8 = parseJSONObject8;
-                                                                                    jSONObject10 = parseJSONObject9;
-                                                                                    jSONObject9 = parseJSONObject2;
-                                                                                    jSONObject5 = parseJSONObject4;
-                                                                                    jSONObject2 = parseJSONObject5;
-                                                                                    str22 = optString;
-                                                                                    str21 = optString2;
-                                                                                    str20 = optString20;
-                                                                                    str19 = optString3;
-                                                                                    str18 = optString4;
-                                                                                    str17 = optString5;
-                                                                                    str16 = optString21;
-                                                                                    str15 = optString6;
-                                                                                    jSONObject = parseJSONObject10;
-                                                                                    jSONObject7 = parseJSONObject3;
-                                                                                    str4 = liveSource;
-                                                                                    str23 = null;
-                                                                                    num = null;
-                                                                                    jSONObject4 = null;
-                                                                                    jSONObject3 = null;
-                                                                                    e.printStackTrace();
-                                                                                    SchemeModel schemeModel222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                                    schemeModel222222222222222222.setPlayerCacheKey(str24);
-                                                                                    schemeModel222222222222222222.setPlayerCacheCodeC(num);
-                                                                                    schemeModel222222222222222222.setKabrSpts(str23);
-                                                                                    return schemeModel222222222222222222;
-                                                                                }
-                                                                            } catch (Exception e29) {
-                                                                                e = e29;
-                                                                                str2 = optString9;
-                                                                                jSONObject11 = parseJSONObject;
-                                                                                str11 = "";
-                                                                                str12 = str11;
-                                                                                str13 = str12;
-                                                                                str14 = optString10;
-                                                                                str3 = str36;
-                                                                                str5 = str37;
-                                                                                str6 = str38;
-                                                                                str7 = str39;
-                                                                                str8 = str40;
-                                                                                str9 = str27;
-                                                                                str10 = str28;
-                                                                                jSONObject6 = parseJSONObject7;
-                                                                                jSONObject8 = parseJSONObject8;
-                                                                                jSONObject10 = parseJSONObject9;
-                                                                                jSONObject9 = parseJSONObject2;
-                                                                                jSONObject5 = parseJSONObject4;
-                                                                                jSONObject2 = parseJSONObject5;
-                                                                                str22 = optString;
-                                                                                str21 = optString2;
-                                                                                str20 = optString20;
-                                                                                str19 = optString3;
-                                                                                str18 = optString4;
-                                                                                str17 = optString5;
-                                                                                str16 = optString21;
-                                                                                str15 = optString6;
-                                                                                jSONObject = parseJSONObject10;
-                                                                                jSONObject7 = parseJSONObject3;
-                                                                                str4 = liveSource;
-                                                                                str24 = null;
-                                                                            }
-                                                                        } catch (Exception e30) {
-                                                                            e = e30;
-                                                                            str2 = optString9;
-                                                                            jSONObject11 = parseJSONObject;
-                                                                            str11 = "";
-                                                                            str12 = str11;
-                                                                            str13 = str12;
-                                                                            str14 = optString10;
-                                                                            str3 = str36;
-                                                                            str5 = str37;
-                                                                            str6 = str38;
-                                                                            str7 = str39;
-                                                                            str8 = str40;
-                                                                            str9 = str27;
-                                                                            str10 = str28;
-                                                                            jSONObject6 = parseJSONObject7;
-                                                                            jSONObject8 = parseJSONObject8;
-                                                                            jSONObject10 = parseJSONObject9;
-                                                                            jSONObject9 = parseJSONObject2;
-                                                                            jSONObject5 = parseJSONObject4;
-                                                                            jSONObject2 = parseJSONObject5;
-                                                                            str22 = optString;
-                                                                            str21 = optString2;
-                                                                            str20 = optString20;
-                                                                            str19 = optString3;
-                                                                            str18 = optString4;
-                                                                            str17 = optString5;
-                                                                            str16 = optString21;
-                                                                            str15 = optString6;
-                                                                            jSONObject7 = parseJSONObject3;
-                                                                            str4 = liveSource;
-                                                                            str24 = null;
-                                                                            str23 = null;
-                                                                            num = null;
-                                                                            jSONObject4 = null;
-                                                                            jSONObject3 = null;
-                                                                            jSONObject = null;
-                                                                            e.printStackTrace();
-                                                                            SchemeModel schemeModel2222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                            schemeModel2222222222222222222.setPlayerCacheKey(str24);
-                                                                            schemeModel2222222222222222222.setPlayerCacheCodeC(num);
-                                                                            schemeModel2222222222222222222.setKabrSpts(str23);
-                                                                            return schemeModel2222222222222222222;
-                                                                        }
-                                                                    } catch (Exception e31) {
-                                                                        e = e31;
-                                                                        str2 = optString9;
-                                                                        jSONObject11 = parseJSONObject;
-                                                                        str11 = "";
-                                                                        str12 = str11;
-                                                                        str13 = str12;
-                                                                        str14 = optString10;
-                                                                        str3 = str36;
-                                                                        str5 = str37;
-                                                                        str6 = str38;
-                                                                        str7 = str39;
-                                                                        str8 = str40;
-                                                                        str9 = str27;
-                                                                        str10 = str28;
-                                                                        jSONObject6 = parseJSONObject7;
-                                                                        jSONObject8 = parseJSONObject8;
-                                                                        jSONObject10 = parseJSONObject9;
-                                                                        jSONObject9 = parseJSONObject2;
-                                                                        jSONObject5 = parseJSONObject4;
-                                                                        jSONObject2 = parseJSONObject5;
-                                                                        str22 = optString;
-                                                                        str21 = optString2;
-                                                                        str20 = optString20;
-                                                                        str19 = optString3;
-                                                                        str18 = optString4;
-                                                                        str17 = optString5;
-                                                                        jSONObject7 = parseJSONObject3;
-                                                                        str4 = liveSource;
-                                                                        str24 = null;
-                                                                        str23 = null;
-                                                                        num = null;
-                                                                        jSONObject4 = null;
-                                                                        jSONObject3 = null;
-                                                                        str16 = null;
-                                                                        str15 = null;
-                                                                        jSONObject = null;
-                                                                        e.printStackTrace();
-                                                                        SchemeModel schemeModel22222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                        schemeModel22222222222222222222.setPlayerCacheKey(str24);
-                                                                        schemeModel22222222222222222222.setPlayerCacheCodeC(num);
-                                                                        schemeModel22222222222222222222.setKabrSpts(str23);
-                                                                        return schemeModel22222222222222222222;
-                                                                    }
-                                                                } catch (Exception e32) {
-                                                                    e = e32;
-                                                                    str2 = optString9;
-                                                                    jSONObject11 = parseJSONObject;
-                                                                    str11 = "";
-                                                                    str12 = str11;
-                                                                    str13 = str12;
-                                                                    str14 = optString10;
-                                                                    str3 = str36;
-                                                                    str5 = str37;
-                                                                    str6 = str38;
-                                                                    str7 = str39;
-                                                                    str8 = str40;
-                                                                    str9 = str27;
-                                                                    str10 = str28;
-                                                                    jSONObject6 = parseJSONObject7;
-                                                                    jSONObject8 = parseJSONObject8;
-                                                                    jSONObject10 = parseJSONObject9;
-                                                                    jSONObject9 = parseJSONObject2;
-                                                                    jSONObject5 = parseJSONObject4;
-                                                                    jSONObject2 = parseJSONObject5;
-                                                                    str22 = optString;
-                                                                    str21 = optString2;
-                                                                    jSONObject7 = parseJSONObject3;
-                                                                    str4 = liveSource;
-                                                                    str24 = null;
-                                                                    str23 = null;
-                                                                    num = null;
-                                                                    jSONObject4 = null;
-                                                                    jSONObject3 = null;
-                                                                    str20 = null;
-                                                                    str19 = null;
-                                                                    str18 = null;
-                                                                    str17 = null;
-                                                                    str16 = null;
-                                                                    str15 = null;
-                                                                    jSONObject = null;
-                                                                    e.printStackTrace();
-                                                                    SchemeModel schemeModel222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                                    schemeModel222222222222222222222.setPlayerCacheKey(str24);
-                                                                    schemeModel222222222222222222222.setPlayerCacheCodeC(num);
-                                                                    schemeModel222222222222222222222.setKabrSpts(str23);
-                                                                    return schemeModel222222222222222222222;
-                                                                }
-                                                            } catch (Exception e33) {
-                                                                e = e33;
-                                                                str2 = optString9;
-                                                                jSONObject11 = parseJSONObject;
-                                                                str11 = "";
-                                                                str12 = str11;
-                                                                str13 = str12;
-                                                                str14 = optString10;
-                                                                str3 = str36;
-                                                                str5 = str37;
-                                                                str6 = str38;
-                                                                str7 = str39;
-                                                                str8 = str40;
-                                                                str9 = str27;
-                                                                str10 = str28;
-                                                                jSONObject6 = parseJSONObject7;
-                                                                jSONObject8 = parseJSONObject8;
-                                                                str4 = liveSource;
-                                                                str24 = null;
-                                                                str23 = null;
-                                                                num = null;
-                                                                jSONObject10 = null;
-                                                            }
-                                                        } catch (Exception e34) {
-                                                            e = e34;
-                                                            str29 = liveSource;
-                                                            str2 = optString9;
-                                                            jSONObject11 = parseJSONObject;
-                                                            str11 = "";
-                                                            str12 = str11;
-                                                            str13 = str12;
-                                                            str14 = optString10;
-                                                            str3 = str36;
-                                                            str5 = str37;
-                                                            str6 = str38;
-                                                            str7 = str39;
-                                                            str8 = str40;
-                                                            str9 = str27;
-                                                            str10 = str28;
-                                                            jSONObject6 = parseJSONObject7;
-                                                            str4 = str29;
-                                                            str24 = null;
-                                                            str23 = null;
-                                                            num = null;
-                                                            jSONObject10 = null;
-                                                            jSONObject9 = null;
-                                                            jSONObject8 = null;
-                                                            jSONObject7 = null;
-                                                            str22 = null;
-                                                            str21 = null;
-                                                            jSONObject5 = null;
-                                                            jSONObject4 = null;
-                                                            jSONObject3 = null;
-                                                            str20 = null;
-                                                            str19 = null;
-                                                            str18 = null;
-                                                            str17 = null;
-                                                            jSONObject2 = null;
-                                                            str16 = null;
-                                                            str15 = null;
-                                                            jSONObject = null;
-                                                            e.printStackTrace();
-                                                            SchemeModel schemeModel2222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                            schemeModel2222222222222222222222.setPlayerCacheKey(str24);
-                                                            schemeModel2222222222222222222222.setPlayerCacheCodeC(num);
-                                                            schemeModel2222222222222222222222.setKabrSpts(str23);
-                                                            return schemeModel2222222222222222222222;
-                                                        }
-                                                    } catch (Exception e35) {
-                                                        e = e35;
-                                                        str29 = liveSource;
-                                                        str2 = optString9;
-                                                        jSONObject11 = parseJSONObject;
-                                                        jSONObject6 = parseJSONObject6;
-                                                        str11 = "";
-                                                        str12 = str11;
-                                                        str13 = str12;
-                                                        str14 = optString10;
-                                                        str3 = str36;
-                                                        str5 = str37;
-                                                        str6 = str38;
-                                                        str7 = str39;
-                                                        str8 = str40;
-                                                        str9 = str27;
-                                                        str10 = str28;
-                                                    }
-                                                } catch (Exception e36) {
-                                                    e = e36;
-                                                    str2 = optString9;
-                                                    jSONObject11 = parseJSONObject;
+                                                    str27 = liveSource;
+                                                    str2 = optString;
                                                     str11 = "";
                                                     str12 = str11;
                                                     str13 = str12;
-                                                    str14 = optString10;
-                                                    str3 = str36;
-                                                    str5 = str37;
-                                                    str6 = str38;
-                                                    str7 = str39;
-                                                    str8 = str40;
-                                                    str9 = str27;
-                                                    str10 = str28;
-                                                    str4 = liveSource;
+                                                    str14 = optString2;
+                                                    str3 = str26;
+                                                    str5 = str28;
+                                                    str6 = str29;
+                                                    str7 = str30;
+                                                    str8 = str31;
+                                                    str9 = str32;
+                                                    str10 = str33;
+                                                    str4 = str27;
                                                     str24 = null;
                                                     str23 = null;
                                                     num = null;
+                                                    jSONObject11 = null;
                                                     jSONObject10 = null;
                                                     jSONObject9 = null;
                                                     jSONObject8 = null;
@@ -1664,82 +352,367 @@ public final class IntentData implements State {
                                                     str15 = null;
                                                     jSONObject = null;
                                                     e.printStackTrace();
-                                                    SchemeModel schemeModel22222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                                                    schemeModel22222222222222222222222.setPlayerCacheKey(str24);
-                                                    schemeModel22222222222222222222222.setPlayerCacheCodeC(num);
-                                                    schemeModel22222222222222222222222.setKabrSpts(str23);
-                                                    return schemeModel22222222222222222222222;
+                                                    SchemeModel schemeModel2 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                    schemeModel2.setPlayerCacheKey(str24);
+                                                    schemeModel2.setPlayerCacheCodeC(num);
+                                                    schemeModel2.setKabrSpts(str23);
+                                                    return schemeModel2;
                                                 }
-                                            } catch (Exception e37) {
-                                                e = e37;
-                                                str26 = liveSource;
-                                                str2 = optString9;
-                                                str8 = "";
-                                                str9 = str8;
-                                                str10 = str9;
+                                            } catch (Exception e5) {
+                                                e = e5;
+                                                str27 = liveSource;
+                                                str2 = optString;
+                                                str10 = "";
                                                 str11 = str10;
                                                 str12 = str11;
                                                 str13 = str12;
-                                                str14 = optString10;
-                                                str3 = str36;
-                                                str5 = str37;
-                                                str6 = str38;
-                                                str7 = str39;
+                                                str14 = optString2;
+                                                str3 = str26;
+                                                str5 = str28;
+                                                str6 = str29;
+                                                str7 = str30;
+                                                str8 = str31;
+                                                str9 = str32;
                                             }
-                                        } catch (Exception e38) {
-                                            e = e38;
-                                            str26 = liveSource;
-                                            str2 = optString9;
-                                            str7 = "";
-                                            str8 = str7;
-                                            str9 = str8;
+                                            try {
+                                                JSONObject parseJSONObject9 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "otherParams");
+                                                if (parseJSONObject9 == null) {
+                                                    try {
+                                                        String optString18 = jSONObject12.optString("otherParams");
+                                                        Intrinsics.checkExpressionValueIsNotNull(optString18, "json.optString(\"otherParams\")");
+                                                        if (!TextUtils.isEmpty(optString18)) {
+                                                            try {
+                                                                parseJSONObject9 = new JSONObject(URLDecoder.decode(optString18));
+                                                            } catch (JSONException unused) {
+                                                                parseJSONObject9 = null;
+                                                            }
+                                                        }
+                                                    } catch (Exception e6) {
+                                                        e = e6;
+                                                        str11 = "";
+                                                        str12 = str11;
+                                                        str13 = str12;
+                                                        str2 = optString;
+                                                        jSONObject11 = parseJSONObject;
+                                                        jSONObject6 = parseJSONObject9;
+                                                        str4 = liveSource;
+                                                        str14 = optString2;
+                                                        str3 = str26;
+                                                        str5 = str28;
+                                                        str6 = str29;
+                                                        str7 = str30;
+                                                        str8 = str31;
+                                                        str9 = str32;
+                                                        str10 = str33;
+                                                        str24 = null;
+                                                        str23 = null;
+                                                        num = null;
+                                                        jSONObject10 = null;
+                                                        jSONObject9 = null;
+                                                        jSONObject8 = null;
+                                                        jSONObject7 = null;
+                                                        str22 = null;
+                                                        str21 = null;
+                                                        jSONObject5 = null;
+                                                        jSONObject4 = null;
+                                                        jSONObject3 = null;
+                                                        str20 = null;
+                                                        str19 = null;
+                                                        str18 = null;
+                                                        str17 = null;
+                                                        jSONObject2 = null;
+                                                        str16 = null;
+                                                        str15 = null;
+                                                        jSONObject = null;
+                                                        e.printStackTrace();
+                                                        SchemeModel schemeModel22 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                        schemeModel22.setPlayerCacheKey(str24);
+                                                        schemeModel22.setPlayerCacheCodeC(num);
+                                                        schemeModel22.setKabrSpts(str23);
+                                                        return schemeModel22;
+                                                    }
+                                                }
+                                                try {
+                                                    parseJSONObject2 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "otherParams");
+                                                    try {
+                                                        parseJSONObject3 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "query");
+                                                        try {
+                                                            parseJSONObject4 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "extRequest");
+                                                            try {
+                                                                parseJSONObject5 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "extLog");
+                                                                try {
+                                                                    parseJSONObject6 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "extParams");
+                                                                } catch (Exception e7) {
+                                                                    e = e7;
+                                                                    str2 = optString;
+                                                                    jSONObject11 = parseJSONObject;
+                                                                    str11 = "";
+                                                                    str12 = str11;
+                                                                    str13 = str12;
+                                                                    str14 = optString2;
+                                                                    str3 = str26;
+                                                                    str5 = str28;
+                                                                    str6 = str29;
+                                                                    str7 = str30;
+                                                                    str8 = str31;
+                                                                    str9 = str32;
+                                                                    str10 = str33;
+                                                                    jSONObject6 = parseJSONObject2;
+                                                                    jSONObject8 = parseJSONObject3;
+                                                                    jSONObject10 = parseJSONObject4;
+                                                                    jSONObject9 = parseJSONObject5;
+                                                                    str4 = liveSource;
+                                                                    str24 = null;
+                                                                    str23 = null;
+                                                                    num = null;
+                                                                    jSONObject7 = null;
+                                                                    str22 = null;
+                                                                    str21 = null;
+                                                                    jSONObject5 = null;
+                                                                    jSONObject4 = null;
+                                                                    jSONObject3 = null;
+                                                                    str20 = null;
+                                                                    str19 = null;
+                                                                    str18 = null;
+                                                                    str17 = null;
+                                                                    jSONObject2 = null;
+                                                                    str16 = null;
+                                                                    str15 = null;
+                                                                    jSONObject = null;
+                                                                    e.printStackTrace();
+                                                                    SchemeModel schemeModel222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                                    schemeModel222.setPlayerCacheKey(str24);
+                                                                    schemeModel222.setPlayerCacheCodeC(num);
+                                                                    schemeModel222.setKabrSpts(str23);
+                                                                    return schemeModel222;
+                                                                }
+                                                            } catch (Exception e8) {
+                                                                e = e8;
+                                                                str2 = optString;
+                                                                jSONObject11 = parseJSONObject;
+                                                                str11 = "";
+                                                                str12 = str11;
+                                                                str13 = str12;
+                                                                str14 = optString2;
+                                                                str3 = str26;
+                                                                str5 = str28;
+                                                                str6 = str29;
+                                                                str7 = str30;
+                                                                str8 = str31;
+                                                                str9 = str32;
+                                                                str10 = str33;
+                                                                jSONObject6 = parseJSONObject2;
+                                                                jSONObject8 = parseJSONObject3;
+                                                                jSONObject10 = parseJSONObject4;
+                                                                str4 = liveSource;
+                                                                str24 = null;
+                                                                str23 = null;
+                                                                num = null;
+                                                                jSONObject9 = null;
+                                                                jSONObject7 = null;
+                                                                str22 = null;
+                                                                str21 = null;
+                                                                jSONObject5 = null;
+                                                                jSONObject4 = null;
+                                                                jSONObject3 = null;
+                                                                str20 = null;
+                                                                str19 = null;
+                                                                str18 = null;
+                                                                str17 = null;
+                                                                jSONObject2 = null;
+                                                                str16 = null;
+                                                                str15 = null;
+                                                                jSONObject = null;
+                                                                e.printStackTrace();
+                                                                SchemeModel schemeModel2222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                                schemeModel2222.setPlayerCacheKey(str24);
+                                                                schemeModel2222.setPlayerCacheCodeC(num);
+                                                                schemeModel2222.setKabrSpts(str23);
+                                                                return schemeModel2222;
+                                                            }
+                                                        } catch (Exception e9) {
+                                                            e = e9;
+                                                            str2 = optString;
+                                                            jSONObject11 = parseJSONObject;
+                                                            str11 = "";
+                                                            str12 = str11;
+                                                            str13 = str12;
+                                                            str14 = optString2;
+                                                            str3 = str26;
+                                                            str5 = str28;
+                                                            str6 = str29;
+                                                            str7 = str30;
+                                                            str8 = str31;
+                                                            str9 = str32;
+                                                            str10 = str33;
+                                                            jSONObject6 = parseJSONObject2;
+                                                            jSONObject8 = parseJSONObject3;
+                                                            str4 = liveSource;
+                                                            str24 = null;
+                                                            str23 = null;
+                                                            num = null;
+                                                            jSONObject10 = null;
+                                                        }
+                                                    } catch (Exception e10) {
+                                                        e = e10;
+                                                        str34 = liveSource;
+                                                        str2 = optString;
+                                                        jSONObject11 = parseJSONObject;
+                                                        str11 = "";
+                                                        str12 = str11;
+                                                        str13 = str12;
+                                                        str14 = optString2;
+                                                        str3 = str26;
+                                                        str5 = str28;
+                                                        str6 = str29;
+                                                        str7 = str30;
+                                                        str8 = str31;
+                                                        str9 = str32;
+                                                        str10 = str33;
+                                                        jSONObject6 = parseJSONObject2;
+                                                        str4 = str34;
+                                                        str24 = null;
+                                                        str23 = null;
+                                                        num = null;
+                                                        jSONObject10 = null;
+                                                        jSONObject9 = null;
+                                                        jSONObject8 = null;
+                                                        jSONObject7 = null;
+                                                        str22 = null;
+                                                        str21 = null;
+                                                        jSONObject5 = null;
+                                                        jSONObject4 = null;
+                                                        jSONObject3 = null;
+                                                        str20 = null;
+                                                        str19 = null;
+                                                        str18 = null;
+                                                        str17 = null;
+                                                        jSONObject2 = null;
+                                                        str16 = null;
+                                                        str15 = null;
+                                                        jSONObject = null;
+                                                        e.printStackTrace();
+                                                        SchemeModel schemeModel22222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                        schemeModel22222.setPlayerCacheKey(str24);
+                                                        schemeModel22222.setPlayerCacheCodeC(num);
+                                                        schemeModel22222.setKabrSpts(str23);
+                                                        return schemeModel22222;
+                                                    }
+                                                } catch (Exception e11) {
+                                                    e = e11;
+                                                    str34 = liveSource;
+                                                    str2 = optString;
+                                                    jSONObject11 = parseJSONObject;
+                                                    jSONObject6 = parseJSONObject9;
+                                                    str11 = "";
+                                                    str12 = str11;
+                                                    str13 = str12;
+                                                    str14 = optString2;
+                                                    str3 = str26;
+                                                    str5 = str28;
+                                                    str6 = str29;
+                                                    str7 = str30;
+                                                    str8 = str31;
+                                                    str9 = str32;
+                                                    str10 = str33;
+                                                }
+                                            } catch (Exception e12) {
+                                                e = e12;
+                                                str2 = optString;
+                                                jSONObject11 = parseJSONObject;
+                                                str11 = "";
+                                                str12 = str11;
+                                                str13 = str12;
+                                                str14 = optString2;
+                                                str3 = str26;
+                                                str5 = str28;
+                                                str6 = str29;
+                                                str7 = str30;
+                                                str8 = str31;
+                                                str9 = str32;
+                                                str10 = str33;
+                                                str4 = liveSource;
+                                                str24 = null;
+                                                str23 = null;
+                                                num = null;
+                                                jSONObject10 = null;
+                                                jSONObject9 = null;
+                                                jSONObject8 = null;
+                                                jSONObject7 = null;
+                                                str22 = null;
+                                                str21 = null;
+                                                jSONObject6 = null;
+                                                jSONObject5 = null;
+                                                jSONObject4 = null;
+                                                jSONObject3 = null;
+                                                str20 = null;
+                                                str19 = null;
+                                                str18 = null;
+                                                str17 = null;
+                                                jSONObject2 = null;
+                                                str16 = null;
+                                                str15 = null;
+                                                jSONObject = null;
+                                                e.printStackTrace();
+                                                SchemeModel schemeModel222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                schemeModel222222.setPlayerCacheKey(str24);
+                                                schemeModel222222.setPlayerCacheCodeC(num);
+                                                schemeModel222222.setKabrSpts(str23);
+                                                return schemeModel222222;
+                                            }
+                                        } catch (Exception e13) {
+                                            e = e13;
+                                            str27 = liveSource;
+                                            str2 = optString;
+                                            str9 = "";
                                             str10 = str9;
                                             str11 = str10;
                                             str12 = str11;
                                             str13 = str12;
-                                            str14 = optString10;
-                                            str3 = str36;
-                                            str5 = str37;
-                                            str6 = str38;
+                                            str14 = optString2;
+                                            str3 = str26;
+                                            str5 = str28;
+                                            str6 = str29;
+                                            str7 = str30;
+                                            str8 = str31;
                                         }
-                                    } catch (Exception e39) {
-                                        e = e39;
-                                        str26 = liveSource;
-                                        str2 = optString9;
-                                        str6 = "";
-                                        str7 = str6;
-                                        str8 = str7;
+                                    } catch (Exception e14) {
+                                        e = e14;
+                                        str27 = liveSource;
+                                        str2 = optString;
+                                        str8 = "";
                                         str9 = str8;
                                         str10 = str9;
                                         str11 = str10;
                                         str12 = str11;
                                         str13 = str12;
-                                        str14 = optString10;
-                                        str3 = str36;
-                                        str5 = str37;
+                                        str14 = optString2;
+                                        str3 = str26;
+                                        str5 = str28;
+                                        str6 = str29;
+                                        str7 = str30;
                                     }
-                                } catch (Exception e40) {
-                                    e = e40;
-                                    str26 = liveSource;
-                                    str2 = optString9;
-                                    str5 = "";
-                                    str6 = str5;
-                                    str7 = str6;
+                                } catch (Exception e15) {
+                                    e = e15;
+                                    str27 = liveSource;
+                                    str2 = optString;
+                                    str7 = "";
                                     str8 = str7;
                                     str9 = str8;
                                     str10 = str9;
                                     str11 = str10;
                                     str12 = str11;
                                     str13 = str12;
-                                    str14 = optString10;
-                                    str3 = str36;
+                                    str14 = optString2;
+                                    str3 = str26;
+                                    str5 = str28;
+                                    str6 = str29;
                                 }
-                            } catch (Exception e41) {
-                                e = e41;
-                                str2 = optString9;
-                                str4 = "";
-                                str5 = str4;
-                                str6 = str5;
+                            } catch (Exception e16) {
+                                e = e16;
+                                str27 = liveSource;
+                                str2 = optString;
+                                str6 = "";
                                 str7 = str6;
                                 str8 = str7;
                                 str9 = str8;
@@ -1747,15 +720,15 @@ public final class IntentData implements State {
                                 str11 = str10;
                                 str12 = str11;
                                 str13 = str12;
-                                str14 = optString10;
-                                str3 = str36;
+                                str14 = optString2;
+                                str3 = str26;
+                                str5 = str28;
                             }
-                        } catch (Exception e42) {
-                            e = e42;
-                            str2 = optString9;
-                            str3 = "";
-                            str4 = str3;
-                            str5 = str4;
+                        } catch (Exception e17) {
+                            e = e17;
+                            str27 = liveSource;
+                            str2 = optString;
+                            str5 = "";
                             str6 = str5;
                             str7 = str6;
                             str8 = str7;
@@ -1764,14 +737,13 @@ public final class IntentData implements State {
                             str11 = str10;
                             str12 = str11;
                             str13 = str12;
-                            str14 = optString10;
+                            str14 = optString2;
+                            str3 = str26;
                         }
-                    } catch (Exception e43) {
-                        e = e43;
-                        str25 = "";
-                        str2 = optString9;
-                        str3 = str25;
-                        str4 = str3;
+                    } catch (Exception e18) {
+                        e = e18;
+                        str2 = optString;
+                        str4 = "";
                         str5 = str4;
                         str6 = str5;
                         str7 = str6;
@@ -1781,45 +753,1084 @@ public final class IntentData implements State {
                         str11 = str10;
                         str12 = str11;
                         str13 = str12;
-                        str14 = str13;
+                        str14 = optString2;
+                        str3 = str26;
+                    }
+                } catch (Exception e19) {
+                    e = e19;
+                    str2 = optString;
+                    str3 = "";
+                    str4 = str3;
+                    str5 = str4;
+                    str6 = str5;
+                    str7 = str6;
+                    str8 = str7;
+                    str9 = str8;
+                    str10 = str9;
+                    str11 = str10;
+                    str12 = str11;
+                    str13 = str12;
+                    str14 = optString2;
+                }
+            } catch (Exception e20) {
+                e = e20;
+                str25 = "";
+                str2 = optString;
+                str3 = str25;
+                str4 = str3;
+                str5 = str4;
+                str6 = str5;
+                str7 = str6;
+                str8 = str7;
+                str9 = str8;
+                str10 = str9;
+                str11 = str10;
+                str12 = str11;
+                str13 = str12;
+                str14 = str13;
+                str24 = null;
+                str23 = null;
+                num = null;
+                jSONObject11 = null;
+                jSONObject10 = null;
+                jSONObject9 = null;
+                jSONObject8 = null;
+                jSONObject7 = null;
+                str22 = null;
+                str21 = null;
+                jSONObject6 = null;
+                jSONObject5 = null;
+                jSONObject4 = null;
+                jSONObject3 = null;
+                str20 = null;
+                str19 = null;
+                str18 = null;
+                str17 = null;
+                jSONObject2 = null;
+                str16 = null;
+                str15 = null;
+                jSONObject = null;
+                e.printStackTrace();
+                SchemeModel schemeModel2222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                schemeModel2222222.setPlayerCacheKey(str24);
+                schemeModel2222222.setPlayerCacheCodeC(num);
+                schemeModel2222222.setKabrSpts(str23);
+                return schemeModel2222222;
+            }
+            try {
+                parseJSONObject7 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "invokePop");
+                try {
+                    parseJSONObject8 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "shareTaskInfo");
+                    try {
+                        optString3 = jSONObject12.optString("askId");
+                        try {
+                            optString4 = jSONObject12.optString("templateId");
+                        } catch (Exception e21) {
+                            e = e21;
+                            str2 = optString;
+                            jSONObject11 = parseJSONObject;
+                            str11 = "";
+                            str12 = str11;
+                            str13 = str12;
+                            str14 = optString2;
+                            str3 = str26;
+                            str5 = str28;
+                            str6 = str29;
+                            str7 = str30;
+                            str8 = str31;
+                            str9 = str32;
+                            str10 = str33;
+                            jSONObject6 = parseJSONObject2;
+                            jSONObject8 = parseJSONObject3;
+                            jSONObject10 = parseJSONObject4;
+                            jSONObject9 = parseJSONObject5;
+                            jSONObject5 = parseJSONObject7;
+                            jSONObject2 = parseJSONObject8;
+                            str22 = optString3;
+                            jSONObject7 = parseJSONObject6;
+                            str4 = liveSource;
+                            str24 = null;
+                            str23 = null;
+                            num = null;
+                            str21 = null;
+                            jSONObject4 = null;
+                            jSONObject3 = null;
+                            str20 = null;
+                            str19 = null;
+                            str18 = null;
+                            str17 = null;
+                            str16 = null;
+                            str15 = null;
+                            jSONObject = null;
+                            e.printStackTrace();
+                            SchemeModel schemeModel22222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                            schemeModel22222222.setPlayerCacheKey(str24);
+                            schemeModel22222222.setPlayerCacheCodeC(num);
+                            schemeModel22222222.setKabrSpts(str23);
+                            return schemeModel22222222;
+                        }
+                    } catch (Exception e22) {
+                        e = e22;
+                        str2 = optString;
+                        jSONObject11 = parseJSONObject;
+                        str11 = "";
+                        str12 = str11;
+                        str13 = str12;
+                        str14 = optString2;
+                        str3 = str26;
+                        str5 = str28;
+                        str6 = str29;
+                        str7 = str30;
+                        str8 = str31;
+                        str9 = str32;
+                        str10 = str33;
+                        jSONObject6 = parseJSONObject2;
+                        jSONObject8 = parseJSONObject3;
+                        jSONObject10 = parseJSONObject4;
+                        jSONObject9 = parseJSONObject5;
+                        jSONObject5 = parseJSONObject7;
+                        jSONObject2 = parseJSONObject8;
+                        jSONObject7 = parseJSONObject6;
+                        str4 = liveSource;
                         str24 = null;
                         str23 = null;
                         num = null;
-                        jSONObject11 = null;
-                        jSONObject10 = null;
-                        jSONObject9 = null;
-                        jSONObject8 = null;
-                        jSONObject7 = null;
                         str22 = null;
-                        str21 = null;
-                        jSONObject6 = null;
-                        jSONObject5 = null;
+                    }
+                } catch (Exception e23) {
+                    e = e23;
+                    str2 = optString;
+                    jSONObject11 = parseJSONObject;
+                    str11 = "";
+                    str12 = str11;
+                    str13 = str12;
+                    str14 = optString2;
+                    str3 = str26;
+                    str5 = str28;
+                    str6 = str29;
+                    str7 = str30;
+                    str8 = str31;
+                    str9 = str32;
+                    str10 = str33;
+                    jSONObject6 = parseJSONObject2;
+                    jSONObject8 = parseJSONObject3;
+                    jSONObject10 = parseJSONObject4;
+                    jSONObject9 = parseJSONObject5;
+                    jSONObject5 = parseJSONObject7;
+                    jSONObject7 = parseJSONObject6;
+                    str4 = liveSource;
+                    str24 = null;
+                    str23 = null;
+                    num = null;
+                    str22 = null;
+                    str21 = null;
+                    jSONObject4 = null;
+                    jSONObject3 = null;
+                    str20 = null;
+                    str19 = null;
+                    str18 = null;
+                    str17 = null;
+                    jSONObject2 = null;
+                    str16 = null;
+                    str15 = null;
+                    jSONObject = null;
+                    e.printStackTrace();
+                    SchemeModel schemeModel222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                    schemeModel222222222.setPlayerCacheKey(str24);
+                    schemeModel222222222.setPlayerCacheCodeC(num);
+                    schemeModel222222222.setKabrSpts(str23);
+                    return schemeModel222222222;
+                }
+            } catch (Exception e24) {
+                e = e24;
+                str2 = optString;
+                jSONObject11 = parseJSONObject;
+                str11 = "";
+                str12 = str11;
+                str13 = str12;
+                str14 = optString2;
+                str3 = str26;
+                str5 = str28;
+                str6 = str29;
+                str7 = str30;
+                str8 = str31;
+                str9 = str32;
+                str10 = str33;
+                jSONObject6 = parseJSONObject2;
+                jSONObject8 = parseJSONObject3;
+                jSONObject10 = parseJSONObject4;
+                jSONObject9 = parseJSONObject5;
+                jSONObject7 = parseJSONObject6;
+                str4 = liveSource;
+                str24 = null;
+                str23 = null;
+                num = null;
+                str22 = null;
+                str21 = null;
+                jSONObject5 = null;
+                jSONObject4 = null;
+                jSONObject3 = null;
+                str20 = null;
+                str19 = null;
+                str18 = null;
+                str17 = null;
+                jSONObject2 = null;
+                str16 = null;
+                str15 = null;
+                jSONObject = null;
+                e.printStackTrace();
+                SchemeModel schemeModel2222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                schemeModel2222222222.setPlayerCacheKey(str24);
+                schemeModel2222222222.setPlayerCacheCodeC(num);
+                schemeModel2222222222.setKabrSpts(str23);
+                return schemeModel2222222222;
+            }
+            try {
+                String optString19 = jSONObject12.optString("avcUrl");
+                try {
+                    optString5 = jSONObject12.optString("hevcUrl");
+                } catch (Exception e25) {
+                    e = e25;
+                    str2 = optString;
+                    jSONObject11 = parseJSONObject;
+                    str11 = "";
+                    str12 = str11;
+                    str13 = str12;
+                    str14 = optString2;
+                    str3 = str26;
+                    str5 = str28;
+                    str6 = str29;
+                    str7 = str30;
+                    str8 = str31;
+                    str9 = str32;
+                    str10 = str33;
+                    jSONObject6 = parseJSONObject2;
+                    jSONObject8 = parseJSONObject3;
+                    jSONObject10 = parseJSONObject4;
+                    jSONObject9 = parseJSONObject5;
+                    jSONObject5 = parseJSONObject7;
+                    jSONObject2 = parseJSONObject8;
+                    str22 = optString3;
+                    str21 = optString4;
+                    str20 = optString19;
+                    jSONObject7 = parseJSONObject6;
+                    str4 = liveSource;
+                    str24 = null;
+                    str23 = null;
+                    num = null;
+                    jSONObject4 = null;
+                    jSONObject3 = null;
+                    str19 = null;
+                    str18 = null;
+                    str17 = null;
+                    str16 = null;
+                    str15 = null;
+                    jSONObject = null;
+                    e.printStackTrace();
+                    SchemeModel schemeModel22222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                    schemeModel22222222222.setPlayerCacheKey(str24);
+                    schemeModel22222222222.setPlayerCacheCodeC(num);
+                    schemeModel22222222222.setKabrSpts(str23);
+                    return schemeModel22222222222;
+                }
+                try {
+                    String optString20 = jSONObject12.optString("rtcUrl");
+                    try {
+                        optString6 = jSONObject12.optString("title");
+                    } catch (Exception e26) {
+                        e = e26;
+                        str2 = optString;
+                        jSONObject11 = parseJSONObject;
+                        str11 = "";
+                        str12 = str11;
+                        str13 = str12;
+                        str14 = optString2;
+                        str3 = str26;
+                        str5 = str28;
+                        str6 = str29;
+                        str7 = str30;
+                        str8 = str31;
+                        str9 = str32;
+                        str10 = str33;
+                        jSONObject6 = parseJSONObject2;
+                        jSONObject8 = parseJSONObject3;
+                        jSONObject10 = parseJSONObject4;
+                        jSONObject9 = parseJSONObject5;
+                        jSONObject5 = parseJSONObject7;
+                        jSONObject2 = parseJSONObject8;
+                        str22 = optString3;
+                        str21 = optString4;
+                        str20 = optString19;
+                        str19 = optString5;
+                        str18 = optString20;
+                        jSONObject7 = parseJSONObject6;
+                        str4 = liveSource;
+                        str24 = null;
+                        str23 = null;
+                        num = null;
                         jSONObject4 = null;
                         jSONObject3 = null;
-                        str20 = null;
-                        str19 = null;
-                        str18 = null;
                         str17 = null;
-                        jSONObject2 = null;
                         str16 = null;
                         str15 = null;
                         jSONObject = null;
                         e.printStackTrace();
-                        SchemeModel schemeModel222222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
-                        schemeModel222222222222222222222222.setPlayerCacheKey(str24);
-                        schemeModel222222222222222222222222.setPlayerCacheCodeC(num);
-                        schemeModel222222222222222222222222.setKabrSpts(str23);
-                        return schemeModel222222222222222222222222;
+                        SchemeModel schemeModel222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                        schemeModel222222222222.setPlayerCacheKey(str24);
+                        schemeModel222222222222.setPlayerCacheCodeC(num);
+                        schemeModel222222222222.setKabrSpts(str23);
+                        return schemeModel222222222222;
+                    }
+                    try {
+                        String optString21 = jSONObject12.optString("quic");
+                        try {
+                            optString7 = jSONObject12.optString("highLightUrl");
+                        } catch (Exception e27) {
+                            e = e27;
+                            str2 = optString;
+                            jSONObject11 = parseJSONObject;
+                            str11 = "";
+                            str12 = str11;
+                            str13 = str12;
+                            str14 = optString2;
+                            str3 = str26;
+                            str5 = str28;
+                            str6 = str29;
+                            str7 = str30;
+                            str8 = str31;
+                            str9 = str32;
+                            str10 = str33;
+                            jSONObject6 = parseJSONObject2;
+                            jSONObject8 = parseJSONObject3;
+                            jSONObject10 = parseJSONObject4;
+                            jSONObject9 = parseJSONObject5;
+                            jSONObject5 = parseJSONObject7;
+                            jSONObject2 = parseJSONObject8;
+                            str22 = optString3;
+                            str21 = optString4;
+                            str20 = optString19;
+                            str19 = optString5;
+                            str18 = optString20;
+                            str17 = optString6;
+                            str16 = optString21;
+                            jSONObject7 = parseJSONObject6;
+                            str4 = liveSource;
+                            str24 = null;
+                            str23 = null;
+                            num = null;
+                            jSONObject4 = null;
+                            jSONObject3 = null;
+                            str15 = null;
+                            jSONObject = null;
+                            e.printStackTrace();
+                            SchemeModel schemeModel2222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                            schemeModel2222222222222.setPlayerCacheKey(str24);
+                            schemeModel2222222222222.setPlayerCacheCodeC(num);
+                            schemeModel2222222222222.setKabrSpts(str23);
+                            return schemeModel2222222222222;
+                        }
+                        try {
+                            JSONObject parseJSONObject10 = MiniJsonUtils.INSTANCE.parseJSONObject(jSONObject12, "introduce_tips");
+                            try {
+                                String optString22 = jSONObject12.optString("playerIdentifier");
+                                try {
+                                    num = Integer.valueOf(jSONObject12.optInt("codec_id"));
+                                    try {
+                                        str23 = jSONObject12.optString(LivePreStartPlayServiceImpl.PARAM_KABR_SPTS);
+                                        try {
+                                            if (parseJSONObject == null) {
+                                                JSONObject jSONObject15 = new JSONObject();
+                                                JSONObject jSONObject16 = new JSONObject();
+                                                jSONObject16.put("source", liveSource);
+                                                Unit unit = Unit.INSTANCE;
+                                                jSONObject15.put("ext", jSONObject16);
+                                                Unit unit2 = Unit.INSTANCE;
+                                                jSONObject13 = jSONObject15;
+                                                str36 = "";
+                                                str35 = str36;
+                                            } else {
+                                                try {
+                                                    optJSONObject = parseJSONObject.optJSONObject("ext");
+                                                    if (optJSONObject != null) {
+                                                        try {
+                                                            String optString23 = optJSONObject.optString("share_uid");
+                                                            try {
+                                                                optString8 = optJSONObject.optString("zb_tag");
+                                                            } catch (JSONException unused2) {
+                                                                str35 = "";
+                                                                str36 = optString23;
+                                                            } catch (Exception e28) {
+                                                                e = e28;
+                                                                str11 = "";
+                                                                str13 = str11;
+                                                                str2 = optString;
+                                                                jSONObject11 = parseJSONObject;
+                                                                str24 = optString22;
+                                                                jSONObject7 = parseJSONObject6;
+                                                                str4 = liveSource;
+                                                                str12 = optString23;
+                                                            }
+                                                            try {
+                                                                Unit unit3 = Unit.INSTANCE;
+                                                                str36 = optString23;
+                                                                str35 = "";
+                                                                str40 = optString8;
+                                                            } catch (JSONException unused3) {
+                                                                str36 = optString23;
+                                                                str35 = "";
+                                                                str40 = optString8;
+                                                            } catch (Exception e29) {
+                                                                e = e29;
+                                                                str11 = "";
+                                                                str2 = optString;
+                                                                jSONObject11 = parseJSONObject;
+                                                                str24 = optString22;
+                                                                jSONObject7 = parseJSONObject6;
+                                                                str4 = liveSource;
+                                                                str12 = optString23;
+                                                                str13 = optString8;
+                                                                str14 = optString2;
+                                                                str3 = str26;
+                                                                str5 = str28;
+                                                                str6 = str29;
+                                                                str7 = str30;
+                                                                str8 = str31;
+                                                                str9 = str32;
+                                                                str10 = str33;
+                                                                jSONObject6 = parseJSONObject2;
+                                                                jSONObject8 = parseJSONObject3;
+                                                                jSONObject10 = parseJSONObject4;
+                                                                jSONObject9 = parseJSONObject5;
+                                                                jSONObject5 = parseJSONObject7;
+                                                                jSONObject2 = parseJSONObject8;
+                                                                str22 = optString3;
+                                                                str21 = optString4;
+                                                                str20 = optString19;
+                                                                str19 = optString5;
+                                                                str18 = optString20;
+                                                                str17 = optString6;
+                                                                str16 = optString21;
+                                                                str15 = optString7;
+                                                                jSONObject = parseJSONObject10;
+                                                                jSONObject4 = null;
+                                                                jSONObject3 = null;
+                                                                e.printStackTrace();
+                                                                SchemeModel schemeModel22222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                                schemeModel22222222222222.setPlayerCacheKey(str24);
+                                                                schemeModel22222222222222.setPlayerCacheCodeC(num);
+                                                                schemeModel22222222222222.setKabrSpts(str23);
+                                                                return schemeModel22222222222222;
+                                                            }
+                                                        } catch (JSONException unused4) {
+                                                            str36 = "";
+                                                            str35 = str36;
+                                                        }
+                                                    } else {
+                                                        str36 = "";
+                                                        str35 = str36;
+                                                    }
+                                                } catch (JSONException unused5) {
+                                                    str35 = "";
+                                                    str36 = "";
+                                                } catch (Exception e30) {
+                                                    e = e30;
+                                                    str2 = optString;
+                                                    jSONObject11 = parseJSONObject;
+                                                    str24 = optString22;
+                                                    jSONObject7 = parseJSONObject6;
+                                                    str4 = liveSource;
+                                                    str11 = "";
+                                                    str12 = str11;
+                                                    str13 = str12;
+                                                }
+                                                try {
+                                                    if (optJSONObject == null) {
+                                                        JSONObject jSONObject17 = new JSONObject();
+                                                        jSONObject17.put("source", liveSource);
+                                                        jSONObject17.put("share_uid", str36);
+                                                        jSONObject17.put("zb_tag", str40);
+                                                        Unit unit4 = Unit.INSTANCE;
+                                                        parseJSONObject.put("ext", jSONObject17);
+                                                    } else if (!optJSONObject.has("source")) {
+                                                        optJSONObject.put("source", liveSource);
+                                                        optJSONObject.put("share_uid", str36);
+                                                        optJSONObject.put("zb_tag", str40);
+                                                    }
+                                                } catch (JSONException unused6) {
+                                                } catch (Exception e31) {
+                                                    e = e31;
+                                                    str13 = str40;
+                                                    str12 = str36;
+                                                    str2 = optString;
+                                                    jSONObject11 = parseJSONObject;
+                                                    str24 = optString22;
+                                                    jSONObject7 = parseJSONObject6;
+                                                    str4 = liveSource;
+                                                    str11 = str35;
+                                                    str14 = optString2;
+                                                    str3 = str26;
+                                                    str5 = str28;
+                                                    str6 = str29;
+                                                    str7 = str30;
+                                                    str8 = str31;
+                                                    str9 = str32;
+                                                    str10 = str33;
+                                                    jSONObject6 = parseJSONObject2;
+                                                    jSONObject8 = parseJSONObject3;
+                                                    jSONObject10 = parseJSONObject4;
+                                                    jSONObject9 = parseJSONObject5;
+                                                    jSONObject5 = parseJSONObject7;
+                                                    jSONObject2 = parseJSONObject8;
+                                                    str22 = optString3;
+                                                    str21 = optString4;
+                                                    str20 = optString19;
+                                                    str19 = optString5;
+                                                    str18 = optString20;
+                                                    str17 = optString6;
+                                                    str16 = optString21;
+                                                    str15 = optString7;
+                                                    jSONObject = parseJSONObject10;
+                                                    jSONObject4 = null;
+                                                    jSONObject3 = null;
+                                                    e.printStackTrace();
+                                                    SchemeModel schemeModel222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                    schemeModel222222222222222.setPlayerCacheKey(str24);
+                                                    schemeModel222222222222222.setPlayerCacheCodeC(num);
+                                                    schemeModel222222222222222.setKabrSpts(str23);
+                                                    return schemeModel222222222222222;
+                                                }
+                                                jSONObject13 = parseJSONObject;
+                                            }
+                                        } catch (Exception e32) {
+                                            e = e32;
+                                            str11 = "";
+                                            str12 = str11;
+                                            str13 = str12;
+                                            str2 = optString;
+                                            jSONObject11 = parseJSONObject;
+                                        }
+                                    } catch (Exception e33) {
+                                        e = e33;
+                                        str2 = optString;
+                                        str24 = optString22;
+                                        jSONObject11 = parseJSONObject;
+                                        str11 = "";
+                                        str12 = str11;
+                                        str13 = str12;
+                                        str14 = optString2;
+                                        str3 = str26;
+                                        str5 = str28;
+                                        str6 = str29;
+                                        str7 = str30;
+                                        str8 = str31;
+                                        str9 = str32;
+                                        str10 = str33;
+                                        jSONObject6 = parseJSONObject2;
+                                        jSONObject8 = parseJSONObject3;
+                                        jSONObject10 = parseJSONObject4;
+                                        jSONObject9 = parseJSONObject5;
+                                        jSONObject5 = parseJSONObject7;
+                                        jSONObject2 = parseJSONObject8;
+                                        str22 = optString3;
+                                        str21 = optString4;
+                                        str20 = optString19;
+                                        str19 = optString5;
+                                        str18 = optString20;
+                                        str17 = optString6;
+                                        str16 = optString21;
+                                        str15 = optString7;
+                                        jSONObject = parseJSONObject10;
+                                        jSONObject7 = parseJSONObject6;
+                                        str4 = liveSource;
+                                        str23 = null;
+                                    }
+                                } catch (Exception e34) {
+                                    e = e34;
+                                    str2 = optString;
+                                    str24 = optString22;
+                                    jSONObject11 = parseJSONObject;
+                                    str11 = "";
+                                    str12 = str11;
+                                    str13 = str12;
+                                    str14 = optString2;
+                                    str3 = str26;
+                                    str5 = str28;
+                                    str6 = str29;
+                                    str7 = str30;
+                                    str8 = str31;
+                                    str9 = str32;
+                                    str10 = str33;
+                                    jSONObject6 = parseJSONObject2;
+                                    jSONObject8 = parseJSONObject3;
+                                    jSONObject10 = parseJSONObject4;
+                                    jSONObject9 = parseJSONObject5;
+                                    jSONObject5 = parseJSONObject7;
+                                    jSONObject2 = parseJSONObject8;
+                                    str22 = optString3;
+                                    str21 = optString4;
+                                    str20 = optString19;
+                                    str19 = optString5;
+                                    str18 = optString20;
+                                    str17 = optString6;
+                                    str16 = optString21;
+                                    str15 = optString7;
+                                    jSONObject = parseJSONObject10;
+                                    jSONObject7 = parseJSONObject6;
+                                    str4 = liveSource;
+                                    str23 = null;
+                                    num = null;
+                                    jSONObject4 = null;
+                                    jSONObject3 = null;
+                                    e.printStackTrace();
+                                    SchemeModel schemeModel2222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                    schemeModel2222222222222222.setPlayerCacheKey(str24);
+                                    schemeModel2222222222222222.setPlayerCacheCodeC(num);
+                                    schemeModel2222222222222222.setKabrSpts(str23);
+                                    return schemeModel2222222222222222;
+                                }
+                                try {
+                                    try {
+                                        try {
+                                            try {
+                                                if (parseJSONObject6 != null) {
+                                                    try {
+                                                        JSONObject optJSONObject4 = parseJSONObject6.optJSONObject("ext");
+                                                        if (optJSONObject4 != null) {
+                                                            optString9 = optJSONObject4.optString("live_back_scheme");
+                                                            if (optString9 == null) {
+                                                                optString9 = str35;
+                                                            }
+                                                            try {
+                                                                if (TextUtils.isEmpty(optString9)) {
+                                                                    String optString24 = optJSONObject4.optString("live_back_for_both_scheme");
+                                                                    if (optString24 == null) {
+                                                                        optString24 = str35;
+                                                                    }
+                                                                    optString9 = optString24;
+                                                                }
+                                                                optJSONObject2 = jSONObject12.optJSONObject("queryECLive");
+                                                                optJSONObject3 = jSONObject12.optJSONObject("hlReplay");
+                                                                str38 = optString;
+                                                                jSONObject14 = parseJSONObject6;
+                                                                str37 = liveSource;
+                                                                SchemeModel schemeModel3 = new SchemeModel(optString, str26, liveSource, str28, str29, str30, str31, str32, str33, optString9, jSONObject13, parseJSONObject4, parseJSONObject5, parseJSONObject3, jSONObject14, optString3, optString4, parseJSONObject2, parseJSONObject7, optJSONObject2, optJSONObject3, str36, str40, optString19, optString5, optString20, optString6, parseJSONObject8, optString21, optString2, optString7, parseJSONObject10);
+                                                                schemeModel3.setPlayerCacheKey(optString22);
+                                                                num2 = num;
+                                                                schemeModel3.setPlayerCacheCodeC(num2);
+                                                                str39 = str23;
+                                                                schemeModel3.setKabrSpts(str39);
+                                                                return schemeModel3;
+                                                            } catch (Exception e35) {
+                                                                e = e35;
+                                                                str11 = optString9;
+                                                                jSONObject11 = jSONObject13;
+                                                                str13 = str40;
+                                                                str12 = str36;
+                                                                str2 = optString;
+                                                                str24 = optString22;
+                                                                jSONObject7 = parseJSONObject6;
+                                                                str4 = liveSource;
+                                                                str14 = optString2;
+                                                                str3 = str26;
+                                                                str5 = str28;
+                                                                str6 = str29;
+                                                                str7 = str30;
+                                                                str8 = str31;
+                                                                str9 = str32;
+                                                                str10 = str33;
+                                                                jSONObject6 = parseJSONObject2;
+                                                                jSONObject8 = parseJSONObject3;
+                                                                jSONObject10 = parseJSONObject4;
+                                                                jSONObject9 = parseJSONObject5;
+                                                                jSONObject5 = parseJSONObject7;
+                                                                jSONObject2 = parseJSONObject8;
+                                                                str22 = optString3;
+                                                                str21 = optString4;
+                                                                str20 = optString19;
+                                                                str19 = optString5;
+                                                                str18 = optString20;
+                                                                str17 = optString6;
+                                                                str16 = optString21;
+                                                                str15 = optString7;
+                                                                jSONObject = parseJSONObject10;
+                                                                jSONObject4 = null;
+                                                                jSONObject3 = null;
+                                                                e.printStackTrace();
+                                                                SchemeModel schemeModel22222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                                schemeModel22222222222222222.setPlayerCacheKey(str24);
+                                                                schemeModel22222222222222222.setPlayerCacheCodeC(num);
+                                                                schemeModel22222222222222222.setKabrSpts(str23);
+                                                                return schemeModel22222222222222222;
+                                                            }
+                                                        }
+                                                    } catch (Exception e36) {
+                                                        e = e36;
+                                                        jSONObject11 = jSONObject13;
+                                                        str13 = str40;
+                                                        str12 = str36;
+                                                        str2 = optString;
+                                                        str24 = optString22;
+                                                        jSONObject7 = parseJSONObject6;
+                                                        str4 = liveSource;
+                                                        str11 = str35;
+                                                        str14 = optString2;
+                                                        str3 = str26;
+                                                        str5 = str28;
+                                                        str6 = str29;
+                                                        str7 = str30;
+                                                        str8 = str31;
+                                                        str9 = str32;
+                                                        str10 = str33;
+                                                        jSONObject6 = parseJSONObject2;
+                                                        jSONObject8 = parseJSONObject3;
+                                                        jSONObject10 = parseJSONObject4;
+                                                        jSONObject9 = parseJSONObject5;
+                                                        jSONObject5 = parseJSONObject7;
+                                                        jSONObject2 = parseJSONObject8;
+                                                        str22 = optString3;
+                                                        str21 = optString4;
+                                                        str20 = optString19;
+                                                        str19 = optString5;
+                                                        str18 = optString20;
+                                                        str17 = optString6;
+                                                        str16 = optString21;
+                                                        str15 = optString7;
+                                                        jSONObject = parseJSONObject10;
+                                                        jSONObject4 = null;
+                                                        jSONObject3 = null;
+                                                        e.printStackTrace();
+                                                        SchemeModel schemeModel222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                        schemeModel222222222222222222.setPlayerCacheKey(str24);
+                                                        schemeModel222222222222222222.setPlayerCacheCodeC(num);
+                                                        schemeModel222222222222222222.setKabrSpts(str23);
+                                                        return schemeModel222222222222222222;
+                                                    }
+                                                }
+                                                schemeModel3.setKabrSpts(str39);
+                                                return schemeModel3;
+                                            } catch (Exception e37) {
+                                                e = e37;
+                                                str2 = str38;
+                                                str11 = optString9;
+                                                jSONObject11 = jSONObject13;
+                                                str13 = str40;
+                                                str12 = str36;
+                                                jSONObject3 = optJSONObject3;
+                                                str24 = optString22;
+                                                str23 = str39;
+                                                num = num2;
+                                                str14 = optString2;
+                                                str3 = str26;
+                                                str5 = str28;
+                                                str6 = str29;
+                                                str7 = str30;
+                                                str8 = str31;
+                                                str9 = str32;
+                                                str10 = str33;
+                                                jSONObject6 = parseJSONObject2;
+                                                jSONObject8 = parseJSONObject3;
+                                                jSONObject10 = parseJSONObject4;
+                                                jSONObject9 = parseJSONObject5;
+                                                jSONObject5 = parseJSONObject7;
+                                                jSONObject2 = parseJSONObject8;
+                                                str22 = optString3;
+                                                str21 = optString4;
+                                                str20 = optString19;
+                                                str19 = optString5;
+                                                str18 = optString20;
+                                                str17 = optString6;
+                                                str16 = optString21;
+                                                str15 = optString7;
+                                                jSONObject = parseJSONObject10;
+                                                jSONObject4 = optJSONObject2;
+                                                jSONObject7 = jSONObject14;
+                                                str4 = str37;
+                                                e.printStackTrace();
+                                                SchemeModel schemeModel2222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                                schemeModel2222222222222222222.setPlayerCacheKey(str24);
+                                                schemeModel2222222222222222222.setPlayerCacheCodeC(num);
+                                                schemeModel2222222222222222222.setKabrSpts(str23);
+                                                return schemeModel2222222222222222222;
+                                            }
+                                            SchemeModel schemeModel32 = new SchemeModel(optString, str26, liveSource, str28, str29, str30, str31, str32, str33, optString9, jSONObject13, parseJSONObject4, parseJSONObject5, parseJSONObject3, jSONObject14, optString3, optString4, parseJSONObject2, parseJSONObject7, optJSONObject2, optJSONObject3, str36, str40, optString19, optString5, optString20, optString6, parseJSONObject8, optString21, optString2, optString7, parseJSONObject10);
+                                            schemeModel32.setPlayerCacheKey(optString22);
+                                            num2 = num;
+                                            schemeModel32.setPlayerCacheCodeC(num2);
+                                            str39 = str23;
+                                        } catch (Exception e38) {
+                                            e = e38;
+                                            str39 = str23;
+                                            num2 = num;
+                                        }
+                                        str38 = optString;
+                                        jSONObject14 = parseJSONObject6;
+                                        str37 = liveSource;
+                                    } catch (Exception e39) {
+                                        e = e39;
+                                        jSONObject14 = parseJSONObject6;
+                                        str37 = liveSource;
+                                        str2 = optString;
+                                        str11 = optString9;
+                                        jSONObject11 = jSONObject13;
+                                        str13 = str40;
+                                        str12 = str36;
+                                        jSONObject3 = optJSONObject3;
+                                        str24 = optString22;
+                                    }
+                                    optJSONObject3 = jSONObject12.optJSONObject("hlReplay");
+                                } catch (Exception e40) {
+                                    e = e40;
+                                    str2 = optString;
+                                    str11 = optString9;
+                                    jSONObject11 = jSONObject13;
+                                    str13 = str40;
+                                    str12 = str36;
+                                    str24 = optString22;
+                                    str14 = optString2;
+                                    str3 = str26;
+                                    str5 = str28;
+                                    str6 = str29;
+                                    str7 = str30;
+                                    str8 = str31;
+                                    str9 = str32;
+                                    str10 = str33;
+                                    jSONObject6 = parseJSONObject2;
+                                    jSONObject8 = parseJSONObject3;
+                                    jSONObject10 = parseJSONObject4;
+                                    jSONObject9 = parseJSONObject5;
+                                    jSONObject5 = parseJSONObject7;
+                                    jSONObject2 = parseJSONObject8;
+                                    str22 = optString3;
+                                    str21 = optString4;
+                                    str20 = optString19;
+                                    str19 = optString5;
+                                    str18 = optString20;
+                                    str17 = optString6;
+                                    str16 = optString21;
+                                    str15 = optString7;
+                                    jSONObject = parseJSONObject10;
+                                    jSONObject4 = optJSONObject2;
+                                    jSONObject7 = parseJSONObject6;
+                                    str4 = liveSource;
+                                    jSONObject3 = null;
+                                    e.printStackTrace();
+                                    SchemeModel schemeModel22222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                                    schemeModel22222222222222222222.setPlayerCacheKey(str24);
+                                    schemeModel22222222222222222222.setPlayerCacheCodeC(num);
+                                    schemeModel22222222222222222222.setKabrSpts(str23);
+                                    return schemeModel22222222222222222222;
+                                }
+                                optString9 = str35;
+                                optJSONObject2 = jSONObject12.optJSONObject("queryECLive");
+                            } catch (Exception e41) {
+                                e = e41;
+                                str2 = optString;
+                                jSONObject11 = parseJSONObject;
+                                str11 = "";
+                                str12 = str11;
+                                str13 = str12;
+                                str14 = optString2;
+                                str3 = str26;
+                                str5 = str28;
+                                str6 = str29;
+                                str7 = str30;
+                                str8 = str31;
+                                str9 = str32;
+                                str10 = str33;
+                                jSONObject6 = parseJSONObject2;
+                                jSONObject8 = parseJSONObject3;
+                                jSONObject10 = parseJSONObject4;
+                                jSONObject9 = parseJSONObject5;
+                                jSONObject5 = parseJSONObject7;
+                                jSONObject2 = parseJSONObject8;
+                                str22 = optString3;
+                                str21 = optString4;
+                                str20 = optString19;
+                                str19 = optString5;
+                                str18 = optString20;
+                                str17 = optString6;
+                                str16 = optString21;
+                                str15 = optString7;
+                                jSONObject = parseJSONObject10;
+                                jSONObject7 = parseJSONObject6;
+                                str4 = liveSource;
+                                str24 = null;
+                            }
+                        } catch (Exception e42) {
+                            e = e42;
+                            str2 = optString;
+                            jSONObject11 = parseJSONObject;
+                            str11 = "";
+                            str12 = str11;
+                            str13 = str12;
+                            str14 = optString2;
+                            str3 = str26;
+                            str5 = str28;
+                            str6 = str29;
+                            str7 = str30;
+                            str8 = str31;
+                            str9 = str32;
+                            str10 = str33;
+                            jSONObject6 = parseJSONObject2;
+                            jSONObject8 = parseJSONObject3;
+                            jSONObject10 = parseJSONObject4;
+                            jSONObject9 = parseJSONObject5;
+                            jSONObject5 = parseJSONObject7;
+                            jSONObject2 = parseJSONObject8;
+                            str22 = optString3;
+                            str21 = optString4;
+                            str20 = optString19;
+                            str19 = optString5;
+                            str18 = optString20;
+                            str17 = optString6;
+                            str16 = optString21;
+                            str15 = optString7;
+                            jSONObject7 = parseJSONObject6;
+                            str4 = liveSource;
+                            str24 = null;
+                            str23 = null;
+                            num = null;
+                            jSONObject4 = null;
+                            jSONObject3 = null;
+                            jSONObject = null;
+                            e.printStackTrace();
+                            SchemeModel schemeModel222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                            schemeModel222222222222222222222.setPlayerCacheKey(str24);
+                            schemeModel222222222222222222222.setPlayerCacheCodeC(num);
+                            schemeModel222222222222222222222.setKabrSpts(str23);
+                            return schemeModel222222222222222222222;
+                        }
+                    } catch (Exception e43) {
+                        e = e43;
+                        str2 = optString;
+                        jSONObject11 = parseJSONObject;
+                        str11 = "";
+                        str12 = str11;
+                        str13 = str12;
+                        str14 = optString2;
+                        str3 = str26;
+                        str5 = str28;
+                        str6 = str29;
+                        str7 = str30;
+                        str8 = str31;
+                        str9 = str32;
+                        str10 = str33;
+                        jSONObject6 = parseJSONObject2;
+                        jSONObject8 = parseJSONObject3;
+                        jSONObject10 = parseJSONObject4;
+                        jSONObject9 = parseJSONObject5;
+                        jSONObject5 = parseJSONObject7;
+                        jSONObject2 = parseJSONObject8;
+                        str22 = optString3;
+                        str21 = optString4;
+                        str20 = optString19;
+                        str19 = optString5;
+                        str18 = optString20;
+                        str17 = optString6;
+                        jSONObject7 = parseJSONObject6;
+                        str4 = liveSource;
+                        str24 = null;
+                        str23 = null;
+                        num = null;
+                        jSONObject4 = null;
+                        jSONObject3 = null;
+                        str16 = null;
+                        str15 = null;
+                        jSONObject = null;
+                        e.printStackTrace();
+                        SchemeModel schemeModel2222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                        schemeModel2222222222222222222222.setPlayerCacheKey(str24);
+                        schemeModel2222222222222222222222.setPlayerCacheCodeC(num);
+                        schemeModel2222222222222222222222.setKabrSpts(str23);
+                        return schemeModel2222222222222222222222;
                     }
                 } catch (Exception e44) {
                     e = e44;
-                    str25 = "";
-                    str2 = optString9;
+                    str2 = optString;
+                    jSONObject11 = parseJSONObject;
+                    str11 = "";
+                    str12 = str11;
+                    str13 = str12;
+                    str14 = optString2;
+                    str3 = str26;
+                    str5 = str28;
+                    str6 = str29;
+                    str7 = str30;
+                    str8 = str31;
+                    str9 = str32;
+                    str10 = str33;
+                    jSONObject6 = parseJSONObject2;
+                    jSONObject8 = parseJSONObject3;
+                    jSONObject10 = parseJSONObject4;
+                    jSONObject9 = parseJSONObject5;
+                    jSONObject5 = parseJSONObject7;
+                    jSONObject2 = parseJSONObject8;
+                    str22 = optString3;
+                    str21 = optString4;
+                    str20 = optString19;
+                    str19 = optString5;
+                    jSONObject7 = parseJSONObject6;
+                    str4 = liveSource;
+                    str24 = null;
+                    str23 = null;
+                    num = null;
+                    jSONObject4 = null;
+                    jSONObject3 = null;
+                    str18 = null;
+                    str17 = null;
+                    str16 = null;
+                    str15 = null;
+                    jSONObject = null;
+                    e.printStackTrace();
+                    SchemeModel schemeModel22222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                    schemeModel22222222222222222222222.setPlayerCacheKey(str24);
+                    schemeModel22222222222222222222222.setPlayerCacheCodeC(num);
+                    schemeModel22222222222222222222222.setKabrSpts(str23);
+                    return schemeModel22222222222222222222222;
                 }
             } catch (Exception e45) {
                 e = e45;
-                str2 = "";
-                str3 = str2;
+                str2 = optString;
+                jSONObject11 = parseJSONObject;
+                str11 = "";
+                str12 = str11;
+                str13 = str12;
+                str14 = optString2;
+                str3 = str26;
+                str5 = str28;
+                str6 = str29;
+                str7 = str30;
+                str8 = str31;
+                str9 = str32;
+                str10 = str33;
+                jSONObject6 = parseJSONObject2;
+                jSONObject8 = parseJSONObject3;
+                jSONObject10 = parseJSONObject4;
+                jSONObject9 = parseJSONObject5;
+                jSONObject5 = parseJSONObject7;
+                jSONObject2 = parseJSONObject8;
+                str22 = optString3;
+                str21 = optString4;
+                jSONObject7 = parseJSONObject6;
+                str4 = liveSource;
+                str24 = null;
+                str23 = null;
+                num = null;
+                jSONObject4 = null;
+                jSONObject3 = null;
+                str20 = null;
+                str19 = null;
+                str18 = null;
+                str17 = null;
+                str16 = null;
+                str15 = null;
+                jSONObject = null;
+                e.printStackTrace();
+                SchemeModel schemeModel222222222222222222222222 = new SchemeModel(str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, jSONObject11, jSONObject10, jSONObject9, jSONObject8, jSONObject7, str22, str21, jSONObject6, jSONObject5, jSONObject4, jSONObject3, str12, str13, str20, str19, str18, str17, jSONObject2, str16, str14, str15, jSONObject);
+                schemeModel222222222222222222222222.setPlayerCacheKey(str24);
+                schemeModel222222222222222222222222.setPlayerCacheCodeC(num);
+                schemeModel222222222222222222222222.setKabrSpts(str23);
+                return schemeModel222222222222222222222222;
             }
         }
 

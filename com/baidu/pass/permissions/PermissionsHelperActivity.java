@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.common.Log;
 import com.baidu.pass.common.SharedPreferencesUtil;
 import com.baidu.pass.view.CommonDialog;
@@ -67,7 +66,6 @@ public class PermissionsHelperActivity extends Activity {
                     permissionsCallback.onFailure(-1);
                 }
                 finish();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             this.e = new StringBuilder();
@@ -78,10 +76,9 @@ public class PermissionsHelperActivity extends Activity {
             if (!((Boolean) SharedPreferencesUtil.get(this.e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.c.dialogTitle)) {
                 new CommonDialog.Builder(this).setTitle(this.c.dialogTitle).setMessage(this.c.dialogMsg).setDarkMode(this.c.isDarkMode).setPositiveBtn(this.c.okBtnTxt, new b(this)).setNegativeButton(this.c.cancleBtnTxt, new a(this)).build().show();
                 this.f = true;
-            } else {
-                requestPermissions(this.c.permissions, b);
+                return;
             }
-            LogUtil.logActivity(this, "onCreate");
+            requestPermissions(this.c.permissions, b);
         }
     }
 

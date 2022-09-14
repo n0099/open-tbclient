@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.a.d;
 import com.baidu.sofire.k.p;
@@ -93,7 +92,6 @@ public class MyActivity extends Activity {
                 int i = b.a;
             }
             finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

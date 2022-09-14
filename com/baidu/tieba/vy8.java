@@ -1,87 +1,93 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.VideoTemplate.DataRes;
+import tbclient.VideoTemplateContent;
 /* loaded from: classes6.dex */
 public class vy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<uy8> a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public vy8() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ws8.d : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static String b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ws8.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public static String c(String str, Bitmap bitmap, String str2) {
-        InterceptResult invokeLLL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) != null) {
-            return (String) invokeLLL.objValue;
-        }
-        String str3 = "";
-        FileOutputStream fileOutputStream = null;
-        try {
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            try {
-            } catch (Exception e2) {
-                e = e2;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(file, str2);
-            if (!file2.exists()) {
-                file2.createNewFile();
-            }
-            FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-            try {
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
-                fileOutputStream2.flush();
-                str3 = file2.getAbsolutePath();
-                fileOutputStream2.close();
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = fileOutputStream2;
-                e.printStackTrace();
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public List<uy8> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public void g(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
+            this.b = dataRes.topic_id.intValue();
+            this.c = dataRes.topic_name;
+            this.d = dataRes.back_url;
+            this.e = dataRes.video_template_url;
+            this.f = dataRes.activity_url;
+            List<VideoTemplateContent> list = dataRes.video_template_content;
+            if (list != null) {
+                this.a = new ArrayList();
+                for (int i = 0; i < list.size(); i++) {
+                    uy8 uy8Var = new uy8();
+                    uy8Var.a(list.get(i));
+                    this.a.add(uy8Var);
                 }
-                return str3;
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = fileOutputStream2;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
             }
-            return str3;
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 }

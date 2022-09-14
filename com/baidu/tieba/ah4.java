@@ -1,30 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import android.content.Context;
+import android.os.Parcelable;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface ah4 extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
+public class ah4 extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah4(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    long c();
+    public static ViewGroup a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            ah4 ah4Var = new ah4(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams != null) {
+                ah4Var.setLayoutParams(layoutParams);
+            }
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            ah4Var.addView(view2);
+            return ah4Var;
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
 
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sparseArray) == null) {
+            dispatchThawSelfOnly(sparseArray);
+        }
+    }
 
-    @NonNull
-    File getFile();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseArray) == null) {
+            dispatchFreezeSelfOnly(sparseArray);
+        }
+    }
 }

@@ -1,69 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.view.menu.SwanImageMenuView;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ng3 extends k03 {
+public class ng3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ng3(View view2) {
-        super(view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948001455, "Lcom/baidu/tieba/ng3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948001455, "Lcom/baidu/tieba/ng3;");
                 return;
             }
         }
-        s(-1);
-        p(true);
-        q(true);
+        a = ij1.a;
     }
 
-    @Override // com.baidu.tieba.k03
-    public void l(View view2, List<l03> list) {
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
-            ((SwanImageMenuView) view2).d(list);
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? b(str) > b(str2) : invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.k03
-    public View m(Context context) {
+    public static long b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
-            swanImageMenuView.setMenu(this);
-            return swanImageMenuView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            long j = 0;
+            for (int i = 0; i < g.length; i++) {
+                try {
+                    j += Integer.parseInt(g[i]) * ((long) Math.pow(1000.0d, (g.length - i) - 1));
+                } catch (NumberFormatException e) {
+                    yz1.l("SwanAppSwanCoreUtils", "getVersionCode exception", e);
+                    return 0L;
+                }
+            }
+            yz1.b("SwanAppSwanCoreUtils", "getVersion version: ", str, " ,versionCode: ", Long.valueOf(j));
+            return j;
         }
-        return (View) invokeL.objValue;
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.k03
-    public void u(PopupWindow popupWindow) {
+    public static long c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
-            popupWindow.showAtLocation(this.a, 80, 0, 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            int i = 0;
+            long j = 0;
+            while (i < 3) {
+                try {
+                    j = (j << 16) | (i < g.length ? Integer.parseInt(g[i]) : 0L);
+                    i++;
+                } catch (NumberFormatException e) {
+                    if (a) {
+                        throw e;
+                    }
+                    return 0L;
+                }
+            }
+            if (a) {
+                Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j);
+            }
+            return j;
         }
+        return invokeL.longValue;
+    }
+
+    public static String d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j < 0) {
+                yz1.k("SwanAppSwanCoreUtils", "versionCode < 0, versionCode = " + j);
+                return "0";
+            }
+            StringBuilder sb = new StringBuilder();
+            long j2 = j;
+            for (int i = 2; i >= 0; i--) {
+                if (i > 0) {
+                    long pow = (long) Math.pow(1000.0d, i);
+                    sb.append(j2 / pow);
+                    sb.append(".");
+                    j2 %= pow;
+                } else {
+                    sb.append(j2);
+                }
+            }
+            String sb2 = sb.toString();
+            yz1.b("SwanAppSwanCoreUtils", "getVersionName version code: ", Long.valueOf(j), " ,version name: ", sb2);
+            return sb2;
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            return file.isDirectory() && (list = file.list()) != null && list.length > 0;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            long b = b(str);
+            SwanCoreVersion d0 = s92.U().d0();
+            return (d0 != null ? b(d0.swanCoreVersionName) : 0L) < b;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String[] g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            if (split.length != 3) {
+                return null;
+            }
+            return split;
+        }
+        return (String[]) invokeL.objValue;
     }
 }

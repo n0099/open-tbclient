@@ -1,12 +1,12 @@
 package com.badlogic.ashley.core;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a7;
-import com.baidu.tieba.o0;
+import com.baidu.tieba.a8;
+import com.baidu.tieba.b7;
 import com.baidu.tieba.p0;
-import com.baidu.tieba.x7;
-import com.baidu.tieba.y0;
-import com.baidu.tieba.z7;
+import com.baidu.tieba.q0;
+import com.baidu.tieba.y7;
+import com.baidu.tieba.z0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,19 +19,19 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 public class EntityManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p0 a;
-    public a7<o0> b;
-    public x7<o0> c;
-    public y0<o0> d;
-    public a7<EntityOperation> e;
+    public q0 a;
+    public b7<p0> b;
+    public y7<p0> c;
+    public z0<p0> d;
+    public b7<EntityOperation> e;
     public b f;
 
     /* loaded from: classes.dex */
-    public static class EntityOperation implements z7.a {
+    public static class EntityOperation implements a8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
-        public o0 b;
+        public p0 b;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes.dex */
@@ -109,7 +109,7 @@ public class EntityManager {
             }
         }
 
-        @Override // com.baidu.tieba.z7.a
+        @Override // com.baidu.tieba.a8.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -159,7 +159,7 @@ public class EntityManager {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends z7<EntityOperation> {
+    public static class b extends a8<EntityOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -178,7 +178,7 @@ public class EntityManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z7
+        @Override // com.baidu.tieba.a8
         /* renamed from: g */
         public EntityOperation d() {
             InterceptResult invokeV;
@@ -191,12 +191,12 @@ public class EntityManager {
         }
     }
 
-    public EntityManager(p0 p0Var) {
+    public EntityManager(q0 q0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p0Var};
+            Object[] objArr = {q0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -206,45 +206,45 @@ public class EntityManager {
                 return;
             }
         }
-        this.b = new a7<>(false, 16);
-        this.c = new x7<>();
-        this.d = new y0<>(this.b);
-        this.e = new a7<>(false, 16);
+        this.b = new b7<>(false, 16);
+        this.c = new y7<>();
+        this.d = new z0<>(this.b);
+        this.e = new b7<>(false, 16);
         this.f = new b(null);
-        this.a = p0Var;
+        this.a = q0Var;
     }
 
-    public void a(o0 o0Var, boolean z) {
+    public void a(p0 p0Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, o0Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, p0Var, z) == null) {
             if (z) {
                 EntityOperation e = this.f.e();
-                e.b = o0Var;
+                e.b = p0Var;
                 e.a = EntityOperation.Type.Add;
                 this.e.a(e);
                 return;
             }
-            b(o0Var);
+            b(p0Var);
         }
     }
 
-    public void b(o0 o0Var) {
+    public void b(p0 p0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o0Var) == null) {
-            if (!this.c.contains(o0Var)) {
-                this.b.a(o0Var);
-                this.c.add(o0Var);
-                this.a.b(o0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0Var) == null) {
+            if (!this.c.contains(p0Var)) {
+                this.b.a(p0Var);
+                this.c.add(p0Var);
+                this.a.b(p0Var);
                 return;
             }
-            throw new IllegalArgumentException("Entity is already registered " + o0Var);
+            throw new IllegalArgumentException("Entity is already registered " + p0Var);
         }
     }
 
-    public y0<o0> c() {
+    public z0<p0> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (y0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (z0) invokeV.objValue;
     }
 
     public void d() {
@@ -254,9 +254,9 @@ public class EntityManager {
         }
         int i = 0;
         while (true) {
-            a7<EntityOperation> a7Var = this.e;
-            if (i < a7Var.b) {
-                EntityOperation entityOperation = a7Var.get(i);
+            b7<EntityOperation> b7Var = this.e;
+            if (i < b7Var.b) {
+                EntityOperation entityOperation = b7Var.get(i);
                 int i2 = a.a[entityOperation.a.ordinal()];
                 if (i2 == 1) {
                     b(entityOperation.b);
@@ -266,47 +266,47 @@ public class EntityManager {
                     throw new AssertionError("Unexpected EntityOperation type");
                 } else {
                     while (true) {
-                        a7<o0> a7Var2 = this.b;
-                        if (a7Var2.b > 0) {
-                            f(a7Var2.f());
+                        b7<p0> b7Var2 = this.b;
+                        if (b7Var2.b > 0) {
+                            f(b7Var2.f());
                         }
                     }
                 }
                 this.f.c(entityOperation);
                 i++;
             } else {
-                a7Var.clear();
+                b7Var.clear();
                 return;
             }
         }
     }
 
-    public void e(o0 o0Var, boolean z) {
+    public void e(p0 p0Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, o0Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, p0Var, z) == null) {
             if (z) {
-                if (o0Var.c) {
+                if (p0Var.c) {
                     return;
                 }
-                o0Var.c = true;
+                p0Var.c = true;
                 EntityOperation e = this.f.e();
-                e.b = o0Var;
+                e.b = p0Var;
                 e.a = EntityOperation.Type.Remove;
                 this.e.a(e);
                 return;
             }
-            f(o0Var);
+            f(p0Var);
         }
     }
 
-    public void f(o0 o0Var) {
+    public void f(p0 p0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, o0Var) == null) && this.c.remove(o0Var)) {
-            o0Var.c = false;
-            o0Var.d = true;
-            this.b.j(o0Var, true);
-            this.a.a(o0Var);
-            o0Var.d = false;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, p0Var) == null) && this.c.remove(p0Var)) {
+            p0Var.c = false;
+            p0Var.d = true;
+            this.b.j(p0Var, true);
+            this.a.a(p0Var);
+            p0Var.d = false;
         }
     }
 }

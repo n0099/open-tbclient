@@ -1,77 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestParam;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class jq1 implements NetRequest.RequestInterceptor {
+public final class jq1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final jq1 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891839, "Lcom/baidu/tieba/jq1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947891839, "Lcom/baidu/tieba/jq1;");
+                return;
+            }
+        }
+        jq1 jq1Var = new jq1();
+        a = jq1Var;
+        Intrinsics.checkNotNullExpressionValue(jq1Var.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
+    }
 
     public jq1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
-    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
-    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
-        InterceptResult invokeLL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
-            if (netRequestParam == null) {
-                return false;
-            }
-            String url = netRequestParam.getUrl();
-            if (TextUtils.isEmpty(url)) {
-                if (netRequestResult != null) {
-                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
-                }
-                return true;
-            }
-            JsObject jsObject = netRequestParam.getJsObject();
-            if (jsObject != null) {
-                try {
-                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
-                    r2 = propertyIndex > 0 ? jsObject.toString(propertyIndex) : null;
-                    int c = r13.c("request", url, r2);
-                    if (c != 0) {
-                        at1 Y = oq1.Y(c);
-                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
-                        return true;
-                    }
-                } finally {
-                    if (kq1.e() && jsObject != null) {
-                        jsObject.release();
-                    }
-                }
-            }
-            if (kq1.e() && jsObject != null) {
-                jsObject.release();
-            }
-            if (!TextUtils.isEmpty(r2)) {
-                netRequestParam.addHeader("X-SWAN-HOSTSIGN", xw2.b(yw2.h(r2)));
-            }
-            netRequestParam.addHeader("Referer", pq1.d());
-            netRequestParam.addHeader("User-Agent", q74.b().getUserAgent());
-            return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? qg3.l(new j12().getCookie(".baidu.com"), "OPENBDUSS") : (String) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            gq1.b(fm2.c(), "");
         }
-        return invokeLL.booleanValue;
     }
 }

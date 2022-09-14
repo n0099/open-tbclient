@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StringRes;
-import androidx.appcompat.R$styleable;
+import androidx.appcompat.R;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
@@ -515,8 +515,8 @@ public abstract class ActionBar {
                 }
             }
             this.gravity = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ActionBarLayout);
-            this.gravity = obtainStyledAttributes.getInt(R$styleable.ActionBarLayout_android_layout_gravity, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActionBarLayout);
+            this.gravity = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
         }
 

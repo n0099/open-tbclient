@@ -17,7 +17,7 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tieba.n91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -571,7 +571,7 @@ public class SwipeBackLayout extends ViewGroup {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405de, R.attr.obfuscated_res_0x7f0405df, R.attr.obfuscated_res_0x7f0405e0, R.attr.obfuscated_res_0x7f0405e2});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n91.sapi_sdk_SwipeBackLayout);
             setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
             setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.h));
             setMaskAlpha(obtainStyledAttributes.getInteger(2, this.j));

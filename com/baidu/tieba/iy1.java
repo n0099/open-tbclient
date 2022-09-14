@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.graphics.Paint;
+import android.text.style.LineHeightSpan;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,22 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class iy1 {
+public class iy1 implements LineHeightSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
+    public final int a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,67 +30,51 @@ public class iy1 {
                 return;
             }
         }
-        i = kh1.a;
+        b = ij1.a;
     }
 
-    public iy1() {
+    public iy1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = i;
     }
 
-    @NonNull
-    public static iy1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // android.text.style.LineHeightSpan
+    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            iy1 iy1Var = new iy1();
-            try {
-                iy1Var.c = jSONObject.getJSONArray("host");
-                iy1Var.b = jSONObject.getString("appKey");
-                iy1Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                iy1Var.d = jSONObject.getString("serverPort");
-                iy1Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                iy1Var.g = jSONObject.optString("notInHistory", "1");
-                iy1Var.h = jSONObject.optLong("coreVersion");
-            } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
             }
-            return iy1Var;
-        }
-        return (iy1) invokeL.objValue;
-    }
-
-    public String a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
-            return jSONArray == null ? "" : jSONArray.optString(i2);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+            if (this.a < 0 || (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) < 0) {
+                return;
             }
-            return "http://" + str + ":" + this.d + "/app.zip";
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
+            }
+            int i6 = (this.a - i5) / 2;
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
+            }
+            fontMetricsInt.descent += i6;
+            fontMetricsInt.ascent -= i6;
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
+            }
         }
-        return (String) invokeL.objValue;
     }
 }

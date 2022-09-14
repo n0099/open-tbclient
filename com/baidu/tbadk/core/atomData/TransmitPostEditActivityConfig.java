@@ -4,14 +4,13 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,18 +22,20 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
     public static final String FROM_SHARE = "from_share";
     public static final String KEY_ORIGINAL_THREAD = "key_original_thread";
     public static final String KEY_TAB_LIST = "tab_list";
+    public static final String MORE_FORUM_TITLE = "more_forum_title";
+    public static final String MORE_FORUM_URL = "more_forum_url";
     public static final String TRANSMIT_ORIGIN_THREAD_CONTENT = "transmit_origin_thread_content";
     public static final String TRANSMIT_THREAD_AUTHOR_NAME_SHOW = "transmit_thread_author_name_show";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TransmitPostEditActivityConfig(Context context, int i, String str, String str2, String str3, AntiData antiData, int i2, AdditionData additionData, PostPrefixData postPrefixData, String str4, OriginalThreadInfo.ShareInfo shareInfo) {
+    public TransmitPostEditActivityConfig(Context context, int i, String str, String str2, String str3, AntiData antiData, int i2, PostPrefixData postPrefixData, String str4, OriginalThreadInfo.ShareInfo shareInfo) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3, antiData, Integer.valueOf(i2), additionData, postPrefixData, str4, shareInfo};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3, antiData, Integer.valueOf(i2), postPrefixData, str4, shareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -48,7 +49,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            ri.N(context, antiData.getForbid_info());
+            ej.N(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);
@@ -57,9 +58,6 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         getIntent().putExtra("from", str4);
         if (str3 != null) {
             getIntent().putExtra("thread_id", str3);
-        }
-        if (additionData != null) {
-            getIntent().putExtra(BaseWriteConfig.ADDITION_DATA, additionData);
         }
         if (postPrefixData != null) {
             getIntent().putExtra("prefix_data", postPrefixData);
@@ -109,9 +107,25 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         getIntent().putExtra("from_share", z);
     }
 
+    public void setMoreForumTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra("more_forum_title", str);
+    }
+
+    public void setMoreForumUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra("more_forum_url", str);
+    }
+
     public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(BaseWriteConfig.PRIVATE_THREAD, i);
@@ -119,7 +133,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
 
     public void setTitleAndContent(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048582, this, str, str2, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, z) == null) {
             getIntent().putExtra(BaseWriteConfig.TITLE, str);
             getIntent().putExtra(BaseWriteConfig.CONTENT, str2);
             getIntent().putExtra(BaseWriteConfig.IS_SAVE_DRAFTE, z);
@@ -128,7 +142,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
 
     public void setTopicId(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("topic_id", str);
@@ -136,7 +150,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
 
     public void setTransmitOriginThreadComment(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TRANSMIT_ORIGIN_THREAD_CONTENT, str);
@@ -144,7 +158,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
 
     public void setTransmitThreadAuthorNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);

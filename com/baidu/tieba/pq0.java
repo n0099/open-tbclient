@@ -1,144 +1,81 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Context;
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes5.dex */
-public class pq0 extends iu0 {
+public abstract class pq0 extends oq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-509957699, "Lcom/baidu/tieba/pq0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-509957699, "Lcom/baidu/tieba/pq0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PlayerStatus.values().length];
-            a = iArr;
-            try {
-                iArr[PlayerStatus.PLAYING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PlayerStatus.COMPLETE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    public pq0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pq0(@NonNull gu0 gu0Var, @Nullable Context context) {
+        super(gu0Var, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gu0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((gu0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.iu0
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.B();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05e0, null);
-            this.e = linearLayout;
-            this.f = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0920e5);
-            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0920e0);
-            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0920d7);
-            this.g.setText(PlayerStatus.IDLE.name());
-        }
-    }
-
-    public final boolean K() {
+    @Override // com.baidu.tieba.nq0
+    @NonNull
+    public hu0 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? gs0.h().d(u().B(), u().L()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.v == null) {
+                this.v = this.y.a();
+            }
+            return this.v;
+        }
+        return (hu0) invokeV.objValue;
     }
 
-    public final void L() {
+    @Override // com.baidu.tieba.nq0
+    public void F0(@Nullable bw0 bw0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h.setBackgroundColor(-65536);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw0Var) == null) {
+            super.F0(E().b(this, bw0Var));
         }
     }
 
-    public final void M() {
+    @Override // com.baidu.tieba.oq0
+    @CallSuper
+    public void F1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            E().c(this, z);
+            ht0 w = vs0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
+            w.n(9, Boolean.valueOf(z));
+            q0(w);
+        }
+    }
+
+    @Override // com.baidu.tieba.nq0
+    public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.setBackgroundColor(K() ? DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK : -65536);
-        }
-    }
-
-    @Override // com.baidu.tieba.vu0
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ws0
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new int[]{4, 2, 5, 3} : (int[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.iu0, com.baidu.tieba.ws0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, playerStatus, playerStatus2) == null) {
-            super.h(playerStatus, playerStatus2);
-            this.g.setText(playerStatus.name());
-            int i = a.a[playerStatus.ordinal()];
-            if (i == 1) {
-                M();
-            } else if (i != 2) {
-            } else {
-                L();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.iu0, com.baidu.tieba.ws0
-    public void q(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, vr0Var) == null) {
+            E().a(this);
         }
     }
 }

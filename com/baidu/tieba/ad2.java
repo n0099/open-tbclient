@@ -1,32 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.content.ContentValues;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class ad2 {
+public class ad2 extends zc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public long createTime;
-    @V8JavascriptField
-    public String filePath;
-    @V8JavascriptField
-    public long size;
+    @Nullable
+    public ContentValues d;
 
-    public ad2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad2(@Nullable Map<String, String> map) {
+        super("lifecycle", map);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zc2, com.baidu.tieba.yc2
+    public void m(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("cuid", fm2.h0().i(fm2.c()));
+            map.put("mtjCuid", fm2.h0().i(fm2.c()));
+            ContentValues contentValues = this.d;
+            if (contentValues != null) {
+                for (String str : contentValues.keySet()) {
+                    Object obj = this.d.get(str);
+                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
+                        map.put(str, String.valueOf(obj));
+                    } else {
+                        map.put(str, obj);
+                    }
+                }
+                return;
+            }
+            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad2(@NonNull ContentValues contentValues) {
+        super("lifecycle", null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = contentValues;
     }
 }

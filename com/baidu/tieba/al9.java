@@ -1,41 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsNativeAd;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import org.json.JSONObject;
+/* compiled from: lambda */
 /* loaded from: classes3.dex */
-public abstract class al9 implements KsNativeAd.AdInteractionListener {
+public final /* synthetic */ class al9 implements RippedAd.Acceptor {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ al9 a = new al9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    public al9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    private /* synthetic */ al9() {
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onDownloadTipsDialogDismiss() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
+    public final String accept(Object obj) {
+        InterceptResult invokeL;
+        String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            optString = ((JSONObject) obj).optString("url");
+            return optString;
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onDownloadTipsDialogShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+        return (String) invokeL.objValue;
     }
 }

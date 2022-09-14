@@ -2,12 +2,12 @@ package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.av9;
-import com.baidu.tieba.ev9;
-import com.baidu.tieba.fv9;
-import com.baidu.tieba.ov9;
-import com.baidu.tieba.tv9;
-import com.baidu.tieba.uz9;
+import com.baidu.tieba.gx9;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.m1a;
+import com.baidu.tieba.sw9;
+import com.baidu.tieba.ww9;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.subscriptions.CancellableSubscription;
-/* loaded from: classes8.dex */
-public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, av9, fv9 {
+/* loaded from: classes9.dex */
+public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, sw9, xw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7326289992464377023L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ev9<? super T> actual;
-    public final uz9 serial;
+    public final ww9<? super T> actual;
+    public final m1a serial;
 
-    public OnSubscribeFromEmitter$BaseEmitter(ev9<? super T> ev9Var) {
+    public OnSubscribeFromEmitter$BaseEmitter(ww9<? super T> ww9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ev9Var};
+            Object[] objArr = {ww9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,11 +38,11 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
                 return;
             }
         }
-        this.actual = ev9Var;
-        this.serial = new uz9();
+        this.actual = ww9Var;
+        this.serial = new m1a();
     }
 
-    @Override // com.baidu.tieba.fv9
+    @Override // com.baidu.tieba.xw9
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,11 +87,11 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         }
     }
 
-    @Override // com.baidu.tieba.av9
+    @Override // com.baidu.tieba.sw9
     public final void request(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && tv9.h(j)) {
-            tv9.b(this, j);
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && lx9.h(j)) {
+            lx9.b(this, j);
             onRequested();
         }
     }
@@ -102,21 +102,21 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? get() : invokeV.longValue;
     }
 
-    public final void setCancellation(ov9 ov9Var) {
+    public final void setCancellation(gx9 gx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ov9Var) == null) {
-            setSubscription(new CancellableSubscription(ov9Var));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gx9Var) == null) {
+            setSubscription(new CancellableSubscription(gx9Var));
         }
     }
 
-    public final void setSubscription(fv9 fv9Var) {
+    public final void setSubscription(xw9 xw9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, fv9Var) == null) {
-            this.serial.a(fv9Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, xw9Var) == null) {
+            this.serial.a(xw9Var);
         }
     }
 
-    @Override // com.baidu.tieba.fv9
+    @Override // com.baidu.tieba.xw9
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

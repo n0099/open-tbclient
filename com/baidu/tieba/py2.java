@@ -1,134 +1,134 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
-import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
-import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.gr1;
+import com.baidu.tieba.h83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class py2 {
+public class py2 extends ly2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static py2 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948078304, "Lcom/baidu/tieba/py2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements rh3<b83<h83.d>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k42 a;
+        public final /* synthetic */ jy2 b;
+        public final /* synthetic */ k83 c;
+
+        public a(py2 py2Var, k42 k42Var, jy2 jy2Var, k83 k83Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {py2Var, k42Var, jy2Var, k83Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948078304, "Lcom/baidu/tieba/py2;");
-                return;
+            this.a = k42Var;
+            this.b = jy2Var;
+            this.c = k83Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(b83<h83.d> b83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
+                if (b83Var != null && b83Var.c() && !TextUtils.isEmpty(b83Var.a.a)) {
+                    JSONObject jSONObject = this.c.g;
+                    if (jSONObject != null) {
+                        try {
+                            jSONObject.put("code", b83Var.a.a);
+                            this.b.d = true;
+                        } catch (JSONException e) {
+                            if (ij1.a) {
+                                qy2.b(Log.getStackTraceString(e));
+                            }
+                        }
+                        this.b.e = jSONObject.toString();
+                    }
+                    this.a.a(this.b);
+                    return;
+                }
+                qy2.b("login failure, can't get login code");
+                this.a.a(this.b);
             }
         }
-        b = kh1.a;
     }
 
     public py2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static py2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (py2.class) {
-                    if (c == null) {
-                        c = new py2();
-                    }
-                }
-            }
-            return c;
-        }
-        return (py2) invokeV.objValue;
-    }
-
-    public final View a(Context context) {
+    @Override // com.baidu.tieba.my2
+    public yu1 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
-            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070138)));
-            emojiBagLayout.setEmotionList(ny2.c().b());
-            return emojiBagLayout;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return null;
         }
-        return (View) invokeL.objValue;
+        return (yu1) invokeL.objValue;
     }
 
-    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.my2
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
-            IllegalArgumentException illegalArgumentException = !(viewGroup instanceof SPSwitchPanelLinearLayout) ? new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout") : null;
-            if (!(view2 instanceof EditText)) {
-                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.my2
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ly2
+    public void p(SwanAppActivity swanAppActivity, String str, iy2 iy2Var, k83 k83Var, k42<jy2> k42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, iy2Var, k83Var, k42Var) == null) {
+            jy2 jy2Var = new jy2(iy2Var.f);
+            jy2Var.a = iy2Var.e;
+            if (k83Var != null && k83Var.j.a() == 0) {
+                qy2.b("obtain user info detail, get login code");
+                gr1.d dVar = new gr1.d(iy2Var.g);
+                Bundle bundle = new Bundle();
+                bundle.putString("__plugin__", iy2Var.a);
+                x23.K().q().e0().r(swanAppActivity, dVar, bundle, new a(this, k42Var, jy2Var, k83Var), "SwanPluginUserInfoFunPage");
+                return;
             }
-            if (illegalArgumentException != null) {
-                if (b) {
-                    throw illegalArgumentException;
-                }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                return false;
-            } else {
-                if (b) {
-                    Log.d("EmojiPanelManager", "start loading emoji " + str);
-                }
-                this.a = new WeakReference<>(activity);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    File v = wj2.v(str2, str3, false, null, null);
-                    ny2.c().f(v.getAbsolutePath() + File.separator + str);
-                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f09087b);
-                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09087a);
-                    if (imageView != null) {
-                        imageView.setImageBitmap(ny2.c().d());
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(a(activity.getApplicationContext()));
-                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
-                    EditText editText = (EditText) view2;
-                    if (this.a.get() != null) {
-                        my2.g(this.a.get().getApplicationContext()).f(editText);
-                        return true;
-                    }
-                }
-                return false;
-            }
+            qy2.b("open data result failure");
+            k42Var.a(jy2Var);
         }
-        return invokeCommon.booleanValue;
     }
 }

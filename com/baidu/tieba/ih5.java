@@ -1,120 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class ih5 implements fh5 {
+public class ih5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public double c;
-    public boolean d;
 
-    public ih5(int i) {
+    public static Boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return Boolean.FALSE;
             }
+            String c = fi5.c(str, "topic_id=");
+            String c2 = fi5.c(str, "topic_name=");
+            String c3 = fi5.c(str, "customfullscreen=");
+            String c4 = fi5.c(str, "nonavigationbar=");
+            if ((c != null || c2 != null) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         }
-        this.a = 3;
-        this.b = 3;
-        this.d = true;
-        if (i > 0) {
-            this.b = i;
-        }
+        return (Boolean) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fh5
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static Boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) ? ListUtils.getCount(list) <= 0 ? i2 : e(constrainImageLayout, list, i2) : invokeLLII.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            if (uri != null && uri.toString() != null) {
+                if (fi5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fh5
-    public int b(int i) {
-        InterceptResult invokeI;
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return 1;
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? fi5.c(str, "topic_id=") : (String) invokeL.objValue;
     }
 
-    public final double c(int i) {
-        InterceptResult invokeI;
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            TbadkCoreApplication.getInst();
-            if (i == 1) {
-                return 0.5625d;
-            }
-            double d = this.c;
-            if (d > 0.0d) {
-                return d;
-            }
-            return 0.6666666666666666d;
-        }
-        return invokeI.doubleValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? fi5.c(str, "hottopic_detail_hybrid-") : (String) invokeL.objValue;
     }
 
-    public void d(double d) {
+    public static void e(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.c = d;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) == null) || tbPageContext == null) {
+            return;
         }
-    }
-
-    public int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout == null || ListUtils.isEmpty(list)) {
-                return i;
-            }
-            int count = ListUtils.getCount(list);
-            if (count >= 2) {
-                constrainImageLayout.setImageMaxChildCount(this.a);
-                constrainImageLayout.setCanCenterStart(false);
-            } else {
-                constrainImageLayout.setImageMaxChildCount(-1);
-                constrainImageLayout.setCanCenterStart(true);
-            }
-            int i3 = this.b;
-            int i4 = count - i3;
-            if (i4 > 0) {
-                i2 = i3 + i;
-                List<MediaData> subList = ListUtils.subList(list, i, i2);
-                constrainImageLayout.setExtraCenterText(this.d ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f043f, new Object[]{Integer.valueOf(i4)}) : null);
-                constrainImageLayout.setUrls(subList, i, true, this.d);
-            } else {
-                constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
-                constrainImageLayout.setExtraCenterText(null);
-                i2 = count;
-            }
-            constrainImageLayout.setSingleImageRatio(c(count));
-            return i2;
+        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
+        sb.append("customfullscreen=");
+        sb.append("1");
+        sb.append("&nonavigationbar=");
+        sb.append("1");
+        sb.append("&from=");
+        sb.append("1");
+        if (str != null) {
+            sb.append("&topic_id=");
+            sb.append(str);
         }
-        return invokeLLI.intValue;
+        if (str2 != null) {
+            sb.append("&topic_name=");
+            sb.append(str2);
+        }
+        sb.append("&skin=");
+        sb.append(SkinManager.getCurrentSkinTypeString());
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
     }
 }

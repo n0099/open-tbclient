@@ -39,10 +39,8 @@ import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.customview.view.AbsSavedState;
 import androidx.customview.widget.Openable;
 import androidx.customview.widget.ViewDragHelper;
-import androidx.drawerlayout.R$attr;
-import androidx.drawerlayout.R$dimen;
-import androidx.drawerlayout.R$styleable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1876,7 +1874,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DrawerLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.drawerLayoutStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040261);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2114,12 +2112,12 @@ public class DrawerLayout extends ViewGroup implements Openable {
                 this.mStatusBarBackground = null;
             }
         }
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, R$styleable.DrawerLayout, i, 0);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, androidx.drawerlayout.R.styleable.DrawerLayout, i, 0);
         try {
-            if (obtainStyledAttributes2.hasValue(R$styleable.DrawerLayout_elevation)) {
-                this.mDrawerElevation = obtainStyledAttributes2.getDimension(R$styleable.DrawerLayout_elevation, 0.0f);
+            if (obtainStyledAttributes2.hasValue(0)) {
+                this.mDrawerElevation = obtainStyledAttributes2.getDimension(0, 0.0f);
             } else {
-                this.mDrawerElevation = getResources().getDimension(R$dimen.def_drawer_elevation);
+                this.mDrawerElevation = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ee);
             }
             obtainStyledAttributes2.recycle();
             this.mNonDrawerViews = new ArrayList<>();

@@ -2,32 +2,32 @@ package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.av9;
-import com.baidu.tieba.ev9;
-import com.baidu.tieba.fv9;
-import com.baidu.tieba.hw9;
+import com.baidu.tieba.sw9;
+import com.baidu.tieba.ww9;
+import com.baidu.tieba.xw9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
-public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements av9, fv9 {
+/* loaded from: classes9.dex */
+public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements sw9, xw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ev9<? super T> child;
-    public final hw9<T> parent;
+    public final ww9<? super T> child;
+    public final zx9<T> parent;
 
-    public OperatorPublish$InnerProducer(hw9<T> hw9Var, ev9<? super T> ev9Var) {
+    public OperatorPublish$InnerProducer(zx9<T> zx9Var, ww9<? super T> ww9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hw9Var, ev9Var};
+            Object[] objArr = {zx9Var, ww9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,12 +37,12 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
                 return;
             }
         }
-        this.parent = hw9Var;
-        this.child = ev9Var;
+        this.parent = zx9Var;
+        this.child = ww9Var;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.fv9
+    @Override // com.baidu.tieba.xw9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         return invokeJ.longValue;
     }
 
-    @Override // com.baidu.tieba.av9
+    @Override // com.baidu.tieba.sw9
     public void request(long j) {
         int i;
         long j2;
@@ -105,7 +105,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         this.parent.g();
     }
 
-    @Override // com.baidu.tieba.fv9
+    @Override // com.baidu.tieba.xw9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || get() == Long.MIN_VALUE || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {

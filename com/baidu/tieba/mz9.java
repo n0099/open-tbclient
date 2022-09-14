@@ -1,90 +1,61 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes5.dex */
-public final class mz9<T> {
+public abstract class mz9<E> extends kz9<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final T b;
+    public LinkedQueueNode<E> producerNode;
 
-    public mz9(long j, T t) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947990109, "Lcom/baidu/tieba/mz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947990109, "Lcom/baidu/tieba/mz9;");
+                return;
+            }
+        }
+        a = n0a.a(mz9.class, "producerNode");
+    }
+
+    public mz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), t};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = t;
-        this.a = j;
     }
 
-    public long a() {
+    public final LinkedQueueNode<E> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) n0a.a.f(this, a) : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public T b() {
-        InterceptResult invokeV;
+    public final void b(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (T) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && (obj instanceof mz9)) {
-                mz9 mz9Var = (mz9) obj;
-                if (this.a == mz9Var.a) {
-                    T t = this.b;
-                    T t2 = mz9Var.b;
-                    if (t == t2) {
-                        return true;
-                    }
-                    if (t != null && t.equals(t2)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.producerNode = linkedQueueNode;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.a;
-            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
-            T t = this.b;
-            return i + (t == null ? 0 : t.hashCode());
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString()) : (String) invokeV.objValue;
     }
 }

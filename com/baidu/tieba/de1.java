@@ -1,24 +1,69 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface de1 {
+public class de1<T> implements fe1<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public T a;
+    public ce1<T> b;
+    public ce1<T> c;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
+    public de1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void onPrepared();
+    public static de1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new de1() : (de1) invokeV.objValue;
     }
 
-    void a();
+    @Override // com.baidu.tieba.fe1
+    public void a(ce1<T> ce1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ce1Var) == null) {
+            this.b = ce1Var;
+            this.a = null;
+        }
+    }
 
-    void b();
-
-    void c();
-
-    void d();
-
-    void e();
+    @Override // com.baidu.tieba.fe1
+    public T get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.a;
+            if (t != null) {
+                return t;
+            }
+            ce1<T> ce1Var = this.b;
+            if (ce1Var != null) {
+                T t2 = ce1Var.get();
+                this.a = t2;
+                return t2;
+            }
+            ce1<T> ce1Var2 = this.c;
+            if (ce1Var2 != null) {
+                return ce1Var2.get();
+            }
+            return null;
+        }
+        return (T) invokeV.objValue;
+    }
 }

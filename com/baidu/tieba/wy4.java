@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wy4 extends wo4 {
+public class wy4 extends Editable.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
+    public xy4 a;
 
-    public wy4() {
+    public wy4(xy4 xy4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xy4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,41 +28,18 @@ public class wy4 extends wo4 {
                 return;
             }
         }
-        this.a = Long.MAX_VALUE;
-        this.b = 0L;
-        this.c = null;
+        this.a = xy4Var;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.text.Editable.Factory
+    public Editable newEditable(CharSequence charSequence) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.wo4
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 18);
+            return spannableStringBuilder;
         }
-        try {
-            this.a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, Long.MAX_VALUE);
-            this.b = jSONObject.optLong("end_time", 0L);
-            this.c = jSONObject.optString("dest_url", "");
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
+        return (Editable) invokeL.objValue;
     }
 }

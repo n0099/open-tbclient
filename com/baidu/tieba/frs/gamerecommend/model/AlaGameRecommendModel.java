@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.em6;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
-import com.baidu.tieba.gm6;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.jn6;
+import com.baidu.tieba.ln6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public gm6 h;
+    public ln6 h;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -73,7 +73,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
                         this.a.g.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    em6 data = alaGameRecommendReponseMessage.getData();
+                    jn6 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
@@ -93,7 +93,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(boolean z, List<pn> list);
+        void a(boolean z, List<Cdo> list);
 
         void b(int i, String str, boolean z);
     }
@@ -116,7 +116,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new gm6();
+        this.h = new ln6();
         I();
         registerListener();
     }

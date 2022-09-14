@@ -35,7 +35,7 @@ public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091699);
-        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091697);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916ce);
+        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916cc);
     }
 }

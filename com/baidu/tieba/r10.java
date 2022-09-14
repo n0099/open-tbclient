@@ -1,81 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+@Autowired
 /* loaded from: classes5.dex */
-public final class r10 {
+public class r10 {
     public static /* synthetic */ Interceptable $ic;
-    public static r10 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public r10() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements d20 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static r10 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (r10.class) {
-                    if (a == null) {
-                        a = new r10();
-                    }
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return a;
         }
-        return (r10) invokeV.objValue;
+
+        @Override // com.baidu.tieba.d20
+        public String a(String str, String... strArr) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? str : (String) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.d20
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.d20
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.d20
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.d20
+        public String getSchemeHeader() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    public String a() {
+    /* loaded from: classes5.dex */
+    public static class b extends v10 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    @Inject(force = false)
+    public static u10 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0.8.27" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? sh8.a() : (u10) invokeV.objValue;
     }
 
-    public void c(Context context, s10<h40> s10Var) {
+    @Inject(force = false)
+    public static v10 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, s10Var) == null) {
-            d(context, s10Var, Looper.getMainLooper());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new b() : (v10) invokeV.objValue;
     }
 
-    public void d(Context context, s10<h40> s10Var, Looper looper) {
+    @Inject(force = false)
+    public static w10 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, s10Var, looper) == null) {
-            q10.e(context).i(s10Var, looper);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? uh8.a() : (w10) invokeV.objValue;
     }
 
-    public void e(Context context, s10<List<i40>> s10Var) {
+    @Inject(force = false)
+    public static d20 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, s10Var) == null) {
-            f(context, s10Var, Looper.getMainLooper());
-        }
-    }
-
-    public void f(Context context, s10<List<i40>> s10Var, Looper looper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, s10Var, looper) == null) {
-            q10.e(context).m(s10Var, looper);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new a() : (d20) invokeV.objValue;
     }
 }

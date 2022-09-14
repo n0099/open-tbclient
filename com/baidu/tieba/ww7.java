@@ -1,74 +1,61 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemVideoViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ww7 extends gw7<rt7, PbLoadMoreItemVideoViewHolder> {
+public class ww7 extends PbListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+    public TbPageContext<?> E;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ww7(y08 y08Var, BdUniqueId bdUniqueId) {
-        super(y08Var, bdUniqueId);
+    public ww7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y08Var, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((y08) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.E = tbPageContext;
+        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fc));
+        A();
+        z();
+        w();
+        H(R.dimen.obfuscated_res_0x7f070201);
     }
 
-    @Override // com.baidu.tieba.gw7, com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (rt7) obj, (PbLoadMoreItemVideoViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public PbLoadMoreItemVideoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void S() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0632, viewGroup, false)) : (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, rt7 rt7Var, PbLoadMoreItemVideoViewHolder pbLoadMoreItemVideoViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rt7Var, pbLoadMoreItemVideoViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, rt7Var, pbLoadMoreItemVideoViewHolder);
-            pbLoadMoreItemVideoViewHolder.a(this.g);
-            return view2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.f();
+            D(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f0a53));
+            b().setVisibility(0);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void w(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tbadk.core.view.PbListView
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.f();
+            D(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f0a01));
+            b().setVisibility(0);
         }
     }
 }

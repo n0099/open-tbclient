@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ImagesContract;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -170,7 +171,7 @@ public class n0 {
                     while (aliases.hasMoreElements()) {
                         c++;
                         X509Certificate x509Certificate = (X509Certificate) keyStore.getCertificate(aliases.nextElement());
-                        if (x509Certificate.getIssuerDN().getName().contains("2021") || x509Certificate.getIssuerDN().getName().contains("macbook") || x509Certificate.getIssuerDN().getName().contains(IMTrack.AckBuilder.PROXY_TYPE) || x509Certificate.getIssuerDN().getName().contains("Proxy") || x509Certificate.getIssuerDN().getName().contains("local") || x509Certificate.getIssuerDN().getName().contains("github")) {
+                        if (x509Certificate.getIssuerDN().getName().contains("2021") || x509Certificate.getIssuerDN().getName().contains("macbook") || x509Certificate.getIssuerDN().getName().contains(IMTrack.AckBuilder.PROXY_TYPE) || x509Certificate.getIssuerDN().getName().contains("Proxy") || x509Certificate.getIssuerDN().getName().contains(ImagesContract.LOCAL) || x509Certificate.getIssuerDN().getName().contains("github")) {
                             sb.append(x509Certificate.getIssuerDN().getName());
                             sb.append("|");
                         }

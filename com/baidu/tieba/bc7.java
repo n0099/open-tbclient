@@ -1,29 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class bc7 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<MetaData> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
 
-    public bc7() {
+    public static ArrayList<MetaData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (ArrayList) invokeV.objValue;
+    }
+
+    public static void b(ArrayList<MetaData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, arrayList) == null) {
+            a = arrayList;
         }
     }
 }

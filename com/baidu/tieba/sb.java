@@ -1,82 +1,97 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class sb {
+public class sb extends ub<CustomMessage<?>, CustomMessageTask, fb, CustomResponsedMessage<?>> {
     public static /* synthetic */ Interceptable $ic;
-    public static sb d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IdleTaskRegister a;
-    public boolean b;
-    public boolean c;
+    public la i;
 
-    public sb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sb(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new IdleTaskRegister();
-        this.b = false;
-        this.c = false;
+        this.i = null;
+        this.i = new la(messageManager);
+        this.e = xb.c();
     }
 
-    public static sb b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ha
+    /* renamed from: A */
+    public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                d = new sb();
-            }
-            return d;
-        }
-        return (sb) invokeV.objValue;
-    }
-
-    public void a(String str, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            if (!this.b) {
-                this.a.registerIdleTask(str, runnable);
-            } else {
-                runnable.run();
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, customMessage, customMessageTask) == null) {
+            this.i.f(customMessage, customMessageTask);
         }
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ha
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdUniqueId)) == null) ? this.i.e(i, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.ha
+    public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-            this.a.scheduleIdleTask(true);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
         }
     }
 
-    public void e() {
+    public LinkedList<CustomMessage<?>> w(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            this.c = true;
-            this.a.scheduleIdleTask(false);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdUniqueId)) == null) ? this.i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ub
+    /* renamed from: x */
+    public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, customMessage, customMessageTask)) == null) ? this.a.getController().e(customMessage, customMessageTask) : (CustomMessage) invokeLL.objValue;
+    }
+
+    public void y(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            this.i.j(bdUniqueId);
         }
+    }
+
+    public <T> CustomResponsedMessage<T> z(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, customMessage, customMessageTask, cls)) == null) ? this.i.k(customMessage, customMessageTask, cls) : (CustomResponsedMessage) invokeLLL.objValue;
     }
 }

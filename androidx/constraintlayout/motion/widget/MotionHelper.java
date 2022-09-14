@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintHelper;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,13 +60,13 @@ public class MotionHelper extends ConstraintHelper implements Animatable, Motion
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
             super.init(attributeSet);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.MotionHelper);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.MotionHelper);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
-                    if (index == R$styleable.MotionHelper_onShow) {
+                    if (index == 1) {
                         this.mUseOnShow = obtainStyledAttributes.getBoolean(index, this.mUseOnShow);
-                    } else if (index == R$styleable.MotionHelper_onHide) {
+                    } else if (index == 0) {
                         this.mUseOnHide = obtainStyledAttributes.getBoolean(index, this.mUseOnHide);
                     }
                 }

@@ -35,10 +35,10 @@ import androidx.annotation.RestrictTo;
 import androidx.core.app.BundleCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesCompat;
-import androidx.media.R$id;
 import androidx.versionedparcelable.ParcelUtils;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1421,7 +1421,7 @@ public final class MediaControllerCompat {
         MediaController mediaController;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            Object tag = activity.getWindow().getDecorView().getTag(R$id.media_controller_compat_view_tag);
+            Object tag = activity.getWindow().getDecorView().getTag(R.id.obfuscated_res_0x7f0914d7);
             if (tag instanceof MediaControllerCompat) {
                 return (MediaControllerCompat) tag;
             }
@@ -1436,7 +1436,7 @@ public final class MediaControllerCompat {
     public static void setMediaController(@NonNull Activity activity, MediaControllerCompat mediaControllerCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, activity, mediaControllerCompat) == null) {
-            activity.getWindow().getDecorView().setTag(R$id.media_controller_compat_view_tag, mediaControllerCompat);
+            activity.getWindow().getDecorView().setTag(R.id.obfuscated_res_0x7f0914d7, mediaControllerCompat);
             if (Build.VERSION.SDK_INT >= 21) {
                 activity.setMediaController(mediaControllerCompat != null ? new MediaController(activity, (MediaSession.Token) mediaControllerCompat.getSessionToken().getToken()) : null);
             }

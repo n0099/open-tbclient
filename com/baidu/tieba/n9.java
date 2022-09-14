@@ -1,336 +1,373 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.util.SparseArray;
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.AbstractMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class n9 {
+public final class n9 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static ArrayList<SoftReference<Activity>> c;
+    public static n9 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310658, "Lcom/baidu/tieba/n9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onActivityClosed();
+    }
+
+    public n9() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448310658, "Lcom/baidu/tieba/n9;");
+        this.b = 0;
+        if (c == null) {
+            c = new ArrayList<>(20);
         }
     }
 
-    public static String a(String str, Object obj, List list) {
-        InterceptResult invokeLLL;
-        int i;
-        Map map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, obj, list)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            if (obj == null) {
-                stringBuffer.append(str + "[] = null\n");
-                return stringBuffer.toString();
-            }
-            int i2 = 0;
-            if (obj.getClass().isArray()) {
-                if (Array.getLength(obj) <= 0) {
-                    stringBuffer.append(str + "[] = empty\n");
-                } else if (!f(Array.get(obj, 0))) {
-                    stringBuffer.append(str + " = [");
-                    while (i2 < Array.getLength(obj) - 1) {
-                        Object c = c(Array.get(obj, i2));
-                        stringBuffer.append(c + ",");
-                        i2++;
-                    }
-                    stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
-                } else {
-                    while (i2 < Array.getLength(obj)) {
-                        Object obj2 = Array.get(obj, i2);
-                        stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT, obj2, list));
-                        i2++;
-                    }
-                }
-            } else {
-                boolean z = obj instanceof Collection;
-                boolean z2 = obj instanceof HashSet;
-                boolean z3 = obj instanceof SparseArray;
-                if ((obj instanceof AbstractMap) || (obj instanceof HashMap) || (obj instanceof Hashtable)) {
-                    Map map2 = (Map) obj;
-                    Set keySet = map2.keySet();
-                    int size = keySet.size();
-                    if (size > 0) {
-                        int i3 = 0;
-                        for (Object obj3 : keySet) {
-                            Object obj4 = map2.get(obj3);
-                            Object c2 = c(obj3);
-                            Object c3 = c(obj4);
-                            if (f(c3) || f(c2)) {
-                                map = map2;
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c2 + PreferencesUtil.RIGHT_MOUNT, c3, list));
-                            } else if (i3 == 0) {
-                                stringBuffer.append(str + " = [");
-                                map = map2;
-                            } else {
-                                map = map2;
-                                if (i3 == size - 1) {
-                                    stringBuffer.append(c2 + " = " + c3 + "]\n");
-                                } else {
-                                    stringBuffer.append(c2 + " = " + c3 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                                }
-                            }
-                            i3++;
-                            map2 = map;
-                        }
-                    } else {
-                        stringBuffer.append(str + "[] = empty\n");
-                    }
-                } else if (z || z2) {
-                    Iterator it = null;
-                    if (z) {
-                        Collection collection = (Collection) obj;
-                        it = collection.iterator();
-                        i = collection.size();
-                    } else if (z2) {
-                        HashSet hashSet = (HashSet) obj;
-                        it = hashSet.iterator();
-                        i = hashSet.size();
-                    } else {
-                        i = 0;
-                    }
-                    if (i > 0) {
-                        int i4 = 0;
-                        while (it.hasNext()) {
-                            Object c4 = c(it.next());
-                            if (f(c4)) {
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i4 + PreferencesUtil.RIGHT_MOUNT, c4, list));
-                            } else if (i4 == 0) {
-                                stringBuffer.append(str + " = [");
-                            } else if (i4 == i - 1) {
-                                stringBuffer.append(c4 + "]\n");
-                            } else {
-                                stringBuffer.append(c4 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                            }
-                            i4++;
-                        }
-                    } else {
-                        stringBuffer.append(str + "[] = empty\n");
-                    }
-                } else if (z3) {
-                    SparseArray sparseArray = (SparseArray) obj;
-                    int size2 = sparseArray.size();
-                    if (size2 > 0) {
-                        for (int i5 = 0; i5 < size2; i5++) {
-                            Integer valueOf = Integer.valueOf(sparseArray.keyAt(i5));
-                            Object valueAt = sparseArray.valueAt(i5);
-                            Object c5 = c(valueOf);
-                            Object c6 = c(valueAt);
-                            if (f(c6) || f(c5)) {
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c5 + PreferencesUtil.RIGHT_MOUNT, c6, list));
-                            } else if (i5 == 0) {
-                                stringBuffer.append(str + " = [");
-                            } else if (i5 == size2 - 1) {
-                                stringBuffer.append(c5 + " = " + c6 + "]\n");
-                            } else {
-                                stringBuffer.append(c5 + " = " + c6 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                            }
-                        }
-                    } else {
-                        stringBuffer.append(str + "[] = empty\n");
-                    }
-                }
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:18:0x005e A[Catch: IllegalAccessException -> 0x008f, TryCatch #0 {IllegalAccessException -> 0x008f, blocks: (B:5:0x000b, B:8:0x0013, B:11:0x001a, B:14:0x004c, B:16:0x0052, B:18:0x005e, B:19:0x0071, B:20:0x0076, B:12:0x002d), top: B:30:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0071 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b(String str, Object obj, List list) {
-        InterceptResult invokeLLL;
-        Class<?> cls;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, obj, list)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            try {
-                cls = obj.getClass();
-            } catch (IllegalAccessException e) {
-                stringBuffer.append(e.toString());
-            }
-            if (str != null && !str.equals("")) {
-                stringBuffer.append(str + " = {\n");
-                while (cls != null && g(cls)) {
-                    if (cls.getSimpleName().equals("Object")) {
-                        a++;
-                        i(cls.getDeclaredFields(), obj, stringBuffer, list);
-                        a--;
-                    }
-                    cls = cls.getSuperclass();
-                }
-                stringBuffer.append(d() + "}\n");
-                return stringBuffer.toString();
-            }
-            stringBuffer.append(d() + cls.getSimpleName() + " = {\n");
-            while (cls != null) {
-                if (cls.getSimpleName().equals("Object")) {
-                }
-                cls = cls.getSuperclass();
-            }
-            stringBuffer.append(d() + "}\n");
-            return stringBuffer.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static Object c(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj == null || obj.getClass() != String.class) {
-                return obj;
-            }
-            return "\"" + obj + "\"";
-        }
-        return invokeL.objValue;
-    }
-
-    public static String d() {
+    public static n9 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            for (int i = 0; i < a; i++) {
-                stringBuffer.append("    ");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                d = new n9();
             }
-            return stringBuffer.toString();
+            return d;
+        }
+        return (n9) invokeV.objValue;
+    }
+
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i == 0) {
+            return;
+        }
+        int h = g().h();
+        while (h > i) {
+            h--;
+            Activity l = g().l(1);
+            if (l != null) {
+                l.finish();
+            }
+        }
+    }
+
+    public Activity b() {
+        InterceptResult invokeV;
+        SoftReference<Activity> softReference;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int size = c.size();
+            if (size == 0 || (softReference = c.get(size - 1)) == null) {
+                return null;
+            }
+            return softReference.get();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public Activity c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (c.size() == 0) {
+                return null;
+            }
+            Iterator<SoftReference<Activity>> it = c.iterator();
+            while (it.hasNext()) {
+                SoftReference<Activity> next = it.next();
+                if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
+                    return next.get();
+                }
+            }
+            return null;
+        }
+        return (Activity) invokeL.objValue;
+    }
+
+    public ArrayList<SoftReference<Activity>> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c : (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            ArrayList<SoftReference<Activity>> arrayList2 = c;
+            if (arrayList2 == null || arrayList2.size() == 0) {
+                return "";
+            }
+            Iterator<SoftReference<Activity>> it = c.iterator();
+            while (it.hasNext()) {
+                SoftReference<Activity> next = it.next();
+                if (next != null && (activity = next.get()) != null) {
+                    arrayList.add(activity.getClass().getName());
+                }
+            }
+            return TextUtils.join("_", arrayList);
         }
         return (String) invokeV.objValue;
     }
 
-    public static boolean e(Object obj) {
-        InterceptResult invokeL;
+    public Activity f(int i) {
+        InterceptResult invokeI;
+        SoftReference<Activity> softReference;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj.getClass().isArray() || (obj instanceof Collection) || (obj instanceof Hashtable) || (obj instanceof HashMap) || (obj instanceof SparseArray) || (obj instanceof HashSet) || (obj instanceof List) || (obj instanceof AbstractMap) : invokeL.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            int size = c.size();
+            if (size != 0 && i >= 0 && i < size && (softReference = c.get(i)) != null) {
+                return softReference.get();
+            }
+            return null;
+        }
+        return (Activity) invokeI.objValue;
     }
 
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
-        Class<?> cls;
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? (obj == null || (obj instanceof Boolean) || (obj instanceof Short) || (obj instanceof Byte) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof String) || (cls = obj.getClass()) == Boolean.TYPE || cls == Boolean.class || cls == Short.TYPE || cls == Short.class || cls == Byte.TYPE || cls == Byte.class || cls == Integer.TYPE || cls == Integer.class || cls == Long.TYPE || cls == Long.class || cls == Float.TYPE || cls == Float.class || cls == Character.TYPE || cls == Character.class || cls == Double.TYPE || cls == Double.class || cls == String.class) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c.size() : invokeV.intValue;
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public static boolean g(Class<?> cls) {
+    public boolean i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
-            String[] strArr = {"activity", "content", "listener", NativeConstants.TYPE_VIEW, ResourceManager.DRAWABLE};
-            for (int i = 0; i < 5; i++) {
-                if (cls.getSimpleName().toLowerCase().endsWith(strArr[i])) {
-                    return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (c.size() == 0) {
+                return false;
+            }
+            Iterator<SoftReference<Activity>> it = c.iterator();
+            while (it.hasNext()) {
+                SoftReference<Activity> next = it.next();
+                if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static void h(String str, Object obj) {
+    public int j(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, obj) == null) {
-            StringBuffer stringBuffer = new StringBuffer("");
-            if (q9.a) {
-                stringBuffer.append("Message_Type: " + str + "\n");
-                stringBuffer.append(j("", obj));
-                stringBuffer.append("----------------------------------------------------------\n");
-                String[] split = stringBuffer.toString().split("\n");
-                for (String str2 : split) {
-                    BdLog.i(str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) {
+            int size = c.size();
+            if (size <= 0 || activity == null) {
+                return -1;
+            }
+            for (int i = size - 1; i >= 0; i--) {
+                SoftReference<Activity> softReference = c.get(i);
+                if (softReference == null) {
+                    c.remove(i);
+                } else if (activity.equals(softReference.get())) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public Activity k() {
+        InterceptResult invokeV;
+        SoftReference<Activity> remove;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int size = c.size();
+            if (size == 0 || (remove = c.remove(size - 1)) == null) {
+                return null;
+            }
+            return remove.get();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public Activity l(int i) {
+        InterceptResult invokeI;
+        SoftReference<Activity> remove;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            int size = c.size();
+            if (size != 0 && i >= 0 && i < size && (remove = c.remove(i)) != null) {
+                return remove.get();
+            }
+            return null;
+        }
+        return (Activity) invokeI.objValue;
+    }
+
+    public void m(Activity activity) {
+        a aVar;
+        a aVar2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, activity) == null) || activity == null) {
+            return;
+        }
+        int size = c.size();
+        if (size == 0) {
+            a aVar3 = this.a;
+            if (aVar3 != null) {
+                aVar3.onActivityClosed();
+                return;
+            }
+            return;
+        }
+        for (int i = size - 1; i >= 0; i--) {
+            SoftReference<Activity> softReference = c.get(i);
+            if (softReference == null) {
+                c.remove(i);
+            } else if (activity.equals(softReference.get())) {
+                c.remove(i);
+                if (c.size() != 0 || (aVar = this.a) == null) {
+                    return;
+                }
+                aVar.onActivityClosed();
+                return;
+            } else if (c.size() == 0 && (aVar2 = this.a) != null) {
+                aVar2.onActivityClosed();
+            }
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                Activity k = k();
+                if (k != null) {
+                    k.finish();
                 }
             }
         }
     }
 
-    public static void i(Field[] fieldArr, Object obj, StringBuffer stringBuffer, List list) throws IllegalAccessException {
+    public void o(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65545, null, fieldArr, obj, stringBuffer, list) == null) {
-            for (int i = 0; i < fieldArr.length; i++) {
-                fieldArr[i].setAccessible(true);
-                if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                    stringBuffer.append(k(d() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, activity) == null) || activity == null) {
+            return;
         }
+        c.add(new SoftReference<>(activity));
+        a(this.b);
     }
 
-    public static String j(String str, Object obj) {
-        InterceptResult invokeLL;
+    public void p() {
+        Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, obj)) == null) {
-            if (obj == null) {
-                return str + ": null\n";
-            } else if (e(obj)) {
-                return a(str, obj, new ArrayList());
-            } else {
-                if (f(obj)) {
-                    return b(str, obj, new ArrayList());
-                }
-                return str + " = " + obj.toString() + "\n\r";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String k(String str, Object obj, List list) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, obj, list)) == null) {
-            if (obj == null) {
-                return str + " = null\n";
-            } else if (e(obj)) {
-                return a(str, obj, list);
-            } else {
-                if (f(obj)) {
-                    if (!list.contains(obj)) {
-                        list.add(obj);
-                        return b(str, obj, list);
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (c != null) {
+                while (!c.isEmpty()) {
+                    SoftReference<Activity> remove = c.remove(0);
+                    if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
+                        activity.finish();
                     }
-                    return str + " = <already visited>\n";
                 }
-                return str + " = " + c(obj) + "\n";
+            }
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.onActivityClosed();
             }
         }
-        return (String) invokeLLL.objValue;
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            a(3);
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            if (i >= 10 || i == 0) {
+                this.b = i;
+            }
+        }
+    }
+
+    public void s(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        ActivityManager activityManager;
+        List<ActivityManager.RunningTaskInfo> runningTasks;
+        String str;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            ArrayList<SoftReference<Activity>> arrayList = c;
+            if (arrayList != null && arrayList.size() != 0) {
+                StringBuilder sb = new StringBuilder();
+                Iterator<SoftReference<Activity>> it = c.iterator();
+                while (it.hasNext()) {
+                    SoftReference<Activity> next = it.next();
+                    if (next != null && (activity = next.get()) != null) {
+                        String simpleName = activity.getClass() != null ? activity.getClass().getSimpleName() : "";
+                        if (!StringUtils.isNull(simpleName)) {
+                            sb.append(simpleName + ParamableElem.DIVIDE_PARAM);
+                        }
+                    }
+                }
+                return sb.toString();
+            }
+            try {
+                if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity")) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
+                    StringBuilder sb2 = new StringBuilder();
+                    for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
+                        if (runningTaskInfo != null) {
+                            String str2 = runningTaskInfo.topActivity != null ? "top:" + runningTaskInfo.topActivity.getClassName() : "";
+                            if (runningTaskInfo.baseActivity != null) {
+                                str2 = str2 + "&base:" + runningTaskInfo.baseActivity.getClassName();
+                            }
+                            str = str2 + "&numbers:" + runningTaskInfo.numActivities;
+                        } else {
+                            str = "";
+                        }
+                        if (!StringUtils.isNull(str)) {
+                            sb2.append(str + ParamableElem.DIVIDE_PARAM);
+                        }
+                    }
+                    return sb2.toString();
+                }
+            } catch (Exception unused) {
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 }

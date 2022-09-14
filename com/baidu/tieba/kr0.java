@@ -1,63 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InternalSyncControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URL;
+import java.util.List;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@JvmName(name = "AuthStrategyHelper")
 /* loaded from: classes4.dex */
-public class kr0 extends pr0 {
+public final class kr0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hr0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public kr0() {
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("host", "vdept3.bdstatic.com");
+                jSONObject2.put("auth", "1_1_1_3");
+                jSONArray.put(jSONObject2);
+                jSONObject.put("hosts", jSONArray);
+            } catch (Exception e) {
+                jj0.c("AuthStrategyHelper", e.toString());
+            }
+            String jSONObject3 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
+            return jSONObject3;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final List<gr0> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = jr0.a(bz0.l().getString("host_auth_config", a()));
+            }
+            hr0 hr0Var = a;
+            if (hr0Var != null) {
+                return hr0Var.a();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static final synchronized gr0 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (kr0.class) {
+                if (str != null) {
+                    List<gr0> b = b();
+                    if (b != null) {
+                        try {
+                            String host = new URL(str).getHost();
+                            for (gr0 gr0Var : b) {
+                                if (Pattern.matches(gr0Var.b(), host)) {
+                                    return gr0Var;
+                                }
+                            }
+                        } catch (Exception e) {
+                            jj0.a("AuthStrategyHelper", e.getMessage());
+                        }
+                        return null;
+                    }
+                    return null;
+                }
+                return null;
             }
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vr0 w = hr0.w(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
-            w.s(1);
-            c(w);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            vr0 w = hr0.w(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
-            w.s(1);
-            c(w);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vr0 w = hr0.w(InternalSyncControlEvent.INTERNAL_ACTION_START);
-            w.s(1);
-            c(w);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            vr0 w = hr0.w(InternalSyncControlEvent.INTERNAL_ACTION_STOP);
-            w.s(1);
-            c(w);
-        }
+        return (gr0) invokeL.objValue;
     }
 }

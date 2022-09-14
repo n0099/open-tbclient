@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.wt6;
+import com.baidu.tieba.hv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetMyGift.GetMyGiftResIdl;
 public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wt6 giftListData;
+    public hv6 giftListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetPersonalGiftListHttpResponseMessage(int i) {
@@ -37,16 +37,16 @@ public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessa
         }
     }
 
-    public wt6 getGiftListData() {
+    public hv6 getGiftListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.giftListData : (wt6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.giftListData : (hv6) invokeV.objValue;
     }
 
-    public void setGiftListData(wt6 wt6Var) {
+    public void setGiftListData(hv6 hv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, wt6Var) == null) {
-            this.giftListData = wt6Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, hv6Var) == null) {
+            this.giftListData = hv6Var;
         }
     }
 
@@ -63,8 +63,8 @@ public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessa
             setError(error.errorno.intValue());
             setErrorString(getMyGiftResIdl.error.usermsg);
         }
-        wt6 wt6Var = new wt6();
-        this.giftListData = wt6Var;
-        wt6Var.f(getMyGiftResIdl.data);
+        hv6 hv6Var = new hv6();
+        this.giftListData = hv6Var;
+        hv6Var.f(getMyGiftResIdl.data);
     }
 }

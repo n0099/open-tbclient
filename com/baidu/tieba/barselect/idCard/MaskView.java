@@ -115,7 +115,7 @@ public class MaskView extends View {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080204, null);
+            this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080205, null);
         }
     }
 
@@ -228,9 +228,9 @@ public class MaskView extends View {
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.a = i;
             if (i == 1) {
-                this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080204, null);
+                this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080205, null);
             } else if (i == 2) {
-                this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080203, null);
+                this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080204, null);
             }
             invalidate();
         }

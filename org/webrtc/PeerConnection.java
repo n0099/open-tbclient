@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PeerConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -365,7 +365,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class IceGatheringState {
         public static final /* synthetic */ IceGatheringState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -433,7 +433,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class IceServer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -447,7 +447,7 @@ public class PeerConnection {
         public final List<String> urls;
         public final String username;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -768,7 +768,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class IceTransportsType {
         public static final /* synthetic */ IceTransportsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -831,7 +831,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class IntervalRange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -873,7 +873,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class KeyType {
         public static final /* synthetic */ KeyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -932,7 +932,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onAddStream(MediaStream mediaStream);
@@ -975,7 +975,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class PeerConnectionState {
         public static final /* synthetic */ PeerConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1049,7 +1049,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class RTCConfiguration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1457,7 +1457,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RtcpMuxPolicy {
         public static final /* synthetic */ RtcpMuxPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1517,7 +1517,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SdpSemantics {
         public static final /* synthetic */ SdpSemantics[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1577,7 +1577,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SignalingState {
         public static final /* synthetic */ SignalingState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1652,7 +1652,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TcpCandidatePolicy {
         public static final /* synthetic */ TcpCandidatePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1712,7 +1712,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TlsCertPolicy {
         public static final /* synthetic */ TlsCertPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

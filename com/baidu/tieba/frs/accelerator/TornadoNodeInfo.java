@@ -90,16 +90,9 @@ public class TornadoNodeInfo implements Serializable {
         }
     }
 
-    public void setNodeInfoList(List<NodeInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.nodeInfoList = list;
-        }
-    }
-
     public void setPackageName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.packageName = str;
         }
     }

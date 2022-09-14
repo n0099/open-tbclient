@@ -1,26 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b16 extends cn<c16, CardViewHolder<d16>> {
+public class b16 extends v06<s66> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbImageView i;
+    public LinearLayout j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public LinearLayout n;
+    public ImageView o;
+    public ImageView p;
+    public ImageView q;
+    public ImageView r;
+    public ImageView s;
+    public TextView t;
+    public s66 u;
+    public View v;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b16(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), c16.c);
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,38 +45,143 @@ public class b16 extends cn<c16, CardViewHolder<d16>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        r(h());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v06
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder(new d16(this.a)) : (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018e : invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c16 c16Var, CardViewHolder cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.v06
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c16Var, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(this.t, R.color.CAM_X0107, 1);
+                t(this.u);
             }
-            cardViewHolder.a().i(c16Var);
-            return cardViewHolder.getView();
+            this.a = i;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
+            return;
+        }
+        e().a(h(), this.u);
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090515);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090516);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090520);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090517);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090519);
+            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051f);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051a);
+            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
+            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
+            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
+            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051e);
+            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090514);
+            this.i.setDefaultResource(17170445);
+            this.i.setDefaultBgResource(R.color.CAM_X0205);
+            this.i.setDrawBorder(true);
+            this.i.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
+            h().setOnClickListener(this);
+            this.v = view2.findViewById(R.id.divider_line);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v06
+    /* renamed from: s */
+    public void i(s66 s66Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, s66Var) == null) || s66Var == null || s66Var.c() == null) {
+            return;
+        }
+        this.u = s66Var;
+        this.i.K(s66Var.c().avatar, 10, false);
+        this.k.setText(s66Var.c().game_name);
+        this.l.setText(s66Var.c().title_small);
+        this.m.setText(String.valueOf(s66Var.c().game_score));
+        t(s66Var);
+        this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f070d, StringHelper.numberUniform(s66Var.c().game_score_num)));
+    }
+
+    public final void t(s66 s66Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, s66Var) == null) || s66Var == null) {
+            return;
+        }
+        SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_empty_bg);
+        if (s66Var.c().game_score > 0.0d) {
+            if (s66Var.c().game_score < 2.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (s66Var.c().game_score == 2.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (s66Var.c().game_score < 4.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (s66Var.c().game_score == 4.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (s66Var.c().game_score < 6.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (s66Var.c().game_score == 6.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (s66Var.c().game_score < 8.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (s66Var.c().game_score == 8.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (s66Var.c().game_score < 10.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (s66Var.c().game_score == 10.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
+            }
+        }
     }
 }

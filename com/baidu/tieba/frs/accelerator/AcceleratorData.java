@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.accelerator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tieba.yq6;
+import com.baidu.tieba.is6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -92,7 +92,7 @@ public class AcceleratorData implements Serializable {
             }
             this.availableTornadoNodeInfoList = new ArrayList();
             for (int i = 0; i < this.tornadoNodeInfoList.size(); i++) {
-                if (yq6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
+                if (is6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
                     this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i));
                     this.availableNodesNum += this.tornadoNodeInfoList.get(i).getNodeInfoList().size();
                 }
@@ -118,30 +118,10 @@ public class AcceleratorData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tokenInfo : (TokenInfo) invokeV.objValue;
     }
 
-    public List<TornadoNodeInfo> getTornadoNodeInfoList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tornadoNodeInfoList : (List) invokeV.objValue;
-    }
-
     public void setItemData(ItemData itemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, itemData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, itemData) == null) {
             this.itemData = itemData;
-        }
-    }
-
-    public void setTokenInfo(TokenInfo tokenInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tokenInfo) == null) {
-            this.tokenInfo = tokenInfo;
-        }
-    }
-
-    public void setTornadoNodeInfoList(List<TornadoNodeInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.tornadoNodeInfoList = list;
         }
     }
 }

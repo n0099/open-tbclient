@@ -14,17 +14,17 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tieba.R;
-import com.baidu.tieba.an;
-import com.baidu.tieba.qk;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.tk;
-import com.baidu.tieba.uk;
-import com.baidu.tieba.xk;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.el;
+import com.baidu.tieba.hl;
+import com.baidu.tieba.il;
+import com.baidu.tieba.ll;
+import com.baidu.tieba.on;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,14 +33,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes.dex */
-public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, xk {
+public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, ll {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public ImageView.ScaleType b;
     public ImageView.ScaleType c;
     public DrawerArgs d;
-    public qk e;
+    public el e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -48,7 +48,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public int j;
     public int k;
     public int l;
-    public tk m;
+    public hl m;
     public boolean n;
     public Drawable o;
     public Drawable p;
@@ -80,7 +80,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new tk();
+        this.m = new hl();
         i(null);
     }
 
@@ -121,9 +121,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.m.c = false;
                 this.q = this.p;
             } else {
-                tk tkVar = this.m;
-                tkVar.a = null;
-                tkVar.b = getDefaultBdImage();
+                hl hlVar = this.m;
+                hlVar.a = null;
+                hlVar.b = getDefaultBdImage();
                 this.m.c = true;
                 if (this.m.d()) {
                     scaleType = this.b;
@@ -212,9 +212,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         }
     }
 
-    public abstract an getBdImage();
+    public abstract on getBdImage();
 
-    public abstract an getDefaultBdImage();
+    public abstract on getDefaultBdImage();
 
     public boolean getDrawBorder() {
         InterceptResult invokeV;
@@ -263,11 +263,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04007e, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ec, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f040262, R.attr.obfuscated_res_0x7f0402e4, R.attr.obfuscated_res_0x7f0402ea, R.attr.obfuscated_res_0x7f0402f9, R.attr.obfuscated_res_0x7f04034a, R.attr.obfuscated_res_0x7f0404bf, R.attr.obfuscated_res_0x7f0404c7, R.attr.obfuscated_res_0x7f0405a0, R.attr.obfuscated_res_0x7f0405a1, R.attr.obfuscated_res_0x7f0405a2, R.attr.obfuscated_res_0x7f0405a4, R.attr.obfuscated_res_0x7f0405a5, R.attr.obfuscated_res_0x7f04061e});
-                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, ri.d(getContext(), 4.0f)));
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
+                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, ej.d(getContext(), 4.0f)));
                 this.d.b = obtainStyledAttributes.getBoolean(8, false);
                 this.d.c = obtainStyledAttributes.getBoolean(7, false);
-                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, ri.d(getContext(), 1.0f));
+                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, ej.d(getContext(), 1.0f));
                 this.d.e = obtainStyledAttributes.getColor(1, 201326592);
                 this.d.g = obtainStyledAttributes.getBoolean(2, false);
                 this.d.i = obtainStyledAttributes.getBoolean(16, true);
@@ -278,11 +278,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.n = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             } else {
-                this.d.a = j(ri.d(getContext(), 4.0f));
-                this.d.d = ri.d(getContext(), 1.0f);
+                this.d.a = j(ej.d(getContext(), 4.0f));
+                this.d.d = ej.d(getContext(), 1.0f);
                 this.d.e = 201326592;
             }
-            qk a = uk.b().a(this.a);
+            el a = il.b().a(this.a);
             this.e = a;
             a.r(this.d);
         }
@@ -456,7 +456,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
             return;
         }
         this.a = i;
-        qk a = uk.b().a(this.a);
+        el a = il.b().a(this.a);
         this.e = a;
         a.r(this.d);
         this.h = true;
@@ -672,7 +672,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new tk();
+        this.m = new hl();
         i(attributeSet);
     }
 }

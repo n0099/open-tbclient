@@ -35,12 +35,12 @@ public class br extends al.a {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m94a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m95a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo208a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100887" : (String) invokeV.objValue;

@@ -3,9 +3,6 @@ package com.google.android.gms.common;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn9;
-import com.baidu.tieba.jo9;
-import com.baidu.tieba.ko9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,15 +11,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import javax.annotation.Nullable;
+@SafeParcelable.Class(creator = "GoogleCertificatesLookupResponseCreator")
 /* loaded from: classes7.dex */
 public final class zzq extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzq> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.Field(getter = "getResult", id = 1)
     public final boolean zza;
     @Nullable
+    @SafeParcelable.Field(getter = "getErrorMessage", id = 2)
     public final String zzb;
+    @SafeParcelable.Field(getter = "getStatusValue", id = 3)
     public final int zzc;
 
     static {
@@ -38,10 +41,11 @@ public final class zzq extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new ko9();
+        CREATOR = new zzr();
     }
 
-    public zzq(boolean z, String str, int i) {
+    @SafeParcelable.Constructor
+    public zzq(@SafeParcelable.Param(id = 1) boolean z, @SafeParcelable.Param(id = 2) String str, @SafeParcelable.Param(id = 3) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,18 +62,18 @@ public final class zzq extends AbstractSafeParcelable {
         }
         this.zza = z;
         this.zzb = str;
-        this.zzc = jo9.a(i) - 1;
+        this.zzc = zzp.zza(i) - 1;
     }
 
     @Override // android.os.Parcelable
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.c(parcel, 1, this.zza);
-            jn9.k(parcel, 2, this.zzb, false);
-            jn9.g(parcel, 3, this.zzc);
-            jn9.b(parcel, a);
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeBoolean(parcel, 1, this.zza);
+            SafeParcelWriter.writeString(parcel, 2, this.zzb, false);
+            SafeParcelWriter.writeInt(parcel, 3, this.zzc);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 
@@ -89,6 +93,6 @@ public final class zzq extends AbstractSafeParcelable {
     public final int zzc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? jo9.a(this.zzc) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? zzp.zza(this.zzc) : invokeV.intValue;
     }
 }

@@ -5,7 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.be5;
+import com.baidu.tieba.fg5;
+import com.baidu.tieba.ig5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,10 +40,11 @@ public class PackageChangedReceiver extends BroadcastReceiver {
         }
         if (ACTION_INSTALL.equals(intent.getAction())) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002501, intent));
+            fg5.a().b(intent);
         } else if (ACTION_UNINSTALL.equals(intent.getAction())) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002502, intent));
         }
-        be5.r(intent);
+        ig5.r(intent);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002504, intent));
     }
 }

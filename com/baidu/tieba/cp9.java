@@ -1,84 +1,156 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.CheckForNull;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.api.KsSplashScreenAd;
 /* loaded from: classes3.dex */
-public final class cp9 {
+public class cp9 extends ReporterPidLoader<KsSplashScreenAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(@CheckForNull String str, @CheckForNull Object... objArr) {
-        InterceptResult invokeLL;
-        int length;
-        int length2;
-        int indexOf;
-        String sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, objArr)) == null) {
-            int i = 0;
-            int i2 = 0;
-            while (true) {
-                length = objArr.length;
-                if (i2 >= length) {
-                    break;
+    /* loaded from: classes3.dex */
+    public class a implements KsLoadManager.SplashScreenAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cp9 a;
+
+        public a(cp9 cp9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cp9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                Object obj = objArr[i2];
-                if (obj == null) {
-                    sb = StringUtil.NULL_STRING;
-                } else {
-                    try {
-                        sb = obj.toString();
-                    } catch (Exception e) {
-                        String name = obj.getClass().getName();
-                        String hexString = Integer.toHexString(System.identityHashCode(obj));
-                        StringBuilder sb2 = new StringBuilder(String.valueOf(name).length() + 1 + String.valueOf(hexString).length());
-                        sb2.append(name);
-                        sb2.append('@');
-                        sb2.append(hexString);
-                        String sb3 = sb2.toString();
-                        Logger.getLogger("com.google.common.base.Strings").logp(Level.WARNING, "com.google.common.base.Strings", "lenientToString", sb3.length() != 0 ? "Exception during lenientFormat for ".concat(sb3) : new String("Exception during lenientFormat for "), (Throwable) e);
-                        String name2 = e.getClass().getName();
-                        StringBuilder sb4 = new StringBuilder(sb3.length() + 9 + String.valueOf(name2).length());
-                        sb4.append("<");
-                        sb4.append(sb3);
-                        sb4.append(" threw ");
-                        sb4.append(name2);
-                        sb4.append(">");
-                        sb = sb4.toString();
-                    }
-                }
-                objArr[i2] = sb;
-                i2++;
             }
-            StringBuilder sb5 = new StringBuilder(str.length() + (length * 16));
-            int i3 = 0;
-            while (true) {
-                length2 = objArr.length;
-                if (i >= length2 || (indexOf = str.indexOf("%s", i3)) == -1) {
-                    break;
-                }
-                sb5.append((CharSequence) str, i3, indexOf);
-                sb5.append(objArr[i]);
-                i3 = indexOf + 2;
-                i++;
-            }
-            sb5.append((CharSequence) str, i3, str.length());
-            if (i < length2) {
-                sb5.append(" [");
-                sb5.append(objArr[i]);
-                for (int i4 = i + 1; i4 < objArr.length; i4++) {
-                    sb5.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb5.append(objArr[i4]);
-                }
-                sb5.append(']');
-            }
-            return sb5.toString();
+            this.a = cp9Var;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("KSSplashAd onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+        public void onRequestResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+        public void onSplashScreenAdLoad(KsSplashScreenAd ksSplashScreenAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksSplashScreenAd) == null) {
+                LogPrinter.e("KSSplashAd onSplashScreenAdLoad", new Object[0]);
+                this.a.onAdLoaded((cp9) ksSplashScreenAd);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cp9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new mo9(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            KsSplashScreenAd ksSplashScreenAd = (KsSplashScreenAd) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? ((KsSplashScreenAd) obj).getECPM() / 100.0d : invokeL.doubleValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).build();
+            onLoadStart(funAdSlot);
+            KsAdSDK.getLoadManager().loadSplashScreenAd(build, new a(this));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            KsSplashScreenAd ksSplashScreenAd = (KsSplashScreenAd) obj;
+            if (z) {
+                ksSplashScreenAd.setBidEcpm((int) (d2 * 100.0d));
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            KsSplashScreenAd ksSplashScreenAd = (KsSplashScreenAd) obj;
+            View view2 = ksSplashScreenAd.getView(activity, new dp9(this, ksSplashScreenAd));
+            onShowStart(ksSplashScreenAd);
+            viewGroup.removeAllViews();
+            viewGroup.addView(view2);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

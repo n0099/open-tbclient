@@ -1,30 +1,51 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ux1 {
+public class ux1 extends ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    @SuppressLint({"BDOfflineUrl"})
-    public static String a() {
-        InterceptResult invokeV;
+    public ux1() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "https://gamecenter.baidu.com" : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ew1
+    public void a(fw1 fw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "https://minipro.baidu.com" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) {
+            if (fw1Var.a() == 0) {
+                fw1Var.b(canvas.save());
+            }
+            canvas.translate(this.a, this.b);
+        }
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ew1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "https://mbd.baidu.com" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
+            return;
+        }
+        this.a = pg3.g((float) jSONArray.optDouble(0));
+        this.b = pg3.g((float) jSONArray.optDouble(1));
     }
 }

@@ -1,5 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface m09 {
-    void a(l09 l09Var);
+    void g(String str);
+
+    void k(String str);
+
+    void n();
 }

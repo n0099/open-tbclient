@@ -1,121 +1,95 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class dg5 extends ImageSpan {
+public class dg5 {
     public static /* synthetic */ Interceptable $ic;
+    public static dg5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public WeakReference<Drawable> d;
+    public wz4 a;
+    public ABTestExtraData b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dg5(Drawable drawable) {
-        super(drawable);
+    public dg5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    public final Drawable a() {
+    public static dg5 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.d;
-            Drawable drawable = weakReference != null ? weakReference.get() : null;
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.d = new WeakReference<>(drawable2);
-                return drawable2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (dg5.class) {
+                    if (c == null) {
+                        c = new dg5();
+                    }
+                }
             }
-            return drawable;
+            return c;
         }
-        return (Drawable) invokeV.objValue;
+        return (dg5) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public final void a(wz4 wz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) || (a = a()) == null) {
-            return;
-        }
-        canvas.save();
-        canvas.translate(f + this.b, ((((i5 - i3) - a.getBounds().bottom) / 2) + i3) - this.a);
-        a.draw(canvas);
-        canvas.restore();
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        if (interceptable == null || interceptable.invokeL(1048576, this, wz4Var) == null) {
+            boolean z = wz4Var == null || this.a == null || wz4Var.a() != this.a.a();
+            this.a = wz4Var;
+            if (z) {
+                b("zan_or_cai_smallflow");
             }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right + this.b + this.c;
         }
-        return invokeCommon.intValue;
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        }
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == null) {
+                ABTestExtraData aBTestExtraData = new ABTestExtraData();
+                this.b = aBTestExtraData;
+                aBTestExtraData.parserABTestExtraFormSharedPref();
+            }
+            return this.b.getABTestResult();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e(wz4 wz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wz4Var) == null) {
+            a(wz4Var);
+        }
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
+            this.b = aBTestExtraData;
+        }
     }
 }

@@ -1,27 +1,19 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface an1 {
-    void a(@NonNull Object obj, String str, String str2);
+    void a(String str, fq2 fq2Var);
 
-    void b(@NonNull Object obj);
+    int getDuration();
 
-    Object beginFlow(String str);
+    boolean isPlaying();
 
-    void c(@NonNull Object obj);
+    void onRelease();
 
-    void d(String str, Map<String, String> map);
+    void pause();
 
-    boolean e();
+    void play();
 
-    void f(String str, JSONObject jSONObject);
+    void seek(int i);
 
-    void g(@NonNull Object obj, String str, String str2, long j);
-
-    void h(@NonNull Object obj, String str);
-
-    void i(String str, String str2);
+    void stop();
 }

@@ -1,161 +1,173 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.util.Log;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.regex.Pattern;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class om9 {
+public class om9 extends tl9<im9> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<im9, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> f;
 
     /* loaded from: classes5.dex */
-    public class a implements FileFilter {
+    public class a implements TTAdNative.NativeExpressAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ om9 b;
 
-        public a() {
+        public a(om9 om9Var, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {om9Var, funAdSlot};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = om9Var;
+            this.a = funAdSlot;
         }
 
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJNativeExpressAd onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
+            }
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: com.bytedance.sdk.openadsdk.TTNativeExpressAd */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r4v1, types: [A, com.bytedance.sdk.openadsdk.TTNativeExpressAd$ExpressAdInteractionListener, com.baidu.tieba.qm9] */
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad", new Object[0]);
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    om9 om9Var = this.b;
+                    im9 im9Var = new im9(tTNativeExpressAd);
+                    String sid = this.a.getSid();
+                    om9Var.getClass();
+                    ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
+                    ?? qm9Var = new qm9(om9Var, im9Var, expressAdListenerWrapper, sid);
+                    expressAdListenerWrapper.listener = qm9Var;
+                    tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.ExpressAdInteractionListener) qm9Var);
+                    tTNativeExpressAd.setCanInterruptVideoPlay(true);
+                    tTNativeExpressAd.render();
+                    return;
+                }
+                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948037198, "Lcom/baidu/tieba/om9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public om9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948037198, "Lcom/baidu/tieba/om9;");
-        }
-    }
-
-    public static long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) gm9.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo.availMem / 1024;
-        }
-        return invokeV.longValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 0) {
-                try {
-                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
-                } catch (Exception e) {
-                    Log.e("PerformanceUtils", "getNumCores exception", e);
-                    a = 1;
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a;
         }
-        return invokeV.intValue;
+        this.f = new HashMap<>();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static long c() {
-        InterceptResult invokeV;
-        FileReader fileReader;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == 0) {
-                long j = -1;
-                FileReader fileReader2 = null;
-                try {
-                    try {
-                        try {
-                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-                        } catch (IOException e) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
-                        }
-                    } catch (IOException e2) {
-                        e = e2;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
-                    String readLine = bufferedReader.readLine();
-                    String str = readLine;
-                    if (readLine != null) {
-                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
-                        j = valueOf.intValue();
-                        str = valueOf;
-                    }
-                    bufferedReader.close();
-                    fileReader.close();
-                    fileReader2 = str;
-                } catch (IOException e3) {
-                    e = e3;
-                    fileReader2 = fileReader;
-                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
-                    if (fileReader2 != null) {
-                        fileReader2.close();
-                        fileReader2 = fileReader2;
-                    }
-                    b = j;
-                    return b;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    if (fileReader2 != null) {
-                        try {
-                            fileReader2.close();
-                        } catch (IOException e4) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
-                        }
-                    }
-                    throw th;
-                }
-                b = j;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            im9 im9Var = (im9) obj;
+            this.f.remove(im9Var);
+            if (im9Var != null) {
+                ((TTNativeExpressAd) im9Var.a).destroy();
             }
-            return b;
         }
-        return invokeV.longValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) ? new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (im9) obj, new sm9(this, this)) : (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
+            onLoadStart(funAdSlot);
+            this.e.loadNativeExpressAd(build, new a(this, funAdSlot));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            im9 im9Var = (im9) obj;
+            View expressAdView = ((TTNativeExpressAd) im9Var.a).getExpressAdView();
+            if (expressAdView != null && expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+            }
+            onShowStart(im9Var);
+            ((TTNativeExpressAd) im9Var.a).setDislikeCallback(activity, new rm9(this, expressAdView, im9Var, null, str));
+            viewGroup.removeAllViews();
+            viewGroup.addView(expressAdView);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

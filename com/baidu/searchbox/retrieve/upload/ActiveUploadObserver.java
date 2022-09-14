@@ -3,8 +3,8 @@ package com.baidu.searchbox.retrieve.upload;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult_ActiveUploadObserver_ListProvider;
-import com.baidu.tieba.hc1;
-import com.baidu.tieba.jc1;
+import com.baidu.tieba.ee1;
+import com.baidu.tieba.ge1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +14,7 @@ public class ActiveUploadObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public jc1<IActiveUploadResult> mActiveObserverList;
+    public ge1<IActiveUploadResult> mActiveObserverList;
 
     public ActiveUploadObserver() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class ActiveUploadObserver {
     public void initmActiveObserverList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hc1 b = hc1.b();
+            ee1 b = ee1.b();
             this.mActiveObserverList = b;
             b.a(new IActiveUploadResult_ActiveUploadObserver_ListProvider());
         }

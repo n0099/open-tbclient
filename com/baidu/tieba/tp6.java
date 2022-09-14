@@ -1,35 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: TabBarLogic.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class tp6 {
+public class tp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final wg6 a;
+    public final FrsFragment b;
+    public final pt6 c;
+    public final jt6 d;
+    public final FrsModelController e;
+    public final ci6 f;
+    public final mp6 g;
 
-    @NonNull
-    public static vp6 a() {
-        InterceptResult invokeV;
+    public tp6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new up6() : (vp6) invokeV.objValue;
-    }
-
-    @ColorInt
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SkinManager.getColor(R.color.CAM_X0107) : invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UtilHelper.getDimenPixelSize(R.dimen.tbds42) : invokeV.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (frsFragment != null) {
+            this.b = frsFragment;
+            this.d = frsFragment.n0();
+            this.a = this.b.j1();
+            this.c = this.b.E3();
+            this.e = this.b.J0();
+            this.f = this.b.z3();
+            this.g = this.b.Z0();
+            return;
+        }
+        throw new NullPointerException("FrsActivity is NullPointerException");
     }
 }

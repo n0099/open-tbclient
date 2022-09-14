@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.tieba.z12;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes3.dex */
 public interface bn1 {
-    jn1 a(Context context);
+    int a();
 
-    fn1 b(Context context);
+    VideoPlayerFactory b();
 
-    jn1 c(Context context);
+    int c();
 
-    v22 d();
+    void d(boolean z);
 
-    gn1 e(Context context, int i);
+    boolean e();
 
-    jn1 f(Context context);
+    boolean f();
 
-    jn1 g(Context context);
+    void g(int i);
 
-    w22 h(Context context, int i);
-
-    jn1 i(Context context);
-
-    boolean j(int i);
+    void h(z12.c cVar);
 }

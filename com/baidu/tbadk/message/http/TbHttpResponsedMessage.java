@@ -1,15 +1,18 @@
 package com.baidu.tbadk.message.http;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.task.MessageTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.sf;
-import com.baidu.tieba.tf;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.hg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,19 +88,19 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, tf tfVar) {
+    public void logStatInBackground(int i, hg hgVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, tfVar) == null) || tfVar.d().size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, hgVar) == null) || hgVar.d().size() <= 0) {
             return;
         }
-        sf sfVar = tfVar.d().get(tfVar.d().size() - 1);
-        NetWorkState.mErrorNums.addAndGet(tfVar.d().size() - 1);
+        gg ggVar = hgVar.d().get(hgVar.d().size() - 1);
+        NetWorkState.mErrorNums.addAndGet(hgVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
-        statisticsData.mMode = getMode(pi.I());
-        statisticsData.mSize = sfVar.b;
-        statisticsData.mTime = sfVar.f;
-        statisticsData.mTimesNum = sfVar.e;
-        statisticsData.mMethod = tfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
+        statisticsData.mMode = getMode(BdNetTypeUtil.netType());
+        statisticsData.mSize = ggVar.b;
+        statisticsData.mTime = ggVar.f;
+        statisticsData.mTimesNum = ggVar.e;
+        statisticsData.mMethod = hgVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }
 
@@ -116,7 +119,10 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public void showToast(BdToastData bdToastData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdToastData) == null) {
-            BdToastHelper.toast(bdToastData);
+            MessageTask findTask = MessageManager.getInstance().findTask(getCmd());
+            if ((findTask instanceof TbHttpMessageTask) && ((TbHttpMessageTask) findTask).isIsNeedToast()) {
+                BdToastHelper.toast(bdToastData);
+            }
         }
     }
 }

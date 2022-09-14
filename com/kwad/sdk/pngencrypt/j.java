@@ -2,7 +2,7 @@ package com.kwad.sdk.pngencrypt;
 
 import java.util.Arrays;
 import java.util.zip.Inflater;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j extends DeflatedChunksSet {
     public final e ajN;
     public byte[] akH;
@@ -12,7 +12,7 @@ public final class j extends DeflatedChunksSet {
     public int[] akL;
 
     /* renamed from: com.kwad.sdk.pngencrypt.j$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] akM;
 

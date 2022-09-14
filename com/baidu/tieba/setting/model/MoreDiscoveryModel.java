@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.nl8;
+import com.baidu.tieba.bn8;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
-import com.baidu.tieba.ur4;
-import com.baidu.tieba.ve;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,12 +44,12 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public nl8 e;
+    public bn8 e;
     public boolean f;
-    public bb g;
+    public pb g;
 
     /* loaded from: classes5.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreDiscoveryModel a;
@@ -76,7 +76,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             this.a = moreDiscoveryModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -106,7 +106,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ve.a<byte[]> {
+    public class b implements jf.a<byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreDiscoveryModel a;
@@ -165,7 +165,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ve.a
+        @Override // com.baidu.tieba.jf.a
         /* renamed from: b */
         public void a(String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -211,18 +211,18 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new nl8("profileStat");
+        this.e = new bn8("profileStat");
         registerListener(this.g);
     }
 
-    public final ve<byte[]> E() {
+    public final jf<byte[]> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ur4.f();
-            return ur4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            zt4.f();
+            return zt4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
-        return (ve) invokeV.objValue;
+        return (jf) invokeV.objValue;
     }
 
     public void F(boolean z, boolean z2) {
@@ -254,7 +254,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.f = true;
         ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            profileRequestMessage.set_uid(Long.valueOf(pg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+            profileRequestMessage.set_uid(Long.valueOf(dh.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
         }
         if (z) {
             H();
@@ -303,7 +303,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 if (user != null) {
                     setUser(user);
                 }
-                g55.d().i(getUser());
+                o75.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;
@@ -311,7 +311,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c40));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c59));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);
@@ -371,9 +371,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void P() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e == null) {
-            nl8 nl8Var = new nl8("profileStat");
-            this.e = nl8Var;
-            nl8Var.f();
+            bn8 bn8Var = new bn8("profileStat");
+            this.e = bn8Var;
+            bn8Var.f();
         }
     }
 

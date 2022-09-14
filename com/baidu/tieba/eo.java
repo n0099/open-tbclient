@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
-public interface eo extends fo {
-    void d(boolean z, int i, int i2, int i3, int i4);
+public interface eo<T> {
+    int getCount();
+
+    T getItem(int i);
+
+    void notifyDataSetChanged();
 }

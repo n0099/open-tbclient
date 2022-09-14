@@ -12,10 +12,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sf6;
-import com.baidu.tieba.vg6;
+import com.baidu.tieba.jh6;
+import com.baidu.tieba.ni6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -94,13 +94,13 @@ public class PostCategoryView extends TextView {
         this.h = drawable2;
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.g.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.g, null);
-        setPadding(0, 0, ri.f(getContext(), R.dimen.obfuscated_res_0x7f0702d2), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0726, (ViewGroup) null);
+        setPadding(0, 0, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702d2), 0);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0740, (ViewGroup) null);
         this.c = linearLayout;
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0919ed);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a2b);
         this.d = linearLayout2;
-        this.e = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0919ee);
-        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0919ec);
+        this.e = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091a2c);
+        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091a2a);
         this.f = findViewById;
         findViewById.setOnClickListener(new a(this));
     }
@@ -137,17 +137,17 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void setCategoryContainerData(List<vg6> list, vg6 vg6Var) {
+    public void setCategoryContainerData(List<ni6> list, ni6 ni6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, vg6Var) == null) {
-            this.e.setData(list, vg6Var);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, ni6Var) == null) {
+            this.e.setData(list, ni6Var);
         }
     }
 
-    public void setCategoryContainerData(List<sf6> list, sf6 sf6Var, int i) {
+    public void setCategoryContainerData(List<jh6> list, jh6 jh6Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, list, sf6Var, i) == null) {
-            this.e.setData(list, sf6Var, i);
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, list, jh6Var, i) == null) {
+            this.e.setData(list, jh6Var, i);
         }
     }
 }

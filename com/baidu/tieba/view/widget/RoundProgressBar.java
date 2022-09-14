@@ -11,6 +11,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -221,7 +222,7 @@ public class RoundProgressBar extends View {
         }
         this.a = new Paint();
         this.k = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f0405cf, R.attr.obfuscated_res_0x7f0405d2, R.attr.obfuscated_res_0x7f0405d3, R.attr.obfuscated_res_0x7f0405d4, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f040661, R.attr.obfuscated_res_0x7f0406ee});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.RoundProgressBar);
         this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.CAM_X0607));
         this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.CAM_X0302));
         this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.CAM_X0201));

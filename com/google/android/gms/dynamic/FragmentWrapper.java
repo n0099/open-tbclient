@@ -9,13 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.dynamic.IFragmentWrapper;
+@KeepForSdk
 @SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
 public final class FragmentWrapper extends IFragmentWrapper.Stub {
@@ -42,6 +44,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Nullable
+    @KeepForSdk
     public static FragmentWrapper wrap(@Nullable Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -137,7 +140,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048586, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            hn9.d(view2);
+            Preconditions.checkNotNull(view2);
             fragment.registerForContextMenu(view2);
         }
     }
@@ -196,7 +199,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048593, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            hn9.d(view2);
+            Preconditions.checkNotNull(view2);
             fragment.unregisterForContextMenu(view2);
         }
     }

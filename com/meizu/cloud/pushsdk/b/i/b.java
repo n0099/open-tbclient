@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static int a(int i, int i2, int i3, int i4) {
         double min = Math.min(i / i3, i2 / i4);

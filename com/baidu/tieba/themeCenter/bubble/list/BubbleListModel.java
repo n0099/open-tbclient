@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.nr8;
-import com.baidu.tieba.pk8;
+import com.baidu.tieba.dm8;
+import com.baidu.tieba.dt8;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListActivity a;
-    public nr8 b;
+    public dt8 b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public c e;
@@ -37,11 +37,11 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public boolean g;
     public boolean h;
     public boolean i;
-    public bb j;
+    public pb j;
     public final HttpMessageListener k;
 
     /* loaded from: classes6.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleListModel a;
@@ -68,7 +68,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
             this.a = bubbleListModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -158,7 +158,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, nr8 nr8Var, List<DressItemData> list);
+        void a(int i, String str, dt8 dt8Var, List<DressItemData> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -173,7 +173,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -266,8 +266,8 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            pk8.h(309031, BubbleListSocketResponseMessage.class, false, false);
-            pk8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
+            dm8.h(309031, BubbleListSocketResponseMessage.class, false, false);
+            dm8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

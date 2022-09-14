@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.recent_history.message.AlaRecentHistoryResponseMessage;
-import com.baidu.tieba.xs5;
-import com.baidu.tieba.ys5;
+import com.baidu.tieba.bv5;
+import com.baidu.tieba.cv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import java.util.List;
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ys5> a;
+    public List<cv5> a;
     public b b;
     public int c;
     public int d;
@@ -75,12 +75,12 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                         this.a.b.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f);
                     }
                 } else {
-                    xs5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    bv5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
                     this.a.e = recentHistoryData.a;
-                    List<ys5> list = recentHistoryData.b;
+                    List<cv5> list = recentHistoryData.b;
                     if (!this.a.f) {
                         this.a.a.clear();
                         if (!ListUtils.isEmpty(list)) {
@@ -101,7 +101,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<ys5> list);
+        void a(boolean z, List<cv5> list);
 
         void b(int i, String str, boolean z);
     }
@@ -158,7 +158,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<ys5> getData() {
+    public List<cv5> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;

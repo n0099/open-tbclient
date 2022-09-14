@@ -15,6 +15,7 @@ import com.baidu.down.utils.DeviceInfoUtils;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.Utils;
+import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -341,7 +342,7 @@ public final class TaskNetRequestMng {
                     jSONObject2.put("domain", com.baidu.down.utils.Constants.DOMAIN_VALUE);
                 }
                 jSONObject.put("dyreq", jSONObject2);
-                jSONObject.put("cut", DeviceInfoUtils.getCut());
+                jSONObject.put(BaiduIdentityManager.PARAM_CUT, DeviceInfoUtils.getCut());
                 jSONObject.put("cc", DeviceInfoUtils.getCpuCoresWithCache(context) + "");
                 jSONObject.put("cf", DeviceInfoUtils.getCpuFreqWithCache(context) + "");
             } catch (JSONException e2) {

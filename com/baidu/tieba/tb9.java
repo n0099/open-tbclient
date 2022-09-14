@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,28 +9,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 /* loaded from: classes5.dex */
-public class tb9 {
+public final class tb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
+    public static StringBuffer c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public boolean d;
-    public b e;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a extends vb9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tb9 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-        public a(tb9 tb9Var) {
+        public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tb9Var};
+                Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,149 +44,111 @@ public class tb9 {
                     return;
                 }
             }
-            this.a = tb9Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.vb9
+        public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
+                StringBuffer stringBuffer = new StringBuffer();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+                stringBuffer.append(simpleDateFormat.format(new Date()));
+                stringBuffer.append("\t");
+                stringBuffer.append(this.a);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.b);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.c);
+                yb9.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, tb9.c.toString());
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i);
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948175582, "Lcom/baidu/tieba/tb9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948175582, "Lcom/baidu/tieba/tb9;");
-        }
-    }
-
-    public tb9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948175582, "Lcom/baidu/tieba/tb9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.c;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = this.b;
-            return i2 != 0 ? i2 : this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                if (i == this.c) {
-                    return;
-                }
-                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
-                    this.c = i;
-                    if (i != 0 && !this.d) {
-                        this.d = true;
-                        g();
-                    }
-                }
-                this.c = 0;
-            }
-        }
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.c != this.a) {
-                    this.b = this.c;
-                }
-                this.c = 0;
-            }
-        }
-    }
-
-    public final synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.b != 0) {
-                    this.a = this.b;
-                }
-                this.b = 0;
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                this.d = false;
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
-            return;
-        }
-        while (true) {
-            e();
-            int i = this.b;
-            if (i == 0) {
-                h();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948175582, "Lcom/baidu/tieba/tb9;");
                 return;
             }
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(i);
-            }
-            f();
         }
+        c = new StringBuffer();
+        if (sa9.h() != null) {
+            a = !com.baidu.ubs.analytics.d.a.a();
+            b = true;
+            c.append("ABsdkLog-");
+            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            c.append("_");
+            try {
+                c.append(c(ob9.g(sa9.h().getContext()).getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException e) {
+                bc9.d(e);
+            } catch (Exception e2) {
+                bc9.d(e2);
+            }
+            c.append(".log");
+        }
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            if (a) {
+                Log.w("BaiDuUbs", str);
+            }
+            d("w", "BaiDuUbs", str);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            if (a) {
+                Log.e("BaiDuUbs", str);
+            }
+            d("e", "BaiDuUbs", str);
+        }
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder("");
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (hexString.length() < 2) {
+                    sb.append(0);
+                }
+                sb.append(hexString);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) && b) {
+            ub9.a(new a(str, str2, str3));
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.toString() : (String) invokeV.objValue;
     }
 }

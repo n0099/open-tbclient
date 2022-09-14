@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
-import com.baidu.tieba.nl4;
-import com.baidu.tieba.ol4;
-import com.baidu.tieba.pl4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.on4;
+import com.baidu.tieba.pn4;
+import com.baidu.tieba.qn4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class PersonListActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements pl4 {
+    public static class a implements qn4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,16 +45,16 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.pl4
+        @Override // com.baidu.tieba.qn4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = ol4.a(context);
+                TextView a = pn4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(ri.f(context, R.dimen.obfuscated_res_0x7f070302), 0, ri.f(context, R.dimen.obfuscated_res_0x7f070302), 0);
+                    layoutParams.setMargins(ej.f(context, R.dimen.obfuscated_res_0x7f070302), 0, ej.f(context, R.dimen.obfuscated_res_0x7f070302), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -99,7 +99,7 @@ public class PersonListActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            nl4.b().c(5, new a());
+            on4.b().c(5, new a());
         }
     }
 }

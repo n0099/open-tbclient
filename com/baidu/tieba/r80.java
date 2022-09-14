@@ -1,234 +1,279 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.SocketException;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Map;
-import java.util.Set;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.concurrent.TimeUnit;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class r80 implements SharedPreferences {
+public class r80 {
     public static /* synthetic */ Interceptable $ic;
+    public static c a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
-    @JvmOverloads
-    public r80(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public a(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                String str = "HttpRequest error :" + iOException.toString();
+                if (iOException instanceof SocketException) {
+                    str = "HttpRequest SocketException :" + iOException.toString();
+                }
+                r80.c(this.a, 10003, str);
             }
         }
-        this.a = context.getSharedPreferences(str, 0);
+
+        @Override // okhttp3.Callback
+        public void onResponse(@NonNull Call call, @NonNull Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                try {
+                    if (response.code() != 200) {
+                        r80.c(this.a, response.code(), response.message());
+                    } else if (response.body() == null) {
+                        r80.c(this.a, 10004, "response body empty");
+                    } else {
+                        byte[] bytes = response.body().bytes();
+                        y80.b("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
+                        this.a.onSuccess(bytes);
+                    }
+                } catch (IOException e) {
+                    d dVar = this.a;
+                    r80.c(dVar, 10001, "parse response exception ：" + e);
+                }
+            }
+        }
     }
 
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        Map<String, String> getHeaders();
+
+        String getHost();
+
+        String getMediaType();
+
+        String getMethod();
+
+        byte[] getRequestParameter();
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements X509TrustManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public X509Certificate[] getAcceptedIssuers() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV.objValue;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void onFailure(int i, String str);
+
+        void onSuccess(byte[] bArr);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public /* synthetic */ e(a aVar) {
+            this();
+        }
+    }
+
+    public static SSLSocketFactory b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                a = new c(null);
+                SSLContext sSLContext = SSLContext.getInstance("TLS");
+                sSLContext.init(null, new TrustManager[]{a}, new SecureRandom());
+                return sSLContext.getSocketFactory();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (SSLSocketFactory) invokeV.objValue;
+    }
+
+    public static void c(@NonNull d dVar, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, dVar, i, str) == null) {
+            dVar.onFailure(i, str);
+            y80.b("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
+        }
+    }
+
+    public static Headers d(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            try {
+                Headers.Builder builder = new Headers.Builder();
+                if (map != null && map.size() > 0) {
+                    for (String str : map.keySet()) {
+                        String str2 = str.toString();
+                        builder.add(str2, map.get(str2));
+                    }
+                }
+                return builder.build();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
             }
-            return sharedPreferences.contains(str);
         }
-        return invokeL.booleanValue;
+        return (Headers) invokeL.objValue;
     }
 
-    public final void d(String str, boolean z) {
+    public static void e(@NonNull b bVar, @NonNull d dVar) {
+        Request build;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, dVar) == null) {
+            try {
+                String host = bVar.getHost();
+                byte[] requestParameter = bVar.getRequestParameter();
+                if (requestParameter != null && requestParameter.length > 0) {
+                    OkHttpClient build2 = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).build();
+                    if (bVar.getMethod().equals("POST")) {
+                        build = new Request.Builder().url(host).post(RequestBody.create(MediaType.parse(bVar.getMediaType()), requestParameter)).build();
+                    } else {
+                        if (requestParameter != null && requestParameter.length > 0) {
+                            host = host + "?" + new String(requestParameter);
+                        }
+                        build = new Request.Builder().url(host).build();
+                    }
+                    Map<String, String> headers = bVar.getHeaders();
+                    Headers d2 = d(headers);
+                    if (headers != null && d2 != null) {
+                        build = build.newBuilder().headers(d2).build();
+                        String str = headers.get("Host");
+                        if (!TextUtils.isEmpty(str) && str.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
+                            build2 = build2.newBuilder().sslSocketFactory(b(), a).hostnameVerifier(new e(null)).build();
+                        }
+                    }
+                    y80.a("HttpExecutor", "request url :" + host + " , method :" + bVar.getMethod() + " , body :" + new String(bVar.getRequestParameter()));
+                    build2.newCall(build).enqueue(new a(dVar));
+                    return;
+                }
+                c(dVar, 10000, "request args exception");
+            } catch (Exception e2) {
+                c(dVar, 10004, "request exception :" + e2);
             }
-            sharedPreferences.edit().putBoolean(str, z).apply();
-        }
-    }
-
-    public final void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.edit().putLong(str, j).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.edit();
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.edit().putString(str, str2).apply();
-        }
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.edit().remove(str).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getAll();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getStringSet(str, set);
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 }

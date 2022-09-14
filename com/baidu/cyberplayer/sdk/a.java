@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<C0088a> a;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class C0088a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

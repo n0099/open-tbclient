@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.poly.widget.ChannelListView;
+import com.baidu.poly.widget.PopupWindow;
+import com.baidu.poly.widget.toast.ToastLoadingView;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,54 +21,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"LongLogTag"})
 /* loaded from: classes3.dex */
-public class dc1 extends zb1 {
+public class dc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
-    public static final String b;
+    public static volatile dc1 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public ToastLoadingView b;
+    public PopupWindow c;
+    public PopupWindow d;
 
     /* loaded from: classes3.dex */
-    public class a implements wb1 {
+    public class a extends fa1<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChannelListView a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ Bundle d;
+        public final /* synthetic */ dc1 e;
 
-        public a(dc1 dc1Var, vb1 vb1Var) {
+        public a(dc1 dc1Var, ChannelListView channelListView, boolean z, Context context, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dc1Var, vb1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements yg0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean[] a;
-
-        public b(dc1 dc1Var, boolean[] zArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc1Var, zArr};
+                Object[] objArr = {dc1Var, channelListView, Boolean.valueOf(z), context, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,14 +58,185 @@ public class dc1 extends zb1 {
                     return;
                 }
             }
-            this.a = zArr;
+            this.e = dc1Var;
+            this.a = channelListView;
+            this.b = z;
+            this.c = context;
+            this.d = bundle;
         }
 
-        @Override // com.baidu.tieba.yg0
-        public void onResult(boolean z) {
+        @Override // com.baidu.tieba.fa1
+        public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a[0] = z;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
+                this.e.f("2", str);
+                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f1620), null);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fa1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                int optInt = jSONObject.optInt("payStatus", 3);
+                this.e.f("1", String.valueOf(optInt));
+                if (optInt == 2) {
+                    this.a.b0(0, ub1.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")), "0");
+                } else if (this.b) {
+                    this.e.j(this.c, this.d, this.a);
+                } else {
+                    this.e.k(this.c, this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChannelListView a;
+        public final /* synthetic */ dc1 b;
+
+        public b(dc1 dc1Var, ChannelListView channelListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dc1Var, channelListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dc1Var;
+            this.a = channelListView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.c.n();
+                lb1 lb1Var = new lb1(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+                lb1Var.b("1");
+                ob1.e(lb1Var);
+                this.a.b0(3, "pay failed , click choose window", "0");
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ Bundle b;
+        public final /* synthetic */ ChannelListView c;
+        public final /* synthetic */ dc1 d;
+
+        public c(dc1 dc1Var, Context context, Bundle bundle, ChannelListView channelListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dc1Var, context, bundle, channelListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = dc1Var;
+            this.a = context;
+            this.b = bundle;
+            this.c = channelListView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.d.c.n();
+                lb1 lb1Var = new lb1(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+                lb1Var.b("2");
+                ob1.e(lb1Var);
+                this.d.i(this.a, this.b, this.c, false);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dc1 a;
+
+        public d(dc1 dc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dc1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.d.r()) {
+                this.a.d.n();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements PopupWindow.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChannelListView a;
+
+        public e(dc1 dc1Var, ChannelListView channelListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dc1Var, channelListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = channelListView;
+        }
+
+        @Override // com.baidu.poly.widget.PopupWindow.b
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b0(3, "pay failed , click error window", "0");
             }
         }
     }
@@ -89,18 +244,16 @@ public class dc1 extends zb1 {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699639, "Lcom/baidu/tieba/dc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947699639, "Lcom/baidu/tieba/dc1;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947699639, "Lcom/baidu/tieba/dc1;")) == null) {
+            return;
         }
-        a = new String[]{"deeplink", "open", "mnprogram"};
-        b = th0.a().a();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947699639, "Lcom/baidu/tieba/dc1;");
+        }
     }
 
     public dc1() {
@@ -117,186 +270,107 @@ public class dc1 extends zb1 {
         }
     }
 
-    @Override // com.baidu.tieba.zb1
-    public void a(HashMap<String, String> hashMap) {
-        String[] strArr;
+    public static dc1 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            for (String str : a) {
-                hashMap.put("splash/ad/" + str, "splash_ad/" + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (e == null) {
+                synchronized (dc1.class) {
+                    if (e == null) {
+                        e = new dc1();
+                    }
+                }
             }
+            return e;
         }
+        return (dc1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zb1
-    @SuppressLint({"LongLogTag"})
-    public boolean c(Context context, bc1 bc1Var, vb1 vb1Var) {
-        InterceptResult invokeLLL;
+    public final void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bc1Var, vb1Var)) == null) {
-            String d = bc1Var.d(true);
-            if (!TextUtils.isEmpty(d) && context != null) {
-                if (bc1Var.e()) {
-                    return true;
-                }
-                char c = 65535;
-                int hashCode = d.hashCode();
-                if (hashCode != -1317819965) {
-                    if (hashCode != 3417674) {
-                        if (hashCode == 629233382 && d.equals("deeplink")) {
-                            c = 0;
-                        }
-                    } else if (d.equals("open")) {
-                        c = 1;
-                    }
-                } else if (d.equals("mnprogram")) {
-                    c = 2;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            return false;
-                        }
-                        return f(context, bc1Var, vb1Var);
-                    }
-                    return g(bc1Var, vb1Var);
-                }
-                return e(context, bc1Var, vb1Var);
-            }
-            bc1Var.i = ec1.h(201);
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean e(@NonNull Context context, @NonNull bc1 bc1Var, vb1 vb1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, bc1Var, vb1Var)) == null) {
-            String str = bc1Var.c().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            uc1.b(this.b);
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString(DeepLinkItem.DEEPLINK_APPURL_KEY);
-                String optString2 = jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY);
-                String optString3 = jSONObject.optString("pkgName");
-                if (!TextUtils.isEmpty(optString)) {
-                    boolean[] zArr = new boolean[1];
-                    ah0.a(context, optString, optString3, new b(this, zArr), false);
-                    if (zArr[0]) {
-                        BaseVM.f("APP");
-                        return true;
-                    }
+                if (this.a == 0) {
+                    return;
                 }
-                if (!TextUtils.isEmpty(optString3) && ah0.b(context, optString3)) {
-                    BaseVM.f("APP");
-                    return true;
-                } else if (TextUtils.isEmpty(optString2)) {
-                    return false;
-                } else {
-                    BaseVM.f("URL");
-                    return h(optString2, vb1Var);
+                JSONObject jSONObject = new JSONObject();
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("rt", str);
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("msg", str2);
+                }
+                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.a);
+                if (valueOf.longValue() >= 0) {
+                    jSONObject.put("du", String.valueOf(valueOf));
+                }
+                lb1 lb1Var = new lb1(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN);
+                lb1Var.c(jSONObject);
+                ob1.e(lb1Var);
+            } catch (JSONException e2) {
+                if (xb1.d) {
+                    e2.printStackTrace();
+                }
+            } finally {
+                this.a = 0L;
             }
         }
-        return invokeLLL.booleanValue;
     }
 
-    public final boolean f(Context context, bc1 bc1Var, vb1 vb1Var) {
-        InterceptResult invokeLLL;
+    public final View g(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, bc1Var, vb1Var)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                if (vb1Var != null) {
-                    vb1Var.handleSchemeDispatchCallback(String.valueOf(303), null);
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            if (activity == null || activity.getWindow() == null) {
+                return null;
             }
-            String str = bc1Var.c().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (TextUtils.isEmpty(jSONObject.optString("mnProgramType"))) {
-                    if (vb1Var != null) {
-                        vb1Var.handleSchemeDispatchCallback(String.valueOf(202), null);
-                    }
-                    return false;
-                }
-                WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
-                req.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                req.path = jSONObject.optString("path");
-                req.miniprogramType = jSONObject.optInt("mnProgramType");
-                String optString = jSONObject.optString("extInfo");
-                IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, b);
-                boolean sendReq = createWXAPI.sendReq(req);
-                if (!sendReq) {
-                    i("URL", optString, !createWXAPI.isWXAppInstalled() ? "1001" : "1002");
-                    return h(jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY), vb1Var);
-                }
-                i(ClogBuilder.Area.APP.type, optString, null);
-                vb1Var.handleSchemeDispatchCallback(String.valueOf(0), null);
-                return sendReq;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
-            }
+            return activity.getWindow().getDecorView().findViewById(16908290);
         }
-        return invokeLLL.booleanValue;
+        return (View) invokeL.objValue;
     }
 
-    public final boolean g(bc1 bc1Var, vb1 vb1Var) {
-        InterceptResult invokeLL;
+    public void i(Context context, Bundle bundle, ChannelListView channelListView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bc1Var, vb1Var)) == null) {
-            String str = bc1Var.c().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY);
-                if (TextUtils.isEmpty(optString)) {
-                    optString = jSONObject.optString("innerUrl");
-                }
-                return h(optString, vb1Var);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean h(@NonNull String str, vb1 vb1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, vb1Var)) == null) {
-            boolean a2 = db1.b().a(str, new a(this, vb1Var));
-            return (a2 || vb1Var == null) ? a2 : vb1Var.c(str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, bundle, channelListView, Boolean.valueOf(z)}) == null) || context == null || bundle == null || channelListView == null) {
             return;
         }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.u(ClogBuilder.Page.MINI_PROGRAM);
-        clogBuilder.y(ClogBuilder.LogType.MINI_PROGRAM);
-        clogBuilder.j(str);
-        clogBuilder.p(str2);
-        if (!TextUtils.isEmpty(str3)) {
-            clogBuilder.k(str3);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+        layoutParams.gravity = 17;
+        this.b = uc1.c((ViewGroup) g((Activity) context), layoutParams, null, -1L);
+        this.a = System.currentTimeMillis();
+        na1.j().m(bundle, new a(this, channelListView, z, context, bundle));
+    }
+
+    public final void j(Context context, Bundle bundle, ChannelListView channelListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, bundle, channelListView) == null) {
+            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d069d, null);
+            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
+            this.c = popupWindow;
+            popupWindow.w(false);
+            this.c.B(false);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090415)).setOnClickListener(new b(this, channelListView));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090414)).setOnClickListener(new c(this, context, bundle, channelListView));
+            this.c.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+            ob1.e(new lb1("102"));
         }
-        iy0.b(clogBuilder);
+    }
+
+    public final void k(Context context, ChannelListView channelListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
+            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d020f, null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a2f)).setText(R.string.obfuscated_res_0x7f0f0d89);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a2e)).setText(R.string.obfuscated_res_0x7f0f0d8a);
+            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
+            this.d = popupWindow;
+            popupWindow.w(false);
+            this.d.B(false);
+            this.d.v(new ColorDrawable(0));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a29)).setOnClickListener(new d(this));
+            this.d.A(new e(this, channelListView));
+            this.d.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        }
     }
 }

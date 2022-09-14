@@ -1,27 +1,123 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.au4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ng8 {
+public class ng8 extends au4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mg8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+    public EditText b;
 
-    public static synchronized mg8 a() {
-        InterceptResult invokeV;
-        mg8 mg8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ng8.class) {
-                if (a == null) {
-                    a = new mg8();
+    /* loaded from: classes5.dex */
+    public class a implements au4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ ng8 b;
+
+        public a(ng8 ng8Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng8Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                mg8Var = a;
             }
-            return mg8Var;
+            this.b = ng8Var;
+            this.a = activity;
         }
-        return (mg8) invokeV.objValue;
+
+        @Override // com.baidu.tieba.au4.e
+        public void onClick(au4 au4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+                if (!dj.isEmpty(this.b.b.getText().toString())) {
+                    TbSingleton.getInstance().setVisitPreviewServer(true);
+                    String obj = this.b.b.getText().toString();
+                    TbSingleton.getInstance().setPubEnvValue(obj);
+                    ej.M(this.a, R.string.obfuscated_res_0x7f0f039a);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
+                }
+                this.b.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements au4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng8 a;
+
+        public b(ng8 ng8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ng8Var;
+        }
+
+        @Override // com.baidu.tieba.au4.e
+        public void onClick(au4 au4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ng8(Activity activity) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0235, (ViewGroup) null);
+        this.a = linearLayout;
+        setContentView(linearLayout);
+        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090937);
+        setPositiveButton(R.string.obfuscated_res_0x7f0f0436, new a(this, activity));
+        setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(this));
     }
 }

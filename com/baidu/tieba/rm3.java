@@ -1,15 +1,15 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public interface rm3 {
-    void a(x13 x13Var);
+    String b();
 
-    @Nullable
-    Map<String, Object> b(@NonNull bp1 bp1Var);
+    String c();
 
-    @Nullable
-    Map<String, Object> c(@NonNull bp1 bp1Var);
+    String e();
+
+    String g();
+
+    String h();
+
+    boolean isDebug();
 }

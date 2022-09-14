@@ -19,7 +19,7 @@ import com.baidu.rtc.player.BRTCPlayerImpl;
 import com.baidu.rtc.player.BRTCPlayerParameters;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.live.interfaces.player.BuildParams;
-import com.baidu.tieba.k16;
+import com.baidu.tieba.a36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,14 +60,14 @@ public class TbBRTCPlayerView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.medialive.player.bdrtc.TbBRTCPlayerView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0324a implements Runnable {
+        public class RunnableC0334a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0324a(a aVar, int i, String str) {
+            public RunnableC0334a(a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 }
                 if (this.a.i != null) {
                     if (TbBRTCPlayerView.o) {
-                        k16.b(new RunnableC0324a(this, i, str));
+                        a36.b(new RunnableC0334a(this, i, str));
                     }
                     this.a.i.onError(i, str);
                 }

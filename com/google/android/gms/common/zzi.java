@@ -4,20 +4,18 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.zzy;
-import com.google.android.gms.common.internal.zzz;
+import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public abstract class zzi extends zzy {
+public abstract class zzi extends com.google.android.gms.common.internal.zzy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int zza;
@@ -37,7 +35,7 @@ public abstract class zzi extends zzy {
                 return;
             }
         }
-        hn9.a(bArr.length == 25);
+        Preconditions.checkArgument(bArr.length == 25);
         this.zza = Arrays.hashCode(bArr);
     }
 
@@ -59,9 +57,9 @@ public abstract class zzi extends zzy {
         IObjectWrapper zzd;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj != null && (obj instanceof zzz)) {
+            if (obj != null && (obj instanceof com.google.android.gms.common.internal.zzz)) {
                 try {
-                    zzz zzzVar = (zzz) obj;
+                    com.google.android.gms.common.internal.zzz zzzVar = (com.google.android.gms.common.internal.zzz) obj;
                     if (zzzVar.zzc() == this.zza && (zzd = zzzVar.zzd()) != null) {
                         return Arrays.equals(zzf(), (byte[]) ObjectWrapper.unwrap(zzd));
                     }

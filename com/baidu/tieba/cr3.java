@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.tq3;
 /* loaded from: classes3.dex */
-public class cr3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile br3 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cr3 {
+    void a(DownloadInfo downloadInfo);
 
-    public static synchronized br3 a() {
-        InterceptResult invokeV;
-        br3 br3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (cr3.class) {
-                if (a == null) {
-                    a = new br3();
-                }
-                br3Var = a;
-            }
-            return br3Var;
-        }
-        return (br3) invokeV.objValue;
-    }
+    void b(DownloadInfo downloadInfo);
+
+    void c(DownloadInfo downloadInfo);
+
+    void d(DownloadInfo downloadInfo);
+
+    void destroy();
+
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull tq3.d<Boolean> dVar);
+
+    DownloadInfo g(String str);
 }

@@ -10,7 +10,6 @@ import android.widget.Checkable;
 import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -18,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -302,7 +302,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CheckableImageButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.imageButtonStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040337);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

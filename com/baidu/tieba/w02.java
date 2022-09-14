@@ -1,183 +1,135 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w02 {
+public class w02 extends v43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final FrameLayout.LayoutParams f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public FrameLayout c;
-    public int d;
-    public b e;
+    public u02 c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public a(w02 w02Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w02Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ya3.c().e(this.a, -1.0f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onCustomViewHidden();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends FrameLayout {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            setBackgroundColor(context.getResources().getColor(17170444));
-        }
-
-        @Override // android.view.View
-        public boolean onTouchEvent(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216688, "Lcom/baidu/tieba/w02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948216688, "Lcom/baidu/tieba/w02;");
-                return;
-            }
-        }
-        f = new FrameLayout.LayoutParams(-1, -1);
-    }
-
-    public w02(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w02(v33 v33Var) {
+        super(v33Var, "/swanAPI/perfCat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("SwanAppPropertyLogAction", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
+            }
+            return false;
         }
-        Context context = this.a;
-        Activity activity = context instanceof Activity ? (Activity) context : null;
-        if (activity != null) {
-            ue3.a0(new a(this, activity));
-            b(activity, false);
-            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.c);
-            this.c = null;
-            this.b = null;
-            this.e.onCustomViewHidden();
-            activity.setRequestedOrientation(this.d);
-        }
+        return invokeLLLL.booleanValue;
     }
 
-    public void b(Activity activity, boolean z) {
+    @Override // com.baidu.tieba.v43
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, y23 y23Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, z) == null) {
-            activity.getWindow().setFlags(!z ? 0 : 1024, 1024);
-        }
-    }
-
-    public void c(View view2, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, bVar) == null) {
-            Context context = this.a;
-            Activity activity = context instanceof Activity ? (Activity) context : null;
-            if (activity != null) {
-                if (this.b != null) {
-                    bVar.onCustomViewHidden();
-                    return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("SwanAppPropertyLogAction", "handleSubAction subAction: " + str);
+            }
+            if (!v43.b) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -322942229) {
+                if (hashCode != 227833272) {
+                    if (hashCode == 977180790 && str.equals("/swanAPI/perfCat/on")) {
+                        c = 0;
+                    }
+                } else if (str.equals("/swanAPI/perfCat/off")) {
+                    c = 1;
                 }
-                this.d = activity.getRequestedOrientation();
-                c cVar = new c(activity);
-                this.c = cVar;
-                cVar.addView(view2, f);
-                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.c, f);
-                this.b = view2;
-                b(activity, true);
-                this.e = bVar;
-                activity.setRequestedOrientation(i);
+            } else if (str.equals("/swanAPI/perfCat/duration")) {
+                c = 2;
+            }
+            if (c == 0) {
+                if (this.c == null) {
+                    this.c = new u02();
+                }
+                this.c.h();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                yz1.i("SwanAppPropertyLogAction", " Start property log：");
+                return true;
+            } else if (c != 1) {
+                if (c != 2) {
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
+                    return false;
+                }
+                if (optParamsAsJo == null) {
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
+                } else {
+                    if (this.c != null) {
+                        this.c.g(optParamsAsJo.optInt("duration"));
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                }
+                return true;
+            } else {
+                JSONObject jSONObject = new JSONObject();
+                u02 u02Var = this.c;
+                if (u02Var == null) {
+                    yz1.c("SwanAppPropertyLogAction", "Property log never start");
+                } else {
+                    String i = u02Var.i();
+                    this.c = null;
+                    lo2.U().C();
+                    try {
+                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, lo2.U().C());
+                        jSONObject.put("path", i);
+                    } catch (JSONException e) {
+                        if (v43.b) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (v43.b) {
+                        Log.d("SwanAppPropertyLogAction", "Video dispatch Params : " + jSONObject.toString());
+                    }
+                    yz1.i("SwanAppPropertyLogAction", "Stop property log");
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
             }
         }
+        return invokeLLLLL.booleanValue;
     }
 }

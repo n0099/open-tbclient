@@ -1,10 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.bdeventbus.Action;
+import com.baidu.searchbox.bdeventbus.BdEventBus;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,30 +17,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mt2 {
+public class mt2 implements l42, n42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
-    public static final MediaType i;
+    public static final boolean d;
+    public static volatile mt2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public JSONObject e;
-    public b f;
-    public ResponseCallback<JSONObject> g;
+    public boolean a;
+    public boolean b;
+    public ft2 c;
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseCallback<JSONObject> {
+    public class a implements Action<v13> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mt2 a;
@@ -58,60 +51,14 @@ public class mt2 {
             this.a = mt2Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (this.a.f != null) {
-                    this.a.f.onFail(exc.getMessage());
-                    return;
-                }
-                ay1.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
+        @Override // com.baidu.searchbox.bdeventbus.Action
+        public void call(v13 v13Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (this.a.f == null) {
-                    ay1.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
-                } else if (jSONObject == null) {
-                    this.a.f.onFail("response is empty");
-                } else if (jSONObject.optInt("errno", -1) == 0) {
-                    this.a.f.a(jSONObject.optJSONObject("data"));
-                } else {
-                    String optString = jSONObject.optString("tipmsg", "");
-                    b bVar = this.a.f;
-                    if (TextUtils.isEmpty(optString)) {
-                        optString = "errno is non-zero";
-                    }
-                    bVar.onFail(optString);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, v13Var) == null) {
+                this.a.f(new nt2(v13Var));
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                return ae3.d(response.body().string());
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(JSONObject jSONObject);
-
-        void onFail(String str);
     }
 
     static {
@@ -127,9 +74,7 @@ public class mt2 {
                 return;
             }
         }
-        boolean z = kh1.a;
-        h = String.format("%s/ma/pay_check", ux1.b());
-        i = hs2.a;
+        d = y23.v;
     }
 
     public mt2() {
@@ -137,99 +82,212 @@ public class mt2 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = h;
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = new JSONObject();
-        this.g = new a(this);
-        e();
-        f();
-        g();
+        this.b = false;
+        this.c = new gt2();
+        BdEventBus.Companion.getDefault().lazyRegister("dialog_event_tag", v13.class, 0, new a(this));
     }
 
-    public void b(String str, String str2) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            ht2.a();
         }
-        this.b.put(str, str2);
     }
 
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+    @NonNull
+    public static mt2 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (mt2.class) {
+                    if (e == null) {
+                        e = new mt2();
+                    }
+                }
             }
-            this.a = se3.b(this.a, this.c);
-            b84 b84Var = new b84(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
-            b84Var.c = this.b;
-            b84Var.g = true;
-            ay1.b("PayCheckRequest", "start paycheck request : " + this.e);
-            c84.g().e(b84Var);
+            return e;
         }
+        return (mt2) invokeV.objValue;
     }
 
-    public void d(@NonNull b bVar) {
+    @Override // com.baidu.tieba.n42
+    public void a(hp1 hp1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f = bVar;
-            c(this.g);
+        if (interceptable == null || interceptable.invokeL(1048576, this, hp1Var) == null) {
+            if (d) {
+                Log.d("SwanAppPageMonitor", "webview insert event");
+            }
+            f(new rt2(hp1Var, true));
         }
     }
 
-    public final void e() {
+    @Override // com.baidu.tieba.n42
+    public void b(hp1 hp1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hp1Var) == null) {
+            if (d) {
+                Log.d("SwanAppPageMonitor", "webview remove event");
+            }
+            f(new rt2(hp1Var, false));
+        }
+    }
+
+    public final void f(pt2 pt2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pt2Var) == null) {
+            this.c.a(pt2Var);
+        }
+    }
+
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = ga4.i(h);
-            this.a = i2;
-            this.a = wx1.b(i2);
+            f(new pt2(11));
         }
     }
 
-    public final void f() {
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b("Referer", he3.b());
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            if (d) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("change to ");
+                sb.append(z ? NotificationCompat.WearableExtender.KEY_BACKGROUND : Constant.FOREGROUND);
+                Log.d("SwanAppPageMonitor", sb.toString());
+            }
+            f(new ot2(z));
         }
     }
 
-    public final void g() {
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String O = z03.K().q().O();
-            try {
-                JSONObject jSONObject = this.e;
-                if (TextUtils.isEmpty(O)) {
-                    O = "";
-                }
-                jSONObject.put("appkey", O);
-            } catch (JSONException e) {
-                ay1.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && m93.d) {
+            if (z) {
+                k();
+            } else {
+                j();
             }
         }
     }
 
-    public void h(JSONObject jSONObject) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+            f(new pt2(12, null, 0L, false));
+            if (d) {
+                Log.d("SwanAPPPageMonitor-Route", "**************** page onPause cancel route monitor");
+            }
         }
-        try {
-            this.e.put("order_info", jSONObject);
-            this.d = true;
-        } catch (JSONException e) {
-            ay1.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b) {
+            f(new pt2(13, null, 4000L, false));
+            if (d) {
+                Log.d("SwanAPPPageMonitor-Route", "**************** page onResume start route monitor, time=4000");
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+            if (z) {
+                lt2.k();
+                i93.z();
+                this.b = false;
+            }
+        }
+    }
+
+    public void m() {
+        pt2 pt2Var;
+        vn2.a W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            long n = fm2.g0().n();
+            if (d) {
+                Log.d("SwanAppPageMonitor", "start page monitoring, delay: " + n);
+            }
+            if (this.a) {
+                if (lo2.U().getActivity() != null && (W = x23.K().q().W()) != null) {
+                    long currentTimeMillis = System.currentTimeMillis() - W.N();
+                    n -= currentTimeMillis;
+                    if (n < 0) {
+                        if (d) {
+                            Log.d("SwanAppPageMonitor", "WhiteScreenMonitor out of time: time=" + currentTimeMillis);
+                        }
+                        re3 re3Var = new re3();
+                        re3Var.k(5L);
+                        re3Var.i(40L);
+                        re3Var.f("whitescreen monitor out of time: time=" + currentTimeMillis);
+                        z93 z93Var = new z93();
+                        z93Var.q(r93.n(W.G()));
+                        z93Var.p(re3Var);
+                        z93Var.r(W);
+                        r93.R(z93Var);
+                    }
+                }
+                pt2Var = new pt2(1, null, n, true);
+                this.a = false;
+                n32.b().e(n);
+                this.b = false;
+                if (m93.d) {
+                    f(pt2Var);
+                }
+            } else {
+                pt2Var = null;
+            }
+            if (d) {
+                Log.d("SwanAppPageMonitor", "WhiteScreenMonitor monitortime: " + n);
+            }
+            if (m93.d) {
+                return;
+            }
+            if (pt2Var == null) {
+                pt2Var = new pt2(1, null, n);
+            }
+            f(pt2Var);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            f(new pt2(9, null, LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION));
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (d) {
+                Log.d("SwanAppPageMonitor", "stop page monitoring");
+            }
+            f(new pt2(7));
+        }
+    }
+
+    @Override // com.baidu.tieba.l42
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
+            if (i3 == 0 && i4 == 0 && i == 0 && i2 == 1) {
+                return;
+            }
+            f(new pt2(3));
         }
     }
 }

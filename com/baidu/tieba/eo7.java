@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class eo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public BdListView a;
 
-    public eo7() {
+    public eo7(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,43 +30,16 @@ public class eo7 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0920c2);
+        View view2 = new View(viewGroup.getContext());
+        view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) viewGroup.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)));
+        this.a.addHeaderView(view2);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(yn7 yn7Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            d(new JSONObject(str).optJSONObject("error"));
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            try {
-                this.a = jSONObject.optInt("errno");
-                this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, yn7Var) == null) {
+            this.a.setAdapter((ListAdapter) yn7Var);
         }
     }
 }

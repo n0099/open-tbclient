@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.messages.AlaPersonCenterResponseMessage;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.ix5;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.wy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaPersonCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix5 a;
+    public wy5 a;
     public String b;
     public final HttpMessageListener c;
 
@@ -87,7 +87,7 @@ public class AlaPersonCenterModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,10 +102,10 @@ public class AlaPersonCenterModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void A(ix5 ix5Var) {
+    public void A(wy5 wy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ix5Var) == null) {
-            this.a = ix5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, wy5Var) == null) {
+            this.a = wy5Var;
         }
     }
 

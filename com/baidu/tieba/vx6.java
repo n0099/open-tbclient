@@ -1,18 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.widget.FrameLayout;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* loaded from: classes6.dex */
 public interface vx6 {
-    public static final BdUniqueId a;
-    public static final BdUniqueId b;
-    public static final BdUniqueId c;
+    void a();
 
-    static {
-        BdUniqueId.gen();
-        BdUniqueId.gen();
-        a = BdUniqueId.gen();
-        b = BdUniqueId.gen();
-        BdUniqueId.gen();
-        c = BdUniqueId.gen();
-    }
+    void b(ScrollFragmentTabHost.x xVar);
+
+    void c();
+
+    int d(int i);
+
+    void e(ScrollFragmentTabHost.x xVar);
+
+    void f(boolean z);
+
+    int getCurrentTabType();
+
+    FrameLayout getFrameLayout();
+
+    void setCurrentTab(int i);
+
+    void setOnTabSelectedListener(ScrollFragmentTabHost.y yVar);
 }

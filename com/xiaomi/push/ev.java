@@ -104,7 +104,7 @@ public class ev implements eu.a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            long m663a = com.xiaomi.push.service.o.a(this.f330a).m663a();
+            long m664a = com.xiaomi.push.service.o.a(this.f330a).m664a();
             if (z || this.a != 0) {
                 if (z) {
                     a();
@@ -112,14 +112,14 @@ public class ev implements eu.a {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 if (!z && this.a != 0) {
                     if (this.a <= elapsedRealtime) {
-                        this.a += m663a;
+                        this.a += m664a;
                     }
                     Intent intent = new Intent(com.xiaomi.push.service.bk.p);
                     intent.setPackage(this.f330a.getPackageName());
                     a(intent, this.a);
                 }
-                m663a -= elapsedRealtime % m663a;
-                this.a = elapsedRealtime + m663a;
+                m664a -= elapsedRealtime % m664a;
+                this.a = elapsedRealtime + m664a;
                 Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
                 intent2.setPackage(this.f330a.getPackageName());
                 a(intent2, this.a);

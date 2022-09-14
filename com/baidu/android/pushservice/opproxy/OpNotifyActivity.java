@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.frequency.b;
 import com.baidu.android.pushservice.i.m;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +54,6 @@ public class OpNotifyActivity extends Activity {
             } catch (Exception unused) {
             }
             finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

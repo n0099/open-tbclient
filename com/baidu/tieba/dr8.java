@@ -1,153 +1,132 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.app.Activity;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.person.ProfileHttpResponseMessage;
+import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class dr8 extends BaseAdapter {
+public class dr8 extends pb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<List<DressItemData>> a;
-    public TbPageContext<?> b;
-    public zq8 c;
+    public final MainTabActivity a;
+    public final wp8 b;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public BubbleItemView b;
-        public BubbleItemView c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public dr8(TbPageContext<?> tbPageContext, zq8 zq8Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dr8(MainTabActivity mainTabActivity, ip8 ip8Var) {
+        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zq8Var};
+            Object[] objArr = {mainTabActivity, ip8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = zq8Var;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public List<DressItemData> getItem(int i) {
-        InterceptResult invokeI;
+    public final void a() {
+        wp8 wp8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
-                return null;
-            }
-            return this.a.get(i);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (wp8Var = this.b) == null || wp8Var.a() == null || this.a.B != 1) {
+            return;
         }
-        return (List) invokeI.objValue;
-    }
-
-    public void b(List<List<DressItemData>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        this.b.a().f();
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        MainTabActivity mainTabActivity = this.a;
+        if (currentActivity != mainTabActivity || mainTabActivity.C.intValue() == 1) {
+            return;
         }
+        this.b.a().k();
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
+        wp8 wp8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            List<DressItemData> item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0167, viewGroup, false);
-                aVar = new a();
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f092262);
-                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090380);
-                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090381);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                if (i == 0) {
-                    aVar.a.setVisibility(0);
-                } else {
-                    aVar.a.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
+                this.a.B = profileHttpResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.B == 1 && (wp8Var = this.b) != null && wp8Var.a() != null) {
+                    this.b.a().f();
+                    this.b.a().k();
                 }
-                aVar.b.d(item.get(0));
-                aVar.b.setController(this.c);
-                aVar.b.setFromBubbleGroup(false);
-                if (item.size() > 1) {
-                    aVar.c.d(item.get(1));
-                    aVar.c.setController(this.c);
-                    aVar.c.setFromBubbleGroup(false);
-                } else {
-                    aVar.c.e();
+                a();
+                s38.a().d(profileHttpResponseMessage.GetUser().virtual_image_info);
+                d();
+            }
+            if (profileHttpResponseMessage == null || profileHttpResponseMessage.getMemberBlockInfo() == null) {
+                return;
+            }
+            this.a.M = profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1;
+            this.a.N = profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1;
+            TbSingleton.getInstance().setUserBan(profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() == 1);
+        }
+    }
+
+    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
+                this.a.B = profileSocketResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.B == 1) {
+                    wp8 wp8Var = this.b;
+                    if (wp8Var != null && wp8Var.a() != null) {
+                        this.b.a().f();
+                    }
+                    a();
+                }
+                s38.a().d(profileSocketResponseMessage.GetUser().virtual_image_info);
+                d();
+            }
+            if (profileSocketResponseMessage == null || profileSocketResponseMessage.getMemberBlockInfo() == null) {
+                return;
+            }
+            this.a.M = profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1;
+            this.a.N = profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1;
+            TbSingleton.getInstance().setUserBan(profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() == 1);
+        }
+    }
+
+    public final void d() {
+        wp8 wp8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (wp8Var = this.b) == null) {
+            return;
+        }
+        wp8Var.a().j().G();
+    }
+
+    @Override // com.baidu.tieba.pb
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
+            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
+            if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
+                if (z) {
+                    c((ProfileSocketResponseMessage) responsedMessage);
+                }
+                if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                    b((ProfileHttpResponseMessage) responsedMessage);
                 }
             }
-            this.b.getLayoutMode().k(view2);
-            return view2;
         }
-        return (View) invokeILL.objValue;
     }
 }

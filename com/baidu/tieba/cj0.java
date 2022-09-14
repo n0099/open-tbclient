@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,153 +11,203 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.text.DecimalFormat;
 /* loaded from: classes3.dex */
-public class cj0 extends zi0 {
+public class cj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<ij0<?>> e;
+    public vi0 a;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cj0 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-888601309, "Lcom/baidu/tieba/cj0$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-888601278, "Lcom/baidu/tieba/cj0$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-888601309, "Lcom/baidu/tieba/cj0$a;");
+                    classClinitInterceptable.invokePostClinit(-888601278, "Lcom/baidu/tieba/cj0$b;");
                     return;
                 }
             }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
+            a = new cj0(null);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cj0(@NonNull pi0 pi0Var) {
-        super(pi0Var);
+    public /* synthetic */ cj0(a aVar) {
+        this();
+    }
+
+    public static cj0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (cj0) invokeV.objValue;
+    }
+
+    public String a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            cp0 a2 = this.a.a();
+            if (z) {
+                if (a2 != null && !TextUtils.isEmpty(a2.a)) {
+                    return a2.a;
+                }
+                return mi0.d().a();
+            } else if (this.a.h()) {
+                return (a2 == null || a2.b == 3) ? "" : a2.a;
+            } else {
+                return mi0.d().a();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            cp0 e = this.a.e();
+            if (z) {
+                if (e != null && !TextUtils.isEmpty(e.a)) {
+                    return e.a;
+                }
+                return mi0.d().e();
+            } else if (this.a.h()) {
+                return (e == null || e.b == 3) ? "" : e.a;
+            } else {
+                return mi0.d().e();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            cp0 f = this.a.f();
+            if (z) {
+                if (f != null && !TextUtils.isEmpty(f.a)) {
+                    return f.a;
+                }
+                return mi0.d().f();
+            } else if (this.a.h()) {
+                return (f == null || f.b == 3) ? "" : f.a;
+            } else {
+                return mi0.d().f();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            cp0 d = this.a.d();
+            if (z) {
+                if (d != null && !TextUtils.isEmpty(d.a)) {
+                    return d.a;
+                }
+                return mi0.d().d();
+            } else if (this.a.h()) {
+                return (d == null || d.b == 3) ? "" : d.a;
+            } else {
+                return mi0.d().d();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            cp0 c = this.a.c();
+            if (z) {
+                if (c != null && !TextUtils.isEmpty(c.a)) {
+                    return c.a;
+                }
+                return mi0.d().c();
+            } else if (this.a.h()) {
+                return (c == null || c.b == 3) ? "" : c.a;
+            } else {
+                return mi0.d().c();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            cp0 g = this.a.g();
+            if (z) {
+                if (g != null && !TextUtils.isEmpty(g.a)) {
+                    return g.a;
+                }
+                return Build.MANUFACTURER;
+            } else if (this.a.h()) {
+                return (g == null || g.b == 3) ? "" : g.a;
+            } else {
+                return Build.MANUFACTURER;
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            cp0 b2 = this.a.b();
+            if (z) {
+                if (b2 != null && !TextUtils.isEmpty(b2.a)) {
+                    return b2.a;
+                }
+                return mi0.d().b();
+            } else if (this.a.h()) {
+                return (b2 == null || b2.b == 3) ? "" : b2.a;
+            } else {
+                return mi0.d().b();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public cj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pi0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((pi0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = null;
-    }
-
-    @Override // com.baidu.tieba.zi0, com.baidu.tieba.hj0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull pi0 pi0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, pi0Var) == null) {
-            super.a(adDownloadAction, pi0Var);
-            u();
-        }
-    }
-
-    public void t(ij0<?> ij0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ij0Var) == null) {
-            this.e = new WeakReference<>(ij0Var);
-            u();
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e == null) {
-            return;
-        }
-        Resources resources = eh0.b().getResources();
-        String string = resources.getString(R.string.obfuscated_res_0x7f0f0ba7);
-        switch (a.a[this.a.c.ordinal()]) {
-            case 1:
-                string = TextUtils.isEmpty(this.a.p.d) ? resources.getString(R.string.obfuscated_res_0x7f0f0ba7) : this.a.p.d;
-                break;
-            case 2:
-                string = new DecimalFormat("#.#%").format(this.a.i);
-                break;
-            case 3:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b99);
-                break;
-            case 4:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b9c);
-                break;
-            case 5:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0ba0);
-                break;
-            case 6:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b9b);
-                break;
-        }
-        ij0<?> ij0Var = this.e.get();
-        if (ij0Var == null) {
-            return;
-        }
-        ij0Var.update(string, this.a);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cj0(@NonNull pi0 pi0Var, @NonNull ij0<?> ij0Var) {
-        super(pi0Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pi0Var, ij0Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((pi0) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        synchronized (cj0.class) {
+            vi0 vi0Var = (vi0) ServiceManager.getService(vi0.a);
+            this.a = vi0Var;
+            if (vi0Var == null) {
+                this.a = vi0.b;
             }
         }
-        this.e = null;
-        t(ij0Var);
     }
 }

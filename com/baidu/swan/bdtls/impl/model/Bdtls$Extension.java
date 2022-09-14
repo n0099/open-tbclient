@@ -2,8 +2,8 @@ package com.baidu.swan.bdtls.impl.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dk3;
-import com.baidu.tieba.ek3;
+import com.baidu.tieba.cm3;
+import com.baidu.tieba.dm3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes3.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements ek3 {
+public final class Bdtls$Extension extends GeneratedMessageLite implements dm3 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = null;
@@ -69,7 +69,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements ek3 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements ek3 {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements dm3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -159,7 +159,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements ek3 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (dk3) null);
+                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (cm3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$Extension.type_ = this.b;
@@ -339,7 +339,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements ek3 {
         bdtls$Extension.initFields();
     }
 
-    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, dk3 dk3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cm3 cm3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -468,7 +468,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements ek3 {
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, dk3 dk3Var) {
+    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, cm3 cm3Var) {
         this(builder);
     }
 

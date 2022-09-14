@@ -1,163 +1,121 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b14;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tieba.j33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-/* loaded from: classes4.dex */
-public class f14 {
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Callback;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+@SuppressLint({"StaticFieldLeak"})
+/* loaded from: classes3.dex */
+public class f14 extends HttpManager {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static volatile f14 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<b14> a;
-    public String b;
-    public String c;
-    public int d;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d14 a;
-        public final /* synthetic */ f14 b;
-
-        public a(f14 f14Var, d14 d14Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f14Var, d14Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f14Var;
-            this.a = d14Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<long[]> e = this.b.e();
-                e14 e14Var = new e14();
-                e14Var.a = this.b.b;
-                e14Var.b = e;
-                e14Var.c = this.b.c;
-                qx3.i().b(e14Var, this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711264, "Lcom/baidu/tieba/f14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947711264, "Lcom/baidu/tieba/f14;");
-                return;
-            }
-        }
-        e = kh1.a;
-    }
-
-    public f14(ArrayList<c14> arrayList, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f14() {
+        super(fm2.c());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (e) {
-            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
-        }
-        ArrayList<b14> d = d(arrayList);
-        this.a = d;
-        this.b = str;
-        this.c = str2;
-        this.d = d.size();
     }
 
-    public void c(d14 d14Var) {
+    public static f14 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, d14Var) == null) || d14Var == null) {
-            return;
-        }
-        ud3.l(new a(this, d14Var), "clipVideo");
-    }
-
-    public final ArrayList<b14> d(ArrayList<c14> arrayList) {
-        InterceptResult invokeL;
-        b14 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
-            ArrayList<b14> arrayList2 = new ArrayList<>();
-            if (arrayList != null && arrayList.size() != 0) {
-                Iterator<c14> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    c14 next = it.next();
-                    if (next != null && (a2 = next.a()) != null) {
-                        arrayList2.add(a2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (f14.class) {
+                    if (a == null) {
+                        a = new f14();
                     }
                 }
             }
-            return arrayList2;
+            return a;
         }
-        return (ArrayList) invokeL.objValue;
+        return (f14) invokeV.objValue;
     }
 
-    public ArrayList<long[]> e() {
+    public static f14 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            f14 f14Var = new f14();
+            f14Var.setHttpDnsEnable(a().getHttpDnsEnable());
+            return f14Var;
+        }
+        return (f14) invokeV.objValue;
+    }
+
+    public void call(Request request, Callback callback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) || request == null) {
+            return;
+        }
+        getOkHttpClient().newCall(request).enqueue(callback);
+    }
+
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    public OkHttpClient initClient() {
+        InterceptResult invokeV;
+        j33.a aVar;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<long[]> arrayList = new ArrayList<>();
-            if (this.d == 0) {
-                return arrayList;
+            if (y23.M() == null) {
+                return super.initClient();
             }
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
+            s24 s24Var = (s24) y23.M().T();
+            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
+            int i = 60000;
+            if (s24Var != null && (aVar = s24Var.a) != null) {
+                i = aVar.a;
+                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
+                newBuilder.addNetworkInterceptor(new ru2());
             }
-            Collections.sort(this.a, new b14.a());
-            b14 b14Var = this.a.get(0);
-            for (int i = 1; i < this.d; i++) {
-                b14 b14Var2 = this.a.get(i);
-                if (!b14Var.b(b14Var2)) {
-                    arrayList.add(b14.a(b14Var));
-                    b14Var = b14Var2;
+            long j = i;
+            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
+            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
+            OkHttpClient build = newBuilder.build();
+            build.dispatcher().setMaxRequests(10);
+            return build;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public void call(Request request, List<Interceptor> list, Callback callback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, request, list, callback) == null) || request == null) {
+            return;
+        }
+        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
+        if (list != null && !list.isEmpty()) {
+            for (Interceptor interceptor : list) {
+                if (interceptor != null) {
+                    newBuilder.addInterceptor(interceptor);
                 }
             }
-            arrayList.add(b14.a(b14Var));
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
-            }
-            return arrayList;
         }
-        return (ArrayList) invokeV.objValue;
+        newBuilder.build().newCall(request).enqueue(callback);
     }
 }

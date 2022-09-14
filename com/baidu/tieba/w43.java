@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,25 +13,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w43 extends z43 {
+public class w43 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w43(x13 x13Var) {
-        super(x13Var, "/swanAPI/removeWebView");
+    public w43(v33 v33Var) {
+        super(v33Var, "/swanAPI/checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((x13) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,34 +42,44 @@ public class w43 extends z43 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("RemoveWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            JSONObject a = v43.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+                yz1.i("SwanCheckAppInstalledAction", "params parse error");
+                return false;
             }
-            y43 h = y43.h(unitedSchemeEntity);
-            if (!h.isValid()) {
-                ay1.c("removeWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return true;
+            String optString = a.optString("name");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parameter error");
+                yz1.i("SwanCheckAppInstalledAction", "packageName empty");
+                return false;
             }
-            gn1 gn1Var = (gn1) nm2.U().A(h.c);
-            if (gn1Var == null) {
-                ay1.c("removeWebView", "viewManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return true;
-            } else if (!gn1Var.X(h)) {
-                ay1.c("removeWebView", "remove webview widget fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return true;
-            } else {
-                ay1.i("removeWebView", "remove webview widget success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+            PackageInfo packageInfo = null;
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(optString, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                yz1.d("SwanCheckAppInstalledAction", e.getMessage(), e);
             }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (packageInfo != null) {
+                    jSONObject.put("hasApp", true);
+                    jSONObject.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
+                } else {
+                    jSONObject.put("hasApp", false);
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success"));
+            } catch (JSONException e2) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
+                yz1.d("SwanCheckAppInstalledAction", e2.getMessage(), e2);
+            }
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

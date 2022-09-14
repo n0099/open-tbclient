@@ -14,19 +14,19 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n21;
-import com.baidu.tieba.rk0;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.u21;
-import com.baidu.tieba.x21;
-import com.baidu.tieba.y21;
+import com.baidu.tieba.dm0;
+import com.baidu.tieba.f41;
+import com.baidu.tieba.l41;
+import com.baidu.tieba.m41;
+import com.baidu.tieba.p41;
+import com.baidu.tieba.q41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, t21, u21 {
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, l41, m41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AbsContainer u;
@@ -44,14 +44,24 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, t21
                 return;
             }
         }
-        this.u = n21.a.a(this, this, rk0.b().a().a("key_webview_core_type", 1));
+        this.u = f41.a.a(this, this, dm0.b().a().a("key_webview_core_type", 0));
+    }
+
+    @Override // com.baidu.tieba.m41
+    public boolean D0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void P0(Bundle bundle) {
+    public void Z0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.P0(bundle);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.Z0(bundle);
             if (!this.u.d()) {
                 if (isFinishing()) {
                     return;
@@ -61,112 +71,76 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, t21
             }
             this.u.y("1");
             this.u.p();
-            x21.f().a(getActivity());
-        }
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void S0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.S0();
-            this.u.q();
-        }
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void U0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.U0();
-            this.u.r();
-        }
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void V0(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.V0(bundle);
-            this.u.s(bundle);
-        }
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void Z0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.Z0();
-            this.u.t();
+            p41.f().a(getActivity());
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
     public void a1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.a1();
-            this.u.u();
+            this.u.q();
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void b1() {
+    public void c1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.b1();
-            this.u.v();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.c1();
+            this.u.r();
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public boolean c1(Bundle bundle) {
-        InterceptResult invokeL;
+    public void d1(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
-            if (super.c1(bundle)) {
-                requestWindowFeature(1);
-                if (y21.b.a().a(getIntent())) {
-                    k1(0, 0, 0, 0);
-                    forceActivityTransparent(true);
-                } else {
-                    k1(R.anim.obfuscated_res_0x7f0100ae, R.anim.obfuscated_res_0x7f0100b1, R.anim.obfuscated_res_0x7f0100ad, R.anim.obfuscated_res_0x7f0100b2);
-                }
-                if (Build.VERSION.SDK_INT == 26) {
-                    setEnableSliding(false);
-                    setCurrentActivityNoTransparent();
-                } else {
-                    h1(true, this);
-                    n1(true);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.t21
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            finish();
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.d1(bundle);
+            this.u.s(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.t21
+    @Override // com.baidu.tieba.l41
     @NonNull
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void h1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.h1();
+            this.u.t();
+        }
+    }
+
+    @Override // com.baidu.tieba.l41
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            finish();
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void i1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.i1();
+            this.u.u();
+        }
     }
 
     @Override // com.baidu.nadcore.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
             if (this.u.m()) {
                 return false;
             }
@@ -175,10 +149,46 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, t21
         return invokeL.booleanValue;
     }
 
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void j1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.j1();
+            this.u.v();
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public boolean k1(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bundle)) == null) {
+            if (super.k1(bundle)) {
+                requestWindowFeature(1);
+                if (q41.b.a().a(getIntent())) {
+                    q1(0, 0, 0, 0);
+                    forceActivityTransparent(true);
+                } else {
+                    q1(R.anim.obfuscated_res_0x7f0100ae, R.anim.obfuscated_res_0x7f0100b1, R.anim.obfuscated_res_0x7f0100ad, R.anim.obfuscated_res_0x7f0100b2);
+                }
+                if (Build.VERSION.SDK_INT == 26) {
+                    setEnableSliding(false);
+                    setCurrentActivityNoTransparent();
+                } else {
+                    n1(true, this);
+                    t1(true);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // com.baidu.nadcore.appframework.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048588, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             this.u.o(i, i2, intent);
         }
@@ -188,7 +198,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, t21
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
             if (this.u.onKeyDown(i, keyEvent)) {
                 return true;
             }
@@ -197,18 +207,8 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, t21
         return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t21
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u21
-    public boolean w0() {
+    @Override // com.baidu.tieba.l41
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {

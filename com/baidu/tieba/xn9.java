@@ -1,115 +1,74 @@
 package com.baidu.tieba;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-import com.google.android.gms.common.stats.WakeLockEvent;
-import java.util.ArrayList;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class xn9 implements Parcelable.Creator<WakeLockEvent> {
+public class xn9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xn9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xn9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ WakeLockEvent createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        long j = 0;
-        long j2 = 0;
-        long j3 = 0;
-        String str = null;
-        ArrayList<String> arrayList = null;
-        String str2 = null;
-        String str3 = null;
-        String str4 = null;
-        String str5 = null;
-        int i = 0;
-        int i2 = 0;
-        int i3 = 0;
-        int i4 = 0;
-        float f = 0.0f;
-        boolean z = false;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            switch (SafeParcelReader.h(k)) {
-                case 1:
-                    i = SafeParcelReader.m(parcel, k);
-                    break;
-                case 2:
-                    j = SafeParcelReader.n(parcel, k);
-                    break;
-                case 3:
-                case 7:
-                case 9:
-                default:
-                    SafeParcelReader.p(parcel, k);
-                    break;
-                case 4:
-                    str = SafeParcelReader.d(parcel, k);
-                    break;
-                case 5:
-                    i3 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 6:
-                    arrayList = SafeParcelReader.e(parcel, k);
-                    break;
-                case 8:
-                    j2 = SafeParcelReader.n(parcel, k);
-                    break;
-                case 10:
-                    str3 = SafeParcelReader.d(parcel, k);
-                    break;
-                case 11:
-                    i2 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 12:
-                    str2 = SafeParcelReader.d(parcel, k);
-                    break;
-                case 13:
-                    str4 = SafeParcelReader.d(parcel, k);
-                    break;
-                case 14:
-                    i4 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 15:
-                    f = SafeParcelReader.j(parcel, k);
-                    break;
-                case 16:
-                    j3 = SafeParcelReader.n(parcel, k);
-                    break;
-                case 17:
-                    str5 = SafeParcelReader.d(parcel, k);
-                    break;
-                case 18:
-                    z = SafeParcelReader.i(parcel, k);
-                    break;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getDeclaredField("c");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                Field declaredField3 = obj3.getClass().getSuperclass().getDeclaredField("L");
+                declaredField3.setAccessible(true);
+                Object obj4 = declaredField3.get(obj3);
+                if (obj4 instanceof JSONObject) {
+                    return zm9.a((JSONObject) obj4);
+                }
+                return null;
+            } catch (Exception unused) {
+                LogPrinter.e();
+                return null;
             }
         }
-        SafeParcelReader.g(parcel, q);
-        return new WakeLockEvent(i, j, i2, str, i3, arrayList, str2, j2, i4, str3, str4, f, j3, str5, z);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ WakeLockEvent[] newArray(int i) {
-        return new WakeLockEvent[i];
+        return (RippedAd) invokeL.objValue;
     }
 }

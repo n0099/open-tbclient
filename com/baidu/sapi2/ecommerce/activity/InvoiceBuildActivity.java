@@ -143,7 +143,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.layout_sapi_sdk_ecommerce_webview_with_title_bar);
                 init();
                 setupViews();
             } catch (Throwable th) {

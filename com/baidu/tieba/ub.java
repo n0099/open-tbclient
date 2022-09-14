@@ -1,132 +1,375 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import com.baidu.adp.base.BdBaseApplication;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class ub {
+public abstract class ub<M extends Message<?>, T extends MessageTask, R extends jb<?, ?>, N extends ResponsedMessage<?>> implements ha<M, T> {
     public static /* synthetic */ Interceptable $ic;
+    public static qb<Message<?>> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
-    public String c;
-    public String d;
+    public MessageManager a;
+    public final SparseArray<T> b;
+    public final SparseArray<N> c;
+    public final SparseArray<LinkedList<MessageListener<N>>> d;
+    public ac e;
+    public boolean f;
+    public final SparseIntArray g;
 
-    public ub() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448318656, "Lcom/baidu/tieba/ub;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448318656, "Lcom/baidu/tieba/ub;");
+        }
+    }
+
+    public ub(MessageManager messageManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageManager};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.b = this.a + "/baidu/";
-        this.c = null;
-        this.d = null;
-        try {
-            this.c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        this.a = null;
+        this.b = new SparseArray<>();
+        this.c = new SparseArray<>();
+        this.d = new SparseArray<>();
+        this.e = null;
+        this.f = false;
+        this.g = new SparseIntArray();
+        this.a = messageManager;
     }
 
-    public String a(String str, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String str2;
-        String str3;
+    public static void q(qb<Message<?>> qbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (z2) {
-                if (!b()) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.b + str + "/";
-                } else {
-                    str3 = this.b;
-                }
-            } else if (z3) {
-                str2 = this.d;
-                if (str2 == null) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.d + str + "/";
-                }
-                str3 = str2;
-            } else {
-                str2 = this.c;
-                if (str2 == null) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.c + str + "/";
-                }
-                str3 = str2;
-            }
-            File file = new File(str3);
-            if (file.exists()) {
-                return str3;
-            }
-            if (z && file.mkdirs()) {
-                return str3;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(65538, null, qbVar) == null) {
+            h = qbVar;
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public boolean b() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f = true;
+        }
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && k(i)) {
+            throw new IllegalStateException("MessageListener locked");
+        }
+    }
+
+    public boolean c(M m, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m, t)) == null) {
+            ej.c();
+            if (m == null) {
+                return false;
+            }
+            int cmd = m.getCmd();
+            if (t == null) {
+                t = g(cmd);
+            }
+            if (t != null) {
+                M m2 = m(m, t);
+                if (this.e != null) {
+                    if (t.getTimeOut() == null) {
+                        t.setTimeOut(this.e.b());
+                    }
+                    if (t.getRetry() == 0) {
+                        t.setRetry(this.e.a());
+                    }
+                }
+                if (m2 != null) {
+                    f(m2, t);
+                    return true;
+                }
+                BdLog.d("message is trapped:" + cmd);
+                return false;
+            }
+            qb<Message<?>> qbVar = h;
+            if (qbVar != null) {
+                qbVar.a(m);
+            }
+            BdLog.e("task not register:" + cmd);
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void d(N n) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, n) == null) {
+            ej.c();
+            if (n == null) {
+                return;
+            }
+            n.setProcessTime(System.currentTimeMillis());
+            int cmd = n.getCmd();
+            Message<?> orginalMessage = n.getOrginalMessage();
+            BdUniqueId tag = orginalMessage != null ? orginalMessage.getTag() : null;
+            if (this.c.indexOfKey(cmd) >= 0) {
+                this.c.put(cmd, n);
+            }
+            LinkedList<MessageListener<N>> linkedList = this.d.get(cmd);
+            if (linkedList == null) {
+                return;
+            }
+            this.f = false;
+            l(cmd);
+            try {
+                try {
+                    Iterator<MessageListener<N>> it = linkedList.iterator();
+                    while (it.hasNext() && !this.f) {
+                        MessageListener<N> next = it.next();
+                        if (next != null && (!next.isSelfListener() || next.getTag() == tag)) {
+                            try {
+                                next.onMessage(n);
+                            } catch (Exception e) {
+                                BdLog.detailException(n.getClass().getName(), e, true);
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    BdLog.detailException(n.getClass().getName(), e2, true);
+                }
+            } finally {
+                r(cmd);
+            }
+        }
+    }
+
+    public synchronized T g(int i) {
+        InterceptResult invokeI;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            synchronized (this) {
+                t = this.b.get(i);
+            }
+            return t;
+        }
+        return (T) invokeI.objValue;
+    }
+
+    public synchronized ArrayList<T> i() {
         InterceptResult invokeV;
+        ArrayList<T> arrayList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
-    }
-
-    public File c(String str, String str2, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (str2 == null || (a = a(str, z, z2, z3)) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList<>();
+                int size = this.b.size();
+                for (int i = 0; i < size; i++) {
+                    arrayList.add(this.b.valueAt(i));
+                }
             }
-            return new File(a + str2);
+            return arrayList;
         }
-        return (File) invokeCommon.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public File d(String str, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    public boolean j(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            String a = a(str, z, z2, z3);
-            if (a == null) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            LinkedList<MessageListener<N>> linkedList = this.d.get(i);
+            return linkedList != null && linkedList.size() > 0;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final synchronized boolean k(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            synchronized (this) {
+                z = this.g.get(i, 0) != 0;
             }
-            return new File(a);
+            return z;
         }
-        return (File) invokeCommon.objValue;
+        return invokeI.booleanValue;
     }
 
-    public void e(String str) {
+    public final synchronized void l(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            synchronized (this) {
+                this.g.put(i, this.g.get(i, 0) + 1);
+            }
+        }
+    }
+
+    public abstract M m(M m, T t);
+
+    public void n(int i, MessageListener<N> messageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, messageListener) == null) {
+            ej.c();
+            if (messageListener == null) {
+                return;
+            }
+            if ((i == 0 && messageListener.getCmd() == 0) || (i != 0 && messageListener.getCmd() != 0)) {
+                throw new InvalidParameterException("registerListener cmd error");
+            }
+            if (i == 0) {
+                i = messageListener.getCmd();
+            }
+            FrameHelper.f(i);
+            b(i);
+            LinkedList<MessageListener<N>> linkedList = this.d.get(i);
+            if (linkedList == null) {
+                linkedList = new LinkedList<>();
+                this.d.put(i, linkedList);
+            }
+            FrameHelper.insert(linkedList, messageListener);
+            N n = this.c.get(i);
+            if (n != null) {
+                messageListener.onMessage(n);
+            }
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || this.c.indexOfKey(i) >= 0) {
             return;
         }
-        this.b = this.a + "/" + str + "/";
+        this.c.put(i, null);
+    }
+
+    public synchronized void p(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
+            synchronized (this) {
+                if (t == null) {
+                    return;
+                }
+                int cmd = t.getCmd();
+                FrameHelper.f(cmd);
+                this.b.put(cmd, t);
+            }
+        }
+    }
+
+    public final synchronized void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            synchronized (this) {
+                int i2 = this.g.get(i, 0);
+                if (i2 <= 1) {
+                    this.g.delete(i);
+                } else {
+                    this.g.put(i, i2 - 1);
+                }
+            }
+        }
+    }
+
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bdUniqueId) == null) {
+            ej.c();
+            if (bdUniqueId == null) {
+                return;
+            }
+            int size = this.d.size();
+            for (int i = 0; i < size; i++) {
+                int keyAt = this.d.keyAt(i);
+                Iterator<MessageListener<N>> it = this.d.valueAt(i).iterator();
+                while (it.hasNext()) {
+                    MessageListener<N> next = it.next();
+                    if (next != null && next.getTag() == bdUniqueId) {
+                        b(keyAt);
+                        it.remove();
+                    }
+                }
+            }
+        }
+    }
+
+    public void t(MessageListener<?> messageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, messageListener) == null) {
+            ej.c();
+            if (messageListener == null) {
+                return;
+            }
+            int cmd = messageListener.getCmd();
+            if (cmd == 0) {
+                int size = this.d.size();
+                for (int i = 0; i < size; i++) {
+                    LinkedList<MessageListener<N>> valueAt = this.d.valueAt(i);
+                    int keyAt = this.d.keyAt(i);
+                    if (valueAt.contains(messageListener)) {
+                        b(keyAt);
+                        valueAt.remove(messageListener);
+                    }
+                }
+                return;
+            }
+            b(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.d.get(cmd);
+            if (linkedList != null) {
+                linkedList.remove(messageListener);
+            }
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.c.remove(i);
+        }
+    }
+
+    public synchronized void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            synchronized (this) {
+                this.b.remove(i);
+            }
+        }
     }
 }

@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes4.dex */
-public class kh implements Comparator<jh> {
+public class kh {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public kh() {
@@ -25,19 +27,30 @@ public class kh implements Comparator<jh> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(jh jhVar, jh jhVar2) {
-        InterceptResult invokeLL;
+    public static Handler a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jhVar, jhVar2)) == null) {
-            int i = (jhVar.c > jhVar2.c ? 1 : (jhVar.c == jhVar2.c ? 0 : -1));
-            if (i > 0) {
-                return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (kh.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
+                }
             }
-            return i == 0 ? 0 : -1;
+            return a;
         }
-        return invokeLL.intValue;
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
+            }
+        }
     }
 }

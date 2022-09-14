@@ -1,92 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t99;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class da9 extends z99 {
+public class da9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile y99 a;
+    public static v99 b;
+    public static x99 c;
+    public static w99 d;
+    public static x89 e;
+    public static b99 f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public da9(w99 w99Var, ea9 ea9Var, t99.a aVar) {
-        super(w99Var, ea9Var, aVar);
+    public da9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w99Var, ea9Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((w99) objArr2[0], (ea9) objArr2[1], (t99.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.z99
-    public RandomAccessFile e(File file, String str, long j) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(0L);
-            return randomAccessFile;
-        }
-        return (RandomAccessFile) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.z99
-    public Map<String, String> f(ea9 ea9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ea9Var)) == null) {
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.z99
-    public int g() {
+    public static v99 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 200;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            v99 v99Var = b;
+            if (v99Var != null) {
+                return v99Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                b = a.a();
+            }
+            return b;
         }
-        return invokeV.intValue;
+        return (v99) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z99
-    public String h() {
+    public static w99 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? da9.class.getSimpleName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            w99 w99Var = d;
+            if (w99Var != null) {
+                return w99Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
+        }
+        return (w99) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z99
-    public void j(ea9 ea9Var) {
+    public static x99 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ea9Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            x99 x99Var = c;
+            if (x99Var != null) {
+                return x99Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
         }
+        return (x99) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z99
-    public void n(ea9 ea9Var) {
+    public static y99 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ea9Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (da9.class) {
+                if (a == null) {
+                    a = ca9.a();
+                }
+            }
+            return a;
         }
+        return (y99) invokeV.objValue;
+    }
+
+    public static x89 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            x89 x89Var = e;
+            if (x89Var != null) {
+                return x89Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
+        }
+        return (x89) invokeV.objValue;
+    }
+
+    public static b99 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            b99 b99Var = f;
+            if (b99Var != null) {
+                return b99Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                f = a.d();
+            }
+            return f;
+        }
+        return (b99) invokeV.objValue;
     }
 }

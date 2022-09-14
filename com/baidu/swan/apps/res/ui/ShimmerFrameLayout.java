@@ -19,7 +19,7 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tieba.hj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShimmerFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final PorterDuffXfermode r;
@@ -176,7 +176,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +251,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -306,7 +306,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -375,7 +375,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1049,7 +1049,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.b.setXfermode(r);
         t();
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04008e, R.attr.obfuscated_res_0x7f0400af, R.attr.obfuscated_res_0x7f0400cc, R.attr.obfuscated_res_0x7f040267, R.attr.obfuscated_res_0x7f040269, R.attr.obfuscated_res_0x7f0402b7, R.attr.obfuscated_res_0x7f0402b8, R.attr.obfuscated_res_0x7f040344, R.attr.obfuscated_res_0x7f0405b2, R.attr.obfuscated_res_0x7f0405b3, R.attr.obfuscated_res_0x7f0405b6, R.attr.obfuscated_res_0x7f0405b7, R.attr.obfuscated_res_0x7f0405b8, R.attr.obfuscated_res_0x7f04061b, R.attr.obfuscated_res_0x7f040711}, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, hj1.ShimmerFrameLayout, 0, 0);
             try {
                 if (obtainStyledAttributes.hasValue(1)) {
                     setAutoStart(obtainStyledAttributes.getBoolean(1, false));

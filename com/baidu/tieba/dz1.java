@@ -1,135 +1,42 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.graphics.drawable.Animatable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.InspectorNativeChannel;
-import com.baidu.searchbox.v8engine.InspectorNativeClient;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
-import com.baidu.tieba.bz1;
-import com.baidu.tieba.fz1;
-import com.baidu.tieba.hz1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.zxing.common.StringUtils;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.StringTokenizer;
-import java.util.concurrent.LinkedBlockingQueue;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
 /* loaded from: classes3.dex */
-public class dz1 implements Runnable {
+public final class dz1 extends gy1<SimpleDraweeView, ez1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public OutputStream b;
-    public hz1 c;
-    public LinkedBlockingQueue<String> d;
-    public InspectorNativeClient e;
-    public i82 f;
-    public bz1.b g;
+    public cz1 i;
+    public SwanAppComponentContainerView j;
+    public SimpleDraweeView k;
 
     /* loaded from: classes3.dex */
-    public class a implements hz1.a {
+    public class a extends BaseControllerListener<ImageInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dz1 a;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ SimpleDraweeView b;
+        public final /* synthetic */ dz1 c;
 
-        /* renamed from: com.baidu.tieba.dz1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0234a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0234a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.a.a.d.poll();
-                    while (str != null) {
-                        this.a.a.e.dispatchProtocolMessage(str);
-                        this.a.d(str);
-                        str = (String) this.a.a.d.poll();
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g.onConnected();
-                    this.a.a.g = null;
-                    int unused = dz1.i = 2;
-                }
-            }
-        }
-
-        public a(dz1 dz1Var) {
+        public a(dz1 dz1Var, boolean z, SimpleDraweeView simpleDraweeView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dz1Var};
+                Object[] objArr = {dz1Var, Boolean.valueOf(z), simpleDraweeView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -139,303 +46,137 @@ public class dz1 implements Runnable {
                     return;
                 }
             }
-            this.a = dz1Var;
+            this.c = dz1Var;
+            this.a = z;
+            this.b = simpleDraweeView;
         }
 
-        @Override // com.baidu.tieba.hz1.a
-        public void a(WebSocketFrame webSocketFrame) {
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFailure(String str, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
-                this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0234a(this));
-            }
-        }
-
-        @Override // com.baidu.tieba.hz1.a
-        public void b(IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
-                ay1.d("ClientHandler", "V8 inspector exception", iOException);
-                this.a.l();
-            }
-        }
-
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || this.a.g == null || dz1.i == 2) {
-                return;
-            }
-            try {
-                if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                    z03 K = z03.K();
-                    SwanAppActivity w = z03.K().w();
-                    if (K.E() && w != null) {
-                        w.runOnUiThread(new b(this));
-                    }
-                }
-            } catch (JSONException e) {
-                if (dz1.h) {
-                    Log.e("ClientHandler", "message is not a Json object", e);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.hz1.a
-        public void onClose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                ay1.i("ClientHandler", "V8 inspector closed");
-                this.a.l();
-            }
-        }
-
-        @Override // com.baidu.tieba.hz1.a
-        public void onOpen() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                ay1.i("ClientHandler", "V8 inspector opened");
-                w22 W = u72.U().W();
-                if (W instanceof a32) {
-                    this.a.f = (i82) W.e();
-                }
-                if (this.a.f != null) {
-                    if (this.a.e != null) {
-                        this.a.e.destroy();
-                    }
-                    dz1 dz1Var = this.a;
-                    dz1Var.e = dz1Var.f.r0(new b(this.a));
-                    int unused = dz1.i = 1;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
+                super.onFailure(str, th);
+                if (!this.a || this.c.i == null) {
                     return;
                 }
-                ay1.i("ClientHandler", "inner error, V8 mEngine is null");
-                this.a.l();
+                this.c.i.a(0, this.b, null);
             }
         }
-    }
 
-    /* loaded from: classes3.dex */
-    public class b extends InspectorNativeChannel {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dz1 a;
-
-        public b(dz1 dz1Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
+                super.onFinalImageSet(str, (String) imageInfo, animatable);
+                if (!this.a || this.c.i == null) {
                     return;
                 }
-            }
-            this.a = dz1Var;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public String awaitMessage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (dz1.h) {
-                    Log.d("ClientHandler", "getInspectorMessage");
-                }
-                try {
-                    return (String) this.a.d.take();
-                } catch (InterruptedException e) {
-                    if (dz1.h) {
-                        Log.e("ClientHandler", "awaitMessage on Debugger", e);
-                        return "";
-                    }
-                    return "";
-                }
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public void sendMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                try {
-                    this.a.c.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
-                } catch (Exception unused) {
-                    if (dz1.h) {
-                        Log.d("ClientHandler", "V8 send message fail, try to check if websocket has opened");
-                    }
-                }
+                this.c.i.a(1, this.b, null);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947721742, "Lcom/baidu/tieba/dz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947721742, "Lcom/baidu/tieba/dz1;");
-                return;
-            }
-        }
-        h = kh1.a;
-    }
-
-    public dz1(InputStream inputStream, OutputStream outputStream) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dz1(@NonNull Context context, @NonNull ez1 ez1Var) {
+        super(context, ez1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, outputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context, ez1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (hy1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new LinkedBlockingQueue<>();
-        this.a = inputStream;
-        this.b = outputStream;
+        g(4);
+        this.j = new SwanAppComponentContainerView(context);
+        this.k = new SimpleDraweeView(context);
     }
 
-    public static String n(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gy1, com.baidu.tieba.ly1, com.baidu.tieba.ny1
+    @NonNull
+    /* renamed from: Y */
+    public qz1 k(@NonNull ez1 ez1Var, @NonNull ez1 ez1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, ez1Var, ez1Var2)) == null) {
+            qz1 k = super.k(ez1Var, ez1Var2);
+            if (ez1Var.u != ez1Var2.u) {
+                k.b(9);
+            }
+            return k;
+        }
+        return (qz1) invokeLL.objValue;
+    }
+
+    public final BaseControllerListener<ImageInfo> Z(@NonNull SimpleDraweeView simpleDraweeView, @NonNull ez1 ez1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleDraweeView, ez1Var)) == null) ? new a(this, ez1Var.u, simpleDraweeView) : (BaseControllerListener) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    @NonNull
+    /* renamed from: a0 */
+    public SimpleDraweeView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            try {
-                return URLDecoder.decode(str, StringUtils.UTF8);
-            } catch (UnsupportedEncodingException unused) {
-                if (h) {
-                    Log.d("ClientHandler", "Encoding not supported, ignored");
-                }
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.k : (SimpleDraweeView) invokeL.objValue;
     }
 
-    public void l() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    /* renamed from: b0 */
+    public void A(@NonNull SimpleDraweeView simpleDraweeView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinkedBlockingQueue<String> linkedBlockingQueue = this.d;
-            if (linkedBlockingQueue != null) {
-                linkedBlockingQueue.clear();
-                this.d = null;
-            }
-            InspectorNativeClient inspectorNativeClient = this.e;
-            if (inspectorNativeClient != null) {
-                inspectorNativeClient.destroy();
-                this.e = null;
-            }
-            InputStream inputStream = this.a;
-            if (inputStream != null) {
-                ch4.d(inputStream);
-                this.a = null;
-            }
-            OutputStream outputStream = this.b;
-            if (outputStream != null) {
-                ch4.d(outputStream);
-                this.b = null;
-            }
-            this.c = null;
-            this.f = null;
-            i = 3;
+        if (interceptable == null || interceptable.invokeL(1048586, this, simpleDraweeView) == null) {
+            super.A(simpleDraweeView);
+            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public final void m(BufferedReader bufferedReader, fz1.a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gy1
+    /* renamed from: c0 */
+    public void T(@NonNull SimpleDraweeView simpleDraweeView, @NonNull ez1 ez1Var, @NonNull qz1 qz1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferedReader, aVar) == null) {
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine == null) {
-                    return;
-                }
-                StringTokenizer stringTokenizer = new StringTokenizer(readLine);
-                if (stringTokenizer.hasMoreTokens()) {
-                    aVar.b = stringTokenizer.nextToken();
-                    if (stringTokenizer.hasMoreTokens()) {
-                        aVar.c = n(stringTokenizer.nextToken());
-                        if (stringTokenizer.hasMoreTokens()) {
-                            aVar.d = stringTokenizer.nextToken();
-                        } else {
-                            aVar.d = "HTTP/1.1";
-                            if (h) {
-                                Log.d("ClientHandler", "no protocol version specified, Assuming HTTP/1.1.");
-                            }
-                        }
-                        String readLine2 = bufferedReader.readLine();
-                        while (readLine2 != null && !readLine2.trim().isEmpty()) {
-                            if (h) {
-                                Log.d("ClientHandler", "Http header :" + readLine2);
-                            }
-                            int indexOf = readLine2.indexOf(58);
-                            if (indexOf >= 0) {
-                                aVar.a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
-                            }
-                            readLine2 = bufferedReader.readLine();
-                        }
-                        return;
-                    }
-                    throw new RuntimeException("BAD REQUEST: Missing URI. Usage: GET /example/file.html");
-                }
-                throw new RuntimeException("BAD REQUEST: Syntax error. Usage: GET /example/file.html");
-            } catch (IOException e) {
-                if (h) {
-                    Log.e("ClientHandler", "Decode header exception", e);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, simpleDraweeView, ez1Var, qz1Var) == null) {
+            super.O(simpleDraweeView, ez1Var, qz1Var);
         }
     }
 
-    public void o(bz1.b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gy1
+    /* renamed from: d0 */
+    public void U(@NonNull SimpleDraweeView simpleDraweeView, @NonNull ez1 ez1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && i == 0) {
-            this.g = bVar;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, simpleDraweeView, ez1Var) == null) {
+            super.V(simpleDraweeView, ez1Var, Z(simpleDraweeView, ez1Var));
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public void e0(cz1 cz1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.a));
-                    fz1.a aVar = new fz1.a();
-                    m(bufferedReader, aVar);
-                    gz1.a(aVar).e(this.b);
-                    if (aVar.e) {
-                        if (i != 0 && i != 3) {
-                            s03.f(hk2.c(), R.string.obfuscated_res_0x7f0f0138).G();
-                            return;
-                        }
-                        hz1 hz1Var = new hz1();
-                        this.c = hz1Var;
-                        hz1Var.k(new a(this));
-                        this.c.h(this.a, this.b);
-                    }
-                } catch (RuntimeException e) {
-                    if (h) {
-                        Log.e("ClientHandler", "Request parse fail", e);
-                    }
-                }
-            } finally {
-                ch4.d(this.a);
-                ch4.d(this.b);
-            }
+        if (interceptable == null || interceptable.invokeL(1048589, this, cz1Var) == null) {
+            this.i = cz1Var;
         }
+    }
+
+    @Override // com.baidu.tieba.ny1
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) ? this.j : (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

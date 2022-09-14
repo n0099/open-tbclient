@@ -1,66 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.ha4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
-public class lm3 implements ib4 {
+public class lm3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public lm3() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static hm3 a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            hm3 hm3Var = null;
+            if (bArr == null) {
+                return null;
             }
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                hm3Var = new hm3();
+                wrap.get();
+                wrap.get();
+                hm3Var.r(wrap.get());
+                hm3Var.p(wrap.get());
+                int i = wrap.getShort();
+                hm3Var.q(i);
+                int i2 = wrap.getInt();
+                hm3Var.k(i2);
+                hm3Var.l(wrap.getLong());
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                hm3Var.o(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    hm3Var.j(bArr3);
+                }
+            }
+            return hm3Var;
         }
+        return (hm3) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ha4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ha4.a aVar) {
+    public static byte[] b(hm3 hm3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            if (PMSConstants.a(j84.b())) {
-                ba4.b(str, map, map2, jSONObject, new ck3(aVar));
-            } else {
-                ba4.b(str, map, map2, jSONObject, new ia4(aVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hm3Var)) == null) {
+            if (hm3Var == null) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ib4
-    public ua4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? sa4.a(str, i) : (ua4) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.ha4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, ha4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
-            if (PMSConstants.a(j84.b())) {
-                ba4.a(str, map, map2, new ck3(aVar));
-            } else {
-                ba4.a(str, map, map2, new ia4(aVar));
+            ByteBuffer allocate = ByteBuffer.allocate(hm3Var.h() + 20 + hm3Var.b());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (hm3Var.e() != null && hm3Var.e().length == 2) {
+                allocate.put(hm3Var.e()[0]);
+                allocate.put(hm3Var.e()[1]);
+                allocate.put(hm3Var.i());
+                allocate.put(hm3Var.g());
+                if (hm3Var.f() != null && hm3Var.f().length != 0) {
+                    int length = hm3Var.f().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (hm3Var.a() != null && hm3Var.a().length != 0) {
+                        allocate.putInt(hm3Var.a().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    allocate.putLong(hm3Var.c());
+                    if (hm3Var.f() != null) {
+                        allocate.put(hm3Var.f());
+                    }
+                    if (hm3Var.a() != null) {
+                        allocate.put(hm3Var.a());
+                    }
+                    return allocate.array();
+                }
             }
+            return null;
         }
+        return (byte[]) invokeL.objValue;
     }
 }

@@ -8,15 +8,15 @@ import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.a6;
-import com.baidu.tieba.a7;
-import com.baidu.tieba.e1;
-import com.baidu.tieba.h7;
-import com.baidu.tieba.s3;
-import com.baidu.tieba.s5;
+import com.baidu.tieba.b6;
+import com.baidu.tieba.b7;
+import com.baidu.tieba.f1;
+import com.baidu.tieba.i7;
 import com.baidu.tieba.t3;
 import com.baidu.tieba.t5;
+import com.baidu.tieba.u3;
 import com.baidu.tieba.u5;
-import com.baidu.tieba.y5;
+import com.baidu.tieba.v5;
 import com.baidu.tieba.z5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,13 +31,13 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.UShort;
 /* loaded from: classes.dex */
-public class Mesh implements h7 {
+public class Mesh implements i7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Application, a7<Mesh>> e;
+    public static final Map<Application, b7<Mesh>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a6 a;
-    public final t5 b;
-    public u5 c;
+    public final b6 a;
+    public final u5 b;
+    public v5 c;
     public final Vector3 d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -120,12 +120,12 @@ public class Mesh implements h7 {
         e = new HashMap();
     }
 
-    public Mesh(boolean z, int i, int i2, t3 t3Var) {
+    public Mesh(boolean z, int i, int i2, u3 u3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), t3Var};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), u3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -136,20 +136,20 @@ public class Mesh implements h7 {
             }
         }
         this.d = new Vector3();
-        this.a = o(z, i, t3Var);
-        this.b = new s5(z, i2);
-        a(e1.a, this);
+        this.a = o(z, i, u3Var);
+        this.b = new t5(z, i2);
+        a(f1.a, this);
     }
 
     public static void a(Application application, Mesh mesh) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, mesh) == null) {
-            a7<Mesh> a7Var = e.get(application);
-            if (a7Var == null) {
-                a7Var = new a7<>();
+            b7<Mesh> b7Var = e.get(application);
+            if (b7Var == null) {
+                b7Var = new b7<>();
             }
-            a7Var.a(mesh);
-            e.put(application, a7Var);
+            b7Var.a(mesh);
+            e.put(application, b7Var);
         }
     }
 
@@ -177,14 +177,14 @@ public class Mesh implements h7 {
     }
 
     public static void n(Application application) {
-        a7<Mesh> a7Var;
+        b7<Mesh> b7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, application) == null) || (a7Var = e.get(application)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, application) == null) || (b7Var = e.get(application)) == null) {
             return;
         }
-        for (int i = 0; i < a7Var.b; i++) {
-            a7Var.get(i).a.invalidate();
-            a7Var.get(i).b.invalidate();
+        for (int i = 0; i < b7Var.b; i++) {
+            b7Var.get(i).a.invalidate();
+            b7Var.get(i).b.invalidate();
         }
     }
 
@@ -194,17 +194,17 @@ public class Mesh implements h7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.c() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.h7
+    @Override // com.baidu.tieba.i7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (e.get(e1.a) != null) {
-                e.get(e1.a).j(this, true);
+            if (e.get(f1.a) != null) {
+                e.get(f1.a).j(this, true);
             }
             this.a.dispose();
-            u5 u5Var = this.c;
-            if (u5Var != null) {
-                u5Var.dispose();
+            v5 v5Var = this.c;
+            if (v5Var != null) {
+                v5Var.dispose();
             }
             this.b.dispose();
         }
@@ -250,7 +250,7 @@ public class Mesh implements h7 {
             if (i >= 0 && i2 >= 1 && (i3 = i + i2) <= c) {
                 FloatBuffer buffer = this.a.getBuffer();
                 ShortBuffer buffer2 = this.b.getBuffer();
-                s3 l = l(1);
+                t3 l = l(1);
                 int i4 = l.e / 4;
                 int i5 = this.a.b().b / 4;
                 int i6 = l.b;
@@ -332,11 +332,11 @@ public class Mesh implements h7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b.getBuffer() : (ShortBuffer) invokeV.objValue;
     }
 
-    public s3 l(int i) {
+    public t3 l(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            t3 b = this.a.b();
+            u3 b = this.a.b();
             int size = b.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (b.c(i2).a == i) {
@@ -345,7 +345,7 @@ public class Mesh implements h7 {
             }
             return null;
         }
-        return (s3) invokeI.objValue;
+        return (t3) invokeI.objValue;
     }
 
     public FloatBuffer m() {
@@ -354,15 +354,15 @@ public class Mesh implements h7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getBuffer() : (FloatBuffer) invokeV.objValue;
     }
 
-    public final a6 o(boolean z, int i, t3 t3Var) {
+    public final b6 o(boolean z, int i, u3 u3Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), t3Var})) == null) {
-            if (e1.g != null) {
-                return new z5(z, i, t3Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), u3Var})) == null) {
+            if (f1.g != null) {
+                return new a6(z, i, u3Var);
             }
-            return new y5(z, i, t3Var);
+            return new z5(z, i, u3Var);
         }
-        return (a6) invokeCommon.objValue;
+        return (b6) invokeCommon.objValue;
     }
 }

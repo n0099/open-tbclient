@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +54,6 @@ public class SwanRelayActivity extends Activity {
                 }
             }
             finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

@@ -1,81 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SportScheduleInfo;
 /* loaded from: classes3.dex */
-public class aq6 {
+public class aq6 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public TextView c;
-    public TbImageView d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public String k;
-    public String l;
-    public final View.OnClickListener m;
+    public FrsFragment m;
+    public FrsActivity n;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aq6 a;
-
-        public a(aq6 aq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aq6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || qi.isEmpty(this.a.k)) {
-                return;
-            }
-            UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.k}, true);
-            TiebaStatic.log(new StatisticItem("c13418").param("fid", this.a.l));
-        }
-    }
-
-    public aq6(FrsSportsRecommendFragment frsSportsRecommendFragment, View view2) {
+    public aq6(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsSportsRecommendFragment, view2};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,68 +32,33 @@ public class aq6 {
                 return;
             }
         }
-        this.m = new a(this);
-        if (frsSportsRecommendFragment == null || view2 == null) {
-            return;
-        }
-        this.a = frsSportsRecommendFragment.getPageContext();
-        BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090bdb);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090be3);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bdc);
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090be1);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bdd);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090be2);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090be0);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bdf);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bde);
-        this.d.setPageId(uniqueId);
-        this.e.setPageId(uniqueId);
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    public void d() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setBackgroundResource(this.c, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            u();
         }
     }
 
-    public void e(SportScheduleInfo sportScheduleInfo, String str) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sportScheduleInfo, str) == null) {
-            if (sportScheduleInfo == null) {
-                this.b.setVisibility(8);
-                this.c.setVisibility(0);
-                this.c.setText(R.string.obfuscated_res_0x7f0f0752);
-                return;
-            }
-            this.b.setVisibility(0);
-            this.c.setVisibility(8);
-            this.d.K(sportScheduleInfo.home_team_icon, 10, false);
-            this.e.K(sportScheduleInfo.guest_team_icon, 10, false);
-            String str2 = sportScheduleInfo.home_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str2) > 14) {
-                str2 = StringHelper.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
-            }
-            String str3 = sportScheduleInfo.guest_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str3) > 14) {
-                str3 = StringHelper.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
-            }
-            this.f.setText(str2);
-            this.g.setText(str3);
-            this.h.setText(sportScheduleInfo.match_top_info);
-            this.i.setText(sportScheduleInfo.match_middle_info);
-            this.j.setText(sportScheduleInfo.match_bottom_info);
-            this.k = sportScheduleInfo.msg_url;
-            this.l = str;
-            this.b.setOnClickListener(this.m);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            return (frsFragment == null || frsFragment.u3() || TbSingleton.getInstance().getFrsResponseData() == null) ? false : true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ms6.a(TbSingleton.getInstance().getFrsResponseData(), this.m) : invokeV.booleanValue;
     }
 }

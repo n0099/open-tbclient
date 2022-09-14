@@ -1,6 +1,6 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.av9;
+import com.baidu.tieba.sw9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
-public final class OnSubscribeDetach$TerminatedProducer implements av9 {
+/* loaded from: classes9.dex */
+public final class OnSubscribeDetach$TerminatedProducer implements sw9 {
     public static final /* synthetic */ OnSubscribeDetach$TerminatedProducer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final OnSubscribeDetach$TerminatedProducer INSTANCE;
@@ -65,7 +65,7 @@ public final class OnSubscribeDetach$TerminatedProducer implements av9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OnSubscribeDetach$TerminatedProducer[]) $VALUES.clone() : (OnSubscribeDetach$TerminatedProducer[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.av9
+    @Override // com.baidu.tieba.sw9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

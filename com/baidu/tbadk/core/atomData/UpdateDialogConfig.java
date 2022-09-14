@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
@@ -18,11 +17,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class UpdateDialogConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_AS_APK_URL = "as_apk_url";
     public static final String KEY_OTHER_APK_DATA = "other_apk_data";
-    public static final String KEY_OTHER_APK_URL = "other_apk_url";
     public static final String KEY_TIEBA_APK_DATA = "tieba_apk_data";
-    public static final String KEY_TIEBA_APK_URL = "key_tieba_apk_url";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,8 +43,6 @@ public class UpdateDialogConfig extends IntentConfig {
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra(KEY_TIEBA_APK_DATA, versionData);
         intent.putExtra(KEY_OTHER_APK_DATA, combineDownload);
-        TbadkCoreApplication.getInst().setHasNewVersion(true);
-        TbadkCoreApplication.getInst().setCombineDownload(combineDownload);
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
@@ -59,7 +53,7 @@ public class UpdateDialogConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09f5));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0a08));
             return false;
         }
         return invokeV.booleanValue;

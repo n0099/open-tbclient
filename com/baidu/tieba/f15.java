@@ -3,14 +3,17 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.TailInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
     public f15() {
         Interceptable interceptable = $ic;
@@ -26,31 +29,37 @@ public class f15 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public static f15 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.optString("icon_url");
-                jSONObject.optString("icon_link");
-                jSONObject.optString("content");
-                jSONObject.optInt("tail_type");
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            f15 f15Var = new f15();
+            if (jSONObject != null) {
+                f15Var.a = jSONObject.optString("scene_name");
+                jSONObject.optString("style");
+                f15Var.b = jSONObject.optString("title");
+                f15Var.c = jSONObject.optString("text");
             }
+            return f15Var;
         }
+        return (f15) invokeL.objValue;
     }
 
-    public void b(TailInfo tailInfo) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tailInfo) == null) {
-            try {
-                String str = tailInfo.icon_url;
-                String str2 = tailInfo.icon_link;
-                String str3 = tailInfo.content;
-                tailInfo.tail_type.intValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

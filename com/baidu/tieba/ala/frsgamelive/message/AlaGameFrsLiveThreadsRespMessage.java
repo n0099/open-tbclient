@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.yu5;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.mw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<pn> liveList;
-    public List<pn> recommandList;
+    public List<Cdo> liveList;
+    public List<Cdo> recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveThreadsRespMessage() {
@@ -62,11 +62,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        yu5 yu5Var = new yu5();
+                        mw5 mw5Var = new mw5();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        yu5Var.a = threadData;
-                        this.liveList.add(yu5Var);
+                        mw5Var.a = threadData;
+                        this.liveList.add(mw5Var);
                     }
                 }
             }
@@ -76,11 +76,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        yu5 yu5Var2 = new yu5();
+                        mw5 mw5Var2 = new mw5();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        yu5Var2.a = threadData2;
-                        this.recommandList.add(yu5Var2);
+                        mw5Var2.a = threadData2;
+                        this.recommandList.add(mw5Var2);
                     }
                 }
             }
@@ -93,13 +93,13 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveCount : invokeV.intValue;
     }
 
-    public List<pn> getLiveList() {
+    public List<Cdo> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.liveList : (List) invokeV.objValue;
     }
 
-    public List<pn> getRecommandList() {
+    public List<Cdo> getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommandList : (List) invokeV.objValue;

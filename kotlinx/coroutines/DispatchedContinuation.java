@@ -165,7 +165,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
             } else {
                 CancellationException cancellationException = job.getCancellationException();
                 Result.Companion companion = Result.Companion;
-                resumeWith(Result.m698constructorimpl(ResultKt.createFailure(cancellationException)));
+                resumeWith(Result.m699constructorimpl(ResultKt.createFailure(cancellationException)));
                 z = true;
             }
             if (!z) {
@@ -202,7 +202,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         }
         CancellationException cancellationException = job.getCancellationException();
         Result.Companion companion = Result.Companion;
-        resumeWith(Result.m698constructorimpl(ResultKt.createFailure(cancellationException)));
+        resumeWith(Result.m699constructorimpl(ResultKt.createFailure(cancellationException)));
         return true;
     }
 

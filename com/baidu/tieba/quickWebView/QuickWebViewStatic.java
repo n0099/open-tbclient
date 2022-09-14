@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pk8;
+import com.baidu.tieba.dm8;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,8 +33,8 @@ public class QuickWebViewStatic {
                 return;
             }
         }
-        pk8.h(309485, WebViewCacheResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, pk8.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
+        dm8.h(309485, WebViewCacheResSocketMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, dm8.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
         tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
         if (TbSingleton.getInstance().isDebugToolMode()) {
             if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {

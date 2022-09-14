@@ -1,41 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.util.SparseIntArray;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c38 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<pn> a;
 
-    public c38() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623937, "Lcom/baidu/tieba/c38;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947623937, "Lcom/baidu/tieba/c38;");
+                return;
             }
         }
+        a = new SparseIntArray();
     }
 
-    public void a(ArrayList<pn> arrayList) {
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.a = arrayList;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
+            return;
         }
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+        int b = b(R.dimen.obfuscated_res_0x7f070207);
+        if (z2 && z3) {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f07022f), b, b(R.dimen.obfuscated_res_0x7f07025f));
+        } else if (z) {
+            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f07022f), 0, 0);
+        } else if (!z2) {
+            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070231), b(R.dimen.obfuscated_res_0x7f07022f), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
+        } else {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f07022f), b, b(R.dimen.obfuscated_res_0x7f0701b2));
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) "icon");
+        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
+        drawable.setBounds(0, 0, b, b);
+        ni5 ni5Var = new ni5(drawable);
+        ni5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
+        spannableStringBuilder.setSpan(ni5Var, 0, 4, 33);
+        textView.setLayoutParams(layoutParams);
+        textView.setText(spannableStringBuilder);
+        textView.setTextColor(smallTailInfo.showColorId);
+        textView.setVisibility(0);
     }
 
-    public void b(boolean z) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = a.get(i, -1);
+            if (i2 == -1) {
+                int f = ej.f(TbadkCoreApplication.getInst().getContext(), i);
+                a.put(i, f);
+                return f;
+            }
+            return i2;
         }
+        return invokeI.intValue;
+    }
+
+    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        SpannableString spannableString;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
+            return;
+        }
+        smallTailInfo.updateShowInfo();
+        a(smallTailInfo, textView, z, z2, z3);
     }
 }

@@ -6,28 +6,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h87;
-import com.baidu.tieba.i87;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel;
-import com.baidu.tieba.k87;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.o97;
+import com.baidu.tieba.p97;
+import com.baidu.tieba.r97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements h87 {
+public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements o97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumBroadCastMajorHistoryModel a;
-    public k87 b;
+    public r97 b;
     public View c;
     public String d;
     public String e;
@@ -47,7 +47,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.h87
+    @Override // com.baidu.tieba.o97
     public void A0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, forumBroadcastMajorResidueData) == null) {
@@ -55,7 +55,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.h87
+    @Override // com.baidu.tieba.o97
     public void b() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;
@@ -65,23 +65,23 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         forumBroadCastMajorHistoryModel.b();
     }
 
-    @Override // com.baidu.tieba.h87
-    public void c0(i87 i87Var) {
+    @Override // com.baidu.tieba.o97
+    public void c0(p97 p97Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i87Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p97Var) == null) {
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.a()) {
-                this.b.r(getString(R.string.obfuscated_res_0x7f0f08bd), false);
+                this.b.r(getString(R.string.im_error_default), false);
                 return;
             }
-            k87 k87Var = this.b;
-            if (k87Var != null) {
-                k87Var.o(i87Var);
+            r97 r97Var = this.b;
+            if (r97Var != null) {
+                r97Var.o(p97Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bv4.g
+    @Override // com.baidu.tieba.lx4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
@@ -89,7 +89,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.h87
+    @Override // com.baidu.tieba.o97
     public void f(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, errorData) == null) {
@@ -97,14 +97,14 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08bd);
+                    showToast(R.string.im_error_default);
                 }
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel == null || forumBroadCastMajorHistoryModel.a()) {
                 return;
             }
-            this.b.r(errorData != null ? getString(R.string.obfuscated_res_0x7f0f0c3f, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
+            this.b.r(errorData != null ? getString(R.string.obfuscated_res_0x7f0f0c58, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
         }
     }
 
@@ -132,8 +132,8 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             super.onCreate(bundle);
             z1(bundle);
             this.a = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.d);
-            this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d029f, (ViewGroup) null);
-            this.b = new k87(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
+            this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02a4, (ViewGroup) null);
+            this.b = new r97(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
             setContentView(this.c);
             this.a.I();
             refresh();
@@ -145,9 +145,9 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            k87 k87Var = this.b;
-            if (k87Var != null) {
-                k87Var.n();
+            r97 r97Var = this.b;
+            if (r97Var != null) {
+                r97Var.n();
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null) {
@@ -159,7 +159,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && pi.z()) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && BdNetTypeUtil.isNetWorkAvailable()) {
             hideNetRefreshView(this.c);
             refresh();
         }
@@ -167,15 +167,15 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        k87 k87Var;
+        r97 r97Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
             super.onNewIntent(intent);
             refresh();
-            if (!ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) || (k87Var = this.b) == null) {
+            if (!ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) || (r97Var = this.b) == null) {
                 return;
             }
-            k87Var.s();
+            r97Var.s();
         }
     }
 
@@ -187,7 +187,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.h87
+    @Override // com.baidu.tieba.o97
     public void refresh() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;

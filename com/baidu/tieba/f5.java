@@ -1,87 +1,86 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.math.Matrix3;
+import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.JsonValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a7;
+import com.baidu.tieba.p7;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f5 implements h7 {
+public abstract class f5 implements i7, p7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a7<d5> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448302846, "Lcom/baidu/tieba/f5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448302846, "Lcom/baidu/tieba/f5;");
+                return;
+            }
+        }
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Quaternion();
+        new Quaternion();
+        new Matrix3();
+        new Matrix4();
+    }
 
     public f5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new a7<>(true, 3, d5.class);
     }
 
-    public void a(m1 m1Var, h5 h5Var) {
+    @Override // com.baidu.tieba.p7.c
+    public void a(p7 p7Var, JsonValue jsonValue) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, m1Var, h5Var) == null) {
-            a7.b<d5> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().c(m1Var, h5Var);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, p7Var, jsonValue) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.h7
+    @Override // com.baidu.tieba.i7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.a.b;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.a.get(i2).b();
-            }
         }
     }
 
-    public void f(a7<i5<?>> a7Var) {
+    public void f(n1 n1Var, i5 i5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a7Var) == null) {
-            a7.b<d5> it = this.a.iterator();
-            while (it.hasNext()) {
-                d5 next = it.next();
-                a7.b<i5<?>> it2 = a7Var.iterator();
-                while (it2.hasNext()) {
-                    if (next.c.h(it2.next())) {
-                        break;
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, n1Var, i5Var) == null) {
         }
     }
 
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.a.b;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.a.get(i2).update();
-            }
-        }
-    }
-
-    public void update(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            int i = this.a.b;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.a.get(i2).update(f);
-            }
         }
     }
 }

@@ -1,74 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class t34 {
+public class t34 implements ok1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, gr2 gr2Var) {
-        InterceptResult invokeLL;
+    public t34() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, gr2Var)) == null) {
-            ri1 X = nm2.U().X();
-            return X != null && X.c(view2, gr2Var);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ri1 X = nm2.U().X();
-            if (X != null) {
-                return X.getContext();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
     }
 
-    public static void c(zf3 zf3Var) {
-        ri1 X;
+    @Override // com.baidu.tieba.ok1
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, zf3Var) == null) || (X = nm2.U().X()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            v34.a(str);
         }
-        X.e(zf3Var);
-    }
-
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            ri1 X = nm2.U().X();
-            return X != null && X.removeView(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(zf3 zf3Var) {
-        ri1 X;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zf3Var) == null) || (X = nm2.U().X()) == null) {
-            return;
-        }
-        X.f(zf3Var);
-    }
-
-    public static boolean f(View view2, gr2 gr2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, gr2Var)) == null) {
-            ri1 X = nm2.U().X();
-            return X != null && X.a(view2, gr2Var);
-        }
-        return invokeLL.booleanValue;
     }
 }

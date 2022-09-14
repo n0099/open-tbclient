@@ -9,12 +9,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
@@ -47,7 +47,7 @@ public class MaterialTextView extends AppCompatTextView {
     private void applyLineHeightFromViewAppearance(@NonNull Resources.Theme theme, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, theme, i) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(i, new int[]{16844159, R.attr.obfuscated_res_0x7f040432});
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(i, R.styleable.MaterialTextAppearance);
             int readFirstAvailableDimension = readFirstAvailableDimension(getContext(), obtainStyledAttributes, 0, 1);
             obtainStyledAttributes.recycle();
             if (readFirstAvailableDimension >= 0) {
@@ -59,14 +59,14 @@ public class MaterialTextView extends AppCompatTextView {
     public static boolean canApplyTextAppearanceLineHeight(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f0406d9, true) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? MaterialAttributes.resolveBoolean(context, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406d9, true) : invokeL.booleanValue;
     }
 
     public static int findViewAppearanceResourceId(@NonNull Resources.Theme theme, @Nullable AttributeSet attributeSet, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, theme, attributeSet, i, i2)) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f040432}, i, i2);
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, R.styleable.MaterialTextView, i, i2);
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;
@@ -91,7 +91,7 @@ public class MaterialTextView extends AppCompatTextView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, theme, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f040432}, i, i2);
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, R.styleable.MaterialTextView, i, i2);
             int readFirstAvailableDimension = readFirstAvailableDimension(context, obtainStyledAttributes, 1, 2);
             obtainStyledAttributes.recycle();
             return readFirstAvailableDimension != -1;

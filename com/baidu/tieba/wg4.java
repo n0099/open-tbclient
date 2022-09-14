@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public final class wg4 extends ih4 {
+public abstract class wg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wg4 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wg4() {
-        super("aiapp_open_stat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,27 +21,29 @@ public final class wg4 extends ih4 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static wg4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (wg4.class) {
-                    if (d == null) {
-                        d = new wg4();
-                    }
-                }
-            }
-            return d;
-        }
-        return (wg4) invokeV.objValue;
-    }
+    public abstract wg4 a(@IdRes int i, Fragment fragment);
+
+    public abstract wg4 b(@IdRes int i, Fragment fragment, @Nullable String str);
+
+    public abstract wg4 c(Fragment fragment, String str);
+
+    public abstract wg4 d(@Nullable String str);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract wg4 g(Fragment fragment);
+
+    public abstract wg4 h(Fragment fragment);
+
+    public abstract wg4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract wg4 j(Fragment fragment);
 }

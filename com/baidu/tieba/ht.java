@@ -1,37 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.Charset;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ht {
+public class ht<T> extends gt<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public ht() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? bArr == null ? "" : new String(bArr, Charset.forName("UTF-8")) : (String) invokeL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gt
+    public void o(T t) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.isEmpty(str) ? new byte[0] : str.getBytes(Charset.forName("UTF-8")) : (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            super.o(t);
+        }
     }
 
-    public static byte[] c(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gt
+    public void p(T t) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? bArr == null ? new byte[0] : Base64.encode(bArr, 2) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? (bArr == null || bArr.length == 0) ? new byte[0] : Base64.decode(bArr, 2) : (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            super.p(t);
+        }
     }
 }

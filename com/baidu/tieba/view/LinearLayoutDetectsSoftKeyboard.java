@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +57,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
             int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
             if (this.a != null) {
                 boolean z = true;
-                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= ri.d(activity, 48.0f) + 128) {
+                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= ej.d(activity, 48.0f) + 128) {
                     z = false;
                 }
                 this.a.a(z);

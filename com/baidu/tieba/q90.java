@@ -1,93 +1,163 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.player.LivePlayer;
-import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.DecimalFormat;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
-public class q90 implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
+public class q90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q90() {
+    public static String a(Context context, int i) {
+        InterceptResult invokeLI;
+        String string;
+        Float valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            if (i < 0) {
+                return "";
             }
+            long j = i;
+            if (j < 10000) {
+                return i + context.getString(R.string.obfuscated_res_0x7f0f0a1b);
+            }
+            if (j < 100000000) {
+                string = context.getString(R.string.obfuscated_res_0x7f0f0a18);
+                valueOf = Float.valueOf(i / 10000.0f);
+            } else {
+                string = context.getString(R.string.obfuscated_res_0x7f0f0a12);
+                valueOf = Float.valueOf(i / 1.0E8f);
+            }
+            DecimalFormat decimalFormat = new DecimalFormat("####.#");
+            return decimalFormat.format(valueOf) + string;
         }
+        return (String) invokeLI.objValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void goBackOrForeground(boolean z) {
+    public static int b(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferEnd() {
+    public static float c(Resources resources, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, resources, f)) == null) ? (f * resources.getDisplayMetrics().density) + 0.5f : invokeLF.floatValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferStart() {
+    @SuppressLint({"MissingPermission"})
+    public static NetworkInfo d(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            } catch (SecurityException e) {
+                e.printStackTrace();
+                connectivityManager = null;
+            }
+            if (connectivityManager == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
         }
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
-    public Object onInfo(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    public static int e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) ? Boolean.FALSE : invokeIIL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.widthPixels;
+        }
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onNetworkSpeedUpdate(int i) {
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            NetworkInfo d = d(context);
+            return d != null && d.isConnectedOrConnecting();
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onPrepared() {
+    public static boolean g(View view2, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, view2, i, i2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            int i3 = iArr[0];
+            int i4 = iArr[1];
+            return i2 >= i4 && i2 <= view2.getMeasuredHeight() + i4 && i >= i3 && i <= view2.getMeasuredWidth() + i3;
         }
+        return invokeLII.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onSeekEnd() {
+    public static boolean h(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            NetworkInfo d = d(context);
+            return d != null && d.isAvailable() && d.getType() == 1;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onStart() {
+    public static int i(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65544, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onUpdateProgress(int i, int i2, int i3) {
+    public static String j(String str, String... strArr) {
+        InterceptResult invokeLL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, strArr)) == null) {
+            if (strArr == null) {
+                return str;
+            }
+            HashSet hashSet = new HashSet(Uri.parse(str).getQueryParameterNames());
+            for (String str2 : strArr) {
+                hashSet.remove(str2);
+            }
+            StringBuilder sb = new StringBuilder();
+            if (str.contains("?")) {
+                sb.append(str.substring(0, str.indexOf("?")));
+            } else {
+                sb.append(str);
+            }
+            sb.append("?");
+            if (hashSet.size() > 0 && (indexOf = str.indexOf("&")) > 0) {
+                sb.append(str.substring(indexOf));
+            }
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
     }
 }

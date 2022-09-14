@@ -1,13 +1,17 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface xd9 {
-    void a(String str, JSONObject jSONObject);
 
-    void b(String str, JSONObject jSONObject);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, xd9 xd9Var);
+    }
 
-    void c(String str, int i, String str2, JSONObject jSONObject);
+    void cancel();
 
-    void d(String str, String str2, JSONObject jSONObject);
+    boolean isRunning();
+
+    void pause();
+
+    void start();
 }

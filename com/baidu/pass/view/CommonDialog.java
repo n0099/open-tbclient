@@ -62,14 +62,14 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0685, (ViewGroup) null);
-                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003ce);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091765);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091762);
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091763);
-                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091641);
-                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919f8);
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091766);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.pass_sdk_base_ui_common_dialog, (ViewGroup) null);
+                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003d0);
+                TextView textView = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_title);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_content);
+                View findViewById = inflate.findViewById(R.id.pass_base_ui_dialog_horizontal_split_line);
+                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091672);
+                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a36);
+                View findViewById2 = inflate.findViewById(R.id.pass_base_ui_dialog_vertical_split_line);
                 textView.setText(this.c);
                 textView2.setText(TextUtils.isEmpty(this.b) ? "" : this.b);
                 textView2.setMovementMethod(LinkMovementMethod.getInstance());
@@ -94,13 +94,13 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                 attributes.height = -2;
                 window.setAttributes(attributes);
                 if (this.d) {
-                    inflate.findViewById(R.id.obfuscated_res_0x7f091764).setBackgroundResource(R.drawable.obfuscated_res_0x7f080e5e);
-                    textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a9));
-                    textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a2));
-                    findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a8));
-                    textView3.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a4));
-                    textView4.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a6));
-                    findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a8));
+                    inflate.findViewById(R.id.pass_base_ui_dialog_root_view).setBackgroundResource(R.drawable.pass_base_ui_common_dialog_dark_bg);
+                    textView.setTextColor(this.a.getResources().getColor(R.color.pass_base_ui_dialog_title_dark_text_color));
+                    textView2.setTextColor(this.a.getResources().getColor(R.color.pass_base_ui_dialog_content_text_dark_color));
+                    findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
+                    textView3.setTextColor(this.a.getResources().getColor(R.color.pass_base_ui_dialog_negative_btn_text_dark_color));
+                    textView4.setTextColor(this.a.getResources().getColor(R.color.pass_base_ui_dialog_positive_btn_text_dark_color));
+                    findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
                 }
                 Context context = this.a;
                 if (context instanceof Activity) {

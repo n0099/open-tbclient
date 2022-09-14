@@ -1,27 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.internal.util.Files;
-import com.baidu.titan.sdk.loader.LoaderHead;
-import com.baidu.titan.sdk.loader.LoaderManager;
-import com.baidu.titan.sdk.pm.PatchInstallInfo;
-import com.baidu.titan.sdk.pm.PatchMetaInfo;
-import com.baidu.titan.sdk.pm.TitanPaths;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.PackageCallback;
+import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pm implements jm {
+public class pm extends RequestParams.Channel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pm() {
+        super("137", true, (PackageCallback) new tm(null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,83 +23,75 @@ public class pm implements jm {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Boolean) objArr[1]).booleanValue(), (PackageCallback) objArr[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public JSONObject a(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm(String str, DefaultDownloadCallback defaultDownloadCallback) {
+        super("137", str, new tm(defaultDownloadCallback));
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                PatchInstallInfo currentPatchInfo = LoaderManager.getInstance().getCurrentPatchInfo();
-                if (currentPatchInfo != null) {
-                    jSONObject.put("info", PatchMetaInfo.createFromPatch(currentPatchInfo.getPatchFile()).toJson());
-                } else {
-                    jSONObject.put("error", "no-patch-loaded");
-                }
-            } catch (Exception e) {
-                try {
-                    jSONObject.put("error", Log.getStackTraceString(e));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, defaultDownloadCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                File headFile = TitanPaths.getHeadFile();
-                if (headFile.exists()) {
-                    String fileStringContent = Files.getFileStringContent(headFile);
-                    jSONObject2.put("head", new JSONObject(fileStringContent));
-                    LoaderHead createFromJson = LoaderHead.createFromJson(fileStringContent);
-                    if (createFromJson != null) {
-                        PatchMetaInfo createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile());
-                        if (createFromPatch == null) {
-                            jSONObject2.put("error", "patch file damage");
-                        } else {
-                            context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                            if (createFromPatch.versionInfo != null) {
-                                jSONObject2.put("info", createFromPatch.toJson());
-                            } else {
-                                jSONObject2.put("error", "version info dismiss");
-                            }
-                        }
-                    }
-                } else {
-                    jSONObject2.put("error", "no-patch-installed");
-                }
-            } catch (Exception e3) {
-                try {
-                    jSONObject2.put("error", Log.getStackTraceString(e3));
-                } catch (JSONException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                sm d = sm.d();
-                d.g();
-                jSONObject3.put("info", d.k());
-            } catch (Exception e5) {
-                try {
-                    jSONObject3.put("error", Log.getStackTraceString(e5));
-                } catch (JSONException e6) {
-                    e6.printStackTrace();
-                }
-            }
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject4.put("load", jSONObject);
-                jSONObject4.put("install", jSONObject2);
-                jSONObject4.put("update", jSONObject3);
-            } catch (JSONException e7) {
-                e7.printStackTrace();
-            }
-            return jSONObject4;
         }
-        return (JSONObject) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm(List<String> list, DefaultDownloadCallback defaultDownloadCallback) {
+        super("137", list, new tm(defaultDownloadCallback));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, defaultDownloadCallback};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (List) objArr2[1], (PackageCallback) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm(String str, DefaultDownloadCallback defaultDownloadCallback, vm vmVar) {
+        super("137", str, new tm(defaultDownloadCallback, vmVar));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, defaultDownloadCallback, vmVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 }

@@ -4,15 +4,12 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.internal.common.zza;
 /* loaded from: classes7.dex */
-public final class zzaa extends zza implements IGmsCallbacks {
+public final class zzaa extends com.google.android.gms.internal.common.zza implements IGmsCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,7 +41,7 @@ public final class zzaa extends zza implements IGmsCallbacks {
             Parcel zza = zza();
             zza.writeInt(i);
             zza.writeStrongBinder(iBinder);
-            yo9.c(zza, bundle);
+            com.google.android.gms.internal.common.zzc.zzc(zza, bundle);
             zzC(1, zza);
         }
     }
@@ -52,7 +49,7 @@ public final class zzaa extends zza implements IGmsCallbacks {
     @Override // com.google.android.gms.common.internal.IGmsCallbacks
     public final void zzb(int i, Bundle bundle) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
             throw null;
         }
     }
@@ -60,7 +57,7 @@ public final class zzaa extends zza implements IGmsCallbacks {
     @Override // com.google.android.gms.common.internal.IGmsCallbacks
     public final void zzc(int i, IBinder iBinder, zzj zzjVar) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
+        if (interceptable == null || interceptable.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
             throw null;
         }
     }

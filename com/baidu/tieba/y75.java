@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y75 implements m75<CompeteTaskEvent> {
+public class y75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public y75() {
         Interceptable interceptable = $ic;
@@ -28,23 +33,23 @@ public class y75 implements m75<CompeteTaskEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m75
-    /* renamed from: a */
-    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
+    public static y75 a(JSONObject jSONObject) {
         InterceptResult invokeL;
-        CompleteTaskToastData completeTaskToastData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, competeTaskEvent)) == null) {
-            if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity instanceof qj4) {
-                    ((qj4) currentActivity).onMissionCompleted(completeTaskToastData);
-                    return true;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                y75 y75Var = new y75();
+                y75Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                y75Var.b = jSONObject.optInt("width");
+                y75Var.c = jSONObject.optInt("height");
+                y75Var.d = jSONObject.optString("pic_url");
+                y75Var.e = jSONObject.optString("thumbnail");
+                y75Var.g = jSONObject.optString("origin_url");
+                return y75Var;
+            } catch (Exception unused) {
+                return null;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (y75) invokeL.objValue;
     }
 }

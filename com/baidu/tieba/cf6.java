@@ -1,98 +1,161 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetLevelInfo.DataRes;
 /* loaded from: classes3.dex */
-public class cf6 {
+public class cf6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
+    public BaseActivity<T> b;
+    public pb c;
+    public CustomMessageListener d;
 
     /* loaded from: classes3.dex */
-    public static class a implements View.OnClickListener {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr4 a;
+        public final /* synthetic */ cf6 a;
 
-        public a(vr4 vr4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cf6 cf6Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vr4Var};
+                Object[] objArr = {cf6Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = vr4Var;
+            this.a = cf6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
+                    GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
+                    this.a.a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
+                } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
+                    GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
+                    this.a.a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
+                }
             }
         }
     }
 
-    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
-        int k;
+    /* loaded from: classes3.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cf6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(cf6 cf6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cf6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cf6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
+                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
+                this.a.a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(DataRes dataRes, boolean z, int i, String str);
+    }
+
+    public cf6(c cVar, BaseActivity<T> baseActivity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) || activity == null || tbPageContext == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d030b, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c7c);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c79);
-        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c7a);
-        TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c7b);
-        TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c78);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09224a);
-        vr4 vr4Var = new vr4(activity);
-        vr4Var.setContentView(inflate);
-        vr4Var.setContentViewSize(2);
-        vr4Var.setCanceledOnTouchOutside(true);
-        vr4Var.setAutoNight(true);
-        vr4Var.setCancelable(true);
-        int f = ri.f(activity, R.dimen.tbds31);
-        SkinManager.setBackgroundShapeDrawable(inflate, f, R.color.CAM_X0201, R.color.CAM_X0101);
-        tbImageView.setRadius(f);
-        tbImageView.setConrers(3);
-        tbImageView.setIsBitmapPic(true);
-        int f2 = ri.f(activity, R.dimen.tbds44);
-        if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-            k = ri.i(activity);
-        } else {
-            k = ri.k(activity);
+        this.c = new a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
+        this.d = new b(this, 2003007);
+        this.a = cVar;
+        this.b = baseActivity;
+        b();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.registerListener(this.d);
+            this.b.registerListener(this.c);
         }
-        int i = k - (f2 * 2);
-        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-        layoutParams.width = -1;
-        layoutParams.height = (i * 556) / 988;
-        tbImageView.setLayoutParams(layoutParams);
-        SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f08057d);
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-        SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
-        SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
-        SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
-        textView5.setOnClickListener(new a(vr4Var));
-        vr4Var.create(tbPageContext).show();
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
+            getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
+            this.b.sendMessage(getLevelInfoReadCacheRequestMessage);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
+            getLevelInfoRequestMessage.setForumId(i);
+            this.b.sendMessage(getLevelInfoRequestMessage);
+        }
     }
 }

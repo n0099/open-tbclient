@@ -38,7 +38,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0567a {
+    public static class C0572a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,7 +82,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, sdkConfig)) == null) {
             Context applicationContext = context.getApplicationContext();
-            return new b.a().bI(applicationContext).aR(((j) d.b(applicationContext, c.UM)).sB()).aS(((j) d.b(applicationContext, c.UN)).sB()).aT(KsAdSDKImpl.get().getIsExternal()).cM(((o) d.b(applicationContext, c.UO)).getValue()).cL(((o) d.b(applicationContext, c.UP)).getValue()).cS(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getSDKVersion(), 1)).bc(KsAdSDKImpl.get().getSDKVersionCode()).cT(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getApiVersion(), 1)).bd(KsAdSDKImpl.get().getApiVersionCode()).be(1).cR("com.kwad.sdk").cU(sdkConfig.appId).cV(sdkConfig.appName).cW(applicationContext.getPackageName()).cX(com.kwad.sdk.utils.j.cb(applicationContext)).cO(ar.getDeviceId()).cN("Android").cP(sdkConfig.appId).cQ(C0567a.ag(applicationContext)).a(new g(sdkConfig, applicationContext) { // from class: com.kwad.components.core.b.a.2
+            return new b.a().bI(applicationContext).aR(((j) d.b(applicationContext, c.UM)).sB()).aS(((j) d.b(applicationContext, c.UN)).sB()).aT(KsAdSDKImpl.get().getIsExternal()).cM(((o) d.b(applicationContext, c.UO)).getValue()).cL(((o) d.b(applicationContext, c.UP)).getValue()).cS(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getSDKVersion(), 1)).bc(KsAdSDKImpl.get().getSDKVersionCode()).cT(ExceptionMessage.getSdkCrashVersionName(KsAdSDKImpl.get().getApiVersion(), 1)).bd(KsAdSDKImpl.get().getApiVersionCode()).be(1).cR("com.kwad.sdk").cU(sdkConfig.appId).cV(sdkConfig.appName).cW(applicationContext.getPackageName()).cX(com.kwad.sdk.utils.j.cb(applicationContext)).cO(ar.getDeviceId()).cN("Android").cP(sdkConfig.appId).cQ(C0572a.ag(applicationContext)).a(new g(sdkConfig, applicationContext) { // from class: com.kwad.components.core.b.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SdkConfig DE;

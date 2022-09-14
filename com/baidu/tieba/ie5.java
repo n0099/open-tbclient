@@ -1,246 +1,166 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.dz;
+import com.baidu.tieba.sy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ie5 {
+public class ie5 extends ge5<ot4, ThreadCardViewHolder<ot4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public v16<ot4> g;
 
-    public static Bitmap a(Bitmap bitmap, int i, boolean z) {
-        InterceptResult invokeCommon;
-        int width;
-        int height;
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int i2 = i;
-            if (z) {
-                width = bitmap.getWidth() / 2;
-                height = bitmap.getHeight() / 4;
-            } else {
-                width = bitmap.getWidth();
-                height = bitmap.getHeight();
-            }
-            if (width == 0 || height == 0) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
-            if (i2 < 1) {
-                return null;
-            }
-            int i3 = width * height;
-            int[] iArr2 = new int[i3];
-            createBitmap.getPixels(iArr2, 0, width, 0, 0, width, height);
-            int i4 = width - 1;
-            int i5 = height - 1;
-            int i6 = i2 + i2 + 1;
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[i3];
-            int[] iArr5 = new int[i3];
-            int[] iArr6 = new int[Math.max(width, height)];
-            int i7 = (i6 + 1) >> 1;
-            int i8 = i7 * i7;
-            int i9 = i8 * 256;
-            int[] iArr7 = new int[i9];
-            for (int i10 = 0; i10 < i9; i10++) {
-                iArr7[i10] = i10 / i8;
-            }
-            int[][] iArr8 = (int[][]) Array.newInstance(int.class, i6, 3);
-            int i11 = i2 + 1;
-            int i12 = 0;
-            int i13 = 0;
-            int i14 = 0;
-            while (i12 < height) {
-                Bitmap bitmap2 = createBitmap;
-                int i15 = 0;
-                int i16 = 0;
-                int i17 = 0;
-                int i18 = 0;
-                int i19 = 0;
-                int i20 = 0;
-                int i21 = 0;
-                int i22 = 0;
-                int i23 = -i2;
-                int i24 = 0;
-                while (i23 <= i2) {
-                    int i25 = height;
-                    int i26 = i5;
-                    int i27 = iArr2[i13 + Math.min(i4, Math.max(i23, 0))];
-                    int[] iArr9 = iArr8[i23 + i2];
-                    iArr9[0] = (i27 & 16711680) >> 16;
-                    iArr9[1] = (i27 & 65280) >> 8;
-                    iArr9[2] = i27 & 255;
-                    int abs = i11 - Math.abs(i23);
-                    i24 += iArr9[0] * abs;
-                    i15 += iArr9[1] * abs;
-                    i16 += iArr9[2] * abs;
-                    if (i23 > 0) {
-                        i20 += iArr9[0];
-                        i21 += iArr9[1];
-                        i22 += iArr9[2];
-                    } else {
-                        i17 += iArr9[0];
-                        i18 += iArr9[1];
-                        i19 += iArr9[2];
-                    }
-                    i23++;
-                    height = i25;
-                    i5 = i26;
+    /* loaded from: classes4.dex */
+    public class a extends v16<ot4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ie5 b;
+
+        public a(ie5 ie5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                int i28 = height;
-                int i29 = i5;
-                int i30 = i2;
-                int i31 = i24;
-                int i32 = 0;
-                while (i32 < width) {
-                    iArr3[i13] = iArr7[i31];
-                    iArr4[i13] = iArr7[i15];
-                    iArr5[i13] = iArr7[i16];
-                    int i33 = i31 - i17;
-                    int i34 = i15 - i18;
-                    int i35 = i16 - i19;
-                    int[] iArr10 = iArr8[((i30 - i2) + i6) % i6];
-                    int i36 = i17 - iArr10[0];
-                    int i37 = i18 - iArr10[1];
-                    int i38 = i19 - iArr10[2];
-                    if (i12 == 0) {
-                        iArr = iArr7;
-                        iArr6[i32] = Math.min(i32 + i2 + 1, i4);
-                    } else {
-                        iArr = iArr7;
-                    }
-                    int i39 = iArr2[i14 + iArr6[i32]];
-                    iArr10[0] = (i39 & 16711680) >> 16;
-                    iArr10[1] = (i39 & 65280) >> 8;
-                    iArr10[2] = i39 & 255;
-                    int i40 = i20 + iArr10[0];
-                    int i41 = i21 + iArr10[1];
-                    int i42 = i22 + iArr10[2];
-                    i31 = i33 + i40;
-                    i15 = i34 + i41;
-                    i16 = i35 + i42;
-                    i30 = (i30 + 1) % i6;
-                    int[] iArr11 = iArr8[i30 % i6];
-                    i17 = i36 + iArr11[0];
-                    i18 = i37 + iArr11[1];
-                    i19 = i38 + iArr11[2];
-                    i20 = i40 - iArr11[0];
-                    i21 = i41 - iArr11[1];
-                    i22 = i42 - iArr11[2];
-                    i13++;
-                    i32++;
-                    iArr7 = iArr;
-                }
-                i14 += width;
-                i12++;
-                createBitmap = bitmap2;
-                height = i28;
-                i5 = i29;
             }
-            int i43 = height;
-            int i44 = i5;
-            int[] iArr12 = iArr7;
-            Bitmap bitmap3 = createBitmap;
-            int i45 = 0;
-            while (i45 < width) {
-                int i46 = -i2;
-                int i47 = i6;
-                int[] iArr13 = iArr6;
-                int i48 = 0;
-                int i49 = 0;
-                int i50 = 0;
-                int i51 = 0;
-                int i52 = 0;
-                int i53 = 0;
-                int i54 = 0;
-                int i55 = i46;
-                int i56 = i46 * width;
-                int i57 = 0;
-                int i58 = 0;
-                while (i55 <= i2) {
-                    int i59 = width;
-                    int max = Math.max(0, i56) + i45;
-                    int[] iArr14 = iArr8[i55 + i2];
-                    iArr14[0] = iArr3[max];
-                    iArr14[1] = iArr4[max];
-                    iArr14[2] = iArr5[max];
-                    int abs2 = i11 - Math.abs(i55);
-                    i57 += iArr3[max] * abs2;
-                    i58 += iArr4[max] * abs2;
-                    i48 += iArr5[max] * abs2;
-                    if (i55 > 0) {
-                        i52 += iArr14[0];
-                        i53 += iArr14[1];
-                        i54 += iArr14[2];
-                    } else {
-                        i49 += iArr14[0];
-                        i50 += iArr14[1];
-                        i51 += iArr14[2];
-                    }
-                    int i60 = i44;
-                    if (i55 < i60) {
-                        i56 += i59;
-                    }
-                    i55++;
-                    i44 = i60;
-                    width = i59;
-                }
-                int i61 = width;
-                int i62 = i44;
-                int i63 = i2;
-                int i64 = i45;
-                int i65 = i43;
-                int i66 = 0;
-                while (i66 < i65) {
-                    iArr2[i64] = (iArr2[i64] & (-16777216)) | (iArr12[i57] << 16) | (iArr12[i58] << 8) | iArr12[i48];
-                    int i67 = i57 - i49;
-                    int i68 = i58 - i50;
-                    int i69 = i48 - i51;
-                    int[] iArr15 = iArr8[((i63 - i2) + i47) % i47];
-                    int i70 = i49 - iArr15[0];
-                    int i71 = i50 - iArr15[1];
-                    int i72 = i51 - iArr15[2];
-                    if (i45 == 0) {
-                        iArr13[i66] = Math.min(i66 + i11, i62) * i61;
-                    }
-                    int i73 = iArr13[i66] + i45;
-                    iArr15[0] = iArr3[i73];
-                    iArr15[1] = iArr4[i73];
-                    iArr15[2] = iArr5[i73];
-                    int i74 = i52 + iArr15[0];
-                    int i75 = i53 + iArr15[1];
-                    int i76 = i54 + iArr15[2];
-                    i57 = i67 + i74;
-                    i58 = i68 + i75;
-                    i48 = i69 + i76;
-                    i63 = (i63 + 1) % i47;
-                    int[] iArr16 = iArr8[i63];
-                    i49 = i70 + iArr16[0];
-                    i50 = i71 + iArr16[1];
-                    i51 = i72 + iArr16[2];
-                    i52 = i74 - iArr16[0];
-                    i53 = i75 - iArr16[1];
-                    i54 = i76 - iArr16[2];
-                    i64 += i61;
-                    i66++;
-                    i2 = i;
-                }
-                i45++;
-                i2 = i;
-                i44 = i62;
-                i43 = i65;
-                iArr6 = iArr13;
-                i6 = i47;
-                width = i61;
-            }
-            int i77 = width;
-            bitmap3.setPixels(iArr2, 0, i77, 0, 0, i77, i43);
-            return bitmap3;
+            this.b = ie5Var;
         }
-        return (Bitmap) invokeCommon.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v16
+        /* renamed from: d */
+        public void a(View view2, ot4 ot4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ot4Var) == null) {
+                this.b.u(view2, ot4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements no {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ie5 a;
+
+        public b(ie5 ie5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ie5Var;
+        }
+
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof ot4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ot4 ot4Var = (ot4) cdo;
+                ot4Var.objType = 1;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), ot4Var);
+                }
+                ThreadCardUtils.jumpToPB((lq4) ot4Var, view2.getContext(), this.a.A(), false);
+                threadCardViewHolder.a().o(new dz.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ie5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = new a(this);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: N */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            sy.b bVar = new sy.b(this.c.getPageActivity(), false);
+            cy cyVar = new cy(this.c.getPageActivity());
+            cyVar.t(x());
+            cyVar.u(this.b);
+            bVar.n(cyVar);
+            sy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            k.r(A());
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: O */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ot4 ot4Var, ThreadCardViewHolder<ot4> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ot4Var, threadCardViewHolder})) == null) {
+            if (ot4Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (threadData = ot4Var.t) == null) {
+                return null;
+            }
+            threadData.statFloor = getPositionByType(i) + 1;
+            threadCardViewHolder.a().q(i);
+            threadCardViewHolder.e(ot4Var);
+            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.a().p(this.g);
+            L(threadCardViewHolder.getView(), ot4Var, i, i);
+            return threadCardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

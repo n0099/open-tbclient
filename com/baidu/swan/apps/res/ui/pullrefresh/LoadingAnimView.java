@@ -12,12 +12,12 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.re3;
+import com.baidu.tieba.pg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadingAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class LoadingAnimView extends View {
     public Matrix f;
     public Paint g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,10 +155,10 @@ public class LoadingAnimView extends View {
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            int f = re3.f(getContext(), 6.0f);
+            int f = pg3.f(getContext(), 6.0f);
             this.c.eraseColor(0);
             this.g.setStyle(Paint.Style.FILL);
-            this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e6));
+            this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e7));
             this.g.setAlpha((int) ((((1.0d - (Math.abs(this.a - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
             float f2 = measuredWidth / 2.0f;
             float f3 = measuredHeight / 2.0f;

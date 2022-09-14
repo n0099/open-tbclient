@@ -3,7 +3,7 @@ package com.kwad.sdk.service.kwai;
 import android.content.Context;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface d {
     boolean G(AdTemplate adTemplate);
 

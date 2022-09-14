@@ -8,13 +8,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.cn;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.kf;
+import com.baidu.tieba.qn;
+import com.baidu.tieba.xf;
+import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public abstract class MsgCommonItemAdapter<T> extends cn<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends qn<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> a;
-    public jf b;
-    public kf c;
+    public xf b;
+    public yf c;
     public long d;
     public boolean e;
     public boolean f;
@@ -100,10 +100,10 @@ public abstract class MsgCommonItemAdapter<T> extends cn<ChatMessage, MsgViewHol
         this.a = tbPageContext;
     }
 
-    public void A(kf kfVar) {
+    public void A(yf yfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kfVar) == null) {
-            this.c = kfVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yfVar) == null) {
+            this.c = yfVar;
         }
     }
 
@@ -148,7 +148,7 @@ public abstract class MsgCommonItemAdapter<T> extends cn<ChatMessage, MsgViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: v */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
@@ -184,10 +184,10 @@ public abstract class MsgCommonItemAdapter<T> extends cn<ChatMessage, MsgViewHol
         }
     }
 
-    public void z(jf jfVar) {
+    public void z(xf xfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jfVar) == null) {
-            this.b = jfVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, xfVar) == null) {
+            this.b = xfVar;
         }
     }
 }

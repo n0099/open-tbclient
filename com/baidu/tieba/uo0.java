@@ -1,50 +1,39 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Request;
-import org.apache.http.protocol.HTTP;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uo0 {
+public class uo0 extends AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Request.Builder a(@NonNull to0 to0Var) throws RequestError {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uo0(@NonNull po0 po0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(po0Var, jSONObject);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, to0Var)) == null) {
-            Request.Builder builder = new Request.Builder();
-            try {
-                builder.url(to0Var.a);
-                Object obj = to0Var.e;
-                if (obj != null) {
-                    builder.tag(obj);
-                }
-                if (to0Var.k) {
-                    builder.header("Content-Type", "application/x-www-form-urlencoded");
-                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
-                    builder.header(HTTP.CONN_DIRECTIVE, "close");
-                    builder.header(BOSTokenRequest.ACCEPT, "*/*");
-                }
-                Headers.a aVar = to0Var.c;
-                if (aVar != null) {
-                    Headers c = aVar.c();
-                    for (int i = 0; i < c.g(); i++) {
-                        builder.header(c.f(i), c.h(i));
-                    }
-                }
-                String str = to0Var.b;
-                builder.method(str, qo0.g(str, to0Var.d));
-                return builder;
-            } catch (Throwable th) {
-                throw new RequestError("Invalid request url: " + to0Var.a, th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {po0Var, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((po0) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Request.Builder) invokeL.objValue;
+        if (po0Var.k.size() < 3) {
+            throw ParseError.contentError(3, po0Var.a.value);
+        }
     }
 }

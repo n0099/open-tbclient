@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.kg5;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.ui5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,12 +57,12 @@ public class XGridLayout extends AdapterLayout {
     }
 
     public void e() {
-        kg5 kg5Var;
+        ui5 ui5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kg5Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ui5Var = this.a) == null) {
             return;
         }
-        kg5Var.c();
+        ui5Var.c();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -204,7 +204,7 @@ public class XGridLayout extends AdapterLayout {
         this.e = 0;
         this.f = 0;
         this.g = 9;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f1, R.attr.obfuscated_res_0x7f0402f2, R.attr.obfuscated_res_0x7f0402f4});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.XGridLayout);
         this.d = obtainStyledAttributes.getInteger(3, this.d);
         this.e = (int) obtainStyledAttributes.getDimension(0, this.e);
         this.f = (int) obtainStyledAttributes.getDimension(4, this.f);

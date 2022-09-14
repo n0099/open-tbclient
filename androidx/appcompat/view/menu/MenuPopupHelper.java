@@ -14,13 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$dimen;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +46,7 @@ public class MenuPopupHelper implements MenuHelper {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
-        this(context, menuBuilder, null, false, R$attr.popupMenuStyle, 0);
+        this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +78,7 @@ public class MenuPopupHelper implements MenuHelper {
             } else {
                 defaultDisplay.getSize(point);
             }
-            if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R$dimen.abc_cascading_menus_min_smallest_width)) {
+            if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700a1)) {
                 standardMenuPopup = new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
             } else {
                 standardMenuPopup = new StandardMenuPopup(this.mContext, this.mMenu, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
@@ -236,7 +235,7 @@ public class MenuPopupHelper implements MenuHelper {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
-        this(context, menuBuilder, view2, false, R$attr.popupMenuStyle, 0);
+        this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

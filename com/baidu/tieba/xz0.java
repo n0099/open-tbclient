@@ -1,68 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.Toast;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface xz0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", DI.TOAST_NAME);
-    public static final xz0 b = new a();
+public class xz0 implements a01 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final StringBuilder a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements xz0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public xz0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new StringBuilder();
+    }
 
-        @Override // com.baidu.tieba.xz0
-        public void a(@NonNull Context context, @StringRes int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-                Toast.makeText(context, i, 0).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.xz0
-        public void b(@NonNull Context context, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2) == null) {
-                Toast.makeText(context, i, i2).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.xz0
-        public void showToast(@NonNull Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-                Toast.makeText(context, str, 0).show();
-            }
+    @Override // com.baidu.tieba.a01
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    void a(@NonNull Context context, @StringRes int i);
+    @Override // com.baidu.tieba.a01
+    public <T extends a01> T b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? (T) d(str, str2) : (T) invokeLL.objValue;
+    }
 
-    void b(@NonNull Context context, @StringRes int i, int i2);
+    public <T extends a01> T c(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) ? (T) d(str, obj) : (T) invokeLL.objValue;
+    }
 
-    void showToast(@NonNull Context context, String str);
+    public <T extends a01> T d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+            if (!TextUtils.isEmpty(str) && obj != null) {
+                try {
+                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
+                        if (this.a.length() > 0) {
+                            this.a.append('&');
+                        }
+                        StringBuilder sb = this.a;
+                        sb.append(str);
+                        sb.append('=');
+                        sb.append(obj);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return this;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.a01
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
+    }
 }

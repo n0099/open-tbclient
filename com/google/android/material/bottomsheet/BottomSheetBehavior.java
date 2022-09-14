@@ -53,9 +53,7 @@ import java.util.Map;
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORNER_ANIMATION_DURATION = 500;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100331 = 2131755825;
+    public static final int DEF_STYLE_RES = 2131755826;
     public static final float HIDE_FRICTION = 0.1f;
     public static final float HIDE_THRESHOLD = 0.5f;
     public static final int PEEK_HEIGHT_AUTO = -1;
@@ -1696,7 +1694,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{context, attributeSet, Boolean.valueOf(z), colorStateList}) == null) && this.shapeThemingEnabled) {
-            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400f6, obfuscated_res_0x7f100331).build();
+            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400f6, DEF_STYLE_RES).build();
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(this.shapeAppearanceModelDefault);
             this.materialShapeDrawable = materialShapeDrawable;
             materialShapeDrawable.initializeElevationOverlay(context);
@@ -1950,7 +1948,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
         };
         this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b9);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843840, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400d4, R.attr.obfuscated_res_0x7f0400d5, R.attr.obfuscated_res_0x7f0400d6, R.attr.obfuscated_res_0x7f0400d7, R.attr.obfuscated_res_0x7f0400d8, R.attr.obfuscated_res_0x7f0400da, R.attr.obfuscated_res_0x7f0400db, R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.BottomSheetBehavior_Layout);
         this.shapeThemingEnabled = obtainStyledAttributes.hasValue(11);
         boolean hasValue = obtainStyledAttributes.hasValue(1);
         if (hasValue) {

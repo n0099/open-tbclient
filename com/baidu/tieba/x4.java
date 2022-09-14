@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class x4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public short[] b;
-    public int c;
+    public t3[] a;
+    public float[] b;
+    public y4[] c;
 
     public x4() {
         Interceptable interceptable = $ic;

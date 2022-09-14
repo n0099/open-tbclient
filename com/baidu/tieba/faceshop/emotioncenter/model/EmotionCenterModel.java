@@ -11,9 +11,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d9;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
-import com.baidu.tieba.sb6;
+import com.baidu.tieba.id6;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,17 +60,17 @@ public class EmotionCenterModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003354 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                sb6 sb6Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof sb6)) {
-                    sb6Var = (sb6) extra;
+                id6 id6Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof id6)) {
+                    id6Var = (id6) extra;
                 }
-                if (sb6Var == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
+                if (id6Var == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
                 if (this.a.a == 1) {
-                    sb6Var.T0(emotionCenterResponseMessage.data);
+                    id6Var.S0(emotionCenterResponseMessage.data);
                 } else {
-                    sb6Var.w0(emotionCenterResponseMessage.data);
+                    id6Var.v0(emotionCenterResponseMessage.data);
                 }
             }
         }
@@ -88,7 +88,7 @@ public class EmotionCenterModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,27 +102,27 @@ public class EmotionCenterModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(sb6 sb6Var) {
+    public void A(id6 id6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sb6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, id6Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             int i = this.a + 1;
             this.a = i;
             httpMessage.addParam("pn", i);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(sb6Var);
+            httpMessage.setExtra(id6Var);
             sendMessage(httpMessage);
         }
     }
 
-    public void B(sb6 sb6Var) {
+    public void B(id6 id6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, id6Var) == null) {
             this.a = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             httpMessage.addParam("pn", 1);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(sb6Var);
+            httpMessage.setExtra(id6Var);
             sendMessage(httpMessage);
         }
     }

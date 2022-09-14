@@ -14,20 +14,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
-import com.baidu.tieba.a15;
-import com.baidu.tieba.b15;
-import com.baidu.tieba.c15;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.fa;
-import com.baidu.tieba.ka;
-import com.baidu.tieba.ke5;
-import com.baidu.tieba.lb;
-import com.baidu.tieba.ma;
-import com.baidu.tieba.na;
-import com.baidu.tieba.qb5;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.wa5;
-import com.baidu.tieba.y05;
+import com.baidu.tieba.ab;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d35;
+import com.baidu.tieba.fd5;
+import com.baidu.tieba.h35;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.k35;
+import com.baidu.tieba.l35;
+import com.baidu.tieba.l85;
+import com.baidu.tieba.rg5;
+import com.baidu.tieba.ta;
+import com.baidu.tieba.ya;
+import com.baidu.tieba.zb;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
     public static void initSocket() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            qb5 registerImScoketTask = registerImScoketTask(1001, ResponseOnlineMessage.class, false);
+            zd5 registerImScoketTask = registerImScoketTask(1001, ResponseOnlineMessage.class, false);
             registerImScoketTask.setPriority(-3);
             registerImScoketTask.e(false);
             registerImScoketTask.f(SocketMessageTask.DupLicateMode.REMOVE_ME);
@@ -67,18 +67,18 @@ public class InitWebsocketBaseTask extends LaunchTask {
             arrayList.add(new BasicNameValuePair("cuid", TbadkCoreApplication.getUniqueIdentifier()));
             new UseHttpdnsSdkSwitch();
             if (UseHttpdnsSdkSwitch.isOn()) {
-                fa.h(TiebaIMConfig.url);
+                ta.h(TiebaIMConfig.url);
             } else {
-                String h = u05.f().h();
+                String h = d35.f().h();
                 if (TextUtils.isEmpty(h)) {
-                    fa.h(TiebaIMConfig.url);
+                    ta.h(TiebaIMConfig.url);
                 } else {
-                    fa.h(h);
+                    ta.h(h);
                 }
             }
-            fa.e(TiebaIMConfig.wsExtensions);
-            fa.f(arrayList);
-            BdSocketDaemonService.setLinkServiceDisconnectCallBack(new na() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.2
+            ta.e(TiebaIMConfig.wsExtensions);
+            ta.f(arrayList);
+            BdSocketDaemonService.setLinkServiceDisconnectCallBack(new bb() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,11 +96,11 @@ public class InitWebsocketBaseTask extends LaunchTask {
                     }
                 }
 
-                @Override // com.baidu.tieba.na
+                @Override // com.baidu.tieba.bb
                 public void onLinkServiceDisconnect() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ke5.e().c(new ke5.b(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.2.1
+                        rg5.e().c(new rg5.b(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$0;
@@ -123,13 +123,13 @@ public class InitWebsocketBaseTask extends LaunchTask {
                                 this.this$0 = this;
                             }
 
-                            @Override // com.baidu.tieba.ke5.b
+                            @Override // com.baidu.tieba.rg5.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (!(interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) || z) {
                                     return;
                                 }
-                                d65.b(0, 0, 0, 1, 8);
+                                l85.b(0, 0, 0, 1, 8);
                                 BdSocketLinkService.startService(false, "restart");
                             }
                         });
@@ -137,7 +137,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
                 }
             });
             BdSocketLinkService.init();
-            d65.b(0, 0, 0, 1, 9);
+            l85.b(0, 0, 0, 1, 9);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 BdSocketLinkService.startService(false, "TiebaImApplication init");
             }
@@ -149,7 +149,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             BdSocketLinkService.setAvailable(true);
-            BdSocketLinkService.setCanOpenWebSocket(new ma(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.1
+            BdSocketLinkService.setCanOpenWebSocket(new ab(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitWebsocketBaseTask this$0;
@@ -172,7 +172,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.ma
+                @Override // com.baidu.tieba.ab
                 public boolean canOpenWebSocket() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -181,39 +181,39 @@ public class InitWebsocketBaseTask extends LaunchTask {
             });
             int[] imTimeOut = TbadkCoreApplication.getInst().getImTimeOut();
             if (imTimeOut != null && imTimeOut.length == 3) {
-                lb.c().d(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
+                zb.c().d(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
             }
             int[] socketReconnStratgy = TbadkCoreApplication.getInst().getSocketReconnStratgy();
             if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
-                fa.g(socketReconnStratgy);
+                ta.g(socketReconnStratgy);
             }
-            y05.j().k();
-            MessageManager.getInstance().getSocketClient().G(y05.j());
-            MessageManager.getInstance().addResponsedMessageRule(new c15());
+            h35.j().k();
+            MessageManager.getInstance().getSocketClient().G(h35.j());
+            MessageManager.getInstance().addResponsedMessageRule(new l35());
             try {
-                ka.a().d(TiebaIMConfig.getRSAPublicKey());
+                ya.a().d(TiebaIMConfig.getRSAPublicKey());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            b15.j().k();
-            a15.y().z();
+            k35.j().k();
+            j35.y().z();
             initSocket();
-            wa5.b().s(System.currentTimeMillis() - currentTimeMillis);
+            fd5.b().s(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
-    public static qb5 registerImScoketTask(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static zd5 registerImScoketTask(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            qb5 qb5Var = new qb5(i);
-            qb5Var.setResponsedClass(cls);
-            qb5Var.h(z);
-            qb5Var.setParallel(TiebaIMConfig.getParallel());
-            MessageManager.getInstance().registerTask(qb5Var);
-            return qb5Var;
+            zd5 zd5Var = new zd5(i);
+            zd5Var.setResponsedClass(cls);
+            zd5Var.h(z);
+            zd5Var.setParallel(TiebaIMConfig.getParallel());
+            MessageManager.getInstance().registerTask(zd5Var);
+            return zd5Var;
         }
-        return (qb5) invokeCommon.objValue;
+        return (zd5) invokeCommon.objValue;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

@@ -80,7 +80,7 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
         Throwable th;
         Throwable th2;
         FlowCollector flowCollector2;
-        Object m2097unboximpl;
+        Object m2098unboximpl;
         ?? r10;
         Object receiveOrClosed;
         try {
@@ -114,8 +114,8 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
                         ResultKt.throwOnFailure(obj);
                         flowCollector2 = flowCollector4;
                         z = receiveChannel2;
-                        m2097unboximpl = ((ValueOrClosed) obj).m2097unboximpl();
-                        if (!ValueOrClosed.m2095isClosedimpl(m2097unboximpl)) {
+                        m2098unboximpl = ((ValueOrClosed) obj).m2098unboximpl();
+                        if (!ValueOrClosed.m2096isClosedimpl(m2098unboximpl)) {
                         }
                     } else if (i != 2) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -150,21 +150,21 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
                             ReceiveChannel<? extends T> receiveChannel6 = r10;
                             z = receiveChannel;
                             receiveChannel = receiveChannel6;
-                            m2097unboximpl = ((ValueOrClosed) obj).m2097unboximpl();
-                            if (!ValueOrClosed.m2095isClosedimpl(m2097unboximpl)) {
-                                Throwable m2091getCloseCauseimpl = ValueOrClosed.m2091getCloseCauseimpl(m2097unboximpl);
-                                if (m2091getCloseCauseimpl == null) {
+                            m2098unboximpl = ((ValueOrClosed) obj).m2098unboximpl();
+                            if (!ValueOrClosed.m2096isClosedimpl(m2098unboximpl)) {
+                                Throwable m2092getCloseCauseimpl = ValueOrClosed.m2092getCloseCauseimpl(m2098unboximpl);
+                                if (m2092getCloseCauseimpl == null) {
                                     return Unit.INSTANCE;
                                 }
-                                throw m2091getCloseCauseimpl;
+                                throw m2092getCloseCauseimpl;
                             }
                             flowKt__ChannelsKt$emitAllImpl$1.L$0 = flowCollector2;
                             flowKt__ChannelsKt$emitAllImpl$1.L$1 = z;
                             flowKt__ChannelsKt$emitAllImpl$1.Z$0 = (boolean) receiveChannel;
                             flowKt__ChannelsKt$emitAllImpl$1.L$2 = th2;
-                            flowKt__ChannelsKt$emitAllImpl$1.L$3 = m2097unboximpl;
+                            flowKt__ChannelsKt$emitAllImpl$1.L$3 = m2098unboximpl;
                             flowKt__ChannelsKt$emitAllImpl$1.label = 2;
-                            Object emit = flowCollector2.emit((Object) ValueOrClosed.m2092getValueimpl(m2097unboximpl), flowKt__ChannelsKt$emitAllImpl$1);
+                            Object emit = flowCollector2.emit((Object) ValueOrClosed.m2093getValueimpl(m2098unboximpl), flowKt__ChannelsKt$emitAllImpl$1);
                             flowCollector6 = flowCollector2;
                             receiveChannel4 = z;
                             if (emit == coroutine_suspended) {

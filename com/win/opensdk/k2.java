@@ -5,7 +5,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +64,7 @@ public class k2 extends WebViewClient {
                     d1 c = e1.a(m2Var.a).c(new f1(this.a.c), 4);
                     c.a("desc", str + "&errcode:" + i + "&fileurl:" + str2).a();
                 }
-                Toast.makeText(this.a.a, (int) R.string.obfuscated_res_0x7f0f15ad, 0).show();
+                Toast.makeText(this.a.a, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f15cd, 0).show();
             }
         }
     }

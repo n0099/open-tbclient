@@ -1,45 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.mario.audio.AudioParams;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
-public class lc0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lc0 {
+    void a(boolean z, AudioParams audioParams);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947937936, "Lcom/baidu/tieba/lc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947937936, "Lcom/baidu/tieba/lc0;");
-        }
-    }
+    void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j);
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new File(str).delete() : invokeL.booleanValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            File parentFile = new File(str).getParentFile();
-            if (parentFile.exists()) {
-                return;
-            }
-            parentFile.mkdirs();
-        }
-    }
+    void onAudioStop(boolean z);
 }

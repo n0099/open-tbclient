@@ -31,7 +31,7 @@ public final class b {
             boolean a = m.oF().a(ksScene, "loadNativeAd");
             ksScene.setAdStyle(10000);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0574a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(nativeAdListener) { // from class: com.kwad.components.ad.e.b.1
+            KsAdLoadManager.a(new a.C0579a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(nativeAdListener) { // from class: com.kwad.components.ad.e.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsLoadManager.NativeAdListener jw;

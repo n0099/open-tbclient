@@ -47,11 +47,11 @@ public final class TagTextHelper {
                     return;
                 }
             }
-            NEW = new HotTopicTag("NEW", 0, R.string.obfuscated_res_0x7f0f135d, R.color.CAM_X0305);
-            HOT = new HotTopicTag("HOT", 1, R.string.obfuscated_res_0x7f0f135c, R.color.CAM_X0301);
-            REC = new HotTopicTag("REC", 2, R.string.obfuscated_res_0x7f0f135e, R.color.CAM_X0306);
-            BAO = new HotTopicTag("BAO", 3, R.string.obfuscated_res_0x7f0f135a, R.color.CAM_X0308);
-            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.obfuscated_res_0x7f0f135b, R.color.CAM_X0317);
+            NEW = new HotTopicTag("NEW", 0, R.string.obfuscated_res_0x7f0f137b, R.color.CAM_X0305);
+            HOT = new HotTopicTag("HOT", 1, R.string.obfuscated_res_0x7f0f137a, R.color.CAM_X0301);
+            REC = new HotTopicTag("REC", 2, R.string.obfuscated_res_0x7f0f137c, R.color.CAM_X0306);
+            BAO = new HotTopicTag("BAO", 3, R.string.obfuscated_res_0x7f0f1378, R.color.CAM_X0308);
+            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.obfuscated_res_0x7f0f1379, R.color.CAM_X0317);
             FEI = hotTopicTag;
             $VALUES = new HotTopicTag[]{NEW, HOT, REC, BAO, hotTopicTag};
         }

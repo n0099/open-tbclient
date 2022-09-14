@@ -1,62 +1,173 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.h22;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.util.UUID;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qs1 extends ns1 {
+public class qs1 extends ps1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102298, "Lcom/baidu/tieba/qs1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ e22 b;
+        public final /* synthetic */ h22 c;
+        public final /* synthetic */ h22.b d;
+        public final /* synthetic */ qs1 e;
+
+        public a(qs1 qs1Var, int i, e22 e22Var, h22 h22Var, h22.b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qs1Var, Integer.valueOf(i), e22Var, h22Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948102298, "Lcom/baidu/tieba/qs1;");
-                return;
+            this.e = qs1Var;
+            this.a = i;
+            this.b = e22Var;
+            this.c = h22Var;
+            this.d = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a > 1 && !this.b.D0) {
+                    if3.b(this.c, this.e.getContext(), 1);
+                }
+                this.d.a();
             }
         }
-        b = kh1.a;
     }
 
-    public qs1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qs1(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zq1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.os1
-    public void a() {
+    public static void y() {
+        y23 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (BasePendingOperation basePendingOperation : this.a) {
-                if (b) {
-                    Log.d("NetworkOperation", "       *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
-                }
-                ud3.c(basePendingOperation, "operation_request", 100L, TimeUnit.MILLISECONDS);
-            }
-            this.a.clear();
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (b0 = y23.b0()) == null) {
+            return;
         }
+        b0.B().I(b0.getAppId());
+    }
+
+    public yu1 A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q("#hideModalPage", false);
+            y();
+            return z(1, "hideModalPage", 10);
+        }
+        return (yu1) invokeV.objValue;
+    }
+
+    public yu1 B(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#navigateBack params=" + str, false);
+            y();
+            Pair<yu1, JSONObject> s = s(str);
+            yu1 yu1Var = (yu1) s.first;
+            return !yu1Var.isSuccess() ? yu1Var : z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
+        }
+        return (yu1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.br1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
+    }
+
+    public final yu1 z(int i, String str, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
+            String uuid = UUID.randomUUID().toString();
+            ew2.b(uuid);
+            h22 V = lo2.U().V();
+            if (V == null) {
+                yz1.c("NavigateBackApi", "manager is null");
+                return new yu1(1001, "manager is null");
+            }
+            int k = V.k();
+            if (k == 1) {
+                yz1.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
+                return new yu1(1001, "navigateBack api can only work when slave's count greater than 1");
+            }
+            if (i >= k) {
+                i = k - 1;
+            }
+            ys2 f = m93.f(uuid, i);
+            e22 m = V.m();
+            if (m == null) {
+                yz1.c("NavigateBackApi", "slave container is null");
+                return new yu1(1001, "slave container is null");
+            } else if (TextUtils.equals("hideModalPage", str) && !m.D0) {
+                yz1.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
+                return new yu1(1001, "hideModalPage api can only work after showModalPage");
+            } else {
+                ew2.c(i2, uuid);
+                h22.b i3 = V.i(str);
+                i3.n(h22.i, h22.h);
+                i3.h(i);
+                sg3.a0(new a(this, k, m, V, i3));
+                g22 o = V.o();
+                ys2 m3 = o == null ? null : o.m3();
+                dw2.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
+                ew2.a(uuid, m3);
+                if (!(V.m() instanceof g22)) {
+                    yz1.c("NavigateBackApi", "top fragment error");
+                    m93.i(f);
+                    return new yu1(1001, "top fragment error");
+                }
+                g22 g22Var = (g22) V.m();
+                return new yu1(0, h63.c(g22Var != null ? g22Var.t3() : ""));
+            }
+        }
+        return (yu1) invokeCommon.objValue;
     }
 }

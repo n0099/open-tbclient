@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hz5;
-import com.baidu.tieba.wu5;
+import com.baidu.tieba.kw5;
+import com.baidu.tieba.v06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends hz5<wu5> {
+public class AlaFrsLiveListGatherNoDataTitleView extends v06<kw5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -71,19 +71,19 @@ public class AlaFrsLiveListGatherNoDataTitleView extends hz5<wu5> {
         this.l = 3;
         this.k = tbPageContext;
         View h = h();
-        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090b0e);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090b0f);
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090b28);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090b29);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00ef : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f1 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.l == i) {
@@ -102,11 +102,11 @@ public class AlaFrsLiveListGatherNoDataTitleView extends hz5<wu5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     /* renamed from: r */
-    public void i(wu5 wu5Var) {
+    public void i(kw5 kw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, wu5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, kw5Var) == null) {
             j(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }

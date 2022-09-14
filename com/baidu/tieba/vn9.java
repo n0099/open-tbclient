@@ -1,135 +1,151 @@
 package com.baidu.tieba;
 
-import android.accounts.Account;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.Feature;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.internal.GetServiceRequest;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.MediaView;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class vn9 implements Parcelable.Creator<GetServiceRequest> {
+public class vn9 extends BaseFunNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final NativeUnifiedADData b;
+    public final ChannelNativeAds c;
+    public final MediaView d;
+    public final mn9 e;
 
-    public vn9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vn9(NativeUnifiedADData nativeUnifiedADData, MediaView mediaView, String str, Ssp.Pid pid, mn9 mn9Var) {
+        super(str, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nativeUnifiedADData, mediaView, str, pid, mn9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = nativeUnifiedADData;
+        this.d = mediaView;
+        this.c = ChannelNativeAds.createGdt(nativeUnifiedADData);
+        this.e = mn9Var;
     }
 
-    public static void a(GetServiceRequest getServiceRequest, Parcel parcel, int i) {
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, getServiceRequest, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.g(parcel, 1, getServiceRequest.zza);
-            jn9.g(parcel, 2, getServiceRequest.zzb);
-            jn9.g(parcel, 3, getServiceRequest.zzc);
-            jn9.k(parcel, 4, getServiceRequest.zzd, false);
-            jn9.f(parcel, 5, getServiceRequest.zze, false);
-            jn9.m(parcel, 6, getServiceRequest.zzf, i, false);
-            jn9.d(parcel, 7, getServiceRequest.zzg, false);
-            jn9.j(parcel, 8, getServiceRequest.zzh, i, false);
-            jn9.m(parcel, 10, getServiceRequest.zzi, i, false);
-            jn9.m(parcel, 11, getServiceRequest.zzj, i, false);
-            jn9.c(parcel, 12, getServiceRequest.zzk);
-            jn9.g(parcel, 13, getServiceRequest.zzl);
-            jn9.c(parcel, 14, getServiceRequest.zzm);
-            jn9.k(parcel, 15, getServiceRequest.zza(), false);
-            jn9.b(parcel, a);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ChannelNativeAds) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ GetServiceRequest createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        String str = null;
-        IBinder iBinder = null;
-        Scope[] scopeArr = null;
-        Bundle bundle = null;
-        Account account = null;
-        Feature[] featureArr = null;
-        Feature[] featureArr2 = null;
-        String str2 = null;
-        int i = 0;
-        int i2 = 0;
-        int i3 = 0;
-        boolean z = false;
-        int i4 = 0;
-        boolean z2 = false;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            switch (SafeParcelReader.h(k)) {
-                case 1:
-                    i = SafeParcelReader.m(parcel, k);
-                    break;
-                case 2:
-                    i2 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 3:
-                    i3 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 4:
-                    str = SafeParcelReader.d(parcel, k);
-                    break;
-                case 5:
-                    iBinder = SafeParcelReader.l(parcel, k);
-                    break;
-                case 6:
-                    scopeArr = (Scope[]) SafeParcelReader.f(parcel, k, Scope.CREATOR);
-                    break;
-                case 7:
-                    bundle = SafeParcelReader.a(parcel, k);
-                    break;
-                case 8:
-                    account = (Account) SafeParcelReader.c(parcel, k, Account.CREATOR);
-                    break;
-                case 9:
-                default:
-                    SafeParcelReader.p(parcel, k);
-                    break;
-                case 10:
-                    featureArr = (Feature[]) SafeParcelReader.f(parcel, k, Feature.CREATOR);
-                    break;
-                case 11:
-                    featureArr2 = (Feature[]) SafeParcelReader.f(parcel, k, Feature.CREATOR);
-                    break;
-                case 12:
-                    z = SafeParcelReader.i(parcel, k);
-                    break;
-                case 13:
-                    i4 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 14:
-                    z2 = SafeParcelReader.i(parcel, k);
-                    break;
-                case 15:
-                    str2 = SafeParcelReader.d(parcel, k);
-                    break;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getDesc() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.getIconUrl() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        String imgUrl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<String> imgList = this.b.getImgList();
+            if (imgList == null) {
+                imgList = new ArrayList<>();
+            }
+            if (imgList.isEmpty() && (imgUrl = this.b.getImgUrl()) != null) {
+                imgList.add(imgUrl);
+            }
+            return imgList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.isAppAd()) {
+                int appStatus = this.b.getAppStatus();
+                if (appStatus != 0) {
+                    if (appStatus != 1) {
+                        if (appStatus != 2 && appStatus != 4) {
+                            if (appStatus != 8) {
+                                if (appStatus != 16) {
+                                    return FunNativeAd.InteractionType.TYPE_UNKNOW;
+                                }
+                            }
+                        }
+                    }
+                    return FunNativeAd.InteractionType.TYPE_BROWSE;
+                }
+                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+            }
+            return FunNativeAd.InteractionType.TYPE_BROWSE;
+        }
+        return (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.getTitle() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            if (viewGroup instanceof NativeAdContainer) {
+                this.e.o(this.b, this.mSid, (NativeAdContainer) viewGroup, this.d, list, funAdInteractionListener, this.c.getGdtADStatusChangeListener());
+                return;
+            }
+            LogPrinter.e("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
+            if (FunAdSdk.isLogEnabled()) {
+                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
             }
         }
-        SafeParcelReader.g(parcel, q);
-        return new GetServiceRequest(i, i2, i3, str, iBinder, scopeArr, bundle, account, featureArr, featureArr2, z, i4, z2, str2);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ GetServiceRequest[] newArray(int i) {
-        return new GetServiceRequest[i];
     }
 }

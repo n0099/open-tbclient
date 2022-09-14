@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes6.dex */
 public final class xe3 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Uri a(@NonNull Context context, @NonNull File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) ? FileProvider.getUriForFile(context, b().a(context), file) : (Uri) invokeLL.objValue;
-    }
-
-    public static ok1 b() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? hk2.p() : (ok1) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                a = ye3.c();
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? String.format("%s %s", str, a()) : (String) invokeL.objValue;
     }
 }

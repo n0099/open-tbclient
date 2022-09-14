@@ -1,89 +1,186 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.iq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes4.dex */
-public final class jq extends kq {
+public class jq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TaskInfo d;
-    public final fp e;
-    public final lq f;
-    public final String g;
+    public long a;
+    public final long b;
+    public long c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public iq h;
+    public long i;
+    public Handler j;
 
-    public /* synthetic */ jq(TaskInfo taskInfo, fp fpVar, lq lqVar, String str, Integer num, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, fpVar, lqVar, (i & 8) != 0 ? taskInfo.getSingleKey() : str, (i & 16) != 0 ? null : num, (i & 32) != 0 ? null : str2);
-    }
+    /* loaded from: classes4.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jq a;
 
-    @Override // com.baidu.tieba.yq
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskRegisterAction" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 2;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jq jqVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jqVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jqVar;
         }
-        return invokeV.intValue;
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                synchronized (this.a) {
+                    if (!this.a.d && !this.a.f) {
+                        long j2 = this.a.i;
+                        long elapsedRealtime = this.a.c - SystemClock.elapsedRealtime();
+                        long j3 = 0;
+                        if (elapsedRealtime <= 0) {
+                            this.a.g = true;
+                            this.a.i = this.a.a;
+                            this.a.h.a(0L, Math.max(this.a.i - j2, 0L));
+                            this.a.h.onFinish();
+                        } else {
+                            long elapsedRealtime2 = SystemClock.elapsedRealtime();
+                            this.a.i = this.a.a - elapsedRealtime;
+                            this.a.h.a(elapsedRealtime, Math.max(this.a.i - j2, 0L));
+                            long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
+                            if (elapsedRealtime < this.a.b) {
+                                j = elapsedRealtime - elapsedRealtime3;
+                                if (j < 0) {
+                                    sendMessageDelayed(obtainMessage(1), j3);
+                                }
+                            } else {
+                                j = this.a.b - elapsedRealtime3;
+                                while (j < 0) {
+                                    j += this.a.b;
+                                }
+                            }
+                            j3 = j;
+                            sendMessageDelayed(obtainMessage(1), j3);
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public final TaskInfo h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (TaskInfo) invokeV.objValue;
-    }
-
-    public final fp i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (fp) invokeV.objValue;
-    }
-
-    public final lq j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (lq) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jq(TaskInfo taskInfo, fp fpVar, lq lqVar, String str, Integer num, String str2) {
-        super(str, num, str2);
+    public jq(long j, long j2, iq iqVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, fpVar, lqVar, str, num, str2};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), iqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = taskInfo;
-        this.e = fpVar;
-        this.f = lqVar;
-        this.g = str;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.i = 0L;
+        this.j = new a(this, Looper.getMainLooper());
+        this.a = j;
+        this.b = j2;
+        this.i = 0L;
+        this.h = iqVar;
+    }
+
+    public final synchronized jq b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                this.d = false;
+                this.g = false;
+                this.f = false;
+                this.e = false;
+                if (this.a <= 0) {
+                    this.g = true;
+                    this.h.onFinish();
+                    return this;
+                }
+                this.c = SystemClock.elapsedRealtime() + this.a;
+                this.j.sendMessage(this.j.obtainMessage(1));
+                this.h.onStart();
+                this.e = true;
+                return this;
+            }
+        }
+        return (jq) invokeV.objValue;
+    }
+
+    public final synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (!this.f && !this.d && !this.g && this.e) {
+                    SystemClock.elapsedRealtime();
+                    this.f = true;
+                    this.d = false;
+                    this.g = false;
+                    this.h.onPause();
+                    this.j.removeMessages(1);
+                }
+            }
+        }
+    }
+
+    public final synchronized void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.d = true;
+                this.f = false;
+                this.g = false;
+                this.e = false;
+                this.j.removeMessages(1);
+                this.h.onCancel();
+            }
+        }
+    }
+
+    public final synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.h = new iq.a();
+                h();
+            }
+        }
     }
 }

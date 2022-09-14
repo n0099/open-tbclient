@@ -345,15 +345,16 @@ public class a {
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("Fav_Sync", jSONObject);
                         jSONObject3.put("Fav_Content", favSyncPoi.j);
-                        if (this.a.a(str2, jSONObject3.toString())) {
-                            j();
-                            return 1;
+                        if (!this.a.a(str2, jSONObject3.toString())) {
+                            g();
+                            return 0;
                         }
-                        return 0;
-                    } catch (JSONException unused) {
-                        return 0;
-                    } finally {
+                        j();
                         g();
+                        return 1;
+                    } catch (JSONException unused) {
+                        g();
+                        return 0;
                     }
                 }
                 return -1;

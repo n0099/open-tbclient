@@ -277,9 +277,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = booleanValue;
             ImageView imageView = this.d;
             if (booleanValue) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081044);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081068);
             } else {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081045);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081069);
             }
             imageView.setBackgroundDrawable(drawable);
         }
@@ -288,10 +288,10 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04c3, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d5, this);
             setPadding(0, ViewUtils.dp2px(this.a, 25.0f), 0, 0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d4a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf3);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d98);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d41);
             this.d = imageView;
             imageView.setOnClickListener(this);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010119);
@@ -362,9 +362,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = z;
             ImageView imageView = this.d;
             if (z) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081044);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081068);
             } else {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081045);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081069);
             }
             imageView.setBackgroundDrawable(drawable);
         }
@@ -415,9 +415,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         d();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x007b  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0092 A[LOOP:0: B:35:0x008c->B:37:0x0092, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x005f  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0096 A[LOOP:0: B:35:0x0090->B:37:0x0096, LOOP_END] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

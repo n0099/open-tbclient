@@ -1,35 +1,52 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
 /* loaded from: classes6.dex */
-public class xb9 {
+public final class xb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) || mediaMetadataRetriever == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return str;
+            }
+            char[] charArray = str.toCharArray();
+            StringBuilder sb = new StringBuilder();
+            for (char c : charArray) {
+                String binaryString = Integer.toBinaryString(c);
+                while (binaryString.length() < 8) {
+                    binaryString = "0" + binaryString;
+                }
+                sb.append(binaryString);
+            }
+            while (sb.length() % 6 != 0) {
+                sb.append("0");
+            }
+            String valueOf = String.valueOf(sb);
+            int length = valueOf.length() / 6;
+            char[] cArr = new char[length];
+            for (int i = 0; i < length; i++) {
+                int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
+                valueOf = valueOf.substring(6);
+                cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
+            }
+            StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
+            if (str.length() % 3 == 1) {
+                sb2.append("==");
+            } else if (str.length() % 3 == 2) {
+                sb2.append("=");
+            }
+            for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
+                sb2.insert(i2, "\r\n");
+            }
+            sb2.append("\r\n");
+            return String.valueOf(sb2);
         }
-        try {
-            mediaMetadataRetriever.release();
-        } catch (Exception e) {
-            yb9.g(e);
-        }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Throwable th) {
-            yb9.d(th.getMessage());
-        }
+        return (String) invokeL.objValue;
     }
 }

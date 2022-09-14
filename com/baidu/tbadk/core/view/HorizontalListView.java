@@ -17,7 +17,7 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -450,7 +450,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.g = Integer.MAX_VALUE;
                 this.i = new Scroller(getContext());
                 this.j = new GestureDetector(getContext(), this.z);
-                this.q = ri.k(getContext()) / 2;
+                this.q = ej.k(getContext()) / 2;
                 this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
             }
         }
@@ -486,7 +486,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     } else if (action != 2) {
                         SwipeBackLayout.c cVar2 = this.w;
                         if (cVar2 != null) {
-                            cVar2.a0();
+                            cVar2.b0();
                         }
                     } else {
                         SwipeBackLayout.c cVar3 = this.w;
@@ -503,7 +503,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.v = false;
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.a0();
+                    cVar4.b0();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -590,12 +590,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.v = false;
                 SwipeBackLayout.c cVar2 = this.w;
                 if (cVar2 != null) {
-                    cVar2.a0();
+                    cVar2.b0();
                 }
             } else if (action != 2) {
                 SwipeBackLayout.c cVar3 = this.w;
                 if (cVar3 != null) {
-                    cVar3.a0();
+                    cVar3.b0();
                 }
             } else {
                 SwipeBackLayout.c cVar4 = this.w;

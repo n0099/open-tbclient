@@ -1,104 +1,145 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class q38 {
+public class q38 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k38 a;
-    public h38 b;
-    public p38 c;
-    public l38 d;
-    public o38 e;
-    public j38 f;
-    public m38 g;
-    public n38 h;
-    public BdTypeListView i;
-    public i38 j;
-    public List<cn> k;
+    public Context a;
+    public View b;
+    public LinearLayout c;
+    public float d;
 
-    public q38(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q38 a;
+
+        public a(q38 q38Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q38Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q38Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q38(Context context, View view2) {
+        super(context, 16973835);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new ArrayList();
-        this.i = bdTypeListView;
-        b(bdTypeListView, tbPageContext, bdUniqueId);
+        this.d = 0.33f;
+        this.a = context;
+        this.b = view2;
     }
 
-    public void a() {
+    public void a(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.t();
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+            this.d = f;
         }
     }
 
-    public final void b(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdTypeListView, tbPageContext, bdUniqueId) == null) {
-            this.a = new k38(tbPageContext, c48.b);
-            this.b = new h38(tbPageContext, w38.f);
-            this.c = new p38(tbPageContext, i48.b);
-            this.d = new l38(tbPageContext, y38.b);
-            this.e = new o38(tbPageContext, z38.b);
-            this.j = new i38(tbPageContext, a48.c);
-            this.g = new m38(tbPageContext, e48.b);
-            this.h = new n38(tbPageContext, f48.b);
-            this.f = new j38(tbPageContext, b48.l);
-            this.k.add(this.a);
-            this.k.add(this.b);
-            this.k.add(this.d);
-            this.k.add(this.e);
-            this.k.add(this.c);
-            this.k.add(this.g);
-            this.k.add(this.h);
-            this.k.add(this.f);
-            this.k.add(this.j);
-            bdTypeListView.a(this.k);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(R.layout.obfuscated_res_0x7f0d0715);
+            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = defaultDisplay.getWidth();
+            getWindow().setAttributes(attributes);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            getWindow().setDimAmount(this.d);
+            getWindow().setGravity(80);
+            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003d1);
+            setCanceledOnTouchOutside(true);
+            setCancelable(true);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c81);
+            this.c = linearLayout;
+            linearLayout.setOnClickListener(new a(this));
+            if (this.b == null) {
+                return;
+            }
+            this.c.removeAllViews();
+            if (this.b.getParent() != null) {
+                if (this.b.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.b.getParent()).removeView(this.b);
+                    this.c.addView(this.b);
+                    return;
+                }
+                return;
+            }
+            this.c.addView(this.b);
         }
     }
 
-    public void c() {
-        BdTypeListView bdTypeListView;
+    @Override // android.app.Dialog
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.i) != null && (bdTypeListView.getAdapter2() instanceof gn)) {
-            this.i.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void d() {
-        m38 m38Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (m38Var = this.g) == null) {
-            return;
-        }
-        m38Var.onScroll();
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.w();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.b = view2;
+            LinearLayout linearLayout = this.c;
+            if (linearLayout != null) {
+                linearLayout.removeAllViews();
+                if (this.b.getParent() != null) {
+                    if (this.b.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) this.b.getParent()).removeView(this.b);
+                        this.c.addView(this.b);
+                        return;
+                    }
+                    return;
+                }
+                this.c.addView(this.b);
+            }
         }
     }
 }

@@ -1,56 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Dns;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
 /* loaded from: classes3.dex */
-public class b50 implements Interceptor {
+public class b50 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
+    public static final char[] b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Dns a;
 
-    public b50(Dns dns) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dns};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947595820, "Lcom/baidu/tieba/b50;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947595820, "Lcom/baidu/tieba/b50;");
                 return;
             }
         }
-        this.a = dns;
+        a = "0123456789ABCDEF".toCharArray();
+        b = "0123456789abcdef".toCharArray();
+        c = new byte[128];
+        for (int i = 0; i < 10; i++) {
+            byte[] bArr = c;
+            bArr[i + 48] = (byte) i;
+            byte b2 = (byte) (i + 10);
+            bArr[i + 65] = b2;
+            bArr[i + 97] = b2;
+        }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        Dns dns;
+    public static char[] a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            com.baidu.searchbox.network.outback.core.Request request2 = (com.baidu.searchbox.network.outback.core.Request) request.tag(com.baidu.searchbox.network.outback.core.Request.class);
-            if (request2 == null) {
-                return chain.proceed(request);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            char[] cArr = z ? a : b;
+            char[] cArr2 = new char[bArr.length * 2];
+            int i = 0;
+            for (byte b2 : bArr) {
+                int i2 = i + 1;
+                cArr2[i] = cArr[(b2 & 240) >>> 4];
+                i = i2 + 1;
+                cArr2[i2] = cArr[b2 & 15];
             }
-            if ((request2.getNetworkStatRecord().dnsDetail == null || (request2.getNetworkStatRecord().dnsDetail != null && StringUtil.EMPTY_ARRAY.equalsIgnoreCase(request2.getNetworkStatRecord().dnsDetail.toString().trim()))) && (dns = this.a) != null) {
-                dns.lookup(request2.url().host());
-            }
-            return chain.proceed(request);
+            return cArr2;
         }
-        return (Response) invokeL.objValue;
+        return (char[]) invokeLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) ? new String(a(bArr, z)) : (String) invokeLZ.objValue;
     }
 }

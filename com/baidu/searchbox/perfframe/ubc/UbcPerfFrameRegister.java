@@ -13,7 +13,7 @@ import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.kc1;
+import com.baidu.tieba.he1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +60,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 jSONObject.put("time", String.valueOf(perfExpInfo.getTime()));
                 jSONObject.put("description", perfExpInfo.getException());
                 jSONObject.put("page", perfExpInfo.getPage());
-                jSONObject.put("processName", kc1.b());
+                jSONObject.put("processName", he1.b());
                 jSONObject.put(Constant.KEY_BUSINESS, perfExpInfo.getBusiness());
                 JSONObject jSONObject2 = new JSONObject();
                 if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {

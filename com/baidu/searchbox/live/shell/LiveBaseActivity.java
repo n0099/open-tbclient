@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.arch.utils.LiveShellUIUtil;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +56,6 @@ public class LiveBaseActivity extends FragmentActivity {
                 LiveShellUIUtil.fixOrientation(this);
             }
             super.onCreate(bundle);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

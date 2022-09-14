@@ -1,75 +1,233 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.res.widget.floatlayer.Container;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
-/* loaded from: classes4.dex */
-public class f23 extends x23 {
+/* loaded from: classes3.dex */
+public class f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ViewGroup a;
+    public int b;
+    public final int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f23(x13 x13Var) {
-        super(x13Var, "/swanAPI/getAppInfoSync");
+    /* loaded from: classes3.dex */
+    public interface a {
+        f23 d();
+    }
+
+    public f23(@NonNull a aVar, @NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {aVar, viewGroup, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = false;
+        this.f = true;
+        this.a = viewGroup;
+        this.b = i;
+        this.c = i;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    private Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            if (a13Var == null) {
-                ay1.c(DI.APP_INFO_NAME, "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            try {
-                JSONObject D = zq1.D(a13Var, context);
-                if (x23.b && D != null) {
-                    Log.d("GetAppInfoSyncAction", "data: " + D.toString());
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Nullable
+    public final Container a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.a) {
+                for (int i = 0; i < this.a.getChildCount(); i++) {
+                    View childAt = this.a.getChildAt(i);
+                    if (childAt instanceof Container) {
+                        return (Container) childAt;
+                    }
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(D, 0);
-                return true;
-            } catch (JSONException e) {
-                if (x23.b) {
-                    Log.d("GetAppInfoSyncAction", Log.getStackTraceString(e));
-                }
-                ay1.c(DI.APP_INFO_NAME, Log.getStackTraceString(e));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+                return null;
             }
         }
-        return invokeLLLL.booleanValue;
+        return (Container) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Container b() {
+        InterceptResult invokeV;
+        Container a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.a) {
+                a2 = a();
+                if (a2 == null) {
+                    a2 = new Container(getContext());
+                    int height = this.a.getHeight() - this.b;
+                    int i = this.a instanceof LinearLayout ? -height : this.b;
+                    if (height <= 0) {
+                        height = -1;
+                        i = 0;
+                    }
+                    if (!(this.a instanceof LinearLayout) && this.b == 0) {
+                        height = -1;
+                    }
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, height);
+                    layoutParams.setMargins(0, i, 0, 0);
+                    a2.setLayoutParams(layoutParams);
+                    this.a.addView(a2);
+                }
+            }
+            return a2;
+        }
+        return (Container) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    @Nullable
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Container a2 = a();
+            if (a2 != null && a2.getChildCount() > 0) {
+                return a2.getChildAt(0);
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Container a2 = a();
+            if (a2 == null) {
+                return false;
+            }
+            int childCount = a2.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = a2.getChildAt(i);
+                if (childAt != null && childAt.getVisibility() == 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h(false);
+            i();
+        }
+    }
+
+    public final void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            synchronized (this.a) {
+                Container a2 = a();
+                if (!z || a2 == null || a2.getChildCount() <= 0) {
+                    if (a2 != null) {
+                        this.a.removeView(a2);
+                    }
+                }
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f = true;
+            this.e = false;
+            this.b = this.c;
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void k(boolean z) {
+        Container a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (a2 = a()) == null) {
+            return;
+        }
+        a2.setClickable(z);
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d = z;
+            this.b = 0;
+        }
+    }
+
+    public void n(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, view2) == null) || view2 == d()) {
+            return;
+        }
+        h(false);
+        b().addView(view2);
+    }
+
+    public void o(@NonNull View view2, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, view2, layoutParams) == null) || view2 == d()) {
+            return;
+        }
+        h(false);
+        b().addView(view2, layoutParams);
     }
 }

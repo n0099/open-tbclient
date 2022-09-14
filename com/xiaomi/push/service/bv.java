@@ -107,18 +107,18 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m648a() {
+    public static synchronized String m649a() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (bv.class) {
                 if (f951a == null) {
-                    SharedPreferences sharedPreferences = com.xiaomi.push.v.m687a().getSharedPreferences("XMPushServiceConfig", 0);
+                    SharedPreferences sharedPreferences = com.xiaomi.push.v.m688a().getSharedPreferences("XMPushServiceConfig", 0);
                     String string = sharedPreferences.getString("DeviceUUID", null);
                     f951a = string;
                     if (string == null) {
-                        String a2 = com.xiaomi.push.j.a(com.xiaomi.push.v.m687a(), false);
+                        String a2 = com.xiaomi.push.j.a(com.xiaomi.push.v.m688a(), false);
                         f951a = a2;
                         if (a2 != null) {
                             sharedPreferences.edit().putString("DeviceUUID", f951a).commit();
@@ -178,14 +178,14 @@ public class bv {
         }
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.v.m687a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.v.m688a().openFileInput("XMCloudCfg"));
                 try {
                     this.f953a = dw.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                     r2 = bufferedInputStream;
                 } catch (Exception e2) {
                     e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.m89a("load config failure: " + e.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m90a("load config failure: " + e.getMessage());
                     r2 = bufferedInputStream;
                     com.xiaomi.push.ab.a((Closeable) r2);
                     if (this.f953a != null) {
@@ -217,20 +217,20 @@ public class bv {
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             try {
                 if (this.f953a != null) {
-                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.v.m687a().openFileOutput("XMCloudCfg", 0));
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.v.m688a().openFileOutput("XMCloudCfg", 0));
                     com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
                     this.f953a.a(a2);
-                    a2.m216a();
+                    a2.m217a();
                     bufferedOutputStream.close();
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("save config failure: " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m90a("save config failure: " + e.getMessage());
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m651a() {
+    public int m652a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -245,7 +245,7 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dw.a m652a() {
+    public dw.a m653a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -256,7 +256,7 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m653a() {
+    public synchronized void m654a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
@@ -269,7 +269,7 @@ public class bv {
         a[] aVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (bVar.m286d() && bVar.d() > m651a()) {
+            if (bVar.m287d() && bVar.d() > m652a()) {
                 c();
             }
             synchronized (this) {

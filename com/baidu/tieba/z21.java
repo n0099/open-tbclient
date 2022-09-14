@@ -1,82 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Rect;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.view.TouchDelegate;
+import android.view.View;
+import android.view.ViewParent;
+import com.baidu.tieba.g21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes6.dex */
-public interface z21 {
-    public static final z21 a = new a();
+public class z21 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements z21 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ View d;
 
-        public a() {
+        public a(Context context, float f, View view2, View view3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, Float.valueOf(f), view2, view3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z21
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return false;
-            }
-            return invokeI.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static z21 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-281818190, "Lcom/baidu/tieba/z21$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-281818190, "Lcom/baidu/tieba/z21$b;");
                     return;
                 }
             }
-            a = x21.e();
+            this.a = context;
+            this.b = f;
+            this.c = view2;
+            this.d = view3;
         }
 
-        @NonNull
-        public static z21 a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (a == null) {
-                    a = z21.a;
-                }
-                return a;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                int a = g21.c.a(this.a, this.b);
+                this.c.getHitRect(rect);
+                rect.left -= a;
+                rect.right += a;
+                rect.top -= a;
+                rect.bottom += a;
+                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
             }
-            return (z21) invokeV.objValue;
         }
     }
 
-    boolean a(int i);
+    public static void a(Context context, View view2, float f) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) == null) || view2 == null) {
+            return;
+        }
+        ViewParent parent = view2.getParent();
+        if (View.class.isInstance(parent)) {
+            View view3 = (View) parent;
+            view3.post(new a(context, f, view2, view3));
+        }
+    }
+
+    public static String b(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (TextUtils.isEmpty(ellipsize)) {
+                return str2;
+            }
+            return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null || !view2.isShown()) {
+                return false;
+            }
+            Rect rect = new Rect();
+            if (view2.getGlobalVisibleRect(rect)) {
+                long height = rect.height() * rect.width();
+                long height2 = view2.getHeight() * view2.getWidth();
+                return height2 > 0 && height * 100 >= height2 * 50;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

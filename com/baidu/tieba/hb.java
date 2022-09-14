@@ -1,90 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.security.InvalidParameterException;
 /* loaded from: classes4.dex */
-public class hb extends gb<SocketMessage, SocketMessageTask, ab, SocketResponsedMessage> {
+public abstract class hb extends jb<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ea i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hb(MessageManager messageManager) {
-        super(messageManager);
+    public hb(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((MessageManager) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = null;
-        this.i = new ea(messageManager);
-        this.e = lb.c();
-    }
-
-    @Override // com.baidu.tieba.t9
-    public LinkedList<SocketMessage> e(int i, BdUniqueId bdUniqueId) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) ? this.i.e(i, bdUniqueId) : (LinkedList) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.t9
-    public void h(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
-            this.i.h(i, bdUniqueId);
-        }
-    }
-
-    public ea w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (ea) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gb
-    /* renamed from: x */
-    public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, socketMessage, socketMessageTask)) == null) ? this.a.getController().k(socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
-    }
-
-    public void y(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.i.B(bdUniqueId);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t9
-    /* renamed from: z */
-    public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, socketMessage, socketMessageTask) == null) {
-            this.i.f(socketMessage, socketMessageTask);
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.HTTP) {
+            throw new InvalidParameterException("cmd invalid");
         }
     }
 }

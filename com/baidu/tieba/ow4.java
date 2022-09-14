@@ -1,59 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.LiveRemindNormalConfigData;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ow4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ow4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public LiveRemindData a;
+    public LiveRemindNormalConfigData b;
+    public List<LiveRemindRecommendData> c;
 
-    @Nullable
-    public static String a(@Nullable String str) {
-        InterceptResult invokeL;
+    public ow4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            StringBuilder sb = new StringBuilder();
-            int i = 0;
-            while (i < str.length()) {
-                str = str.substring(i);
-                Matcher matcher = TbPatternsCompat.PLAIN_TEXT_AT_WITH_BLANK.matcher(str);
-                if (!matcher.find()) {
-                    break;
-                }
-                matcher.group(1).trim();
-                matcher.group(2).trim();
-                String trim = matcher.group(3).trim();
-                if (i != 0) {
-                    sb.append(",");
-                }
-                sb.append(trim);
-                i = matcher.end();
-            }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public static ow4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a)) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (ow4.class) {
+                    if (d == null) {
+                        d = new ow4();
+                    }
+                }
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_SUCESSED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", str2).param(TiebaStatic.Params.FRIEND_UID, a));
+            return d;
         }
+        return (ow4) invokeV.objValue;
+    }
+
+    public final void b() {
+        List<LiveRemindRecommendData> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.c) == null || list.size() < 1) {
+            return;
+        }
+        LiveRemindConfig.c().e(this.c.get(0));
+    }
+
+    public LiveRemindRecommendData c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this.c != null) {
+                for (int i2 = 0; i2 < this.c.size(); i2++) {
+                    if (this.c.get(i2) != null && this.c.get(i2).getShowPage() == i) {
+                        return this.c.get(i2);
+                    }
+                }
+            }
+            return null;
+        }
+        return (LiveRemindRecommendData) invokeI.objValue;
+    }
+
+    public void d(LiveRemindData liveRemindData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) == null) || liveRemindData == null) {
+            return;
+        }
+        this.a = liveRemindData;
+        this.b = liveRemindData.getNormalConfig();
+        this.c = liveRemindData.getLiveRecommendList();
+        b();
     }
 }

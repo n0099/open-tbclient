@@ -1,86 +1,105 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tieba.hz1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ml2 extends ll2 {
+public class ml2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static hz1.g b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ml2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976438, "Lcom/baidu/tieba/ml2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947976438, "Lcom/baidu/tieba/ml2;");
+                return;
+            }
+        }
+        a = ij1.a;
+    }
+
+    public static void a(hz1.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
+            b = gVar;
         }
     }
 
-    @Override // com.baidu.tieba.pl2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void b(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? SchemeCollecter.CLASSIFY_SWAN_V8.equals(str) && "request".equals(str2) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
+            e(editText, ConstPath.KEY_BLUR, i);
+        }
     }
 
-    @Override // com.baidu.tieba.pl2
-    public String b() {
-        InterceptResult invokeV;
+    public static void c(iz1 iz1Var, EditText editText, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RequestDescInterceptor" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pl2
-    @NonNull
-    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            try {
-                jSONObject.put("invoke", "swan.method.v8BindingObject");
-                jSONObject.put("method", "_naSwan.naRequest");
-                JSONArray optJSONArray = jSONObject.optJSONArray("args");
-                if (optJSONArray != null) {
-                    List asList = Arrays.asList("cb", "ping", "__requestDataType__");
-                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(length);
-                        if (optJSONObject != null && asList.contains(optJSONObject.optString("name"))) {
-                            optJSONArray.remove(length);
-                        }
-                    }
-                    optJSONArray.put(d("success", "function="));
-                    optJSONArray.put(d(com.baidu.pass.biometrics.face.liveness.b.a.g0, "function="));
-                    optJSONArray.put(d(TaskProcessData.keyComplete, "function="));
-                }
-            } catch (JSONException e) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, iz1Var, editText, i) == null) || editText == null || b == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("value", editText.getText());
+            jSONObject.put("eventName", "change");
+            jSONObject.put("cursorOffset", editText.getSelectionStart());
+            jSONObject.put("keyCode", i);
+        } catch (JSONException e) {
+            if (a) {
                 e.printStackTrace();
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
+        iz1Var.j(editText.getText().toString());
+        iz1Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
+        b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
-    @Override // com.baidu.tieba.pl2
-    public boolean enable() {
-        InterceptResult invokeV;
+    public static void d(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? kq1.h() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
+            e(editText, "confirm", i);
+        }
+    }
+
+    public static void e(EditText editText, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) || editText == null || b == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("value", editText.getText());
+            jSONObject.put("eventName", str);
+            jSONObject.put("cursorOffset", editText.getText().length());
+            jSONObject.put("keyboardHeight", "" + pg3.O(i));
+        } catch (JSONException e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
+        b.a(String.valueOf(editText.getTag()), jSONObject);
+    }
+
+    public static void f(EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
+            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
+        }
     }
 }

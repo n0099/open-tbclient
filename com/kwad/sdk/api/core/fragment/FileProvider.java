@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.rw;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import java.io.File;
@@ -187,7 +186,7 @@ public class FileProvider extends ContentProvider {
         if ("wa".equals(str)) {
             return 704643072;
         }
-        if (rw.c.equals(str)) {
+        if ("rw".equals(str)) {
             return 939524096;
         }
         if ("rwt".equals(str)) {

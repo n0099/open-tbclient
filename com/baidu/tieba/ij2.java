@@ -1,39 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.Surface;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
-public class ij2 extends gj2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ij2 extends kj2 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ij2(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes4.dex */
+    public interface a {
     }
 
-    @Override // com.baidu.tieba.kj2, com.baidu.tieba.jj2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-        }
-    }
+    void R(int i, int i2);
+
+    void X(long j);
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    void m(String str);
+
+    void o(@NonNull a aVar);
+
+    void s(int i, int i2, int i3, int i4);
+
+    void setSurface(Surface surface);
+
+    void z(int i);
 }

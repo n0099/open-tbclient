@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.openid.sdk.OnGetOaidListener;
-/* compiled from: lambda */
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class yf9 implements OnGetOaidListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ yf9 a = new yf9();
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yf9 {
 
-    private /* synthetic */ yf9() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onCompletion();
+
+        boolean onError(int i, int i2, Object obj);
+
+        boolean onInfo(int i, int i2, Object obj);
     }
 
-    @Override // com.fun.openid.sdk.OnGetOaidListener
-    public final void onGetOaid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            HostAppInfo.a(str);
-        }
-    }
+    void release();
+
+    void setListener(a aVar);
+
+    void setSource(ArrayList<String> arrayList);
+
+    void start();
 }

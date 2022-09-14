@@ -12,18 +12,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gw7;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.wt7;
-import com.baidu.tieba.y08;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.f28;
+import com.baidu.tieba.hv7;
+import com.baidu.tieba.mx7;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbPrivateTitleAdapter extends gw7<wt7, PbPrivateTitleViewHolder> {
+public class PbPrivateTitleAdapter extends mx7<hv7, PbPrivateTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,12 +57,12 @@ public class PbPrivateTitleAdapter extends gw7<wt7, PbPrivateTitleViewHolder> {
             if (view2 == null) {
                 return;
             }
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090310);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921c3);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0deb));
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08090f, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.f(ri.f(tbPageContext.getContext(), R.dimen.tbds31));
-            eMRichTextAnyIconSpan.d(ri.f(tbPageContext.getContext(), R.dimen.M_W_X002));
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09031a);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092216);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e05));
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08092b, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
+            eMRichTextAnyIconSpan.f(ej.f(tbPageContext.getContext(), R.dimen.tbds31));
+            eMRichTextAnyIconSpan.d(ej.f(tbPageContext.getContext(), R.dimen.M_W_X002));
             eMRichTextAnyIconSpan.b(0);
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
             this.c.setText(spannableStringBuilder);
@@ -73,10 +73,10 @@ public class PbPrivateTitleAdapter extends gw7<wt7, PbPrivateTitleViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (this.a != i) {
-                    ns4 d = ns4.d(this.c);
+                    uu4 d = uu4.d(this.c);
                     d.v(R.color.CAM_X0109);
                     d.A(R.string.F_X01);
-                    ns4 d2 = ns4.d(this.b);
+                    uu4 d2 = uu4.d(this.b);
                     d2.n(R.string.J_X05);
                     d2.f(R.color.CAM_X0204);
                 }
@@ -86,19 +86,19 @@ public class PbPrivateTitleAdapter extends gw7<wt7, PbPrivateTitleViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPrivateTitleAdapter(y08 y08Var) {
-        super(y08Var, wt7.a);
+    public PbPrivateTitleAdapter(f28 f28Var) {
+        super(f28Var, hv7.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y08Var};
+            Object[] objArr = {f28Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((y08) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((f28) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,26 +106,26 @@ public class PbPrivateTitleAdapter extends gw7<wt7, PbPrivateTitleViewHolder> {
         }
     }
 
-    @Override // com.baidu.tieba.gw7, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.mx7, com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (wt7) obj, (PbPrivateTitleViewHolder) viewHolder);
+        v(i, view2, viewGroup, (hv7) obj, (PbPrivateTitleViewHolder) viewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: u */
     public PbPrivateTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPrivateTitleViewHolder(this.a.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06c8, viewGroup, false)) : (PbPrivateTitleViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPrivateTitleViewHolder(this.a.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06df, viewGroup, false)) : (PbPrivateTitleViewHolder) invokeL.objValue;
     }
 
-    public View v(int i, View view2, ViewGroup viewGroup, wt7 wt7Var, PbPrivateTitleViewHolder pbPrivateTitleViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, hv7 hv7Var, PbPrivateTitleViewHolder pbPrivateTitleViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wt7Var, pbPrivateTitleViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, wt7Var, pbPrivateTitleViewHolder);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hv7Var, pbPrivateTitleViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, hv7Var, pbPrivateTitleViewHolder);
             pbPrivateTitleViewHolder.a(TbadkCoreApplication.getInst().getSkinType());
             return view2;
         }

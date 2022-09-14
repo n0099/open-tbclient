@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,11 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class lt5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
-    public AlaInfoData b;
-    public boolean c;
+    public ys5 a;
+    public ys5 b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,6 +32,7 @@ public class lt5 extends BaseCardInfo {
                 return;
             }
         }
+        c = BdUniqueId.gen();
         d = BdUniqueId.gen();
     }
 
@@ -50,10 +50,20 @@ public class lt5 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
+        SdkLiveInfoData sdkLiveInfoData;
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ys5 ys5Var = this.a;
+            if (ys5Var != null && (sdkLiveInfoData = ys5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
+                return d;
+            }
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

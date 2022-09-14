@@ -1,37 +1,155 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.xc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yc3 implements tf3<HybridUbcFlow> {
+public class yc3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yc3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements xc3.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ qt1 c;
+        public final /* synthetic */ yc3 d;
+
+        public a(yc3 yc3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, qt1 qt1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yc3Var, unitedSchemeEntity, callbackHandler, qt1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = yc3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = qt1Var;
+        }
+
+        @Override // com.baidu.tieba.xc3.c
+        public void a(float f, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+                yz1.i("compass", "handle compass change, angle:" + f + ",accuracy: " + i);
+                this.d.k(this.a, this.b, this.c, f, i);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tf3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yc3(v33 v33Var) {
+        super(v33Var, "/swanAPI/startCompass");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hk2.x0().a(hybridUbcFlow);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                yz1.c("compass", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (v43.b) {
+                    Log.d("SwanAppAction", "startCompass --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                yz1.c("compass", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (v43.b) {
+                    Log.d("SwanAppAction", "startCompass --- illegal context");
+                }
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (v43.b) {
+                        Log.d("SwanAppAction", "startCompass --- params is empty");
+                    }
+                    yz1.c("compass", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (v43.b) {
+                        Log.d("SwanAppAction", "startCompass --- cb is empty");
+                    }
+                    yz1.c("compass", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                yz1.i("compass", "init");
+                qt1 qt1Var = new qt1("compassChange", optParamsAsJo, optString);
+                xc3 i = xc3.i();
+                i.l(context);
+                i.o(new a(this, unitedSchemeEntity, callbackHandler, qt1Var));
+                yz1.i("compass", "start listen compass");
+                i.p();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                qt1Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, qt1 qt1Var, float f, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{unitedSchemeEntity, callbackHandler, qt1Var, Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("direction", f);
+                jSONObject.put("accuracy", xc3.h(i));
+                if (v43.b) {
+                    Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
+                }
+                qt1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                yz1.c("compass", "handle compass,json error，" + e.toString());
+                qt1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+            }
         }
     }
 }

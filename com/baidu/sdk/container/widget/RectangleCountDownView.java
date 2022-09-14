@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
-import com.baidu.tieba.q01;
+import com.baidu.tieba.g21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,11 +85,11 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             setTextColor(Color.parseColor("#ffffff"));
-            setWidth(q01.c.a(context, 72.0f));
-            setHeight(q01.c.a(context, 30.0f));
+            setWidth(g21.c.a(context, 72.0f));
+            setHeight(g21.c.a(context, 30.0f));
             setGravity(17);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(q01.c.a(context, 15.0f));
+            gradientDrawable.setCornerRadius(g21.c.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
             setText(String.format("跳过 %02d", Long.valueOf(this.e / 1000)));

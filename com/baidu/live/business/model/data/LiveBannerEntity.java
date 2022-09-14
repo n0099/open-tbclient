@@ -3,9 +3,8 @@ package com.baidu.live.business.model.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tieba.pa0;
+import com.baidu.tieba.vb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,7 +153,7 @@ public class LiveBannerEntity implements Parcelable {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !pa0.a(this.pic) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !vb0.a(this.pic) : invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -169,7 +168,7 @@ public class LiveBannerEntity implements Parcelable {
         this.audienceCount = jSONObject.optInt("audience_count");
         this.materialId = jSONObject.optString("material_id");
         this.liveStatus = jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
-        this.startTime = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+        this.startTime = jSONObject.optLong("start_time");
         this.endTime = jSONObject.optLong("end_time");
         JSONObject optJSONObject = jSONObject.optJSONObject("host");
         if (optJSONObject != null) {

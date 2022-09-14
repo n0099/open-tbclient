@@ -40,7 +40,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,6 +47,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.MaterialShapeDrawable;
@@ -61,9 +61,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f10032b = 2131755819;
+    public static final int DEF_STYLE_RES = 2131755824;
     public static final int INVALID_SCROLL_RANGE = -1;
     public static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
     public static final int PENDING_ACTION_COLLAPSED = 2;
@@ -1391,7 +1389,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d9});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ScrollingViewBehavior_Layout);
             setOverlayTop(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             obtainStyledAttributes.recycle();
         }
@@ -1546,7 +1544,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     private void startLiftOnScrollElevationOverlayAnimation(@NonNull MaterialShapeDrawable materialShapeDrawable, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65548, this, materialShapeDrawable, z) == null) {
-            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f1);
+            float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0701f1);
             float f = z ? 0.0f : dimension;
             if (!z) {
                 dimension = 0.0f;
@@ -1557,7 +1555,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(f, dimension);
             this.elevationOverlayAnimator = ofFloat;
-            ofFloat.setDuration(getResources().getInteger(R.integer.obfuscated_res_0x7f0a0005));
+            ofFloat.setDuration(getResources().getInteger(com.baidu.tieba.R.integer.obfuscated_res_0x7f0a0005));
             this.elevationOverlayAnimator.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
             this.elevationOverlayAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, materialShapeDrawable) { // from class: com.google.android.material.appbar.AppBarLayout.2
                 public static /* synthetic */ Interceptable $ic;
@@ -1883,10 +1881,10 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
             int[] iArr = this.tmpStatesArray;
             int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
-            iArr[0] = this.liftable ? R.attr.obfuscated_res_0x7f040659 : -2130970201;
-            iArr[1] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f04065a : -2130970202;
-            iArr[2] = this.liftable ? R.attr.obfuscated_res_0x7f040657 : -2130970199;
-            iArr[3] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f040656 : -2130970198;
+            iArr[0] = this.liftable ? com.baidu.tieba.R.attr.obfuscated_res_0x7f040659 : -2130970201;
+            iArr[1] = (this.liftable && this.lifted) ? com.baidu.tieba.R.attr.obfuscated_res_0x7f04065a : -2130970202;
+            iArr[2] = this.liftable ? com.baidu.tieba.R.attr.obfuscated_res_0x7f040657 : -2130970199;
+            iArr[3] = (this.liftable && this.lifted) ? com.baidu.tieba.R.attr.obfuscated_res_0x7f040656 : -2130970198;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -2170,7 +2168,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040096);
+        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f040096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2198,7 +2196,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10032b), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2223,9 +2221,9 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
             ViewUtilsLollipop.setBoundsViewOutlineProvider(this);
-            ViewUtilsLollipop.setStateListAnimatorFromAttrs(this, attributeSet, i, obfuscated_res_0x7f10032b);
+            ViewUtilsLollipop.setStateListAnimatorFromAttrs(this, attributeSet, i, DEF_STYLE_RES);
         }
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f040293, R.attr.obfuscated_res_0x7f04042b, R.attr.obfuscated_res_0x7f04042c, R.attr.obfuscated_res_0x7f04065d}, i, obfuscated_res_0x7f10032b, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.AppBarLayout, i, DEF_STYLE_RES, new int[0]);
         ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(0));
         if (getBackground() instanceof ColorDrawable) {
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
@@ -2381,7 +2379,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 }
             }
             this.scrollFlags = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04041d, R.attr.obfuscated_res_0x7f04041e});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.AppBarLayout_Layout);
             this.scrollFlags = obtainStyledAttributes.getInt(0, 0);
             if (obtainStyledAttributes.hasValue(1)) {
                 this.scrollInterpolator = android.view.animation.AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));

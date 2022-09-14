@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uy2;
+import com.baidu.tieba.s03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SPSwitchRootLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uy2 a;
+    public s03 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchRootLinearLayout(Context context) {
@@ -41,7 +41,7 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new uy2(this);
+            this.a = new s03(this);
         }
     }
 

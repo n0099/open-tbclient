@@ -29,7 +29,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.k.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0574a {
+    public static class C0579a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b EI;
@@ -37,7 +37,7 @@ public final class a {
         public boolean HP;
         public boolean HQ;
 
-        public C0574a() {
+        public C0579a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,44 +51,44 @@ public final class a {
             }
         }
 
-        public final C0574a a(@NonNull com.kwad.components.core.k.b bVar) {
+        public final C0579a a(@NonNull com.kwad.components.core.k.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
                 this.HN = bVar;
                 return this;
             }
-            return (C0574a) invokeL.objValue;
+            return (C0579a) invokeL.objValue;
         }
 
-        public final C0574a aw(boolean z) {
+        public final C0579a aw(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
                 this.HP = true;
                 return this;
             }
-            return (C0574a) invokeZ.objValue;
+            return (C0579a) invokeZ.objValue;
         }
 
-        public final C0574a ax(boolean z) {
+        public final C0579a ax(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
                 this.HQ = z;
                 return this;
             }
-            return (C0574a) invokeZ.objValue;
+            return (C0579a) invokeZ.objValue;
         }
 
-        public final C0574a c(b bVar) {
+        public final C0579a c(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
                 this.EI = bVar;
                 return this;
             }
-            return (C0574a) invokeL.objValue;
+            return (C0579a) invokeL.objValue;
         }
 
         public final a oo() {
@@ -104,12 +104,12 @@ public final class a {
         }
     }
 
-    public a(C0574a c0574a) {
+    public a(C0579a c0579a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0574a};
+            Object[] objArr = {c0579a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -119,14 +119,14 @@ public final class a {
                 return;
             }
         }
-        this.EI = c0574a.EI;
-        this.HN = c0574a.HN;
-        this.HP = c0574a.HP;
-        this.HQ = c0574a.HQ;
+        this.EI = c0579a.EI;
+        this.HN = c0579a.HN;
+        this.HP = c0579a.HP;
+        this.HQ = c0579a.HQ;
     }
 
-    public /* synthetic */ a(C0574a c0574a, byte b) {
-        this(c0574a);
+    public /* synthetic */ a(C0579a c0579a, byte b) {
+        this(c0579a);
     }
 
     public static void a(@NonNull a aVar, int i, String str, boolean z) {

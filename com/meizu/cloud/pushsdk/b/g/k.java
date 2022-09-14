@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.b.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class k {
     public static j a;
     public static long b;

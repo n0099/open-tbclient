@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.ce5;
-import com.baidu.tieba.fu4;
-import com.baidu.tieba.gu4;
+import com.baidu.tieba.jg5;
+import com.baidu.tieba.ow4;
+import com.baidu.tieba.pw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,13 +106,14 @@ public class ImageViewerConfig extends IntentConfig {
         public ThreadData m;
         public String n;
         public String o;
-        public boolean p;
-        public Rect q;
-        public RectF r;
-        public boolean s;
+        public String p;
+        public boolean q;
+        public Rect r;
+        public RectF s;
         public boolean t;
         public boolean u;
         public boolean v;
+        public boolean w;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -131,16 +132,16 @@ public class ImageViewerConfig extends IntentConfig {
             this.d = "";
             this.e = "";
             this.l = false;
-            this.p = true;
-            this.s = true;
-            this.v = true;
+            this.q = true;
+            this.t = true;
+            this.w = true;
         }
 
-        public Builder A(String str) {
+        public Builder A(ArrayList<String> arrayList) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.c = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+                this.a = arrayList;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -150,47 +151,47 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder C(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder D(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 this.n = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder C(int i) {
+        public Builder E(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 this.b = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder D(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder E(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.p = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
         public Builder F(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.t = z;
+                this.f = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -200,7 +201,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.h = z;
+                this.q = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -210,7 +211,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.l = z;
+                this.u = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -220,7 +221,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.j = z;
+                this.h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -230,27 +231,27 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.s = z;
+                this.l = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder K(String str) {
-            InterceptResult invokeL;
+        public Builder K(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-                this.g = str;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+                this.j = z;
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder L(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.k = z;
+                this.t = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -260,37 +261,57 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+                this.g = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder N(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
+                this.k = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder O(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
                 this.o = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder N(Rect rect, RectF rectF) {
+        public Builder P(Rect rect, RectF rectF) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, rect, rectF)) == null) {
-                this.q = rect;
-                this.r = rectF;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, rect, rectF)) == null) {
+                this.r = rect;
+                this.s = rectF;
                 return this;
             }
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder O(ThreadData threadData) {
+        public Builder Q(ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, threadData)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, threadData)) == null) {
                 this.m = threadData;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder P(String str) {
+        public Builder R(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
                 this.e = str;
                 return this;
             }
@@ -300,32 +321,22 @@ public class ImageViewerConfig extends IntentConfig {
         @Keep
         public void setNeedRequestAd(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-                this.v = z;
+            if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+                this.w = z;
             }
         }
 
-        public ImageViewerConfig w(Context context) {
+        public ImageViewerConfig x(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, context)) == null) ? new ImageViewerConfig(context, this, null) : (ImageViewerConfig) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) ? new ImageViewerConfig(context, this, null) : (ImageViewerConfig) invokeL.objValue;
         }
 
-        public Builder x(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+        public Builder y(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, concurrentHashMap)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, concurrentHashMap)) == null) {
                 this.i = concurrentHashMap;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder y(ArrayList<String> arrayList) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, arrayList)) == null) {
-                this.a = arrayList;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -334,8 +345,8 @@ public class ImageViewerConfig extends IntentConfig {
         public Builder z(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-                this.d = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+                this.p = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -391,7 +402,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_SHOW_AD, builder.j);
             intent.putExtra(NEED_BROADCAST, builder.k);
             intent.putExtra(SEE_HOST, builder.l);
-            intent.putExtra(NEED_REQUEST_AD, builder.v);
+            intent.putExtra(NEED_REQUEST_AD, builder.w);
             int size = builder.a.size();
             for (int i3 = 0; i3 < size; i3++) {
                 String str = (String) builder.a.get(i3);
@@ -434,38 +445,41 @@ public class ImageViewerConfig extends IntentConfig {
         if (!TextUtils.isEmpty(builder.o)) {
             intent.putExtra("post_id", builder.o);
         }
-        intent.putExtra(IS_CAN_DRAG, builder.p);
-        if (builder.q != null && builder.r != null) {
+        if (!TextUtils.isEmpty(builder.p)) {
+            intent.putExtra(IntentConfig.BJH_POST_ID, builder.p);
+        }
+        intent.putExtra(IS_CAN_DRAG, builder.q);
+        if (builder.r != null && builder.s != null) {
             int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put((int) builder.r.left);
+            jSONArray.put((int) builder.s.left);
             float f = statusBarHeight;
-            jSONArray.put((int) (builder.r.top - f));
-            jSONArray.put((int) builder.r.right);
-            jSONArray.put((int) (builder.r.bottom - f));
-            jSONArray.put(builder.q.left);
-            jSONArray.put(builder.q.top - statusBarHeight);
-            jSONArray.put(builder.q.right);
-            jSONArray.put(builder.q.bottom - statusBarHeight);
+            jSONArray.put((int) (builder.s.top - f));
+            jSONArray.put((int) builder.s.right);
+            jSONArray.put((int) (builder.s.bottom - f));
+            jSONArray.put(builder.r.left);
+            jSONArray.put(builder.r.top - statusBarHeight);
+            jSONArray.put(builder.r.right);
+            jSONArray.put(builder.r.bottom - statusBarHeight);
             intent.putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, jSONArray.toString());
         }
-        intent.putExtra(IS_SHOW_HOST, builder.s);
-        if (builder.t) {
+        intent.putExtra(IS_SHOW_HOST, builder.t);
+        if (builder.u) {
             intent.putExtra(IS_DYNAMIC_CARD, true);
             intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
             intent.putExtra(IS_SHOW_HOST, false);
         }
         intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
-        intent.putExtra(IS_FROM_AI_APP, builder.u);
+        intent.putExtra(IS_FROM_AI_APP, builder.v);
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, ce5.c());
-        if (fu4.a() != null && fu4.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, fu4.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, jg5.c());
+        if (ow4.a() != null && ow4.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, ow4.a().a);
         }
-        if (gu4.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, gu4.b().a());
+        if (pw4.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, pw4.b().a());
         }
     }
 }

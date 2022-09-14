@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedData {
@@ -17,6 +18,7 @@ public class LiveFeedData {
     public LiveFeedConfig feedConfig;
     public LiveFeedWrapData feedWrapData;
     public LiveFollowWrapData followWrapData;
+    public boolean isMinor;
     public String logId;
     public String msg;
     public LiveFeedReserveWrapData reserveWrapData;
@@ -84,31 +86,44 @@ public class LiveFeedData {
             this.followWrapData = liveFollowWrapData;
             liveFollowWrapData.parserJson(optJSONObject3);
         }
-        JSONObject optJSONObject4 = optJSONObject.optJSONObject("tab");
+        JSONObject optJSONObject4 = optJSONObject.optJSONObject("all_follow");
         if (optJSONObject4 != null) {
+            LiveFollowWrapData liveFollowWrapData2 = new LiveFollowWrapData();
+            liveFollowWrapData2.parserJson(optJSONObject4);
+            List<LiveFollowEntity> list = liveFollowWrapData2.followList;
+            if (list != null && !list.isEmpty()) {
+                this.followWrapData = liveFollowWrapData2;
+            }
+        }
+        JSONObject optJSONObject5 = optJSONObject.optJSONObject("tab");
+        if (optJSONObject5 != null) {
             LiveTabWrapData liveTabWrapData = new LiveTabWrapData();
             this.tabWrapData = liveTabWrapData;
-            liveTabWrapData.parserJson(optJSONObject4, z, this.errno, z2);
+            liveTabWrapData.parserJson(optJSONObject5, z, this.errno, z2);
         }
-        JSONObject optJSONObject5 = optJSONObject.optJSONObject(ExternalTransferSpeedStats.FEED_PAGE);
-        if (optJSONObject5 != null) {
+        JSONObject optJSONObject6 = optJSONObject.optJSONObject(ExternalTransferSpeedStats.FEED_PAGE);
+        if (optJSONObject6 != null) {
             LiveFeedWrapData liveFeedWrapData = new LiveFeedWrapData();
             this.feedWrapData = liveFeedWrapData;
-            liveFeedWrapData.parserJson(optJSONObject5, i, z2);
+            liveFeedWrapData.parserJson(optJSONObject6, i, z2);
         }
-        JSONObject optJSONObject6 = optJSONObject.optJSONObject("interest");
-        if (optJSONObject5 == null && optJSONObject6 != null) {
+        JSONObject optJSONObject7 = optJSONObject.optJSONObject("interest");
+        if (optJSONObject6 == null && optJSONObject7 != null) {
             LiveFeedWrapData liveFeedWrapData2 = new LiveFeedWrapData();
             this.feedWrapData = liveFeedWrapData2;
-            liveFeedWrapData2.parseJsonByResponseOnly(optJSONObject6);
+            liveFeedWrapData2.parseJsonByResponseOnly(optJSONObject7);
         }
-        JSONObject optJSONObject7 = optJSONObject.optJSONObject("config");
-        if (optJSONObject7 != null) {
+        JSONObject optJSONObject8 = optJSONObject.optJSONObject("config");
+        if (optJSONObject8 != null) {
             LiveFeedConfig liveFeedConfig = new LiveFeedConfig();
             this.feedConfig = liveFeedConfig;
-            liveFeedConfig.parserJson(optJSONObject7, z, z2);
+            liveFeedConfig.parserJson(optJSONObject8, z, z2);
         }
         this.reserveWrapData = LiveFeedReserveWrapData.parse(optJSONObject.optJSONObject("reserve"));
         this.toolWrapData = LiveFeedToolWrapData.parse(optJSONObject.optJSONObject("diamond"));
+        JSONObject optJSONObject9 = optJSONObject.optJSONObject("state");
+        if (optJSONObject9 != null) {
+            this.isMinor = optJSONObject9.optInt("is_minor") == 1;
+        }
     }
 }

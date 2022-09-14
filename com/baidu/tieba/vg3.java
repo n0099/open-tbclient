@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class vg3 {
+public final class vg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static xg3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static xg3 a() {
-        InterceptResult invokeV;
+    public static Uri a(@NonNull Context context, @NonNull File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                a = new xg3("0");
-            }
-            return a;
-        }
-        return (xg3) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) ? FileProvider.getUriForFile(context, b().a(context), file) : (Uri) invokeLL.objValue;
     }
 
-    public static void b(@NonNull String str) {
+    public static mm1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            xg3 xg3Var = a;
-            if (xg3Var == null) {
-                a = new xg3(str);
-            } else {
-                xg3Var.n(str);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? fm2.p() : (mm1) invokeV.objValue;
     }
 }

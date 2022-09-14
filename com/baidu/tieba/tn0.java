@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.MotionEvent;
+import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 /* loaded from: classes6.dex */
-public class tn0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface tn0 extends li0 {
+    WebViewContainer b();
 
-    public static void a(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, application) == null) {
-            oc1.b(application);
-        }
-    }
+    void f(boolean z, boolean z2, boolean z3, int i);
+
+    boolean g();
+
+    void i(MotionEvent motionEvent);
+
+    void j(boolean z, boolean z2, boolean z3);
 }

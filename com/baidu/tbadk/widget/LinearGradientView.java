@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hf7;
+import com.baidu.tieba.ng7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,12 +152,12 @@ public class LinearGradientView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = hf7.b("#2BB8FF");
-            this.c = hf7.b("#2BB8FF");
-            this.d = hf7.b("#249BD6");
-            this.e = hf7.b("#246CD6");
-            this.f = hf7.b("#249BD6");
-            this.g = hf7.b("#246CD6");
+            this.b = ng7.b("#2BB8FF");
+            this.c = ng7.b("#2BB8FF");
+            this.d = ng7.b("#249BD6");
+            this.e = ng7.b("#246CD6");
+            this.f = ng7.b("#249BD6");
+            this.g = ng7.b("#246CD6");
             this.h = c();
         }
     }
@@ -272,15 +272,15 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-                if (this.b == hf7.b(str) && this.c == hf7.b(str2) && this.d == hf7.b(str3) && this.e == hf7.b(str4) && this.f == hf7.b(str5) && this.g == hf7.b(str6)) {
+                if (this.b == ng7.b(str) && this.c == ng7.b(str2) && this.d == ng7.b(str3) && this.e == ng7.b(str4) && this.f == ng7.b(str5) && this.g == ng7.b(str6)) {
                     return;
                 }
-                this.b = hf7.b(str);
-                this.c = hf7.b(str2);
-                this.d = hf7.b(str3);
-                this.e = hf7.b(str4);
-                this.f = hf7.b(str5);
-                this.g = hf7.b(str6);
+                this.b = ng7.b(str);
+                this.c = ng7.b(str2);
+                this.d = ng7.b(str3);
+                this.e = ng7.b(str4);
+                this.f = ng7.b(str5);
+                this.g = ng7.b(str6);
                 this.h = c();
                 invalidate();
                 return;
@@ -325,26 +325,26 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, themeElement, themeElement2, themeElement3) == null) {
             if (themeElement == null) {
-                b = hf7.b("#2BB8FF");
-                b2 = hf7.b("#2BB8FF");
+                b = ng7.b("#2BB8FF");
+                b2 = ng7.b("#2BB8FF");
             } else {
-                b = hf7.b(themeElement.common_color);
-                b2 = hf7.b(themeElement.common_color);
+                b = ng7.b(themeElement.common_color);
+                b2 = ng7.b(themeElement.common_color);
             }
             if (themeElement2 == null) {
-                i = hf7.b("#249BD6");
-                b3 = hf7.b("#246CD6");
+                i = ng7.b("#249BD6");
+                b3 = ng7.b("#246CD6");
             } else {
-                int b5 = hf7.b(themeElement2.common_color);
-                b3 = hf7.b(themeElement2.common_color);
+                int b5 = ng7.b(themeElement2.common_color);
+                b3 = ng7.b(themeElement2.common_color);
                 i = b5;
             }
             if (themeElement3 == null) {
-                i2 = hf7.b("#249BD6");
-                b4 = hf7.b("#246CD6");
+                i2 = ng7.b("#249BD6");
+                b4 = ng7.b("#246CD6");
             } else {
-                int b6 = hf7.b(themeElement3.common_color);
-                b4 = hf7.b(themeElement3.common_color);
+                int b6 = ng7.b(themeElement3.common_color);
+                b4 = ng7.b(themeElement3.common_color);
                 i2 = b6;
             }
             this.b = b;

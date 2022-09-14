@@ -30,12 +30,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf7;
-import com.baidu.tieba.fc8;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.rd8;
-import com.baidu.tieba.rx4;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.hg7;
+import com.baidu.tieba.nd8;
+import com.baidu.tieba.ze8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -508,20 +508,20 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public static void a(rx4 rx4Var, int i2) {
+    public static void a(b05 b05Var, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, rx4Var, i2) == null) || rx4Var == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, b05Var, i2) == null) || b05Var == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(rx4Var.n == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_CLICK : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", rx4Var.q).param("obj_param1", i2));
+        TiebaStatic.log(new StatisticItem(b05Var.n == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_CLICK : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", b05Var.q).param("obj_param1", i2));
     }
 
-    public static void b(rx4 rx4Var) {
+    public static void b(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, rx4Var) == null) || rx4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, b05Var) == null) || b05Var == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(rx4Var.n == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_SHOW : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", rx4Var.q));
+        TiebaStatic.log(new StatisticItem(b05Var.n == 2 ? TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_SHOW : TbadkCoreStatisticKey.KEY_FLOAT_LAYER_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", b05Var.q));
     }
 
     public static boolean k() {
@@ -531,7 +531,7 @@ public class RightFloatLayerView extends RelativeLayout {
             if (m()) {
                 return false;
             }
-            return !StringHelper.isTaday(su4.k().m("key_tab_right_float_layer_view", 0L));
+            return !StringHelper.isTaday(bx4.k().m("key_tab_right_float_layer_view", 0L));
         }
         return invokeV.booleanValue;
     }
@@ -580,29 +580,29 @@ public class RightFloatLayerView extends RelativeLayout {
         setVisibility(0);
     }
 
-    public final int e(rx4 rx4Var) {
+    public final int e(b05 b05Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rx4Var)) == null) {
-            String str = rx4Var.l;
-            String str2 = rx4Var.o;
-            String str3 = rx4Var.m;
-            int a2 = fc8.a(getContext(), str, str2, str3, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b05Var)) == null) {
+            String str = b05Var.l;
+            String str2 = b05Var.o;
+            String str3 = b05Var.m;
+            int a2 = nd8.a(getContext(), str, str2, str3, null);
             t(str3, 2);
             v(str3, a2);
-            x(rx4Var);
+            x(b05Var);
             return a2;
         }
         return invokeL.intValue;
     }
 
-    public final void f(rx4 rx4Var) {
+    public final void f(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rx4Var) == null) {
-            String str = rx4Var.a;
-            String str2 = rx4Var.j;
-            String str3 = rx4Var.k;
-            String str4 = rx4Var.i;
+        if (interceptable == null || interceptable.invokeL(1048579, this, b05Var) == null) {
+            String str = b05Var.a;
+            String str2 = b05Var.j;
+            String str3 = b05Var.k;
+            String str4 = b05Var.i;
             if (!UtilHelper.isMatchScheme(getContext(), str2, str3) && !StringUtils.isNull(str)) {
                 n(str);
             }
@@ -610,17 +610,17 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void g(rx4 rx4Var) {
+    public void g(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, rx4Var) == null) || rx4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, b05Var) == null) || b05Var == null) {
             return;
         }
-        if (rx4Var.n == 2) {
-            e(rx4Var);
+        if (b05Var.n == 2) {
+            e(b05Var);
         } else {
-            f(rx4Var);
+            f(b05Var);
         }
-        a(rx4Var, 0);
+        a(b05Var, 0);
     }
 
     public void h() {
@@ -702,21 +702,21 @@ public class RightFloatLayerView extends RelativeLayout {
     public void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0624, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909dd);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09124e);
-            SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f0805eb);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0909e3);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d063b, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909f1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09126c);
+            SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080600);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0909f7);
             this.c = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.c.setEvent(new e(this));
         }
     }
 
-    public boolean l(rx4 rx4Var) {
+    public boolean l(b05 b05Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rx4Var)) == null) ? rx4Var.n == 2 || rx4Var.b() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, b05Var)) == null) ? b05Var.n == 2 || b05Var.b() : invokeL.booleanValue;
     }
 
     public final void n(String str) {
@@ -732,7 +732,7 @@ public class RightFloatLayerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.c.invalidate();
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805eb, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080600, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0112, 1);
         }
     }
@@ -762,10 +762,10 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void s(rx4 rx4Var) {
+    public void s(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, rx4Var) == null) {
-            bf7.b(rx4Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, b05Var) == null) {
+            hg7.b(b05Var);
         }
     }
 
@@ -776,19 +776,19 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void setData(rx4 rx4Var) {
+    public void setData(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, rx4Var) == null) || rx4Var == null || this.s || qi.isEmpty(rx4Var.b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, b05Var) == null) || b05Var == null || this.s || dj.isEmpty(b05Var.b)) {
             return;
         }
-        if (l(rx4Var)) {
+        if (l(b05Var)) {
             this.b.setVisibility(0);
         } else {
             this.b.setVisibility(4);
         }
         this.c.setVisibility(0);
-        this.c.K(rx4Var.b, 45, false);
-        w(rx4Var);
+        this.c.K(b05Var.b, 45, false);
+        w(b05Var);
         this.s = true;
     }
 
@@ -804,7 +804,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void setHomePbFloatLastCloseTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            su4.k().x("key_tab_right_float_layer_view", System.currentTimeMillis());
+            bx4.k().x("key_tab_right_float_layer_view", System.currentTimeMillis());
         }
     }
 
@@ -820,49 +820,49 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void t(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, str, i2) == null) {
-            rd8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            ze8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 
-    public void u(rx4 rx4Var) {
+    public void u(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, rx4Var) == null) || rx4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, b05Var) == null) || b05Var == null) {
             return;
         }
-        int i2 = rx4Var.n;
-        String str = rx4Var.m;
+        int i2 = b05Var.n;
+        String str = b05Var.m;
         if (i2 == 2) {
             t(str, 7);
         }
-        a(rx4Var, 1);
+        a(b05Var, 1);
     }
 
     public final void v(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048598, this, str, i2) == null) {
             boolean z = i2 == 1000;
-            rd8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, z ? "APP" : "URL", null, z ? null : String.valueOf(i2), null, null, null);
+            ze8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, z ? "APP" : "URL", null, z ? null : String.valueOf(i2), null, null, null);
         }
     }
 
-    public void w(rx4 rx4Var) {
+    public void w(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, rx4Var) == null) || rx4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, b05Var) == null) || b05Var == null) {
             return;
         }
-        if (rx4Var.n == 2) {
-            t(rx4Var.m, 3);
-            s(rx4Var);
+        if (b05Var.n == 2) {
+            t(b05Var.m, 3);
+            s(b05Var);
         } else {
-            ThirdStatisticHelper.sendReq(rx4Var.i);
+            ThirdStatisticHelper.sendReq(b05Var.i);
         }
-        b(rx4Var);
+        b(b05Var);
     }
 
-    public void x(rx4 rx4Var) {
+    public void x(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, rx4Var) == null) {
-            bf7.d(rx4Var);
+        if (interceptable == null || interceptable.invokeL(1048600, this, b05Var) == null) {
+            hg7.d(b05Var);
         }
     }
 

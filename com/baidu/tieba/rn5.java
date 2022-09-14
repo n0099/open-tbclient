@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class rn5 {
     public static /* synthetic */ Interceptable $ic;
+    public static rn5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public hm0 a;
 
-    public rn5(JSONObject jSONObject) {
+    public rn5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +25,28 @@ public class rn5 {
                 return;
             }
         }
-        try {
-            if (jSONObject.has("code")) {
-                jSONObject.getInt("code");
+        this.a = dm0.b().a();
+    }
+
+    public static rn5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (rn5.class) {
+                    if (b == null) {
+                        b = new rn5();
+                    }
+                }
             }
-            if (jSONObject.has("msg")) {
-                jSONObject.getString("msg");
-            }
-        } catch (JSONException e) {
-            BdLog.e(e.getMessage());
+            return b;
         }
+        return (rn5) invokeV.objValue;
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? this.a.a(str, i) : invokeLI.intValue;
     }
 }

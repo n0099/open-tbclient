@@ -1,50 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntimeInit;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class mt0 implements al0 {
+public class mt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mt0() {
+    public static ax0 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
+            ax0 ax0Var = new ax0();
+            ax0Var.k(str2);
+            ax0Var.l(zw0.c(bdVideo.getCurrentLength()) + "/" + zw0.c(bdVideo.getTotalLength()));
+            ax0Var.p(bdVideoSeries.getVid());
+            ax0Var.m(bdVideo.getType());
+            ax0Var.j(System.currentTimeMillis());
+            ax0Var.n(bdVideo.getTitle());
+            ax0Var.o(str);
+            ax0Var.r(bdVideoSeries.getPositionMs());
+            ax0Var.q(bdVideo.getCurrentLength());
+            ax0Var.s(bdVideo.getTotalLength());
+            return ax0Var;
         }
-    }
-
-    @Override // com.baidu.tieba.al0
-    public void a(@NonNull Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            AppRuntimeInit.onApplicationattachBaseContext(application);
-            oc1.b(application);
-        }
-    }
-
-    @Override // com.baidu.tieba.al0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zw0.a();
-        }
+        return (ax0) invokeLLLL.objValue;
     }
 }

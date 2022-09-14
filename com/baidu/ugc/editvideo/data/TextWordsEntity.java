@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ac9;
-import com.baidu.tieba.hc9;
-import com.baidu.tieba.sc9;
+import com.baidu.tieba.dg9;
+import com.baidu.tieba.kg9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -175,13 +175,13 @@ public class TextWordsEntity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (sc9.a(this.mBackgroudImageUrl)) {
+                if (vg9.a(this.mBackgroudImageUrl)) {
                     return new File("");
                 }
                 if (this.mSourceFile == null) {
                     String str = this.mLocalParentFile;
                     StringBuilder sb = new StringBuilder();
-                    sb.append(hc9.b(this.mBackgroudImageUrl));
+                    sb.append(kg9.b(this.mBackgroudImageUrl));
                     String str2 = this.mBackgroudImageUrl;
                     sb.append(str2.substring(str2.lastIndexOf(".")));
                     this.mSourceFile = new File(str, sb.toString());
@@ -200,7 +200,7 @@ public class TextWordsEntity {
         public boolean isNeedDown() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? sc9.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? vg9.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
         }
     }
 
@@ -442,7 +442,7 @@ public class TextWordsEntity {
                     textColorEntity.mColor = jSONObject.optString("color");
                     String optString = jSONObject.optString(Key.ALPHA);
                     textColorEntity.mAlpha = optString;
-                    textColorEntity.mColorInfo = ac9.b(textColorEntity.mColor, optString);
+                    textColorEntity.mColorInfo = dg9.b(textColorEntity.mColor, optString);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -551,7 +551,7 @@ public class TextWordsEntity {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.mSourceFile == null) {
                     File file = this.mRootDir;
-                    this.mSourceFile = new File(file, hc9.b(this.mDownloadUrl) + getSuffix());
+                    this.mSourceFile = new File(file, kg9.b(this.mDownloadUrl) + getSuffix());
                 }
                 return this.mSourceFile;
             }

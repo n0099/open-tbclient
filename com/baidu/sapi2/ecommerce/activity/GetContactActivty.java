@@ -9,7 +9,6 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.ecommerce.ContactUtil;
 import com.baidu.pass.ecommerce.result.GetContactResult;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -93,7 +92,6 @@ public class GetContactActivty extends Activity {
                 ToastUtil.show("当前设备暂不支持");
                 finish();
             }
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

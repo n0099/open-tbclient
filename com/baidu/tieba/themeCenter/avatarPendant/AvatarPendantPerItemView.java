@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nq8;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ds8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AvatarPendantPerItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public ImageView e;
     public TextView f;
     public DressItemData g;
-    public nq8.a h;
+    public ds8.a h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,13 +103,13 @@ public class AvatarPendantPerItemView extends LinearLayout {
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
             if (this.c.getHeadView() != null) {
-                this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f62), 24, false);
+                this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f87), 24, false);
             }
         } else if (this.c.getHeadView() != null) {
-            this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f61), 24, false);
+            this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f86), 24, false);
         }
-        if (qi.byteLength(dressItemData.getTitle()) > 8) {
-            this.f.setText(qi.cutString(dressItemData.getTitle(), 8));
+        if (dj.byteLength(dressItemData.getTitle()) > 8) {
+            this.f.setText(dj.cutString(dressItemData.getTitle(), 8));
         } else {
             this.f.setText(dressItemData.getTitle());
         }
@@ -128,15 +128,15 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0128, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012b, this);
             this.b = inflate;
-            this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f090302);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091899);
+            this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f09030a);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918cf);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081211);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081211);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920d8);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08123c);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08123c);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090620);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092129);
             this.c.setHasPendantStyle();
             if (this.c.getHeadView() != null) {
                 this.c.getHeadView().setIsRound(true);
@@ -149,7 +149,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         }
     }
 
-    public void setAvatarPendantItemClickListener(nq8.a aVar) {
+    public void setAvatarPendantItemClickListener(ds8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.h = aVar;

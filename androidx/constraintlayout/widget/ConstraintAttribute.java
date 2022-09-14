@@ -221,41 +221,41 @@ public class ConstraintAttribute {
         Object string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, xmlPullParser, hashMap) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.CustomAttribute);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.CustomAttribute);
             int indexCount = obtainStyledAttributes.getIndexCount();
             String str = null;
             Object obj = null;
             AttributeType attributeType2 = null;
             for (int i = 0; i < indexCount; i++) {
                 int index = obtainStyledAttributes.getIndex(i);
-                if (index == R$styleable.CustomAttribute_attributeName) {
+                if (index == 0) {
                     str = obtainStyledAttributes.getString(index);
                     if (str != null && str.length() > 0) {
                         str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
                     }
-                } else if (index == R$styleable.CustomAttribute_customBoolean) {
+                } else if (index == 1) {
                     obj = Boolean.valueOf(obtainStyledAttributes.getBoolean(index, false));
                     attributeType2 = AttributeType.BOOLEAN_TYPE;
                 } else {
-                    if (index == R$styleable.CustomAttribute_customColorValue) {
+                    if (index == 3) {
                         attributeType = AttributeType.COLOR_TYPE;
                         string = Integer.valueOf(obtainStyledAttributes.getColor(index, 0));
-                    } else if (index == R$styleable.CustomAttribute_customColorDrawableValue) {
+                    } else if (index == 2) {
                         attributeType = AttributeType.COLOR_DRAWABLE_TYPE;
                         string = Integer.valueOf(obtainStyledAttributes.getColor(index, 0));
-                    } else if (index == R$styleable.CustomAttribute_customPixelDimension) {
+                    } else if (index == 7) {
                         attributeType = AttributeType.DIMENSION_TYPE;
                         string = Float.valueOf(TypedValue.applyDimension(1, obtainStyledAttributes.getDimension(index, 0.0f), context.getResources().getDisplayMetrics()));
-                    } else if (index == R$styleable.CustomAttribute_customDimension) {
+                    } else if (index == 4) {
                         attributeType = AttributeType.DIMENSION_TYPE;
                         string = Float.valueOf(obtainStyledAttributes.getDimension(index, 0.0f));
-                    } else if (index == R$styleable.CustomAttribute_customFloatValue) {
+                    } else if (index == 5) {
                         attributeType = AttributeType.FLOAT_TYPE;
                         string = Float.valueOf(obtainStyledAttributes.getFloat(index, Float.NaN));
-                    } else if (index == R$styleable.CustomAttribute_customIntegerValue) {
+                    } else if (index == 6) {
                         attributeType = AttributeType.INT_TYPE;
                         string = Integer.valueOf(obtainStyledAttributes.getInteger(index, -1));
-                    } else if (index == R$styleable.CustomAttribute_customStringValue) {
+                    } else if (index == 8) {
                         attributeType = AttributeType.STRING_TYPE;
                         string = obtainStyledAttributes.getString(index);
                     }

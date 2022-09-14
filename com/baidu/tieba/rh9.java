@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class rh9<A> {
+public class rh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final A a;
-    public String b;
 
-    public rh9(A a) {
+    public static String a(File file, Object obj) {
+        InterceptResult invokeLL;
+        String b;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
+            synchronized (obj) {
+                b = sh9.b(file);
             }
+            return b;
         }
-        this.b = "";
-        this.a = a;
+        return (String) invokeLL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static boolean b(String str, File file, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean e;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
+            synchronized (obj) {
+                e = sh9.e(str, file, z);
+            }
+            return e;
+        }
+        return invokeCommon.booleanValue;
     }
 }

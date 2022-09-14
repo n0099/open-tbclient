@@ -1,0 +1,119 @@
+package com.baidu.searchbox.abtest;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes2.dex */
+public class AbtestConstants {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String AGGREGATION_PAGE_RN_AB_SWITCH = "box.rnplugin.aggregationpage";
+    public static final String AI_FRAMEWORK_SWITCH = "comment_AI_antispam";
+    public static final boolean AI_FRAMEWORK_SWITCH_DEFAULT = false;
+    public static final String ANR_DETECT_SWITCH = "anr_detect_switch";
+    public static final boolean ANR_DETECT_SWITCH_DEFAULT = false;
+    public static final String BARRAGE_VIDEO_SWITCH = "barrage_video";
+    public static final boolean BARRAGE_VIDEO_SWITCH_DEFALUT = true;
+    public static final String BOTTOM_TOO_BAR_STYLE = "bottomtoolbar-ad-1013";
+    public static final int BRANCH_TAG_BROTLI_ENABLE = 11;
+    public static final int BRANCH_TAG_FIRSTSCREEN_ENABLE = 15;
+    public static final String COLD_BOOT_LOAD_PREFETCH_SWITCH = "cold_boot_load_prefetch";
+    public static final String COMMENT_EMOTION_SWITCH = "comment_emoticon_enable";
+    public static final boolean COMMENT_EMOTION_SWITCH_DEFAULT = false;
+    public static final int COMMENT_ICONANI_DEFALUT = 1;
+    public static final int COMMENT_ICONANI_END = 3;
+    public static final int COMMENT_ICONANI_SCREEN = 2;
+    public static final String COMMENT_ICONANI_SWITCH = "comment_icon_number";
+    public static final boolean COMMENT_INPUTANI_DEFALUT = false;
+    public static final String COMMENT_INPUTANI_SWITCH = "comment_box";
+    public static final String COMMONTOOLBAR_COMMENT_TIP = "comment_toolbar_tip";
+    public static final String DELETE_PRECONNECT_URL_CODE = "delete_preconnect_url_code";
+    public static final int EMPTYBOX_SEARCH_HISSUG_DEFAULT = 0;
+    public static final String EMPTYBOX_SEARCH_HISSUG_SWITCH = "empty_hissug";
+    public static final String FEED_ENTER_SEARCH_BOX = "feed_enter_search";
+    public static final boolean FEED_ENTER_SEARCH_BOX_DEFAULT = false;
+    public static final int FEED_OR_CARDS_EXP_ID = 1559684619;
+    public static final String FEED_OR_CARDS_SWITCH = "index_feed";
+    public static final boolean FEED_OR_CARDS_SWITCH_DEFAULT = true;
+    public static final int FEED_TOP_MARGIN_DEFAULT = 0;
+    public static final String FEED_TOP_MARGIN_KEY = "feed_move";
+    public static final String FIX_HTTP_DNS_ERROR_KEY = "fixhttpdns";
+    public static final String FIX_HTTP_DNS_ERROR_SWITCH = "fix_http_dns_switch";
+    public static final String FRAGMENT_ONRESUME_LOGIC_OPTIMIZE = "resume_logic_optimize";
+    public static final String FRAGMENT_ONRESUME_LOGIC_OPTIMIZE_KEY = "logicopt";
+    public static final String HANDLE_OPPO_PROBLEM = "handle_oppo_problem";
+    public static final String HOME_FEED_REFRESH_HEADER_SWITCH = "my_sub";
+    public static final boolean HOME_FEED_REFRESH_HEADER_SWITCH_DEFAULT = false;
+    public static final String HOME_FRAGMENT_SWITCH = "home_fragment";
+    public static final boolean HOME_FRAGMENT_SWITCH_DEFAULT = true;
+    public static final int HOT_WORD_IN_FEED_DEFAULT = 0;
+    public static final String HOT_WORD_IN_FEED_SWITCH = "HotWord_Into_Feed";
+    public static final boolean HTTP_DNS_BACKUPIPENABLE_DEFAULT = false;
+    public static final String HTTP_DNS_BACKUPIPENABLE_SWITCH = "httpdns_backupip_enable";
+    public static final String ICON_BADGE_APP_NUMBER = "APP_number";
+    public static final String LOAD_ASYNC_FRAMEWORK_KEY = "load_async_k";
+    public static final String MY_ATTENTION_RN_AB_SWITCH = "MyAttention";
+    public static final boolean NETWORK_LOG_DEFAULT = false;
+    public static final String NETWORK_LOG_SWITCH = "net_log";
+    public static final boolean NETWORK_OKHTTP_DEFAULT = true;
+    public static final String NETWORK_OKHTTP_SWITCH = "net_okhttp";
+    public static final String PERF_BLOCK = "perf_block";
+    public static final boolean PERF_BLOCK_DEFAULT = false;
+    public static final String PREFETCH_SUCCESS_OPTIMIZE_KEY = "presuopt";
+    public static final String PREFETCH_SUCCESS_OPTIMIZE_POLICY = "fragment_optimize_policy";
+    public static final String SEARCH_BOX_UI_AB = "seachbox_ui_ab";
+    public static final int SEARCH_BOX_UI_AB_DEFAULT = 2;
+    public static final int SEARCH_BOX_UI_AB_OPEN = 3;
+    public static final boolean SEARCH_NOTIFICATION_FAST_SEARCH_DEFAULT = false;
+    public static final String SEARCH_NOTIFICATION_FAST_SEARCH_SWITCH = "fast_search";
+    public static final String SEARCH_PREFETCH_SENDLOG_SWITCH = "branch_tag";
+    public static final int SEARCH_PREFETCH_SENDLOG_SWITCH_DEFAULT = 0;
+    public static final String SEARCH_PREFETCH_SWITCH = "presearch";
+    public static final boolean SEARCH_PREFETCH_SWITCH_DEFAULT = true;
+    public static final String SEARCH_SPEED_OPT = "search_speed_opt";
+    public static final String SEARCH_TCSPEEDUP_SENDLOG_SWITCH = "branch_tag";
+    public static final int SEARCH_TCSPEEDUP_SENDLOG_SWITCH_DEFAULT = 0;
+    public static final String SEARCH_TCSPEEDUP_SWITCH = "tcspeedup";
+    public static final boolean SEARCH_TCSPEEDUP_SWITCH_DEFAULT = false;
+    public static final String SKIN_CENTER_USE_RN_SWITCH = "skincenter_RN";
+    public static final String STOP_LOADING_ASYNC_SEARCH_FRAMEWORK = "stop_loading_async_framework";
+    public static final int STOP_LOADING_ASYNC_SEARCH_FRAMEWORK_DEFAULT = 0;
+    public static final int STOP_LOADING_PREFETCH_RESOURCE = 10;
+    public static final int STOP_PREFETCH_LOADING_AND_PARSING = 30;
+    public static final int STOP_PREFETCH_PARSING = 20;
+    public static final String STOP_SEARCH_FRAME_KEY = "stop_sf_k";
+    public static final boolean STOP_TTS_JUDGE_ACTIVE_DEFAULT = true;
+    public static final String STOP_TTS_JUDGE_ACTIVE_SWITCH = "stop_tts_judge_active";
+    public static final String SYSTEM_SCREENSHOT_FEEDBACK_SWITCH = "screen_shot_switch";
+    public static final int SYSTEM_SCREENSHOT_FEEDBACK_SWITCH_DEFAULT = 0;
+    public static final boolean TCBOX_HTTPS_DEFAULT = true;
+    public static final String TCBOX_HTTPS_SWITCH = "tcbox_https";
+    public static final boolean TCBOX_LOG_DEFAULT = false;
+    public static final String TCBOX_LOG_SWITCH = "tcbox_log";
+    public static final boolean TCBOX_OKHTTP_DEFAULT = true;
+    public static final String TCBOX_OKHTTP_SWITCH = "tcbox_okhttp";
+    public static final String UBC_NO_BASE64 = "ubc_no_base64";
+    public static final String USE_EMBEDDED_TITLEBAR_API_SWITCH = "embedded_title";
+    public static final boolean USE_EMBEDDED_TITLEBAR_API_SWITCH_DEFAULT = true;
+    public static final String VIDEO_HOME_RN_AB_SWITCH = "VideoHome";
+    public static final int WEBVIEW_FIRST_SCREEN_OPT_DEFAULT = 1;
+    public static final int WEBVIEW_FIRST_SCREEN_OPT_LAYOUT = 2;
+    public static final int WEBVIEW_FIRST_SCREEN_OPT_NONE = 0;
+    public static final String WEBVIEW_FIRST_SCREEN_OPT_SWITCH = "kopt";
+    public static final String WEBVIEW_ON_JS_PROMPT_SWITCH = "on_js_prompt";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public AbtestConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+}

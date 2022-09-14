@@ -31,7 +31,7 @@ public final class SupervisorKt {
     }
 
     /* renamed from: SupervisorJob$default */
-    public static /* synthetic */ Job m2084SupervisorJob$default(Job job, int i, Object obj) {
+    public static /* synthetic */ Job m2085SupervisorJob$default(Job job, int i, Object obj) {
         if ((i & 1) != 0) {
             job = null;
         }

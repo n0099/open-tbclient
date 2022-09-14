@@ -15,12 +15,12 @@ import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
@@ -184,7 +184,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         this.tempRect = new Rect();
         this.drawTopInsetForeground = true;
         this.drawBottomInsetForeground = true;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040343}, i, R.style.obfuscated_res_0x7f100335, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, R.styleable.ScrimInsetsFrameLayout, i, com.baidu.tieba.R.style.obfuscated_res_0x7f100336, new int[0]);
         this.insetForeground = obtainStyledAttributes.getDrawable(0);
         obtainStyledAttributes.recycle();
         setWillNotDraw(true);

@@ -58,13 +58,13 @@ public class StateSet {
             this.mVariants = new ArrayList<>();
             this.mConstraintID = -1;
             this.mIsLayout = false;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.State);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.State);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i3 = 0; i3 < indexCount; i3++) {
                 int index = obtainStyledAttributes.getIndex(i3);
-                if (index == R$styleable.State_android_id) {
+                if (index == 0) {
                     this.mId = obtainStyledAttributes.getResourceId(index, this.mId);
-                } else if (index == R$styleable.State_constraints) {
+                } else if (index == 1) {
                     this.mConstraintID = obtainStyledAttributes.getResourceId(index, this.mConstraintID);
                     String resourceTypeName = context.getResources().getResourceTypeName(this.mConstraintID);
                     context.getResources().getResourceName(this.mConstraintID);
@@ -131,24 +131,24 @@ public class StateSet {
             this.mMaxHeight = Float.NaN;
             this.mConstraintID = -1;
             this.mIsLayout = false;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.Variant);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.Variant);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i3 = 0; i3 < indexCount; i3++) {
                 int index = obtainStyledAttributes.getIndex(i3);
-                if (index == R$styleable.Variant_constraints) {
+                if (index == 0) {
                     this.mConstraintID = obtainStyledAttributes.getResourceId(index, this.mConstraintID);
                     String resourceTypeName = context.getResources().getResourceTypeName(this.mConstraintID);
                     context.getResources().getResourceName(this.mConstraintID);
                     if (TtmlNode.TAG_LAYOUT.equals(resourceTypeName)) {
                         this.mIsLayout = true;
                     }
-                } else if (index == R$styleable.Variant_region_heightLessThan) {
+                } else if (index == 1) {
                     this.mMaxHeight = obtainStyledAttributes.getDimension(index, this.mMaxHeight);
-                } else if (index == R$styleable.Variant_region_heightMoreThan) {
+                } else if (index == 2) {
                     this.mMinHeight = obtainStyledAttributes.getDimension(index, this.mMinHeight);
-                } else if (index == R$styleable.Variant_region_widthLessThan) {
+                } else if (index == 3) {
                     this.mMaxWidth = obtainStyledAttributes.getDimension(index, this.mMaxWidth);
-                } else if (index == R$styleable.Variant_region_widthMoreThan) {
+                } else if (index == 4) {
                     this.mMinWidth = obtainStyledAttributes.getDimension(index, this.mMinWidth);
                 } else {
                     Log.v("ConstraintLayoutStates", "Unknown tag");
@@ -203,11 +203,11 @@ public class StateSet {
     private void load(Context context, XmlPullParser xmlPullParser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, context, xmlPullParser) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.StateSet);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.StateSet);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 int index = obtainStyledAttributes.getIndex(i);
-                if (index == R$styleable.StateSet_defaultState) {
+                if (index == 0) {
                     this.mDefaultState = obtainStyledAttributes.getResourceId(index, this.mDefaultState);
                 }
             }

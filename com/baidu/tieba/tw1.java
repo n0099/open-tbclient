@@ -1,32 +1,23 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.swan.apps.storage.PathType;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class tw1 implements ImageAssetDelegate {
+public class tw1 extends ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public int b;
 
-    public tw1(String str) {
+    public tw1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,42 +27,28 @@ public class tw1 implements ImageAssetDelegate {
                 return;
             }
         }
-        PathType s = i83.s(str);
-        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
-            this.a = new File(nm2.U().G().a(str)).getParent();
-        }
+        this.a = Integer.MAX_VALUE;
+        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ew1
+    public void a(fw1 fw1Var, Canvas canvas) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
-            if (lottieImageAsset == null) {
-                return null;
-            }
-            String fileName = lottieImageAsset.getFileName();
-            if (TextUtils.isEmpty(fileName)) {
-                return null;
-            }
-            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf("base64,") > 0) {
-                try {
-                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inScaled = true;
-                    options.inDensity = 160;
-                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
-                } catch (IllegalArgumentException e) {
-                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
-                    return null;
-                }
-            } else if (TextUtils.isEmpty(this.a)) {
-                return null;
-            } else {
-                String dirName = lottieImageAsset.getDirName();
-                return BitmapFactory.decodeFile(new File(TextUtils.isEmpty(dirName) ? new File(this.a) : new File(this.a, dirName), lottieImageAsset.getFileName()).getAbsolutePath());
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || (i = this.a) == Integer.MAX_VALUE || (i2 = this.b) == Integer.MAX_VALUE) {
+            return;
         }
-        return (Bitmap) invokeL.objValue;
+        fw1Var.f.lineTo(i, i2);
+    }
+
+    @Override // com.baidu.tieba.ew1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
+            return;
+        }
+        this.a = pg3.g((float) jSONArray.optDouble(0));
+        this.b = pg3.g((float) jSONArray.optDouble(1));
     }
 }

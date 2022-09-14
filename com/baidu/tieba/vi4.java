@@ -1,66 +1,75 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import android.webkit.WebResourceResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import androidx.webkit.WebViewAssetLoader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 /* loaded from: classes6.dex */
-public final class vi4 implements WebViewAssetLoader.PathHandler {
+public class vi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final File a;
 
-    public vi4(@NonNull Context context, @NonNull File file) {
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
+                return null;
             }
+            return connectivityManager.getActiveNetworkInfo();
         }
-        try {
-            this.a = new File(ui4.a(file));
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
-        }
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-    @NonNull
-    @WorkerThread
-    public WebResourceResponse handle(@NonNull String str) {
-        InterceptResult invokeL;
-        File b;
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                b = ui4.b(this.a, str);
-            } catch (IOException e) {
-                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "2g";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "3g";
+                case 13:
+                case 18:
+                case 19:
+                    return "4g";
+                case 20:
+                    return "5g";
+                default:
+                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
             }
-            if (b != null) {
-                return new WebResourceResponse(ui4.c(str), null, ui4.e(b));
-            }
-            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
-            return new WebResourceResponse(null, null, null);
         }
-        return (WebResourceResponse) invokeL.objValue;
+        return (String) invokeIL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            return (a == null || !a.isConnected()) ? "no" : a.getType() == 1 ? "wifi" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
+        }
+        return (String) invokeV.objValue;
     }
 }

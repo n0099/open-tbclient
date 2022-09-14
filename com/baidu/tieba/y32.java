@@ -2,8 +2,12 @@ package com.baidu.tieba;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.g32;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,63 +15,67 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public abstract class y32 extends e42 {
+public class y32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger c;
-    public ge4 d;
-    public tc3 e;
-    public final p84<z94> f;
+    public final g32 a;
+    public final p32 b;
+    public final d32 c;
+    public SceneType d;
 
     /* loaded from: classes6.dex */
-    public class a extends f42<y32> {
+    public class a implements g32.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y32 b;
+        public final /* synthetic */ r32 a;
+        public final /* synthetic */ f32 b;
+        public final /* synthetic */ y32 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(y32 y32Var, y32 y32Var2) {
-            super(y32Var2);
+        public a(y32 y32Var, r32 r32Var, f32 f32Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y32Var, y32Var2};
+                Object[] objArr = {y32Var, r32Var, f32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((e42) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = y32Var;
+            this.c = y32Var;
+            this.a = r32Var;
+            this.b = f32Var;
         }
 
-        @Override // com.baidu.tieba.f42
-        public void r(@NonNull z94 z94Var) {
+        @Override // com.baidu.tieba.g32.b
+        public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, z94Var) == null) {
-                if (y32.g) {
-                    Log.v("SwanAppDependentPkgDownloadCallback", "onDownloadAndUnzipSuccess:" + z94Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                z22.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                boolean m0 = s92.U().m0();
+                long n = fm2.g0().n();
+                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
+                    this.c.f(networkStatus, this.b, this.a);
                 }
-                this.b.c.incrementAndGet();
-            }
-        }
-
-        @Override // com.baidu.tieba.f42
-        public void u(z94 z94Var, tc3 tc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z94Var, tc3Var) == null) {
-                ay1.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + z94Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + tc3Var);
-                if (this.b.e == null) {
-                    this.b.e = tc3Var;
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.c.d.getScene());
+                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
+                sb.append(m0 ? "框架预加载：已完成；" : "框架预加载：未完成；");
+                sb.append(this.b.a());
+                sb.append(this.a.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.a.c());
+                if (y32.e) {
+                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
                 }
+                a32.g(sb.toString());
             }
         }
     }
@@ -85,7 +93,7 @@ public abstract class y32 extends e42 {
                 return;
             }
         }
-        g = kh1.a;
+        e = ij1.a;
     }
 
     public y32() {
@@ -101,93 +109,61 @@ public abstract class y32 extends e42 {
                 return;
             }
         }
-        this.c = new AtomicInteger(0);
-        this.f = new a(this, this);
+        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
+        this.c = d32.d();
+        this.a = new g32();
+        this.b = p32.d();
     }
 
-    @Override // com.baidu.tieba.t84
-    public void C(s94 s94Var) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s94Var) == null) {
-            super.C(s94Var);
-            ay1.k("SwanAppDependentPkgDownloadCallback", "onFetchError: " + s94Var.toString());
-            tc3 tc3Var = new tc3();
-            tc3Var.k(17L);
-            tc3Var.c(s94Var);
-            Q(tc3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.t84
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            ay1.k("SwanAppDependentPkgDownloadCallback", "onNoPackage");
-            tc3 tc3Var = new tc3();
-            tc3Var.k(17L);
-            tc3Var.i(2901L);
-            tc3Var.d("Server无包");
-            Q(tc3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.t84
-    public void G(ge4 ge4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ge4Var) == null) {
-            super.G(ge4Var);
-            this.d = ge4Var;
-            if (g) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("mStartDownload=");
-                sb.append(ge4Var == null ? 0 : ge4Var.n());
-                Log.e("SwanAppDependentPkgDownloadCallback", sb.toString());
-            }
-        }
-    }
-
-    public abstract void Q(@NonNull tc3 tc3Var);
-
-    public abstract void R();
-
-    @Override // com.baidu.tieba.t84, com.baidu.tieba.q84
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.b();
-            ay1.k("SwanAppDependentPkgDownloadCallback", "onTotalPkgDownloadFinish");
-            ge4 ge4Var = this.d;
-            if (ge4Var == null) {
-                tc3 tc3Var = new tc3();
-                tc3Var.k(17L);
-                tc3Var.i(2900L);
-                tc3Var.d("unknown error.");
-                Q(tc3Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (n32.b().c()) {
+                if (e) {
+                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
+                }
+                n32.b().h(l32.b(str, 3000L));
+                n32.b().f();
                 return;
             }
-            int n = ge4Var.n() - this.c.get();
-            if (n == 0) {
-                R();
-                return;
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
             }
-            if (this.e == null) {
-                tc3 tc3Var2 = new tc3();
-                tc3Var2.k(17L);
-                tc3Var2.i(2900L);
-                tc3Var2.d("unknown error.");
-                this.e = tc3Var2;
+            if (e) {
+                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
             }
-            tc3 tc3Var3 = this.e;
-            tc3Var3.f("failCount:" + n);
-            Q(this.e);
+            p32.d().j();
+            d32.d().j();
+            n32.b().j(true);
+            f32 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
         }
     }
 
-    @Override // com.baidu.tieba.t84
-    public p84<z94> q() {
-        InterceptResult invokeV;
+    public void e(SceneType sceneType) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (p84) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
+            this.d = sceneType;
+        }
+    }
+
+    public final void f(@NonNull NetworkStatus networkStatus, @NonNull f32 f32Var, @NonNull r32 r32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, f32Var, r32Var) == null) {
+            boolean b = f32Var.b();
+            int i = R.string.obfuscated_res_0x7f0f132d;
+            if (b) {
+                i = R.string.obfuscated_res_0x7f0f1332;
+            } else if (r32Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
+                i = R.string.obfuscated_res_0x7f0f1330;
+            } else if (r32Var.e() != RequestStatus.STATUS_FAILED) {
+                if (r32Var.e() == RequestStatus.STATUS_SLOW) {
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f1331 : R.string.obfuscated_res_0x7f0f132e;
+                } else if (r32Var.e() != RequestStatus.STATUS_CORE_FAILED) {
+                    i = R.string.obfuscated_res_0x7f0f132f;
+                }
+            }
+            y22.f(i);
+        }
     }
 }

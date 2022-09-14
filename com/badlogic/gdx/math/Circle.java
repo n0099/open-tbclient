@@ -2,7 +2,7 @@ package com.badlogic.gdx.math;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t7;
+import com.baidu.tieba.u7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ public class Circle implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((t7.b(this.radius) + 41) * 41) + t7.b(this.x)) * 41) + t7.b(this.y) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((u7.b(this.radius) + 41) * 41) + u7.b(this.x)) * 41) + u7.b(this.y) : invokeV.intValue;
     }
 
     public boolean overlaps(Circle circle) {

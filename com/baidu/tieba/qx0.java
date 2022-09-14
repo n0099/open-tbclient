@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public final class qx0 implements ts0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qx0 extends iu0 {
+    void g(@NonNull ht0 ht0Var);
 }

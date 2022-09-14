@@ -1,99 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import androidx.annotation.AnyThread;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zu2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public final class zu2 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static final class a implements vu2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function1 a;
+        public final /* synthetic */ String b;
 
-        public a() {
+        public a(Function1 function1, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function1, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = function1;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.vu2
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONArray c = zu2.c();
+                if (c != null && c.length() != 0) {
+                    int length = c.length();
+                    for (int i = 0; i < length; i++) {
+                        if (Intrinsics.areEqual(this.b, c.get(i))) {
+                            Function1 function1 = this.a;
+                            if (function1 != null) {
+                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    Function1 function12 = this.a;
+                    if (function12 != null) {
+                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
+                        return;
+                    }
+                    return;
+                }
+                Function1 function13 = this.a;
+                if (function13 != null) {
+                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
                 }
             }
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            a13 b0;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b0 = a13.b0()) == null) {
-                return;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("appKey", b0.getAppId());
-            contentValues.put("launch_type", Integer.valueOf(s73.c()));
-            contentValues.put("source", b0.W().T());
-            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-            ContentResolver contentResolver = hk2.c().getContentResolver();
-            if (contentResolver != null) {
-                contentResolver.insert(b82.b(), contentValues);
-            }
+    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
+            uu2.g().z(new a(function1, str));
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948372370, "Lcom/baidu/tieba/zu2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948372370, "Lcom/baidu/tieba/zu2;");
-        }
-    }
-
-    public static int a() {
+    public static final JSONArray c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i = a;
-            if (i != -1) {
-                return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            y23 b0 = y23.b0();
+            if (b0 != null) {
+                String q = b0.e0().q("note_data_pay_check_list", "");
+                if (q == null || StringsKt__StringsJVMKt.isBlank(q)) {
+                    return null;
+                }
+                return new JSONObject(q).optJSONArray("pay_keys");
             }
-            hk2.g0().getSwitch("swan_backstage_policy", 0);
-            a = 300;
-            if (300 < 60) {
-                a = 60;
-            } else if (300 > 3600) {
-                a = 3600;
-            }
-            return a;
+            return null;
         }
-        return invokeV.intValue;
-    }
-
-    @AnyThread
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            ud3.k(new a(), "SwanLaunchBehavior");
-        }
+        return (JSONArray) invokeV.objValue;
     }
 }

@@ -1,53 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.webkit.WebViewAssetLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class vk4 extends rk4 {
+public final class vk4 implements WebViewAssetLoader.PathHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final File a;
 
-    public vk4() {
+    public vk4(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        try {
+            this.a = new File(uk4.a(file));
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
         }
     }
 
-    @Override // com.baidu.tieba.qk4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
+    @NonNull
+    @WorkerThread
+    public WebResourceResponse handle(@NonNull String str) {
+        InterceptResult invokeL;
+        File b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                b = uk4.b(this.a, str);
+            } catch (IOException e) {
+                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
             }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/item");
-            sb.append("?item_id=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
+            if (b != null) {
+                return new WebResourceResponse(uk4.c(str), null, uk4.e(b));
+            }
+            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
+            return new WebResourceResponse(null, null, null);
         }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.qk4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "i" : (String) invokeV.objValue;
+        return (WebResourceResponse) invokeL.objValue;
     }
 }

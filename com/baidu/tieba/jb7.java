@@ -1,74 +1,82 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.LoadDraftMessage;
+import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class jb7 implements hb7 {
+public class jb7 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public va7 a;
+    public int b;
 
-    public jb7() {
+    public jb7(va7 va7Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {va7Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(3);
-        this.a = hashMap;
-        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
-        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
-        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
+        this.a = va7Var;
+        this.b = i;
     }
 
-    @Override // com.baidu.tieba.hb7
-    public boolean a(ChatMessage... chatMessageArr) {
+    public final LoadDraftResponsedMessage a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
+            loadDraftResponsedMessage.setError(-18);
+            return loadDraftResponsedMessage;
+        }
+        return (LoadDraftResponsedMessage) invokeI.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) ? this.a.containsKey(c(chatMessageArr)) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hb7
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) == null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
-            return;
-        }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f0920a8);
-        if (chatMessageArr == null || chatMessageArr.length <= 1) {
-            return;
-        }
-        ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
-    }
-
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr == null || chatMessageArr.length <= 0 || chatMessageArr[0] == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
+            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
+                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
+                String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
+                LoadDraftMessage.a data = loadDraftMessage.getData();
+                ChatSetting a = this.a.a(id, data.a);
+                if (a == null) {
+                    return a(loadDraftMessage.getCmd());
+                }
+                String draft = a.getDraft();
+                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
+                aVar.a = draft;
+                String str = data.a;
+                try {
+                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return loadDraftResponsedMessage;
             }
-            return chatMessageArr[0].getContent();
+            return a(this.b);
         }
-        return (String) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,48 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class et3 extends ft3 {
+public class et3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dt3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public et3() {
-        super("echoSync");
+    public static synchronized dt3 a() {
+        InterceptResult invokeV;
+        dt3 dt3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (et3.class) {
+                if (a == null) {
+                    a = new dt3();
+                }
+                dt3Var = a;
             }
+            return dt3Var;
         }
-    }
-
-    @Override // com.baidu.tieba.ft3
-    public at1 a(@NonNull JSONObject jSONObject, @NonNull ee2 ee2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ee2Var)) == null) {
-            int optInt = jSONObject.optInt("status", 0);
-            String optString = jSONObject.optString("message");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optInt == 0) {
-                return new at1(optInt, optJSONObject);
-            }
-            return new at1(optInt, optString);
-        }
-        return (at1) invokeLL.objValue;
+        return (dt3) invokeV.objValue;
     }
 }

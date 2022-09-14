@@ -1,65 +1,32 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface wk1 {
-    boolean A();
+public class wk1 implements tm1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean B();
+    public wk1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean C();
-
-    JSONObject D();
-
-    boolean E();
-
-    void F();
-
-    long G();
-
-    boolean H();
-
-    long I();
-
-    JSONObject getRawSwitch();
-
-    int getSwitch(String str, int i);
-
-    String getSwitch(String str, String str2);
-
-    boolean getSwitch(String str, boolean z);
-
-    boolean j();
-
-    String k();
-
-    boolean l();
-
-    boolean m();
-
-    long n();
-
-    boolean o();
-
-    String p();
-
-    boolean q();
-
-    int r();
-
-    boolean s();
-
-    boolean t();
-
-    boolean u();
-
-    int v();
-
-    boolean w();
-
-    boolean x();
-
-    boolean y();
-
-    int z();
+    @Override // com.baidu.tieba.tm1
+    public void a(String str, xz2 xz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, xz2Var) == null) {
+        }
+    }
 }

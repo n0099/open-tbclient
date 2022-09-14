@@ -38,19 +38,19 @@ public class u implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        t c0512a;
+        t c0517a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
                 v vVar = this.a;
                 int i = t.a.a;
                 if (iBinder == null) {
-                    c0512a = null;
+                    c0517a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IDeviceidInterface.Stub.DESCRIPTOR);
-                    c0512a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C0512a(iBinder) : (t) queryLocalInterface;
+                    c0517a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C0517a(iBinder) : (t) queryLocalInterface;
                 }
-                vVar.b = c0512a;
+                vVar.b = c0517a;
                 v vVar2 = this.a;
                 v.a aVar = vVar2.d;
                 if (aVar != null) {

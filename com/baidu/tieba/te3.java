@@ -1,158 +1,106 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class te3 {
+public final class te3<ValueT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public ValueT b;
+    public a<ValueT> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948178279, "Lcom/baidu/tieba/te3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948178279, "Lcom/baidu/tieba/te3;");
+    /* loaded from: classes5.dex */
+    public interface a<ValueT> {
+        ValueT update() throws IllegalStateException;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.ve3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public te3(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
+        this.a = str;
+        ve3.a().h(this);
     }
 
-    public static String a() {
+    public CharSequence a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a13.M() != null ? a13.M().b : "" : (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? od3.b(od3.a(), "yyyy-MM-dd") : (String) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            JSONObject d = d(a());
-            if (d != null) {
-                return d.optInt("launch_count", 0);
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ValueT valuet = this.b;
+            return valuet == null ? "" : valuet.toString();
         }
-        return invokeV.intValue;
+        return (CharSequence) invokeV.objValue;
     }
 
-    public static JSONObject d(String str) {
+    public te3<ValueT> b(a<ValueT> aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String string = o93.a().getString("dailyInfo", "");
-            if (a) {
-                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
-            }
-            JSONObject jSONObject = null;
-            try {
-                JSONObject jSONObject2 = TextUtils.isEmpty(string) ? new JSONObject() : new JSONObject(string);
-                if (f(jSONObject2)) {
-                    jSONObject2.put("date", b());
-                }
-                jSONObject = jSONObject2.optJSONObject(str);
-                if (jSONObject == null) {
-                    jSONObject2.put(str, new JSONObject());
-                    o93.a().putString("dailyInfo", jSONObject2.toString());
-                    return jSONObject;
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            this.c = aVar;
+            update();
+            return this;
         }
-        return (JSONObject) invokeL.objValue;
+        return (te3) invokeL.objValue;
     }
 
-    public static long e() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            JSONObject d = d(a());
-            long optLong = d != null ? d.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-            if (d != null) {
-                return d.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a()) : (String) invokeV.objValue;
     }
 
-    public static boolean f(JSONObject jSONObject) {
+    public boolean update() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? update((a) this.c) : invokeV.booleanValue;
+    }
+
+    public boolean update(a<ValueT> aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String b = b();
-            String optString = jSONObject.optString("date", "");
-            return TextUtils.isEmpty(optString) || !optString.equals(b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+            if (aVar != null) {
+                try {
+                    return update((te3<ValueT>) aVar.update());
+                } catch (IllegalStateException e) {
+                    yz1.o("Tracer", "index update IllegalStateException " + e.getMessage());
+                    return false;
+                }
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static void g(long j) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.ve3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean update(ValueT valuet) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
-            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, valuet)) == null) {
+            this.b = valuet;
+            ve3.a().e(this);
+            return true;
         }
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            i(a(), "visit_duration", Long.valueOf(e()));
-        }
-    }
-
-    public static void i(String str, String str2, Object obj) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
-            String string = o93.a().getString("dailyInfo", "");
-            if (a) {
-                Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
-            }
-            try {
-                if (TextUtils.isEmpty(string)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(string);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str);
-                if (optJSONObject != null) {
-                    optJSONObject.put(str2, obj);
-                } else {
-                    jSONObject.put(str, new JSONObject());
-                }
-                o93.a().putString("dailyInfo", jSONObject.toString());
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

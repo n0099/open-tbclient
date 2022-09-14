@@ -1,179 +1,221 @@
 package com.baidu.tieba;
 
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.SystemProperties;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.down.utils.Constants;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.tieba.u70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class v80 {
+public class v80 {
     public static /* synthetic */ Interceptable $ic;
-    public static final v80 a;
-    public static final v80 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends v80 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.v80
-        public float a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? f : invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.v80
-        public float b(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? f : invokeF.floatValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends v80 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Interpolator c;
-        public final Interpolator d;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public b() {
-            this(0.8f);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    this(((Float) newInitContext.callArgs[0]).floatValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.v80
-        public float a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? this.c.getInterpolation(f) : invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.v80
-        public float b(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? this.d.getInterpolation(f) : invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.v80
-        public float c(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) ? 1.0f / ((1.0f - a(f)) + b(f)) : invokeF.floatValue;
-        }
-
-        public b(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.c = new AccelerateInterpolator(f);
-            this.d = new DecelerateInterpolator(f);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194523, "Lcom/baidu/tieba/v80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948194523, "Lcom/baidu/tieba/v80;");
-                return;
-            }
-        }
-        a = new b();
-        b = new a();
-    }
-
-    public v80() {
+    public static void a(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
+            try {
+                u70.c cVar = new u70.c(context);
+                cVar.e(str);
+                cVar.f("1");
+                cVar.c(j);
+                cVar.d(str2);
+                cVar.a(501112L);
+                cVar.b();
+            } catch (Exception e) {
+                y80.c("LCPCommon", "businessEvent exception ", e);
             }
         }
     }
 
-    public static v80 d(int i) {
-        InterceptResult invokeI;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                y80.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Object c(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String str = Build.VERSION.RELEASE;
+            String str2 = Build.MANUFACTURER;
+            String str3 = Build.MODEL;
+            String b = TextUtils.isEmpty(b(context)) ? "" : b(context);
+            long currentTimeMillis = System.currentTimeMillis();
+            String b2 = z80.b(context);
+            String e = z80.e(context);
+            try {
+                if (z) {
+                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
+                        jSONObject.put("cuid", e);
+                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
+                        jSONObject.put(HttpConstants.OS_VERSION, str);
+                        jSONObject.put("manufacture", str2);
+                        jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);
+                        jSONObject.put("app_id", z80.b(context));
+                        jSONObject.put("app_version", b);
+                        jSONObject.put("sdk_version", "2280016");
+                        jSONObject.put("ts", currentTimeMillis);
+                        jSONObject.put("sign", f(b2, e, "android", currentTimeMillis));
+                        return jSONObject;
+                    }
+                    y80.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
+                    return null;
                 }
-                return b;
+                String str4 = "nonNet";
+                if (RequsetNetworkUtils.isNetworkAvailable(context)) {
+                    str4 = RequsetNetworkUtils.isWifiConnected(context) ? "wifi" : RequsetNetworkUtils.getMobileType(context);
+                }
+                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
+                newBuilder.w(e);
+                newBuilder.x("android");
+                newBuilder.B(str);
+                newBuilder.y(str2);
+                newBuilder.z(str3);
+                newBuilder.u(b2);
+                newBuilder.v(b);
+                newBuilder.D("2280016");
+                newBuilder.A(str4);
+                newBuilder.C(d(context));
+                return newBuilder.build();
+            } catch (Exception e2) {
+                y80.c("LCPCommon", "getData :", e2);
+                return null;
             }
-            return a;
         }
-        return (v80) invokeI.objValue;
+        return invokeLZ.objValue;
     }
 
-    public abstract float a(float f);
-
-    public abstract float b(float f);
-
-    public float c(float f) {
-        InterceptResult invokeF;
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-            return 1.0f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String upperCase = Build.MANUFACTURER.toUpperCase();
+            String str3 = "";
+            if (upperCase.contains("XIAOMI")) {
+                str = "ro.miui.ui.version.code";
+            } else if (upperCase.contains("HUAWEI")) {
+                str = "ro.build.version.emui";
+            } else if (upperCase.contains("MEIZU")) {
+                str = RomUtils.PROP_RO_BUILD_DISPLAY_ID;
+            } else if (upperCase.contains("OPPO")) {
+                str = "ro.build.version.opporom";
+            } else {
+                str = upperCase.contains("VIVO") ? "ro.vivo.os.version" : "";
+            }
+            try {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    str2 = SystemProperties.get(str);
+                } else {
+                    Class<?> cls = Class.forName("android.os.SystemProperties");
+                    str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
+                }
+                str3 = str2;
+            } catch (Throwable unused) {
+                if (Build.VERSION.SDK_INT >= 21 && upperCase.contains("HUAWEI")) {
+                    return Constants.SDK_VER;
+                }
+                if (upperCase.contains("HUAWEI")) {
+                    return "1.0";
+                }
+                if (upperCase.contains("XIAOMI")) {
+                    return "4.0";
+                }
+                if (upperCase.contains("MEIZU")) {
+                    return "6.0";
+                }
+                if (upperCase.contains("OPPO")) {
+                    return "3.0";
+                }
+                if (upperCase.contains("VIVO")) {
+                    return "3.2";
+                }
+            }
+            if (upperCase.contains("HUAWEI") && !TextUtils.isEmpty(str3)) {
+                String substring = str3.substring(str3.indexOf("_") + 1, str3.length());
+                return (substring.matches("\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? substring : Constants.SDK_VER;
+            }
+            if (upperCase.contains("MEIZU")) {
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = Build.DISPLAY;
+                }
+                Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str3);
+                if (matcher.find()) {
+                    str3 = matcher.group();
+                }
+            } else if (upperCase.contains("OPPO") && !TextUtils.isEmpty(str3)) {
+                Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str3);
+                if (matcher2.find()) {
+                    str3 = matcher2.group(1);
+                }
+            } else if (upperCase.contains("VIVO") && !TextUtils.isEmpty(str3)) {
+                Matcher matcher3 = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str3);
+                if (matcher3.find()) {
+                    return matcher3.group();
+                }
+            }
+            return str3;
         }
-        return invokeF.floatValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            try {
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b : digest) {
+                    int i = b & 255;
+                    if (i < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i));
+                }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public static String f(String str, String str2, String str3, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) ? e(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j))) : (String) invokeCommon.objValue;
     }
 }

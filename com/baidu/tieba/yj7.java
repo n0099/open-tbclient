@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
+import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yj7 implements LiveCustomSettingService {
+public final class yj7 extends se1<LiveUserSecurityBehaviorService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,10 +26,12 @@ public class yj7 implements LiveCustomSettingService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService
-    public boolean isFreeTrafficMode() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.se1
+    /* renamed from: a */
+    public LiveUserSecurityBehaviorService createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bt8.c().d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LiveUserSecurityBehaviorServiceImpl() : (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

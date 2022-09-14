@@ -7,7 +7,7 @@ import android.opengl.GLUtils;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.b89;
+import com.baidu.tieba.ec9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -177,7 +177,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setup();
-            this.isAr = b89.c().i();
+            this.isAr = ec9.c().i();
             this.mFullScreenFUDisplay = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         }
     }

@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ug4 {
+public abstract class ug4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public SparseIntArray b;
-    public ArrayList<String> c;
-    public long d;
-    public long e;
-    public String f;
-    public boolean g;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onBackStackChanged();
+    }
 
     public ug4() {
         Interceptable interceptable = $ic;
@@ -32,71 +28,19 @@ public class ug4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = false;
-        this.a = new JSONArray();
-        this.b = new SparseIntArray();
-        this.c = new ArrayList<>();
-        this.d = 0L;
-        this.e = 0L;
-        this.f = "0";
-    }
-
-    public final void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a.put(jSONObject);
-        }
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.toString().getBytes().length >= i : invokeI.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.clear();
-            this.c.clear();
-            this.a = null;
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.length() == 0 : invokeV.booleanValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.c.contains(str)) {
-            return;
-        }
-        this.c.add(str);
-    }
-
-    public final void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.b.put(i, i2);
-        }
-    }
-
-    public final void g(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long j3 = this.d;
-            if ((j < j3 || j3 == 0) && j != 0) {
-                this.d = j;
-            }
-            if (j2 > this.e) {
-                this.e = j2;
             }
         }
     }
+
+    public abstract wg4 a();
+
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+
+    public abstract boolean c();
+
+    public abstract List<Fragment> d();
+
+    public abstract void e(int i, int i2);
+
+    public abstract boolean f();
 }

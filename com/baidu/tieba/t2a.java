@@ -1,34 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import android.app.Activity;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes5.dex */
-public class t2a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface t2a extends l2a {
+    boolean b(PayFlowType payFlowType);
 
-    public static void a(Dialog dialog, PayDialogType payDialogType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
-                return;
-            }
-            dialog.dismiss();
-        }
-    }
+    void c(Activity activity);
 
-    public static void b(Dialog dialog, PayDialogType payDialogType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
-                return;
-            }
-            dialog.cancel();
-        }
-    }
+    void d(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void e(PayFlowType payFlowType);
+
+    void f(String str, PayFlowType payFlowType);
+
+    boolean g();
+
+    void h(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
+
+    void j(String str, PayFlowType payFlowType);
+
+    void refreshWindow(WindowParams windowParams);
+
+    void release();
 }

@@ -1,218 +1,112 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class qn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
-    public PopupWindow b;
-    public FragmentTabHost c;
-    public String d;
-    public long e;
-    public View f;
-    public TextView g;
-    public TextView h;
-    public Runnable i;
-    public Runnable j;
-    public View.OnClickListener k;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qn8 a;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String[] split3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (dj.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
+                return null;
+            }
+            return split3[split3.length - 1];
+        }
+        return (String) invokeL.objValue;
+    }
 
-        public a(qn8 qn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("upgrade");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String str2;
+        String[] split3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (!dj.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
+                    return str2.substring(0, (str2.length() - str3.length()) - 1);
                 }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
-            this.a = qn8Var;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null || this.a.b == null || this.a.b.getContentView() == null) {
-                return;
-            }
-            FragmentTabWidget fragmentTabWidget = this.a.c.getFragmentTabWidget();
-            int k = ri.k(this.a.a.getActivity());
-            int f = ri.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f070291);
-            this.a.b.getContentView().measure(0, 0);
-            ug.l(this.a.b, fragmentTabWidget, (k - ri.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0702c1)) / 2, -f);
-            su4.k().x("home_tip", this.a.e);
-            sg.a().postDelayed(this.a.j, 5000L);
-            TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qn8 a;
-
-        public b(qn8 qn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qn8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qn8 a;
-
-        public c(qn8 qn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qn8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.h();
-                if (WriteActivityConfig.isAsyncWriting()) {
-                    return;
-                }
-                WriteActivityConfig.newInstance(this.a.a).setType(9).setTitle(this.a.d).setForumId("0").send();
-                TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 1));
-            }
-        }
-    }
-
-    public qn8(MainTabActivity mainTabActivity) {
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
             }
+            return parse.getQueryParameter("notificationName");
         }
-        this.i = new a(this);
-        this.j = new b(this);
-        this.k = new c(this);
-        this.a = mainTabActivity;
-        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091fc3);
+        return (String) invokeL.objValue;
     }
 
-    public void g() {
+    public static JSONObject f(String str) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ug.c(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return new JSONObject();
+            }
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return new JSONObject();
+            }
+            String queryParameter = parse.getQueryParameter("params");
+            if (dj.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            return new JSONObject(queryParameter);
         }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sg.a().removeCallbacks(this.i);
-            sg.a().removeCallbacks(this.j);
-            g();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            h();
-        }
-    }
-
-    public void j(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || su4.k().m("home_tip", 0L) == j || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            return;
-        }
-        this.d = str2;
-        this.e = j;
-        if (this.f == null) {
-            View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0877, (ViewGroup) null);
-            this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921c0);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921c1);
-            this.f.setOnClickListener(this.k);
-        }
-        this.g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
-        this.h.setText(R.string.obfuscated_res_0x7f0f143f);
-        if (this.b == null) {
-            this.b = new PopupWindow(this.f, -2, -2);
-        } else {
-            h();
-        }
-        sg.a().removeCallbacks(this.i);
-        sg.a().postDelayed(this.i, 100L);
+        return (JSONObject) invokeL.objValue;
     }
 }

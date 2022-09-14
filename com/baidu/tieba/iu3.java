@@ -1,44 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class iu3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile iu3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
 
-    public static JSONObject a(boolean z) {
-        InterceptResult invokeZ;
+    public iu3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isEnded", z);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeZ.objValue;
+        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
     }
 
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
+    public static iu3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", mq3.a(str));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (iu3.class) {
+                    if (b == null) {
+                        b = new iu3();
+                    }
+                }
             }
-            return jSONObject;
+            return b;
         }
-        return (JSONObject) invokeL.objValue;
+        return (iu3) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getBoolean("gamecenter_wifi_resume_download_flag", false) : invokeV.booleanValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
+            edit.apply();
+        }
     }
 }

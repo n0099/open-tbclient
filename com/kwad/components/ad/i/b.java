@@ -49,7 +49,7 @@ public class b {
     public c.a Ce;
     public a Cf;
     @Nullable
-    public InterfaceC0531b Cg;
+    public InterfaceC0536b Cg;
     public KsAdWebView bF;
     public int bH;
     public aa bI;
@@ -74,7 +74,7 @@ public class b {
 
     /* renamed from: com.kwad.components.ad.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0531b {
+    public interface InterfaceC0536b {
         void hk();
     }
 
@@ -287,7 +287,7 @@ public class b {
     public static int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? R.layout.obfuscated_res_0x7f0d0409 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? R.layout.obfuscated_res_0x7f0d040d : invokeV.intValue;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -403,10 +403,10 @@ public class b {
         }
     }
 
-    public final void a(@Nullable InterfaceC0531b interfaceC0531b) {
+    public final void a(@Nullable InterfaceC0536b interfaceC0536b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0531b) == null) {
-            this.Cg = interfaceC0531b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0536b) == null) {
+            this.Cg = interfaceC0536b;
             this.bS.setVisibility(4);
             this.bH = -1;
             String l = l(this.mAdTemplate);
@@ -564,7 +564,7 @@ public class b {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091220);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09123e);
             this.bF = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.bF.getBackground().setAlpha(0);

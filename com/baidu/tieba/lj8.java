@@ -1,108 +1,143 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.square.ForumSquareActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lj8 {
+public class lj8 extends qn<nj8, CardViewHolder<ek8>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public v16<nj8> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947944911, "Lcom/baidu/tieba/lj8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a extends v16<nj8> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lj8 b;
+
+        public a(lj8 lj8Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lj8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947944911, "Lcom/baidu/tieba/lj8;");
+            this.b = lj8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v16
+        /* renamed from: d */
+        public void a(View view2, nj8 nj8Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, nj8Var) == null) && nj8Var != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
+                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).z1().getClassName();
+                if (!"推荐".equals(className)) {
+                    StatisticItem statisticItem = new StatisticItem("c13652");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", nj8Var.a);
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, className);
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13643");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("fid", nj8Var.a);
+                statisticItem2.param("obj_locate", 3);
+                TiebaStatic.log(statisticItem2);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lj8(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), nj8.h);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ThemeElement.Builder builder = new ThemeElement.Builder();
-        builder.common_color = "#FF614EC2";
-        builder.dark_color = "#FF614EC2";
-        builder.light_color = "#FF614EC2";
-        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
-        builder.font_color = "#FFFFFFFF";
-        a = builder.build(false);
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public static int a(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
-    }
-
-    @NonNull
-    public static ThemeElement b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ThemeElement) invokeV.objValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            float[] fArr = new float[3];
-            Color.colorToHSV(i, fArr);
-            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
-                fArr[0] = fArr[0] + 15.0f;
-            } else {
-                fArr[0] = fArr[0] - 15.0f;
-            }
-            return Color.HSVToColor(fArr);
-        }
-        return invokeI.intValue;
-    }
-
-    public static int d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (context == null || context.getResources() == null) {
-                return 0;
-            }
-            return context.getResources().getIdentifier(str, "color", context.getPackageName());
-        }
-        return invokeLL.intValue;
-    }
-
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
-    }
-
-    public static int f(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public CardViewHolder<ek8> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null) {
-                if (str.length() != 0) {
-                    try {
-                        if (!str.startsWith("#")) {
-                            str = "#" + str;
-                        }
-                    } catch (Exception unused) {
-                        return Integer.MAX_VALUE;
-                    }
-                }
-                return Color.parseColor(str);
-            }
-            return Integer.MAX_VALUE;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ek8 ek8Var = new ek8(this.a);
+            ek8Var.o(this.mPageId);
+            return new CardViewHolder<>(ek8Var);
         }
-        return invokeL.intValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nj8 nj8Var, CardViewHolder<ek8> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nj8Var, cardViewHolder})) == null) {
+            if (nj8Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().i(nj8Var);
+            cardViewHolder.a().n(this.b);
+            if (this.a.getPageActivity() instanceof ForumSquareActivity) {
+                String className = ((ForumSquareActivity) this.a.getPageActivity()).z1().getClassName();
+                if (!"推荐".equals(className)) {
+                    StatisticItem statisticItem = new StatisticItem("c13651");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", nj8Var.a);
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, className);
+                    TiebaStatic.log(statisticItem);
+                } else {
+                    StatisticItem statisticItem2 = new StatisticItem("c13642");
+                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem2.param("fid", nj8Var.f());
+                    statisticItem2.param("obj_locate", 3);
+                    TiebaStatic.log(statisticItem2);
+                }
+            }
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

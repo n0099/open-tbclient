@@ -1,96 +1,133 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.lp1;
+import androidx.core.view.InputDeviceCompat;
+import androidx.media2.session.SessionCommand;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-@Service
 /* loaded from: classes5.dex */
-public class s34 extends lp1 implements mi1 {
+public class s34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<lp1.a> a;
 
-    public s34() {
+    public static void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-    }
-
-    @Nullable
-    public static s34 c() {
-        InterceptResult invokeV;
-        ww3 ww3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            j02 V = nm2.U().V();
-            if (V == null || (ww3Var = (ww3) V.n(ww3.class)) == null) {
-                return null;
-            }
-            return ww3Var.u3();
-        }
-        return (s34) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lp1
-    public synchronized void a(lp1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (!this.a.contains(aVar)) {
-                    this.a.add(aVar);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLL(65536, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            z34 z34Var = new z34();
+            z34Var.a = str;
+            p34.c().a(new o34(50000, z34Var));
         }
     }
 
-    @Override // com.baidu.tieba.lp1
-    public synchronized void b(int i) {
+    public static void b(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                Iterator<lp1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().b(i);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            z34 z34Var = new z34();
+            z34Var.a = str;
+            p34.c().a(new o34(90000, z34Var));
         }
     }
 
-    public synchronized void d() {
+    public static void c(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Iterator<lp1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                this.a.clear();
-            }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            w34 w34Var = new w34();
+            w34Var.b = str;
+            w34Var.c = i;
+            w34Var.d = z ? 1 : 0;
+            w34Var.a = str2;
+            p34.c().a(new o34(100000, w34Var));
         }
     }
 
-    @Override // com.baidu.tieba.mi1
-    public lp1 getInstance() {
-        InterceptResult invokeV;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c() : (lp1) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            z34 z34Var = new z34();
+            z34Var.a = str;
+            p34.c().a(new o34(20000, z34Var));
+        }
+    }
+
+    public static void e(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            z34 z34Var = new z34();
+            z34Var.a = str;
+            p34.c().a(new o34(60000, z34Var));
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            z34 z34Var = new z34();
+            z34Var.a = str;
+            p34.c().a(new o34(10000, z34Var));
+        }
+    }
+
+    public static void g(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            z34 z34Var = new z34();
+            z34Var.a = str;
+            p34.c().a(new o34(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, z34Var));
+        }
+    }
+
+    public static void h(String str, int i, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            w34 w34Var = new w34();
+            w34Var.b = str;
+            w34Var.c = i;
+            w34Var.d = z ? 1 : 0;
+            w34Var.a = str2;
+            p34.c().a(new o34(70000, w34Var));
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            x34 x34Var = new x34();
+            x34Var.b = str;
+            x34Var.a = str2;
+            p34.c().a(new o34(30000, x34Var));
+        }
+    }
+
+    public static void j(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
+            y34 y34Var = new y34();
+            y34Var.b = str;
+            y34Var.c = i;
+            y34Var.a = str2;
+            p34.c().a(new o34(80000, y34Var));
+        }
+    }
+
+    public static void k(String str, int i, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            w34 w34Var = new w34();
+            w34Var.b = str;
+            w34Var.c = i;
+            w34Var.d = z ? 1 : 0;
+            w34Var.a = str2;
+            p34.c().a(new o34(110000, w34Var));
+        }
+    }
+
+    public static void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            z34 z34Var = new z34();
+            z34Var.a = str;
+            p34.c().a(new o34(120000, z34Var));
+        }
     }
 }

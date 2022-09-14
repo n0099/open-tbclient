@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.p07;
+import com.baidu.tieba.a27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.UnreadTip.UnreadTipResIdl;
 public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p07 mData;
+    public a27 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipSocketResMsg() {
@@ -49,9 +49,9 @@ public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
                     setErrorString(unreadTipResIdl.error.errmsg);
                 }
                 if (unreadTipResIdl.data != null) {
-                    p07 p07Var = new p07();
-                    this.mData = p07Var;
-                    p07Var.b(unreadTipResIdl.data);
+                    a27 a27Var = new a27();
+                    this.mData = a27Var;
+                    a27Var.b(unreadTipResIdl.data);
                 }
             }
             return unreadTipResIdl;

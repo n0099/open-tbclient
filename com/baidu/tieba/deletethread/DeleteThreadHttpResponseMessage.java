@@ -17,8 +17,6 @@ import org.json.JSONObject;
 public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int blockFail;
-    public int blockSuccess;
     public ArrayList<String> failItems;
     public int retType;
     public ArrayList<String> successItems;
@@ -42,40 +40,22 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public int getBlockFail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.blockFail : invokeV.intValue;
-    }
-
-    public int getBlockSuccess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.blockSuccess : invokeV.intValue;
-    }
-
-    public ArrayList<String> getFailItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.failItems : (ArrayList) invokeV.objValue;
-    }
-
     public int getRetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.retType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.retType : invokeV.intValue;
     }
 
     public ArrayList<String> getSuccessItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.successItems : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.successItems : (ArrayList) invokeV.objValue;
     }
 
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.text : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.text : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,8 +72,6 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
             setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
             JSONObject optJSONObject = jSONObject.optJSONObject("info");
             if (optJSONObject != null) {
-                this.blockSuccess = optJSONObject.optInt("block_success");
-                this.blockFail = optJSONObject.optInt("block_fail");
                 this.retType = optJSONObject.optInt("ret_type");
                 this.text = optJSONObject.optString("text");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("del_fail");

@@ -1,152 +1,291 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public class oa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public final Handler c;
 
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oa a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(oa oaVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oaVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(LinkedList<qa> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkedList)) == null) {
+            if (linkedList == null) {
+                return false;
             }
-            this.a = oaVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 1) {
-                    return;
-                }
-                this.a.c.removeMessages(1);
-                BdLog.i("this is reconn time:" + this.a.b);
-                BdSocketLinkService.startService(true, "time to reconnStragety");
-                oa.c(this.a);
-                if (pi.z()) {
-                    if (this.a.b >= nh.o().q("alert_im", 3)) {
-                        BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                        bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.b) + "_times");
+            Iterator<qa> it = linkedList.iterator();
+            while (it.hasNext()) {
+                qa next = it.next();
+                if (next != null && next.i()) {
+                    next.g();
+                    if (next.o() >= next.l()) {
+                        return true;
                     }
                 }
-                int[] c = fa.c();
-                if (c != null && this.a.b < c.length) {
-                    BdLog.i("Next will be delay:" + c[this.a.b]);
-                    this.a.c.sendMessageDelayed(this.a.c.obtainMessage(1), (long) (c[this.a.b] * 1000));
-                    return;
-                }
-                this.a.f("reconnStragety to the end");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(LinkedList<qa> linkedList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, linkedList) == null) || linkedList == null) {
+            return;
+        }
+        Iterator<qa> it = linkedList.iterator();
+        while (it.hasNext()) {
+            qa next = it.next();
+            if (next != null) {
+                next.j();
             }
         }
     }
 
-    public oa() {
+    public static boolean c(LinkedList<qa> linkedList, int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLIL;
+        SocketMessage m;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, linkedList, i, bdUniqueId)) == null) {
+            Iterator<qa> it = linkedList.iterator();
+            while (it.hasNext()) {
+                qa next = it.next();
+                if (next != null && (m = next.m()) != null) {
+                    if (i != 0 && m.getTag() == bdUniqueId && i == m.getCmd()) {
+                        return true;
+                    }
+                    if (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static boolean d(LinkedList<qa> linkedList, ma maVar, int i) {
+        InterceptResult invokeLLI;
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, linkedList, maVar, i)) == null) {
+            if (maVar == null) {
+                return false;
+            }
+            Iterator<qa> it = linkedList.iterator();
+            while (it.hasNext()) {
+                qa next = it.next();
+                if (next != null && (m = next.m()) != null && m.getCmd() == i && maVar.onFindMessage(m)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean e(LinkedList<qa> linkedList, int i) {
+        InterceptResult invokeLI;
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedList, i)) == null) {
+            Iterator<qa> it = linkedList.iterator();
+            while (it.hasNext()) {
+                qa next = it.next();
+                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static qa f(LinkedList<qa> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, linkedList)) == null) {
+            if (linkedList == null || linkedList.size() <= 0) {
+                return null;
+            }
+            return linkedList.peek();
+        }
+        return (qa) invokeL.objValue;
+    }
+
+    public static int g(qa qaVar, LinkedList<qa> linkedList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, qaVar, linkedList)) == null) {
+            if (qaVar == null || linkedList == null) {
+                return -1;
+            }
+            int size = linkedList.size();
+            int i = 0;
+            while (i < size && linkedList.get(i).n() <= qaVar.n()) {
+                i++;
+            }
+            return i;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean h(qa qaVar, LinkedList<qa> linkedList) {
+        InterceptResult invokeLL;
+        int g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, qaVar, linkedList)) == null) {
+            if (qaVar == null || linkedList == null || (g = g(qaVar, linkedList)) < 0 || g > linkedList.size()) {
+                return false;
+            }
+            linkedList.add(g, qaVar);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean i(LinkedList<qa> linkedList, LinkedList<qa> linkedList2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, linkedList, linkedList2)) != null) {
+            return invokeLL.booleanValue;
+        }
+        if (linkedList == null || linkedList2 == null || linkedList2.size() <= 0) {
+            return false;
+        }
+        while (true) {
+            qa poll = linkedList2.poll();
+            if (poll == null) {
+                return true;
+            }
+            h(poll, linkedList);
+        }
+    }
+
+    public static boolean j(LinkedList<qa> linkedList, LinkedList<qa> linkedList2, qa qaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, linkedList, linkedList2, qaVar)) == null) {
+            if (qaVar == null || linkedList == null || linkedList2 == null || !linkedList.remove(qaVar)) {
+                return false;
+            }
+            linkedList2.add(qaVar);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static qa k(LinkedList<qa> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, linkedList)) == null) {
+            if (linkedList == null) {
+                return null;
+            }
+            Iterator<qa> it = linkedList.iterator();
+            while (it.hasNext()) {
+                qa next = it.next();
+                if (next != null && !next.i()) {
+                    it.remove();
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (qa) invokeL.objValue;
+    }
+
+    public static qa l(LinkedList<qa> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, linkedList)) == null) {
+            if (linkedList == null || linkedList.size() <= 0) {
+                return null;
+            }
+            return linkedList.poll();
+        }
+        return (qa) invokeL.objValue;
+    }
+
+    public static void m(LinkedList<qa> linkedList, int i, BdUniqueId bdUniqueId) {
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65548, null, linkedList, i, bdUniqueId) == null) || linkedList == null) {
+            return;
+        }
+        Iterator<qa> it = linkedList.iterator();
+        while (it.hasNext()) {
+            qa next = it.next();
+            if (next != null && (m = next.m()) != null && ((i != 0 && m.getTag() == bdUniqueId && i == m.getCmd()) || (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId))) {
+                it.remove();
+                next.w();
             }
         }
-        this.a = false;
-        this.b = 0;
-        this.c = new a(this, Looper.getMainLooper());
     }
 
-    public static /* synthetic */ int c(oa oaVar) {
-        int i = oaVar.b;
-        oaVar.b = i + 1;
-        return i;
-    }
-
-    public final void d() {
+    public static boolean n(qa qaVar, LinkedList<qa> linkedList) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, qaVar, linkedList)) == null) {
+            if (qaVar == null || linkedList == null) {
+                return false;
+            }
+            return linkedList.remove(qaVar);
         }
+        return invokeLL.booleanValue;
     }
 
-    public void e(String str) {
+    public static void o(LinkedList<qa> linkedList, int i) {
+        SocketMessage m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (!BdSocketLinkService.isAvailable()) {
-                f("online failed 5");
-            } else if (!this.a) {
-                this.a = true;
-                this.c.removeMessages(1);
-                if (qj.j().l()) {
-                    BdLog.d("启动重连策略失败，  WebSocketClient opened");
-                    f("in Opened");
-                    return;
+        if (interceptable == null || interceptable.invokeLI(65550, null, linkedList, i) == null) {
+            Iterator<qa> it = linkedList.iterator();
+            while (it.hasNext()) {
+                qa next = it.next();
+                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
+                    it.remove();
                 }
-                d();
-                BdLog.d("启动重连策略");
-                this.b = 0;
-                int[] c = fa.c();
-                if (c != null && c.length >= 1) {
-                    BdLog.i("start reconnStrategy... the first will be delay" + c[0]);
-                    int i = BdSocketLinkService.STOP_RECONN;
-                    ga.a("reconn", 0, 0, "reconn", i, str + " retryTimes=" + String.valueOf(this.b));
-                    Handler handler = this.c;
-                    handler.sendMessageDelayed(handler.obtainMessage(1), (long) (c[0] * 1000));
-                    return;
-                }
-                BdLog.i("don't have reconnStrategy!");
-            } else {
-                BdLog.d("重连策略正在运行中， 再次启动无效");
-                ga.a("reconn", 0, 0, "start", BdSocketLinkService.ALLREADY, "have in Running,so invalid");
             }
         }
     }
 
-    public void f(String str) {
+    public static qa p(int i, LinkedList<qa> linkedList) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a) {
-            ga.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
-            this.a = false;
-            this.b = 0;
-            BdLog.i("stop reconnStrategy");
-            this.c.removeMessages(1);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i, linkedList)) == null) {
+            if (linkedList == null) {
+                return null;
+            }
+            Iterator<qa> it = linkedList.iterator();
+            while (it.hasNext()) {
+                qa next = it.next();
+                if (next != null && next.q() == i) {
+                    it.remove();
+                    next.w();
+                    return next;
+                }
+            }
+            return null;
         }
+        return (qa) invokeIL.objValue;
+    }
+
+    public static int q(LinkedList<qa> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, linkedList)) == null) {
+            if (linkedList == null) {
+                return 0;
+            }
+            return linkedList.size();
+        }
+        return invokeL.intValue;
     }
 }

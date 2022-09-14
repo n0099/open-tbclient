@@ -12,12 +12,12 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.db2;
-import com.baidu.tieba.eu2;
-import com.baidu.tieba.h32;
-import com.baidu.tieba.il2;
-import com.baidu.tieba.nm2;
-import com.baidu.tieba.yz1;
+import com.baidu.tieba.bd2;
+import com.baidu.tieba.cw2;
+import com.baidu.tieba.f52;
+import com.baidu.tieba.gn2;
+import com.baidu.tieba.lo2;
+import com.baidu.tieba.w12;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,26 +26,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes2.dex */
-public class SwanAppJsBridge extends il2 {
+public class SwanAppJsBridge extends gn2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     public static final String TAG = "SwanAppJsBridge";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, yz1 yz1Var) {
-        super(context, unitedSchemeMainDispatcher, callbackHandler, yz1Var);
+    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, w12 w12Var) {
+        super(context, unitedSchemeMainDispatcher, callbackHandler, w12Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, yz1Var};
+            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, w12Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (yz1) objArr2[3]);
+                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (w12) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,7 +59,7 @@ public class SwanAppJsBridge extends il2 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.startsWith(UnitedSchemeEntity.UNITED_SCHEME)) {
                 UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str));
-                if (il2.DEBUG) {
+                if (gn2.DEBUG) {
                     Log.d(TAG, "doSchemeDispatch scheme: " + str + " mCallbackHandler: " + this.mCallbackHandler);
                 }
                 SchemeTimeCostMoniter.getInstance().schemeStart(str);
@@ -78,7 +78,7 @@ public class SwanAppJsBridge extends il2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (h32.a(this.mJsContainer, str)) {
+            if (f52.a(this.mJsContainer, str)) {
                 return UnitedSchemeUtility.wrapCallbackParams(1001).toString();
             }
             return doSchemeDispatch(str);
@@ -91,22 +91,22 @@ public class SwanAppJsBridge extends il2 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (il2.DEBUG) {
+            if (gn2.DEBUG) {
                 Log.d(TAG, "slave id: " + str + " data: " + str2);
             }
-            yz1 yz1Var = this.mJsContainer;
-            if (h32.a(yz1Var, "setData - " + str2)) {
+            w12 w12Var = this.mJsContainer;
+            if (f52.a(w12Var, "setData - " + str2)) {
                 return UnitedSchemeUtility.wrapCallbackParams(1001).toString();
             }
-            eu2.a("postMessage", "PostMsg setData handle");
+            cw2.a("postMessage", "PostMsg setData handle");
             int i = 0;
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 i = 202;
             } else {
-                db2 db2Var = new db2(str, str2);
-                eu2.a("postMessage", "PostMsg setData start");
-                nm2.U().y(db2Var, false);
-                eu2.a("postMessage", "PostMsg setData end");
+                bd2 bd2Var = new bd2(str, str2);
+                cw2.a("postMessage", "PostMsg setData start");
+                lo2.U().y(bd2Var, false);
+                cw2.a("postMessage", "PostMsg setData end");
             }
             return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }

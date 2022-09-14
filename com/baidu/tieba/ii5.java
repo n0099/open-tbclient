@@ -1,119 +1,120 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.style.ReplacementSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ii5 extends ReplacementSpan {
+public class ii5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
+    @Nullable
+    public static PostWriteCallBackData a;
+    @Nullable
+    public static l15 b;
+    @Nullable
+    public static WriteData c;
+    @Nullable
+    public static AntiData d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854484, "Lcom/baidu/tieba/ii5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947854484, "Lcom/baidu/tieba/ii5;");
-                return;
+            int indexOf = str.indexOf("(");
+            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+            if (indexOf == -1 || indexOf2 == -1 || (i = indexOf + 1) >= indexOf2) {
+                return null;
             }
+            return str.substring(i, indexOf2);
         }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
-        l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+        return (String) invokeL.objValue;
     }
 
-    public ii5(hi5 hi5Var) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hi5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
+            return str.equals("4") || str.equals("5") || str.equals("6");
         }
-        this.a = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
-        this.b = R.color.CAM_X0305;
-        this.c = j;
-        this.d = k;
-        this.e = m;
-        this.f = 0;
-        this.g = l;
-        this.h = 0;
-        if (hi5Var != null) {
-            this.a = hi5Var.a;
-            this.b = hi5Var.b;
-            this.c = hi5Var.c;
-            this.e = hi5Var.d;
-            this.d = hi5Var.e;
-            this.f = hi5Var.f;
-            this.g = hi5Var.g;
-            this.h = hi5Var.h;
-        }
+        return invokeL.booleanValue;
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public static boolean c(int i, int i2, @Nullable Intent intent) {
+        InterceptResult invokeIIL;
+        PostWriteCallBackData postWriteCallBackData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            canvas.save();
-            canvas.translate(0.0f, this.h);
-            paint.setColor(SkinManager.getColor(this.b));
-            paint.setAntiAlias(true);
-            float descent = this.e - (paint.descent() - paint.ascent());
-            float f2 = i4;
-            RectF rectF = new RectF(this.f + f, (paint.ascent() + f2) - descent, this.f + f + this.i + (this.d * 2), paint.descent() + f2);
-            int i6 = this.c;
-            canvas.drawRoundRect(rectF, i6, i6, paint);
-            paint.setColor(this.a);
-            canvas.drawText(charSequence, i, i2, this.d + f + this.f, f2 - (descent / 2.0f), paint);
-            canvas.restore();
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, intent)) == null) {
+            if (i != 12006) {
+                return false;
+            }
+            boolean z = i2 == -1 && intent != null;
+            if (a != null && b != null && c != null && d != null && z) {
+                try {
+                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    postWriteCallBackData = null;
+                }
+                if (postWriteCallBackData == null) {
+                    return false;
+                }
+                po8.k().h(true, postWriteCallBackData, b, c, d);
+            } else {
+                po8.k().h(false, a, null, c, d);
+            }
+            a = null;
+            b = null;
+            c = null;
+            d = null;
+            return true;
         }
+        return invokeIIL.booleanValue;
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable l15 l15Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int measureText = (int) paint.measureText(charSequence, i, i2);
-            this.i = measureText;
-            return measureText + (this.d * 2) + this.f + this.g;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, l15Var, writeData, antiData)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            boolean z = (currentActivity == null || writeData == null || l15Var == null || TextUtils.isEmpty(l15Var.c())) ? false : true;
+            if (z) {
+                a = postWriteCallBackData;
+                b = l15Var;
+                c = writeData;
+                d = antiData;
+                writeData.setVcodeMD5(l15Var.b());
+                writeData.setVcodeUrl(l15Var.c());
+                writeData.setVcodeExtra(l15Var.a());
+                if (b(l15Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, l15Var.d())));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
+                }
+            }
+            return z;
         }
-        return invokeCommon.intValue;
+        return invokeLLLL.booleanValue;
     }
 }

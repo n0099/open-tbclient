@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.DrawableContainer;
-import androidx.appcompat.resources.R$styleable;
+import androidx.appcompat.resources.R;
 import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -175,8 +175,8 @@ public class StateListDrawable extends DrawableContainer {
                 return;
             }
             if (next2 == 2 && depth2 <= depth && xmlPullParser.getName().equals("item")) {
-                TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.StateListDrawableItem);
-                int resourceId = obtainAttributes.getResourceId(R$styleable.StateListDrawableItem_android_drawable, -1);
+                TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.StateListDrawableItem);
+                int resourceId = obtainAttributes.getResourceId(0, -1);
                 Drawable drawable = resourceId > 0 ? ResourceManagerInternal.get().getDrawable(context, resourceId) : null;
                 obtainAttributes.recycle();
                 int[] extractStateSet = extractStateSet(attributeSet);
@@ -206,11 +206,11 @@ public class StateListDrawable extends DrawableContainer {
             if (Build.VERSION.SDK_INT >= 21) {
                 stateListState.mChangingConfigurations |= typedArray.getChangingConfigurations();
             }
-            stateListState.mVariablePadding = typedArray.getBoolean(R$styleable.StateListDrawable_android_variablePadding, stateListState.mVariablePadding);
-            stateListState.mConstantSize = typedArray.getBoolean(R$styleable.StateListDrawable_android_constantSize, stateListState.mConstantSize);
-            stateListState.mEnterFadeDuration = typedArray.getInt(R$styleable.StateListDrawable_android_enterFadeDuration, stateListState.mEnterFadeDuration);
-            stateListState.mExitFadeDuration = typedArray.getInt(R$styleable.StateListDrawable_android_exitFadeDuration, stateListState.mExitFadeDuration);
-            stateListState.mDither = typedArray.getBoolean(R$styleable.StateListDrawable_android_dither, stateListState.mDither);
+            stateListState.mVariablePadding = typedArray.getBoolean(2, stateListState.mVariablePadding);
+            stateListState.mConstantSize = typedArray.getBoolean(3, stateListState.mConstantSize);
+            stateListState.mEnterFadeDuration = typedArray.getInt(4, stateListState.mEnterFadeDuration);
+            stateListState.mExitFadeDuration = typedArray.getInt(5, stateListState.mExitFadeDuration);
+            stateListState.mDither = typedArray.getBoolean(0, stateListState.mDither);
         }
     }
 
@@ -298,8 +298,8 @@ public class StateListDrawable extends DrawableContainer {
     public void inflate(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048587, this, context, resources, xmlPullParser, attributeSet, theme) == null) {
-            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.StateListDrawable);
-            setVisible(obtainAttributes.getBoolean(R$styleable.StateListDrawable_android_visible, true), true);
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.StateListDrawable);
+            setVisible(obtainAttributes.getBoolean(1, true), true);
             updateStateFromTypedArray(obtainAttributes);
             updateDensity(resources);
             obtainAttributes.recycle();

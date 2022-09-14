@@ -1,143 +1,317 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b51;
-import com.baidu.tieba.d51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class f51 extends b51 {
+public final class f51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout i;
-    public a j;
+    public final a a;
+    public long b;
+    public final g51 c;
+    public boolean d;
+    public final c51 e;
 
     /* loaded from: classes4.dex */
-    public static class a extends b51.b {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View g;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = "";
+            this.b = "";
+            this.c = "";
+            this.d = "";
+            this.e = "";
+            this.f = "";
+            this.g = "";
+            this.h = "";
         }
 
-        @Override // com.baidu.tieba.b51.b, com.baidu.tieba.d51.a
-        public d51 a() {
+        public final String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                f51 f51Var = (f51) super.a();
-                f51Var.o(this);
-                return f51Var;
-            }
-            return (d51) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.d51.a
-        public d51 f(Context context) {
-            InterceptResult invokeL;
+        public final String b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new f51(context) : (d51) invokeL.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.d51.a
-        public /* bridge */ /* synthetic */ d51.a q(int i) {
-            y(i);
-            return this;
-        }
-
-        public a x(View view2) {
-            InterceptResult invokeL;
+        public final String c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                this.g = view2;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
         }
 
-        public a y(int i) {
-            InterceptResult invokeI;
+        public final String d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                super.q(i);
-                return this;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+        }
+
+        public final String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (String) invokeV.objValue;
+        }
+
+        public final String f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+        }
+
+        public final String g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+
+        public final String h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (String) invokeV.objValue;
+        }
+
+        public final void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.d = str;
             }
-            return (a) invokeI.objValue;
+        }
+
+        public final void j(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.c = str;
+            }
+        }
+
+        public final void k(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.f = str;
+            }
+        }
+
+        public final void l(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.e = str;
+            }
+        }
+
+        public final void m(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.h = str;
+            }
+        }
+
+        public final void n(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.b = str;
+            }
+        }
+
+        public final void o(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.a = str;
+            }
+        }
+
+        public final void p(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+                Intrinsics.checkNotNullParameter(str, "<set-?>");
+                this.g = str;
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f51(Context context) {
-        super(context);
+    public f51(c51 c51Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {c51Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = c51Var;
+        this.a = new a();
+        this.b = -1L;
+        this.c = new g51();
     }
 
-    @Override // com.baidu.tieba.b51
-    public View i(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
+        String str;
+        String jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d060d, viewGroup, false);
-            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f10);
-            n();
-            return inflate;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a aVar = this.a;
+            c51 c51Var = this.e;
+            if (c51Var == null || (str = c51Var.h) == null) {
+                c51 c51Var2 = this.e;
+                str = c51Var2 != null ? c51Var2.a : null;
+            }
+            if (str == null) {
+                str = "";
+            }
+            aVar.o(str);
+            this.a.i(String.valueOf(this.b));
+            this.a.k(String.valueOf((((float) ((System.currentTimeMillis() - this.c.c()) + this.c.b())) * 1.0f) / ((float) 1000)));
+            this.a.p(iq0.a() ? "1" : "0");
+            a aVar2 = this.a;
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("Nairobi", "0");
+                Unit unit = Unit.INSTANCE;
+                jSONObject = jSONObject2.toString();
+                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …\n            }.toString()");
+            } catch (JSONException unused) {
+                jSONObject = new JSONObject().toString();
+                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().toString()");
+            }
+            aVar2.m(jSONObject);
         }
-        return (View) invokeL.objValue;
     }
 
-    public final void n() {
-        a aVar;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.j) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a aVar = this.a;
+            c51 c51Var = this.e;
+            aVar.n((c51Var == null || (r1 = c51Var.f) == null) ? "" : "");
         }
-        this.i.addView(aVar.g);
     }
 
-    public void o(a aVar) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.j = aVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.j(String.valueOf(System.currentTimeMillis()));
+            this.c.f(System.currentTimeMillis());
+            b();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            i();
+            this.c.e();
+        }
+    }
+
+    public final void e(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            this.b = System.currentTimeMillis();
+            Object tag = webView.getTag(R.id.obfuscated_res_0x7f09161f);
+            this.a.l(tag == null ? "0" : tag.toString());
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.h(System.currentTimeMillis());
+            long c = this.c.c() - this.c.d();
+            if (c < 0) {
+                c = 0;
+            }
+            g51 g51Var = this.c;
+            g51Var.g(g51Var.b() + c);
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a.l(String.valueOf(i));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.i(System.currentTimeMillis());
+            if (this.d) {
+                return;
+            }
+            long d = this.c.d() - this.c.a();
+            if (d < 0) {
+                d = 0;
+            }
+            this.c.g(d);
+            this.d = true;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            a();
+            b01 g = new b01().g("1029");
+            Intrinsics.checkNotNullExpressionValue(g, "PlogBuilder().setCID(Plo…lder.C_ID_LP_PERFORMANCE)");
+            g.b("f2", this.a.g());
+            g.b("f14", this.a.f());
+            g.b("ef2", this.a.b());
+            g.b("ef3", this.a.a());
+            g.b("ef4", this.a.d());
+            g.b("ef5", this.a.c());
+            g.b("ef12", this.a.h());
+            g.b("ef15", this.a.e());
+            uz0.b(g);
         }
     }
 }

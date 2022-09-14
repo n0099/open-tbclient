@@ -1,285 +1,205 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.concurrent.Executor;
+import rx.schedulers.Schedulers;
+import rx.subjects.PublishSubject;
 /* loaded from: classes5.dex */
-public class ms3 extends ax2 {
+public final class ms3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d a;
+    public static final ex9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public String g;
-    public JSONObject h;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements ex9<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ ms3 b;
 
-        public a(ms3 ms3Var, JSONObject jSONObject) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ms3Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = ms3Var;
-            this.a = jSONObject;
         }
 
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        @Override // java.lang.Runnable
-        public void run() {
-            char c;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ex9
+        public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yr3.n().G(this.b.h);
-                String str = this.b.f;
-                switch (str.hashCode()) {
-                    case -1261560102:
-                        if (str.equals("queryStatus")) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -625158317:
-                        if (str.equals("deleteDownload")) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -606050596:
-                        if (str.equals("resumeAllDownload")) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -534830837:
-                        if (str.equals("queryAllStatus")) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -451216226:
-                        if (str.equals("pauseDownload")) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -417021581:
-                        if (str.equals("pauseAllDownload")) {
-                            c = 7;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 184711125:
-                        if (str.equals("resumeDownload")) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1554935562:
-                        if (str.equals("startDownload")) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                String name = Thread.currentThread().getName();
+                Thread currentThread = Thread.currentThread();
+                currentThread.setName(name + "-" + ((String) pair.second));
+                try {
+                    ((Runnable) pair.first).run();
+                } catch (Throwable unused) {
                 }
-                switch (c) {
-                    case 0:
-                        this.b.w(this.a);
-                        return;
-                    case 1:
-                        this.b.t(this.a);
-                        return;
-                    case 2:
-                        this.b.s();
-                        return;
-                    case 3:
-                        this.b.r(this.a);
-                        return;
-                    case 4:
-                        this.b.v(this.a);
-                        return;
-                    case 5:
-                        this.b.p(this.a);
-                        return;
-                    case 6:
-                        this.b.u();
-                        return;
-                    case 7:
-                        this.b.q();
-                        return;
-                    default:
-                        this.b.setResult(new ts3(31009, "invalid operation"));
-                        return;
-                }
+                Thread.currentThread().setName(name);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ss3 {
+    public static class b implements ix9<Pair<Runnable, String>, qw9<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ms3 a;
 
-        public b(ms3 ms3Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ms3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ix9
+        public qw9<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? uw9.g(pair).h(Schedulers.io()).f(ms3.b).l() : (qw9) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c extends Executor {
+        void execute(@NonNull Runnable runnable, @NonNull String str);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends h1a<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(i1a i1aVar) {
+            super(i1aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i1aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((i1a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ms3Var;
         }
 
-        @Override // com.baidu.tieba.ss3
-        public void a(us3 us3Var) {
+        @Override // java.util.concurrent.Executor
+        public void execute(@NonNull Runnable runnable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, us3Var) == null) {
-                this.a.setResult(us3Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                execute(runnable, "");
             }
         }
+
+        @Override // com.baidu.tieba.ms3.c
+        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
+                onNext(Pair.create(runnable, ms3.c(str)));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983196, "Lcom/baidu/tieba/ms3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947983196, "Lcom/baidu/tieba/ms3;");
+                return;
+            }
+        }
+        b = new a();
     }
 
     public ms3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(us3 us3Var) {
+    public static c b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, us3Var) == null) {
-            this.d.clear();
-            if (us3Var != null) {
-                this.d.putString("functionType", us3Var.a());
-                this.d.putString("resultData", us3Var.b());
-                this.d.putInt("resultStatus", us3Var.c());
-                if (us3Var.d()) {
-                    if (!TextUtils.equals(this.f, "startDownload")) {
-                        at3.a(this.g, this.f, "success", null, new ys3(this.h));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (ms3.class) {
+                    if (a == null) {
+                        a = new d(PublishSubject.D());
+                        a.n().d(new b()).s().t();
                     }
-                } else {
-                    at3.a(this.g, this.f, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(us3Var.c()), new ys3(this.h));
                 }
             }
-            c();
+            return a;
         }
+        return (c) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ax2
-    public void b(@NonNull Bundle bundle) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-            this.h = ae3.d(bundle.getString("ubc_params", ""));
-            JSONObject d = ae3.d(bundle.getString("data", ""));
-            this.g = d.optString("packageName");
-            bs3.d.execute(new a(this, d));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str == null) {
+                str = null;
+            } else if (!str.startsWith("SwanAppExecutorUtils_")) {
+                str = "SwanAppExecutorUtils_" + str;
+            }
+            if (str == null) {
+                str = "SwanAppExecutorUtils";
+            }
+            return str.length() > 256 ? str.substring(0, 255) : str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void p(@NonNull JSONObject jSONObject) {
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            yr3.n().m(jSONObject, new b(this));
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            yr3.n().u();
-        }
-    }
-
-    public final void r(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            yr3.n().v(jSONObject, new b(this));
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            yr3.n().w(new b(this));
-        }
-    }
-
-    public final void t(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            yr3.n().x(jSONObject, new b(this));
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            yr3.n().D();
-        }
-    }
-
-    public final void v(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            yr3.n().E(jSONObject, new b(this));
-        }
-    }
-
-    public final void w(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            yr3.n().H(jSONObject.optString("url"), jSONObject.optString("packageName"), jSONObject.optString("apkId"), new b(this));
+        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
+            b().execute(runnable, str);
         }
     }
 }

@@ -1,9 +1,18 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface xs0 {
-    boolean e(@NonNull vr0 vr0Var);
+public class xs0 extends ht0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    ws0 getInterceptorLayer();
+    @NonNull
+    public static ht0 w(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? ht0.m(str, 3) : (ht0) invokeL.objValue;
+    }
 }

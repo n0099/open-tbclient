@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +97,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = ri.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -154,7 +154,7 @@ public class HeadPendantView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = ri.f(getContext(), R.dimen.tbds42);
+            this.i = ej.f(getContext(), R.dimen.tbds42);
             b();
             c();
             a();
@@ -375,7 +375,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.i = ri.f(getContext(), i);
+                this.i = ej.f(getContext(), i);
             }
             f();
         }
@@ -510,7 +510,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = ri.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -538,7 +538,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = ri.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;

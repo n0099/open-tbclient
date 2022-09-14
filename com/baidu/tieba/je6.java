@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetMemberInfo.MemberGodInfo;
+import tbclient.User;
 /* loaded from: classes4.dex */
-public class je6 extends BaseCardInfo {
+public class je6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static final BdUniqueId d;
-    public static final BdUniqueId e;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public ArrayList<String> b;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,9 +32,7 @@ public class je6 extends BaseCardInfo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
-        d = BdUniqueId.gen();
-        e = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public je6() {
@@ -49,51 +45,36 @@ public class je6 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        BdUniqueId bdUniqueId = d;
-        this.a = bdUniqueId;
-        this.a = bdUniqueId;
     }
 
-    public ArrayList<String> c() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void f(BdUniqueId bdUniqueId) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    public void c(MemberGodInfo memberGodInfo) {
+        List<User> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memberGodInfo) == null) || memberGodInfo == null || (list = memberGodInfo.forum_god_list) == null || list.size() <= 0) {
+            return;
+        }
+        b(memberGodInfo.forum_god_num.intValue());
+    }
+
+    @Override // com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (BdUniqueId) invokeV.objValue;
-    }
-
-    public je6(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = d;
-        this.b = arrayList;
-        this.a = c;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

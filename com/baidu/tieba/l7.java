@@ -1,256 +1,275 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 /* loaded from: classes4.dex */
 public class l7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Locale d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public int b;
-    public boolean c;
+    public l7 a;
+    public Locale b;
+    public x7<String, String> c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l7() {
-        this(true, 16);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308674, "Lcom/baidu/tieba/l7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308674, "Lcom/baidu/tieba/l7;");
                 return;
             }
         }
+        d = new Locale("", "", "");
+        e = false;
     }
 
-    public void a(int i) {
+    public l7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int[] iArr = this.a;
-            int i2 = this.b;
-            if (i2 == iArr.length) {
-                iArr = g(Math.max(8, (int) (i2 * 1.75f)));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            int i3 = this.b;
-            this.b = i3 + 1;
-            iArr[i3] = i;
         }
     }
 
-    public void b(int... iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
-            c(iArr, 0, iArr.length);
-        }
-    }
-
-    public void c(int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, iArr, i, i2) == null) {
-            int[] iArr2 = this.a;
-            int i3 = this.b + i2;
-            if (i3 > iArr2.length) {
-                iArr2 = g(Math.max(Math.max(8, i3), (int) (this.b * 1.75f)));
-            }
-            System.arraycopy(iArr, i, iArr2, this.b, i2);
-            this.b += i2;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = 0;
-        }
-    }
-
-    public int[] e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i >= 0) {
-                int i2 = this.b + i;
-                if (i2 > this.a.length) {
-                    g(Math.max(Math.max(8, i2), (int) (this.b * 1.75f)));
-                }
-                return this.a;
-            }
-            throw new IllegalArgumentException("additionalCapacity must be >= 0: " + i);
-        }
-        return (int[]) invokeI.objValue;
-    }
-
-    public boolean equals(Object obj) {
+    public static boolean a(k3 k3Var) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == this) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, k3Var)) == null) {
+            try {
+                k3Var.m().close();
                 return true;
-            }
-            if (this.c && (obj instanceof l7)) {
-                l7 l7Var = (l7) obj;
-                if (l7Var.c && (i = this.b) == l7Var.b) {
-                    int[] iArr = this.a;
-                    int[] iArr2 = l7Var.a;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        if (iArr[i2] != iArr2[i2]) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
+            } catch (Exception unused) {
                 return false;
             }
-            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public int f(int i) {
-        InterceptResult invokeI;
+    public static l7 b(k3 k3Var, Locale locale) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            int i2 = this.b;
-            if (i < i2) {
-                int[] iArr = this.a;
-                int i3 = iArr[i];
-                int i4 = i2 - 1;
-                this.b = i4;
-                if (this.c) {
-                    System.arraycopy(iArr, i + 1, iArr, i, i4 - i);
-                } else {
-                    iArr[i] = iArr[i4];
-                }
-                return i3;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k3Var, locale)) == null) ? d(k3Var, locale, "UTF-8") : (l7) invokeLL.objValue;
+    }
+
+    public static l7 c(k3 k3Var, Locale locale, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k3Var, locale, str)) == null) ? d(k3Var, locale, str) : (l7) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0049, code lost:
+        if (r0 == null) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0085, code lost:
+        throw new java.util.MissingResourceException("Can't find bundle for base file handle " + r9.j() + ", locale " + r10, r9 + "_" + r10, "");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static l7 d(k3 k3Var, Locale locale, String str) {
+        InterceptResult invokeLLL;
+        l7 j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, k3Var, locale, str)) == null) {
+            l7 l7Var = null;
+            if (k3Var == null || locale == null || str == null) {
+                throw null;
             }
-            throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.b);
-        }
-        return invokeI.intValue;
-    }
-
-    public int[] g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            int[] iArr = new int[i];
-            System.arraycopy(this.a, 0, iArr, 0, Math.min(this.b, i));
-            this.a = iArr;
-            return iArr;
-        }
-        return (int[]) invokeI.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.c) {
-                int[] iArr = this.a;
-                int i = this.b;
-                int i2 = 1;
-                for (int i3 = 0; i3 < i; i3++) {
-                    i2 = (i2 * 31) + iArr[i3];
+            Locale locale2 = locale;
+            do {
+                List<Locale> e2 = e(locale2);
+                j = j(k3Var, str, e2, 0, l7Var);
+                if (j != null) {
+                    Locale g = j.g();
+                    boolean equals = g.equals(d);
+                    if (!equals || g.equals(locale) || (e2.size() == 1 && g.equals(e2.get(0)))) {
+                        break;
+                    } else if (equals && l7Var == null) {
+                        l7Var = j;
+                    }
                 }
+                locale2 = f(locale2);
+            } while (locale2 != null);
+            return j;
+        }
+        return (l7) invokeLLL.objValue;
+    }
+
+    public static List<Locale> e(Locale locale) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, locale)) == null) {
+            String language = locale.getLanguage();
+            String country = locale.getCountry();
+            String variant = locale.getVariant();
+            ArrayList arrayList = new ArrayList(4);
+            if (variant.length() > 0) {
+                arrayList.add(locale);
+            }
+            if (country.length() > 0) {
+                arrayList.add(arrayList.isEmpty() ? locale : new Locale(language, country));
+            }
+            if (language.length() > 0) {
+                if (!arrayList.isEmpty()) {
+                    locale = new Locale(language);
+                }
+                arrayList.add(locale);
+            }
+            arrayList.add(d);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static Locale f(Locale locale) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, locale)) == null) {
+            Locale locale2 = Locale.getDefault();
+            if (locale.equals(locale2)) {
+                return null;
+            }
+            return locale2;
+        }
+        return (Locale) invokeL.objValue;
+    }
+
+    public static l7 i(k3 k3Var, String str, Locale locale) {
+        InterceptResult invokeLLL;
+        l7 l7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, k3Var, str, locale)) == null) {
+            Reader reader = null;
+            try {
+                try {
+                    k3 l = l(k3Var, locale);
+                    if (a(l)) {
+                        l7Var = new l7();
+                        reader = l.r(str);
+                        l7Var.h(reader);
+                    } else {
+                        l7Var = null;
+                    }
+                    if (l7Var != null) {
+                        l7Var.k(locale);
+                    }
+                    return l7Var;
+                } catch (IOException e2) {
+                    throw new GdxRuntimeException(e2);
+                }
+            } finally {
+                j8.a(reader);
+            }
+        }
+        return (l7) invokeLLL.objValue;
+    }
+
+    public static l7 j(k3 k3Var, String str, List<Locale> list, int i, l7 l7Var) {
+        InterceptResult invokeCommon;
+        l7 l7Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{k3Var, str, list, Integer.valueOf(i), l7Var})) == null) {
+            Locale locale = list.get(i);
+            if (i != list.size() - 1) {
+                l7Var2 = j(k3Var, str, list, i + 1, l7Var);
+            } else if (l7Var != null && locale.equals(d)) {
+                return l7Var;
+            } else {
+                l7Var2 = null;
+            }
+            l7 i2 = i(k3Var, str, locale);
+            if (i2 != null) {
+                i2.a = l7Var2;
                 return i2;
             }
-            return super.hashCode();
+            return l7Var2;
         }
-        return invokeV.intValue;
+        return (l7) invokeCommon.objValue;
     }
 
-    public void insert(int i, int i2) {
+    public static k3 l(k3 k3Var, Locale locale) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            int i3 = this.b;
-            if (i <= i3) {
-                int[] iArr = this.a;
-                if (i3 == iArr.length) {
-                    iArr = g(Math.max(8, (int) (i3 * 1.75f)));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, k3Var, locale)) == null) {
+            k8 k8Var = new k8(k3Var.g());
+            if (!locale.equals(d)) {
+                String language = locale.getLanguage();
+                String country = locale.getCountry();
+                String variant = locale.getVariant();
+                boolean equals = "".equals(language);
+                boolean equals2 = "".equals(country);
+                boolean equals3 = "".equals(variant);
+                if (!equals || !equals2 || !equals3) {
+                    k8Var.a('_');
+                    if (!equals3) {
+                        k8Var.n(language);
+                        k8Var.a('_');
+                        k8Var.n(country);
+                        k8Var.a('_');
+                        k8Var.n(variant);
+                    } else if (!equals2) {
+                        k8Var.n(language);
+                        k8Var.a('_');
+                        k8Var.n(country);
+                    } else {
+                        k8Var.n(language);
+                    }
                 }
-                if (this.c) {
-                    System.arraycopy(iArr, i, iArr, i + 1, this.b - i);
-                } else {
-                    iArr[this.b] = iArr[i];
-                }
-                this.b++;
-                iArr[i] = i2;
-                return;
             }
-            throw new IndexOutOfBoundsException("index can't be > size: " + i + " > " + this.b);
+            k8Var.n(".properties");
+            return k3Var.s(k8Var.toString());
         }
+        return (k3) invokeLL.objValue;
     }
 
-    public String toString() {
+    public Locale g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.b == 0) {
-                return "[]";
-            }
-            int[] iArr = this.a;
-            j8 j8Var = new j8(32);
-            j8Var.a('[');
-            j8Var.d(iArr[0]);
-            for (int i = 1; i < this.b; i++) {
-                j8Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                j8Var.d(iArr[i]);
-            }
-            j8Var.a(']');
-            return j8Var.toString();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Locale) invokeV.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l7(int i) {
-        this(true, i);
+    public void h(Reader reader) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reader) == null) {
+            x7<String, String> x7Var = new x7<>();
+            this.c = x7Var;
+            c8.a(x7Var, reader);
         }
     }
 
-    public l7(boolean z, int i) {
+    public final void k(Locale locale) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locale) == null) {
+            this.b = locale;
+            new l8(locale, !e);
         }
-        this.c = z;
-        this.a = new int[i];
     }
 }

@@ -42,7 +42,7 @@ public final class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091069);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091087);
         }
     }
 }

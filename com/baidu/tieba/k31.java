@@ -1,241 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.os.Build;
+import android.os.Process;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes4.dex */
-public class k31 {
+public final class k31 {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
+    public static String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public c b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public a j;
-    public b k;
 
     /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public double c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                a aVar = new a();
-                JSONObject c = yx0.c(str);
-                aVar.a = c.optString("defer_charge_url");
-                aVar.b = c.optInt("defer_type", 3);
-                aVar.c = c.optDouble("defer_time", 0.0d);
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.b;
-                return (i == 2 || i == 3) && this.c > 0.0d && !TextUtils.isEmpty(this.a);
-            }
-            return invokeV.booleanValue;
-        }
+    public interface a {
+        void onEvent(String str, String str2);
     }
 
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862048, "Lcom/baidu/tieba/k31;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862048, "Lcom/baidu/tieba/k31;");
+                return;
             }
         }
-
-        public static b a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                b bVar = new b();
-                JSONObject c = yx0.c(str);
-                bVar.e = c.optString("key");
-                c.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                bVar.a = c.optString("download_url");
-                c.optString(BreakpointSQLiteKey.CONTENT_LENGTH);
-                bVar.b = c.optString("close_virtual_progress");
-                bVar.c = c.optString("apk_label");
-                bVar.d = c.optString("apk_icon");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
+        b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 
-    /* loaded from: classes4.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static c a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                c cVar = new c();
-                JSONObject c = yx0.c(str);
-                cVar.a = c.optString("receive_title_script");
-                c.optString("start_load_script");
-                return cVar;
-            }
-            return (c) invokeL.objValue;
-        }
-    }
-
-    public k31() {
+    public static long a(InputStream inputStream, OutputStream outputStream, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, inputStream, outputStream, i)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[i * 1024];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            return 0L;
         }
+        return invokeLLI.longValue;
     }
 
-    public static k31 b(@NonNull Intent intent) {
+    public static String b(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            Bundle extras = intent.getExtras();
-            k31 k31Var = null;
-            if (extras == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str.startsWith("lib")) {
+                str2 = str;
+            } else {
+                str2 = "lib" + str;
             }
-            Serializable serializable = extras.getSerializable("map");
-            if (serializable instanceof HashMap) {
-                HashMap hashMap = (HashMap) serializable;
-                if (hashMap != null && !hashMap.isEmpty()) {
-                    k31Var = new k31();
-                    k31Var.c = (String) zx0.b(hashMap, LegoListActivityConfig.AD_ID);
-                    k31Var.a = (String) zx0.b(hashMap, "url");
-                    k31Var.f = (String) zx0.b(hashMap, "ext_info");
-                    k31Var.g = (String) zx0.b(hashMap, TiebaStatic.Params.REFER);
-                    k31Var.d = (String) zx0.b(hashMap, "charge_url");
-                    k31Var.e = (String) zx0.b(hashMap, "ad_invoke_flag");
-                    k31Var.h = (String) zx0.b(hashMap, "lp_real_url");
-                    String str = (String) zx0.b(hashMap, "log_switch");
-                    if (TextUtils.isEmpty(str)) {
-                        str = "1";
-                    }
-                    k31Var.i = str;
-                    String str2 = (String) zx0.b(hashMap, "sdk_script");
-                    if (!TextUtils.isEmpty(str2)) {
-                        k31Var.b = c.a(str2);
-                    }
-                    String str3 = (String) zx0.b(hashMap, "defer_charge");
-                    if (!TextUtils.isEmpty(str3)) {
-                        k31Var.j = a.b(str3);
-                    }
-                    String str4 = (String) zx0.b(hashMap, "download");
-                    if (!TextUtils.isEmpty(str4)) {
-                        k31Var.k = b.a(str4);
-                    }
-                    k31Var.c();
-                }
-                return k31Var;
+            if (str.endsWith(".so")) {
+                return str2;
             }
-            return null;
+            return str2 + ".so";
         }
-        return (k31) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean a() {
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length == 2) ? split[0].substring(3) : str : (String) invokeL.objValue;
+    }
+
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.equals(this.e, "0") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
+            }
+            if (i >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr.length > 0) {
+                    return Build.CPU_ABI.equals(strArr[0]);
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
+    public static void e(String str, String str2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.g)) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (aVar = a) == null) {
             return;
         }
-        if (this.g.contains("__CHARGE_URL__") && !TextUtils.isEmpty(this.d)) {
-            this.g = this.g.replace("__CHARGE_URL__", this.d);
-        }
-        if (!this.g.contains("__DEFER_CHARGE_URL__") || (aVar = this.j) == null || TextUtils.isEmpty(aVar.a)) {
+        aVar.onEvent(str, str2);
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.g = this.g.replace("__DEFER_CHARGE_URL__", this.j.a);
+        e("24", str);
     }
 }

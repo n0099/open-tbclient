@@ -1,167 +1,279 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
+import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.SimpleForum;
 /* loaded from: classes5.dex */
-public class q09 {
+public class q09 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public List<SimpleForum> b;
-    public String c;
-    public b d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
-    public BdUniqueId i;
-    public bb j;
+    public List<QmStickerItem> a;
+    public RecordEffectLayout.i b;
 
     /* loaded from: classes5.dex */
-    public class a extends bb {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q09 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ q09 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(q09 q09Var, int i, int i2) {
-            super(i, i2);
+        public a(q09 q09Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q09Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {q09Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = q09Var;
+            this.b = q09Var;
+            this.a = i;
         }
 
-        @Override // com.baidu.tieba.bb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((QmStickerItem) this.b.a.get(this.a * 2)).isSelect || this.b.b == null) {
                 return;
             }
-            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
-            if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
-                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
-                    if (responsedMessage.hasError()) {
-                        if (this.a.d != null) {
-                            this.a.d.onError();
-                            return;
-                        }
-                        return;
-                    }
-                    if (z) {
-                        GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
-                        this.a.b = getRepostForumHttpResMessage.getForumList();
-                        this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
-                        this.a.g = getRepostForumHttpResMessage.getPrivateThread();
-                    }
-                    if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                        GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
-                        this.a.b = getRepostForumSocketResMessage.getForumList();
-                        this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
-                        this.a.g = getRepostForumSocketResMessage.getPrivateThread();
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(this.a.b, this.a.g);
-                    }
+            this.b.b.a((QmStickerItem) this.b.a.get(this.a * 2));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ q09 b;
+
+        public b(q09 q09Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q09Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = q09Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((QmStickerItem) this.b.a.get((this.a * 2) + 1)).isSelect || this.b.b == null) {
+                return;
+            }
+            this.b.b.a((QmStickerItem) this.b.a.get((this.a * 2) + 1));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public RelativeLayout a;
+        public RelativeLayout b;
+        public TbImageView c;
+        public TbImageView d;
+        public TbImageView e;
+        public TbImageView f;
+        public ProgressBar g;
+        public ProgressBar h;
+        public ImageView i;
+
+        public c(q09 q09Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q09Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(List<SimpleForum> list, int i);
-
-        void onError();
-    }
-
-    public q09(BdUniqueId bdUniqueId) {
+    public q09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-        this.j = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.j);
-        this.j.getHttpMessageListener().setSelfListener(true);
-        this.j.getSocketMessageListener().setSelfListener(true);
     }
 
-    public void h() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public QmStickerItem getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
-            getRepostForumReqMessage.setThreadTitle(this.e);
-            getRepostForumReqMessage.setThreadContent(this.f);
-            getRepostForumReqMessage.setForumId(this.h);
-            getRepostForumReqMessage.setTag(this.a);
-            getRepostForumReqMessage.setRequestId(this.i);
-            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (QmStickerItem) ListUtils.getItem(this.a, i) : (QmStickerItem) invokeI.objValue;
+    }
+
+    public void d(List<QmStickerItem> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public void i(b bVar) {
+    public void e(RecordEffectLayout.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
+            this.b = iVar;
         }
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.i = bdUniqueId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return 0;
+            }
+            return (int) Math.ceil(this.a.size() / 2.0d);
         }
+        return invokeV.intValue;
     }
 
-    public void k(String str) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
         }
+        return invokeI.longValue;
     }
 
-    public void l(String str) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0175, (ViewGroup) null);
+                cVar = new c(this);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922af);
+                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903fa);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092296);
+                cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916e3);
+                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903e1);
+                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922ac);
+                cVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903f2);
+                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0922ae);
+                cVar.h = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903f6);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            cVar.c.setAutoChangeStyle(false);
+            cVar.d.setAutoChangeStyle(false);
+            cVar.e.setAutoChangeStyle(false);
+            cVar.f.setAutoChangeStyle(false);
+            cVar.c.setGifIconSupport(false);
+            cVar.d.setGifIconSupport(false);
+            int i2 = i * 2;
+            if (ListUtils.getItem(this.a, i2) instanceof QmStickerItem) {
+                cVar.a.setVisibility(0);
+                if (this.a.get(i2).id == -1) {
+                    cVar.i.setVisibility(0);
+                    cVar.c.setVisibility(8);
+                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080b2b);
+                } else {
+                    cVar.i.setVisibility(8);
+                    cVar.c.setVisibility(0);
+                    cVar.c.K(this.a.get(i2).bgurl, 10, true);
+                }
+                cVar.a.setOnClickListener(new a(this, i));
+                if (this.a.get(i2).isDownLoading) {
+                    cVar.g.setVisibility(0);
+                    cVar.e.setVisibility(8);
+                } else {
+                    cVar.g.setVisibility(8);
+                    if (this.a.get(i2).isLocalSource) {
+                        cVar.e.setVisibility(8);
+                    } else {
+                        cVar.e.setVisibility(0);
+                    }
+                }
+                if (this.a.get(i2).isSelect) {
+                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b4);
+                } else {
+                    cVar.a.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.a.setVisibility(8);
+            }
+            int i3 = i2 + 1;
+            if (ListUtils.getItem(this.a, i3) instanceof QmStickerItem) {
+                cVar.b.setVisibility(0);
+                cVar.d.K(this.a.get(i3).bgurl, 10, true);
+                cVar.b.setOnClickListener(new b(this, i));
+                if (this.a.get(i3).isDownLoading) {
+                    cVar.h.setVisibility(0);
+                    cVar.f.setVisibility(8);
+                } else {
+                    cVar.h.setVisibility(8);
+                    if (this.a.get(i3).isLocalSource) {
+                        cVar.f.setVisibility(8);
+                    } else {
+                        cVar.f.setVisibility(0);
+                    }
+                }
+                if (this.a.get(i3).isSelect) {
+                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b4);
+                } else {
+                    cVar.b.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.b.setVisibility(8);
+            }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

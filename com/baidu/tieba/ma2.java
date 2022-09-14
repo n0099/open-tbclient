@@ -1,63 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ma2 extends ha2 {
+public final class ma2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ma2(@NonNull ga2 ga2Var) {
-        super(ga2Var);
+    public static ga2 a(na2 na2Var, db2 db2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ga2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ga2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, na2Var, db2Var, v8ThreadDelegatePolicy)) == null) {
+            oa2 a = fm2.B0().a(na2Var);
+            ga2 a2 = a.a(na2Var.a(), db2Var, v8ThreadDelegatePolicy);
+            a2.I0(a.getUserAgent());
+            return a2;
         }
+        return (ga2) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ha2
-    public void e() {
+    public static ga2 b(na2 na2Var, db2 db2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            h();
-            g();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, na2Var, db2Var, v8ThreadDelegatePolicy)) == null) {
+            ga2 a = a(na2Var, db2Var, v8ThreadDelegatePolicy);
+            a.q0();
+            return a;
         }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jb2.f(0).f().c();
-            jb2.f(0).e().f();
-            rc2.i(0, true);
-            ch4.M(kc2.a);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ka3.b(0);
-            ia3.b(0);
-            ia3.v(true, 0);
-            ch4.L(fa3.d(0));
-        }
+        return (ga2) invokeLLL.objValue;
     }
 }

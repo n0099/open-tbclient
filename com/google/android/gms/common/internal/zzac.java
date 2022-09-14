@@ -4,8 +4,6 @@ import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +43,7 @@ public final class zzac implements IGmsServiceBroker {
     @Override // com.google.android.gms.common.internal.IGmsServiceBroker
     public final void getService(IGmsCallbacks iGmsCallbacks, @Nullable GetServiceRequest getServiceRequest) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iGmsCallbacks, getServiceRequest) == null) {
+        if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iGmsCallbacks, getServiceRequest) == null) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -53,7 +51,7 @@ public final class zzac implements IGmsServiceBroker {
                 obtain.writeStrongBinder(iGmsCallbacks != null ? iGmsCallbacks.asBinder() : null);
                 if (getServiceRequest != null) {
                     obtain.writeInt(1);
-                    vn9.a(getServiceRequest, obtain, 0);
+                    zzm.zza(getServiceRequest, obtain, 0);
                 } else {
                     obtain.writeInt(0);
                 }

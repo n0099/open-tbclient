@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
-import androidx.appcompat.resources.R$drawable;
 import androidx.collection.LongSparseArray;
 import androidx.collection.LruCache;
 import androidx.collection.SimpleArrayMap;
@@ -29,6 +28,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -314,7 +314,7 @@ public final class ResourceManagerInternal {
             return;
         }
         this.mHasCheckedVectorDrawableSetup = true;
-        Drawable drawable = getDrawable(context, R$drawable.abc_vector_test);
+        Drawable drawable = getDrawable(context, R.drawable.obfuscated_res_0x7f0800b4);
         if (drawable == null || !isVectorDrawable(drawable)) {
             this.mHasCheckedVectorDrawableSetup = false;
             throw new IllegalStateException("This app has been built with an incorrect configuration. Please configure your build for VectorDrawableCompat.");

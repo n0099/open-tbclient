@@ -1,14 +1,11 @@
 package com.baidu.tbadk.core.data;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ImageInfo;
 import com.baidu.tbadk.core.util.ImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tbadk.data.IconData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +18,6 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_COMMON_ATTENTION = 1;
     public static final int TYPE_FOLLOW_TIP_TEXT = 3;
-    public static final int TYPE_NORMAL_USER = 0;
     public static final int TYPE_OHTER_ATTENTION = 2;
     public static final int TYPE_OTHER_TITLE = 0;
     public static final String TYPE_USER = "type_user";
@@ -50,43 +46,11 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         this.mAttentionType = 2;
     }
 
-    @Override // com.baidu.tbadk.core.util.ImageProvider
-    public ArrayList<String> getForumPhotoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.ImageProvider
-    public ArrayList<String> getImageUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<IconData> iconInfo = getIconInfo();
-            ArrayList<IconData> tShowInfoNew = getTShowInfoNew();
-            if (iconInfo == null || tShowInfoNew == null) {
-                return null;
-            }
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (int i = 0; i < iconInfo.size(); i++) {
-                arrayList.add(iconInfo.get(i).getIcon());
-            }
-            for (int i2 = 0; i2 < iconInfo.size(); i2++) {
-                arrayList.add(tShowInfoNew.get(i2).getIcon());
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
             PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
             preLoadImageInfo.imgUrl = getPortrait();
@@ -97,49 +61,17 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.ImageProvider
-    public ArrayList<ImageInfo> getImagesWithEmotions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.ImageProvider
-    public ArrayList<String> getPhotoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(getPortrait());
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsChecked : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.ImageProvider
-    public boolean isSupportImageSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIsChecked : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.data.UserData, com.baidu.tbadk.data.MetaData
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             super.parserJson(jSONObject);
             try {
                 boolean z = true;
@@ -156,15 +88,15 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.mIsChecked = z;
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.sw4
+    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.cz4
     public void setIsLike(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.setIsLike(z);
             if (z) {
                 return;

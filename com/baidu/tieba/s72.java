@@ -1,86 +1,125 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public final class s72 {
+public final class s72 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public InputStream a;
+    public q72 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104251, "Lcom/baidu/tieba/s72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104251, "Lcom/baidu/tieba/s72;");
-                return;
-            }
-        }
-        b = kh1.a;
-        hk2.g0().getSwitch("swan_slave_ready", false);
-        c = false;
-    }
-
-    public s72() {
+    public s72(@NonNull InputStream inputStream, @NonNull q72 q72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, q72Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = inputStream;
+        this.b = q72Var;
+    }
+
+    @Override // java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.available() : invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.close();
+            this.b.c(this.a);
+            this.b.a();
+            cj4.d(this.a);
         }
     }
 
-    public static bb2 a(s72 s72Var) {
+    @Override // java.io.InputStream
+    public void mark(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.mark(i);
+            this.a.mark(i);
+        }
+    }
+
+    @Override // java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.markSupported() : invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, s72Var)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + s72Var);
-            }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put("slaveId", s72Var.a);
-            return new bb2("SlaveReady", treeMap);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            int read = this.a.read(bArr);
+            this.b.d(bArr, 0, read);
+            return read;
         }
-        return (bb2) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                super.reset();
+                this.a.reset();
             }
-            return c;
         }
-        return invokeV.booleanValue;
     }
 
-    public String toString() {
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            this.a.skip(j);
+            return super.skip(j);
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
+            int read = this.a.read(bArr, i, i2);
+            this.b.d(bArr, i, read);
+            return read;
+        }
+        return invokeLII.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.read() : invokeV.intValue;
     }
 }

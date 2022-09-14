@@ -1,49 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.tieba.ga4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class aa4 extends w94 {
+public class aa4 extends ga4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long o;
-    public String p;
-    public AbiType q;
 
-    public aa4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.w94
-    public boolean a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ga4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public ga4 build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.g) || this.i <= 0 || this.k <= 0 || TextUtils.isEmpty(this.p) || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.n) || this.q == null) ? false : true : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.w94
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "libName=" + this.p + ", abi=" + this.q + ", maxAge=" + this.o + " " + super.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q94.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
         }
-        return (String) invokeV.objValue;
+        return (ga4) invokeV.objValue;
     }
 }

@@ -104,7 +104,7 @@ public class BOSUploader {
         return (BOSUploader) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0133 A[Catch: Exception -> 0x015c, JSONException -> 0x015e, BceClientException -> 0x0160, BceServiceException -> 0x0162, TryCatch #6 {BceServiceException -> 0x0162, BceClientException -> 0x0160, JSONException -> 0x015e, Exception -> 0x015c, blocks: (B:21:0x0049, B:23:0x0055, B:25:0x0063, B:27:0x007b, B:28:0x007d, B:67:0x0158, B:68:0x015b, B:61:0x011f, B:62:0x0122, B:64:0x0133, B:65:0x014d, B:53:0x0111), top: B:112:0x0049 }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0134 A[Catch: Exception -> 0x015d, JSONException -> 0x015f, BceClientException -> 0x0161, BceServiceException -> 0x0163, TryCatch #6 {BceServiceException -> 0x0163, BceClientException -> 0x0161, JSONException -> 0x015f, Exception -> 0x015d, blocks: (B:21:0x004a, B:23:0x0056, B:25:0x0064, B:27:0x007c, B:28:0x007e, B:67:0x0159, B:68:0x015c, B:61:0x0120, B:62:0x0123, B:64:0x0134, B:65:0x014e, B:53:0x0112), top: B:112:0x004a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

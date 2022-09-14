@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RtpTransceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class RtpTransceiver {
     public long nativeRtpTransceiver;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RtpTransceiverDirection {
         public static final /* synthetic */ RtpTransceiverDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class RtpTransceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RtpTransceiverInit {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

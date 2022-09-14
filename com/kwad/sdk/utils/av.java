@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class av {
     public static boolean Ar() {
         return w.i("ksadsdk_pref", "config_data_transfer", false);

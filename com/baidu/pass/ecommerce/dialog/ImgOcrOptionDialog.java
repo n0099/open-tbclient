@@ -55,7 +55,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     public int getLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04e8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.layout_sapi_sdk_img_ocr_option_dialog : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -64,9 +64,9 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (this.optionOnClickListener != null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091d37) {
+                if (id == R.id.sapi_sdk_take_photo) {
                     this.optionOnClickListener.onOptionClick(1001);
-                } else if (id == R.id.obfuscated_res_0x7f091cc3) {
+                } else if (id == R.id.sapi_sdk_choose_img) {
                     this.optionOnClickListener.onOptionClick(1002);
                 }
             }
@@ -79,18 +79,18 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d37);
-            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc3);
-            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d21);
+            this.takePhotoTv = (TextView) view2.findViewById(R.id.sapi_sdk_take_photo);
+            this.chooseImgTv = (TextView) view2.findViewById(R.id.sapi_sdk_choose_img);
+            this.cancelTv = (TextView) view2.findViewById(R.id.sapi_sdk_option_cancel);
             if (this.isDarkMode) {
-                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081069);
-                this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c0));
-                view2.findViewById(R.id.obfuscated_res_0x7f091d38).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060941));
-                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
-                this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c0));
-                view2.findViewById(R.id.obfuscated_res_0x7f091cc4).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06096b));
-                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
-                this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c0));
+                this.takePhotoTv.setBackgroundResource(R.drawable.sapi_sdk_option_top_round_bg_selector_dark);
+                this.takePhotoTv.setTextColor(getResources().getColor(R.color.sapi_sdk_common_select_dialog_item_text_dark_color));
+                view2.findViewById(R.id.sapi_sdk_take_photo_bottom_line).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
+                this.chooseImgTv.setBackgroundResource(R.drawable.sapi_sdk_option_common_bg_selector_dark);
+                this.chooseImgTv.setTextColor(getResources().getColor(R.color.sapi_sdk_common_select_dialog_item_text_dark_color));
+                view2.findViewById(R.id.sapi_sdk_choose_img_bottom_line).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_list_dialog_divider_bg_dark_color));
+                this.cancelTv.setBackgroundResource(R.drawable.sapi_sdk_option_common_bg_selector_dark);
+                this.cancelTv.setTextColor(getResources().getColor(R.color.sapi_sdk_common_select_dialog_item_text_dark_color));
             }
             this.takePhotoTv.setOnClickListener(this);
             this.chooseImgTv.setOnClickListener(this);

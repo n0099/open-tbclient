@@ -1,88 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.HttpDnsClient;
+import com.baidu.tieba.lp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class mp {
+public class mp implements HttpDnsClient.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final mp a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final lp a;
+    public final BDHttpDns b;
+    public final BDHttpDns.CachePolicy c;
+    public final HttpDnsClient d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448311402, "Lcom/baidu/tieba/mp;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448311402, "Lcom/baidu/tieba/mp;");
-                return;
-            }
-        }
-        a = new mp();
-    }
-
-    public mp() {
+    public mp(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        ju f;
-        bu d;
-        bu d2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, taskInfo, taskStatus) == null) {
-            au v = BDPTask.m.v();
-            if (v != null && (d2 = v.d()) != null) {
-                d2.b(taskInfo.getSingleKey(), wq.c.a());
-            }
-            au v2 = BDPTask.m.v();
-            if (v2 != null && (d = v2.d()) != null) {
-                d.a(taskInfo.getSingleKey());
-            }
-            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
-            String c = ku.a.c(taskStatus);
-            au v3 = BDPTask.m.v();
-            if (v3 == null || (f = v3.f()) == null) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            f.a(str, "icon_clk", ku.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
         }
+        BDHttpDns h = BDHttpDns.h(context);
+        this.b = h;
+        this.a = h.e();
+        this.c = this.b.c();
+        this.d = this.b.f();
     }
 
-    public final void b(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        ju f;
+    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
+    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map<String, HttpDnsClient.e> map, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, taskInfo, taskStatus) == null) {
-            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
-            String c = ku.a.c(taskStatus);
-            au v = BDPTask.m.v();
-            if (v == null || (f = v.f()) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
+            if (i != -1) {
+                if (i != 0) {
+                    np.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
+                } else {
+                    for (Map.Entry<String, HttpDnsClient.e> entry : map.entrySet()) {
+                        String key = entry.getKey();
+                        HttpDnsClient.e value = entry.getValue();
+                        if (value != null) {
+                            lp.a aVar = new lp.a();
+                            aVar.i(value.c());
+                            aVar.h(System.currentTimeMillis() / 1000);
+                            aVar.f(value.a());
+                            aVar.g(value.b());
+                            this.a.e(key, aVar);
+                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                            this.a.d(key);
+                        }
+                    }
+                }
+            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                for (String str2 : str.split(",")) {
+                    this.a.d(str2);
+                }
+            }
+            if (this.b.g() <= 0 || this.d.C()) {
                 return;
             }
-            f.a(str, "close_clk", ku.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
+            this.d.M(true);
+            np.a("preResolve has finished", new Object[0]);
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class e15 implements pn {
+public class e15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final e15 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public Map<String, f15> b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -27,27 +35,87 @@ public class e15 implements pn {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        d = new e15(false);
     }
 
-    public e15() {
+    public e15(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = z;
+    }
+
+    public static e15 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
+            e15 e15Var = new e15(true);
+            e15Var.a(optJSONObject);
+            return e15Var;
+        }
+        return (e15) invokeL.objValue;
+    }
+
+    public final void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        this.b = new ArrayMap(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                f15 d2 = f15.d(optJSONObject);
+                if (!TextUtils.isEmpty(d2.a())) {
+                    this.b.put(d2.a(), d2);
+                }
+            }
+        }
+        try {
+            this.c = Integer.parseInt(jSONObject.optString("freq"));
+        } catch (Exception unused) {
+            this.c = 0;
         }
     }
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public f15 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.b == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return this.b.get(str);
+        }
+        return (f15) invokeL.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

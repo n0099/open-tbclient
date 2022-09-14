@@ -13,7 +13,7 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import protobuf.MsgInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class UserMsgs extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static final List<MsgInfo> DEFAULT_MSGS;
@@ -21,7 +21,7 @@ public final class UserMsgs extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<MsgInfo> msgs;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<UserMsgs> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public final class UserMsgs extends Message {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

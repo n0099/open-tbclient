@@ -4,18 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c45;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.j45;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.r65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class KPSwitchFSPanelFrameLayout extends FrameLayout implements c45 {
+public class KPSwitchFSPanelFrameLayout extends FrameLayout implements k65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d45 a;
+    public l65 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -38,7 +38,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements c45 {
         b();
     }
 
-    @Override // com.baidu.tieba.c45
+    @Override // com.baidu.tieba.k65
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -49,15 +49,15 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements c45 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new d45(this);
+            this.a = new l65(this);
         }
     }
 
-    @Override // com.baidu.tieba.c45
+    @Override // com.baidu.tieba.k65
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            j45.d(this, i);
+            r65.d(this, i);
         }
     }
 

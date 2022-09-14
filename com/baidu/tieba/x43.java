@@ -3,89 +3,36 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.tieba.f63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public class x43 extends z43 {
+public class x43 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements tf3<d63<f63.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ y43 b;
-        public final /* synthetic */ gn1 c;
-        public final /* synthetic */ x43 d;
-
-        public a(x43 x43Var, CallbackHandler callbackHandler, y43 y43Var, gn1 gn1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x43Var, callbackHandler, y43Var, gn1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = x43Var;
-            this.a = callbackHandler;
-            this.b = y43Var;
-            this.c = gn1Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(d63<f63.e> d63Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d63Var) == null) {
-                if (!y53.h(d63Var)) {
-                    y53.q(d63Var, this.a, this.b.e);
-                    this.b.k = null;
-                } else {
-                    y43 y43Var = this.b;
-                    y43Var.m = false;
-                    this.d.m(this.a, (SwanAppSlaveManager) this.c, y43Var);
-                }
-                if (this.c.W(this.b)) {
-                    return;
-                }
-                ay1.c("updateWebView", "update webview widget fail");
-                this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x43(x13 x13Var) {
-        super(x13Var, "/swanAPI/updateWebView");
+    public x43(v33 v33Var) {
+        super(v33Var, "/swanAPI/ubcFlowJar");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((x13) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,40 +40,88 @@ public class x43 extends z43 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("UpdateWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("SwanAppAction", "start ubc flor jar");
             }
-            y43 h = y43.h(unitedSchemeEntity);
-            if (!h.isValid()) {
-                ay1.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            if (y23Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
-            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
-                ay1.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
+            }
+            String optString = optParamsAsJo.optString("flowId");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
+                return false;
+            }
+            char c = 65535;
+            switch (optString.hashCode()) {
+                case 53647:
+                    if (optString.equals("670")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 53648:
+                    if (optString.equals("671")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 55357:
+                    if (optString.equals("805")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 56506:
+                    if (optString.equals("967")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1508542:
+                    if (optString.equals("1153")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 1529139648:
+                    if (optString.equals("renderMonitorLog")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            if (c == 0) {
+                ju1.B(optParamsAsJo, y23Var);
+            } else if (c == 1) {
+                ju1.F(optParamsAsJo.optJSONArray("data"));
+            } else if (c == 2) {
+                ju1.E(optParamsAsJo.optJSONArray("data"));
+            } else if (c == 3) {
+                ju1.D(optParamsAsJo);
+            } else if (c != 4) {
+                if (c != 5) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
+                    return false;
+                }
+                ju1.C(optParamsAsJo);
+            } else if (y23Var.W().p0()) {
+                h02.g(optParamsAsJo.optJSONArray("data"));
             } else {
-                gn1 gn1Var = (gn1) nm2.U().A(h.c);
-                if (gn1Var == null) {
-                    ay1.c("updateWebView", "viewManager is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                if (TextUtils.equals(h.l, "quickPass")) {
-                    a13Var.e0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, gn1Var));
-                } else if (!gn1Var.W(h)) {
-                    ay1.c("updateWebView", "update webview widget fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                o02.i(optParamsAsJo.optJSONArray("data"));
             }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

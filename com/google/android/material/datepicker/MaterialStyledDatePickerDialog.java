@@ -32,9 +32,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     @AttrRes
     public static final int DEF_STYLE_ATTR = 16843612;
     @StyleRes
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100128 = 2131755304;
+    public static final int DEF_STYLE_RES = 2131755304;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final Drawable background;
@@ -150,13 +148,13 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
         }
         Context context2 = getContext();
         int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f04017e, MaterialStyledDatePickerDialog.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100128);
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
         if (Build.VERSION.SDK_INT >= 21) {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(resolveOrThrow));
         } else {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(0));
         }
-        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100128);
+        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, DEF_STYLE_RES);
         this.backgroundInsets = dialogBackgroundInsets;
         this.background = MaterialDialogs.insetDrawable(materialShapeDrawable, dialogBackgroundInsets);
     }

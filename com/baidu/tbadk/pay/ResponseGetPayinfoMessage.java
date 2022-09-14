@@ -2,6 +2,7 @@ package com.baidu.tbadk.pay;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,6 +47,9 @@ public class ResponseGetPayinfoMessage extends JsonHttpResponsedMessage {
             }
             this.mPayInfoResultData = (PayInfoResultData) OrmObject.objectWithJsonStr(jSONObject.toString(), PayInfoResultData.class);
             this.logid = jSONObject.optString("logid");
+            BdToastData bdToastData = new BdToastData();
+            bdToastData.parserJson(jSONObject.toString());
+            this.mPayInfoResultData.setToast(bdToastData);
         }
     }
 

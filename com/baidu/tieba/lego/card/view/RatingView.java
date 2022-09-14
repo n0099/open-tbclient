@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,9 +81,9 @@ public class RatingView extends LinearLayout {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.a);
                 textView.setText(this.b.a);
-                textView.setTextSize(0, ri.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
+                textView.setTextSize(0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView.setPadding(0, 0, ri.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
+                textView.setPadding(0, 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
@@ -92,9 +92,9 @@ public class RatingView extends LinearLayout {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.a);
                 textView2.setText(this.b.b);
-                textView2.setTextSize(0, ri.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
+                textView2.setTextSize(0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
                 textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView2.setPadding(0, 0, ri.f(this.a, R.dimen.obfuscated_res_0x7f0702e6), 0);
+                textView2.setPadding(0, 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0702e6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
@@ -112,15 +112,15 @@ public class RatingView extends LinearLayout {
             }
             int intValue = valueOf.intValue() >> 1;
             for (int i = 0; i < intValue; i++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a7b)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a98)));
             }
             int i2 = 5 - intValue;
             if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a7c)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a99)));
                 i2--;
             }
             for (int i3 = 0; i3 < i2; i3++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a7a)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a97)));
             }
         }
     }
@@ -131,7 +131,7 @@ public class RatingView extends LinearLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
             ImageView imageView = new ImageView(this.a);
             imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            imageView.setPadding(0, 0, ri.f(this.a, R.dimen.obfuscated_res_0x7f070224), 0);
+            imageView.setPadding(0, 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f070224), 0);
             imageView.setImageDrawable(drawable);
             return imageView;
         }

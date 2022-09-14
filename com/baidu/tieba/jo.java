@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
+import android.view.ViewGroup;
+import java.util.List;
 /* loaded from: classes4.dex */
-public @interface jo {
+public interface jo<V extends ViewGroup> {
+    void a(List<qn> list);
+
+    List<Cdo> getData();
+
+    eo getListAdapter();
+
+    V getListView();
+
+    void setData(List<? extends Cdo> list);
 }

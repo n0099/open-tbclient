@@ -19,17 +19,17 @@ public final class ExceptionsConstuctorKt$safeCtor$1 extends Lambda implements F
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
     public final Throwable invoke(Throwable th) {
-        Object m698constructorimpl;
+        Object m699constructorimpl;
         try {
             Result.Companion companion = Result.Companion;
-            m698constructorimpl = Result.m698constructorimpl((Throwable) this.$block.invoke(th));
+            m699constructorimpl = Result.m699constructorimpl((Throwable) this.$block.invoke(th));
         } catch (Throwable th2) {
             Result.Companion companion2 = Result.Companion;
-            m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th2));
+            m699constructorimpl = Result.m699constructorimpl(ResultKt.createFailure(th2));
         }
-        if (Result.m704isFailureimpl(m698constructorimpl)) {
-            m698constructorimpl = null;
+        if (Result.m705isFailureimpl(m699constructorimpl)) {
+            m699constructorimpl = null;
         }
-        return (Throwable) m698constructorimpl;
+        return (Throwable) m699constructorimpl;
     }
 }

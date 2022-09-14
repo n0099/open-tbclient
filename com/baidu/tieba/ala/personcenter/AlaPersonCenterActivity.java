@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-import com.baidu.tieba.ow5;
+import com.baidu.tieba.cy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ow5 b;
+    public cy5 b;
 
     public AlaPersonCenterActivity() {
         Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
             super.onCreate(bundle);
             TbPageContext<AlaPersonCenterActivity> pageContext = getPageContext();
             this.a = pageContext;
-            ow5 ow5Var = new ow5(pageContext, false);
-            this.b = ow5Var;
-            setContentView(ow5Var.i());
+            cy5 cy5Var = new cy5(pageContext, false);
+            this.b = cy5Var;
+            setContentView(cy5Var.i());
             Intent intent = getIntent();
             if (intent != null) {
                 this.b.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
@@ -102,9 +102,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            ow5 ow5Var = this.b;
-            if (ow5Var != null) {
-                ow5Var.p();
+            cy5 cy5Var = this.b;
+            if (cy5Var != null) {
+                cy5Var.p();
             }
         }
     }

@@ -2,201 +2,157 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xh1 extends x23 {
+public class xh1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public vh1 c;
 
-    /* loaded from: classes6.dex */
-    public class a implements uh1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final UnitedSchemeEntity a;
-        public final CallbackHandler b;
-
-        public a(xh1 xh1Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xh1Var, unitedSchemeEntity, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-        }
-
-        @Override // com.baidu.tieba.uh1
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                UnitedSchemeUtility.callCallback(this.b, this.a, i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements wh1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final CallbackHandler a;
-        public final String b;
-
-        public b(xh1 xh1Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xh1Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.wh1
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("data", jSONObject.toString());
-                    nm2.U().u(new bb2("rewardedVideoAdClose", hashMap));
-                    return;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("event", "close");
-                    jSONObject2.put(TiebaStatic.LogFields.RESULT, jSONObject);
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wh1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    nm2.U().u(new bb2("rewardedVideoAdLoad", new HashMap()));
-                    return;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("event", "load");
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wh1
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("data", jSONObject.toString());
-                    nm2.U().u(new bb2("rewardedVideoAdError", hashMap));
-                    return;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("event", "error");
-                    jSONObject2.put(TiebaStatic.LogFields.RESULT, jSONObject);
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xh1(x13 x13Var) {
-        super(x13Var, "/swanAPI/rewardedVideoAd");
+    public xh1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = null;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject a2 = x23.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = a2.optString("cb");
-            String optString2 = a2.optString("action");
-            b bVar = new b(this, callbackHandler, optString);
-            a aVar = new a(this, unitedSchemeEntity, callbackHandler);
-            if (this.c == null) {
-                this.c = new zh1(a2, bVar, aVar);
-            }
-            if (TextUtils.equals(optString2, "show")) {
-                this.c.a(a2, aVar);
-                return true;
-            } else if (TextUtils.equals(optString2, "load")) {
-                this.c.b(a2, aVar, bVar);
-                return true;
-            } else {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(a)) {
+                    a = ii1.e(context);
+                }
+                return TextUtils.isEmpty(a) ? "" : a;
+            } catch (Throwable th) {
+                ii1.d(th);
+                return "";
             }
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("1", b(context));
+                jSONObject.put("3", d(context));
+                jSONObject.put("2", e(context));
+                jSONObject.put("4", f(context));
+                jSONObject.put("5", str);
+                jSONObject.put("6", System.currentTimeMillis());
+                jSONObject.put("7", "0");
+                jSONObject.put("8", vg1.b);
+                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+                jSONObject.put("10", "1.1.4");
+                jSONObject.put("14", ii1.i(context));
+                jSONObject.put("23", uh1.a(context));
+                jSONObject.put("26", "");
+                jSONObject.put("31", wg1.f(context).J());
+                return jSONObject;
+            } catch (Throwable th) {
+                ii1.d(th);
+                return null;
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(b)) {
+                    b = ii1.g(context);
+                }
+                return TextUtils.isEmpty(b) ? "" : b;
+            } catch (Throwable th) {
+                ii1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(c)) {
+                    c = context.getPackageName();
+                }
+                return TextUtils.isEmpty(c) ? "" : c;
+            } catch (Throwable th) {
+                ii1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(d)) {
+                    return d;
+                }
+                String b2 = ji1.b(context);
+                d = b2;
+                return b2;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public ai1 a(Context context, String str, String str2, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                JSONArray jSONArray = new JSONArray(str);
+                JSONObject c2 = c(context, str2);
+                c2.put("module_section", jSONArray);
+                ai1 ai1Var = new ai1();
+                ai1Var.e(i);
+                ai1Var.c(c2.toString());
+                ai1Var.g(i2);
+                return ai1Var;
+            } catch (Throwable th) {
+                ii1.d(th);
+                return null;
+            }
+        }
+        return (ai1) invokeCommon.objValue;
     }
 }

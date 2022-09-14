@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2404266111789071508L;

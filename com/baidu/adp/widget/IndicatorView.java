@@ -11,9 +11,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.fo;
+import com.baidu.tieba.to;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class IndicatorView extends View {
     public float d;
     public Drawable e;
     public Drawable f;
-    public final fo g;
+    public final to g;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -39,7 +39,7 @@ public class IndicatorView extends View {
     }
 
     /* loaded from: classes.dex */
-    public class b implements fo {
+    public class b implements to {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -107,7 +107,7 @@ public class IndicatorView extends View {
             this.a = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
-        @Override // com.baidu.tieba.fo
+        @Override // com.baidu.tieba.to
         public boolean a(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.fo
+        @Override // com.baidu.tieba.to
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -131,7 +131,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.fo
+        @Override // com.baidu.tieba.to
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -152,7 +152,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.fo
+        @Override // com.baidu.tieba.to
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.fo
+        @Override // com.baidu.tieba.to
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
@@ -189,7 +189,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.fo
+        @Override // com.baidu.tieba.to
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -444,7 +444,7 @@ public class IndicatorView extends View {
             }
         }
         this.g = new b(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400a6, R.attr.obfuscated_res_0x7f0401ae, R.attr.obfuscated_res_0x7f040256, R.attr.obfuscated_res_0x7f04060b, R.attr.obfuscated_res_0x7f04063d});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
         this.a = obtainStyledAttributes.getDimensionPixelSize(4, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.b = obtainStyledAttributes.getInteger(1, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(2);

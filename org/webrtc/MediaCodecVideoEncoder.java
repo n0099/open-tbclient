@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.qu9;
+import com.baidu.tieba.iw9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.google.android.gms.common.Scopes;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1054,7 +1055,7 @@ public class MediaCodecVideoEncoder {
                 Logging.w(TAG, "Egl context already set.");
                 staticEglBase.release();
             }
-            staticEglBase = qu9.b(context);
+            staticEglBase = iw9.b(context);
         }
     }
 
@@ -1448,7 +1449,7 @@ public class MediaCodecVideoEncoder {
                                 createVideoFormat.setInteger("frame-rate", this.targetFps);
                                 createVideoFormat.setInteger("i-frame-interval", i7);
                                 if (z3) {
-                                    createVideoFormat.setInteger("profile", 8);
+                                    createVideoFormat.setInteger(Scopes.PROFILE, 8);
                                     createVideoFormat.setInteger(PollingModel.LEVEL, 256);
                                 }
                                 Logging.d(TAG, "  Format: " + createVideoFormat);

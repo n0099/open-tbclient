@@ -1,114 +1,108 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class lm4 extends ut4 {
+public class lm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public String e;
+    public final Map<String, String> f;
+    public final List<qm4> g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lm4(st4 st4Var) {
-        super(st4Var);
+    public lm4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {st4Var};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((st4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @vt4(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MODEL;
-            int k = ri.k(getContext());
-            int i = ri.i(getContext());
-            String str3 = String.valueOf(k) + "," + String.valueOf(i);
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
-            try {
-                jSONObject.put("systemName", "android");
-                jSONObject.put("systemVersion", str);
-                jSONObject.put("model", str2);
-                jSONObject.put("cuid", cuid);
-                jSONObject.put("resolution", str3);
-                jSONObject.put("appVersion", versionName);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @vt4(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        InterceptResult invokeV;
-        int i;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (pi.H()) {
-                i = 1;
-                str = "WIFI";
-            } else if (pi.t()) {
-                i = 3;
-                str = "2G";
-            } else if (pi.u()) {
-                i = 4;
-                str = "3G";
-            } else if (pi.v()) {
-                i = 5;
-                str = "4G";
-            } else {
-                i = 0;
-                str = "NotReachable";
-            }
-            try {
-                jSONObject.put("netStatus", i);
-                jSONObject.put("netDesc", str);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @vt4(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
+        this.f = new LinkedHashMap();
+        this.g = new ArrayList();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+            a();
+            b();
+            c();
             return;
         }
-        BdToast.b(getContext(), jSONObject.optString("message")).i();
+        this.d = false;
     }
 
-    @Override // com.baidu.tieba.ut4
-    public String f() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.add(new wm4());
+            this.g.add(new um4());
+            this.g.add(new sm4());
+            this.g.add(new xm4());
+            this.g.add(new vm4());
+            this.g.add(new ym4());
+            this.g.add(new tm4());
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
+            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            this.f.put("@rid", HttpClientWrap.f);
+            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
+            this.f.put("@c", TiebaStatic.Params.QD);
+            this.f.put("@p", "obj_source");
+            this.f.put("@eq", TiebaStatic.Params.EQID);
+            this.f.put("@1p", "obj_param1");
+            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
+            this.f.put("@m", "obj_name");
+            this.f.put("@re", TiebaStatic.Params.REFER);
+            this.f.put("@lo", "obj_locate");
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || StringUtils.isNull(this.b)) {
+            return;
+        }
+        String valueOf = String.valueOf(this.b.charAt(0));
+        String[] split = this.b.split("@");
+        for (qm4 qm4Var : this.g) {
+            if (valueOf.equals(qm4Var.b())) {
+                String a = qm4Var.a(split, this.f);
+                this.e = a;
+                if (StringUtils.isNull(a)) {
+                    return;
+                }
+                this.d = true;
+                return;
+            }
+        }
     }
 }

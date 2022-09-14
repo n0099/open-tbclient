@@ -1,67 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kb3 extends x23 {
+public class kb3 extends ib3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kb3(x13 x13Var) {
-        super(x13Var, "/swanAPI/stopDeviceMotion");
+    public kb3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.ib3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(hb3 hb3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                ay1.c("StopDeviceMotionAction", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "stopOrientationAction --- illegal swanApp");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hb3Var)) == null) {
+            gb3 b = mb3.b(hb3Var.a);
+            if (b == null) {
+                if (!ib3.a) {
+                    return Bundle.EMPTY;
                 }
-                return false;
-            } else if (context == null) {
-                ay1.c("StopDeviceMotionAction", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "stopOrientationAction --- illegal context");
-                }
-                return false;
-            } else {
-                ib3.h().m();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                throw new IllegalArgumentException("illegal sp.");
             }
+            int i = hb3Var.b;
+            if (i == 1) {
+                b.putInt(hb3Var.c, Integer.parseInt(hb3Var.d));
+            } else if (i == 2) {
+                b.putLong(hb3Var.c, Long.parseLong(hb3Var.d));
+            } else if (i == 3) {
+                b.putBoolean(hb3Var.c, Boolean.parseBoolean(hb3Var.d));
+            } else if (i == 4) {
+                b.putString(hb3Var.c, hb3Var.d);
+            } else if (i != 5) {
+                if (ib3.a) {
+                    throw new IllegalArgumentException("wrong info params.");
+                }
+            } else {
+                b.putFloat(hb3Var.c, Float.parseFloat(hb3Var.d));
+            }
+            if (ib3.a) {
+                Log.d("SwanAppSpDelegation", "Put: " + hb3Var);
+            }
+            return Bundle.EMPTY;
         }
-        return invokeLLLL.booleanValue;
+        return (Bundle) invokeL.objValue;
     }
 }

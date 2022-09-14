@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
+import java.util.List;
 /* loaded from: classes4.dex */
-public interface ge1 {
-    void a();
+public interface ge1<T> {
+    void a(ce1<List<T>> ce1Var);
 
-    void b(Surface surface);
+    List<T> getList();
 }

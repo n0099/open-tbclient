@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.TopicEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dj;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -76,7 +76,7 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         if (list != null) {
             list.clear();
         }
-        if (!qi.isEmpty(threadData.getForum_name())) {
+        if (!dj.isEmpty(threadData.getForum_name())) {
             ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
             this.c = threadForumEnterButton;
             threadForumEnterButton.a(threadData);

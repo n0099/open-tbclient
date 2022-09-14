@@ -12,6 +12,8 @@ import java.io.File;
 public interface IPlayer {
     void destroy();
 
+    int getCurrentPosition();
+
     long getDuration();
 
     int getFps();
@@ -19,6 +21,8 @@ public interface IPlayer {
     String getSourcePath();
 
     boolean isDestroyed();
+
+    boolean isNotPrepared();
 
     boolean isPaused();
 

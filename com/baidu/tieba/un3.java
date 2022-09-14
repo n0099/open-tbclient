@@ -1,103 +1,78 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes6.dex */
-public final class un3 {
+public class un3 implements jn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
+    public vn3 b;
+    public boolean c;
 
-    /* loaded from: classes6.dex */
-    public static class a implements c72 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public un3(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c(context);
+    }
 
-        @Override // com.baidu.tieba.c72
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.c72
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
+    @Override // com.baidu.tieba.jn3
+    public void a() {
+        vn3 vn3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (vn3Var = this.b) != null && vn3Var.c()) {
+            this.c = false;
+            this.b.f();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        xd4 a();
-
-        void b(boolean z, c72 c72Var);
-
-        boolean c();
-
-        Bitmap d();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948216719, "Lcom/baidu/tieba/un3;")) == null) {
+    @Override // com.baidu.tieba.jn3
+    public void b(int i) {
+        vn3 vn3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.c || (vn3Var = this.b) == null || !vn3Var.c()) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948216719, "Lcom/baidu/tieba/un3;");
+        this.c = true;
+        this.b.e(i, this.a);
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.b == null) {
+            this.b = vn3.b(context);
+            d();
         }
     }
 
-    public static void a() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && ProcessUtils.isMainProcess() && !hk2.w0().d()) {
-            synchronized (SwanAppInitHelper.class) {
-                if (SwanAppInitHelper.isDelayInit()) {
-                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
-                }
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a == null) {
+            pn3 f = wn3.f();
+            if (f.a <= 4) {
+                this.a = new int[]{1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
+            } else if (f.h && f.d()) {
+                this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1082130944, 4095, 1082147328, 4095, 1098907648, 4095, 1115734016, 4095, 1115750400, 4095, 1115766784, 4095, 1098956800, 0, 1077936128, 1};
+            } else {
+                this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
             }
-            e72 e72Var = new e72();
-            e72Var.a = "by_silent";
-            hk2.w0().b(e72Var, new a());
         }
-    }
-
-    @Inject(force = false)
-    public static b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? aq5.a() : (b) invokeV.objValue;
     }
 }

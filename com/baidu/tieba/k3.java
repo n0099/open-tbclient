@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.Files;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,261 +12,381 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.gles.GeneratedTexture;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes4.dex */
 public class k3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final k3 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
+    public File a;
+    public Files.FileType b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307589, "Lcom/baidu/tieba/k3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(254170088, "Lcom/baidu/tieba/k3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(254170088, "Lcom/baidu/tieba/k3$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448307589, "Lcom/baidu/tieba/k3;");
-                return;
+            int[] iArr = new int[Files.FileType.values().length];
+            a = iArr;
+            try {
+                iArr[Files.FileType.Internal.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Files.FileType.Classpath.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Files.FileType.Absolute.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[Files.FileType.External.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
-        e = new k3(1.0f, 1.0f, 1.0f, 1.0f);
-        new k3(-1077952513);
-        new k3(2139062271);
-        new k3(1061109759);
-        new k3(0.0f, 0.0f, 0.0f, 1.0f);
-        e.f();
-        new k3(0.0f, 0.0f, 0.0f, 0.0f);
-        new k3(0.0f, 0.0f, 1.0f, 1.0f);
-        new k3(0.0f, 0.0f, 0.5f, 1.0f);
-        new k3(1097458175);
-        new k3(1887473919);
-        new k3(-2016482305);
-        new k3(0.0f, 1.0f, 1.0f, 1.0f);
-        new k3(0.0f, 0.5f, 0.5f, 1.0f);
-        new k3((int) GeneratedTexture.MAGENTA);
-        new k3(2147418367);
-        new k3(852308735);
-        new k3(579543807);
-        new k3(1804477439);
-        new k3(-65281);
-        new k3(-2686721);
-        new k3(-626712321);
-        new k3(-5963521);
-        new k3(-1958407169);
-        new k3(-759919361);
-        new k3(-1306385665);
-        new k3(-16776961);
-        new k3(-13361921);
-        new k3(-8433409);
-        new k3(-92245249);
-        new k3(-9849601);
-        new k3(1.0f, 0.0f, 1.0f, 1.0f);
-        new k3(-1608453889);
-        new k3(-293409025);
-        new k3(-1339006721);
     }
 
     public k3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int b(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (((int) (f * 255.0f)) << 24) | (((int) (f2 * 255.0f)) << 16) | (((int) (f3 * 255.0f)) << 8) | ((int) (f4 * 255.0f)) : invokeCommon.intValue;
-    }
-
-    public static void c(k3 k3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, k3Var, i) == null) {
-            k3Var.a = (((-16777216) & i) >>> 24) / 255.0f;
-            k3Var.b = ((16711680 & i) >>> 16) / 255.0f;
-            k3Var.c = ((65280 & i) >>> 8) / 255.0f;
-            k3Var.d = (i & 255) / 255.0f;
-        }
-    }
-
-    public static k3 h(String str) {
+    public k3 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            k3 k3Var = new k3();
-            i(str, k3Var);
-            return k3Var;
-        }
-        return (k3) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.getPath().length() == 0 ? new k3(new File(str), this.b) : new k3(new File(this.a, str), this.b) : (k3) invokeL.objValue;
     }
 
-    public static k3 i(String str, k3 k3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, k3Var)) == null) {
-            if (str.charAt(0) == '#') {
-                str = str.substring(1);
-            }
-            k3Var.a = Integer.parseInt(str.substring(0, 2), 16) / 255.0f;
-            k3Var.b = Integer.parseInt(str.substring(2, 4), 16) / 255.0f;
-            k3Var.c = Integer.parseInt(str.substring(4, 6), 16) / 255.0f;
-            k3Var.d = str.length() != 8 ? 1.0f : Integer.parseInt(str.substring(6, 8), 16) / 255.0f;
-            return k3Var;
-        }
-        return (k3) invokeLL.objValue;
-    }
-
-    public k3 a() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float f = this.a;
-            if (f < 0.0f) {
-                this.a = 0.0f;
-            } else if (f > 1.0f) {
-                this.a = 1.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int f = (int) f();
+            if (f != 0) {
+                return f;
             }
-            float f2 = this.b;
-            if (f2 < 0.0f) {
-                this.b = 0.0f;
-            } else if (f2 > 1.0f) {
-                this.b = 1.0f;
-            }
-            float f3 = this.c;
-            if (f3 < 0.0f) {
-                this.c = 0.0f;
-            } else if (f3 > 1.0f) {
-                this.c = 1.0f;
-            }
-            float f4 = this.d;
-            if (f4 < 0.0f) {
-                this.d = 0.0f;
-            } else if (f4 > 1.0f) {
-                this.d = 1.0f;
-            }
-            return this;
+            return 512;
         }
-        return (k3) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public k3 d(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = f4;
-            a();
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = a.a[this.b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return e().exists();
+                }
+            } else if (e().exists()) {
+                return true;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("/");
+            sb.append(this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH));
+            return k3.class.getResource(sb.toString()) != null;
         }
-        return (k3) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public k3 e(k3 k3Var) {
-        InterceptResult invokeL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k3Var)) == null) {
-            this.a = k3Var.a;
-            this.b = k3Var.b;
-            this.c = k3Var.c;
-            this.d = k3Var.d;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String name = this.a.getName();
+            int lastIndexOf = name.lastIndexOf(46);
+            return lastIndexOf == -1 ? "" : name.substring(lastIndexOf + 1);
         }
-        return (k3) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean delete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Files.FileType fileType = this.b;
+            if (fileType != Files.FileType.Classpath) {
+                if (fileType != Files.FileType.Internal) {
+                    return e().delete();
+                }
+                throw new GdxRuntimeException("Cannot delete an internal file: " + this.a);
+            }
+            throw new GdxRuntimeException("Cannot delete a classpath file: " + this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public File e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b == Files.FileType.External ? new File(f1.d.e(), this.a.getPath()) : this.a : (File) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj instanceof k3) {
+                k3 k3Var = (k3) obj;
+                return this.b == k3Var.b && j().equals(k3Var.j());
             }
-            return obj != null && k3.class == obj.getClass() && g() == ((k3) obj).g();
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public float f() {
+    public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t7.c((((int) (this.d * 255.0f)) << 24) | (((int) (this.c * 255.0f)) << 16) | (((int) (this.b * 255.0f)) << 8) | ((int) (this.a * 255.0f))) : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Files.FileType fileType = this.b;
+            if (fileType != Files.FileType.Classpath && (fileType != Files.FileType.Internal || this.a.exists())) {
+                return e().length();
+            }
+            InputStream m = m();
+            try {
+                long available = m.available();
+                j8.a(m);
+                return available;
+            } catch (Exception unused) {
+                j8.a(m);
+                return 0L;
+            } catch (Throwable th) {
+                j8.a(m);
+                throw th;
+            }
+        }
+        return invokeV.longValue;
     }
 
-    public int g() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((int) (this.d * 255.0f)) << 24) | (((int) (this.c * 255.0f)) << 16) | (((int) (this.b * 255.0f)) << 8) | ((int) (this.a * 255.0f)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getName() : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String name = this.a.getName();
+            int lastIndexOf = name.lastIndexOf(46);
+            return lastIndexOf == -1 ? name : name.substring(0, lastIndexOf);
+        }
+        return (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float f = this.a;
-            int a = (f != 0.0f ? t7.a(f) : 0) * 31;
-            float f2 = this.b;
-            int a2 = (a + (f2 != 0.0f ? t7.a(f2) : 0)) * 31;
-            float f3 = this.c;
-            int a3 = (a2 + (f3 != 0.0f ? t7.a(f3) : 0)) * 31;
-            float f4 = this.d;
-            return a3 + (f4 != 0.0f ? t7.a(f4) : 0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((37 + this.b.hashCode()) * 67) + j().hashCode() : invokeV.intValue;
+    }
+
+    public k3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            File parentFile = this.a.getParentFile();
+            if (parentFile == null) {
+                if (this.b == Files.FileType.Absolute) {
+                    parentFile = new File("/");
+                } else {
+                    parentFile = new File("");
+                }
+            }
+            return new k3(parentFile, this.b);
         }
-        return invokeV.intValue;
+        return (k3) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String replace = this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH);
+            int lastIndexOf = replace.lastIndexOf(46);
+            return lastIndexOf == -1 ? replace : replace.substring(0, lastIndexOf);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public BufferedInputStream l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) ? new BufferedInputStream(m(), i) : (BufferedInputStream) invokeI.objValue;
+    }
+
+    public InputStream m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            Files.FileType fileType = this.b;
+            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.b != Files.FileType.Local || e().exists()))) {
+                try {
+                    return new FileInputStream(e());
+                } catch (Exception e) {
+                    if (e().isDirectory()) {
+                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
+                    }
+                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
+                }
+            }
+            InputStream resourceAsStream = k3.class.getResourceAsStream("/" + this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH));
+            if (resourceAsStream != null) {
+                return resourceAsStream;
+            }
+            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX);
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    public byte[] n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            InputStream m = m();
+            try {
+                try {
+                    return j8.d(m, b());
+                } catch (IOException e) {
+                    throw new GdxRuntimeException("Error reading file: " + this, e);
+                }
+            } finally {
+                j8.a(m);
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? p(null) : (String) invokeV.objValue;
+    }
+
+    public String p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048594, this, str)) != null) {
+            return (String) invokeL.objValue;
+        }
+        StringBuilder sb = new StringBuilder(b());
+        InputStreamReader inputStreamReader = null;
+        try {
+            try {
+                if (str == null) {
+                    inputStreamReader = new InputStreamReader(m());
+                } else {
+                    inputStreamReader = new InputStreamReader(m(), str);
+                }
+                char[] cArr = new char[256];
+                while (true) {
+                    int read = inputStreamReader.read(cArr);
+                    if (read == -1) {
+                        j8.a(inputStreamReader);
+                        return sb.toString();
+                    }
+                    sb.append(cArr, 0, read);
+                }
+            } catch (IOException e) {
+                throw new GdxRuntimeException("Error reading layout file: " + this, e);
+            }
+        } catch (Throwable th) {
+            j8.a(inputStreamReader);
+            throw th;
+        }
+    }
+
+    public BufferedReader q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) ? new BufferedReader(new InputStreamReader(m()), i) : (BufferedReader) invokeI.objValue;
+    }
+
+    public Reader r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            InputStream m = m();
+            try {
+                return new InputStreamReader(m, str);
+            } catch (UnsupportedEncodingException e) {
+                j8.a(m);
+                throw new GdxRuntimeException("Error reading file: " + this, e);
+            }
+        }
+        return (Reader) invokeL.objValue;
+    }
+
+    public k3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            if (this.a.getPath().length() != 0) {
+                return new k3(new File(this.a.getParent(), str), this.b);
+            }
+            throw new GdxRuntimeException("Cannot get the sibling of the root.");
+        }
+        return (k3) invokeL.objValue;
+    }
+
+    public Files.FileType t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.b : (Files.FileType) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String hexString = Integer.toHexString((((int) (this.a * 255.0f)) << 24) | (((int) (this.b * 255.0f)) << 16) | (((int) (this.c * 255.0f)) << 8) | ((int) (this.d * 255.0f)));
-            while (hexString.length() < 8) {
-                hexString = "0" + hexString;
-            }
-            return hexString;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
     }
 
-    public k3(int i) {
+    public k3(String str, Files.FileType fileType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        c(this, i);
-    }
-
-    public k3(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {str, fileType};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -273,28 +396,26 @@ public class k3 {
                 return;
             }
         }
-        this.a = f;
-        this.b = f2;
-        this.c = f3;
-        this.d = f4;
-        a();
+        this.b = fileType;
+        this.a = new File(str);
     }
 
-    public k3(k3 k3Var) {
+    public k3(File file, Files.FileType fileType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k3Var};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            Object[] objArr = {file, fileType};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        e(k3Var);
+        this.a = file;
+        this.b = fileType;
     }
 }

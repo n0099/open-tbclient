@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes5.dex */
-public class n95 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n95 extends g95 {
+    public static final String a = "com.baidu.tieba.n95";
 
-    public static void a(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65536, null, j, str) == null) {
-            RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
-            requestPassFriendMessage.setFriendId(j, str);
-            MessageManager.getInstance().sendMessage(requestPassFriendMessage);
-        }
-    }
+    @NonNull
+    m95 b(@NonNull TbPageContext tbPageContext);
 }

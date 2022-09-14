@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public class cj1 implements fl1 {
+public class cj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Object a;
+    public Class<?> b;
+    public Method c;
 
     public cj1() {
         Interceptable interceptable = $ic;
@@ -26,10 +29,24 @@ public class cj1 implements fl1 {
         }
     }
 
-    @Override // com.baidu.tieba.fl1
-    public InputStream a(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
+    public final String a(Context context, Method method) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new rr9(inputStream) : (InputStream) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
+            Object obj = this.a;
+            if (obj == null || method == null) {
+                return null;
+            }
+            try {
+                Object invoke = method.invoke(obj, context);
+                if (invoke != null) {
+                    return (String) invoke;
+                }
+                return null;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

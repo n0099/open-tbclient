@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.sapi2.ecommerce.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -394,7 +394,7 @@ public class ScrollLayout extends FrameLayout {
         int dimensionPixelOffset;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040018, R.attr.obfuscated_res_0x7f04001c, R.attr.obfuscated_res_0x7f04001d, R.attr.obfuscated_res_0x7f04002f, R.attr.obfuscated_res_0x7f040032, R.attr.obfuscated_res_0x7f040033});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SapiSdkScrollLayout);
             if (obtainStyledAttributes.hasValue(2) && (dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(2, this.maxOffset)) != getContentHeight()) {
                 this.maxOffset = getContentHeight() - dimensionPixelOffset;
             }

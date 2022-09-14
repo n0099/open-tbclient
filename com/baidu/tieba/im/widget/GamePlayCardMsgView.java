@@ -25,14 +25,14 @@ import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d87;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.by4;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.im.data.GamePlayOrderMsgData;
 import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.k97;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,12 +69,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0294a implements View.OnClickListener {
+        public class View$OnClickListenerC0296a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0294a(a aVar) {
+            public View$OnClickListenerC0296a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,9 +125,9 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 2));
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0794);
-                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f079f);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ea, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ef, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0294a(this)));
+                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07a7);
+                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f07b2);
+                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.dialog_ok, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0296a(this)));
                 tBAlertBuilder.g();
                 tBAlertBuilder.h(false);
                 tBAlertBuilder.w();
@@ -232,9 +232,9 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 1));
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0794);
-                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f07a0);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ea, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ef, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07a7);
+                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f07b3);
+                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.dialog_ok, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
                 tBAlertBuilder.g();
                 tBAlertBuilder.h(false);
                 tBAlertBuilder.w();
@@ -620,7 +620,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
     private void setStrokeWith(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, tbImageView) == null) {
-            tbImageView.setBorderWidth(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            tbImageView.setBorderWidth(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             tbImageView.setBorderSurroundContent(true);
             tbImageView.setDrawBorder(true);
@@ -758,35 +758,35 @@ public final class GamePlayCardMsgView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d057e, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0595, this);
             setOrientation(1);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091553);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09154c);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09154d);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09157c);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091575);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091576);
             this.c = tbImageView;
             setStrokeWith(tbImageView);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091552);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091551);
-            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091550);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09154f);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09154e);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09157b);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09157a);
+            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091579);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091578);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091577);
             this.h = linearLayout;
-            ns4 d2 = ns4.d(linearLayout);
+            uu4 d2 = uu4.d(linearLayout);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0204);
-            this.l = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091548);
-            this.m = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091547);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091549);
-            this.j = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09154a);
-            this.k = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09154b);
-            qv4 qv4Var = new qv4();
-            qv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.j.setConfig(qv4Var);
+            this.l = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091571);
+            this.m = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091570);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091572);
+            this.j = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091573);
+            this.k = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091574);
+            ay4 ay4Var = new ay4();
+            ay4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.j.setConfig(ay4Var);
             this.j.setTextSize(R.dimen.T_X08);
             this.j.setEnabled(true);
-            rv4 rv4Var = new rv4();
-            rv4Var.r(R.color.CAM_X0105);
-            this.k.setConfig(rv4Var);
+            by4 by4Var = new by4();
+            by4Var.r(R.color.CAM_X0105);
+            this.k.setConfig(by4Var);
             this.k.setTextSize(R.dimen.T_X08);
             this.k.setEnabled(true);
             l("");
@@ -841,7 +841,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            ns4.d(this.a).v(R.color.CAM_X0105);
+            uu4.d(this.a).v(R.color.CAM_X0105);
         }
     }
 
@@ -1126,7 +1126,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return d87.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return k97.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }

@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.internal.api.reporter;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pl9;
+import com.baidu.tieba.tp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public interface Reporter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.a != null) {
-                    return new pl9(this.a, false);
+                    return new tp9(this.a, false);
                 }
                 throw new RuntimeException("Call setUrl(String url) first.");
             }

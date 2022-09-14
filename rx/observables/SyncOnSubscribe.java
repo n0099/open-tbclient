@@ -2,42 +2,42 @@ package rx.observables;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.av9;
-import com.baidu.tieba.ev9;
-import com.baidu.tieba.fv9;
-import com.baidu.tieba.fz9;
-import com.baidu.tieba.kv9;
-import com.baidu.tieba.tv9;
-import com.baidu.tieba.yu9;
-import com.baidu.tieba.zu9;
+import com.baidu.tieba.cx9;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.qw9;
+import com.baidu.tieba.rw9;
+import com.baidu.tieba.sw9;
+import com.baidu.tieba.ww9;
+import com.baidu.tieba.x0a;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
-public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
+/* loaded from: classes9.dex */
+public abstract class SyncOnSubscribe<S, T> implements qw9.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static final class SubscriptionProducer<S, T> extends AtomicLong implements av9, fv9, zu9<T> {
+    /* loaded from: classes9.dex */
+    public static final class SubscriptionProducer<S, T> extends AtomicLong implements sw9, xw9, rw9<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3736864024352728072L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ev9<? super T> actualSubscriber;
+        public final ww9<? super T> actualSubscriber;
         public boolean hasTerminated;
         public boolean onNextCalled;
         public final SyncOnSubscribe<S, T> parent;
         public S state;
 
-        public SubscriptionProducer(ev9<? super T> ev9Var, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
+        public SubscriptionProducer(ww9<? super T> ww9Var, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ev9Var, syncOnSubscribe, s};
+                Object[] objArr = {ww9Var, syncOnSubscribe, s};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
                     return;
                 }
             }
-            this.actualSubscriber = ev9Var;
+            this.actualSubscriber = ww9Var;
             this.parent = syncOnSubscribe;
             this.state = s;
         }
@@ -58,8 +58,8 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
                 try {
                     this.parent.c(this.state);
                 } catch (Throwable th) {
-                    kv9.e(th);
-                    fz9.j(th);
+                    cx9.e(th);
+                    x0a.j(th);
                 }
             }
         }
@@ -68,28 +68,28 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
                 SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
-                ev9<? super T> ev9Var = this.actualSubscriber;
+                ww9<? super T> ww9Var = this.actualSubscriber;
                 do {
                     try {
                         this.onNextCalled = false;
                         nextIteration(syncOnSubscribe);
                     } catch (Throwable th) {
-                        handleThrownError(ev9Var, th);
+                        handleThrownError(ww9Var, th);
                         return;
                     }
                 } while (!tryUnsubscribe());
             }
         }
 
-        private void handleThrownError(ev9<? super T> ev9Var, Throwable th) {
+        private void handleThrownError(ww9<? super T> ww9Var, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65539, this, ev9Var, th) == null) {
+            if (interceptable == null || interceptable.invokeLL(65539, this, ww9Var, th) == null) {
                 if (this.hasTerminated) {
-                    fz9.j(th);
+                    x0a.j(th);
                     return;
                 }
                 this.hasTerminated = true;
-                ev9Var.onError(th);
+                ww9Var.onError(th);
                 unsubscribe();
             }
         }
@@ -105,7 +105,7 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(65541, this, j) == null) {
                 SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
-                ev9<? super T> ev9Var = this.actualSubscriber;
+                ww9<? super T> ww9Var = this.actualSubscriber;
                 do {
                     long j2 = j;
                     do {
@@ -119,7 +119,7 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
                                 j2--;
                             }
                         } catch (Throwable th) {
-                            handleThrownError(ev9Var, th);
+                            handleThrownError(ww9Var, th);
                             return;
                         }
                     } while (j2 != 0);
@@ -143,14 +143,14 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() < 0 : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.zu9
+        @Override // com.baidu.tieba.rw9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -166,7 +166,7 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
             }
         }
 
-        @Override // com.baidu.tieba.zu9
+        @Override // com.baidu.tieba.rw9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -182,7 +182,7 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
             }
         }
 
-        @Override // com.baidu.tieba.zu9
+        @Override // com.baidu.tieba.rw9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -195,10 +195,10 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
             }
         }
 
-        @Override // com.baidu.tieba.av9
+        @Override // com.baidu.tieba.sw9
         public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j > 0 && tv9.b(this, j) == 0) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j > 0 && lx9.b(this, j) == 0) {
                 if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
@@ -207,7 +207,7 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
             }
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public void unsubscribe() {
             long j;
             Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
 
     public abstract S a();
 
-    public abstract S b(S s, zu9<? super T> zu9Var);
+    public abstract S b(S s, rw9<? super T> rw9Var);
 
     public void c(S s) {
         Interceptable interceptable = $ic;
@@ -247,21 +247,21 @@ public abstract class SyncOnSubscribe<S, T> implements yu9.a<T> {
         }
     }
 
-    @Override // com.baidu.tieba.yu9.a, com.baidu.tieba.mv9
+    @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((ev9) ((ev9) obj));
+        call((ww9) ((ww9) obj));
     }
 
-    public final void call(ev9<? super T> ev9Var) {
+    public final void call(ww9<? super T> ww9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ev9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ww9Var) == null) {
             try {
-                SubscriptionProducer subscriptionProducer = new SubscriptionProducer(ev9Var, this, a());
-                ev9Var.b(subscriptionProducer);
-                ev9Var.f(subscriptionProducer);
+                SubscriptionProducer subscriptionProducer = new SubscriptionProducer(ww9Var, this, a());
+                ww9Var.b(subscriptionProducer);
+                ww9Var.f(subscriptionProducer);
             } catch (Throwable th) {
-                kv9.e(th);
-                ev9Var.onError(th);
+                cx9.e(th);
+                ww9Var.onError(th);
             }
         }
     }

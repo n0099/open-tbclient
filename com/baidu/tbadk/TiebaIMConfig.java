@@ -4,8 +4,8 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ public class TiebaIMConfig {
         POST_IMAGE_DEFAULT_WIDTH = 30;
         POST_IMAGE_DEFAULT_HEIGHT = 30;
         NEW_UPLOAD_PIC_SERVER = "c/i/msgcenter/uploadPic";
-        IM_GROUP_SHARE_URL = "https://tieba.baidu.com/group/index?id=";
+        IM_GROUP_SHARE_URL = TbConfig.TIEBA_ADDRESS + "group/index?id=";
     }
 
     public TiebaIMConfig() {
@@ -76,7 +76,7 @@ public class TiebaIMConfig {
     public static int getMaxChatImageWidthInPx(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ri.d(context, 300.0f) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ej.d(context, 300.0f) : invokeL.intValue;
     }
 
     public static BdAsyncTaskParallel getParallel() {
@@ -88,6 +88,6 @@ public class TiebaIMConfig {
     public static byte[] getRSAPublicKey() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ii.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? wi.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
     }
 }

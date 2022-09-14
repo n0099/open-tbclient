@@ -68,18 +68,16 @@ public final class b {
     }
 
     public static void a(File file, File file2, String str) {
-        ZipFile zipFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2, str) == null) {
-            ZipFile zipFile2 = null;
-            LinkedList<ZipEntry> linkedList = null;
+        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2, str) != null) {
+            return;
+        }
+        ZipFile zipFile = null;
+        LinkedList<ZipEntry> linkedList = null;
+        try {
+            ZipFile zipFile2 = new ZipFile(file);
             try {
-                zipFile = new ZipFile(file);
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                Map<String, List<ZipEntry>> a2 = a(zipFile);
+                Map<String, List<ZipEntry>> a2 = a(zipFile2);
                 boolean containsKey = a2.containsKey(a);
                 ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper copyNativeLib pre-verify-matchHostAbi[" + containsKey + "], pkg=" + str);
                 if (containsKey) {
@@ -171,22 +169,24 @@ public final class b {
                             file2.mkdirs();
                         }
                         for (ZipEntry zipEntry : linkedList) {
-                            a(zipFile, zipEntry, file2);
+                            a(zipFile2, zipEntry, file2);
                         }
                     }
                     ZeusLogger.i(ZeusLogger.TAG_INSTALL, "NativeLibHelper copyNativeLib, supportedSoEntries empty, pkg=".concat(String.valueOf(str)));
-                    zipFile.close();
+                    zipFile2.close();
                     return;
                 }
-                zipFile.close();
-            } catch (Throwable th2) {
-                th = th2;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
-                    zipFile2.close();
+                zipFile2.close();
+            } catch (Throwable th) {
+                th = th;
+                zipFile = zipFile2;
+                if (zipFile != null) {
+                    zipFile.close();
                 }
                 throw th;
             }
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 

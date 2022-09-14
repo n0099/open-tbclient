@@ -4,7 +4,6 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +119,7 @@ public class CloudLogUtil {
                                 jSONObject.put(CommandMessage.SDK_VERSION, CloudLogUtil.mSdkVersion);
                                 jSONObject.put("deviceId", CloudLogUtil.mDeviceId);
                                 jSONObject.put("timestamp", System.currentTimeMillis());
-                                jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, this.val$logContent);
+                                jSONObject.put("log", this.val$logContent);
                                 CloudLogUtil.addLogContent(jSONObject, false);
                             } catch (JSONException e) {
                                 e.printStackTrace();

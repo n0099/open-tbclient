@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.gj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +44,7 @@ public class EnterForePvThread extends Thread {
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.IN_PV_ADDRESS);
             netWork.addPostData("st_type", TbConfig.ST_TYPE_ENTER_FORE);
-            netWork.addPostData(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
+            netWork.addPostData(HttpConstants.OS_VERSION, gj.k());
             netWork.addPostData("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
             netWork.addPostData("op_type", this.mOpType);
             netWork.postNetData();

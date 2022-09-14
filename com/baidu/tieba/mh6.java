@@ -1,56 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mh6 {
+public class mh6 extends SparseArray<wh6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
 
-    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
-        InterceptResult invokeL;
+    public mh6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            HashMap hashMap = new HashMap();
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
-                    hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
-                    i++;
-                }
-            }
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
+        this.a = null;
     }
 
-    public static String[] b(List<TornadoNodeInfo> list, int i) {
-        InterceptResult invokeLI;
+    public void a(int i, wh6 wh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (ListUtils.isEmpty(list) || i <= 0) {
-                return null;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, wh6Var) == null) {
+            if (i > 100) {
+                i = 100;
             }
-            String[] strArr = new String[i];
-            int i2 = 0;
-            for (int i3 = 0; i3 < list.size(); i3++) {
-                for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
-                    strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
-                    i2++;
+            put(i, wh6Var);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                wh6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.w(null);
+                    valueAt.j();
                 }
             }
-            return strArr;
         }
-        return (String[]) invokeLI.objValue;
+    }
+
+    public wh6 c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            return get(i);
+        }
+        return (wh6) invokeI.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                wh6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+            }
+        }
+    }
+
+    public void e(ai6 ai6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ai6Var) == null) {
+            for (int i = 0; i < size(); i++) {
+                wh6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.w(ai6Var);
+                }
+            }
+        }
     }
 }

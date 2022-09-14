@@ -1,113 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ny7 {
+public class ny7 extends mx7<qs4, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public vu7 g;
+    public PbRecommendNovelHolder.b h;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements PbRecommendNovelHolder.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BdTypeListView a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ ny7 a;
 
-        public a(BdTypeListView bdTypeListView, int i) {
+        public a(ny7 ny7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bdTypeListView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bdTypeListView;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = ri.i(TbadkCoreApplication.getInst().getContext());
-                int[] iArr = new int[2];
-                this.a.getLocationOnScreen(iArr);
-                this.a.setSelectionFromTop(this.b, ((i - ny7.b) - iArr[1]) / 2);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BdTypeListView a;
-        public final /* synthetic */ int b;
-
-        public b(BdTypeListView bdTypeListView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bdTypeListView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bdTypeListView;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.smoothScrollToPosition(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BdTypeListView a;
-        public final /* synthetic */ String b;
-
-        public c(BdTypeListView bdTypeListView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bdTypeListView, str};
+                Object[] objArr = {ny7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,219 +41,76 @@ public class ny7 {
                     return;
                 }
             }
-            this.a = bdTypeListView;
-            this.b = str;
+            this.a = ny7Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            int a;
-            View view2;
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(qs4 qs4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a = ny7.a(this.a, this.b)) < 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, qs4Var) == null) || qs4Var == null) {
                 return;
             }
-            int height = this.a.getHeight();
-            int width = this.a.getWidth();
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(width, 1073741824);
-            BdTypeListView bdTypeListView = this.a;
-            View childAt = bdTypeListView.getChildAt(a - bdTypeListView.getFirstVisiblePosition());
-            if ((childAt == null || childAt.getBottom() > height - ny7.b) && (view2 = this.a.getAdapter2().getView(a, null, this.a)) != null) {
-                view2.measure(makeMeasureSpec2, makeMeasureSpec);
-                this.a.setSelectionFromTop(a, (height - view2.getMeasuredHeight()) - ny7.b);
-            }
+            v18.a(this.a.g, qs4Var, qs4Var.b0, 6);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018877, "Lcom/baidu/tieba/ny7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948018877, "Lcom/baidu/tieba/ny7;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ny7(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((f28) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds240);
-        ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
-        b = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
+        this.h = new a(this);
     }
 
-    public static int a(BdTypeListView bdTypeListView, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.mx7, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        w(i, view2, viewGroup, (qs4) obj, (PbRecommendNovelHolder) viewHolder);
+        return view2;
+    }
+
+    public void r(vu7 vu7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeListView, str)) == null) {
-            if (bdTypeListView != null && !TextUtils.isEmpty(str)) {
-                List<pn> data = bdTypeListView.getData();
-                int headerViewsCount = bdTypeListView.getHeaderViewsCount();
-                if (data != null && data.size() > 0) {
-                    int size = data.size();
-                    for (int i = 0; i < size; i++) {
-                        pn pnVar = data.get(i);
-                        if ((pnVar instanceof PostData) && pnVar.getType() == PostData.K0 && str.equals(((PostData) pnVar).K())) {
-                            return i + headerViewsCount;
-                        }
-                    }
-                }
-            }
-            return -1;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vu7Var) == null) {
+            this.g = vu7Var;
         }
-        return invokeLL.intValue;
     }
 
-    public static int b(BdTypeListView bdTypeListView) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bdTypeListView)) == null) {
-            if (bdTypeListView == null) {
-                return -1;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06e1, viewGroup, false), this.h) : (PbRecommendNovelHolder) invokeL.objValue;
+    }
+
+    public View w(int i, View view2, ViewGroup viewGroup, qs4 qs4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qs4Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, qs4Var, pbRecommendNovelHolder);
+            if (qs4Var == null) {
+                return view2;
             }
-            List<pn> data = bdTypeListView.getData();
-            int headerViewsCount = bdTypeListView.getHeaderViewsCount();
-            if (data != null && data.size() > 0) {
-                int size = data.size();
-                for (int i = 0; i < size; i++) {
-                    if (data.get(i) instanceof xt7) {
-                        return i + headerViewsCount;
-                    }
-                }
-            }
-            return -1;
+            qs4Var.b0 = i + 1;
+            v18.d(this.b.getUniqueId(), this.g, qs4Var, qs4Var.b0, 6);
+            pbRecommendNovelHolder.d(qs4Var);
+            return view2;
         }
-        return invokeL.intValue;
-    }
-
-    public static int c(BdTypeListView bdTypeListView, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, bdTypeListView, str, i)) == null) {
-            if (bdTypeListView != null && !StringUtils.isNull(str)) {
-                List<pn> data = bdTypeListView.getData();
-                int headerViewsCount = bdTypeListView.getHeaderViewsCount();
-                if (data != null && data.size() > 0) {
-                    int size = data.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        pn pnVar = data.get(i2);
-                        if ((pnVar instanceof PostData) && str.equals(((PostData) pnVar).K())) {
-                            return (i2 + headerViewsCount) - i;
-                        }
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static int d(BdTypeListView bdTypeListView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdTypeListView)) == null) {
-            if (bdTypeListView == null) {
-                return -1;
-            }
-            List<pn> data = bdTypeListView.getData();
-            int headerViewsCount = bdTypeListView.getHeaderViewsCount();
-            if (data != null && data.size() > 0) {
-                int size = data.size();
-                for (int i = 0; i < size; i++) {
-                    pn pnVar = data.get(i);
-                    if ((pnVar instanceof PostData) && pnVar.getType() == PostData.K0) {
-                        return i + headerViewsCount;
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(BdTypeListView bdTypeListView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bdTypeListView)) == null) {
-            if (bdTypeListView == null) {
-                return -1;
-            }
-            List<pn> data = bdTypeListView.getData();
-            int headerViewsCount = bdTypeListView.getHeaderViewsCount();
-            if (data != null && data.size() > 0) {
-                int size = data.size();
-                for (int i = 0; i < size; i++) {
-                    pn pnVar = data.get(i);
-                    if ((pnVar instanceof xt7) && ((xt7) pnVar).b == xt7.j) {
-                        return i + headerViewsCount;
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void f(BdTypeListView bdTypeListView, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, bdTypeListView, str) == null) || bdTypeListView == null || StringUtils.isNull(str)) {
-            return;
-        }
-        g(bdTypeListView);
-        int c2 = c(bdTypeListView, str, 1);
-        if (c2 >= 0) {
-            bdTypeListView.post(new b(bdTypeListView, c2));
-        }
-    }
-
-    public static void g(BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, bdTypeListView) == null) || bdTypeListView == null) {
-            return;
-        }
-        int e = e(bdTypeListView);
-        if (e < 0) {
-            e = b(bdTypeListView);
-        }
-        if (e >= 0) {
-            bdTypeListView.setSelectionFromTop(e, a);
-        }
-    }
-
-    public static void h(BdTypeListView bdTypeListView, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, bdTypeListView, str) == null) || bdTypeListView == null) {
-            return;
-        }
-        int e = e(bdTypeListView);
-        if (e < 0) {
-            e = c(bdTypeListView, str, 0);
-        }
-        if (e >= 0) {
-            bdTypeListView.post(new a(bdTypeListView, e));
-        }
-    }
-
-    public static void i(int i, BdTypeListView bdTypeListView, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65545, null, i, bdTypeListView, str) == null) || bdTypeListView == null || TextUtils.isEmpty(str) || bdTypeListView.getAdapter2() == null) {
-            return;
-        }
-        if (12 == i) {
-            h(bdTypeListView, str);
-            return;
-        }
-        g(bdTypeListView);
-        bdTypeListView.post(new c(bdTypeListView, str));
-    }
-
-    public static void j(BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, bdTypeListView) == null) || bdTypeListView == null) {
-            return;
-        }
-        bdTypeListView.setSelectionFromTop(0, 0);
+        return (View) invokeCommon.objValue;
     }
 }

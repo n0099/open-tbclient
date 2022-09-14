@@ -1,34 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetInfluenceRank.DataRes;
-import tbclient.NewGodInfo;
-import tbclient.RankRuler;
-import tbclient.User;
 /* loaded from: classes5.dex */
-public class s76 {
+public class s76 implements m76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q76 a;
-    public List<r76> b;
-    public r76 c;
-    public String d;
-    public String e;
-    public long f;
-    public boolean g;
 
     public s76() {
         Interceptable interceptable = $ic;
@@ -40,104 +22,26 @@ public class s76 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new ArrayList();
-        this.g = true;
     }
 
-    public final r76 a(User user) {
-        InterceptResult invokeL;
-        NewGodInfo newGodInfo;
+    @Override // com.baidu.tieba.m76
+    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, user)) == null) {
-            if (user == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
+            try {
+                l76.f().i(str2, str3);
+            } catch (Throwable unused) {
+                l76.f().e();
             }
-            r76 r76Var = new r76();
-            r76Var.a = user.level_influence;
-            r76Var.c = b(user);
-            boolean z = true;
-            if (!r76Var.g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-                r76Var.d = user.new_god_data.field_name + sf5.b(user.new_god_data);
-                r76Var.h = true;
-            }
-            if (user.influence == null) {
-                r76Var.e = "";
-            } else {
-                r76Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08ef), StringHelper.numFormatOverWanNa(user.influence.intValue()));
-            }
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(user);
-            Integer num = user.has_concerned;
-            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
-            r76Var.f = metaData;
-            if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-                r76Var.b = metaData.getAvater();
-            } else {
-                r76Var.b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
-            }
-            return r76Var;
         }
-        return (r76) invokeL.objValue;
     }
 
-    public final String b(User user) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m76
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, user)) == null) {
-            if (user == null) {
-                return "";
-            }
-            String str = TextUtils.isEmpty("") ? user.name_show : "";
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f1) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        this.a = new q76();
-        if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.a.b = b(dataRes.user_rank.get(0));
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.a.c = metaData;
-            String avatarH = metaData.getAvatarH();
-            if (TextUtils.isEmpty(avatarH)) {
-                avatarH = metaData.getAvater();
-            }
-            if (avatarH != null && avatarH.startsWith("http")) {
-                this.a.e = avatarH;
-            } else {
-                q76 q76Var = this.a;
-                q76Var.e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
-            }
-        }
-        q76 q76Var2 = this.a;
-        Long l = dataRes.timestamp;
-        q76Var2.d = l == null ? 0L : l.longValue();
-        this.a.f = dataRes.field_info;
-        if (!ListUtils.isEmpty(dataRes.user_rank)) {
-            for (User user : dataRes.user_rank) {
-                if (user != null) {
-                    this.b.add(a(user));
-                }
-            }
-        }
-        this.c = a(dataRes.current_user);
-        RankRuler rankRuler = dataRes.rank_description;
-        if (rankRuler != null) {
-            this.d = rankRuler.top_link;
-            this.e = rankRuler.bottom_link;
-        }
-        Long l2 = dataRes.timestamp;
-        this.f = l2 != null ? l2.longValue() : 0L;
-        Boolean bool = dataRes.has_more;
-        this.g = bool != null ? bool.booleanValue() : false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
     }
 }

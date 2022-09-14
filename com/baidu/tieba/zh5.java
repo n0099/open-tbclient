@@ -1,26 +1,61 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class zh5 extends yh5 {
+public class zh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiDelPostMenuView c;
-    public ViewGroup d;
+    public boolean a;
+    public List<d26> b;
 
-    public zh5(TbPageContext tbPageContext, ViewGroup viewGroup, oh5 oh5Var) {
+    /* loaded from: classes6.dex */
+    public class a implements Comparator<d26> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(zh5 zh5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(d26 d26Var, d26 d26Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, d26Var, d26Var2)) == null) ? d26Var.sort() - d26Var2.sort() : invokeLL.intValue;
+        }
+    }
+
+    public zh5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, oh5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,52 +65,49 @@ public class zh5 extends yh5 {
                 return;
             }
         }
-        this.d = viewGroup;
-        wh5 wh5Var = new wh5(tbPageContext, new ph5(oh5Var));
-        this.b = wh5Var;
-        wh5Var.d(this);
-        this.c = new MultiDelPostMenuView(tbPageContext, this);
+        this.b = new LinkedList();
     }
 
-    @Override // com.baidu.tieba.yh5
-    public void a() {
+    public List<d26> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a) {
-            this.a = false;
-            MultiDelPostMenuView multiDelPostMenuView = this.c;
-            if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
-                this.d.removeView(this.c);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) ? b(list, list2, null) : (List) invokeLL.objValue;
+    }
+
+    public List<d26> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
+                    }
+                    this.b.add(pbLinkData);
+                }
             }
-            vh5 vh5Var = this.b;
-            if (vh5Var != null) {
-                vh5Var.dismiss();
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
+                }
             }
-            this.c = null;
-            this.d = null;
-            this.b = null;
+            if (!ListUtils.isEmpty(list3)) {
+                this.a = false;
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    this.b.add(list3.get(i3));
+                }
+            }
+            Collections.sort(this.b, new a(this));
+            return this.b;
         }
+        return (List) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.yh5
-    public void d(int i) {
-        MultiDelPostMenuView multiDelPostMenuView;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (multiDelPostMenuView = this.c) == null) {
-            return;
-        }
-        multiDelPostMenuView.setDelCount(i);
-    }
-
-    @Override // com.baidu.tieba.yh5
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a) {
-            return;
-        }
-        this.a = true;
-        ViewGroup viewGroup = this.d;
-        if (viewGroup != null) {
-            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

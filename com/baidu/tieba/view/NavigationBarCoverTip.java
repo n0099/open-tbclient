@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,7 +58,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sg.a().removeCallbacks(this.a.c);
+                gh.a().removeCallbacks(this.a.c);
                 this.a.e();
             }
         }
@@ -282,7 +282,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sg.a().removeCallbacks(this.c);
+            gh.a().removeCallbacks(this.c);
             clearAnimation();
             setVisibility(8);
             Activity activity = this.e;
@@ -293,9 +293,25 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
     }
 
-    public void k(Activity activity, int i) {
+    public void k(Activity activity, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, activity, i) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, view2) == null) {
+            this.e = activity;
+            if (view2 != this.g) {
+                removeAllViews();
+                addView(view2);
+                this.g = view2;
+            }
+            setVisibility(0);
+            clearAnimation();
+            startAnimation(this.a);
+            gh.a().removeCallbacks(this.c);
+        }
+    }
+
+    public void l(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, activity, i) == null) {
             this.e = activity;
             if (i < 0) {
                 i = 5000;
@@ -303,21 +319,21 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            sg.a().removeCallbacks(this.c);
-            sg.a().postDelayed(this.c, i);
+            gh.a().removeCallbacks(this.c);
+            gh.a().postDelayed(this.c, i);
         }
     }
 
-    public void l(Activity activity, View view2) {
+    public void m(Activity activity, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, view2) == null) {
-            m(activity, view2, 5000);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, view2) == null) {
+            n(activity, view2, 5000);
         }
     }
 
-    public void m(Activity activity, View view2, int i) {
+    public void n(Activity activity, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, activity, view2, i) == null) {
             this.e = activity;
             if (view2 != this.g) {
                 removeAllViews();
@@ -330,14 +346,14 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            sg.a().removeCallbacks(this.c);
-            sg.a().postDelayed(this.c, i);
+            gh.a().removeCallbacks(this.c);
+            gh.a().postDelayed(this.c, i);
         }
     }
 
     public void setCoverTipListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
             this.d = eVar;
         }
     }

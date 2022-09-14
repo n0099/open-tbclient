@@ -1,161 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kd0 extends rd0 {
+public class kd0 extends ld0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long l;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947909106, "Lcom/baidu/tieba/kd0;")) == null) {
+            return;
         }
-
-        public static a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    a aVar = new a();
-                    aVar.a = jSONObject.optString("name");
-                    aVar.b = jSONObject.optString("path");
-                    aVar.c = jSONObject.optString(PackageTable.MD5);
-                    return aVar;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (a) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947909106, "Lcom/baidu/tieba/kd0;");
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd0(ld0 ld0Var) {
-        super(ld0Var.b, ld0Var.g);
+    public kd0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ld0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (File) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.l = 0L;
     }
 
-    public static boolean t(File file) {
-        InterceptResult invokeL;
-        File file2;
+    @Override // com.baidu.tieba.ld0
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            try {
-                file2 = new File(file, "files.json");
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.h == 0) {
+                this.h = this.e.presentationTimeUs;
             }
-            if (file2.exists()) {
-                FileInputStream fileInputStream = new FileInputStream(file2);
-                byte[] bArr = new byte[fileInputStream.available()];
-                fileInputStream.read(bArr);
-                String str = new String(bArr);
-                fileInputStream.close();
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray("files");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        arrayList.add(a.a(optJSONArray.getString(i)));
-                    }
-                    return u(file, arrayList);
+            MediaCodec.BufferInfo bufferInfo = this.e;
+            long j = bufferInfo.presentationTimeUs - this.h;
+            bufferInfo.presentationTimeUs = j;
+            long j2 = this.l;
+            if (j < j2) {
+                long j3 = j2 + 10000;
+                this.l = j3;
+                bufferInfo.presentationTimeUs = j3;
+            }
+            MediaCodec.BufferInfo bufferInfo2 = this.e;
+            long j4 = bufferInfo2.presentationTimeUs;
+            long j5 = ld0.j;
+            if (j4 > j5 + 500000) {
+                long j6 = this.l;
+                if (j5 > j6) {
+                    bufferInfo2.presentationTimeUs = j5 + 5000;
+                } else {
+                    bufferInfo2.presentationTimeUs = j6 + 5000;
                 }
-                return false;
             }
-            return false;
+            if (ld0.j > this.e.presentationTimeUs + 500000) {
+                ld0.k = 1200;
+            }
+            this.l = this.e.presentationTimeUs;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean u(File file, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
-        File file2;
+    public void k(nd0 nd0Var, od0 od0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, file, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() <= 0) {
-                return false;
-            }
-            try {
-                Iterator<a> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    a next = it.next();
-                    String str = next.b;
-                    if (TextUtils.isEmpty(str)) {
-                        file2 = new File(file, next.a);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nd0Var, od0Var) == null) {
+            boolean z = false;
+            if (nd0Var != null && od0Var != null) {
+                this.c = od0Var;
+                MediaFormat mediaFormat = new MediaFormat();
+                mediaFormat.setString("mime", nd0Var.c());
+                mediaFormat.setInteger("aac-profile", 2);
+                mediaFormat.setInteger("sample-rate", nd0Var.e());
+                mediaFormat.setInteger("channel-count", nd0Var.b());
+                mediaFormat.setInteger("bitrate", nd0Var.a());
+                mediaFormat.setInteger("max-input-size", nd0Var.d());
+                try {
+                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(nd0Var.c());
+                    this.d = createEncoderByType;
+                    createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+                    if (!nd0Var.p()) {
+                        this.g = true;
                     } else {
-                        file2 = new File(file, str + File.separator + next.a);
+                        this.g = false;
                     }
-                    if (!file2.exists()) {
-                        return false;
-                    }
-                    String a2 = nd0.a(file2.getAbsolutePath());
-                    boolean equals = TextUtils.equals(a2, next.c);
-                    if (!equals) {
-                        rd0.j(equals + " " + a2 + "!=" + next.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
-                        return false;
-                    }
+                    z = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                return true;
-            } catch (Exception unused) {
-                return false;
+            }
+            md0 md0Var = this.f;
+            if (md0Var != null) {
+                md0Var.b(z);
             }
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rd0
-    public boolean i(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? t(file) : invokeL.booleanValue;
     }
 }

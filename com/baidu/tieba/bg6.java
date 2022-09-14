@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,18 +8,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetHorseRaceLampList.DataRes;
-import tbclient.GetHorseRaceLampList.LiveList;
+import tbclient.SearchPostForum.DataRes;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class bg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveHorseRaceData> a;
+    public SearchForum a;
+    public List<SearchForum> b;
+    public ArrayList<Cdo> c;
+    public String d;
 
-    public bg6() {
+    public bg6(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,13 +34,13 @@ public class bg6 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.d = str;
     }
 
-    public List<LiveHorseRaceData> a() {
+    public ArrayList<Cdo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {
@@ -44,13 +48,24 @@ public class bg6 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        new LiveHorseRaceData();
-        List<LiveList> list = dataRes.live_list;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
-                liveHorseRaceData.parserProtobuf(list.get(i));
-                this.a.add(liveHorseRaceData);
+        this.a = dataRes.exact_match;
+        this.b = dataRes.fuzzy_match;
+        this.c = new ArrayList<>();
+        ag6 ag6Var = new ag6(this.d);
+        SearchForum searchForum = this.a;
+        if (searchForum != null) {
+            ag6Var.s(searchForum);
+            this.c.add(ag6Var);
+        }
+        List<SearchForum> list = this.b;
+        if (list == null) {
+            return;
+        }
+        for (SearchForum searchForum2 : list) {
+            if (searchForum2 != null) {
+                ag6 ag6Var2 = new ag6(this.d);
+                ag6Var2.s(searchForum2);
+                this.c.add(ag6Var2);
             }
         }
     }

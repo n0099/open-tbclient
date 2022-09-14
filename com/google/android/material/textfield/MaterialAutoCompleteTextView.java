@@ -233,7 +233,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         }
         this.tempRect = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16843296}, i, R.style.obfuscated_res_0x7f1002c8, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.MaterialAutoCompleteTextView, i, R.style.obfuscated_res_0x7f1002c9, new int[0]);
         if (obtainStyledAttributes.hasValue(0) && obtainStyledAttributes.getInt(0, 0) == 0) {
             setKeyListener(null);
         }

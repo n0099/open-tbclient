@@ -23,7 +23,6 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,6 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.ripple.RippleUtils;
@@ -126,15 +126,15 @@ public class MaterialCardViewHelper {
         materialShapeDrawable.initializeElevationOverlay(materialCardView.getContext());
         this.bgDrawable.setShadowColor(-12303292);
         ShapeAppearanceModel.Builder builder = this.bgDrawable.getShapeAppearanceModel().toBuilder();
-        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, new int[]{16843071, 16843072, R.attr.cardBackgroundColor, R.attr.cardCornerRadius, R.attr.cardElevation, R.attr.cardMaxElevation, R.attr.cardPreventCornerOverlap, R.attr.cardUseCompatPadding, R.attr.contentPadding, R.attr.contentPaddingBottom, R.attr.contentPaddingLeft, R.attr.contentPaddingRight, R.attr.contentPaddingTop}, i, R.style.obfuscated_res_0x7f1000fc);
+        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, R.styleable.CardView, i, com.baidu.tieba.R.style.obfuscated_res_0x7f1000fc);
         if (obtainStyledAttributes.hasValue(3)) {
             builder.setAllCornerSizes(obtainStyledAttributes.getDimension(3, 0.0f));
         }
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
         Resources resources = materialCardView.getResources();
-        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07047e);
-        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07047f);
+        this.checkedIconMargin = resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07047e);
+        this.checkedIconSize = resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07047f);
         obtainStyledAttributes.recycle();
     }
 
@@ -245,7 +245,7 @@ public class MaterialCardViewHelper {
             if (this.clickableForegroundDrawable == null) {
                 LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
                 this.clickableForegroundDrawable = layerDrawable;
-                layerDrawable.setId(2, R.id.obfuscated_res_0x7f09156d);
+                layerDrawable.setId(2, com.baidu.tieba.R.id.obfuscated_res_0x7f091596);
             }
             return this.clickableForegroundDrawable;
         }
@@ -517,7 +517,7 @@ public class MaterialCardViewHelper {
             ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 4);
             this.rippleColor = colorStateList2;
             if (colorStateList2 == null) {
-                this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, R.attr.obfuscated_res_0x7f04016f));
+                this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016f));
             }
             setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 1));
             updateRippleColor();
@@ -599,7 +599,7 @@ public class MaterialCardViewHelper {
                 DrawableCompat.setTintList(wrap, this.checkedIconTint);
             }
             if (this.clickableForegroundDrawable != null) {
-                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f09156d, createCheckedIconLayer());
+                this.clickableForegroundDrawable.setDrawableByLayerId(com.baidu.tieba.R.id.obfuscated_res_0x7f091596, createCheckedIconLayer());
             }
         }
     }

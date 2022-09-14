@@ -1,51 +1,114 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.vg2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class ug2 extends ue2<lh2> {
+public final class ug2<W extends vg2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, sg2<W>> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948209961, "Lcom/baidu/tieba/ug2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948209961, "Lcom/baidu/tieba/ug2;");
+                return;
+            }
+        }
+        b = ij1.a;
+    }
 
     public ug2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public void a(sg2<W> sg2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sg2Var) == null) {
+            if (b) {
+                Log.v("CommandDispatcher", sg2Var.b() + " command added to supported command list");
+            }
+            this.a.put(sg2Var.b(), sg2Var);
+        }
+    }
+
+    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
+            if (command == null || TextUtils.isEmpty(command.what)) {
+                if (b) {
+                    Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
+                }
+            } else if (w == null) {
+                if (b) {
+                    Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
+                }
+            } else {
+                sg2<W> sg2Var = this.a.get(command.what);
+                if (sg2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " command dispatched");
+                }
+                sg2Var.a(command, w);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ue2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    public void c(@Nullable ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBeautyBlur" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ue2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull lh2 lh2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, lh2Var) == null) {
-            String str = command.what;
-            d(lh2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Integer) {
-                lh2Var.V(((Integer) obj).intValue());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            if (command != null && !TextUtils.isEmpty(command.what)) {
+                sg2<W> sg2Var = this.a.get(command.what);
+                if (sg2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
+                }
+                sg2Var.c(command);
+            } else if (b) {
+                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
             }
         }
     }

@@ -102,7 +102,7 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m647a() {
+    public void m648a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f947a = System.currentTimeMillis();
@@ -114,25 +114,25 @@ public class bq {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!this.f948a.m592a()) {
+            if (!this.f948a.m593a()) {
                 com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
             } else if (z) {
-                if (!this.f948a.m593a(1)) {
+                if (!this.f948a.m594a(1)) {
                     this.b++;
                 }
                 this.f948a.a(1);
                 XMPushService xMPushService = this.f948a;
                 xMPushService.getClass();
                 xMPushService.a(new XMPushService.e(xMPushService));
-            } else if (this.f948a.m593a(1)) {
+            } else if (this.f948a.m594a(1)) {
             } else {
                 int a = a();
                 this.b++;
-                com.xiaomi.channel.commonutils.logger.b.m89a("schedule reconnect in " + a + "ms");
+                com.xiaomi.channel.commonutils.logger.b.m90a("schedule reconnect in " + a + "ms");
                 XMPushService xMPushService2 = this.f948a;
                 xMPushService2.getClass();
                 xMPushService2.a(new XMPushService.e(xMPushService2), (long) a);
-                if (this.b == 2 && fh.m328a().m333a()) {
+                if (this.b == 2 && fh.m329a().m334a()) {
                     ap.b();
                 }
                 if (this.b == 3) {

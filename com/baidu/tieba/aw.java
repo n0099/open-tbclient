@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.browser.core.async.BdRunnable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
+import java.util.concurrent.locks.ReentrantLock;
+import kotlin.Unit;
 /* loaded from: classes3.dex */
-public abstract class aw extends BdRunnable {
+public final class aw<T> implements zv<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BdRunnable> c;
+    public final Stack<T> a;
+    public final ReentrantLock b;
 
     public aw() {
         Interceptable interceptable = $ic;
@@ -27,12 +29,71 @@ public abstract class aw extends BdRunnable {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.a = new Stack<>();
+        this.b = new ReentrantLock(true);
     }
 
-    public List<BdRunnable> d() {
+    @Override // com.baidu.tieba.zv
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.push(t);
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zv
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.clear();
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zv
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                return this.a.isEmpty();
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zv
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                if (!c()) {
+                    return this.a.pop();
+                }
+                return null;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return (T) invokeV.objValue;
     }
 }

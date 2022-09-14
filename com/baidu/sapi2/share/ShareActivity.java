@@ -7,7 +7,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -175,7 +174,6 @@ public class ShareActivity extends Activity {
                 String str = TAG;
                 Log.e(str, getPackageName() + " pass sdk没有初始化");
                 handleInvalid();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_APP_INVOKED, getCommonStatParams());
@@ -189,11 +187,9 @@ public class ShareActivity extends Activity {
                 String str2 = TAG;
                 Log.d(str2, callingPackage + "不是已经授权的百度系app");
                 handleInvalid();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             checkAuthAccountValid();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes5.dex */
-public interface t99 extends Runnable {
+public class t99 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(DownloadException downloadException);
-
-        void onDownloadCanceled();
-
-        void onDownloadCompleted(String str);
-
-        void onDownloadPaused();
-
-        void onDownloadProgress(long j, long j2);
+    @Inject
+    public static y89 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ji8.a() : (y89) invokeV.objValue;
     }
 
-    void cancel();
+    @Inject
+    public static x89 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? hi8.a() : (x89) invokeV.objValue;
+    }
 
-    boolean isComplete();
-
-    boolean isDownloading();
-
-    void pause();
+    @Inject
+    public static b99 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? p89.a() : (b99) invokeV.objValue;
+    }
 }

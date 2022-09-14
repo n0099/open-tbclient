@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,78 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.DelayTB;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class cn0 {
+public class cn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
+    public static en0 a;
+    public static fn0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public int a;
-    @JvmField
-    public long b;
-    @JvmField
-    public long c;
-
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final cn0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    cn0 cn0Var = new cn0();
-                    cn0Var.a = jSONObject.optInt("style");
-                    cn0Var.b = jSONObject.optLong(DelayTB.DELAY) >= 0 ? jSONObject.optLong(DelayTB.DELAY) : 0L;
-                    cn0Var.c = jSONObject.optLong("duration");
-                    return cn0Var;
-                }
-                return null;
-            }
-            return (cn0) invokeL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947680388, "Lcom/baidu/tieba/cn0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947680388, "Lcom/baidu/tieba/cn0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947680388, "Lcom/baidu/tieba/cn0;")) == null) {
+            return;
         }
-        d = new a(null);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947680388, "Lcom/baidu/tieba/cn0;");
+        }
     }
 
     public cn0() {
@@ -93,5 +42,43 @@ public final class cn0 {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static en0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (cn0.class) {
+                    if (a == null) {
+                        a = (en0) ServiceManager.getService(en0.a);
+                    }
+                    if (a == null) {
+                        a = en0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (en0) invokeV.objValue;
+    }
+
+    public static fn0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (cn0.class) {
+                    if (b == null) {
+                        b = (fn0) ServiceManager.getService(fn0.a);
+                    }
+                    if (b == null) {
+                        b = fn0.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (fn0) invokeV.objValue;
     }
 }

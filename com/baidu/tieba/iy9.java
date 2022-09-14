@@ -1,52 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.qw9;
+import com.baidu.tieba.uw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class iy9<E> extends vx9<E> {
+public final class iy9<T> implements qw9.a<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final uw9.c<T> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947869984, "Lcom/baidu/tieba/iy9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947869984, "Lcom/baidu/tieba/iy9;");
-                return;
-            }
-        }
-        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iy9(int i) {
-        super(i);
+    public iy9(uw9.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Math.min(i / 4, f.intValue());
+        this.a = cVar;
+    }
+
+    @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((ww9) ((ww9) obj));
+    }
+
+    public void call(ww9<? super T> ww9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) {
+            gy9 gy9Var = new gy9(ww9Var);
+            ww9Var.b(gy9Var);
+            this.a.call(gy9Var);
+        }
     }
 }

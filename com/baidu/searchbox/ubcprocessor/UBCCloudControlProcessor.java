@@ -10,8 +10,8 @@ import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.tieba.a59;
-import com.baidu.tieba.w49;
+import com.baidu.tieba.d99;
+import com.baidu.tieba.z89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,9 +112,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             JSONObject serviceData = cloudControlResponseInfo.getServiceData();
             if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
                 boolean z = !"0".equals(option != null ? option.optString("version_asc") : "0");
-                a59 a59Var = new a59("", serviceData);
-                if (a59Var.l()) {
-                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(a59Var, z, new w49(this, iCloudControlUBCCallBack, a59Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                d99 d99Var = new d99("", serviceData);
+                if (d99Var.l()) {
+                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(d99Var, z, new z89(this, iCloudControlUBCCallBack, d99Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ UBCCloudControlProcessor this$0;
@@ -141,7 +141,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // com.baidu.tieba.w49
+                        @Override // com.baidu.tieba.z89
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;

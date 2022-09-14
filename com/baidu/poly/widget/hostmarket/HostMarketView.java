@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ja1;
+import com.baidu.tieba.gc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +64,7 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements ja1 {
+    public class b implements gc1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HostMarketView a;
@@ -87,8 +87,8 @@ public class HostMarketView extends FrameLayout {
             this.a = hostMarketView;
         }
 
-        @Override // com.baidu.tieba.ja1
-        public void a(ja1.a aVar) {
+        @Override // com.baidu.tieba.gc1
+        public void a(gc1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 this.a.e.b(aVar);
@@ -97,7 +97,7 @@ public class HostMarketView extends FrameLayout {
                 }
                 if (aVar.a != 0) {
                     this.a.c.i();
-                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0869), 0).show();
+                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f087c), 0).show();
                 }
                 this.a.d.setIsSelected(this.a.c.isChecked() ? 1 : 0);
             }
@@ -106,9 +106,9 @@ public class HostMarketView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface c {
-        void a(boolean z, PayChannelEntity payChannelEntity, ja1 ja1Var);
+        void a(boolean z, PayChannelEntity payChannelEntity, gc1 gc1Var);
 
-        void b(ja1.a aVar);
+        void b(gc1.a aVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -135,10 +135,10 @@ public class HostMarketView extends FrameLayout {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0396, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5a);
-            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091fab);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d039a, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091faa);
+            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091ffc);
             this.c = switchButton;
             switchButton.setOnCheckedChangeListener(new a(this));
         }

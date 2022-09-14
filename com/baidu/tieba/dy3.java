@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.px3;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@Service
 /* loaded from: classes3.dex */
-public class dy3 implements ii1 {
+public class dy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String packageName;
+    @V8JavascriptField
+    public int statusCode;
 
     public dy3() {
         Interceptable interceptable = $ic;
@@ -29,24 +29,12 @@ public class dy3 implements ii1 {
         }
     }
 
-    @Override // com.baidu.tieba.ii1
-    public File a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? px3.d.h(str, str2) : (File) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ii1
-    public File b() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? px3.d() : (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ii1
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? px3.d.g().getPath() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "DownloadResponseData{statusCode=" + this.statusCode + ", packageName='" + this.packageName + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

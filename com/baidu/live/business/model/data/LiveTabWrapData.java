@@ -1,7 +1,7 @@
 package com.baidu.live.business.model.data;
 
 import android.text.TextUtils;
-import com.baidu.tieba.p80;
+import com.baidu.tieba.s90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,15 +64,15 @@ public class LiveTabWrapData {
                 JSONArray optJSONArray = jSONObject.optJSONArray("items");
                 getTabListByJson(optJSONArray);
                 if (z && optJSONArray != null && (list = this.tabList) != null && !list.isEmpty() && z2) {
-                    p80.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
-                    p80.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
+                    s90.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
+                    s90.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
                 }
             }
             if (z2 && z) {
                 List<LiveTabEntity> list2 = this.tabList;
                 if (list2 == null || list2.isEmpty()) {
                     this.cacheCause = 2;
-                    String b = p80.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
+                    String b = s90.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
                     if (TextUtils.isEmpty(b)) {
                         return;
                     }
@@ -84,10 +84,10 @@ public class LiveTabWrapData {
                         } else if (this.errCode != 0) {
                             this.cacheCause = 3;
                         }
-                        this.cacheTime = p80.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
+                        this.cacheTime = s90.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
                     } catch (JSONException unused) {
-                        p80.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
-                        p80.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
+                        s90.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
+                        s90.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
                     }
                 }
             }

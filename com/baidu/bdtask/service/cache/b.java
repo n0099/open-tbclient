@@ -9,9 +9,9 @@ import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.cr;
-import com.baidu.tieba.lv;
-import com.baidu.tieba.mv;
+import com.baidu.tieba.aw;
+import com.baidu.tieba.qr;
+import com.baidu.tieba.zv;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public final class b {
     public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final lv<Function0<Unit>> b;
+    public final zv<Function0<Unit>> b;
     public String c;
 
     /* loaded from: classes.dex */
@@ -132,7 +132,7 @@ public final class b {
             }
         }
         this.a = TaskState.key;
-        this.b = new mv();
+        this.b = new aw();
         this.c = "";
     }
 
@@ -140,7 +140,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = cr.c.c().a(this.a);
+            String a2 = qr.c.c().a(this.a);
             return a2 != null ? a2 : "";
         }
         return (String) invokeV.objValue;

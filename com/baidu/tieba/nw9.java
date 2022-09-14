@@ -1,119 +1,183 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cv9;
-import com.baidu.tieba.yu9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.NoSuchElementException;
+import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes5.dex */
-public final class nw9<T> implements cv9.c<T> {
+public final class nw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final d a;
+    public static final d b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yu9.a<T> a;
 
     /* loaded from: classes5.dex */
-    public static final class a<T> extends ev9<T> {
+    public static final class a implements d {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final dv9<? super T> e;
-        public T f;
-        public int g;
 
-        public a(dv9<? super T> dv9Var) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-561406756, "Lcom/baidu/tieba/nw9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-561406756, "Lcom/baidu/tieba/nw9$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dv9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = dv9Var;
-        }
-
-        @Override // com.baidu.tieba.zu9
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.e.b(new NoSuchElementException());
-                } else if (i == 1) {
-                    this.g = 2;
-                    T t = this.f;
-                    this.f = null;
-                    this.e.c(t);
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.zu9
-        public void onError(Throwable th) {
+        @Override // com.baidu.tieba.nw9.d
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.g == 2) {
-                    fz9.j(th);
-                    return;
-                }
-                this.f = null;
-                this.e.b(th);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
             }
-        }
-
-        @Override // com.baidu.tieba.zu9
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.g = 1;
-                    this.f = t;
-                } else if (i == 1) {
-                    this.g = 2;
-                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
-                }
-            }
+            return invokeV.booleanValue;
         }
     }
 
-    public nw9(yu9.a<T> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static final class b implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-561406725, "Lcom/baidu/tieba/nw9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-561406725, "Lcom/baidu/tieba/nw9$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.nw9.d
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-561406694, "Lcom/baidu/tieba/nw9$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-561406694, "Lcom/baidu/tieba/nw9$c;");
+                    return;
+                }
+            }
+            a = new c();
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.nw9.d
+        public boolean a() throws MissingBackpressureException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                throw new MissingBackpressureException("Overflowed buffer");
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        boolean a() throws MissingBackpressureException;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948017017, "Lcom/baidu/tieba/nw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948017017, "Lcom/baidu/tieba/nw9;");
                 return;
             }
         }
-        this.a = aVar;
-    }
-
-    @Override // com.baidu.tieba.cv9.c, com.baidu.tieba.mv9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dv9) ((dv9) obj));
-    }
-
-    public void call(dv9<? super T> dv9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dv9Var) == null) {
-            a aVar = new a(dv9Var);
-            dv9Var.a(aVar);
-            this.a.call(aVar);
-        }
+        c cVar = c.a;
+        a = cVar;
+        b = cVar;
+        b bVar = b.a;
+        a aVar = a.a;
     }
 }

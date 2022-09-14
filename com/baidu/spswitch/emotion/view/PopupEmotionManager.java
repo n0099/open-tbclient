@@ -333,8 +333,8 @@ public class PopupEmotionManager {
             this.mLastShowParam = showParam;
             if (this.mPopupEmotionView == null) {
                 this.mPopupEmotionView = new PopupEmotionView(this.mCtx);
-                this.mEnterAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010068);
-                this.mExitAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010069);
+                this.mEnterAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.emotion_long_pressed_entry);
+                this.mExitAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.emotion_long_pressed_exit);
             }
             this.mPopupEmotionView.configView(showParam.exprName, showParam.exprBitmap);
             calculatePos(showParam);

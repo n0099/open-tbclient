@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 /* loaded from: classes.dex */
 public class ImageManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -97,7 +98,7 @@ public class ImageManager {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, uri, iAsyncImageLoaderListener) == null) {
             Validator.notNull(context, "context");
             Validator.notNull(uri, "uri");
-            Validator.notNull(iAsyncImageLoaderListener, "listener");
+            Validator.notNull(iAsyncImageLoaderListener, ServiceSpecificExtraArgs.CastExtraArgs.LISTENER);
             String md5 = Utils.md5(uri.toString());
             Bitmap bitmap = this.mMemCache.get(md5);
             if (bitmap != null) {

@@ -1,22 +1,12 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.io.File;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class we9 extends LoggerManager.c {
+public abstract class we9 implements ve9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,42 +24,33 @@ public class we9 extends LoggerManager.c {
         }
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ve9
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) ? xe9.o(j, j2, str, str2, z, z2, str3) : (List) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.yalog.LoggerManager.c
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + ".yalog";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public Logger d(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ve9
+    public void onExceptionThrown(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new xe9(str) : (Logger) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public List<String> e(long j, long j2, String str, String str2) {
-        InterceptResult invokeCommon;
+    public abstract void onFinishedWriting(boolean z);
+
+    @Override // com.baidu.tieba.ve9
+    public void onProgressChanged(int i, double d, long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) ? xe9.y(j, j2, str, str2) : (List) invokeCommon.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+        }
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public void f() {
+    @Override // com.baidu.tieba.ve9
+    public void onTrackEnd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            xe9.z();
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
         }
     }
 }

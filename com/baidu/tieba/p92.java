@@ -2,25 +2,34 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class p92 {
+public final class p92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
 
     static {
         InterceptResult invokeClinit;
@@ -35,113 +44,86 @@ public class p92 {
                 return;
             }
         }
-        a = kh1.a;
-        b = new HashMap();
-        c = new Object();
-        d = q92.a();
+        n = ij1.a;
     }
 
-    public static void a() {
+    public p92() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove all exclude appIds");
-            }
-            synchronized (c) {
-                b.clear();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public static Set<String> b() {
-        InterceptResult invokeV;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
-            }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return ef3.a(strArr);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static boolean c(String str) {
+    public static zc2 a(p92 p92Var) {
         InterceptResult invokeL;
-        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (d && !TextUtils.isEmpty(str)) {
-                synchronized (c) {
-                    containsKey = b.containsKey(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, p92Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, p92Var.a);
+            treeMap.put("pagePath", p92Var.b);
+            treeMap.put("pageType", p92Var.c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, p92Var.e);
+            if (!TextUtils.isEmpty(p92Var.f)) {
+                if (n) {
+                    Log.d("PageReadyEvent", "add initData: " + p92Var.f);
                 }
-                if (a) {
-                    Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-                }
-                return containsKey;
+                treeMap.put("initData", p92Var.f);
             }
-            return false;
+            if (!TextUtils.isEmpty(p92Var.d)) {
+                treeMap.put("onReachBottomDistance", p92Var.d);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(p92Var.g));
+            if (!TextUtils.isEmpty(p92Var.h)) {
+                treeMap.put("routeId", p92Var.h);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(p92Var.i));
+            if (!TextUtils.isEmpty(p92Var.j)) {
+                treeMap.put("slavePreload", p92Var.j);
+            }
+            treeMap.put("root", p92Var.k);
+            wy2.a(treeMap, "page ready event");
+            q63.a(p92Var.b, treeMap);
+            String f = qg3.f(q63.b(p92Var.b));
+            yz1.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c = i33.c(p92Var.a, f);
+            p92Var.l = c;
+            if (!TextUtils.isEmpty(c)) {
+                treeMap.put("pageConfig", p92Var.l);
+            }
+            u42 W = s92.U().W();
+            if (W != null) {
+                treeMap.put("masterId", W.a());
+            }
+            if (p92Var.m) {
+                treeMap.put("isFirstPage", "true");
+            }
+            if (c22.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (w83.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (w83.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new zc2("PageReady", treeMap);
         }
-        return invokeL.booleanValue;
+        return (zc2) invokeL.objValue;
     }
 
-    public static void d(String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num == null) {
-                    b.put(str, 1);
-                } else {
-                    b.put(str, Integer.valueOf(num.intValue() + 1));
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
         }
-    }
-
-    public static void e(ge4 ge4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, ge4Var) == null) && d && ge4Var != null) {
-            for (w94 w94Var : ge4Var.j()) {
-                if (w94Var instanceof x94) {
-                    d(w94Var.g);
-                } else if (w94Var instanceof y94) {
-                    d(((y94) w94Var).o);
-                }
-            }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num != null) {
-                    int intValue = num.intValue() - 1;
-                    if (intValue <= 0) {
-                        b.remove(str);
-                    } else {
-                        b.put(str, Integer.valueOf(intValue));
-                    }
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

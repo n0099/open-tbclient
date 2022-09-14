@@ -7,6 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,9 +96,9 @@ public class DeviceInfoProxy {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (Build.VERSION.SDK_INT >= 26) {
-                    return telephonyManager.getImei();
+                    return ApiReplaceUtil.getImei(telephonyManager);
                 }
-                return telephonyManager.getDeviceId();
+                return ApiReplaceUtil.getDeviceId(telephonyManager);
             } catch (Exception unused) {
                 return null;
             }
@@ -111,7 +112,7 @@ public class DeviceInfoProxy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             try {
-                return ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
+                return ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
             } catch (Exception unused) {
                 return null;
             }

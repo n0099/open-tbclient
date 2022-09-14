@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vc implements nc {
+public class vc implements bd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public short a;
+    public boolean a;
 
-    public vc(short s) {
+    public vc(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Short.valueOf(s)};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,48 +27,48 @@ public class vc implements nc {
                 return;
             }
         }
-        this.a = s;
+        this.a = z;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object a(de deVar) {
+    @Override // com.baidu.tieba.bd
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object b(de deVar) {
+    @Override // com.baidu.tieba.bd
+    public Object b(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, deVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object c(de deVar) {
+    @Override // com.baidu.tieba.bd
+    public Object c(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, deVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, reVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object d(de deVar) {
+    @Override // com.baidu.tieba.bd
+    public Object d(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, deVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, reVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object e(de deVar) {
+    @Override // com.baidu.tieba.bd
+    public Object e(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, deVar)) == null) ? d(deVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, reVar)) == null) ? d(reVar) : invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object f(de deVar) {
+    @Override // com.baidu.tieba.bd
+    public Object f(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, deVar)) == null) ? Integer.valueOf(this.a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
     }
 }

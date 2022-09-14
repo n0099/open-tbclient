@@ -1,200 +1,103 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.py;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.wallet.CurrencyHelper;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gv6 extends cn<t06, ThreadCardViewHolder<t06>> implements vl5 {
+public class gv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public String c;
-    public vn d;
-    public h06<t06> e;
 
-    /* loaded from: classes4.dex */
-    public class a extends h06<t06> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gv6 b;
-
-        public a(gv6 gv6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gv6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gv6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.h06
-        /* renamed from: d */
-        public void a(View view2, t06 t06Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, t06Var) == null) || view2 == null || t06Var == null || t06Var.getThreadData() == null || StringUtils.isNull(t06Var.getThreadData().getTid())) {
-                return;
-            }
-            this.b.w(view2, t06Var);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements zn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gv6 a;
-
-        public b(gv6 gv6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gv6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gv6Var;
-        }
-
-        @Override // com.baidu.tieba.zn
-        public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof t06) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                t06 t06Var = (t06) pnVar;
-                t06Var.f = 1;
-                if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), t06Var);
-                }
-                ThreadCardUtils.jumpToPB((go4) t06Var, view2.getContext(), 1, false, ww.a((vn) viewGroup, view2, i));
-                threadCardViewHolder.a().o(new py.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gv6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-        this.b = tbPageContext;
-    }
-
-    @Override // com.baidu.tieba.vl5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ey.b bVar = new ey.b(this.b.getPageActivity(), false);
-            cx cxVar = new cx(this.b.getPageActivity());
-            cxVar.u();
-            bVar.h(cxVar);
-            ey k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
-            k.r(1);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t06 t06Var, ThreadCardViewHolder<t06> threadCardViewHolder) {
+    public static SpannableString a(long j, int i, int i2) {
         InterceptResult invokeCommon;
+        String formatOverBaiwanNum;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t06Var, threadCardViewHolder})) == null) {
-            if (t06Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || t06Var.a == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (CurrencySwitchUtil.isYyIsConvert(i2)) {
+                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i2, j);
+            } else {
+                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
             }
-            t06Var.I(t06Var.position + 1);
-            threadCardViewHolder.a().q(i);
-            if (threadCardViewHolder.a() instanceof ul5) {
-                threadCardViewHolder.a().b(this.c);
+            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
+            String str = "[icon]" + formatOverBaiwanNum;
+            SpannableString spannableString = new SpannableString(str);
+            if (TbadkApplication.getInst().getSkinType() == 1) {
+                moneyIcon.setAlpha(179);
+            } else {
+                moneyIcon.setAlpha(255);
             }
-            threadCardViewHolder.e(t06Var);
-            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().p(this.e);
-            return threadCardViewHolder.getView();
+            int f = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+            moneyIcon.setBounds(0, 0, f, f);
+            ni5 ni5Var = new ni5(moneyIcon);
+            ni5Var.b(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
+            ni5Var.c(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
+            UtilHelper.setSpan(spannableString, str, "[icon]", ni5Var);
+            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
+            return spannableString;
         }
-        return (View) invokeCommon.objValue;
+        return (SpannableString) invokeCommon.objValue;
     }
 
-    public final void w(View view2, t06 t06Var) {
+    public static SpannableString b(long j, boolean z, int i) {
+        InterceptResult invokeCommon;
+        String formatOverBaiwanNum;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, t06Var) == null) {
-            int id = view2.getId();
-            if (view2.getId() == R.id.obfuscated_res_0x7f09212d) {
-                tu6.b(view2, t06Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f090a75) {
-                tu6.b(view2, t06Var, 7);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (CurrencySwitchUtil.isYyIsConvert(i)) {
+                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i, j);
+            } else {
+                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
             }
+            if (z) {
+                str = "=[icon]" + formatOverBaiwanNum;
+            } else {
+                str = "[icon]" + formatOverBaiwanNum;
+            }
+            SpannableString spannableString = new SpannableString(str);
+            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i);
+            int f = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+            moneyIcon.setBounds(0, 0, f, f);
+            ni5 ni5Var = new ni5(moneyIcon);
+            ni5Var.b(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
+            ni5Var.c(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
+            UtilHelper.setSpan(spannableString, str, "[icon]", ni5Var);
+            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
+            if (z) {
+                UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
+            }
+            return spannableString;
         }
+        return (SpannableString) invokeCommon.objValue;
     }
 
-    public void x(vn vnVar) {
+    public static SpannableString c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vnVar) == null) {
-            this.d = vnVar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (StringUtils.isNull(str)) {
+                return new SpannableString("");
+            }
+            SpannableString spannableString = new SpannableString(str);
+            UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)));
+            UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
+            if (!StringUtils.isNull(str3)) {
+                UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
+            }
+            return spannableString;
         }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

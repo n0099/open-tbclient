@@ -1,105 +1,84 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tieba.jx1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class oj2 {
+public class oj2 extends pj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static jx1.g b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948034098, "Lcom/baidu/tieba/oj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ bk2 b;
+
+        public a(oj2 oj2Var, List list, bk2 bk2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oj2Var, list, bk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948034098, "Lcom/baidu/tieba/oj2;");
+            this.a = list;
+            this.b = bk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (String str : this.a) {
+                    this.b.c(str);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oj2(v33 v33Var) {
+        super(v33Var, "/swanAPI/addComponentToFullScreenSync");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((v33) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
     }
 
-    public static void a(jx1.g gVar) {
+    @Override // com.baidu.tieba.pj2
+    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull bk2 bk2Var, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            b = gVar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, bk2Var, list)) == null) {
+            sg3.a0(new a(this, list, bk2Var));
+            return true;
         }
-    }
-
-    public static void b(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
-            e(editText, ConstPath.KEY_BLUR, i);
-        }
-    }
-
-    public static void c(kx1 kx1Var, EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, kx1Var, editText, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", "change");
-            jSONObject.put("cursorOffset", editText.getSelectionStart());
-            jSONObject.put("keyCode", i);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
-        kx1Var.j(editText.getText().toString());
-        kx1Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
-        b.a(String.valueOf(editText.getTag()), jSONObject);
-    }
-
-    public static void d(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
-            e(editText, "confirm", i);
-        }
-    }
-
-    public static void e(EditText editText, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", str);
-            jSONObject.put("cursorOffset", editText.getText().length());
-            jSONObject.put("keyboardHeight", "" + re3.O(i));
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
-        b.a(String.valueOf(editText.getTag()), jSONObject);
-    }
-
-    public static void f(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
-            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
-        }
+        return invokeLLL.booleanValue;
     }
 }

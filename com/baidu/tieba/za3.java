@@ -1,43 +1,22 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class za3 {
+public class za3 implements bb3 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile za3 m;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public SensorManager b;
-    public SensorEventListener c;
-    public SensorEventListener d;
-    public Sensor e;
-    public Sensor f;
-    public float[] g;
-    public float[] h;
-    public int i;
-    public c j;
-    public boolean k;
-    public long l;
 
     /* loaded from: classes6.dex */
-    public class a implements SensorEventListener {
+    public class a extends ya3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ za3 a;
 
         public a(za3 za3Var) {
             Interceptable interceptable = $ic;
@@ -51,87 +30,27 @@ public class za3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = za3Var;
         }
 
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i) {
+        @Override // com.baidu.tieba.ya3
+        @NonNull
+        public String c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
-        @Override // android.hardware.SensorEventListener
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            Sensor sensor;
+        @Override // com.baidu.tieba.cb3
+        public long getMaxSize() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
-                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-                    this.a.g = sensorEvent.values;
-                    this.a.i = sensorEvent.accuracy;
-                    ay1.b("SwanAppCompassManager", "accelerometer changed accuracy: " + this.a.i);
-                    this.a.k();
-                    return;
-                }
-                ay1.o("compass", "illegal accelerometer event");
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 0L;
             }
+            return invokeV.longValue;
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements SensorEventListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ za3 a;
-
-        public b(za3 za3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {za3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = za3Var;
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-            }
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            Sensor sensor;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
-                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
-                    this.a.h = sensorEvent.values;
-                    this.a.i = sensorEvent.accuracy;
-                    ay1.b("SwanAppCompassManager", "magneticFiled changed accuracy: " + this.a.i);
-                    this.a.k();
-                    return;
-                }
-                ay1.o("compass", "illegal magnetic filed event");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(float f, int i);
     }
 
     public za3() {
@@ -144,183 +63,132 @@ public class za3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = new float[3];
-        this.h = new float[3];
-        this.i = -100;
-        this.k = false;
-        this.l = 0L;
     }
 
-    public static String h(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.bb3
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? i != -1 ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? "unknow" : "high" : "medium" : Config.EXCEPTION_MEMORY_LOW : "unreliable" : "no-contact" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str : (String) invokeL.objValue;
     }
 
-    public static za3 i() {
+    @Override // com.baidu.tieba.bb3
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bb3
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bb3
+    @NonNull
+    public cb3 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (m == null) {
-                synchronized (za3.class) {
-                    if (m == null) {
-                        m = new za3();
-                    }
-                }
-            }
-            return m;
-        }
-        return (za3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new a(this) : (cb3) invokeV.objValue;
     }
 
-    public static void n() {
+    @Override // com.baidu.tieba.bb3
+    public String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || m == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return null;
         }
-        m.m();
+        return (String) invokeL.objValue;
     }
 
-    public final float f() {
+    @Override // com.baidu.tieba.bb3
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float[] fArr = new float[3];
-            float[] fArr2 = new float[9];
-            SensorManager.getRotationMatrix(fArr2, null, this.g, this.h);
-            SensorManager.getOrientation(fArr2, fArr);
-            return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
         }
-        return invokeV.floatValue;
+        return (String) invokeV.objValue;
     }
 
-    public final SensorEventListener g() {
+    @Override // com.baidu.tieba.bb3
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bb3
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bb3
+    public String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bb3
+    public boolean j(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bb3
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ay1.i("compass", "get Accelerometer listener");
-            SensorEventListener sensorEventListener = this.c;
-            if (sensorEventListener != null) {
-                return sensorEventListener;
-            }
-            a aVar = new a(this);
-            this.c = aVar;
-            return aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
         }
-        return (SensorEventListener) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final SensorEventListener j() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bb3
+    public boolean l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ay1.i("compass", "get MagneticFiled listener");
-            SensorEventListener sensorEventListener = this.d;
-            if (sensorEventListener != null) {
-                return sensorEventListener;
-            }
-            b bVar = new b(this);
-            this.d = bVar;
-            return bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return false;
         }
-        return (SensorEventListener) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void k() {
+    @Override // com.baidu.tieba.bb3
+    public String m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.j == null || System.currentTimeMillis() - this.l <= 200) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return null;
         }
-        float f = f();
-        ay1.b("SwanAppCompassManager", "orientation changed, orientation : " + f);
-        this.j.a(f, this.i);
-        this.l = System.currentTimeMillis();
-    }
-
-    public void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.a = context;
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ay1.i("compass", "release");
-            if (this.k) {
-                q();
-            }
-            this.b = null;
-            this.f = null;
-            this.e = null;
-            this.c = null;
-            this.d = null;
-            this.j = null;
-            this.a = null;
-            m = null;
-        }
-    }
-
-    public void o(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.j = cVar;
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Context context = this.a;
-            if (context == null) {
-                ay1.c("compass", "start error, none context");
-            } else if (this.k) {
-                ay1.o("compass", "has already start");
-            } else {
-                SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-                this.b = sensorManager;
-                if (sensorManager != null) {
-                    this.e = sensorManager.getDefaultSensor(1);
-                    this.f = this.b.getDefaultSensor(2);
-                    this.b.registerListener(g(), this.e, 1);
-                    this.b.registerListener(j(), this.f, 1);
-                    this.k = true;
-                    ay1.i("compass", "start listen");
-                    return;
-                }
-                ay1.c("compass", "none sensorManager");
-            }
-        }
-    }
-
-    public void q() {
-        SensorManager sensorManager;
-        SensorManager sensorManager2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!this.k) {
-                ay1.o("compass", "has already stop");
-                return;
-            }
-            ay1.i("compass", "stop listen");
-            SensorEventListener sensorEventListener = this.c;
-            if (sensorEventListener != null && (sensorManager2 = this.b) != null) {
-                sensorManager2.unregisterListener(sensorEventListener);
-                this.c = null;
-            }
-            SensorEventListener sensorEventListener2 = this.d;
-            if (sensorEventListener2 != null && (sensorManager = this.b) != null) {
-                sensorManager.unregisterListener(sensorEventListener2);
-                this.d = null;
-            }
-            this.b = null;
-            this.f = null;
-            this.e = null;
-            this.k = false;
-        }
+        return (String) invokeL.objValue;
     }
 }

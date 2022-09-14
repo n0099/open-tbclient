@@ -1,16 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class r71 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface r71<View> {
+    void a();
 
-    public static void a(boolean z, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
-            throw new IllegalArgumentException(String.format(str, objArr));
-        }
-    }
+    View getRealView();
+
+    void setBtnIconNightModeEnable(boolean z);
+
+    void setBtnPlaceholder(View view2);
+
+    void setData(@NonNull lo0 lo0Var);
+
+    void setEnhanceBtnListener(@NonNull p71 p71Var);
+
+    void setVisible(int i);
+
+    void update(int i);
 }

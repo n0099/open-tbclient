@@ -1,40 +1,47 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import com.airbnb.lottie.LottieAnimationView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
-import com.baidu.searchbox.live.interfaces.like.LiveLikeAnimatorCallback;
-import com.baidu.tieba.medialive.like.HeartSurfaceView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.dj7;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestRankingViewHolder;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class yi7 implements ILiveLikeView {
+public class yi7 extends qn<dj7, SearchSuggestRankingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public int b;
-    public float c;
+    public final Context a;
 
     /* loaded from: classes6.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a implements no {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LottieAnimationView a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ yi7 b;
 
-        public a(yi7 yi7Var, LottieAnimationView lottieAnimationView) {
+        public a(yi7 yi7Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yi7Var, lottieAnimationView};
+                Object[] objArr = {yi7Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,153 +51,117 @@ public class yi7 implements ILiveLikeView {
                     return;
                 }
             }
-            this.a = lottieAnimationView;
+            this.b = yi7Var;
+            this.a = context;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            dj7 dj7Var;
+            dj7.a b;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof dj7) && (b = (dj7Var = (dj7) cdo).b()) != null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("tab_id", b.d() + "");
+                hashMap.put("sort_type", b.c() + "");
+                hashMap.put("rank_type", b.b() + "");
+                hashMap.put("rank_code", b.a() + "");
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ItemRecommendList", hashMap)));
+                this.b.u(dj7Var);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements HeartSurfaceView.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LiveLikeAnimatorCallback a;
-
-        public b(yi7 yi7Var, LiveLikeAnimatorCallback liveLikeAnimatorCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi7Var, liveLikeAnimatorCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = liveLikeAnimatorCallback;
-        }
-
-        @Override // com.baidu.tieba.medialive.like.HeartSurfaceView.e
-        public void a(int i, int i2) {
-            LiveLikeAnimatorCallback liveLikeAnimatorCallback;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || (liveLikeAnimatorCallback = this.a) == null) {
-                return;
-            }
-            liveLikeAnimatorCallback.onAnimLocation(0, i, i2);
-        }
-    }
-
-    public yi7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yi7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 1.0f;
-        this.b = 500;
-        this.c = 0.4f;
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public void addLikeAnimation(View view2, int i) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dj7 dj7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        w(i, view2, viewGroup, dj7Var, searchSuggestRankingViewHolder);
+        return view2;
+    }
+
+    public final void t(StatisticItem statisticItem, dj7 dj7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeartSurfaceView)) {
-            ((HeartSurfaceView) view2).p(i);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, dj7Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_name", dj7Var.c());
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public View getLikeAnimatorView() {
-        InterceptResult invokeV;
+    public final void u(dj7 dj7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
-            lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            lottieAnimationView.setAnimation("lottie/liveshow_video_like_explosion.json");
-            return lottieAnimationView;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public View getLikeRippleView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
-            lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            lottieAnimationView.setAnimation("lottie/liveshow_video_like_bg.json");
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.c, this.a);
-            ofFloat.setDuration(this.b);
-            ofFloat.addUpdateListener(new a(this, lottieAnimationView));
-            lottieAnimationView.setTag(ofFloat);
-            return lottieAnimationView;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public View getLikeView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HeartSurfaceView heartSurfaceView = new HeartSurfaceView(AppRuntime.getAppContext());
-            heartSurfaceView.setUpResNormalMode();
-            heartSurfaceView.setZOrderOnTop(true);
-            heartSurfaceView.getHolder().setFormat(-3);
-            return heartSurfaceView;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public void playAnimation(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (view2 instanceof LottieAnimationView)) {
-            ((LottieAnimationView) view2).playAnimation();
+        if (interceptable == null || interceptable.invokeL(1048579, this, dj7Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_CLICK);
+            t(statisticItem, dj7Var);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public void setAnimatorListener(View view2, Animator.AnimatorListener animatorListener) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public SearchSuggestRankingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, view2, animatorListener) == null) && (view2 instanceof LottieAnimationView)) {
-            ((LottieAnimationView) view2).addAnimatorListener(animatorListener);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07a4, viewGroup, false)) : (SearchSuggestRankingViewHolder) invokeL.objValue;
+    }
+
+    public View w(int i, View view2, ViewGroup viewGroup, dj7 dj7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dj7Var, searchSuggestRankingViewHolder})) == null) {
+            if (dj7Var == null) {
+                return view2;
+            }
+            x(searchSuggestRankingViewHolder);
+            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080a65, null);
+            ti7.a(searchSuggestRankingViewHolder.b, dj7Var.f(), dj7Var.a());
+            y(dj7Var);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void x(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestRankingViewHolder) == null) {
+            uu4 d = uu4.d(searchSuggestRankingViewHolder.b);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X06);
+            SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
+            uu4.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public void setLikeAnimatorListener(View view2, LiveLikeAnimatorCallback liveLikeAnimatorCallback) {
+    public final void y(dj7 dj7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, view2, liveLikeAnimatorCallback) == null) && (view2 instanceof LottieAnimationView)) {
-            ((HeartSurfaceView) view2).setAnimateEndListener(new b(this, liveLikeAnimatorCallback));
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
-    public void startRipple(View view2) {
-        Object tag;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && (view2 instanceof LottieAnimationView) && (tag = view2.getTag()) != null && (tag instanceof ValueAnimator)) {
-            ((ValueAnimator) tag).start();
+        if (interceptable == null || interceptable.invokeL(1048583, this, dj7Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_SHOW);
+            t(statisticItem, dj7Var);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,106 +12,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ms2 {
+public class ms2 extends ls2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile Set<String> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947983165, "Lcom/baidu/tieba/ms2;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983165, "Lcom/baidu/tieba/ms2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947983165, "Lcom/baidu/tieba/ms2;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947983165, "Lcom/baidu/tieba/ms2;");
-        }
+        boolean z = ij1.a;
     }
 
-    public ms2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ms2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public final synchronized boolean a() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.tieba.ls2
+    public boolean a(gs2 gs2Var, is2 is2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                z = (set != null ? set.size() : 0) < 5;
-            }
-            return z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{gs2Var, is2Var, context, unitedSchemeEntity, callbackHandler, y23Var})) == null) {
+            yz1.i("vrvideo", "remove, video id:" + is2Var.j + " slave id: " + is2Var.c);
+            d(gs2Var, is2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public final synchronized void b(WebSocketTask task) {
+    public final void d(gs2 gs2Var, is2 is2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(task, "task");
-                if (this.a == null) {
-                    this.a = new LinkedHashSet();
-                }
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.add(task.getTaskId());
-                }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gs2Var, is2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ny1 a = lz1.a(is2Var);
+            if (a != null) {
+                a.B();
+            } else {
+                rz1.a("VrVideoRemoveAction", "remove with a null component");
             }
-        }
-    }
-
-    public final synchronized void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(taskId, "taskId");
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.remove(taskId);
-                }
-            }
-        }
-    }
-
-    public final synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                if (set != null) {
-                    for (String str : set) {
-                        try {
-                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                Set<String> set2 = this.a;
-                if (set2 != null) {
-                    set2.clear();
-                }
-            }
+            gs2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

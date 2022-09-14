@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
-import com.baidu.tieba.hd8;
-import com.baidu.tieba.id8;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.pe8;
+import com.baidu.tieba.qe8;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
-import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int K;
     public int L;
     public int M;
-    public hd8 N;
+    public pe8 N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes5.dex */
@@ -149,7 +149,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             return;
         }
         layoutParams.topMargin = i;
-        layoutParams.height = (ri.i(getActivity()) - ri.s(getActivity())) - d2();
+        layoutParams.height = (ej.i(getActivity()) - ej.s(getActivity())) - d2();
         this.t.setLayoutParams(layoutParams);
     }
 
@@ -158,22 +158,22 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0621, (ViewGroup) null, false);
-            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925f7);
-            this.t = (TBAdWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925f9);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0638, (ViewGroup) null, false);
+            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f092653);
+            this.t = (TBAdWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092655);
             N1();
-            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925f8);
+            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092654);
             if (!TextUtils.isEmpty(this.F) && !TextUtils.isEmpty(this.G)) {
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.video_url = this.F;
                 builder.thumbnail_url = this.G;
                 builder.video_duration = Integer.valueOf(this.I);
                 if (this.M == 14) {
-                    Integer valueOf = Integer.valueOf(ri.k(getActivity()));
+                    Integer valueOf = Integer.valueOf(ej.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(id8.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(qe8.c(valueOf.intValue()));
                 } else {
-                    Integer valueOf2 = Integer.valueOf(ri.k(getActivity()));
+                    Integer valueOf2 = Integer.valueOf(ej.k(getActivity()));
                     builder.video_width = valueOf2;
                     builder.video_height = valueOf2;
                     if (this.H > 0.0f) {
@@ -190,9 +190,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                hd8 hd8Var = this.N;
-                if (hd8Var != null) {
-                    this.D.setVideoTailFrameData(hd8Var);
+                pe8 pe8Var = this.N;
+                if (pe8Var != null) {
+                    this.D.setVideoTailFrameData(pe8Var);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -220,7 +220,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public final int d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ri.f(this, R.dimen.obfuscated_res_0x7f070282) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ej.f(this, R.dimen.obfuscated_res_0x7f070282) : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -236,9 +236,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    hd8 hd8Var = new hd8();
-                    this.N = hd8Var;
-                    hd8Var.c(stringExtra);
+                    pe8 pe8Var = new pe8();
+                    this.N = pe8Var;
+                    pe8Var.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");

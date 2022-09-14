@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
@@ -226,7 +225,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.live_duration = jSONObject.optLong("live_duration");
         this.charm_count = jSONObject.optInt("charm_count");
         this.flower_count = jSONObject.optInt("flower_count");
-        this.start_time = jSONObject.optInt(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+        this.start_time = jSONObject.optInt("start_time");
         this.end_time = jSONObject.optInt("end_time");
         this.location = jSONObject.optString("location");
         this.channel_id = jSONObject.optLong("channel_id");

@@ -131,6 +131,7 @@ public class CommonStatisticKey {
     public static final String KEY_LOGIN_DIALOG_SUCCESS = "c14060";
     public static final String KEY_MINE_PAGE_LOGIN_DIALOG_SUCCESS = "c14468";
     public static final String KEY_MULTI_DEL_BUTTON_CLICK = "c13122";
+    public static final String KEY_NAMEPLATE_OF_USER_LEVEL_STATIC = "c14927";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
     public static final String KEY_ONE_KEY_READ = "c14662";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT = "c14439";
@@ -170,6 +171,7 @@ public class CommonStatisticKey {
     public static final String KEY_REPORT_PRIVATE_MSG_CHANGE = "c14577";
     public static final String KEY_SCREEN_SHOT = "c13848";
     public static final String KEY_SEND_EASTER_EGG_EMOJI = "c14659";
+    public static final String KEY_SERVICE_CENTER_CLICK = "c14968";
     public static final String KEY_SHARE_FRIEND_BTN = "c14644";
     public static final String KEY_SHARE_NEARLY_PERSON = "c14643";
     public static final String KEY_SHOW_PB_HEAD_NOTICE_BAR = "c14340";
@@ -180,6 +182,7 @@ public class CommonStatisticKey {
     public static final String KEY_STATISTICS_ADVERTSDK_SHOW = "c13319";
     public static final String KEY_STATISTICS_MOBADS_CLICK = "c13043";
     public static final String KEY_STATISTICS_MOBADS_SHOW = "c13042";
+    public static final String KEY_SUGGEST_FEEDBACK_CLICK = "c14969";
     public static final String KEY_SYSTEM_SERVICE = "c14052";
     public static final String KEY_THREAD_POST_FAIL_DIALOG_RETRY_CLICK = "c14041";
     public static final String KEY_THREAD_POST_RESULT_DIALOG_SHOW = "c14040";
@@ -202,6 +205,9 @@ public class CommonStatisticKey {
     public static final String KEY_VIDEO_SEEK_CLICK = "c13256";
     public static final String KEY_VIP_AD_FREE_GUID_TIP_CLICK = "c14867";
     public static final String KEY_VIP_AD_FREE_GUID_TIP_SHOW = "c14866";
+    public static final String KEY_VIP_CARD_BUTTON_CLICK = "c14936";
+    public static final String KEY_VIP_CARD_CLICK = "c14935";
+    public static final String KEY_VIP_CARD_SHOW = "c14934";
     public static final String KEY_VOICE_ROOM_SHARE = "c14466";
     public static final String KEY_VOICE_ROOM_SHARE_PANEL = "c14465";
     public static final String KEY_WORK_PUBLISH_ENTER_TYPE_CLICK = "c13793";
@@ -237,6 +243,32 @@ public class CommonStatisticKey {
     public static final String WINDOW_EXPOSURE = "c14075";
     public static final String kEY_TIE_PLUS_DIAGLO_CLICK = "c14299";
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static final class TbMemberOfficialStatic {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String MEMBER_MSG_CENTER_NOTIFY_CLICK = "c14939";
+        public static final String MEMBER_MSG_CENTER_NOTIFY_SHOW = "c14938";
+        public static final String MEMBER_OFFICIAL_NOTIFY_LIST_PAGE_MSG_CLICK = "c14942";
+        public static final String MEMBER_OFFICIAL_NOTIFY_LIST_PAGE_MSG_SHOW = "c14941";
+        public static final String MEMBER_OFFICIAL_NOTIFY_LIST_PAGE_SHOW = "c14940";
+        public static final String TB_MEMBER_OFFICIAL_ID = "1638369935";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public TbMemberOfficialStatic() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     /* loaded from: classes3.dex */
     public static final class Transmitthread {

@@ -7,8 +7,8 @@ import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
 import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.hc1;
-import com.baidu.tieba.jc1;
+import com.baidu.tieba.ee1;
+import com.baidu.tieba.ge1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class ANRRuntime {
     public static ANRRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public jc1<IANRRegister> mIANRMonitorList;
+    public ge1<IANRRegister> mIANRMonitorList;
 
     public ANRRuntime() {
         Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class ANRRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            jc1<IANRRegister> jc1Var = this.mIANRMonitorList;
-            if (jc1Var == null || jc1Var.getList() == null) {
+            ge1<IANRRegister> ge1Var = this.mIANRMonitorList;
+            if (ge1Var == null || ge1Var.getList() == null) {
                 return false;
             }
             for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
@@ -76,16 +76,16 @@ public class ANRRuntime {
         return invokeV.booleanValue;
     }
 
-    public jc1<IANRRegister> getIANRUploadList() {
+    public ge1<IANRRegister> getIANRUploadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIANRMonitorList : (jc1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIANRMonitorList : (ge1) invokeV.objValue;
     }
 
     public void initmIANRMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hc1 b = hc1.b();
+            ee1 b = ee1.b();
             this.mIANRMonitorList = b;
             b.a(new IANRRegister_ANRRuntime_ListProvider());
         }

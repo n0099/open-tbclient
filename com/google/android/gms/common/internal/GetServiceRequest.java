@@ -7,9 +7,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vn9;
-import com.baidu.tieba.xm9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,30 +15,50 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
+import com.google.android.gms.common.GoogleApiAvailabilityLight;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.IAccountAccessor;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@KeepForSdk
+@SafeParcelable.Class(creator = "GetServiceRequestCreator")
+@SafeParcelable.Reserved({9})
 /* loaded from: classes7.dex */
 public class GetServiceRequest extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
     public static final Parcelable.Creator<GetServiceRequest> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.VersionField(id = 1)
     public final int zza;
+    @SafeParcelable.Field(id = 2)
     public final int zzb;
+    @SafeParcelable.Field(id = 3)
     public int zzc;
+    @SafeParcelable.Field(id = 4)
     public String zzd;
+    @SafeParcelable.Field(id = 5)
     public IBinder zze;
+    @SafeParcelable.Field(id = 6)
     public Scope[] zzf;
+    @SafeParcelable.Field(id = 7)
     public Bundle zzg;
     @Nullable
+    @SafeParcelable.Field(id = 8)
     public Account zzh;
+    @SafeParcelable.Field(id = 10)
     public Feature[] zzi;
+    @SafeParcelable.Field(id = 11)
     public Feature[] zzj;
+    @SafeParcelable.Field(id = 12)
     public boolean zzk;
+    @SafeParcelable.Field(defaultValue = "0", id = 13)
     public int zzl;
+    @SafeParcelable.Field(getter = "isRequestingTelemetryConfiguration", id = 14)
     public boolean zzm;
     @Nullable
+    @SafeParcelable.Field(getter = "getAttributionTag", id = 15)
     public String zzn;
 
     static {
@@ -57,10 +74,11 @@ public class GetServiceRequest extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new vn9();
+        CREATOR = new zzm();
     }
 
-    public GetServiceRequest(int i, int i2, int i3, String str, IBinder iBinder, Scope[] scopeArr, Bundle bundle, Account account, Feature[] featureArr, Feature[] featureArr2, boolean z, int i4, boolean z2, @Nullable String str2) {
+    @SafeParcelable.Constructor
+    public GetServiceRequest(@SafeParcelable.Param(id = 1) int i, @SafeParcelable.Param(id = 2) int i2, @SafeParcelable.Param(id = 3) int i3, @SafeParcelable.Param(id = 4) String str, @SafeParcelable.Param(id = 5) IBinder iBinder, @SafeParcelable.Param(id = 6) Scope[] scopeArr, @SafeParcelable.Param(id = 7) Bundle bundle, @SafeParcelable.Param(id = 8) Account account, @SafeParcelable.Param(id = 10) Feature[] featureArr, @SafeParcelable.Param(id = 11) Feature[] featureArr2, @SafeParcelable.Param(id = 12) boolean z, @SafeParcelable.Param(id = 13) int i4, @SafeParcelable.Param(id = 14) boolean z2, @Nullable @SafeParcelable.Param(id = 15) String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,6 +118,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
     }
 
     @NonNull
+    @KeepForSdk
     public Bundle getExtraArgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,8 +128,8 @@ public class GetServiceRequest extends AbstractSafeParcelable {
     @Override // android.os.Parcelable
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            vn9.a(this, parcel, i);
+        if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            zzm.zza(this, parcel, i);
         }
     }
 
@@ -118,7 +137,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
     public final String zza() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzn : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzn : (String) invokeV.objValue;
     }
 
     public GetServiceRequest(int i, @Nullable String str) {
@@ -137,7 +156,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
             }
         }
         this.zza = 6;
-        this.zzc = xm9.a;
+        this.zzc = GoogleApiAvailabilityLight.GOOGLE_PLAY_SERVICES_VERSION_CODE;
         this.zzb = i;
         this.zzk = true;
         this.zzn = str;

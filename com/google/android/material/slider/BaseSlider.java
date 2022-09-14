@@ -222,9 +222,9 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 if (i == this.slider.getValues().size() - 1) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa6);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0abc);
                 }
-                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa7) : "";
+                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0abd) : "";
             }
             return (String) invokeI.objValue;
         }
@@ -471,7 +471,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             }
         }
         TAG = BaseSlider.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100381;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100382;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -963,7 +963,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public static TooltipDrawable parseLabelDrawable(@NonNull Context context, @NonNull TypedArray typedArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, context, typedArray)) == null) ? TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f100399)) : (TooltipDrawable) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, context, typedArray)) == null) ? TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f10039a)) : (TooltipDrawable) invokeLL.objValue;
     }
 
     public static int pivotIndex(float[] fArr, float f) {
@@ -975,7 +975,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     private void processAttributes(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65581, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0402f7, R.attr.obfuscated_res_0x7f0403f7, R.attr.obfuscated_res_0x7f0403f9, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, i, DEF_STYLE_RES, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, com.google.android.material.R.styleable.Slider, i, DEF_STYLE_RES, new int[0]);
             this.valueFrom = obtainStyledAttributes.getFloat(3, 0.0f);
             this.valueTo = obtainStyledAttributes.getFloat(4, 1.0f);
             setValues(Float.valueOf(this.valueFrom));
@@ -985,18 +985,18 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             int i3 = hasValue ? 15 : 16;
             ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, i2);
             if (colorStateList == null) {
-                colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b9);
+                colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607cb);
             }
             setTrackInactiveTintList(colorStateList);
             ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i3);
             if (colorStateList2 == null) {
-                colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b6);
+                colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607c8);
             }
             setTrackActiveTintList(colorStateList2);
             this.thumbDrawable.setFillColor(MaterialResources.getColorStateList(context, obtainStyledAttributes, 9));
             ColorStateList colorStateList3 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 5);
             if (colorStateList3 == null) {
-                colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b7);
+                colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607c9);
             }
             setHaloTintList(colorStateList3);
             boolean hasValue2 = obtainStyledAttributes.hasValue(12);
@@ -1004,12 +1004,12 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             int i5 = hasValue2 ? 12 : 13;
             ColorStateList colorStateList4 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i4);
             if (colorStateList4 == null) {
-                colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b8);
+                colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607ca);
             }
             setTickInactiveTintList(colorStateList4);
             ColorStateList colorStateList5 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i5);
             if (colorStateList5 == null) {
-                colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607b5);
+                colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607c7);
             }
             setTickActiveTintList(colorStateList5);
             setThumbRadius(obtainStyledAttributes.getDimensionPixelSize(11, 0));
@@ -2136,7 +2136,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0402f7, R.attr.obfuscated_res_0x7f0403f7, R.attr.obfuscated_res_0x7f0403f9, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
+                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, com.google.android.material.R.styleable.Slider, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
                     TooltipDrawable parseLabelDrawable = BaseSlider.parseLabelDrawable(this.this$0.getContext(), obtainStyledAttributes);
                     obtainStyledAttributes.recycle();
                     return parseLabelDrawable;

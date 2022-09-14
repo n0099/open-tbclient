@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseIntArray;
 import androidx.constraintlayout.widget.ConstraintAttribute;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -86,26 +86,26 @@ public class KeyCycle extends Key {
             }
             SparseIntArray sparseIntArray = new SparseIntArray();
             mAttrMap = sparseIntArray;
-            sparseIntArray.append(R$styleable.KeyCycle_motionTarget, 1);
-            mAttrMap.append(R$styleable.KeyCycle_framePosition, 2);
-            mAttrMap.append(R$styleable.KeyCycle_transitionEasing, 3);
-            mAttrMap.append(R$styleable.KeyCycle_curveFit, 4);
-            mAttrMap.append(R$styleable.KeyCycle_waveShape, 5);
-            mAttrMap.append(R$styleable.KeyCycle_wavePeriod, 6);
-            mAttrMap.append(R$styleable.KeyCycle_waveOffset, 7);
-            mAttrMap.append(R$styleable.KeyCycle_waveVariesBy, 8);
-            mAttrMap.append(R$styleable.KeyCycle_android_alpha, 9);
-            mAttrMap.append(R$styleable.KeyCycle_android_elevation, 10);
-            mAttrMap.append(R$styleable.KeyCycle_android_rotation, 11);
-            mAttrMap.append(R$styleable.KeyCycle_android_rotationX, 12);
-            mAttrMap.append(R$styleable.KeyCycle_android_rotationY, 13);
-            mAttrMap.append(R$styleable.KeyCycle_transitionPathRotate, 14);
-            mAttrMap.append(R$styleable.KeyCycle_android_scaleX, 15);
-            mAttrMap.append(R$styleable.KeyCycle_android_scaleY, 16);
-            mAttrMap.append(R$styleable.KeyCycle_android_translationX, 17);
-            mAttrMap.append(R$styleable.KeyCycle_android_translationY, 18);
-            mAttrMap.append(R$styleable.KeyCycle_android_translationZ, 19);
-            mAttrMap.append(R$styleable.KeyCycle_motionProgress, 20);
+            sparseIntArray.append(13, 1);
+            mAttrMap.append(11, 2);
+            mAttrMap.append(14, 3);
+            mAttrMap.append(10, 4);
+            mAttrMap.append(18, 5);
+            mAttrMap.append(17, 6);
+            mAttrMap.append(16, 7);
+            mAttrMap.append(19, 8);
+            mAttrMap.append(0, 9);
+            mAttrMap.append(9, 10);
+            mAttrMap.append(5, 11);
+            mAttrMap.append(6, 12);
+            mAttrMap.append(7, 13);
+            mAttrMap.append(15, 14);
+            mAttrMap.append(3, 15);
+            mAttrMap.append(4, 16);
+            mAttrMap.append(1, 17);
+            mAttrMap.append(2, 18);
+            mAttrMap.append(8, 19);
+            mAttrMap.append(12, 20);
         }
 
         public Loader() {
@@ -598,7 +598,7 @@ public class KeyCycle extends Key {
     public void load(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R$styleable.KeyCycle));
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyCycle));
         }
     }
 

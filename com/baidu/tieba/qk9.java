@@ -1,25 +1,128 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.nk9;
+import com.baidu.tieba.pk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsInterstitialAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class qk9 implements KsInterstitialAd.AdInteractionListener {
+public class qk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ KsInterstitialAd a;
-    public final /* synthetic */ pk9 b;
+    public final HashMap<String, Deque<c>> a;
 
-    public qk9(pk9 pk9Var, KsInterstitialAd ksInterstitialAd) {
+    /* loaded from: classes5.dex */
+    public static class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final pk9 a;
+        public final HashSet<Ssp.Pid> b;
+
+        public a(pk9 pk9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pk9Var;
+            this.b = new HashSet<>();
+            for (pk9.c cVar : pk9Var.e) {
+                for (pk9.b bVar : cVar.b) {
+                    this.b.add(bVar.c);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qk9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qk9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final nk9 a;
+        public final HashSet<Ssp.Pid> b;
+
+        public b(nk9 nk9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nk9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nk9Var;
+            this.b = new HashSet<>();
+            for (nk9.b bVar : nk9Var.b) {
+                for (nk9.a aVar : bVar.b) {
+                    this.b.add(aVar.c);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qk9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qk9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        Set<Ssp.Pid> a();
+
+        int b();
+    }
+
+    public qk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pk9Var, ksInterstitialAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,74 +132,23 @@ public class qk9 implements KsInterstitialAd.AdInteractionListener {
                 return;
             }
         }
-        this.b = pk9Var;
-        this.a = ksInterstitialAd;
+        this.a = new HashMap<>();
     }
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClicked() {
+    public final Deque<c> a(String str) {
+        InterceptResult invokeL;
+        Deque<c> deque;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClicked(this.a, false, new String[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                deque = this.a.get(str);
+                if (deque == null) {
+                    deque = new ArrayDeque<>();
+                    this.a.put(str, deque);
+                }
+            }
+            return deque;
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClosed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.b.onAdShow(this.a, false, new String[0]);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onPageDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClose(this.a);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
-            this.b.onAdError(this.a, i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogPrinter.d();
-        }
+        return (Deque) invokeL.objValue;
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.u67;
+import com.baidu.tieba.b87;
+import com.baidu.tieba.x15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
-public class StrangerListAdapter extends u67 {
+public class StrangerListAdapter extends b87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,7 @@ public class StrangerListAdapter extends u67 {
         this.d = true;
     }
 
-    @Override // com.baidu.tieba.u67
+    @Override // com.baidu.tieba.b87
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class StrangerListAdapter extends u67 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u67
+    @Override // com.baidu.tieba.b87
     public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -61,8 +61,8 @@ public class StrangerListAdapter extends u67 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u67
-    public void h(u67.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.b87
+    public void h(b87.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setIsRound(true);
@@ -78,25 +78,25 @@ public class StrangerListAdapter extends u67 {
         }
     }
 
-    @Override // com.baidu.tieba.u67
-    public void j(u67.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.b87
+    public void j(b87.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
             if (imMessageCenterShowItemData != null) {
-                imMessageCenterShowItemData.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1208));
+                imMessageCenterShowItemData.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1226));
             }
             super.j(aVar, imMessageCenterShowItemData);
         }
     }
 
-    @Override // com.baidu.tieba.u67
+    @Override // com.baidu.tieba.b87
     public BasicNameValuePair t(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!nz4.d().u()) {
+            if (!x15.d().u()) {
                 str = "";
                 i = 0;
             }

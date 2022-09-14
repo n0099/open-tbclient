@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.media.MediaMetadataRetriever;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.tieba.al2;
-import com.baidu.tieba.eq1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,110 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes4.dex */
-public class fq1 {
+public class fq1 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fq1 b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-
-    /* loaded from: classes4.dex */
-    public class a implements dw2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eq1.c a;
-        public final /* synthetic */ fq1 b;
-
-        public a(fq1 fq1Var, eq1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fq1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.dw2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.c(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.dw2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                ay1.c("GetLocationHelper", str);
-                g83.b("getLocation", 5002, "user no permission", 10005, str);
-                this.b.a.f(this.a, str);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements al2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eq1.c a;
-        public final /* synthetic */ fq1 b;
-
-        public b(fq1 fq1Var, eq1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fq1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.al2.a
-        public void a(z33 z33Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, z33Var) == null) {
-                this.b.a.g(this.a, z33Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.al2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                g83.b("getLocation", 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
-                this.b.a.b(this.a, i);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        void b(eq1.c cVar, int i);
-
-        void f(eq1.c cVar, String str);
-
-        void g(eq1.c cVar, z33 z33Var);
-    }
+    public final File a;
 
     static {
         InterceptResult invokeClinit;
@@ -132,61 +36,116 @@ public class fq1 {
                 return;
             }
         }
-        boolean z = kh1.a;
+        b = ij1.a;
     }
 
-    public fq1() {
+    public fq1(File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = file;
     }
 
-    public static fq1 d() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (fq1.class) {
-                    if (b == null) {
-                        b = new fq1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            str2 = "image/jpeg";
+            if (str != null) {
+                try {
+                    try {
+                        try {
+                            try {
+                                mediaMetadataRetriever.setDataSource(str);
+                                String extractMetadata = mediaMetadataRetriever.extractMetadata(12);
+                                str2 = extractMetadata != null ? extractMetadata : "image/jpeg";
+                                try {
+                                    mediaMetadataRetriever.release();
+                                } catch (Exception e) {
+                                    if (b) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                if (b) {
+                                    e2.printStackTrace();
+                                }
+                                return "image/jpeg";
+                            }
+                        } catch (Exception e3) {
+                            if (b) {
+                                e3.printStackTrace();
+                            }
+                            return "image/jpeg";
+                        }
+                    } catch (Exception e4) {
+                        if (b) {
+                            e4.printStackTrace();
+                        }
                     }
+                } catch (IllegalArgumentException unused) {
+                    mediaMetadataRetriever.release();
+                    return "image/jpeg";
+                } catch (IllegalStateException unused2) {
+                    mediaMetadataRetriever.release();
+                } catch (RuntimeException unused3) {
+                    mediaMetadataRetriever.release();
+                    return "image/jpeg";
+                } catch (Throwable th) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e5) {
+                        if (b) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
             }
-            return b;
+            return str2;
         }
-        return (fq1) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void c(eq1.c cVar) {
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            String str = "gcj02";
-            if (!TextUtils.equals(cVar.a, "gcj02")) {
-                str = TextUtils.equals(cVar.a, "bd09ll") ? "bd09ll" : CoordinateType.WGS84;
-            }
-            hk2.I().b(str, false, cVar.b, new b(this, cVar));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.length() : invokeV.longValue;
     }
 
-    public void e(@NonNull eq1.c cVar, @NonNull c cVar2, boolean z) {
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.a = cVar2;
-            if (ue3.M()) {
-                c(cVar);
-            } else if (z) {
-                g83.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
-                this.a.f(cVar, "GetLocation does not supported when app is invisible");
-            } else {
-                cw2.g(z03.K().w(), new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, cVar));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(a(this.a.getPath())) : (MediaType) invokeV.objValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+            Source source = null;
+            try {
+                source = Okio.source(this.a);
+                while (source.read(bufferedSink.buffer(), 2048L) != -1) {
+                    bufferedSink.flush();
+                }
+            } finally {
+                cj4.d(source);
             }
         }
     }

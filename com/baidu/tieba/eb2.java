@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class eb2 extends ab2 {
+public class eb2 implements oa2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
     public eb2() {
         Interceptable interceptable = $ic;
@@ -26,26 +22,21 @@ public class eb2 extends ab2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "route";
     }
 
-    @Override // com.baidu.tieba.ab2
-    public void m(Map<String, Object> map) {
+    @Override // com.baidu.tieba.oa2
+    public ga2 a(String str, db2 db2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("fromId", this.c);
-            map.put("toId", this.d);
-            map.put("toTabIndex", this.g);
-            if (!TextUtils.isEmpty(this.e)) {
-                map.put("routeType", this.e);
-            }
-            if (TextUtils.isEmpty(this.f)) {
-                return;
-            }
-            map.put("toPage", this.f);
-        }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, db2Var, v8ThreadDelegatePolicy)) == null) ? new ka2(str, db2Var, v8ThreadDelegatePolicy) : (ga2) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oa2
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? xe3.a() : (String) invokeV.objValue;
     }
 }

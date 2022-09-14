@@ -17,6 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ap8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,10 +33,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int obfuscated = 2131304453;
+    public static final int obfuscated = 2131304533;
 
     /* renamed from: E */
-    public static final int obfuscated = 2131304454;
+    public static final int obfuscated = 2131304534;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -299,7 +300,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040346, R.attr.obfuscated_res_0x7f040353, R.attr.obfuscated_res_0x7f0403f6, R.attr.obfuscated_res_0x7f0403f8, R.attr.obfuscated_res_0x7f0403fa, R.attr.obfuscated_res_0x7f0403fb, R.attr.obfuscated_res_0x7f0403fc, R.attr.obfuscated_res_0x7f0403fd, R.attr.obfuscated_res_0x7f0403fe, R.attr.obfuscated_res_0x7f0403ff, R.attr.obfuscated_res_0x7f040400, R.attr.obfuscated_res_0x7f040401, R.attr.obfuscated_res_0x7f040402, R.attr.obfuscated_res_0x7f040433, R.attr.obfuscated_res_0x7f0404be, R.attr.obfuscated_res_0x7f0404c4, R.attr.obfuscated_res_0x7f0404c5, R.attr.obfuscated_res_0x7f0404d1, R.attr.obfuscated_res_0x7f040606, R.attr.obfuscated_res_0x7f04062a, R.attr.obfuscated_res_0x7f040781});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.AutoChangeLineView);
         this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
         this.o = obtainStyledAttributes.getInteger(16, 0);
         this.p = obtainStyledAttributes.getInteger(17, 0);
@@ -337,7 +338,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 this.d = new ColorDrawable(obtainStyledAttributes.getColor(2, 0));
             }
         } else {
-            this.d = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080269);
+            this.d = getResources().getDrawable(R.drawable.obfuscated_res_0x7f08026a);
         }
         this.s = obtainStyledAttributes.getBoolean(19, false);
         this.t = obtainStyledAttributes.getBoolean(1, false);

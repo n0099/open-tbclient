@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.audiorecorder.lib.voice.SendVoiceView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.RawLayout;
+import android.view.animation.Interpolator;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,10 +9,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ro extends w25 {
+public abstract class ro {
     public static /* synthetic */ Interceptable $ic;
-    public static final int t;
+    public static final Interpolator a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Interpolator {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                float f2 = f - 1.0f;
+                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
+            }
+            return invokeF.floatValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,42 +58,21 @@ public class ro extends w25 {
                 return;
             }
         }
-        t = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        a = new a();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro(Context context) {
-        super(context, (String) null, 6);
+    public static int a(float f, float f2, boolean z) {
+        InterceptResult invokeCommon;
+        float interpolation;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                interpolation = f - (a.getInterpolation(f2 / (f2 - f)) * f);
+            } else {
+                interpolation = f * a.getInterpolation(f2 / f);
             }
+            return (int) interpolation;
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f133f);
-        this.d = R.drawable.obfuscated_res_0x7f0809b7;
-        this.f = R.color.CAM_X0105;
-        this.i = false;
-        this.j = true;
-        this.o = true;
-        this.n = 5;
-        this.m = new SendVoiceView(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
-        int i3 = t;
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = i3;
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i3;
-        ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-        ((View) this.m).setLayoutParams(layoutParams);
-        this.p = new int[0];
+        return invokeCommon.intValue;
     }
 }

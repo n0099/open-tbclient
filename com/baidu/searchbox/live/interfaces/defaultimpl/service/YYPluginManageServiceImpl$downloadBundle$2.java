@@ -1,8 +1,8 @@
 package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 
 import com.baidu.nps.pm.IBundleInfo;
-import com.baidu.tieba.s61;
-import com.baidu.tieba.t61;
+import com.baidu.tieba.n81;
+import com.baidu.tieba.o81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u00032\u0006\u0010\u0005\u001a\u00020\u00062\u000e\u0010\u0007\u001a\n \u0004*\u0004\u0018\u00010\b0\bH\n¢\u0006\u0002\b\t"}, d2 = {"<anonymous>", "", "bundle", "Lcom/baidu/nps/pm/IBundleInfo;", "kotlin.jvm.PlatformType", "type", "", "listener", "Lcom/baidu/nps/plugin/IDownloadAuthorListener;", "checkAuthorization"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u00032\u0006\u0010\u0005\u001a\u00020\u00062\u000e\u0010\u0007\u001a\n \u0004*\u0004\u0018\u00010\b0\bH\n¢\u0006\u0002\b\t"}, d2 = {"<anonymous>", "", "bundle", "Lcom/baidu/nps/pm/IBundleInfo;", "kotlin.jvm.PlatformType", "type", "", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Lcom/baidu/nps/plugin/IDownloadAuthorListener;", "checkAuthorization"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class YYPluginManageServiceImpl$downloadBundle$2 implements s61 {
+public final class YYPluginManageServiceImpl$downloadBundle$2 implements n81 {
     public static /* synthetic */ Interceptable $ic;
     public static final YYPluginManageServiceImpl$downloadBundle$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,11 +49,11 @@ public final class YYPluginManageServiceImpl$downloadBundle$2 implements s61 {
         }
     }
 
-    @Override // com.baidu.tieba.s61
-    public final void checkAuthorization(IBundleInfo iBundleInfo, int i, t61 t61Var) {
+    @Override // com.baidu.tieba.n81
+    public final void checkAuthorization(IBundleInfo iBundleInfo, int i, o81 o81Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, iBundleInfo, i, t61Var) == null) {
-            t61Var.onResult(1);
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, iBundleInfo, i, o81Var) == null) {
+            o81Var.onResult(1);
         }
     }
 }

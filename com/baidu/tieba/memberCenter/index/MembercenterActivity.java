@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.ca5;
+import com.baidu.tieba.kc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.hc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,17 +41,17 @@ public class MembercenterActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public ca5 getPageStayDurationItem() {
+    public kc5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ca5 pageStayDurationItem = super.getPageStayDurationItem();
+            kc5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (ca5) invokeV.objValue;
+        return (kc5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -69,7 +69,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
             String stringExtra = getIntent().getStringExtra("key_url");
             MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
             this.a = memberCenterFragment;
-            memberCenterFragment.w1(stringExtra);
+            memberCenterFragment.v1(stringExtra);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             this.b = supportFragmentManager;
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();

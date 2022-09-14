@@ -1,61 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public class ku6 extends q17 {
+public class ku6 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public uf7 c;
 
-    public ku6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    private void update() {
-        uf7 uf7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (uf7Var = this.c) != null && uf7Var.a()) {
-            List<ICardInfo> d = this.c.d();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(d);
-            this.c.hasMore();
-            this.c.b();
-        }
-    }
-
-    public final void a() {
-        List<Object> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947925629, "Lcom/baidu/tieba/ku6;")) == null) {
             return;
         }
-        gk8.e(list, 2);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947925629, "Lcom/baidu/tieba/ku6;");
+        }
     }
 
-    public void b(uf7 uf7Var) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uf7Var) == null) {
-            this.c = uf7Var;
-            update();
-            a();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a++;
+            StatisticItem.make(TbadkCoreStatisticKey.KEY_FRS_REQUEST_PAGE).eventStat();
         }
+    }
+
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? String.format(Locale.CHINA, "%s%d", "#FunAd#", Integer.valueOf(String.format(Locale.CHINA, "%d%d", Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i)).hashCode())) : (String) invokeI.objValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (System.currentTimeMillis() + str).hashCode() & Integer.MAX_VALUE;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            return str.startsWith("#FunAd#");
+        }
+        return invokeL.booleanValue;
     }
 }

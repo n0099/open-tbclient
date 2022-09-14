@@ -1,119 +1,21 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.view.BearLayout;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.android.IntentUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xf3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BearLayout a;
-    public Activity b;
-    public SwanAppBearInfo c;
-
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public BearLayout.d a;
-        public boolean b;
-
-        public a(xf3 xf3Var, BearLayout.d dVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xf3Var, dVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || this.a == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("errno");
-                if (optInt == 0) {
-                    if (this.b) {
-                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                        if (optJSONObject != null) {
-                            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
-                            if (optJSONArray != null && optJSONArray.length() > 0) {
-                                this.a.a(true);
-                            }
-                            this.a.a(false);
-                        }
-                    } else {
-                        this.a.a(true);
-                    }
-                } else if (800200 == optInt) {
-                    String optString = jSONObject.optString("errmsg");
-                    BearLayout.d dVar = this.a;
-                    dVar.b("errNo:" + optInt + ",errMsg:" + optString);
-                } else {
-                    BearLayout.d dVar2 = this.a;
-                    dVar2.b("errNo:" + optInt);
-                }
-            } catch (JSONException e) {
-                if (xf3.d) {
-                    e.printStackTrace();
-                    this.a.b(e.getMessage());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && xf3.d) {
-                exc.printStackTrace();
-                this.a.b(exc.getMessage());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? (response == null || response.body() == null) ? "" : response.body().string() : (String) invokeLI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -128,68 +30,160 @@ public class xf3 {
                 return;
             }
         }
-        d = kh1.a;
+        a = ij1.a;
     }
 
-    public xf3(Activity activity, View view2, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, view2, swanAppBearInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity == null || !b(activity.getIntent())) {
+                return false;
             }
+            try {
+                hf3.j(activity);
+            } catch (Exception unused) {
+            }
+            return true;
         }
-        this.b = activity;
-        this.c = swanAppBearInfo;
-        BearLayout bearLayout = (BearLayout) view2.findViewById(i);
-        this.a = bearLayout;
-        bearLayout.setVisibility(0);
-        this.a.k(activity, swanAppBearInfo, this);
+        return invokeL.booleanValue;
     }
 
-    public void b() {
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (SwanAppNetworkUtils.i(this.b)) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("type", "media");
-                linkedHashMap.put("sfrom", "searchpaws");
-                linkedHashMap.put("store", "uid_cuid");
-                linkedHashMap.put("source", "dusite_na_subbar");
-                linkedHashMap.put("third_id", this.c.bearId);
-                linkedHashMap.put("op_type", "add");
-                String b = ew1.b();
-                if (TextUtils.isEmpty(b)) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
+            if (intent != null) {
+                try {
+                    Bundle extras = intent.getExtras();
+                    if (extras != null) {
+                        extras.isEmpty();
+                        return false;
+                    }
+                    return false;
+                } catch (Throwable unused) {
+                    return true;
                 }
-                c84.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(hk2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
-                return;
             }
-            s03.f(this.b, R.string.obfuscated_res_0x7f0f019e).G();
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void c() {
+    public static boolean c(Bundle bundle, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.b)) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("type", "media");
-            linkedHashMap.put("sfrom", "searchpaws");
-            linkedHashMap.put("store", "uid_cuid");
-            linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.c.bearId);
-            String B = hk2.o().B();
-            if (TextUtils.isEmpty(B)) {
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
+            try {
+                return bundle.getBoolean(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
+                }
+                return z;
             }
-            c84.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(hk2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
         }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static Bundle d(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
+            try {
+                return bundle.getBundle(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Bundle e(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
+            try {
+                return intent.getBundleExtra(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static int f(Bundle bundle, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
+            try {
+                return bundle.getInt(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
+                }
+                return i;
+            }
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static String g(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
+            try {
+                return bundle.getString(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String h(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
+            try {
+                return intent.getStringExtra(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String i(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
+            try {
+                return bundle.getString(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

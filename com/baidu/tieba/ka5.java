@@ -1,42 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ka5 {
+public class ka5 implements u95<HistoryEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public String c;
-    public Long d;
-    public ha5 e;
-    public int f;
-    public boolean g;
 
-    public ka5(Context context, int i, String str, Long l, ha5 ha5Var) {
+    public ka5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), str, l, ha5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = false;
-        this.a = context;
-        this.b = i;
-        this.c = str;
-        this.d = l;
-        this.e = ha5Var;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.u95
+    /* renamed from: a */
+    public boolean onEvent(HistoryEvent historyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
+            if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
+                return false;
+            }
+            g16.a(historyEvent.tid);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dj;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
-import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,13 +63,13 @@ public class ShareCardView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086f, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088a, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e2e);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5f);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905f6);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ef);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e7e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eaf);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090609);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090602);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090601);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
@@ -102,7 +102,7 @@ public class ShareCardView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             EditText editText = this.b;
             if (editText != null) {
-                return qi.charSequence2String(editText.getText(), null);
+                return dj.charSequence2String(editText.getText(), null);
             }
             return null;
         }

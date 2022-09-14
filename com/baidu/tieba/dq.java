@@ -1,88 +1,258 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.TaskState;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes3.dex */
-public final class dq extends kq {
+public class dq extends TaskBuoyViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long d;
-    public final String e;
-    public final String f;
-    public final String g;
+    public int g;
+    public jq h;
+    public final long i;
+    public iq j;
+
+    /* loaded from: classes3.dex */
+    public static final class a implements iq {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dq a;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(dq dqVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dqVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dqVar;
+        }
+
+        @Override // com.baidu.tieba.iq
+        public void a(long j, long j2) {
+            iq h;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (h = this.a.h()) == null) {
+                return;
+            }
+            h.a(j, j2);
+        }
+
+        @Override // com.baidu.tieba.iq
+        public void onCancel() {
+            iq h;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (h = this.a.h()) == null) {
+                return;
+            }
+            h.onCancel();
+        }
+
+        @Override // com.baidu.tieba.iq
+        public void onFinish() {
+            iq h;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (h = this.a.h()) == null) {
+                return;
+            }
+            h.onFinish();
+        }
+
+        @Override // com.baidu.tieba.iq
+        public void onPause() {
+            iq h;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (h = this.a.h()) == null) {
+                return;
+            }
+            h.onPause();
+        }
+
+        @Override // com.baidu.tieba.iq
+        public void onResume() {
+            iq h;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (h = this.a.h()) == null) {
+                return;
+            }
+            h.onResume();
+        }
+
+        @Override // com.baidu.tieba.iq
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                if (this.a.k()) {
+                    iq h = this.a.h();
+                    if (h != null) {
+                        h.onResume();
+                        return;
+                    }
+                    return;
+                }
+                iq h2 = this.a.h();
+                if (h2 != null) {
+                    h2.onStart();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302784, "Lcom/baidu/tieba/dq;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448302784, "Lcom/baidu/tieba/dq;");
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dq(long j, String str, String str2, String str3, Integer num, String str4) {
-        super(str, num, str4);
+    public dq(TaskInfo taskInfo) {
+        super(taskInfo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, str3, num, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {taskInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
+                super((TaskInfo) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = j;
-        this.e = str;
-        this.f = str2;
-        this.g = str3;
+        this.g = 8;
+        this.i = taskInfo.getTaskRule().getStay();
     }
 
-    @Override // com.baidu.tieba.yq
-    public String e() {
+    public final iq h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskExecVisitAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (iq) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kq
-    public String f() {
+    public final long i() {
         InterceptResult invokeV;
+        TaskStatus taskStatus;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 8;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TaskState m = BDPTask.m.m(c().getActionId());
+            TaskProcess process = (m == null || (taskStatus = m.getTaskStatus()) == null) ? null : taskStatus.getProcess();
+            long stayDurTimeMs = this.i - (process != null ? process.getStayDurTimeMs() : 0L);
+            if (stayDurTimeMs < 0) {
+                return 0L;
+            }
+            return stayDurTimeMs;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public final long h() {
+    public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.g & 4) == 4 : invokeV.booleanValue;
     }
 
-    public final String i() {
+    public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.g & 2) == 2 : invokeV.booleanValue;
     }
 
-    public final String j() {
+    public final boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.g & 1) == 1 : invokeV.booleanValue;
     }
 
-    public /* synthetic */ dq(long j, String str, String str2, String str3, Integer num, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? 0L : j, str, (i & 4) != 0 ? "" : str2, (i & 8) != 0 ? "" : str3, (i & 16) != 0 ? null : num, (i & 32) != 0 ? null : str4);
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && l()) {
+            this.g |= 4;
+            jq jqVar = this.h;
+            if (jqVar != null) {
+                jqVar.e();
+            }
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && j()) {
+            this.g |= 2;
+            r();
+        }
+    }
+
+    public final void o(iq iqVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, iqVar) == null) {
+            this.j = iqVar;
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.g = 1;
+            r();
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.g = 8;
+            jq jqVar = this.h;
+            if (jqVar != null) {
+                jqVar.h();
+            }
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            jq jqVar = this.h;
+            if (jqVar != null) {
+                jqVar.j();
+            }
+            jq jqVar2 = new jq(i(), 200L, new a(this));
+            this.h = jqVar2;
+            if (jqVar2 != null) {
+                jqVar2.b();
+            }
+        }
     }
 }

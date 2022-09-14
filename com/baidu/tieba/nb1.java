@@ -1,81 +1,122 @@
 package com.baidu.tieba;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.id1;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile nb1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
+    public int c;
+    public int d;
+    public Runnable e;
 
-    @NonNull
-    public static id1 a(@NonNull rb1 rb1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rb1Var)) == null) {
-            id1.b bVar = new id1.b(rb1Var.e(), rb1Var.g);
-            bVar.t("rsplash");
-            bVar.i(rb1Var.f == 1);
-            bVar.f(b());
-            bVar.m(c());
-            bVar.o(rb1Var.f == 1);
-            bVar.n(d(rb1Var.m));
-            bVar.B(rb1Var.n * 1000);
-            bVar.z(1);
-            bVar.E(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.x(false);
-            bVar.c(rb1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.A(72);
-            bVar.y(30);
-            bVar.D(68);
-            bVar.C(30);
-            bVar.h(17);
-            bVar.q(rb1Var.z);
-            bVar.w(rb1Var.A == 1);
-            bVar.b(rb1Var.B);
-            bVar.p(rb1Var.d());
-            bVar.r("跳转详情页或第三方应用");
-            bVar.s(rb1Var.g() ? 47 : b() + 39);
-            bVar.j(rb1Var.H);
-            bVar.l(rb1Var.G);
-            bVar.k(rb1Var.I);
-            bVar.v(rb1Var.M);
-            bVar.u(rb1Var.N);
-            return bVar.a();
-        }
-        return (id1) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nb1 a;
 
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? db1.a().b() : invokeV.intValue;
-    }
-
-    @IdRes
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? db1.a().c() : invokeV.intValue;
-    }
-
-    @IdRes
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return db1.a().h();
+        public a(nb1 nb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return db1.a().g();
+            this.a = nb1Var;
         }
-        return invokeI.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xb1.g("开始重试");
+                if (ob1.n()) {
+                    xb1.g("重试成功");
+                    this.a.c = 0;
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
+                }
+                nb1.c(this.a);
+                if (this.a.c >= 3) {
+                    this.a.c = 0;
+                    xb1.g("重试三次结束重试");
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
+                }
+                xb1.g("重试失败继续重试");
+                this.a.b.postDelayed(this, this.a.d);
+            }
+        }
+    }
+
+    public nb1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = 10000;
+        this.e = new a(this);
+    }
+
+    public static /* synthetic */ int c(nb1 nb1Var) {
+        int i = nb1Var.c;
+        nb1Var.c = i + 1;
+        return i;
+    }
+
+    public static nb1 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (f == null) {
+                synchronized (nb1.class) {
+                    if (f == null) {
+                        f = new nb1();
+                    }
+                }
+            }
+            return f;
+        }
+        return (nb1) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            xb1.g("触发重试");
+            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
+            this.a = handlerThread;
+            handlerThread.start();
+            Handler handler = new Handler(this.a.getLooper());
+            this.b = handler;
+            handler.postDelayed(this.e, this.d);
+        }
     }
 }

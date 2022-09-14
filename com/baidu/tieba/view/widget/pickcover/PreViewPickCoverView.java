@@ -20,15 +20,15 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc9;
-import com.baidu.tieba.m99;
-import com.baidu.tieba.p99;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.uy8;
+import com.baidu.tieba.jg9;
+import com.baidu.tieba.m09;
+import com.baidu.tieba.pd9;
+import com.baidu.tieba.sd9;
 import com.baidu.tieba.view.widget.mediaedit.SimpleDraweeView;
 import com.baidu.tieba.view.widget.pickcover.PickCoverLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TextEditToolView b;
-    public uy8 c;
+    public m09 c;
     public PickCoverLayout d;
     public c e;
     public Context f;
@@ -150,7 +150,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
         public CoverStyleViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new CoverStyleViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0736, viewGroup, false)) : (CoverStyleViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new CoverStyleViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0750, viewGroup, false)) : (CoverStyleViewHolder) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -203,9 +203,9 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                     return;
                 }
             }
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f97);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09070b);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09070c);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fb2);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090721);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090722);
             this.a.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
             this.d.setTag(this);
         }
@@ -222,14 +222,14 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                 if (styleBackgroudInfoEntity == null) {
                     this.b.setVisibility(4);
                 } else if (!styleBackgroudInfoEntity.isLoaded() && !textStyleEntity.mBackgroudInfoEntity.isNeedDown()) {
-                    if (!TextUtils.isEmpty(textStyleEntity.mBackgroudInfoEntity.mBackgroudImageUrl) && m99.h().k(textStyleEntity.mBackgroudInfoEntity.mBackgroudImageUrl)) {
+                    if (!TextUtils.isEmpty(textStyleEntity.mBackgroudInfoEntity.mBackgroudImageUrl) && pd9.h().k(textStyleEntity.mBackgroudInfoEntity.mBackgroudImageUrl)) {
                         this.b.setVisibility(0);
                         b();
                         return;
                     }
                     this.b.setVisibility(0);
                     this.b.setRotation(0.0f);
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f081227);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f081266);
                 } else {
                     this.b.setVisibility(4);
                 }
@@ -248,7 +248,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                 if (this.c.isRunning()) {
                     return;
                 }
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081226);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081265);
                 this.c.start();
             }
         }
@@ -281,7 +281,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
     }
 
     /* loaded from: classes6.dex */
-    public class a extends p99 {
+    public class a extends sd9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -310,7 +310,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             this.c = i;
         }
 
-        @Override // com.baidu.tieba.p99
+        @Override // com.baidu.tieba.sd9
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -320,7 +320,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             }
         }
 
-        @Override // com.baidu.tieba.p99
+        @Override // com.baidu.tieba.sd9
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
@@ -329,7 +329,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             }
         }
 
-        @Override // com.baidu.tieba.p99
+        @Override // com.baidu.tieba.sd9
         public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
@@ -337,13 +337,13 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             }
         }
 
-        @Override // com.baidu.tieba.p99
+        @Override // com.baidu.tieba.sd9
         public void h() {
             CoverStyleViewHolder coverStyleViewHolder;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 super.h();
-                if (!m99.h().k(this.a) || (coverStyleViewHolder = this.b) == null) {
+                if (!pd9.h().k(this.a) || (coverStyleViewHolder = this.b) == null) {
                     return;
                 }
                 coverStyleViewHolder.b();
@@ -538,10 +538,10 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f092496);
-            this.i = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09198f);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0924f8);
-            this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e8c);
+            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f0924f1);
+            this.i = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0919cd);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092553);
+            this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090ea7);
             p();
             TextEditToolView textEditToolView = new TextEditToolView(getContext());
             this.b = textEditToolView;
@@ -559,8 +559,8 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
         if (styleBackgroudInfoEntity == null) {
             f(i);
         } else if (!styleBackgroudInfoEntity.isNeedDown() && !styleBackgroudInfoEntity.isLoaded()) {
-            if (!pi.z()) {
-                gc9.a(R.string.obfuscated_res_0x7f0f1498);
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                jg9.a(R.string.obfuscated_res_0x7f0f14b8);
                 return;
             }
             String str = styleBackgroudInfoEntity.mBackgroudImageUrl;
@@ -569,7 +569,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             }
             CoverStyleViewHolder coverStyleViewHolder = view2.getTag() instanceof CoverStyleViewHolder ? (CoverStyleViewHolder) view2.getTag() : null;
             File sourceFile = styleBackgroudInfoEntity.getSourceFile();
-            m99.h().g(str, sourceFile.getParent(), sourceFile.getName(), new a(this, str, coverStyleViewHolder, i));
+            pd9.h().g(str, sourceFile.getParent(), sourceFile.getName(), new a(this, str, coverStyleViewHolder, i));
         } else {
             f(i);
         }
@@ -744,11 +744,11 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
         }
     }
 
-    public void setOnTextWordsEditListener(uy8 uy8Var) {
+    public void setOnTextWordsEditListener(m09 m09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, uy8Var) == null) {
-            this.c = uy8Var;
-            this.b.setOnTextWordsEditListener(uy8Var);
+        if (interceptable == null || interceptable.invokeL(1048608, this, m09Var) == null) {
+            this.c = m09Var;
+            this.b.setOnTextWordsEditListener(m09Var);
         }
     }
 
@@ -802,7 +802,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
         this.a = 1;
         this.l = true;
         this.f = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0890, this);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d08b0, this);
         j();
         i();
     }

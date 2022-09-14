@@ -1,58 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class t97 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile t97 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public t97() {
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
+        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static t97 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (t97.class) {
-                    if (b == null) {
-                        b = new t97();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
+            short b = b(i);
+            int i2 = R.string.obfuscated_res_0x7f0f0ae8;
+            if (b != 2) {
+                if (b != 9) {
+                    if (b == 4) {
+                        i2 = R.string.obfuscated_res_0x7f0f0aea;
+                    } else if (b != 5) {
+                        if (b == 6) {
+                            i2 = R.string.obfuscated_res_0x7f0f0ae9;
+                        }
+                        i2 = -1;
+                    } else {
+                        i2 = R.string.obfuscated_res_0x7f0f0aeb;
                     }
                 }
             }
-            return b;
+            return i2 != -1 ? TbadkCoreApplication.getInst().getResources().getString(i2) : str;
         }
-        return (t97) invokeV.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static short b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case -100000306:
+                    return (short) 6;
+                case -100000303:
+                    return (short) 2;
+                case 3160010:
+                    return (short) 5;
+                case 3160011:
+                    return (short) 4;
+                default:
+                    return (short) 9;
+            }
         }
+        return invokeI.shortValue;
     }
 }

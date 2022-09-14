@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.toast.ToastViewData;
-import com.baidu.tieba.ws;
-import com.baidu.tieba.xs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class xp<VD extends ToastViewData, VM extends ws<VD>, View extends xs<VM>> {
+public final class xp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final VM b;
-    public final VD c;
+    public final yp a;
 
-    public xp(View view2, VM vm, VD vd) {
+    public xp(yp ypVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, vm, vd};
+            Object[] objArr = {ypVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,16 +26,15 @@ public final class xp<VD extends ToastViewData, VM extends ws<VD>, View extends 
                 return;
             }
         }
-        this.a = view2;
-        this.b = vm;
-        this.c = vd;
+        this.a = ypVar;
     }
 
-    public final void a() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.b);
-            this.b.b(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "curProcess" + this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

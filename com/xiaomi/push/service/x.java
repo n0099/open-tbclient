@@ -45,7 +45,7 @@ public class x {
         if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
             synchronized (f1011a) {
                 for (String str2 : f1011a.keySet()) {
-                    com.xiaomi.channel.commonutils.logger.b.m89a("notify registration error. " + str2);
+                    com.xiaomi.channel.commonutils.logger.b.m90a("notify registration error. " + str2);
                     a(context, str2, f1011a.get(str2), i, str);
                 }
                 f1011a.clear();
@@ -99,7 +99,7 @@ public class x {
             try {
                 synchronized (f1011a) {
                     for (String str : f1011a.keySet()) {
-                        com.xiaomi.channel.commonutils.logger.b.m89a("processing pending registration request. " + str);
+                        com.xiaomi.channel.commonutils.logger.b.m90a("processing pending registration request. " + str);
                         ah.a(xMPushService, str, f1011a.get(str));
                         if (z && !com.xiaomi.push.w.a()) {
                             try {
@@ -121,7 +121,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, bArr) == null) {
             synchronized (f1011a) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("pending registration request. " + str);
+                com.xiaomi.channel.commonutils.logger.b.m90a("pending registration request. " + str);
                 f1011a.put(str, bArr);
             }
         }

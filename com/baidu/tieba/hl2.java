@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 /* loaded from: classes4.dex */
 public interface hl2 {
-    String a(Context context);
+    void a(String str, String str2);
+
+    void b(boolean z, HybridUbcFlow hybridUbcFlow);
+
+    void c();
 }

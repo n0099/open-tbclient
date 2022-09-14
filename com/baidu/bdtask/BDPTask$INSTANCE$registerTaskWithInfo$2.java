@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fp;
+import com.baidu.tieba.tp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,16 +17,16 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$2 extends Lambda implem
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $rawTaskStr;
-    public final /* synthetic */ fp $taskCallback;
+    public final /* synthetic */ tp $taskCallback;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskWithInfo$2(String str, fp fpVar) {
+    public BDPTask$INSTANCE$registerTaskWithInfo$2(String str, tp tpVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, fpVar};
+            Object[] objArr = {str, tpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$2 extends Lambda implem
             }
         }
         this.$rawTaskStr = str;
-        this.$taskCallback = fpVar;
+        this.$taskCallback = tpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

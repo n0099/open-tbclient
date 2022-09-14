@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,11 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class me8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+    public boolean a;
+    public double b;
+    public List<String> c;
+    public int d;
+    public int e;
 
     public me8() {
         Interceptable interceptable = $ic;
@@ -26,33 +29,36 @@ public class me8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public boolean a(Uri uri) {
+    public static me8 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return this.a.contains(uri.getQueryParameter("obj_source"));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
+            me8 me8Var = new me8();
+            me8Var.a = jSONObject.optInt("label_measure") == 2;
+            me8Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        mg7.a(arrayList, optJSONObject.optString("pic"));
+                    }
+                }
             }
-            this.a.clear();
-            this.a.add(BdUniDispatchSchemeController.PARAM_SHOUBAI);
-            this.a.add(BdUniDispatchSchemeController.PARAM_WISE);
+            me8Var.c = arrayList;
+            me8Var.d = jSONObject.optInt("width");
+            me8Var.e = jSONObject.optInt("height");
+            return me8Var;
         }
+        return (me8) invokeL.objValue;
     }
 }

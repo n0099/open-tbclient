@@ -1,72 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.badlogic.gdx.utils.JsonWriter$OutputType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class r7 {
+public /* synthetic */ class r7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
 
-    public r7(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314440, "Lcom/baidu/tieba/r7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448314440, "Lcom/baidu/tieba/r7;");
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.b < 3) {
-            return;
+        int[] iArr = new int[JsonWriter$OutputType.values().length];
+        a = iArr;
+        try {
+            iArr[JsonWriter$OutputType.minimal.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
-        e1.a.debug(this.a, str);
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.b < 1) {
-            return;
+        try {
+            a[JsonWriter$OutputType.javascript.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
-        e1.a.error(this.a, str);
-    }
-
-    public void c(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) || this.b < 1) {
-            return;
-        }
-        e1.a.error(this.a, str, th);
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.b < 2) {
-            return;
-        }
-        e1.a.log(this.a, str);
     }
 }

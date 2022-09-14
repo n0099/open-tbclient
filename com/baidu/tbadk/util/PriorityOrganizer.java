@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bf5;
+import com.baidu.tieba.kh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,6 +25,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
+@Deprecated
 /* loaded from: classes3.dex */
 public class PriorityOrganizer implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
@@ -280,7 +281,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                bf5.d(this.b != null, "任务需先添加到 PriorityOrganizer");
+                kh5.d(this.b != null, "任务需先添加到 PriorityOrganizer");
                 return this.b;
             }
             return (PriorityOrganizer) invokeV.objValue;
@@ -305,7 +306,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (priorityOrganizer = this.b) == null) {
                 return;
             }
-            priorityOrganizer.u(this);
+            priorityOrganizer.v(this);
         }
 
         public final void p(@NonNull PriorityOrganizer priorityOrganizer) {
@@ -323,7 +324,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                 z();
                 PriorityOrganizer priorityOrganizer = this.b;
                 if (priorityOrganizer != null) {
-                    priorityOrganizer.s(this);
+                    priorityOrganizer.t(this);
                 }
             }
         }
@@ -343,7 +344,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
                 A();
                 if (this.d > 0) {
-                    this.i.add(D().t(new b(this), this.d));
+                    this.i.add(D().u(new b(this), this.d));
                 }
             }
         }
@@ -353,7 +354,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 this.h = Status.EXECUTING;
                 if (this.e > 0) {
-                    this.i.add(D().t(new a(this), this.e));
+                    this.i.add(D().u(new a(this), this.e));
                 } else {
                     s();
                 }
@@ -375,7 +376,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                 this.h = Status.FINISHED;
                 r();
                 B();
-                D().s(this);
+                D().t(this);
             }
         }
 
@@ -572,7 +573,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         }
     }
 
-    public static void r(@NonNull Task task, @NonNull Task... taskArr) {
+    public static void s(@NonNull Task task, @NonNull Task... taskArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, task, taskArr) == null) {
             for (Task task2 : taskArr) {
@@ -655,19 +656,25 @@ public class PriorityOrganizer implements LifecycleObserver {
         return (Task) invokeL.objValue;
     }
 
-    public final void s(@NonNull Task task) {
+    public boolean r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, task) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g > 0 || this.b.size() > 0 : invokeV.booleanValue;
+    }
+
+    public final void t(@NonNull Task task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, task) == null) {
             this.b.remove(task);
             p();
         }
     }
 
     @NonNull
-    public final TimerTask t(@NonNull Runnable runnable, long j) {
+    public final TimerTask u(@NonNull Runnable runnable, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, runnable, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, runnable, j)) == null) {
             c cVar = new c(this, runnable);
             this.d.schedule(cVar, j);
             return cVar;
@@ -675,9 +682,9 @@ public class PriorityOrganizer implements LifecycleObserver {
         return (TimerTask) invokeLJ.objValue;
     }
 
-    public void u(@NonNull Task task) {
+    public void v(@NonNull Task task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, task) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, task) == null) {
             if (task.g > 0) {
                 if (task.f != null) {
                     List<Task> list = this.c.get(task.f);
@@ -689,7 +696,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                         this.c.put(task.f, list);
                     }
                 }
-                task.i.add(t(new b(this, task), task.g));
+                task.i.add(u(new b(this, task), task.g));
                 return;
             }
             o(task, true);

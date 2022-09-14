@@ -1,63 +1,90 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.sz1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebSettings;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.CRC32;
 /* loaded from: classes6.dex */
-public final class tz1 {
+public class tz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public final long b;
+    public final String c;
+    public final Map<String, String> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948198398, "Lcom/baidu/tieba/tz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948198398, "Lcom/baidu/tieba/tz1;");
+    public tz1(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
+        this.d = new HashMap();
+        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
+        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
+        this.c = Long.toHexString(a(this.a + "#" + this.b));
+        this.d.put("timestamp", Long.toString(this.a));
+        this.d.put("delta", Long.toString(this.b));
+        this.d.put("rasign", this.c);
     }
 
-    @NonNull
-    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public static tz1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (((str.hashCode() == 93029162 && str.equals("appjs")) ? (char) 0 : (char) 65535) != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                sz1.a d = sz1.b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
-            }
-            if (a) {
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new tz1(0L) : (tz1) invokeV.objValue;
+    }
+
+    public final long a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            CRC32 crc32 = new CRC32();
+            crc32.reset();
+            crc32.update(str.getBytes());
+            return crc32.getValue();
         }
-        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
+        return invokeL.longValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return Long.toHexString(a(j + "#smartapp_formid"));
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return Long.toHexString(a(j + "#payid"));
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

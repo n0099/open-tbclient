@@ -1,33 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class pq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pq4 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public View d;
-    public View e;
-    public View f;
-    public View g;
-    public View h;
-    public View i;
-    public View j;
-    public View k;
-    public View l;
-    public View m;
-    public View n;
-    public View o;
-    public View p;
-    public View q;
-    public View r;
-    public View s;
+    public float a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public pq4() {
         Interceptable interceptable = $ic;
@@ -43,27 +30,53 @@ public class pq4 {
         }
     }
 
-    public void a() {
+    public static pq4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.k = null;
-            this.l = null;
-            this.m = null;
-            this.n = null;
-            this.o = null;
-            this.p = null;
-            this.q = null;
-            this.r = null;
-            this.s = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (pq4.class) {
+                    if (e == null) {
+                        e = new pq4();
+                    }
+                }
+            }
+            return e;
+        }
+        return (pq4) invokeV.objValue;
+    }
+
+    public float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.floatValue;
+    }
+
+    public float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.floatValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.floatValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void f(float f, float f2, float f3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = z;
         }
     }
 }

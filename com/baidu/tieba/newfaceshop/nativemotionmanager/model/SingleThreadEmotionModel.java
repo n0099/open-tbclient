@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.gq7;
-import com.baidu.tieba.jp7;
-import com.baidu.tieba.mp7;
+import com.baidu.tieba.gh;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.NativeManageEmotionModel;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.SingleThreadEmotionResponseMessage;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.qr7;
+import com.baidu.tieba.tq7;
+import com.baidu.tieba.wq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import org.json.JSONArray;
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gq7 a;
+    public qr7 a;
     public List<String> b;
     public final HttpMessageListener c;
 
@@ -108,7 +108,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.G();
-                List<MyEmotionGroupData> f = mp7.i().f();
+                List<MyEmotionGroupData> f = wq7.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -119,7 +119,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     }
                 }
                 SingleThreadEmotionModel singleThreadEmotionModel = this.a;
-                sg.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
+                gh.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
             }
         }
     }
@@ -232,10 +232,10 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         }
     }
 
-    public void H(gq7 gq7Var) {
+    public void H(qr7 qr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gq7Var) == null) {
-            this.a = gq7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qr7Var) == null) {
+            this.a = qr7Var;
         }
     }
 
@@ -263,7 +263,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            jp7.b().a(new b(this));
+            tq7.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

@@ -8,8 +8,9 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.q10;
-import com.baidu.tieba.s10;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tieba.s20;
+import com.baidu.tieba.u20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,9 +58,9 @@ public class DeviceUtil {
     public static void generateOaid(Context context, IDeviceCallback iDeviceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, iDeviceCallback) == null) {
-            q10 e = q10.e(context);
+            s20 e = s20.e(context);
             if (e != null) {
-                e.l(new s10<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
+                e.l(new u20<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IDeviceCallback val$callback;
@@ -82,7 +83,7 @@ public class DeviceUtil {
                         this.val$callback = iDeviceCallback;
                     }
 
-                    @Override // com.baidu.tieba.s10
+                    @Override // com.baidu.tieba.u20
                     public void onError(int i, Throwable th, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -93,7 +94,7 @@ public class DeviceUtil {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.s10
+                    @Override // com.baidu.tieba.u20
                     public void onResult(String str, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -123,7 +124,7 @@ public class DeviceUtil {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
-                        str = telephonyManager.getDeviceId();
+                        str = ApiReplaceUtil.getDeviceId(telephonyManager);
                     }
                 } catch (Exception e) {
                     if (DEBUG) {

@@ -11,11 +11,11 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import androidx.core.R$id;
 import androidx.core.view.accessibility.AccessibilityClickableSpanCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -182,7 +182,7 @@ public class AccessibilityDelegateCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R$id.tag_accessibility_actions);
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R.id.obfuscated_res_0x7f092032);
             return list == null ? Collections.emptyList() : list;
         }
         return (List) invokeL.objValue;
@@ -210,7 +210,7 @@ public class AccessibilityDelegateCompat {
         WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, view2)) == null) {
-            SparseArray sparseArray = (SparseArray) view2.getTag(R$id.tag_accessibility_clickable_spans);
+            SparseArray sparseArray = (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092033);
             if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i)) == null) {
                 return false;
             }
@@ -297,7 +297,7 @@ public class AccessibilityDelegateCompat {
             if (!z && Build.VERSION.SDK_INT >= 16) {
                 z = this.mOriginalDelegate.performAccessibilityAction(view2, i, bundle);
             }
-            return (z || i != R$id.accessibility_action_clickable_span) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view2);
+            return (z || i != R.id.obfuscated_res_0x7f090030) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view2);
         }
         return invokeLIL.booleanValue;
     }

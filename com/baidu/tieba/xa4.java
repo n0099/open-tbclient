@@ -1,208 +1,226 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.Map;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class xa4<T> implements p84<T> {
+public class xa4 extends ya4<PMSAppInfo> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ae4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public p84<T> a;
-    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948293630, "Lcom/baidu/tieba/xa4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948293630, "Lcom/baidu/tieba/xa4;");
-                return;
-            }
-        }
-        c = ae4.e();
-    }
-
-    public xa4(p84<T> p84Var) {
+    public xa4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p84Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = 0;
-        this.a = p84Var;
     }
 
-    @Override // com.baidu.tieba.p84
-    public void a(T t) {
-        p84<T> p84Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (p84Var = this.a) == null) {
-            return;
-        }
-        try {
-            p84Var.a(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e);
-        }
-    }
-
-    @Override // com.baidu.tieba.p84
-    public void c(T t) {
-        p84<T> p84Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || (p84Var = this.a) == null) {
-            return;
-        }
-        try {
-            p84Var.c(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e);
-        }
-    }
-
-    @Override // com.baidu.tieba.p84
-    public String d(T t) {
+    @Override // com.baidu.tieba.ya4
+    public List<PMSAppInfo> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            p84<T> p84Var = this.a;
-            String d = p84Var != null ? p84Var.d(t) : null;
-            if (d == null) {
-                try {
-                    return ee4.d(AppRuntime.getAppContext()).getAbsolutePath();
-                } catch (Exception e) {
-                    c.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e);
-                    return d;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
             }
-            return d;
+            do {
+                arrayList.add(h(cursor));
+            } while (cursor.moveToNext());
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.p84
-    public void e(T t, s94 s94Var) {
-        p84<T> p84Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ya4
+    /* renamed from: f */
+    public ContentValues c(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, t, s94Var) == null) || (p84Var = this.a) == null) {
-            return;
-        }
-        try {
-            p84Var.e(t, s94Var);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e);
-        }
-    }
-
-    @Override // com.baidu.tieba.p84
-    public void f(T t) {
-        p84<T> p84Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || (p84Var = this.a) == null) {
-            return;
-        }
-        try {
-            p84Var.f(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e);
-        }
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.p84
-    public s94 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
-            p84<T> p84Var = this.a;
-            if (p84Var != null) {
-                return p84Var.h(t, file, j, readableByteChannel);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            ContentValues contentValues = new ContentValues();
+            if (pMSAppInfo == null) {
+                return contentValues;
             }
-            return new s94(2302, "业务层默认不处理下载流");
+            contentValues.put("app_id", pMSAppInfo.appId);
+            contentValues.put(GameGuideConfigInfo.KEY_APP_KEY, pMSAppInfo.appKey);
+            contentValues.put("app_sign", Long.valueOf(pMSAppInfo.appSign));
+            contentValues.put("version_code", Long.valueOf(pMSAppInfo.versionCode));
+            contentValues.put("version_name", pMSAppInfo.versionName);
+            contentValues.put("description", pMSAppInfo.description);
+            contentValues.put("app_status", Integer.valueOf(pMSAppInfo.appStatus));
+            contentValues.put("status_detail", pMSAppInfo.statusDetail);
+            contentValues.put("status_desc", pMSAppInfo.statusDesc);
+            contentValues.put("resume_date", pMSAppInfo.resumeDate);
+            contentValues.put("icon_url", pMSAppInfo.iconUrl);
+            contentValues.put("app_name", pMSAppInfo.appName);
+            contentValues.put("service_category", pMSAppInfo.serviceCategory);
+            contentValues.put("subject_info", pMSAppInfo.subjectInfo);
+            contentValues.put("type", Integer.valueOf(pMSAppInfo.type));
+            contentValues.put("pkg_size", Long.valueOf(pMSAppInfo.pkgSize));
+            contentValues.put("pending_err_code", Integer.valueOf(pMSAppInfo.pendingErrCode));
+            contentValues.put("app_category", Integer.valueOf(pMSAppInfo.appCategory));
+            contentValues.put("orientation", Integer.valueOf(pMSAppInfo.getOrientation()));
+            contentValues.put("max_age", Long.valueOf(pMSAppInfo.maxAge));
+            contentValues.put("create_time", Long.valueOf(pMSAppInfo.createTime));
+            contentValues.put("webview_domains", pMSAppInfo.webViewDomains);
+            contentValues.put("web_action", pMSAppInfo.webAction);
+            contentValues.put("domains", pMSAppInfo.domains);
+            contentValues.put(SwanAppBearInfo.BEAR_INFO, pMSAppInfo.bearInfo);
+            contentValues.put("server_ext", pMSAppInfo.serverExt);
+            contentValues.put("pay_protected", Integer.valueOf(pMSAppInfo.payProtected));
+            contentValues.put("customer_service", Integer.valueOf(pMSAppInfo.customerService));
+            contentValues.put("global_notice", Integer.valueOf(pMSAppInfo.globalNotice));
+            contentValues.put("global_private", Integer.valueOf(pMSAppInfo.globalPrivate));
+            contentValues.put("pa_number", pMSAppInfo.paNumber);
+            contentValues.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, pMSAppInfo.brandsInfo);
+            contentValues.put("quick_app_key", pMSAppInfo.quickAppKey);
+            long lastLaunchTime = pMSAppInfo.getLastLaunchTime();
+            if (0 < lastLaunchTime) {
+                contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
+            }
+            int launchCount = pMSAppInfo.getLaunchCount();
+            if (launchCount > 0) {
+                contentValues.put("launch_count", Integer.valueOf(launchCount));
+            }
+            int installSrc = pMSAppInfo.getInstallSrc();
+            if (installSrc > 0) {
+                contentValues.put("install_src", Integer.valueOf(installSrc));
+            }
+            contentValues.put("web_url", pMSAppInfo.webUrl);
+            contentValues.put("web_permit", Integer.valueOf(pMSAppInfo.webPermit));
+            contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
+            contentValues.put("user_action_apis", pMSAppInfo.userActionApis);
+            contentValues.put("rank", Integer.valueOf(pMSAppInfo.rank));
+            return contentValues;
         }
-        return (s94) invokeCommon.objValue;
+        return (ContentValues) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.p84
-    public void i(T t) {
-        p84<T> p84Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ya4
+    /* renamed from: g */
+    public PMSAppInfo d(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || (p84Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return null;
+            }
+            return h(cursor);
         }
-        try {
-            p84Var.i(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e);
-        }
+        return (PMSAppInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.p84
-    public void j(T t) {
-        p84<T> p84Var;
+    public final PMSAppInfo h(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) || (p84Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("app_id");
+                int columnIndex2 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex3 = cursor.getColumnIndex("app_sign");
+                int columnIndex4 = cursor.getColumnIndex("version_code");
+                int columnIndex5 = cursor.getColumnIndex("version_name");
+                int columnIndex6 = cursor.getColumnIndex("description");
+                int columnIndex7 = cursor.getColumnIndex("app_status");
+                int columnIndex8 = cursor.getColumnIndex("status_detail");
+                int columnIndex9 = cursor.getColumnIndex("status_desc");
+                int columnIndex10 = cursor.getColumnIndex("resume_date");
+                int columnIndex11 = cursor.getColumnIndex("icon_url");
+                int columnIndex12 = cursor.getColumnIndex("app_name");
+                int columnIndex13 = cursor.getColumnIndex("service_category");
+                int columnIndex14 = cursor.getColumnIndex("subject_info");
+                int columnIndex15 = cursor.getColumnIndex("type");
+                int columnIndex16 = cursor.getColumnIndex("pkg_size");
+                int columnIndex17 = cursor.getColumnIndex("pending_err_code");
+                int columnIndex18 = cursor.getColumnIndex("app_category");
+                int columnIndex19 = cursor.getColumnIndex("orientation");
+                int columnIndex20 = cursor.getColumnIndex("max_age");
+                int columnIndex21 = cursor.getColumnIndex("create_time");
+                int columnIndex22 = cursor.getColumnIndex("webview_domains");
+                int columnIndex23 = cursor.getColumnIndex("web_action");
+                int columnIndex24 = cursor.getColumnIndex("domains");
+                int columnIndex25 = cursor.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
+                int columnIndex26 = cursor.getColumnIndex("server_ext");
+                int columnIndex27 = cursor.getColumnIndex("pay_protected");
+                int columnIndex28 = cursor.getColumnIndex("customer_service");
+                int columnIndex29 = cursor.getColumnIndex("global_notice");
+                int columnIndex30 = cursor.getColumnIndex("global_private");
+                int columnIndex31 = cursor.getColumnIndex("pa_number");
+                int columnIndex32 = cursor.getColumnIndex(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND);
+                int columnIndex33 = cursor.getColumnIndex("last_launch_time");
+                int columnIndex34 = cursor.getColumnIndex("launch_count");
+                int columnIndex35 = cursor.getColumnIndex("install_src");
+                int columnIndex36 = cursor.getColumnIndex("quick_app_key");
+                int columnIndex37 = cursor.getColumnIndex("web_url");
+                int columnIndex38 = cursor.getColumnIndex("web_permit");
+                int columnIndex39 = cursor.getColumnIndex("cs_protocol_version");
+                int columnIndex40 = cursor.getColumnIndex("user_action_apis");
+                PMSAppInfo pMSAppInfo = new PMSAppInfo();
+                pMSAppInfo.appId = cursor.getString(columnIndex);
+                pMSAppInfo.appKey = cursor.getString(columnIndex2);
+                pMSAppInfo.appSign = cursor.getLong(columnIndex3);
+                pMSAppInfo.versionCode = cursor.getInt(columnIndex4);
+                pMSAppInfo.versionName = cursor.getString(columnIndex5);
+                pMSAppInfo.description = cursor.getString(columnIndex6);
+                pMSAppInfo.appStatus = cursor.getInt(columnIndex7);
+                pMSAppInfo.statusDetail = cursor.getString(columnIndex8);
+                pMSAppInfo.statusDesc = cursor.getString(columnIndex9);
+                pMSAppInfo.resumeDate = cursor.getString(columnIndex10);
+                pMSAppInfo.iconUrl = cursor.getString(columnIndex11);
+                pMSAppInfo.appName = cursor.getString(columnIndex12);
+                pMSAppInfo.serviceCategory = cursor.getString(columnIndex13);
+                pMSAppInfo.subjectInfo = cursor.getString(columnIndex14);
+                pMSAppInfo.type = cursor.getInt(columnIndex15);
+                pMSAppInfo.pkgSize = cursor.getLong(columnIndex16);
+                pMSAppInfo.pendingErrCode = cursor.getInt(columnIndex17);
+                pMSAppInfo.appCategory = cursor.getInt(columnIndex18);
+                pMSAppInfo.setOrientation(cursor.getInt(columnIndex19));
+                pMSAppInfo.maxAge = cursor.getLong(columnIndex20);
+                pMSAppInfo.createTime = cursor.getLong(columnIndex21);
+                pMSAppInfo.webViewDomains = cursor.getString(columnIndex22);
+                pMSAppInfo.webAction = cursor.getString(columnIndex23);
+                pMSAppInfo.domains = cursor.getString(columnIndex24);
+                pMSAppInfo.bearInfo = cursor.getString(columnIndex25);
+                pMSAppInfo.serverExt = cursor.getString(columnIndex26);
+                pMSAppInfo.payProtected = cursor.getInt(columnIndex27);
+                pMSAppInfo.customerService = cursor.getInt(columnIndex28);
+                pMSAppInfo.globalNotice = cursor.getInt(columnIndex29);
+                pMSAppInfo.globalPrivate = cursor.getInt(columnIndex30);
+                pMSAppInfo.paNumber = cursor.getString(columnIndex31);
+                pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
+                pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
+                pMSAppInfo.updateLastLaunchTime(cursor.getLong(columnIndex33));
+                pMSAppInfo.updateLaunchCount(cursor.getInt(columnIndex34));
+                pMSAppInfo.updateInstallSrc(cursor.getInt(columnIndex35));
+                pMSAppInfo.webUrl = cursor.getString(columnIndex37);
+                pMSAppInfo.webPermit = cursor.getInt(columnIndex38);
+                pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex39);
+                pMSAppInfo.userActionApis = cursor.getString(columnIndex40);
+                pMSAppInfo.rank = cursor.getInt(cursor.getColumnIndex("rank"));
+                return pMSAppInfo;
+            }
+            return null;
         }
-        try {
-            p84Var.j(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e);
-        }
-    }
-
-    @Override // com.baidu.tieba.p84
-    public Map<String, Object> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.k() : (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r84
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            p84<T> p84Var = this.a;
-            return p84Var == null ? new Bundle() : p84Var.m(bundle, set);
-        }
-        return (Bundle) invokeLL.objValue;
+        return (PMSAppInfo) invokeL.objValue;
     }
 }

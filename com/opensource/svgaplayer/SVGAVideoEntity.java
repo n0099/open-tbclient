@@ -9,10 +9,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tieba.fq9;
-import com.baidu.tieba.iq9;
-import com.baidu.tieba.nq9;
-import com.baidu.tieba.rq9;
+import com.baidu.tieba.as9;
+import com.baidu.tieba.fs9;
+import com.baidu.tieba.js9;
+import com.baidu.tieba.xr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,11 +53,11 @@ public final class SVGAVideoEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public rq9 b;
+    public js9 b;
     public int c;
     public int d;
-    public List<nq9> e;
-    public List<iq9> f;
+    public List<fs9> e;
+    public List<as9> f;
     public SoundPool g;
     public HashMap<String, Bitmap> h;
     public File i;
@@ -123,7 +123,7 @@ public final class SVGAVideoEntity {
             }
         }
         this.a = true;
-        this.b = new rq9(0.0d, 0.0d, 0.0d, 0.0d);
+        this.b = new js9(0.0d, 0.0d, 0.0d, 0.0d);
         this.c = 15;
         this.e = CollectionsKt__CollectionsKt.emptyList();
         this.f = CollectionsKt__CollectionsKt.emptyList();
@@ -133,7 +133,7 @@ public final class SVGAVideoEntity {
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("viewBox");
             if (optJSONObject2 != null) {
-                this.b = new rq9(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
+                this.b = new js9(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
             }
             this.c = optJSONObject.optInt(FpsConstants.REPORT_FPS, 20);
             this.d = optJSONObject.optInt("frames", 0);
@@ -148,7 +148,7 @@ public final class SVGAVideoEntity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public final List<iq9> b() {
+    public final List<as9> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (List) invokeV.objValue;
@@ -190,16 +190,16 @@ public final class SVGAVideoEntity {
         }
     }
 
-    public final List<nq9> g() {
+    public final List<fs9> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
-    public final rq9 h() {
+    public final js9 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (rq9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (js9) invokeV.objValue;
     }
 
     public final void i(Function0<Unit> function0) {
@@ -270,7 +270,7 @@ public final class SVGAVideoEntity {
                     ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
                     for (AudioEntity audio : list2) {
                         Intrinsics.checkExpressionValueIsNotNull(audio, "audio");
-                        iq9 iq9Var = new iq9(audio);
+                        as9 as9Var = new as9(audio);
                         File file = (File) hashMap2.get(audio.audioKey);
                         if (file != null) {
                             FileInputStream fileInputStream = new FileInputStream(file);
@@ -281,13 +281,13 @@ public final class SVGAVideoEntity {
                             int intValue2 = num2 != null ? num2.intValue() : 0;
                             soundPool2 = soundPool;
                             hashMap = hashMap2;
-                            iq9Var.f(Integer.valueOf(soundPool.load(fd, (long) ((intValue / intValue2) * fileInputStream.available()), fileInputStream.available(), 1)));
+                            as9Var.f(Integer.valueOf(soundPool.load(fd, (long) ((intValue / intValue2) * fileInputStream.available()), fileInputStream.available(), 1)));
                             fileInputStream.close();
                         } else {
                             soundPool2 = soundPool;
                             hashMap = hashMap2;
                         }
-                        arrayList.add(iq9Var);
+                        arrayList.add(as9Var);
                         soundPool = soundPool2;
                         hashMap2 = hashMap;
                     }
@@ -316,7 +316,7 @@ public final class SVGAVideoEntity {
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             String imageKey = (String) entry.getKey();
-            options = fq9.a;
+            options = xr9.a;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
             byte[] byteArray = ((ByteString) entry.getValue()).toByteArray();
             Intrinsics.checkExpressionValueIsNotNull(byteArray, "byteArray");
@@ -324,7 +324,7 @@ public final class SVGAVideoEntity {
                 List<Byte> slice = ArraysKt___ArraysKt.slice(byteArray, new IntRange(0, 3));
                 if (slice.get(0).byteValue() != 73 || slice.get(1).byteValue() != 68 || slice.get(2).byteValue() != 51 || slice.get(3).byteValue() != 3) {
                     int length = byteArray.length;
-                    options2 = fq9.a;
+                    options2 = xr9.a;
                     Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArray, 0, length, options2);
                     if (decodeByteArray != null) {
                         HashMap<String, Bitmap> hashMap = this.h;
@@ -335,7 +335,7 @@ public final class SVGAVideoEntity {
                         if (utf8 != null) {
                             String str = this.i.getAbsolutePath() + "/" + utf8;
                             if (new File(str).exists()) {
-                                options4 = fq9.a;
+                                options4 = xr9.a;
                                 bitmap = BitmapFactory.decodeFile(str, options4);
                             } else {
                                 bitmap = null;
@@ -346,7 +346,7 @@ public final class SVGAVideoEntity {
                                 String str2 = this.i.getAbsolutePath() + "/" + imageKey + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
                                 String str3 = new File(str2).exists() ? str2 : null;
                                 if (str3 != null) {
-                                    options3 = fq9.a;
+                                    options3 = xr9.a;
                                     Bitmap decodeFile = BitmapFactory.decodeFile(str3, options3);
                                     if (decodeFile != null) {
                                         this.h.put(imageKey, decodeFile);
@@ -374,11 +374,11 @@ public final class SVGAVideoEntity {
         Intrinsics.checkExpressionValueIsNotNull(keys, "imgObjects.keys()");
         while (keys.hasNext()) {
             String next = keys.next();
-            options = fq9.a;
+            options = xr9.a;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
             String str = this.i.getAbsolutePath() + "/" + optJSONObject.get(next);
             if (new File(str).exists()) {
-                options3 = fq9.a;
+                options3 = xr9.a;
                 bitmap = BitmapFactory.decodeFile(str, options3);
             } else {
                 bitmap = null;
@@ -389,7 +389,7 @@ public final class SVGAVideoEntity {
                 String str2 = this.i.getAbsolutePath() + "/" + next + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
                 String str3 = new File(str2).exists() ? str2 : null;
                 if (str3 != null) {
-                    options2 = fq9.a;
+                    options2 = xr9.a;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str3, options2);
                     if (decodeFile != null) {
                         this.h.put(next, decodeFile);
@@ -400,7 +400,7 @@ public final class SVGAVideoEntity {
     }
 
     public final void m(MovieEntity movieEntity) {
-        List<nq9> emptyList;
+        List<fs9> emptyList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, movieEntity) == null) {
             List<SpriteEntity> list = movieEntity.sprites;
@@ -408,7 +408,7 @@ public final class SVGAVideoEntity {
                 emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
                 for (SpriteEntity it : list) {
                     Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                    emptyList.add(new nq9(it));
+                    emptyList.add(new fs9(it));
                 }
             } else {
                 emptyList = CollectionsKt__CollectionsKt.emptyList();
@@ -427,7 +427,7 @@ public final class SVGAVideoEntity {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        arrayList.add(new nq9(optJSONObject));
+                        arrayList.add(new fs9(optJSONObject));
                     }
                 }
             }
@@ -459,7 +459,7 @@ public final class SVGAVideoEntity {
             }
         }
         this.a = true;
-        this.b = new rq9(0.0d, 0.0d, 0.0d, 0.0d);
+        this.b = new js9(0.0d, 0.0d, 0.0d, 0.0d);
         this.c = 15;
         this.e = CollectionsKt__CollectionsKt.emptyList();
         this.f = CollectionsKt__CollectionsKt.emptyList();
@@ -469,7 +469,7 @@ public final class SVGAVideoEntity {
         MovieParams movieParams = movieEntity.params;
         if (movieParams != null) {
             Float f2 = movieParams.viewBoxWidth;
-            this.b = new rq9(0.0d, 0.0d, f2 != null ? f2.floatValue() : 0.0f, movieParams.viewBoxHeight != null ? f.floatValue() : 0.0f);
+            this.b = new js9(0.0d, 0.0d, f2 != null ? f2.floatValue() : 0.0f, movieParams.viewBoxHeight != null ? f.floatValue() : 0.0f);
             Integer num = movieParams.fps;
             this.c = num != null ? num.intValue() : 20;
             Integer num2 = movieParams.frames;

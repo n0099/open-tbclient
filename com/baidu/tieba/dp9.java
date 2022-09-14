@@ -3,94 +3,82 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.NoSuchElementException;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsSplashScreenAd;
 /* loaded from: classes3.dex */
-public abstract class dp9<E> extends xo9<E> {
+public class dp9 extends hp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsSplashScreenAd c;
+    public final /* synthetic */ cp9 d;
 
-    public dp9(int i, int i2) {
+    public dp9(cp9 cp9Var, KsSplashScreenAd ksSplashScreenAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {cp9Var, ksSplashScreenAd};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        bp9.b(i2, i, "index");
-        this.a = i;
-        this.b = i2;
+        this.d = cp9Var;
+        this.c = ksSplashScreenAd;
     }
 
-    public abstract E a(int i);
-
-    @Override // java.util.Iterator, java.util.ListIterator
-    public final boolean hasNext() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b < this.a : invokeV.booleanValue;
-    }
-
-    @Override // java.util.ListIterator
-    public final boolean hasPrevious() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b > 0 : invokeV.booleanValue;
-    }
-
-    @Override // java.util.Iterator, java.util.ListIterator
-    public final E next() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (hasNext()) {
-                int i = this.b;
-                this.b = i + 1;
-                return a(i);
-            }
-            throw new NoSuchElementException();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (E) invokeV.objValue;
     }
 
-    @Override // java.util.ListIterator
-    public final int nextIndex() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowEnd() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @Override // java.util.ListIterator
-    public final E previous() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (hasPrevious()) {
-                int i = this.b - 1;
-                this.b = i;
-                return a(i);
-            }
-            throw new NoSuchElementException();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
-        return (E) invokeV.objValue;
     }
 
-    @Override // java.util.ListIterator
-    public final int previousIndex() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowError(int i, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b - 1 : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
+            this.d.onAdError(this.c, i, str);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onSkippedAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
+        }
     }
 }

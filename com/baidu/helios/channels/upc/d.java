@@ -1,6 +1,6 @@
 package com.baidu.helios.channels.upc;
 
-import com.baidu.tieba.o30;
+import com.baidu.tieba.q40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +82,7 @@ public class d {
     public static String a(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new o30().a(bArr)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new q40().a(bArr)) : (String) invokeL.objValue;
     }
 
     public static Method b(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException {

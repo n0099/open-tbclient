@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.tieba.nn0;
+import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,15 +23,18 @@ public class RequestParameters {
     public final String c;
     public final String d;
     @Nullable
-    public final nn0 e;
+    public final zo0 e;
     @NonNull
     public final RefreshType f;
     public final String g;
     public final String h;
     public final String i;
     public final SlotType j;
+    @Nullable
     public final Map<String, String> k;
-    public final boolean l;
+    @Nullable
+    public final Map<String, String> l;
+    public final boolean m;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -180,14 +183,15 @@ public class RequestParameters {
         public int b;
         public String c;
         public String d;
-        public nn0 e;
+        public zo0 e;
         public RefreshType f;
         public String g;
         public SlotType h;
         public String i;
         public String j;
         public Map<String, String> k;
-        public boolean l;
+        public Map<String, String> l;
+        public boolean m;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -205,16 +209,16 @@ public class RequestParameters {
             this.b = 1;
             this.f = RefreshType.NONE;
             this.h = SlotType.DEFAULT;
-            this.l = false;
+            this.m = false;
         }
 
-        public RequestParameters m() {
+        public RequestParameters n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new RequestParameters(this, null) : (RequestParameters) invokeV.objValue;
         }
 
-        public b n(int i) {
+        public b o(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -224,7 +228,7 @@ public class RequestParameters {
             return (b) invokeI.objValue;
         }
 
-        public b o(String str) {
+        public b p(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -265,6 +269,7 @@ public class RequestParameters {
         this.i = bVar.j;
         this.j = bVar.h;
         this.k = bVar.k;
+        this.m = bVar.m;
         this.l = bVar.l;
     }
 }

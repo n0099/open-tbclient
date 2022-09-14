@@ -1,21 +1,11 @@
 package com.baidu.tieba;
-
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class rl8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+public interface rl8 {
+    void a(int i);
 
-    public abstract boolean a(MotionEvent motionEvent);
+    void b();
 
-    public abstract boolean b(MotionEvent motionEvent);
+    void c(kl8 kl8Var);
 
-    public abstract void c(View view2, Bundle bundle);
-
-    public abstract void d();
+    void d(int i, boolean z, cl8 cl8Var);
 }

@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class h0a {
+public class h0a<E> extends j0a<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
-    public static Method b;
-    public static Field c;
-    public static int d;
+    public static final int g;
+    public static final long h;
+    public static final long i;
+    public static final long j;
+    public static final int k;
+    public static final Object l;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,184 +34,274 @@ public class h0a {
                 return;
             }
         }
-        try {
-            a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException unused) {
+        g = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+        l = new Object();
+        int b = n0a.a.b(Object[].class);
+        if (4 == b) {
+            k = 2;
+        } else if (8 == b) {
+            k = 3;
+        } else {
+            throw new IllegalStateException("Unknown pointer size");
         }
+        j = n0a.a.a(Object[].class);
         try {
-            b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException unused2) {
-        }
-        try {
-            c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException unused3) {
-        }
-        try {
-            d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException | NoSuchFieldException unused4) {
+            h = n0a.a.g(m0a.class.getDeclaredField("producerIndex"));
+            try {
+                i = n0a.a.g(j0a.class.getDeclaredField("consumerIndex"));
+            } catch (NoSuchFieldException e) {
+                InternalError internalError = new InternalError();
+                internalError.initCause(e);
+                throw internalError;
+            }
+        } catch (NoSuchFieldException e2) {
+            InternalError internalError2 = new InternalError();
+            internalError2.initCause(e2);
+            throw internalError2;
         }
     }
 
-    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public h0a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, layoutParams, str, z)) == null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField(str);
-                declaredField.setAccessible(true);
-                int i = declaredField.getInt(layoutParams);
-                Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
-                declaredField2.setAccessible(true);
-                int i2 = declaredField2.getInt(layoutParams);
-                int i3 = z ? i | i2 : (~i) & i2;
-                if (i2 != i3) {
-                    declaredField2.setInt(layoutParams, i3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        int b = qz9.b(i2);
+        long j2 = b - 1;
+        E[] eArr = (E[]) new Object[b + 1];
+        this.d = eArr;
+        this.c = j2;
+        a(b);
+        this.f = eArr;
+        this.e = j2;
+        this.b = j2 - 1;
+        n(0L);
+    }
+
+    public static long b(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? j + (j2 << k) : invokeJ.longValue;
+    }
+
+    public static long c(long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? b(j2 & j3) : invokeCommon.longValue;
+    }
+
+    public static <E> Object e(E[] eArr, long j2) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr, j2)) == null) ? n0a.a.f(eArr, j2) : invokeLJ.objValue;
+    }
+
+    public static void l(Object[] objArr, long j2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{objArr, Long.valueOf(j2), obj}) == null) {
+            n0a.a.j(objArr, j2, obj);
+        }
+    }
+
+    public final void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.a = Math.min(i2 / 4, g);
+        }
+    }
+
+    public final long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? n0a.a.d(this, i) : invokeV.longValue;
+    }
+
+    public final E[] f(E[] eArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eArr)) == null) ? (E[]) ((Object[]) e(eArr, b(eArr.length - 1))) : (E[]) ((Object[]) invokeL.objValue);
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? n0a.a.d(this, h) : invokeV.longValue;
+    }
+
+    public final E h(E[] eArr, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            this.f = eArr;
+            return (E) e(eArr, c(j2, j3));
+        }
+        return (E) invokeCommon.objValue;
+    }
+
+    public final E i(E[] eArr, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            this.f = eArr;
+            long c = c(j2, j3);
+            E e = (E) e(eArr, c);
+            if (e == null) {
+                return null;
+            }
+            l(eArr, c, null);
+            k(j2 + 1);
+            return e;
+        }
+        return (E) invokeCommon.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public final Iterator<E> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public final void j(E[] eArr, long j2, long j3, E e, long j4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3), e, Long.valueOf(j4)}) == null) {
+            E[] eArr2 = (E[]) new Object[eArr.length];
+            this.d = eArr2;
+            this.b = (j4 + j2) - 1;
+            l(eArr2, j3, e);
+            m(eArr, eArr2);
+            l(eArr, j3, l);
+            n(j2 + 1);
+        }
+    }
+
+    public final void k(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            n0a.a.i(this, i, j2);
+        }
+    }
+
+    public final void m(E[] eArr, E[] eArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, eArr, eArr2) == null) {
+            l(eArr, b(eArr.length - 1), eArr2);
+        }
+    }
+
+    public final void n(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            n0a.a.i(this, h, j2);
+        }
+    }
+
+    public final boolean o(E[] eArr, E e, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{eArr, e, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            l(eArr, j3, e);
+            n(j2 + 1);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public final boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, e)) == null) {
+            if (e != null) {
+                E[] eArr = this.d;
+                long j2 = this.producerIndex;
+                long j3 = this.c;
+                long c = c(j2, j3);
+                if (j2 < this.b) {
+                    return o(eArr, e, j2, c);
+                }
+                long j4 = this.a + j2;
+                if (e(eArr, c(j4, j3)) == null) {
+                    this.b = j4 - 1;
+                    return o(eArr, e, j2, c);
+                } else if (e(eArr, c(1 + j2, j3)) != null) {
+                    return o(eArr, e, j2, c);
+                } else {
+                    j(eArr, j2, c, e, j3);
                     return true;
                 }
-                return false;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return false;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return false;
-            } catch (NoSuchFieldException e3) {
-                e3.printStackTrace();
-                return false;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
             }
+            throw new NullPointerException("Null is not a valid element");
         }
-        return invokeLLZ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean b(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // java.util.Queue
+    public final E peek() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? j(i) < i2 : invokeII.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            E[] eArr = this.f;
+            long j2 = this.consumerIndex;
+            long j3 = this.e;
+            E e = (E) e(eArr, c(j2, j3));
+            return e == l ? h(f(eArr), j2, j3) : e;
+        }
+        return (E) invokeV.objValue;
     }
 
-    public static void c(Window window, int i) {
+    @Override // java.util.Queue
+    public final E poll() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, window, i) == null) {
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = c;
-            if (field != null) {
-                try {
-                    if (field.getInt(attributes) != i) {
-                        c.set(attributes, Integer.valueOf(i));
-                        window.setAttributes(attributes);
-                    }
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            E[] eArr = this.f;
+            long j2 = this.consumerIndex;
+            long j3 = this.e;
+            long c = c(j2, j3);
+            E e = (E) e(eArr, c);
+            boolean z = e == l;
+            if (e == null || z) {
+                if (z) {
+                    return i(f(eArr), j2, j3);
                 }
+                return null;
             }
+            l(eArr, c, null);
+            k(j2 + 1);
+            return e;
         }
+        return (E) invokeV.objValue;
     }
 
-    public static void d(Activity activity, int i) {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final int size() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) {
-            Method method = a;
-            if (method != null) {
-                try {
-                    method.invoke(activity, Integer.valueOf(i));
-                    return;
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                    return;
-                } catch (InvocationTargetException e2) {
-                    e2.printStackTrace();
-                    return;
-                }
-            }
-            boolean b2 = b(i, 50);
-            if (c != null) {
-                f(activity, b2, b2);
-                h(activity.getWindow(), i);
-                return;
-            }
-            e(activity, b2);
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048591, this)) != null) {
+            return invokeV.intValue;
         }
-    }
-
-    public static void e(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) {
-            f(activity, z, true);
+        long d = d();
+        while (true) {
+            long g2 = g();
+            long d2 = d();
+            if (d == d2) {
+                return (int) (g2 - d2);
+            }
+            d = d2;
         }
-    }
-
-    public static void f(Activity activity, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = b;
-            if (method == null) {
-                if (z2) {
-                    i(activity.getWindow(), z);
-                    return;
-                }
-                return;
-            }
-            try {
-                method.invoke(activity, Boolean.valueOf(z));
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void g(View view2, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65543, null, view2, z) == null) {
-            int systemUiVisibility = view2.getSystemUiVisibility();
-            if (z) {
-                i = d | systemUiVisibility;
-            } else {
-                i = (~d) & systemUiVisibility;
-            }
-            if (i != systemUiVisibility) {
-                view2.setSystemUiVisibility(i);
-            }
-        }
-    }
-
-    public static void h(Window window, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, window, i) == null) {
-            try {
-                c(window, i);
-                if (Build.VERSION.SDK_INT > 22) {
-                    g(window.getDecorView(), true);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void i(Window window, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, window, z) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                a(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
-                return;
-            }
-            View decorView = window.getDecorView();
-            if (decorView != null) {
-                g(decorView, z);
-                c(window, 0);
-            }
-        }
-    }
-
-    public static int j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (((((i & 16711680) >> 16) * 38) + (((65280 & i) >> 8) * 75)) + ((i & 255) * 15)) >> 7 : invokeI.intValue;
     }
 }

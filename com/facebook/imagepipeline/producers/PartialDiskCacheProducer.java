@@ -3,8 +3,8 @@ package com.facebook.imagepipeline.producers;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h0;
 import com.baidu.tieba.i0;
+import com.baidu.tieba.j0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -219,16 +219,16 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
         return (Map) invokeCommon.objValue;
     }
 
-    public static boolean isTaskCancelled(i0<?> i0Var) {
+    public static boolean isTaskCancelled(j0<?> j0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, i0Var)) == null) ? i0Var.n() || (i0Var.p() && (i0Var.k() instanceof CancellationException)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, j0Var)) == null) ? j0Var.n() || (j0Var.p() && (j0Var.k() instanceof CancellationException)) : invokeL.booleanValue;
     }
 
-    private h0<EncodedImage, Void> onFinishDiskReads(Consumer<EncodedImage> consumer, ProducerContext producerContext, CacheKey cacheKey) {
+    private i0<EncodedImage, Void> onFinishDiskReads(Consumer<EncodedImage> consumer, ProducerContext producerContext, CacheKey cacheKey) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, consumer, producerContext, cacheKey)) == null) ? new h0<EncodedImage, Void>(this, producerContext.getProducerListener(), producerContext, consumer, cacheKey) { // from class: com.facebook.imagepipeline.producers.PartialDiskCacheProducer.1
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, consumer, producerContext, cacheKey)) == null) ? new i0<EncodedImage, Void>(this, producerContext.getProducerListener(), producerContext, consumer, cacheKey) { // from class: com.facebook.imagepipeline.producers.PartialDiskCacheProducer.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PartialDiskCacheProducer this$0;
@@ -260,19 +260,19 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.h0
-            public Void then(i0<EncodedImage> i0Var) throws Exception {
+            @Override // com.baidu.tieba.i0
+            public Void then(j0<EncodedImage> j0Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i0Var)) == null) {
-                    if (PartialDiskCacheProducer.isTaskCancelled(i0Var)) {
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j0Var)) == null) {
+                    if (PartialDiskCacheProducer.isTaskCancelled(j0Var)) {
                         this.val$listener.onProducerFinishWithCancellation(this.val$producerContext, PartialDiskCacheProducer.PRODUCER_NAME, null);
                         this.val$consumer.onCancellation();
-                    } else if (i0Var.p()) {
-                        this.val$listener.onProducerFinishWithFailure(this.val$producerContext, PartialDiskCacheProducer.PRODUCER_NAME, i0Var.k(), null);
+                    } else if (j0Var.p()) {
+                        this.val$listener.onProducerFinishWithFailure(this.val$producerContext, PartialDiskCacheProducer.PRODUCER_NAME, j0Var.k(), null);
                         this.this$0.startInputProducer(this.val$consumer, this.val$producerContext, this.val$partialImageCacheKey, null);
                     } else {
-                        EncodedImage l = i0Var.l();
+                        EncodedImage l = j0Var.l();
                         if (l != null) {
                             ProducerListener2 producerListener2 = this.val$listener;
                             ProducerContext producerContext2 = this.val$producerContext;
@@ -300,7 +300,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                 }
                 return (Void) invokeL.objValue;
             }
-        } : (h0) invokeLLL.objValue;
+        } : (i0) invokeLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

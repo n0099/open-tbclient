@@ -8,14 +8,17 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ih5;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,9 +48,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        d = (((((ri.k(TbadkCoreApplication.getInst()) / 2) - ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - ri.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
+        b = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        d = (((((ej.k(TbadkCoreApplication.getInst()) / 2) - ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - ej.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,7 +80,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             this.a = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
-                if (qi.isEmpty(topicName)) {
+                if (dj.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
@@ -105,7 +108,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ns4 d2 = ns4.d(this);
+            uu4 d2 = uu4.d(this);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -113,7 +116,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
-            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808aa, WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808c5, WebPManager.ResourceStateType.NORMAL_PRESS);
             setCompoundDrawablePadding(b);
             if (maskDrawable != null) {
                 int i = c;
@@ -127,7 +130,14 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (recommendTopicListData = this.a) == null || qi.isEmpty(recommendTopicListData.getTopicName())) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (recommendTopicListData = this.a) == null || dj.isEmpty(recommendTopicListData.getTopicName())) {
+            return;
+        }
+        if (NewWebHotTopicPageSwitch.isOn()) {
+            if (view2.getContext() instanceof BaseActivity) {
+                ih5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                return;
+            }
             return;
         }
         new HotTopicActivityConfig(view2.getContext()).createNormalConfig(null, this.a.getTopicName(), "2").start();

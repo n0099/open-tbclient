@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaExtractor;
@@ -64,6 +65,7 @@ public class VideoTrackTranscoder {
         this.mMuxer = queuedMuxer;
     }
 
+    @SuppressLint({"NewApi"})
     private int drainDecoder(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -97,6 +99,7 @@ public class VideoTrackTranscoder {
         return invokeJ.intValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private int drainEncoder(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -216,6 +219,7 @@ public class VideoTrackTranscoder {
         }
     }
 
+    @SuppressLint({"InlinedApi"})
     public void setup(Mp4Info mp4Info) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mp4Info) == null) {

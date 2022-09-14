@@ -1,38 +1,17 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ProviderInfo;
-import android.content.pm.ResolveInfo;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.content.pm.ShortcutManagerCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.statistic.ConfigSpeedStat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.live.frame.IntentData;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.e03;
-import com.baidu.tieba.u42;
-import com.baidu.tieba.yl2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.n62;
+import com.baidu.tieba.ul2;
+import com.baidu.tieba.xd4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,182 +19,350 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import java.io.File;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class n63 {
+public class n63 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements u42.b {
+    public static class a extends w52 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xl2 a;
-        public final /* synthetic */ yl2.a b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ f d;
+        public final /* synthetic */ e h;
+        public final /* synthetic */ String i;
 
-        public a(xl2 xl2Var, yl2.a aVar, int i, f fVar) {
+        public a(e eVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xl2Var, aVar, Integer.valueOf(i), fVar};
+                Object[] objArr = {eVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = xl2Var;
-            this.b = aVar;
-            this.c = i;
-            this.d = fVar;
+            this.h = eVar;
+            this.i = str;
         }
 
-        @Override // com.baidu.tieba.u42.b
-        public void a(Bitmap bitmap) {
+        @Override // com.baidu.tieba.w52
+        public void Q(@NonNull re3 re3Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || a13.M() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, re3Var) == null) {
+                if (n63.a) {
+                    Log.d("PagesRoute", "downloadDependentPackages-fail:" + re3Var);
+                }
+                this.h.b(2113, re3Var);
             }
-            SwanAppActivity w = z03.K().w();
-            n63.q(w, this.a, this.b, bitmap, this.c);
-            n63.r(w, this.a, this.d);
+        }
+
+        @Override // com.baidu.tieba.w52
+        public void R() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (n63.a) {
+                    Log.d("PagesRoute", "downloadDependentPackages-success.");
+                }
+                this.h.a(this.i);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Runnable {
+    public static class b implements n62.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xl2 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ xl2 d;
-        public final /* synthetic */ Bitmap e;
-        public final /* synthetic */ yl2 f;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ y23 b;
+        public final /* synthetic */ e c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
 
-        public b(xl2 xl2Var, Context context, int i, xl2 xl2Var2, Bitmap bitmap, yl2 yl2Var) {
+        public b(boolean z, y23 y23Var, e eVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xl2Var, context, Integer.valueOf(i), xl2Var2, bitmap, yl2Var};
+                Object[] objArr = {Boolean.valueOf(z), y23Var, eVar, str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = xl2Var;
-            this.b = context;
-            this.c = i;
-            this.d = xl2Var2;
-            this.e = bitmap;
-            this.f = yl2Var;
+            this.a = z;
+            this.b = y23Var;
+            this.c = eVar;
+            this.d = str;
+            this.e = str2;
+            this.f = str3;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.n62.b
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zk1 X = hk2.X();
-                String q1 = this.a.q1();
-                if (!TextUtils.isEmpty(q1) && X.b(this.b, q1)) {
-                    n63.n("click");
-                    if (X.a(this.b, q1)) {
-                        if (this.c != 1) {
-                            n63.u(this.b);
-                            return;
-                        }
-                        return;
-                    } else if (X.c(this.b, q1)) {
-                        n63.n("show");
-                        if (this.c != 1) {
-                            n63.u(this.b);
-                            return;
-                        }
-                        return;
-                    }
+                n63.h(this.a, this.b.b, "pkg_retry_fail", String.valueOf(2113));
+                this.c.b(2113, null);
+            }
+        }
+
+        @Override // com.baidu.tieba.n62.b
+        public void b(re3 re3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, re3Var) == null) {
+                boolean o = n63.o(this.b.b, re3Var);
+                if (n63.a) {
+                    Log.d("PagesRoute", "getAppPackage-isNeedGetPkgRetry:" + o + ",isRetry:" + this.a + ",pmsErrorCode:" + re3Var);
                 }
-                if (hd3.j()) {
-                    n63.t(this.b, this.d.H(), this.d.K(), this.e, yl2.g1(this.b, this.f));
-                } else {
-                    try {
-                        this.b.sendBroadcast(n63.m(this.d.K(), this.e, yl2.g1(this.b, this.f)));
-                    } catch (Throwable th) {
-                        if (n63.a) {
-                            th.printStackTrace();
-                        }
-                        try {
-                            this.b.sendBroadcast(n63.m(this.d.K(), yd3.a(this.e, ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT, true), yl2.g1(this.b, this.f)));
-                        } catch (Throwable th2) {
-                            if (n63.a) {
-                                th2.printStackTrace();
-                            }
-                            s03.f(this.b, R.string.obfuscated_res_0x7f0f01c6).G();
-                        }
-                    }
+                if (o) {
+                    n63.i(this.b.b, re3Var);
+                    tn2.b().a(this.b.b);
+                    n63.k(this.b, this.e, this.d, this.c, this.f, true);
+                    return;
                 }
-                if (this.c != 1) {
-                    n63.u(this.b);
-                }
+                q23.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f132c).G();
+                n63.h(this.a, this.b.b, "pkg_retry_fail", String.valueOf(re3Var == null ? 0L : re3Var.a()));
+                this.c.b(2113, re3Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.n62.b
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                n63.h(this.a, this.b.b, "pkg_retry_success", "");
+                this.c.a(this.d);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements Runnable {
+    public static class c implements t52 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ e b;
+        public final /* synthetic */ String c;
+
+        public c(String str, e eVar, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, eVar, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = eVar;
+            this.c = str2;
+        }
+
+        @Override // com.baidu.tieba.t52
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                y23 M = y23.M();
+                if (M != null) {
+                    M.O0(this.a, true);
+                }
+                this.b.a(this.c);
+            }
+        }
+
+        @Override // com.baidu.tieba.t52
+        public void b(int i, re3 re3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, re3Var) == null) {
+                this.b.b(i, re3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements t52 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ e d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ String h;
+        public final /* synthetic */ String i;
+
+        public d(String str, boolean z, String str2, e eVar, String str3, String str4, String str5, String str6, String str7) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z), str2, eVar, str3, str4, str5, str6, str7};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = z;
+            this.c = str2;
+            this.d = eVar;
+            this.e = str3;
+            this.f = str4;
+            this.g = str5;
+            this.h = str6;
+            this.i = str7;
+        }
+
+        @Override // com.baidu.tieba.t52
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                x23.K().q().O0(this.a, true);
+                n63.h(this.b, this.c, "sub_pkg_retry_success", "");
+                this.d.a(this.e);
+            }
+        }
+
+        @Override // com.baidu.tieba.t52
+        public void b(int i, re3 re3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, re3Var) == null) {
+                boolean o = n63.o(this.c, re3Var);
+                if (n63.a) {
+                    Log.d("PagesRoute", "isNeedGetPkgRetry:" + o + ",isRetry:" + this.b + ",pmsErrorCode:" + re3Var);
+                }
+                if (o) {
+                    n63.i(this.f, re3Var);
+                    tn2.b().a(this.c);
+                    n63.n(this.f, this.g, this.h, this.a, this.i, this.e, this.d, true);
+                    return;
+                }
+                n63.h(this.b, this.c, "sub_pkg_retry_fail", String.valueOf(re3Var == null ? 0L : re3Var.a()));
+                this.d.b(i, re3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(String str);
+
+        void b(int i, re3 re3Var);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final e a;
+        public final boolean b;
 
         /* loaded from: classes5.dex */
-        public class a implements DialogInterface.OnClickListener {
+        public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ f b;
 
-            public a(c cVar) {
+            public a(f fVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {fVar, str};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.b = fVar;
+                this.a = str;
             }
 
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.a.a(this.a);
                 }
             }
         }
 
-        public c(Context context) {
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ int a;
+            public final /* synthetic */ re3 b;
+            public final /* synthetic */ f c;
+
+            public b(f fVar, int i, re3 re3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar, Integer.valueOf(i), re3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = fVar;
+                this.a = i;
+                this.b = re3Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.c.b) {
+                        q23.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f132c).G();
+                    }
+                    this.c.a.b(this.a, this.b);
+                }
+            }
+        }
+
+        public f(@NonNull e eVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {eVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -225,112 +372,25 @@ public final class n63 {
                     return;
                 }
             }
-            this.a = context;
+            this.a = eVar;
+            this.b = z;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.n63.e
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e03.a aVar = new e03.a(this.a);
-                aVar.n(new ig3());
-                e03 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f0102);
-                aVar.w(n63.p(this.a, c));
-                aVar.y();
-                aVar.H(R.string.obfuscated_res_0x7f0f011a, new a(this));
-                aVar.J(hk2.M().a());
-                aVar.a();
-                c.setCancelable(false);
-                c.show();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e03 a;
-        public final /* synthetic */ Context b;
-
-        public d(e03 e03Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e03Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e03Var;
-            this.b = context;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                ee3.g(this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                sg3.e0(new a(this, str));
             }
         }
 
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
+        @Override // com.baidu.tieba.n63.e
+        public void b(int i, re3 re3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setUnderlineText(false);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, re3Var) == null) {
+                sg3.e0(new b(this, i, re3Var));
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ xl2 c;
-
-        public e(f fVar, Context context, xl2 xl2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, context, xl2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-            this.b = context;
-            this.c = xl2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(n63.s(this.b, this.c.K(), this.c.H()));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void a(int i);
     }
 
     static {
@@ -346,214 +406,212 @@ public final class n63 {
                 return;
             }
         }
-        a = kh1.a;
+        a = ij1.a;
     }
 
-    public static void i(Context context, xl2 xl2Var) {
+    public static void g(y23 y23Var, ys2 ys2Var, String str, e eVar, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, context, xl2Var) == null) {
-            k(context, xl2Var, null);
-        }
-    }
-
-    public static void j(Context context, xl2 xl2Var, int i, f fVar) {
-        Uri C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65546, null, context, xl2Var, i, fVar) == null) {
-            String Q = xl2Var.Q();
-            if (TextUtils.isEmpty(Q) || (C = ue3.C(Q)) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65543, null, y23Var, ys2Var, str, eVar, str2) == null) {
+            if (y23Var != null) {
+                y23Var.B().I(y23Var.getAppId());
+            }
+            if (eVar == null) {
                 return;
             }
-            l(xl2Var);
-            yl2.a aVar = (yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) ((yl2.a) new yl2.a().v0(xl2Var.H())).I0(xl2Var.T())).P0(xl2Var.c0())).R0(xl2Var.e0())).y0(xl2Var.L())).A0(xl2Var.n0())).L0(xl2Var.p0())).a1(xl2Var.k0())).u0(xl2Var.G())).Q0(xl2Var.d0())).K0(yl2.h1(xl2Var.H(), xl2Var.T(), xl2Var.G()));
-            if (xd3.d(C)) {
-                q(context, xl2Var, aVar, xd3.c(C, context), i);
-                r(context, xl2Var, fVar);
-                return;
-            }
-            u42.c(Q, aVar.G(), new a(xl2Var, aVar, i, fVar));
-        }
-    }
-
-    public static void k(Context context, xl2 xl2Var, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, context, xl2Var, fVar) == null) {
-            j(context, xl2Var, 0, fVar);
-        }
-    }
-
-    public static void l(xl2 xl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, xl2Var) == null) {
-            xl2Var.R0(null);
-            xl2Var.I0("1230000000000000");
-        }
-    }
-
-    public static Intent m(String str, Bitmap bitmap, Intent intent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, str, bitmap, intent)) == null) {
-            Intent intent2 = new Intent(ShortcutManagerCompat.ACTION_INSTALL_SHORTCUT);
-            intent2.putExtra("android.intent.extra.shortcut.INTENT", intent);
-            intent2.putExtra("android.intent.extra.shortcut.NAME", str);
-            intent2.putExtra("android.intent.extra.shortcut.ICON", bitmap);
-            intent2.putExtra("duplicate", false);
-            return intent2;
-        }
-        return (Intent) invokeLLL.objValue;
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            c83 c83Var = new c83();
-            c83Var.f = z03.K().getAppId();
-            c83Var.b = str;
-            c83Var.a = t73.n(z03.K().k());
-            if (a13.b0() != null && a13.b0().W() != null) {
-                c83Var.c = a13.b0().W().T();
-            }
-            t73.x("1591", c83Var);
-        }
-    }
-
-    @NonNull
-    public static String o(Context context) {
-        InterceptResult invokeL;
-        ActivityInfo activityInfo;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.HOME");
-            ResolveInfo resolveActivity = context.getPackageManager().resolveActivity(intent, 0);
-            if (resolveActivity != null && (activityInfo = resolveActivity.activityInfo) != null && !"android".equals(activityInfo.packageName)) {
-                PackageManager packageManager = context.getPackageManager();
-                ActivityInfo activityInfo2 = resolveActivity.activityInfo;
-                List<ProviderInfo> queryContentProviders = packageManager.queryContentProviders(activityInfo2.processName, activityInfo2.applicationInfo.uid, 65536);
-                if (queryContentProviders == null) {
-                    return "com.android.launcher3.settings";
-                }
-                for (ProviderInfo providerInfo : queryContentProviders) {
-                    if (!TextUtils.isEmpty(providerInfo.authority) && !TextUtils.isEmpty(providerInfo.readPermission) && Pattern.matches(".*launcher.*permission\\.READ_SETTINGS", providerInfo.readPermission)) {
-                        for (String str : providerInfo.authority.split(ParamableElem.DIVIDE_PARAM)) {
-                            if (str != null && str.endsWith(".settings")) {
-                                return str;
-                            }
-                        }
-                        continue;
+            if (y23Var != null && ys2Var != null && !TextUtils.isEmpty(ys2Var.a) && !TextUtils.isEmpty(ys2Var.d)) {
+                String str3 = ys2Var.d;
+                String c0 = y23Var.c0(ys2Var.a);
+                boolean r0 = y23Var.r0(str3);
+                if (!p02.d() && !xy2.H() && !xy2.D()) {
+                    if (fy2.k(ys2Var.a)) {
+                        eVar.a(str);
+                        return;
                     }
+                    boolean z = true;
+                    if (r0) {
+                        boolean A = ul2.A(y23Var.b, y23Var.k0());
+                        boolean o0 = y23Var.o0();
+                        if (A) {
+                            if (!o0) {
+                                eVar.a(str);
+                                return;
+                            }
+                            Set<xd4.a> i = fy2.i(y23Var.W().f0());
+                            if (i != null && !i.isEmpty()) {
+                                z = false;
+                            }
+                            if (z) {
+                                eVar.a(str);
+                                return;
+                            } else {
+                                j(i, eVar, str);
+                                return;
+                            }
+                        } else if (o0) {
+                            k(y23Var, str3, str, eVar, str2, false);
+                            return;
+                        }
+                    }
+                    if (TextUtils.isEmpty(c0)) {
+                        eVar.b(2111, null);
+                        return;
+                    } else if (y23Var.t0(c0)) {
+                        eVar.a(str);
+                        return;
+                    } else if (y23Var.v0(c0) && y23Var.u0(c0)) {
+                        eVar.a(str);
+                        y23Var.O0(c0, true);
+                        return;
+                    } else {
+                        String R = y23Var.R(c0);
+                        if (TextUtils.isEmpty(R)) {
+                            eVar.b(2112, null);
+                            return;
+                        }
+                        boolean q0 = y23Var.q0(str3);
+                        if (!ul2.A(y23Var.b, y23Var.k0()) && !q0) {
+                            k(y23Var, str3, str, eVar, str2, false);
+                            return;
+                        }
+                        HybridUbcFlow q = dw2.q("route", str2);
+                        q.F(new UbcFlowEvent("na_start_sub_package_download"));
+                        q.D("sub_state", "1");
+                        m(y23Var.b, y23Var.k0(), "3", c0, R, str, new f(eVar, true));
+                        return;
+                    }
+                } else if (!r0 && TextUtils.isEmpty(c0)) {
+                    eVar.b(2111, null);
+                    return;
+                } else {
+                    eVar.a(str);
+                    return;
                 }
             }
-            return "com.android.launcher3.settings";
+            eVar.b(2110, null);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static SpannableStringBuilder p(Context context, e03 e03Var) {
+    public static void h(boolean z, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), str, str2, str3}) == null) && z) {
+            tn2.b().g(str);
+            r93.L(str2, str3);
+        }
+    }
+
+    public static void i(String str, re3 re3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, re3Var) == null) {
+            if ((re3Var == null ? 0L : re3Var.h()) == 2205) {
+                kb2.c().d().u(ch3.a(str), true, 12);
+            }
+        }
+    }
+
+    public static void j(Set<xd4.a> set, e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, set, eVar, str) == null) {
+            xd4 xd4Var = new xd4(set);
+            xd4Var.d("3");
+            a aVar = new a(eVar, str);
+            aVar.L(1);
+            ia4.d(xd4Var, aVar);
+        }
+    }
+
+    public static void k(y23 y23Var, String str, String str2, e eVar, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{y23Var, str, str2, eVar, str3, Boolean.valueOf(z)}) == null) || eVar == null) {
+            return;
+        }
+        if (y23Var == null) {
+            eVar.b(2111, null);
+            return;
+        }
+        HybridUbcFlow q = dw2.q("route", str3);
+        q.F(new UbcFlowEvent("na_start_sub_package_download"));
+        q.D("sub_state", "1");
+        ae4 ae4Var = new ae4(y23Var.b, x23.K().k());
+        ae4Var.q(sg3.o(y23Var.k0()));
+        ae4Var.t(str);
+        ia4.c(ae4Var, new n62(y23Var.b, new b(z, y23Var, eVar, str2, str, str3)));
+    }
+
+    public static void l(String str, String str2, String str3, String str4, String str5, String str6, e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, str2, str3, str4, str5, str6, eVar}) == null) || eVar == null) {
+            return;
+        }
+        de4 de4Var = new de4(str, str2, str5, 0);
+        de4Var.d(str3);
+        ia4.h(de4Var, new p62(str, str2, new c(str4, eVar, str6)));
+    }
+
+    public static void m(String str, String str2, String str3, String str4, String str5, String str6, e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{str, str2, str3, str4, str5, str6, eVar}) == null) {
+            n(str, str2, str3, str4, str5, str6, eVar, false);
+        }
+    }
+
+    public static void n(String str, String str2, String str3, String str4, String str5, String str6, e eVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, str4, str5, str6, eVar, Boolean.valueOf(z)}) == null) || eVar == null) {
+            return;
+        }
+        String e2 = tn2.b().e(str, str4);
+        de4 de4Var = new de4(str, str2, str5, 0);
+        de4Var.d(str3);
+        ia4.h(de4Var, new p62(str, str2, new d(str4, z, e2, eVar, str6, str, str2, str3, str5)));
+    }
+
+    public static boolean o(String str, re3 re3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, e03Var)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            String string = context.getString(R.string.obfuscated_res_0x7f0f0101);
-            String string2 = context.getString(R.string.obfuscated_res_0x7f0f0103);
-            int indexOf = string.indexOf(string2);
-            int length = string2.length() + indexOf;
-            spannableStringBuilder.append((CharSequence) string);
-            spannableStringBuilder.setSpan(new d(e03Var, context), indexOf, length, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.obfuscated_res_0x7f0603c4)), indexOf, length, 33);
-            return spannableStringBuilder;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, re3Var)) == null) {
+            long h = re3Var == null ? 0L : re3Var.h();
+            return SwanAppNetworkUtils.i(fm2.c()) && tn2.b().f(str) && (h == 2101 || h == 2205);
         }
-        return (SpannableStringBuilder) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static void q(Context context, xl2 xl2Var, yl2 yl2Var, Bitmap bitmap, int i) {
+    public static boolean p(vn2 vn2Var, ul2.g gVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, xl2Var, yl2Var, bitmap, Integer.valueOf(i)}) == null) || context == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, vn2Var, gVar)) == null) {
+            if (gVar == null) {
+                return false;
+            }
+            return q(vn2Var, gVar.b);
         }
-        if (bitmap == null) {
-            s03.f(context, R.string.obfuscated_res_0x7f0f130d).G();
-        } else if (a13.b0() == null) {
-        } else {
-            ExecutorUtilsExt.postOnElastic(new b(a13.b0().W(), context, i, xl2Var, bitmap, yl2Var), "add quick app shortcut", 2);
-        }
+        return invokeLL.booleanValue;
     }
 
-    public static void r(Context context, xl2 xl2Var, f fVar) {
+    public static boolean q(vn2 vn2Var, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65554, null, context, xl2Var, fVar) == null) || fVar == null) {
-            return;
-        }
-        if (context == null) {
-            fVar.a(-1);
-        } else {
-            ud3.d(new e(fVar, context, xl2Var), "SwanAppShortcutHelper", 1000L, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public static int s(@NonNull Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, str2)) == null) {
-            try {
-                Cursor query = context.getContentResolver().query(Uri.parse(String.format("content://%s/favorites?notify=true", o(context))), new String[]{"title", IntentData.KEY}, "title = ?", new String[]{str}, null);
-                while (query != null && query.moveToNext()) {
-                    String string = query.getString(query.getColumnIndex(IntentData.KEY));
-                    if (string != null && string.contains(str2)) {
-                        if (query != null) {
-                            query.close();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, vn2Var, swanAppConfigData)) == null) {
+            if (vn2Var != null && !TextUtils.isEmpty(vn2Var.e0()) && !p02.d() && !xy2.D()) {
+                String f2 = qg3.f(vn2Var.e0());
+                if (!TextUtils.isEmpty(f2) && f2.startsWith(File.separator)) {
+                    f2 = f2.substring(1);
+                }
+                if (swanAppConfigData != null && swanAppConfigData.b != null) {
+                    String c2 = q63.c(f2, swanAppConfigData);
+                    if (swanAppConfigData.b.c(c2)) {
+                        return false;
+                    }
+                    String str = swanAppConfigData.c.c.get(c2);
+                    if (!TextUtils.isEmpty(str)) {
+                        if (va4.i().n(vn2Var.H(), vn2Var.v1(), str)) {
+                            return !new File(ul2.e.i(vn2Var.H(), vn2Var.v1()), str).exists();
                         }
-                        return 1;
+                        return true;
                     }
                 }
-                if (query != null) {
-                    query.close();
-                }
-                return 0;
-            } catch (Exception e2) {
-                if (a) {
-                    Log.d("SwanAppShortcutHelper", "fail: " + e2);
-                    return -1;
-                }
-                return -1;
             }
+            return false;
         }
-        return invokeLLL.intValue;
-    }
-
-    @TargetApi(26)
-    public static void t(Context context, String str, String str2, Bitmap bitmap, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65556, null, context, str, str2, bitmap, intent) == null) {
-            ShortcutManager shortcutManager = (ShortcutManager) context.getSystemService(ShortcutManager.class);
-            if (shortcutManager.isRequestPinShortcutSupported() && bitmap != null) {
-                try {
-                    shortcutManager.requestPinShortcut(new ShortcutInfo.Builder(context, str).setShortLabel(str2).setLongLabel(str2).setIcon(Icon.createWithBitmap(bitmap)).setIntent(intent).build(), null);
-                    return;
-                } catch (IllegalStateException e2) {
-                    if (a) {
-                        throw e2;
-                    }
-                    return;
-                }
-            }
-            s03.f(context, R.string.obfuscated_res_0x7f0f01c7).G();
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void u(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, context) == null) {
-            if (!(context instanceof Activity)) {
-                if (a) {
-                    throw new IllegalArgumentException("context must be activity.");
-                }
-                return;
-            }
-            ue3.a0(new c(context));
-        }
+        return invokeLL.booleanValue;
     }
 }

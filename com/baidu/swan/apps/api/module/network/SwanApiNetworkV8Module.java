@@ -4,9 +4,9 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.tieba.at1;
-import com.baidu.tieba.bp1;
-import com.baidu.tieba.oq1;
+import com.baidu.tieba.ms1;
+import com.baidu.tieba.yu1;
+import com.baidu.tieba.zq1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,14 +18,14 @@ public class SwanApiNetworkV8Module {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "_naV8Network";
     public transient /* synthetic */ FieldHolder $fh;
-    public oq1 requestApi;
+    public ms1 requestApi;
 
-    public SwanApiNetworkV8Module(@NonNull bp1 bp1Var) {
+    public SwanApiNetworkV8Module(@NonNull zq1 zq1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public class SwanApiNetworkV8Module {
                 return;
             }
         }
-        this.requestApi = new oq1(bp1Var);
+        this.requestApi = new ms1(zq1Var);
     }
 
     @JavascriptInterface
@@ -43,7 +43,7 @@ public class SwanApiNetworkV8Module {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            at1 T = this.requestApi.T(jsObject);
+            yu1 T = this.requestApi.T(jsObject);
             return T == null ? "" : T.a();
         }
         return (String) invokeL.objValue;

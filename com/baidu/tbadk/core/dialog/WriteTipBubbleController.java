@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.u16;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.k36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public u16 b;
+    public k36 b;
     public b c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -150,23 +150,23 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        u16 u16Var;
+        k36 k36Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (u16Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (k36Var = this.b) == null) {
             return;
         }
-        u16Var.N();
+        k36Var.N();
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || qi.isEmpty(str) || qi.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || dj.isEmpty(str) || dj.isEmpty(str2)) {
             return;
         }
         if (this.b == null) {
-            u16 u16Var = new u16(this.a, view2);
-            this.b = u16Var;
-            u16Var.q0(R.drawable.pic_post_findlink);
+            k36 k36Var = new k36(this.a, view2);
+            this.b = k36Var;
+            k36Var.q0(R.drawable.pic_post_findlink);
             this.b.a0(2);
             this.b.W(true);
             this.b.p0(19);
@@ -197,7 +197,7 @@ public class WriteTipBubbleController {
             int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
             int dimensionPixelSize6 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
             int dimensionPixelSize7 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X006);
-            this.b.q0(R.drawable.obfuscated_res_0x7f0802ea);
+            this.b.q0(R.drawable.obfuscated_res_0x7f0802ee);
             this.b.a0(1);
             this.b.T(16);
             this.b.Q(2);

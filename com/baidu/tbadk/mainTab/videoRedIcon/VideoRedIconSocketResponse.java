@@ -3,7 +3,7 @@ package com.baidu.tbadk.mainTab.videoRedIcon;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x65;
+import com.baidu.tieba.f95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.VideoRedIcon.DataRes;
 import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes3.dex */
-public class VideoRedIconSocketResponse extends SocketResponsedMessage implements x65 {
+public class VideoRedIconSocketResponse extends SocketResponsedMessage implements f95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoRedIconResIdl mData;
@@ -62,14 +62,14 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         return invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.f95
     public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.redIcons : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x65
+    @Override // com.baidu.tieba.f95
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

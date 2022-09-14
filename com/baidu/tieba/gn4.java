@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public interface gn4 {
-    void a(Object obj);
+    String a();
 
-    void onError(String str);
+    void b(HashMap<String, String> hashMap, hn4 hn4Var);
 }

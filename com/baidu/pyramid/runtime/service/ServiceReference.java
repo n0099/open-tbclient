@@ -62,10 +62,19 @@ public final class ServiceReference {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.mNameSpace.hashCode() * 31) + this.mName.hashCode() : invokeV.intValue;
     }
 
-    public String toString() {
+    public String toIdentity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mNameSpace + "," + this.mName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return "ServiceReference{mNameSpace='" + this.mNameSpace + "', mName='" + this.mName + "'}";
         }
         return (String) invokeV.objValue;

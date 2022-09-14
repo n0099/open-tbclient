@@ -38,7 +38,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintLayoutStates;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.Constraints;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import androidx.constraintlayout.widget.StateSet;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingParent3;
@@ -1594,25 +1594,25 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         if (interceptable == null || interceptable.invokeL(65569, this, attributeSet) == null) {
             IS_IN_EDIT_MODE = isInEditMode();
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.MotionLayout);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.MotionLayout);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 boolean z = true;
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
-                    if (index == R$styleable.MotionLayout_layoutDescription) {
+                    if (index == 2) {
                         this.mScene = new MotionScene(getContext(), this, obtainStyledAttributes.getResourceId(index, -1));
-                    } else if (index == R$styleable.MotionLayout_currentState) {
+                    } else if (index == 1) {
                         this.mCurrentState = obtainStyledAttributes.getResourceId(index, -1);
-                    } else if (index == R$styleable.MotionLayout_motionProgress) {
+                    } else if (index == 4) {
                         this.mTransitionGoalPosition = obtainStyledAttributes.getFloat(index, 0.0f);
                         this.mInTransition = true;
-                    } else if (index == R$styleable.MotionLayout_applyMotionScene) {
+                    } else if (index == 0) {
                         z = obtainStyledAttributes.getBoolean(index, z);
-                    } else if (index == R$styleable.MotionLayout_showPaths) {
+                    } else if (index == 5) {
                         if (this.mDebugPath == 0) {
                             this.mDebugPath = obtainStyledAttributes.getBoolean(index, false) ? 2 : 0;
                         }
-                    } else if (index == R$styleable.MotionLayout_motionDebug) {
+                    } else if (index == 3) {
                         this.mDebugPath = obtainStyledAttributes.getInt(index, 0);
                     }
                 }

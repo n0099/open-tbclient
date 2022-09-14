@@ -3,15 +3,15 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.JvmName;
+@JvmName(name = "LayerUtils")
 /* loaded from: classes6.dex */
-public class vy0 {
+public final class vy0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<Class<? extends bz0>, bz0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,45 +27,26 @@ public class vy0 {
                 return;
             }
         }
-        a = new HashMap<>();
+        p31.a(253.0f);
+        p31.a(9.0f);
     }
 
-    public vy0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static <T extends bz0> T a(Class<T> cls) {
+    public static final yv0 a(ArrayList<uv0> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            T t = (T) a.get(cls);
-            if (t == null) {
-                synchronized (vy0.class) {
-                    t = (T) a.get(cls);
-                    if (t == null) {
-                        t = (T) wy0.a(cls);
-                        a.put(cls, t);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<uv0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    uv0 next = it.next();
+                    if (next instanceof yv0) {
+                        return (yv0) next;
                     }
                 }
+                return null;
             }
-            return t;
+            return null;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public static <T extends bz0> az0 b(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? a(cls).b() : (az0) invokeL.objValue;
+        return (yv0) invokeL.objValue;
     }
 }

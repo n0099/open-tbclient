@@ -1,14 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface zz1 {
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
+public class zz1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean onKeyDown(int i, KeyEvent keyEvent);
+    public static File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new File(ul2.q(), "sConsole-core") : (File) invokeV.objValue;
+    }
 
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? mb3.a().getLong("get_app_console_core_code", -1L) : invokeV.longValue;
+    }
 
-    boolean onTouchEvent(MotionEvent motionEvent);
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mb3.a().getString("get_app_console_core", "-1") : (String) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            e("-1", -1L);
+        }
+    }
+
+    public static void e(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+            mb3.a().putString("get_app_console_core", str);
+            mb3.a().putLong("get_app_console_core_code", j);
+        }
+    }
 }

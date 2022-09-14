@@ -192,7 +192,7 @@ public final class f extends b {
                 });
                 fVar.a(this.mAdTemplate, this.mAdInfo);
                 fVar.t(true);
-                this.gh.gs.add(new c.InterfaceC0533c(this, fVar) { // from class: com.kwad.components.ad.interstitial.b.f.6
+                this.gh.gs.add(new c.InterfaceC0538c(this, fVar) { // from class: com.kwad.components.ad.interstitial.b.f.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ f hp;
@@ -217,7 +217,7 @@ public final class f extends b {
                         this.hr = fVar;
                     }
 
-                    @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0533c
+                    @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0538c
                     public final void cH() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -426,7 +426,7 @@ public final class f extends b {
 
                 @Override // com.kwad.components.ad.interstitial.widget.i
                 /* renamed from: do  reason: not valid java name */
-                public final void mo81do() {
+                public final void mo82do() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                         this.hp.e(2, 30);
@@ -528,7 +528,7 @@ public final class f extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0910aa);
+            KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0910c8);
             this.ge = ksAutoCloseView;
             ksAutoCloseView.setViewListener(new KsAutoCloseView.a(this) { // from class: com.kwad.components.ad.interstitial.b.f.1
                 public static /* synthetic */ Interceptable $ic;

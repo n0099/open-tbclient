@@ -1,195 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class id5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public a b;
-    public b c;
+    public kd5 a;
+    public String b;
 
-    /* loaded from: classes4.dex */
-    public static class a extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public String d;
-        public String e;
-        public boolean f;
-        public int g;
-        public View.OnClickListener h;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = true;
-            this.c = R.drawable.new_pic_emotion_05;
-            this.d = id5.c(R.string.obfuscated_res_0x7f0f0c59, new Object[0]);
-            this.e = id5.c(R.string.obfuscated_res_0x7f0f0fbc, new Object[0]);
-            this.f = false;
-            this.g = ri.f(id5.getContext(), R.dimen.obfuscated_res_0x7f0702bf);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
-        public String g;
-        public View.OnClickListener h;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = true;
-            this.c = R.drawable.new_pic_emotion_08;
-            this.d = ri.f(id5.getContext(), R.dimen.obfuscated_res_0x7f070292);
-            this.e = id5.c(R.string.obfuscated_res_0x7f0f0fbc, new Object[0]);
-            this.f = id5.c(R.string.obfuscated_res_0x7f0f0fbd, new Object[0]);
-            this.g = id5.c(R.string.obfuscated_res_0x7f0f0488, new Object[0]);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public boolean g;
-        public View.OnClickListener h;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ri.f(id5.getContext(), R.dimen.tbds182);
-            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            this.c = id5.c(R.string.obfuscated_res_0x7f0f0a40, new Object[0]);
-            this.d = id5.c(R.string.obfuscated_res_0x7f0f0dda, new Object[0]);
-            this.e = id5.c(R.string.obfuscated_res_0x7f0f09ee, new Object[0]);
-            this.f = id5.c(R.string.obfuscated_res_0x7f0f03ef, new Object[0]);
-            this.g = false;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = id5.c(R.string.obfuscated_res_0x7f0f0a46, new Object[0]);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static abstract class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public id5() {
+    public id5(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = str;
+    }
+
+    public final void a(String str, int i) {
+        int intValue;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || dj.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
+            return;
+        }
+        int i2 = intValue + 1;
+        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
+        if (intValue2 > 0) {
+            i = (i + (intValue2 * (i2 - 1))) / i2;
+        }
+        TbSingleton.getInstance().setAnimAvgFps(str, i);
+        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
+        if (i2 >= 5) {
+            TbSingleton.getInstance().setAnimComputedFps(str, i);
+            jd5.a();
         }
     }
 
-    public static String c(int i, Object... objArr) {
-        InterceptResult invokeIL;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) ? getContext().getString(i, objArr) : (String) invokeIL.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || Build.VERSION.SDK_INT < 16) {
+            return;
+        }
+        if (this.a == null) {
+            this.a = new kd5();
+        }
+        this.a.c();
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
+    public void c() {
+        kd5 kd5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? TbadkCoreApplication.getInst().getApplicationContext() : (Context) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (kd5Var = this.a) == null || Build.VERSION.SDK_INT < 16) {
+            return;
+        }
+        kd5Var.d();
+        a(this.b, this.a.b());
     }
 }

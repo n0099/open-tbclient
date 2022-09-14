@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.tieba.ct;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dt {
+public abstract class dt<VM extends ct<? extends TaskDialogData>> implements et<TaskDialogData, VM> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public dt() {
@@ -24,50 +21,6 @@ public class dt {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static Handler a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (dt.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
-                }
-            }
-            return a;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
-            }
-        }
-    }
-
-    public static void d(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
-            if (j > 0) {
-                a().postDelayed(runnable, j);
-            } else {
-                c(runnable);
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import com.baidu.tieba.jn5;
+import com.baidu.tieba.up5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes3.dex */
-public final class OrderedContactsComparator implements Comparator<jn5>, Serializable {
+public final class OrderedContactsComparator implements Comparator<up5>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 1284474050586872045L;
@@ -32,18 +32,18 @@ public final class OrderedContactsComparator implements Comparator<jn5>, Seriali
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(jn5 jn5Var, jn5 jn5Var2) {
+    public int compare(up5 up5Var, up5 up5Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jn5Var, jn5Var2)) == null) {
-            if (jn5Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, up5Var, up5Var2)) == null) {
+            if (up5Var == null) {
                 return -1;
             }
-            if (jn5Var2 == null) {
+            if (up5Var2 == null) {
                 return 1;
             }
-            String b = jn5Var.b();
-            String b2 = jn5Var2.b();
+            String b = up5Var.b();
+            String b2 = up5Var2.b();
             if ("#".equals(b)) {
                 return 1;
             }

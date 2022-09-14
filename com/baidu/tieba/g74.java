@@ -1,195 +1,295 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class g74 {
+public class g74 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
-    public Drawable e;
-    public boolean f;
+    public List<i84> a;
+    public SensorManager b;
+    public double c;
+    public LocationClient d;
+    public boolean e;
+    public BDLocation f;
     public boolean g;
-    public int h;
-    public int i;
-    public long j;
-    public e74 k;
-    public k74 l;
 
-    public g74(int i, int i2, int i3, boolean z) {
+    /* loaded from: classes4.dex */
+    public class a implements BDLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g74 a;
+
+        public a(g74 g74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g74Var;
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if (bDLocation == null || this.a.a.size() <= 0) {
+                    this.a.n();
+                    return;
+                }
+                this.a.f = bDLocation;
+                for (i84 i84Var : this.a.a) {
+                    if (i84Var.k) {
+                        MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).satellitesNum(bDLocation.getSatelliteNumber()).build();
+                        BaiduMap map = i84Var.l.getMap();
+                        map.setMyLocationEnabled(true);
+                        map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                        map.setMyLocationData(build);
+                    }
+                }
+            }
+        }
+    }
+
+    public g74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
-        this.f = true;
-        this.g = true;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0L;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.g = z;
+        this.e = false;
+        this.g = false;
+        this.a = new ArrayList(1);
+        l();
     }
 
-    public static g74 k(g74 g74Var) {
+    public i84 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g74Var)) == null) {
-            if (g74Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return new g74(g74Var.a, g74Var.b, g74Var.c, g74Var.g);
+            for (i84 i84Var : this.a) {
+                if (i84Var != null && TextUtils.equals(i84Var.j, str)) {
+                    return i84Var;
+                }
+            }
+            return null;
         }
-        return (g74) invokeL.objValue;
+        return (i84) invokeL.objValue;
     }
 
-    public static g74 l(g74 g74Var, boolean z) {
-        InterceptResult invokeLZ;
+    public BDLocation e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, g74Var, z)) == null) {
-            if (g74Var == null) {
-                return null;
-            }
-            return new g74(g74Var.a, g74Var.b, g74Var.c, z);
-        }
-        return (g74) invokeLZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (BDLocation) invokeV.objValue;
     }
 
-    public Drawable a(Context context) {
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d == null) {
+            LocationClient locationClient = new LocationClient(AppRuntime.getAppContext());
+            this.d = locationClient;
+            locationClient.registerLocationListener(new a(this));
+            LocationClientOption locationClientOption = new LocationClientOption();
+            locationClientOption.setOpenGps(true);
+            locationClientOption.setCoorType(CoordType.GCJ02.name());
+            locationClientOption.setScanSpan(1000);
+            this.d.setLocOption(locationClientOption);
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LocationClient locationClient = this.d;
+            return locationClient != null && locationClient.isStarted();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            n();
+            for (i84 i84Var : this.a) {
+                i84Var.l.onPause();
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            n();
+            this.g = false;
+            if (Build.VERSION.SDK_INT > 19) {
+                for (i84 i84Var : this.a) {
+                    i84Var.l.onDestroy();
+                }
+            }
+            this.a.clear();
+        }
+    }
+
+    public boolean insert(i84 i84Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Drawable drawable = this.e;
-            if (drawable != null) {
-                return drawable;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, i84Var)) == null) {
+            if (i84Var == null) {
+                return false;
             }
-            if (this.c <= 0) {
-                return null;
-            }
-            return context.getResources().getDrawable(this.c);
+            this.a.add(i84Var);
+            return true;
         }
-        return (Drawable) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public k74 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (k74) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public e74 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : (e74) invokeV.objValue;
-    }
-
-    public String h(Context context) {
+    public boolean j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            String str = this.d;
-            if (str != null) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            i84 d = d(str);
+            if (d != null) {
+                this.a.remove(d);
+                return true;
             }
-            if (this.b <= 0) {
-                return null;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            l();
+            for (i84 i84Var : this.a) {
+                i84Var.l.onResume();
             }
-            return context.getResources().getString(this.b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.c = i;
         }
     }
 
-    public void n(long j) {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.j = j;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.g) {
+            f();
+            LocationClient locationClient = this.d;
+            if (locationClient == null || locationClient.isStarted()) {
+                return;
+            }
+            this.d.start();
+            m();
+            yz1.o("map", "start location");
         }
     }
 
-    public void o(int i) {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.i = i;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.e) {
+            return;
+        }
+        SensorManager sensorManager = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
+        this.b = sensorManager;
+        if (sensorManager != null) {
+            sensorManager.registerListener(this, sensorManager.getDefaultSensor(3), 2);
+            this.e = true;
         }
     }
 
-    public void p(e74 e74Var) {
+    public final void n() {
+        LocationClient locationClient;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, e74Var) == null) {
-            this.k = e74Var;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.g && (locationClient = this.d) != null && locationClient.isStarted()) {
+            this.d.stop();
+            o();
+            yz1.o("map", "stop location");
         }
     }
 
-    public void q(int i) {
+    public final void o() {
+        SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.b = i;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (sensorManager = this.b) != null && this.e) {
+            sensorManager.unregisterListener(this);
+            this.e = false;
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048589, this, sensor, i) == null) {
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, sensorEvent) == null) {
+            double d = sensorEvent.values[0];
+            if (Math.abs(d - this.c) > 1.0d) {
+                for (i84 i84Var : this.a) {
+                    MyLocationData locationData = i84Var.l.getMap().getLocationData();
+                    if (locationData != null && i84Var.k) {
+                        i84Var.l.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
+                        f();
+                    }
+                }
+            }
+            this.c = d;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            if (z) {
+                this.g = true;
+                l();
+                return;
+            }
+            n();
+            this.g = false;
         }
     }
 }

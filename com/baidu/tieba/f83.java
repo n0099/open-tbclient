@@ -1,128 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class f83 {
+public class f83 extends j83<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context m;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ SwanInterfaceType e;
-
-        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public f83(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = swanInterfaceType;
         }
+        this.m = context;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.a;
-                boolean z = (i == 2000 || i == 0) ? false : true;
-                String n = t73.n(z03.K().k());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v73
+    /* renamed from: P */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? w73.c(jSONObject) : (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v73
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            y23 M = y23.M();
+            if (M != null) {
                 JSONObject jSONObject = new JSONObject();
-                ae3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, z03.K().getAppId());
-                ae3.f(jSONObject, "hostName", hk2.n().a());
-                ae3.f(jSONObject, "network", zg4.e());
-                ae3.f(jSONObject, "launchid", z03.K().q().W().V());
-                if (z) {
-                    ae3.f(jSONObject, "response", this.b);
-                    ae3.f(jSONObject, "statusCode", this.c);
-                    ae3.f(jSONObject, "request_url", this.d);
-                }
-                f83.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
-            }
-        }
-    }
-
-    public static void a(SwanInterfaceType swanInterfaceType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
-            c(swanInterfaceType, 2000, null, null);
-        }
-    }
-
-    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
-            ud3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
-        }
-    }
-
-    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
-            String str3 = null;
-            if (response != null) {
-                String valueOf = String.valueOf(response.code());
-                str3 = response.request().url().toString();
-                str2 = valueOf;
-            } else {
-                str2 = null;
-            }
-            b(swanInterfaceType, i, str3, str2, str);
-        }
-    }
-
-    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("from", str);
-                jSONObject2.put("type", str2);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("page", str3);
-                }
-                jSONObject2.put("value", String.valueOf(i));
-                if (jSONObject != null) {
-                    jSONObject2.put("ext", jSONObject);
-                }
-                h73.k("874", jSONObject2);
-                if (z) {
-                    h73.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
-                }
-            } catch (JSONException e) {
-                if (a13.v) {
+                try {
+                    jSONObject.put("ma_id", M.O());
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                v("data", jSONObject.toString());
+                return true;
             }
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.j83
+    public HttpRequest w(j83 j83Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j83Var)) == null) ? fm2.o().M(this.m, j83Var.B()) : (HttpRequest) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.j83
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.OPEN_ID : (SwanInterfaceType) invokeV.objValue;
     }
 }

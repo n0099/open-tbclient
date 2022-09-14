@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ac6;
-import com.baidu.tieba.d9;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 import com.baidu.tieba.faceshop.forumpackage.message.ForumEmotionCenterResponseMessage;
+import com.baidu.tieba.qd6;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class ForumEmotionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public final ac6 c;
+    public final qd6 c;
     public final HttpMessageListener d;
 
     /* loaded from: classes4.dex */
@@ -76,10 +76,10 @@ public class ForumEmotionModel extends BdBaseModel {
                     if (forumEmotionCenterResponseMessage.getStatusCode() == 200) {
                         if (forumEmotionCenterResponseMessage.getError() == 0 && forumEmotionCenterResponseMessage.data != null) {
                             if (this.a.a == 1) {
-                                bVar.f1(forumEmotionCenterResponseMessage.data);
+                                bVar.d1(forumEmotionCenterResponseMessage.data);
                                 return;
                             } else {
-                                bVar.v0(forumEmotionCenterResponseMessage.data);
+                                bVar.s0(forumEmotionCenterResponseMessage.data);
                                 return;
                             }
                         }
@@ -94,11 +94,11 @@ public class ForumEmotionModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void f1(ForumEmotionData forumEmotionData);
+        void d1(ForumEmotionData forumEmotionData);
 
         void onFailed(String str);
 
-        void v0(ForumEmotionData forumEmotionData);
+        void s0(ForumEmotionData forumEmotionData);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +113,7 @@ public class ForumEmotionModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -121,7 +121,7 @@ public class ForumEmotionModel extends BdBaseModel {
         }
         this.a = 1;
         this.b = true;
-        this.c = new ac6();
+        this.c = new qd6();
         this.d = new a(this, CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
         registerTask();
         this.d.setTag(getUniqueId());
@@ -129,10 +129,10 @@ public class ForumEmotionModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public ac6 B() {
+    public qd6 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ac6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (qd6) invokeV.objValue;
     }
 
     public void C(b bVar) {

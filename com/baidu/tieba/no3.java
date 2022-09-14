@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes5.dex */
 public class no3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static float a = 3.0f;
-    public static float b = 1.5f;
-    public static float c = 0.12f;
-    public static float d = 0.06f;
-    public static float e = 0.13f;
-    public static float f = 0.12f;
-    public static float g = 0.19f;
-    public static float h = 0.05f;
-    public static float i = 0.48f;
-    public static float j = 0.33f;
-    public static float k = 0.19f;
-    public static float l = 0.45f;
-    public static float m = 0.15f;
-    public static float n = 0.12f;
-    public static float o = 0.13f;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948009143, "Lcom/baidu/tieba/no3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948009143, "Lcom/baidu/tieba/no3;");
-        }
+    @Inject(force = false)
+    public static oo3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? bs5.a() : (oo3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static po3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new wi3() : (po3) invokeV.objValue;
     }
 }

@@ -1,35 +1,39 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class e99 extends x89 implements sa9 {
+public class e99 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile e99 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public f99 B;
-    public String C;
-    public Thread D;
-    public long E;
-    public long F;
+    public f99 a;
 
     /* loaded from: classes3.dex */
-    public class a extends ta9 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e99 a;
+        public int a;
+        public Map<String, JSONObject> b;
 
-        public a(e99 e99Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e99Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,230 +43,167 @@ public class e99 extends x89 implements sa9 {
                     return;
                 }
             }
-            this.a = e99Var;
-        }
-
-        @Override // com.baidu.tieba.ta9, com.baidu.tieba.sa9
-        public void onExceptionThrown(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.z == null || this.a.l) {
-                return;
-            }
-            this.a.z.onExceptionThrown(str);
-        }
-
-        @Override // com.baidu.tieba.ta9
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.a.k = true;
-                if (this.a.z == null || this.a.l) {
-                    return;
-                }
-                this.a.z.onFinishedWriting(z);
-            }
+            this.a = 0;
+            this.b = new HashMap();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e99(String str, String str2, int[] iArr) throws Exception {
-        super(0, str, iArr);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689316, "Lcom/baidu/tieba/e99;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947689316, "Lcom/baidu/tieba/e99;");
+                return;
+            }
+        }
+        b = i99.m();
+    }
+
+    public e99() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, iArr};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.C = str2;
-        this.B.e(str2);
-        F(this);
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = j * 1000;
-            if (j2 < 0) {
-                j2 = 0;
-            }
-            this.E = j2;
-            if (this.e != null) {
-                if (j2 > this.e.getDuration()) {
-                    j2 = this.e.getDuration();
-                }
-                synchronized (this.c) {
-                    this.e.seek(j2);
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.x89
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
-            return;
-        }
-        long currentPosition = this.e.getCurrentPosition();
-        long j = this.E;
-        long j2 = currentPosition - j;
-        long j3 = this.F;
-        long duration = j3 > 0 ? j3 - j : this.e.getDuration();
-        double d = duration == 0 ? 0.0d : j2 / duration;
-        double d2 = d >= 0.0d ? d : 0.0d;
-        onProgressChanged(this.n, d2 > 1.0d ? 1.0d : d2, j2);
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.I();
-            Thread thread = this.D;
-            if (thread == null || !thread.isAlive()) {
-                Thread thread2 = new Thread(this);
-                this.D = thread2;
-                thread2.start();
-            }
-            super.I();
-        }
-    }
-
-    public void R(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            long j2 = j * 1000;
-            this.F = j2;
-            if (this.e != null) {
-                if (j2 > this.e.getDuration()) {
-                    j2 = this.e.getDuration();
-                }
-                synchronized (this.c) {
-                    this.e.h(j2);
-                }
-            }
-        }
-    }
-
-    public void S(ta9 ta9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ta9Var) == null) {
-            this.z = ta9Var;
-            this.B.d(new a(this));
-        }
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.l = true;
-            this.k = true;
-            Thread thread = this.D;
-            if (thread != null) {
-                try {
-                    thread.interrupt();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                this.D = null;
-            }
-            try {
-                this.B.g();
-            } catch (Exception e2) {
-                yb9.e("VideoMuxer", "cancel finishWriting error:" + e2.getMessage());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.sa9
-    public void onCancel() {
-        ta9 ta9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ta9Var = this.z) == null) {
-            return;
-        }
-        ta9Var.onCancel();
-    }
-
-    @Override // com.baidu.tieba.sa9
-    public void onExceptionThrown(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.z == null || this.l) {
-            return;
-        }
-        this.z.onExceptionThrown(str);
-    }
-
-    @Override // com.baidu.tieba.sa9
-    public void onProgressChanged(int i, double d, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) || this.z == null || this.l) {
-            return;
-        }
-        this.z.onProgressChanged(i, d, j);
-    }
-
-    @Override // com.baidu.tieba.sa9
-    public void onTrackEnd(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            try {
-                this.B.b();
-            } catch (Exception e) {
-                yb9.e("VideoMuxer", "onTrackEnd finishWriting error:" + e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.x89
-    public b99 p() throws IOException {
+    public static e99 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            f99 f99Var = new f99(this.C, m(), i());
-            this.B = f99Var;
-            return f99Var;
-        }
-        return (b99) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.D != null) {
-                this.D = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (e99.class) {
+                    if (c == null) {
+                        c = new e99();
+                    }
+                }
             }
-            try {
-                this.B.b();
-            } catch (Exception e) {
-                yb9.e("VideoMuxer", "onStop finishWriting error:" + e.getMessage());
+            return c;
+        }
+        return (e99) invokeV.objValue;
+    }
+
+    public void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && !TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str) && b()) {
+            this.a.c(str, z);
+        }
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            n89 o = n89.o();
+            if (o == null || o.g("2980", 32)) {
+                return o == null || !o.d("2980");
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            n89 o = n89.o();
+            if (o == null || o.g("2980", 32)) {
+                return o == null || !o.d("2980");
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d(s99 s99Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, s99Var)) == null) {
+            if (s99Var == null || s99Var.w() || !c()) {
+                return false;
+            }
+            this.a.f();
+            Map<String, a> v = this.a.v(7);
+            if (v != null && v.size() != 0) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    boolean z = false;
+                    for (String str : v.keySet()) {
+                        a aVar = v.get(str);
+                        if (aVar != null && !TextUtils.isEmpty(str)) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            JSONArray jSONArray = new JSONArray();
+                            for (JSONObject jSONObject3 : aVar.b.values()) {
+                                jSONArray.put(jSONObject3);
+                            }
+                            jSONObject2.put("total", aVar.a);
+                            jSONObject2.put("data", jSONArray);
+                            jSONObject.put(str.replace("-", ""), jSONObject2);
+                            z = true;
+                        }
+                    }
+                    if (z) {
+                        u89 u89Var = new u89("2980");
+                        u89Var.y(jSONObject);
+                        u89Var.B(System.currentTimeMillis());
+                        s99Var.c(u89Var, u89Var.g());
+                        s99Var.a(v.keySet());
+                        return true;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || map == null) {
+            return;
+        }
+        if (map.containsKey(str)) {
+            aVar = map.get(str);
+        } else {
+            a aVar2 = new a();
+            map.put(str, aVar2);
+            aVar = aVar2;
+        }
+        Map<String, JSONObject> map2 = aVar.b;
+        if (map2.containsKey(str2) && b) {
+            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("id", str2);
+            jSONObject.put("c", i);
+            jSONObject.put("cc", i2);
+            aVar.a += i;
+            map2.put(str2, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void g(f99 f99Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, f99Var) == null) {
+            this.a = f99Var;
         }
     }
 }

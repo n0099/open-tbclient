@@ -9,7 +9,7 @@ import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.constraintlayout.motion.utils.Easing;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -78,18 +78,18 @@ public class KeyPosition extends KeyPositionBase {
             }
             SparseIntArray sparseIntArray = new SparseIntArray();
             mAttrMap = sparseIntArray;
-            sparseIntArray.append(R$styleable.KeyPosition_motionTarget, 1);
-            mAttrMap.append(R$styleable.KeyPosition_framePosition, 2);
-            mAttrMap.append(R$styleable.KeyPosition_transitionEasing, 3);
-            mAttrMap.append(R$styleable.KeyPosition_curveFit, 4);
-            mAttrMap.append(R$styleable.KeyPosition_drawPath, 5);
-            mAttrMap.append(R$styleable.KeyPosition_percentX, 6);
-            mAttrMap.append(R$styleable.KeyPosition_percentY, 7);
-            mAttrMap.append(R$styleable.KeyPosition_keyPositionType, 9);
-            mAttrMap.append(R$styleable.KeyPosition_sizePercent, 8);
-            mAttrMap.append(R$styleable.KeyPosition_percentWidth, 11);
-            mAttrMap.append(R$styleable.KeyPosition_percentHeight, 12);
-            mAttrMap.append(R$styleable.KeyPosition_pathMotionArc, 10);
+            sparseIntArray.append(4, 1);
+            mAttrMap.append(2, 2);
+            mAttrMap.append(11, 3);
+            mAttrMap.append(0, 4);
+            mAttrMap.append(1, 5);
+            mAttrMap.append(8, 6);
+            mAttrMap.append(9, 7);
+            mAttrMap.append(3, 9);
+            mAttrMap.append(10, 8);
+            mAttrMap.append(7, 11);
+            mAttrMap.append(6, 12);
+            mAttrMap.append(5, 10);
         }
 
         public Loader() {
@@ -296,7 +296,7 @@ public class KeyPosition extends KeyPositionBase {
     public void load(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R$styleable.KeyPosition));
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyPosition));
         }
     }
 

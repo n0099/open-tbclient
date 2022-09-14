@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,6 +13,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FOLLOW = "follow";
+    public static final String KEY_FANS_NUMBER = "fans_number";
+    public static final String LAST_PAGE_UNIQUE_ID = "last_page_unique_id";
     public static final String TOTLEFOLLOWNUM = "total_follow_num";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,10 +41,28 @@ public class PersonListActivityConfig extends IntentConfig {
         getIntent().putExtra(IntentConfig.USER_SEX, i);
     }
 
+    public void setFansNumber(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra(KEY_FANS_NUMBER, i);
+    }
+
+    public void setLastUniqueId(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra("last_page_unique_id", i);
+    }
+
     public PersonListActivityConfig updateBjhUser(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             if (getIntent() != null) {
                 getIntent().putExtra(IntentConfig.IS_BJH_USER, z);
             }
@@ -53,7 +74,7 @@ public class PersonListActivityConfig extends IntentConfig {
     public PersonListActivityConfig updateFollowNum(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
             if (getIntent() != null) {
                 getIntent().putExtra(TOTLEFOLLOWNUM, i);
                 getIntent().putExtra("portrait", str);

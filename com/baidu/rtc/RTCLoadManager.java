@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w;
-import com.baidu.tieba.w00;
-import com.baidu.tieba.x00;
+import com.baidu.tieba.k10;
+import com.baidu.tieba.l10;
+import com.baidu.tieba.x;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class RTCLoadManager {
     public Context mContext;
     public ExecutorService mLoadServer;
     public LoadStatus mLoadStatus;
-    public x00 mSoCallback;
+    public l10 mSoCallback;
 
     /* loaded from: classes2.dex */
     public interface LoadListener {
@@ -127,7 +127,7 @@ public class RTCLoadManager {
         this.mLoadServer = Executors.newSingleThreadExecutor();
         this.mLoadStatus = LoadStatus.IDLE;
         this.mCallbackList = new ArrayList();
-        this.mSoCallback = new x00.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
+        this.mSoCallback = new l10.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RTCLoadManager this$0;
@@ -150,7 +150,7 @@ public class RTCLoadManager {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.x00
+            @Override // com.baidu.tieba.l10
             public void onDownloadFail(String str, int i3, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i3, str2) == null) {
@@ -161,7 +161,7 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // com.baidu.tieba.x00.a, com.baidu.tieba.x00
+            @Override // com.baidu.tieba.l10.a, com.baidu.tieba.l10
             public void onDownloadProgress(float f) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
@@ -169,13 +169,13 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // com.baidu.tieba.x00
+            @Override // com.baidu.tieba.l10
             public void onDownloadSuccess(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                    String str3 = w00.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
+                    String str3 = k10.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
                     Log.d(RTCLoadManager.TAG, "RTC so path is: " + str3);
-                    w.k(this.this$0.mContext).n(w00.k(this.this$0.mContext));
+                    x.k(this.this$0.mContext).n(k10.k(this.this$0.mContext));
                     try {
                         System.load(str3);
                         this.this$0.mLoadStatus = LoadStatus.LOAD_COMPLETED;
@@ -296,7 +296,7 @@ public class RTCLoadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             clearCallback();
-            w.k(this.mContext).o();
+            x.k(this.mContext).o();
             ExecutorService executorService = this.mLoadServer;
             if (executorService != null) {
                 executorService.shutdown();
@@ -311,13 +311,13 @@ public class RTCLoadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             Log.d(TAG, "setup so later loading feature cpu type: " + str2);
-            w.k(this.mContext).p(str2);
+            x.k(this.mContext).p(str2);
             if (TextUtils.isEmpty(str)) {
-                w.k(this.mContext).j(w00.j(), true, this.mSoCallback);
+                x.k(this.mContext).j(k10.j(), true, this.mSoCallback);
                 return;
             }
             Log.d(TAG, "setup so later load url: " + str);
-            w.k(this.mContext).j(str, true, this.mSoCallback);
+            x.k(this.mContext).j(str, true, this.mSoCallback);
         }
     }
 

@@ -39,7 +39,7 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CyberCfgManager {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep

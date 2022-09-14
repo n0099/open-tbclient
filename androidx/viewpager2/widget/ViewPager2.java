@@ -29,7 +29,7 @@ import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.R$styleable;
+import androidx.viewpager2.R;
 import androidx.viewpager2.adapter.StatefulAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1284,12 +1284,12 @@ public final class ViewPager2 extends ViewGroup {
     private void setOrientation(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ViewPager2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ViewPager2);
             if (Build.VERSION.SDK_INT >= 29) {
-                saveAttributeDataForStyleable(context, R$styleable.ViewPager2, attributeSet, obtainStyledAttributes, 0, 0);
+                saveAttributeDataForStyleable(context, R.styleable.ViewPager2, attributeSet, obtainStyledAttributes, 0, 0);
             }
             try {
-                setOrientation(obtainStyledAttributes.getInt(R$styleable.ViewPager2_android_orientation, 0));
+                setOrientation(obtainStyledAttributes.getInt(0, 0));
             } finally {
                 obtainStyledAttributes.recycle();
             }

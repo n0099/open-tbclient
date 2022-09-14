@@ -1,7 +1,5 @@
 package com.baidu.android.util.android;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ComponentInfo;
@@ -159,7 +157,6 @@ public final class ComponentUtils {
         return (ComponentInfo) invokeLL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static ComponentInfo getComponentInfo(Context context, ComponentType componentType, ComponentName componentName) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -189,8 +186,6 @@ public final class ComponentUtils {
         return (ComponentInfo) invokeLLL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    @TargetApi(11)
     public static ComponentInfo getProviderInfo(Context context, ComponentName componentName) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

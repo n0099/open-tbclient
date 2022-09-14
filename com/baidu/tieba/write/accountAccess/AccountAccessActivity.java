@@ -5,12 +5,15 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.rz8;
-import com.baidu.tieba.sz8;
+import com.baidu.tieba.k19;
+import com.baidu.tieba.l19;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,23 +22,50 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String f;
+    public static final String g;
+    public static final String h;
+    public static final String i;
+    public static final String j;
+    public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz8 a;
-    public rz8 b;
+    public l19 a;
+    public k19 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-797208937, "Lcom/baidu/tieba/write/accountAccess/AccountAccessActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-797208937, "Lcom/baidu/tieba/write/accountAccess/AccountAccessActivity;");
+                return;
+            }
+        }
+        f = TbConfig.TIEBA_ADDRESS + "mo/q/account/access";
+        g = TbConfig.TIEBA_ADDRESS + "account/access/cancel";
+        h = TbConfig.TIEBA_ADDRESS + "account/access/input_focus";
+        i = TbConfig.TIEBA_ADDRESS + "account/access/valid_success";
+        j = TbConfig.TIEBA_ADDRESS + "account/access/feedback";
+        k = TbConfig.TIEBA_ADDRESS + "account/access/feedback";
+    }
 
     public AccountAccessActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
@@ -57,15 +87,15 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 == -1) {
-                if (i == 12006) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
+            super.onActivityResult(i2, i3, intent);
+            if (i3 == -1) {
+                if (i2 == 12006) {
                     setResult(-1, intent);
                 }
-            } else if (i2 == 0 && i == 12006) {
+            } else if (i3 == 0 && i2 == 12006) {
                 setResult(0, intent);
             }
             finish();
@@ -77,7 +107,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new sz8(this);
+            this.a = new l19(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -90,11 +120,11 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 this.c = newWriteModel;
                 newWriteModel.setWriteData(this.e);
                 if (this.e.getWriteImagesInfo() != null) {
-                    this.c.b0(this.e.getWriteImagesInfo().size() > 0);
+                    this.c.Z(this.e.getWriteImagesInfo().size() > 0);
                 }
-                rz8 rz8Var = new rz8(this.a, this.c);
-                this.b = rz8Var;
-                this.a.l(rz8Var);
+                k19 k19Var = new k19(this.a, this.c);
+                this.b = k19Var;
+                this.a.l(k19Var);
                 this.b.h(z1());
                 return;
             }
@@ -119,7 +149,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (accessState == null || accessState.getUserInfo() == null) {
                 return null;
             }
-            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "https://tieba.baidu.com/mo/q/account/access", this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
+            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", f, this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
         }
         return (String) invokeV.objValue;
     }

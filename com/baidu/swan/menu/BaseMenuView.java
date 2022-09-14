@@ -83,9 +83,9 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Resources resources = getResources();
-            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081124));
-            this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060380));
-            this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060381));
+            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08114e));
+            this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060381));
+            this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060382));
             this.c.setAlpha(1.0f);
         }
     }
@@ -131,9 +131,9 @@ public abstract class BaseMenuView extends FrameLayout {
             }
         }
         this.a = context;
-        View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d008a, this);
-        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090310);
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090488);
+        View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d008c, this);
+        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09031a);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090497);
         this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dc);
     }
 }

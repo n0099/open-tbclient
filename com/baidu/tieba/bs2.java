@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class bs2 {
+public class bs2 extends as2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final List<zr2> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,59 +30,52 @@ public final class bs2 {
                 return;
             }
         }
-        a = a13.v;
-        b = Arrays.asList(new zr2());
+        boolean z = ij1.a;
     }
 
-    public static JSONObject a() throws JSONException {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bs2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
-            if (a) {
-                ay1.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            c(jSONObject);
-            if (a) {
-                ay1.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    @NonNull
-    public static JSONObject b() {
-        JSONObject jSONObject;
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.as2
+    public boolean a(qr2 qr2Var, sr2 sr2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                jSONObject = a();
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                    ay1.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
-                }
-                jSONObject = null;
-            }
-            return jSONObject != null ? jSONObject : new JSONObject();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{qr2Var, sr2Var, context, unitedSchemeEntity, callbackHandler, y23Var})) == null) {
+            yz1.i("video", "remove, video id:" + sr2Var.j + " slave id: " + sr2Var.c);
+            d(qr2Var, sr2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static void c(JSONObject jSONObject) {
+    public final void d(qr2 qr2Var, sr2 sr2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) || jSONObject == null || jSONObject.length() == 0) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            for (zr2 zr2Var : b) {
-                if (zr2Var.a(keys.next())) {
-                    keys.remove();
-                }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qr2Var, sr2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ny1 a = lz1.a(sr2Var);
+            if (a != null) {
+                a.B();
+            } else {
+                rz1.a("VideoPlayerAction", "remove with a null component");
             }
+            qr2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

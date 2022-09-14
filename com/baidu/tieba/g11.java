@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o01;
+import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,149 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o01 a;
+    public final f11[] a;
 
-    /* loaded from: classes4.dex */
-    public class a extends o01.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(g11 g11Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g11Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.tieba.o01.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.a();
-                this.a.a();
-            }
-        }
-
-        @Override // com.baidu.tieba.o01.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.b();
-                this.a.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.o01.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.c();
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.o01.c
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                super.d();
-                this.a.d();
-            }
-        }
-
-        @Override // com.baidu.tieba.o01.c
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.e();
-                this.a.e();
-            }
-        }
-
-        @Override // com.baidu.tieba.o01.c
-        public void f(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                super.f(j);
-                this.a.f(j);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static abstract class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public void f(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            }
-        }
-    }
-
-    public g11(long j, long j2) {
+    public g11() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -163,58 +28,77 @@ public class g11 {
                 return;
             }
         }
-        this.a = new o01(j, j2);
-    }
-
-    public final synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.a.b();
-            }
+        this.a = new f11[4];
+        if (u01.s.length != 4) {
+            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
+        }
+        for (int i3 = 0; i3 < 4; i3++) {
+            this.a[i3] = new f11();
         }
     }
 
-    public final synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a.d();
-            }
-        }
-    }
-
-    public final synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.e();
-            }
-        }
-    }
-
-    public g11 d(b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            if (bVar == null) {
-                return this;
-            }
-            this.a.f(new a(this, bVar));
-            return this;
-        }
-        return (g11) invokeL.objValue;
-    }
-
-    public final synchronized g11 e() {
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                this.a.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c(0).d()) {
+                double d = 0.0d;
+                for (int i = 0; i < 4; i++) {
+                    d += this.a[i].a() * u01.s[i];
+                }
+                return d / 1000.0d;
             }
-            return this;
+            return 9999999.0d;
         }
-        return (g11) invokeV.objValue;
+        return invokeV.doubleValue;
+    }
+
+    public ElasticTask b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (int i = 0; i < 4; i++) {
+                if (!this.a[i].d()) {
+                    return this.a[i].b();
+                }
+            }
+            return null;
+        }
+        return (ElasticTask) invokeV.objValue;
+    }
+
+    public f11 c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) != null) {
+            return (f11) invokeI.objValue;
+        }
+        int i2 = 0;
+        while (true) {
+            int[] iArr = u01.a;
+            if (i2 < iArr.length) {
+                if (iArr[i2] == i) {
+                    return this.a[i2];
+                }
+                i2++;
+            } else {
+                f11[] f11VarArr = this.a;
+                return f11VarArr[f11VarArr.length - 1];
+            }
+        }
+    }
+
+    public void d(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            c(i).c(runnable, str, i);
+        }
+    }
+
+    public void e(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            c(elasticTask.b()).e(elasticTask);
+        }
     }
 }

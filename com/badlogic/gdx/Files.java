@@ -1,6 +1,6 @@
 package com.badlogic.gdx;
 
-import com.baidu.tieba.j3;
+import com.baidu.tieba.k3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,13 +77,13 @@ public interface Files {
         }
     }
 
-    j3 a(String str);
+    k3 a(String str);
 
     String b();
 
-    j3 d(String str, FileType fileType);
+    k3 d(String str, FileType fileType);
 
     String e();
 
-    j3 f(String str);
+    k3 f(String str);
 }

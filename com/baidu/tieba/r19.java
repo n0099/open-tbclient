@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.write.sticker.view.StickerView;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes5.dex */
 public interface r19 {
-    void a(StickerView stickerView);
-
-    void b(StickerView stickerView, boolean z);
-
-    void c(StickerView stickerView);
-
-    void onDelete();
+    boolean a(ImageFileInfo imageFileInfo);
 }

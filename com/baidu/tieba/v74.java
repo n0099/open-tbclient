@@ -1,48 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.tieba.f84;
+import android.animation.TypeEvaluator;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v74 extends f84.a {
+public class v74 implements TypeEvaluator<LatLng> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v74(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
+    public v74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.f84.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    @Override // android.animation.TypeEvaluator
     /* renamed from: a */
-    public f84 build() {
-        InterceptResult invokeV;
+    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q74.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
+            double d = latLng.latitude;
+            double d2 = f;
+            double d3 = latLng.longitude;
+            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
         }
-        return (f84) invokeV.objValue;
+        return (LatLng) invokeCommon.objValue;
     }
 }

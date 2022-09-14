@@ -1,93 +1,178 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public class br6 {
+public class br6 extends yq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView i;
+    public j36 j;
+    public ImageView k;
+    public MessageRedDotView l;
+    public ImageView m;
+    public TextView n;
 
     /* loaded from: classes3.dex */
-    public static class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gf6 a;
 
-        public a(gf6 gf6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gf6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-909663546, "Lcom/baidu/tieba/br6$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-909663546, "Lcom/baidu/tieba/br6$a;");
                     return;
                 }
             }
-            this.a = gf6Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.K0();
+            int[] iArr = new int[LogicField.values().length];
+            a = iArr;
+            try {
+                iArr[LogicField.SEARCH_BTN.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[LogicField.MESSAGE_ICON_CONTROLLER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[LogicField.MESSAGE_BTN.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[LogicField.MESSAGE_RED_DOT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[LogicField.SHARE_BTN.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[LogicField.FOLD_TITLE.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, gf6 gf6Var, FrsViewData frsViewData) {
-        List<DownloadData> data;
+    public br6() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, responsedMessage, gf6Var, frsViewData) == null) || frsViewData == null || gf6Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
-            return;
-        }
-        boolean z = false;
-        Iterator<DownloadData> it = data.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().getStatus() == 0) {
-                z = true;
-                break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        if (z) {
-            sg.a().postDelayed(new a(gf6Var), TimeUnit.SECONDS.toMillis(2L));
         }
     }
 
-    public static void b(gf6 gf6Var) {
-        HashMap<Integer, ThreadData> h;
+    @Override // com.baidu.tieba.yq6, com.baidu.tieba.ar6
+    @Nullable
+    public <T> T a(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, gf6Var) == null) || gf6Var == null || gf6Var.X() == null || (h = gf6Var.X().h()) == null) {
-            return;
-        }
-        ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-        for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-            ThreadData value = entry.getValue();
-            if (value != null && (value instanceof AdvertAppInfo)) {
-                arrayList.add((AdvertAppInfo) value);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            switch (a.a[logicField.ordinal()]) {
+                case 1:
+                    return (T) this.i;
+                case 2:
+                    return (T) this.j;
+                case 3:
+                    return (T) this.k;
+                case 4:
+                    return (T) this.l;
+                case 5:
+                    return (T) this.m;
+                case 6:
+                    return (T) this.n;
+                default:
+                    return (T) super.a(logicField);
             }
         }
-        tc8.n().w(arrayList);
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yq6
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.setContentPaddingTop(ej.f(this.c.getContext(), R.dimen.tbds24));
+            n();
+            m();
+            o();
+            l();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.n = this.e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, "", null, false);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            this.n.setLayoutParams(layoutParams);
+            this.n.setPadding(0, 0, this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0);
+            this.n.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            j36 j36Var = new j36(this.b);
+            this.j = j36Var;
+            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, j36Var.c(), (View.OnClickListener) null);
+            this.k = this.j.b();
+            MessageRedDotView a2 = this.j.a();
+            this.l = a2;
+            a2.setShadowEnabled(false);
+            this.j.c().setOnClickListener(this.d);
+            this.j.f(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, true);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.i = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0354, (View.OnClickListener) null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080629, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.i.setOnClickListener(this.d);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.m = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0355, (View.OnClickListener) null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.obfuscated_res_0x7f08062a, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.m.setOnClickListener(this.d);
+        }
     }
 }

@@ -1,131 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
 public class zf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, Integer> a(Set<String> set) {
-        InterceptResult invokeL;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
-            HashMap hashMap = new HashMap();
-            int i = 0;
-            for (String str : set) {
-                hashMap.put(str, Integer.valueOf(i));
-                i++;
-            }
-            return hashMap;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            SharedPreferences a = hg4.a();
+            return a.getLong("latest_update_time" + i, 0L);
         }
-        return (Map) invokeL.objValue;
+        return invokeI.longValue;
     }
 
-    public static StringBuilder b(StringBuilder... sbArr) {
-        InterceptResult invokeL;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StringBuilder sb2 : sbArr) {
-                sb.append((CharSequence) sb2);
-            }
-            return sb;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            SharedPreferences a = hg4.a();
+            return a.getLong("max_age" + i, 0L);
         }
-        return (StringBuilder) invokeL.objValue;
+        return invokeI.longValue;
     }
 
-    public static String c(List<wf4> list, String str) {
-        InterceptResult invokeLL;
+    public static boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
-            Set<String> d = xf4.b().d();
-            int size = d.size();
-            Map<String, Integer> a = a(d);
-            StringBuilder[] sbArr = new StringBuilder[size];
-            for (int i = 0; i < size; i++) {
-                sbArr[i] = new StringBuilder();
-            }
-            for (wf4 wf4Var : list) {
-                Integer num = a.get(wf4Var.f());
-                if (num != null) {
-                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, wf4Var.d()));
-                    sbArr[num.intValue()].append("- ");
-                    StringBuilder sb = sbArr[num.intValue()];
-                    sb.append(wf4Var.b() / 1000);
-                    sb.append("ms");
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(wf4Var.f());
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(wf4Var.c().getFullName());
-                    sbArr[num.intValue()].append("\n");
-                }
-            }
-            String sb2 = b(sbArr).toString();
-            d(sb2, str);
-            return sb2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return (System.currentTimeMillis() - a(i)) / 1000 > b(i);
         }
-        return (String) invokeLL.objValue;
+        return invokeI.booleanValue;
     }
 
-    public static void d(String str, String str2) {
-        FileWriter fileWriter;
+    public static void d(int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            SharedPreferences.Editor edit = hg4.a().edit();
+            edit.putLong("latest_update_time" + i, j).apply();
         }
-        FileWriter fileWriter2 = null;
-        try {
-            try {
-                try {
-                    File parentFile = new File(str2).getParentFile();
-                    if (parentFile != null && !parentFile.exists()) {
-                        parentFile.mkdirs();
-                    }
-                    fileWriter = new FileWriter(str2);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return;
-                }
-            } catch (IOException e2) {
-                e = e2;
+    }
+
+    public static void e(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j <= 0 || j >= 259200) {
+                j = 0;
             }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            fileWriter.write(str);
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e3) {
-            e = e3;
-            fileWriter2 = fileWriter;
-            e.printStackTrace();
-            if (fileWriter2 != null) {
-                fileWriter2.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            fileWriter2 = fileWriter;
-            if (fileWriter2 != null) {
-                try {
-                    fileWriter2.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            throw th;
+            hg4.a().edit().putLong("max_age" + i, j).apply();
         }
     }
 }

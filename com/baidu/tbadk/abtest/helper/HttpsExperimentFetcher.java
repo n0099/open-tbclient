@@ -5,10 +5,10 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.HttpsTestSwitch;
 import com.baidu.tbadk.switchs.Ipv6TestSwitch;
-import com.baidu.tieba.ly4;
-import com.baidu.tieba.nf;
-import com.baidu.tieba.vc1;
-import com.baidu.tieba.wf;
+import com.baidu.tieba.bg;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.se1;
+import com.baidu.tieba.v05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HttpsExperimentFetcher extends vc1<nf> {
+public class HttpsExperimentFetcher extends se1<bg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class HttpsExperimentFetcher extends vc1<nf> {
     }
 
     /* loaded from: classes3.dex */
-    public static final class HttpsExperimentImpl implements nf {
+    public static final class HttpsExperimentImpl implements bg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,11 +46,11 @@ public class HttpsExperimentFetcher extends vc1<nf> {
             }
         }
 
-        public List<wf> getHttpsWhileList() {
+        public List<kg> getHttpsWhileList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ly4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                v05 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return null;
                 }
@@ -63,7 +63,7 @@ public class HttpsExperimentFetcher extends vc1<nf> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ly4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                v05 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return false;
                 }
@@ -72,14 +72,14 @@ public class HttpsExperimentFetcher extends vc1<nf> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.nf
+        @Override // com.baidu.tieba.bg
         public boolean isIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Ipv6TestSwitch.isOn() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.nf
+        @Override // com.baidu.tieba.bg
         public boolean isSwitchOn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -107,10 +107,10 @@ public class HttpsExperimentFetcher extends vc1<nf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.vc1
-    public nf createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.se1
+    public bg createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HttpsExperimentImpl(null) : (nf) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HttpsExperimentImpl(null) : (bg) invokeV.objValue;
     }
 }

@@ -88,7 +88,7 @@ public class fu implements gi {
                     sb.append(this.a.f401a.format(new Date()));
                     sb.append(this.f402a);
                     sb.append(" Blob [");
-                    sb.append(flVar.m335a());
+                    sb.append(flVar.m336a());
                     sb.append(",");
                     sb.append(flVar.a());
                     sb.append(",");
@@ -100,18 +100,18 @@ public class fu implements gi {
                 if (flVar == null || flVar.a() != 99999) {
                     return;
                 }
-                String m335a = flVar.m335a();
+                String m336a = flVar.m336a();
                 fl flVar2 = null;
                 if (!this.f403a) {
-                    if ("BIND".equals(m335a)) {
-                        com.xiaomi.channel.commonutils.logger.b.m89a("build binded result for loopback.");
+                    if ("BIND".equals(m336a)) {
+                        com.xiaomi.channel.commonutils.logger.b.m90a("build binded result for loopback.");
                         dx.d dVar = new dx.d();
                         dVar.a(true);
                         dVar.c("login success.");
                         dVar.b("success");
                         dVar.a("success");
                         fl flVar3 = new fl();
-                        flVar3.a(dVar.m303a(), (String) null);
+                        flVar3.a(dVar.m304a(), (String) null);
                         flVar3.a((short) 2);
                         flVar3.a(VideoItemModel.TYPE_LOADING);
                         flVar3.a("BIND", (String) null);
@@ -119,20 +119,20 @@ public class fu implements gi {
                         flVar3.b((String) null);
                         flVar3.c(flVar.g());
                         flVar2 = flVar3;
-                    } else if (!"UBND".equals(m335a) && "SECMSG".equals(m335a)) {
+                    } else if (!"UBND".equals(m336a) && "SECMSG".equals(m336a)) {
                         fl flVar4 = new fl();
                         flVar4.a(VideoItemModel.TYPE_LOADING);
                         flVar4.a("SECMSG", (String) null);
                         flVar4.c(flVar.g());
                         flVar4.a(flVar.e());
-                        flVar4.a(flVar.m337a());
+                        flVar4.a(flVar.m338a());
                         flVar4.b(flVar.f());
-                        flVar4.a(flVar.m340a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), flVar.g()).h), (String) null);
+                        flVar4.a(flVar.m341a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), flVar.g()).h), (String) null);
                         flVar2 = flVar4;
                     }
                 }
                 if (flVar2 != null) {
-                    for (Map.Entry<gb, fw.a> entry : this.a.f398a.m355a().entrySet()) {
+                    for (Map.Entry<gb, fw.a> entry : this.a.f398a.m356a().entrySet()) {
                         if (this.a.f397a != entry.getKey()) {
                             entry.getValue().a(flVar2);
                         }
@@ -153,7 +153,7 @@ public class fu implements gi {
                     sb.append(this.a.f401a.format(new Date()));
                     sb.append(this.f402a);
                     sb.append(" PKT ");
-                    str = gnVar.m371a();
+                    str = gnVar.m372a();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");

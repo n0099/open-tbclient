@@ -2,7 +2,7 @@ package com.squareup.wire2;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xq9;
+import com.baidu.tieba.ps9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Buffer unknownFieldsBuffer;
-        public xq9 unknownFieldsWriter;
+        public ps9 unknownFieldsWriter;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                 if (this.unknownFieldsWriter == null) {
                     Buffer buffer = new Buffer();
                     this.unknownFieldsBuffer = buffer;
-                    this.unknownFieldsWriter = new xq9(buffer);
+                    this.unknownFieldsWriter = new ps9(buffer);
                 }
                 try {
                     fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
@@ -75,7 +75,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                     if (this.unknownFieldsWriter == null) {
                         Buffer buffer = new Buffer();
                         this.unknownFieldsBuffer = buffer;
-                        this.unknownFieldsWriter = new xq9(buffer);
+                        this.unknownFieldsWriter = new ps9(buffer);
                     }
                     try {
                         this.unknownFieldsWriter.k(byteString);

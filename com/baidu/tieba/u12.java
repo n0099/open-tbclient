@@ -1,228 +1,109 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.c23;
+import com.baidu.tieba.vm1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes6.dex */
-public final class u12 {
+public class u12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<q12> a;
-    public final List<q12> b;
-    public final List<q12> c;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a implements vm1.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ b b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-425857706, "Lcom/baidu/tieba/u12$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-425857706, "Lcom/baidu/tieba/u12$a;");
+        public a(Context context, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[RequestStatus.values().length];
-            a = iArr;
-            try {
-                iArr[RequestStatus.STATUS_SEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RequestStatus.STATUS_SUCCESS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RequestStatus.STATUS_FAILED.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
+            this.a = context;
+            this.b = bVar;
         }
-    }
 
-    public u12() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-    }
-
-    public synchronized void a(q12 q12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q12Var) == null) {
-            synchronized (this) {
-                if (q12Var == null) {
+        @Override // com.baidu.tieba.vm1.b
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (!z) {
+                    yz1.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
+                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f010d));
                     return;
                 }
-                int i = a.a[q12Var.e.ordinal()];
-                if (i == 1) {
-                    this.a.add(q12Var);
-                } else if (i == 2) {
-                    this.b.add(q12Var);
-                    c(this.a, q12Var);
-                } else if (i == 3) {
-                    this.c.add(q12Var);
-                    c(this.a, q12Var);
+                yz1.c("DeveloperAuthenticateHelper", "Authentication Success");
+                this.b.a(true, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.vm1.b
+        public void b(Exception exc) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                yz1.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
+                String message = exc.getMessage();
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f010d));
+                if (TextUtils.isEmpty(message)) {
+                    str = "";
+                } else {
+                    str = "\n" + message;
                 }
+                sb.append(str);
+                this.b.a(false, sb.toString());
             }
         }
     }
 
-    public synchronized void b() {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, String str);
+    }
+
+    public static void a(@NonNull y23 y23Var, @NonNull Context context, @NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-                this.a.clear();
-                this.b.clear();
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, y23Var, context, bVar) == null) {
+            lj1.b(y23Var.O(), new a(context, bVar));
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0024, code lost:
-        r5.remove();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final synchronized void c(List<q12> list, q12 q12Var) {
+    public static void b(Context context, @StringRes int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, q12Var) == null) {
-            synchronized (this) {
-                if (list != null) {
-                    if (!list.isEmpty() && q12Var != null) {
-                        Iterator<q12> it = list.iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                break;
-                            } else if (q12Var.equals(it.next())) {
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
+            c23.a aVar = new c23.a(context);
+            aVar.U(i);
+            aVar.x(str);
+            aVar.n(new gi3());
+            aVar.O(R.string.obfuscated_res_0x7f0f011a, null);
+            aVar.X();
         }
     }
 
-    public synchronized List<q12> d() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (q12 q12Var : this.c) {
-                    if (q12Var != null && q12Var.g(true)) {
-                        arrayList.add(q12Var);
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            b(context, R.string.obfuscated_res_0x7f0f0153, str);
         }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized int e() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                size = this.c.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized List<q12> f() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (q12 q12Var : this.c) {
-                    if (q12Var != null && q12Var.f()) {
-                        arrayList.add(q12Var);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized List<q12> g() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (q12 q12Var : this.b) {
-                    if (q12Var != null && q12Var.h()) {
-                        arrayList.add(q12Var);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized int h() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.b.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int i() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this) {
-                size = this.a.size() + h() + e();
-            }
-            return size;
-        }
-        return invokeV.intValue;
     }
 }

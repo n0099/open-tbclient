@@ -1,126 +1,481 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.widget.RemoteViews;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadReceiver;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class xc8 {
+public class xc8 implements rm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RemoteViews a;
+    public List<Object> a;
+    public wm5 b;
+    public jd8 c;
+    public qn d;
+    public qn e;
+    public qn f;
+    public qn g;
+    public qn h;
 
-    /* loaded from: classes6.dex */
-    public class a extends kg<an> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xc8 a;
-
-        public a(xc8 xc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xc8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(an anVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, anVar, str, i) == null) || this.a.a == null || anVar == null || anVar.p() == null) {
-                return;
-            }
-            this.a.a.setImageViewBitmap(R.id.obfuscated_res_0x7f090294, anVar.p());
-        }
-    }
-
-    public xc8(DownloadData downloadData, int i) {
+    public xc8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadData, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.obfuscated_res_0x7f0d0237);
-        c(i);
-        this.a.setTextViewText(R.id.obfuscated_res_0x7f09082c, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ce4));
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f09081a, R.drawable.obfuscated_res_0x7f080e50);
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f09081d, R.drawable.obfuscated_res_0x7f080e4e);
-        this.a.setTextViewText(R.id.obfuscated_res_0x7f090818, downloadData.getUser_name());
-        lg.h().m(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
-        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09081a, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
-        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
-        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09081d, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews b() {
+    @Override // com.baidu.tieba.rm5
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.um5
+    public void b(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rm5
+    public List<Integer> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RemoteViews) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(Integer.valueOf(AdvertAppInfo.z.getId()));
+            arrayList.add(Integer.valueOf(AdvertAppInfo.w.getId()));
+            arrayList.add(Integer.valueOf(AdvertAppInfo.A.getId()));
+            arrayList.add(Integer.valueOf(AdvertAppInfo.B.getId()));
+            arrayList.add(Integer.valueOf(AdvertAppInfo.C.getId()));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public void c(int i) {
-        String str;
+    @Override // com.baidu.tieba.rm5
+    public void e(List<qm5> list, String str, String str2, String str3, String str4, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i > 0) {
-                str = i + "%";
-            } else {
-                str = "0%";
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, str, str2, str3, str4, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || mg7.e(list)) {
+            return;
+        }
+        Set<Cdo> a = xe8.a("FRS");
+        if (a == null) {
+            a = new HashSet();
+        }
+        HashSet hashSet = new HashSet();
+        for (qm5 qm5Var : list) {
+            if (qm5Var != null) {
+                Object a2 = qm5Var.a();
+                for (Cdo cdo : a) {
+                    if (a2 != null && qm5Var.c() == 3 && (a2 instanceof AdvertAppInfo) && cdo != null && (cdo instanceof AdvertAppInfo) && a2.hashCode() == cdo.hashCode()) {
+                        ((AdvertAppInfo) a2).i = ((AdvertAppInfo) cdo).i;
+                    }
+                }
+                if (a2 != null && qm5Var.c() == 3 && (a2 instanceof AdvertAppInfo)) {
+                    AdvertAppInfo advertAppInfo = (AdvertAppInfo) a2;
+                    if (advertAppInfo.i == null) {
+                        qq4 qq4Var = new qq4();
+                        advertAppInfo.i = qq4Var;
+                        qq4Var.a = "FRS";
+                        String.valueOf(z);
+                        qq4 qq4Var2 = advertAppInfo.i;
+                        qq4Var2.b = i;
+                        qq4Var2.c = str;
+                        qq4Var2.d = str2;
+                        qq4Var2.e = str3;
+                        qq4Var2.f = str4;
+                        qq4Var2.g = advertAppInfo.g;
+                        qq4Var2.h = false;
+                        hashSet.add(advertAppInfo);
+                    }
+                }
             }
-            this.a.setProgressBar(R.id.obfuscated_res_0x7f09082a, 100, i, false);
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f09082b, str);
+        }
+        a.addAll(hashSet);
+        xe8.b("FRS", a);
+    }
+
+    @Override // com.baidu.tieba.rm5
+    public TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj) {
+        InterceptResult invokeLL;
+        qn qnVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, viewGroup, obj)) == null) {
+            if (obj instanceof AdvertAppInfo) {
+                BdUniqueId type = ((AdvertAppInfo) obj).getType();
+                if (type == AdvertAppInfo.z) {
+                    qnVar = this.e;
+                } else if (type == AdvertAppInfo.w) {
+                    qnVar = this.d;
+                } else if (type == AdvertAppInfo.A) {
+                    qnVar = this.f;
+                } else if (type == AdvertAppInfo.B) {
+                    qnVar = this.g;
+                } else {
+                    qnVar = type == AdvertAppInfo.C ? this.h : null;
+                }
+                if (qnVar != null) {
+                    return qnVar.onCreateViewHolder(viewGroup, obj);
+                }
+                return null;
+            }
+            return null;
+        }
+        return (TypeAdapter.ViewHolder) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rm5
+    public void i(List<qm5> list, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, list, i) == null) || mg7.e(this.a)) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (Object obj : this.a) {
+            if (obj instanceof AdvertAppInfo) {
+                mg7.a(arrayList, (AdvertAppInfo) obj);
+            }
+        }
+        Iterator<qm5> it = list.iterator();
+        while (it.hasNext()) {
+            if (it.next().c() == 3) {
+                it.remove();
+            }
+        }
+        int i2 = mg7.i(list);
+        int i3 = 0;
+        int i4 = 0;
+        for (qm5 qm5Var : list) {
+            if (qm5Var.c() == 1) {
+                i4++;
+            }
+        }
+        int i5 = mg7.i(arrayList);
+        if (i5 < 1) {
+            return;
+        }
+        int i6 = i2 - i4;
+        HashSet hashSet = new HashSet();
+        int i7 = 0;
+        while (i7 < i5) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) mg7.d(arrayList, i7);
+            advertAppInfo.j = "FRS";
+            int n = advertAppInfo.n();
+            if (n != 0) {
+                ze8.h(advertAppInfo, i, n);
+                if (n != 28 && n != 31) {
+                    advertAppInfo.c = -1001;
+                }
+                i7++;
+                i3 = 0;
+            }
+            if (advertAppInfo.getType() == null) {
+                ze8.h(advertAppInfo, i, 100);
+            } else {
+                int e = (dh.e(advertAppInfo.f, i3) + i4) - 1;
+                if (hashSet.contains(Integer.valueOf(e))) {
+                    ze8.h(advertAppInfo, i, 29);
+                } else if (e < 0) {
+                    ze8.h(advertAppInfo, i, 33);
+                } else if (e >= i2 && i6 > 3) {
+                    ze8.i(advertAppInfo, i, 2, e, i2);
+                } else {
+                    qm5 qm5Var2 = new qm5();
+                    qm5Var2.d(advertAppInfo);
+                    qm5Var2.e(advertAppInfo.getType().getId());
+                    qm5Var2.f(3);
+                    if (advertAppInfo.h()) {
+                        if (nd8.i(advertAppInfo.p) && gm5.a().p()) {
+                            ze8.h(advertAppInfo, i, 3);
+                        } else if (!TextUtils.isEmpty(advertAppInfo.p) && !TextUtils.isEmpty(advertAppInfo.l)) {
+                            hashSet.add(Integer.valueOf(e));
+                            if (e < i2) {
+                                mg7.b(list, qm5Var2, e);
+                            } else if (e == i2) {
+                                mg7.a(list, qm5Var2);
+                            }
+                        }
+                    } else if (advertAppInfo.l()) {
+                        hashSet.add(Integer.valueOf(e));
+                        if (e < i2) {
+                            mg7.b(list, qm5Var2, e);
+                        } else if (e == i2) {
+                            mg7.a(list, qm5Var2);
+                        }
+                    } else {
+                        ze8.h(advertAppInfo, i, 21);
+                    }
+                }
+            }
+            i7++;
+            i3 = 0;
         }
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.rm5
+    public void k(List<Object> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f09082c, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0517));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f09081a, R.drawable.obfuscated_res_0x7f080e51);
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.rm5
+    public View m(int i, View view2, ViewGroup viewGroup, Object obj) {
+        InterceptResult invokeCommon;
+        qn qnVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f09082c, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ce4));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f09081a, R.drawable.obfuscated_res_0x7f080e50);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
+            if (obj instanceof AdvertAppInfo) {
+                AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
+                BdUniqueId type = advertAppInfo.getType();
+                if (type == AdvertAppInfo.z) {
+                    qnVar = this.e;
+                } else if (type == AdvertAppInfo.w) {
+                    qnVar = this.d;
+                } else if (type == AdvertAppInfo.A) {
+                    qnVar = this.f;
+                } else if (type == AdvertAppInfo.B) {
+                    qnVar = this.g;
+                } else {
+                    qnVar = type == AdvertAppInfo.C ? this.h : null;
+                }
+                if (qnVar != null) {
+                    return qnVar.getView(i, view2, viewGroup, advertAppInfo);
+                }
+                return null;
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.rm5
+    public void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, viewHolder, obj}) == null) && (obj instanceof AdvertAppInfo)) {
+            qn qnVar = null;
+            BdUniqueId type = ((AdvertAppInfo) obj).getType();
+            if (type == AdvertAppInfo.z) {
+                qnVar = this.e;
+            } else if (type == AdvertAppInfo.w) {
+                qnVar = this.d;
+            } else if (type == AdvertAppInfo.A) {
+                qnVar = this.f;
+            } else if (type == AdvertAppInfo.B) {
+                qnVar = this.g;
+            } else if (type == AdvertAppInfo.C) {
+                qnVar = this.h;
+            }
+            if (qnVar != null) {
+                qnVar.onFillViewHolder(i, viewGroup, viewHolder, obj);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rm5
+    public void o(List<qm5> list, List<qm5> list2, boolean z, int i) {
+        ArrayList arrayList;
+        int i2;
+        int i3;
+        int e;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{list, list2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || mg7.e(this.a)) {
+            return;
+        }
+        ArrayList arrayList2 = new ArrayList();
+        for (Object obj : this.a) {
+            if (obj instanceof AdvertAppInfo) {
+                mg7.a(arrayList2, (AdvertAppInfo) obj);
+            }
+        }
+        Iterator<qm5> it = list.iterator();
+        while (it.hasNext()) {
+            if (it.next().c() == 3) {
+                it.remove();
+            }
+        }
+        int i4 = mg7.i(list);
+        int i5 = 0;
+        int i6 = 0;
+        for (qm5 qm5Var : list) {
+            if (qm5Var.c() == 1) {
+                i6++;
+            }
+        }
+        int i7 = mg7.i(arrayList2);
+        if (i7 < 1) {
+            return;
+        }
+        int i8 = 9;
+        if (mg7.i(arrayList2) > 1 && (e = (dh.e(((AdvertAppInfo) mg7.d(arrayList2, 1)).f, 0) - dh.e(((AdvertAppInfo) mg7.d(arrayList2, 0)).f, 0)) - 1) > 0) {
+            i8 = e;
+        }
+        int e2 = dh.e(((AdvertAppInfo) mg7.d(arrayList2, 0)).f, 0) - 1;
+        int i9 = i4 - i6;
+        HashSet hashSet = new HashSet();
+        int i10 = 0;
+        while (i10 < i7) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) mg7.d(arrayList2, i10);
+            advertAppInfo.j = "SMART_FRS";
+            int n = advertAppInfo.n();
+            if (n != 0) {
+                ze8.h(advertAppInfo, i, n);
+                if (n != 28 && n != 31) {
+                    advertAppInfo.c = -1001;
+                }
+                arrayList = arrayList2;
+                i10++;
+                arrayList2 = arrayList;
+                i5 = 0;
+            }
+            if (advertAppInfo.getType() == null) {
+                ze8.h(advertAppInfo, i, 100);
+                arrayList = arrayList2;
+                i10++;
+                arrayList2 = arrayList;
+                i5 = 0;
+            } else {
+                int e3 = dh.e(advertAppInfo.f, i5);
+                int i11 = (e3 + i6) - 1;
+                if (i11 < 0 || hashSet.contains(Integer.valueOf(i11)) || i11 > i4) {
+                    arrayList = arrayList2;
+                    if (i11 > i4) {
+                        ze8.i(advertAppInfo, i, 2, i11, i4);
+                        i10++;
+                        arrayList2 = arrayList;
+                        i5 = 0;
+                    } else {
+                        i2 = i11 < 0 ? 33 : 29;
+                    }
+                } else {
+                    if (e3 <= (i9 - i8) + e2 || !z) {
+                        arrayList = arrayList2;
+                    } else if (!mg7.e(list2)) {
+                        int i12 = mg7.i(list2);
+                        int i13 = (i8 - ((i9 - e3) + 1)) - 1;
+                        int i14 = 0;
+                        while (i14 < i12 && i14 < i13) {
+                            arrayList = arrayList2;
+                            if (((qm5) mg7.d(list2, i14)).a() instanceof AdvertAppInfo) {
+                                i3 = 0;
+                                break;
+                            } else {
+                                i14++;
+                                arrayList2 = arrayList;
+                            }
+                        }
+                        arrayList = arrayList2;
+                        i3 = 1;
+                        i2 = i3 ^ 1;
+                    } else {
+                        arrayList = arrayList2;
+                        if (gm5.a().o()) {
+                            i2 = 36;
+                        }
+                    }
+                    i2 = 0;
+                }
+                if (i2 != 0) {
+                    ze8.h(advertAppInfo, i, i2);
+                    i10++;
+                    arrayList2 = arrayList;
+                    i5 = 0;
+                } else {
+                    qm5 qm5Var2 = new qm5();
+                    qm5Var2.d(advertAppInfo);
+                    qm5Var2.e(advertAppInfo.getType().getId());
+                    qm5Var2.f(3);
+                    if (advertAppInfo.h()) {
+                        if (nd8.i(advertAppInfo.p) && gm5.a().p()) {
+                            ze8.h(advertAppInfo, i, 3);
+                        } else if (!TextUtils.isEmpty(advertAppInfo.p) && !TextUtils.isEmpty(advertAppInfo.l)) {
+                            hashSet.add(Integer.valueOf(i11));
+                            if (i11 < i4) {
+                                mg7.b(list, qm5Var2, i11);
+                            } else if (i11 == i4) {
+                                mg7.a(list, qm5Var2);
+                            }
+                        }
+                    } else if (advertAppInfo.l()) {
+                        hashSet.add(Integer.valueOf(i11));
+                        if (i11 < i4) {
+                            mg7.b(list, qm5Var2, i11);
+                        } else if (i11 == i4) {
+                            mg7.a(list, qm5Var2);
+                        }
+                    }
+                    i10++;
+                    arrayList2 = arrayList;
+                    i5 = 0;
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rm5
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            qn qnVar = this.e;
+            if (qnVar instanceof sd8) {
+                ((sd8) qnVar).K(str);
+            }
+            qn qnVar2 = this.f;
+            if (qnVar2 instanceof sd8) {
+                ((sd8) qnVar2).K(str);
+            }
+            qn qnVar3 = this.g;
+            if (qnVar3 instanceof sd8) {
+                ((sd8) qnVar3).K(str);
+            }
+            qn qnVar4 = this.h;
+            if (qnVar4 instanceof sd8) {
+                ((sd8) qnVar4).K(str);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.um5
+    /* renamed from: q */
+    public void f(wm5 wm5Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, wm5Var, str) == null) {
+            this.b = wm5Var;
+            if (wm5Var == null || !(wm5Var.a() instanceof jd8)) {
+                return;
+            }
+            this.c = (jd8) this.b.a();
+            this.d = new rd8(this.c, AdvertAppInfo.w);
+            this.e = new sd8(this.c, AdvertAppInfo.z, str);
+            this.f = new sd8(this.c, AdvertAppInfo.A, str);
+            this.g = new sd8(this.c, AdvertAppInfo.B, str);
+            this.h = new sd8(this.c, AdvertAppInfo.C, str);
         }
     }
 }

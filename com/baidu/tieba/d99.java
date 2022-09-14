@@ -1,178 +1,258 @@
 package com.baidu.tieba;
 
-import android.media.AudioTrack;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class d99 extends x89 {
+public class d99 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public c99 B;
-    public Thread C;
+    public int a;
+    public int b;
+    public JSONObject c;
+    public JSONObject d;
+    public JSONObject e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public List<q89> m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d99(String str, int[] iArr) throws Exception {
-        super(0, str, iArr);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659525, "Lcom/baidu/tieba/d99;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947659525, "Lcom/baidu/tieba/d99;");
+                return;
+            }
+        }
+        n = i99.m();
+    }
+
+    public d99(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, iArr};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.m = new ArrayList();
+        this.c = jSONObject;
     }
 
-    @Override // com.baidu.tieba.x89
-    public void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            M(j * 1000, true);
-        }
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Thread thread = this.C;
-            if (thread == null || !thread.isAlive()) {
-                Thread thread2 = new Thread(this);
-                this.C = thread2;
-                thread2.start();
-            }
-            super.I();
-        }
-    }
-
-    public final void K() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (i() == 1) {
-                i = 4;
-            } else {
-                i();
-                i = 12;
-            }
-            int i2 = this.q;
-            if (i2 != 1 && i2 != 2) {
-                this.q = 2;
-            }
-            this.B = new c99(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
-        }
-    }
-
-    public boolean L() {
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c99 c99Var = this.B;
-            return c99Var != null && c99Var.getState() == 1;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
+    }
+
+    public List<q89> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (List) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : invokeV.intValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                if (this.c != null && this.c.length() != 0) {
+                    JSONObject jSONObject = this.c;
+                    this.d = jSONObject.optJSONObject("set");
+                    this.a = jSONObject.optInt("threshold", 10000);
+                    this.b = jSONObject.optInt("timeup", 604800000);
+                    this.f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
+                    jSONObject.optString(StickerDataChangeType.REPLACE);
+                    this.e = jSONObject.optJSONObject("del");
+                    this.g = jSONObject.optInt("all_size", 614400);
+                    this.h = jSONObject.optInt("single_size", 153600);
+                    this.i = jSONObject.optInt("real_size", 614400);
+                    this.j = jSONObject.optInt("non_real_size", 614400);
+                    this.k = jSONObject.optInt("trigger_number", 100);
+                    this.l = jSONObject.optInt("trigger_interval", 180);
+                    int i = 1;
+                    if (this.d != null) {
+                        Iterator<String> keys = this.d.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
+                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+                                String optString = optJSONObject.optString("version");
+                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
+                                    Iterator<String> it = keys;
+                                    q89 q89Var = new q89(next, optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, i) != 0, optJSONObject2.optInt(Constant.IS_REAL, 0) == 1, optJSONObject2.optInt("timeout", 60), optJSONObject2.optInt("type", 0), optJSONObject2.optInt("isAbtest", 0) == 1);
+                                    if (t89.a(next)) {
+                                        q89Var.y(optJSONObject2.optInt("isSend", 1) == 1);
+                                    }
+                                    if (optJSONObject2.has("rate")) {
+                                        q89Var.D(optJSONObject2.getInt("rate"));
+                                    }
+                                    if (optJSONObject2.has("c")) {
+                                        q89Var.u(optJSONObject2.getString("c"));
+                                    }
+                                    if (optJSONObject2.has("limitUnit")) {
+                                        q89Var.A(optJSONObject2.getInt("limitUnit"));
+                                    }
+                                    if (optJSONObject2.has("limitCnt")) {
+                                        q89Var.z(optJSONObject2.getInt("limitCnt"));
+                                    }
+                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
+                                        q89Var.w(optJSONObject2.getInt(Constant.ID_TYPE));
+                                    }
+                                    q89Var.C(optJSONObject2.optInt("ch", 0) == 1);
+                                    if (optJSONObject2.has("dfc")) {
+                                        q89Var.x(optJSONObject2.getInt("dfc") == 1);
+                                    }
+                                    if (optJSONObject2.has("reallog")) {
+                                        q89Var.E(optJSONObject2.getInt("reallog") == 1);
+                                    }
+                                    if (optJSONObject2.has("gflow")) {
+                                        q89Var.v(optJSONObject2.getInt("gflow"));
+                                    }
+                                    if (optJSONObject2.has("uploadType")) {
+                                        q89Var.F(optJSONObject2.optInt("uploadType", -1));
+                                    }
+                                    int optInt = optJSONObject2.optInt("lcache", 2);
+                                    if (optInt == 1 || optInt == 0) {
+                                        q89Var.B(optInt);
+                                    }
+                                    q89Var.G(optString);
+                                    this.m.add(q89Var);
+                                    keys = it;
+                                    i = 1;
+                                }
+                            }
+                        }
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
         }
         return invokeV.booleanValue;
     }
 
-    public final void M(long j, boolean z) {
+    public void m(List<q89> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            if (this.e != null && j > this.e.getDuration()) {
-                j = this.e.getDuration();
-            }
-            if (z) {
-                int playState = L() ? this.B.getPlayState() : 2;
-                if (playState == 2) {
-                    pause();
-                }
-                synchronized (this.b) {
-                    if (L()) {
-                        this.B.flush();
-                    }
-                    this.d = 0L;
-                }
-                e();
-                c();
-                if (playState == 3) {
-                    I();
-                }
-            }
-            synchronized (this.c) {
-                if (this.e != null) {
-                    this.e.seek(j);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.m = list;
         }
     }
 
-    public void N(float f, float f2) {
+    public d99(List<q89> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            synchronized (this.b) {
-                if (L()) {
-                    this.B.setStereoVolume(f, f2);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.x89
-    public b99 p() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            K();
-            return this.B;
-        }
-        return (b99) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.b) {
-                if (L() && this.B.getPlayState() != 2) {
-                    this.B.pause();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.b) {
-                if (L() && this.B.getPlayState() != 3) {
-                    this.B.play();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.x89
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
+        this.m = new ArrayList();
+        if (list == null || list.size() <= 0) {
             return;
         }
-        this.C = null;
+        this.m.addAll(list);
     }
 }

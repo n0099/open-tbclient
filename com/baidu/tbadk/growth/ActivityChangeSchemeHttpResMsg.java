@@ -3,7 +3,7 @@ package com.baidu.tbadk.growth;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.j55;
+import com.baidu.tieba.r75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,10 +49,10 @@ public class ActivityChangeSchemeHttpResMsg extends JsonHttpResponsedMessage {
                 if (jSONObject2 != null) {
                     this.scheme = jSONObject2.optString("scheme");
                 }
-                j55.d(true, this.data);
+                r75.d(true, this.data);
                 return;
             }
-            j55.d(false, this.data);
+            r75.d(false, this.data);
         }
     }
 

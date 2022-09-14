@@ -1,129 +1,140 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.basic.AdAppStateManager;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.sapi2.utils.ThirdPartyUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class ci0 implements lj0 {
+public class ci0 implements di0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pi0 a;
 
-    public ci0(@NonNull pi0 pi0Var) {
+    /* loaded from: classes3.dex */
+    public class a implements gi0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean[] a;
+        public final /* synthetic */ ei0 b;
+
+        public a(ci0 ci0Var, boolean[] zArr, ei0 ei0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ci0Var, zArr, ei0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zArr;
+            this.b = ei0Var;
+        }
+
+        @Override // com.baidu.tieba.gi0
+        public void onResult(boolean z) {
+            ei0 ei0Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a[0] = z;
+                if (!z || (ei0Var = this.b) == null) {
+                    return;
+                }
+                ei0Var.a(z, null);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675583, "Lcom/baidu/tieba/ci0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947675583, "Lcom/baidu/tieba/ci0;");
+                return;
+            }
+        }
+        c = new String[]{"baiduboxapp", "com.baidu.nani", "com.baidu.tieba", "bdminivideo", "xifan", "baidumap", "bdnetdisk", "askmybaby", "baiduboxmission", ThirdPartyUtil.TYPE_WEIXIN, "baiduboxlite", "baiduhaokan", "market", "samsungapps", "duxiaomanloan", "bdbook", "baiduime", "bdwenku", "iqiyi", "bdvideo", "zhidao", "mimarket", "appmarket", "oppomarket", "vivomarket", "youa", "com.tencent.mm", "gamenow", "flowlocal", "yykiwi", "baiduboxvision", "lemon", "duxiaoxiaoapp", "youjia", "bdwkst", "alipays", "bddrama", "comjia", "ctrip", "imeituan", "lianjia", "lianjiabeike", "meituanwaimai", "momochat", "openanjuke", "openapp.jdmobile", "openapp.jdpingou", "openjdlite", "pddopen", "pinduoduo", "qunaraphone", "suning", "tbopen", "vipshop", "vmall", "wbmain", "youku", "miyabaobei", "mogujie", "taobao"};
+    }
+
+    public ci0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pi0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = pi0Var;
     }
 
-    @Override // com.baidu.tieba.lj0
-    public void a(int i, long j, long j2) {
+    @Override // com.baidu.tieba.di0
+    public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable ei0 ei0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || j < 0 || j2 <= 0 || j > j2) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, ei0Var)) == null) {
+            boolean[] zArr = new boolean[1];
+            ii0.a(context, str, null, new a(this, zArr, ei0Var), true);
+            return zArr[0];
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.di0
+    public void b(String str, String str2, gi0 gi0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, gi0Var) == null) || gi0Var == null) {
             return;
         }
-        this.a.i = (float) ay0.a(j, j2);
-        this.a.c = AdDownloadStatus.DOWNLOADING;
-        bi0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
+        gi0Var.onResult(true);
     }
 
-    @Override // com.baidu.tieba.lj0
-    public void b(long j, File file) {
+    @Override // com.baidu.tieba.di0
+    public String[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
-            AdDownloadAction adDownloadAction = this.a.c == AdDownloadStatus.PAUSE ? AdDownloadAction.RESUME : AdDownloadAction.START;
-            this.a.l = System.currentTimeMillis();
-            pi0 pi0Var = this.a;
-            pi0Var.c = AdDownloadStatus.DOWNLOADING;
-            pi0Var.h = file;
-            pi0Var.q.e = j;
-            bi0.b().f(adDownloadAction, this.a);
-            fi0.a().update(this.a);
-            fi0.a().c(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
+        return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lj0
-    public void c(int i, int i2) {
+    @Override // com.baidu.tieba.di0
+    public boolean d(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.c = AdDownloadStatus.PAUSE;
-            bi0.b().f(AdDownloadAction.PAUSE, this.a);
-            yi0.f().h(this.a, "notify_type_pause");
-            fi0.a().c(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.lj0
-    public void d(@Nullable xi0 xi0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xi0Var) == null) {
-            pi0 pi0Var = this.a;
-            pi0Var.c = AdDownloadStatus.FAILED;
-            pi0Var.i = 0.0f;
-            pi0Var.j = 0.0f;
-            bi0.b().g(AdDownloadAction.FAIL, this.a, xi0Var);
-            yi0.f().h(this.a, "notify_type_stop");
-            fi0.a().c(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.lj0
-    public void onSuccess(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a.m = System.currentTimeMillis();
-            if (TextUtils.isEmpty(this.a.d)) {
-                pi0 pi0Var = this.a;
-                pi0Var.d = rj0.a(pi0Var.h);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            if (rj0.e(this.a.h)) {
-                PackageInfo packageArchiveInfo = eh0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128);
-                if (packageArchiveInfo != null) {
-                    pi0 pi0Var2 = this.a;
-                    pi0Var2.o = packageArchiveInfo.versionName;
-                    pi0Var2.n = packageArchiveInfo.versionCode;
+            for (String str2 : c) {
+                if (str.startsWith(str2)) {
+                    return true;
                 }
-                AdAppStateManager.instance().register(this.a);
-                pi0 pi0Var3 = this.a;
-                pi0Var3.c = AdDownloadStatus.COMPLETED;
-                pi0Var3.i = 1.0f;
-                pi0Var3.j = 1.0f;
-                bi0.b().f(AdDownloadAction.COMPLETE, this.a);
-                qj0.a().b(this.a);
-                yi0.f().i(this.a);
-                fi0.a().c(this.a);
-                pi0 pi0Var4 = this.a;
-                rj0.d(pi0Var4.h, pi0Var4.a());
-                return;
             }
-            pi0 pi0Var5 = this.a;
-            pi0Var5.c = AdDownloadStatus.FAILED;
-            pi0Var5.i = 0.0f;
-            pi0Var5.j = 0.0f;
-            bi0.b().f(AdDownloadAction.FAIL, this.a);
-            fi0.a().c(this.a);
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 }

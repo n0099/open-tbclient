@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns4;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -197,8 +197,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09237f);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922f4);
+                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923d8);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092348);
             }
         }
 
@@ -242,7 +242,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
                 }
                 bVar.b.setTextSize(0, this.a.b.getTextSize());
                 bVar.b.setTextColor(this.a.b.getColor());
-                ns4.d(bVar.b).y(R.array.S_O_X001);
+                uu4.d(bVar.b).y(R.array.S_O_X001);
                 bVar.b.setOnClickListener(new a(this, i));
                 if (i == this.a.i) {
                     bVar.b.setAlpha(1.0f);
@@ -516,7 +516,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         this.a = new ArrayList();
         this.b = new Paint();
         this.h = false;
-        this.k = R.layout.obfuscated_res_0x7f0d03ef;
+        this.k = R.layout.obfuscated_res_0x7f0d03f3;
         this.l = new a(this);
         o();
     }

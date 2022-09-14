@@ -25,6 +25,8 @@ public class YYLiveUtil {
     public static final String SOURCE_BAIDU_LIVE_TOP_PLAY = "baidu_live_top_play";
     public static final String SOURCE_CHANNEL_BANNER = "home_page_channel_banner";
     public static final String SOURCE_FORUM_USER_LIVE_PAGE = "frs_service_area_list";
+    public static final String SOURCE_FRS_ALA_LIST_SECOND_FLOOR = "frs_service_area_card_livehead";
+    public static final String SOURCE_FRS_ALA_TAB_SECOND_FLOOR = "frs_live_livehead";
     public static final String SOURCE_FRS_LIVE_CARD_ = "frs_live_";
     public static final String SOURCE_FRS_LIVE_CARD_TAB = "frs_tab_live_card";
     public static final String SOURCE_FRS_LIVE_HEAD_ = "frs_feed_head_";
@@ -59,6 +61,8 @@ public class YYLiveUtil {
     public static final String SOURCE_PERSON_AUTHOR_HEAD = "my_author_head";
     public static final String SOURCE_PERSON_LIST_OTHER = "follow_other_head";
     public static final String SOURCE_PERSON_LIST_OWNER = "follow_owner_head";
+    public static final String SOURCE_VIDEO_CONCERN_SECOND_FLOOR = "video_immer_follow_livehead";
+    public static final String SOURCE_VIDEO_RECOMMEND_SECOND_FLOOR = "video_immer_rec_livehead";
     public transient /* synthetic */ FieldHolder $fh;
 
     public YYLiveUtil() {
@@ -135,7 +139,7 @@ public class YYLiveUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021b).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021c).equals(str);
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021d).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021e).equals(str);
         }
         return invokeL.booleanValue;
     }

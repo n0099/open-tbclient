@@ -28,7 +28,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$attr;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.SupportMenuInflater;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -62,9 +61,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 public class NavigationView extends ScrimInsetsFrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKED_STATE_SET;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100334 = 2131755828;
+    public static final int DEF_STYLE_RES = 2131755829;
     public static final int[] DISABLED_STATE_SET;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +125,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
             TypedValue typedValue = new TypedValue();
             if (getContext().getTheme().resolveAttribute(i, typedValue, true)) {
                 ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-                if (getContext().getTheme().resolveAttribute(R$attr.colorPrimary, typedValue, true)) {
+                if (getContext().getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040178, typedValue, true)) {
                     int i2 = typedValue.data;
                     int defaultColor = colorStateList.getDefaultColor();
                     return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i2, defaultColor});
@@ -648,7 +645,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100334), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         ColorStateList createDefaultColorStateList;
         int i2;
         boolean z;
@@ -672,7 +669,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.tmpLocation = new int[2];
         Context context2 = getContext();
         this.menu = new NavigationMenu(context2);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f0402fb, R.attr.obfuscated_res_0x7f040364, R.attr.obfuscated_res_0x7f040366, R.attr.obfuscated_res_0x7f040368, R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f04036a, R.attr.obfuscated_res_0x7f04036b, R.attr.obfuscated_res_0x7f04036e, R.attr.obfuscated_res_0x7f04036f, R.attr.obfuscated_res_0x7f040370, R.attr.obfuscated_res_0x7f040371, R.attr.obfuscated_res_0x7f040372, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f040378, R.attr.obfuscated_res_0x7f04037b, R.attr.obfuscated_res_0x7f0404cc}, i, obfuscated_res_0x7f100334, new int[0]);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.NavigationView, i, DEF_STYLE_RES, new int[0]);
         if (obtainTintedStyledAttributes.hasValue(0)) {
             ViewCompat.setBackground(this, obtainTintedStyledAttributes.getDrawable(0));
         }

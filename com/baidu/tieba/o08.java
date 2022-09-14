@@ -1,90 +1,229 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.content.DialogInterface;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o08 extends gw7<p08, GodReplyMoreViewHolder> {
+public class o08 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+    public TbPageContext m;
+    public PbActivity n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o08(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o08 a;
+
+        public a(o08 o08Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o08Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o08Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.u();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o08 a;
+
+        public b(o08 o08Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o08Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o08Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.u();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LevePopData a;
+        public final /* synthetic */ o08 b;
+
+        public c(o08 o08Var, LevePopData levePopData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o08Var, levePopData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = o08Var;
+            this.a = levePopData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, this.a.getBtn_scheme(), true)));
+                this.b.u();
+            }
+        }
+    }
+
+    public o08(PbActivity pbActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
+            Object[] objArr = {pbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((y08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.n = pbActivity;
+        this.m = pbActivity.getPageContext();
     }
 
-    @Override // com.baidu.tieba.gw7, com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (p08) obj, (GodReplyMoreViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
+        String cancel_btn_text;
+        String btn_text;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06ac, viewGroup, false)) : (GodReplyMoreViewHolder) invokeL.objValue;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, p08 p08Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
-        InterceptResult invokeCommon;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p08Var, godReplyMoreViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, p08Var, godReplyMoreViewHolder);
-            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
-                View.OnClickListener onClickListener = this.g;
-                if (onClickListener != null) {
-                    textView.setOnClickListener(onClickListener);
-                }
-                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
-                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
-                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
-                }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.m == null) {
+            return;
+        }
+        LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
+        if (!levePopData.isHadShow() && !StringUtils.isNull(levePopData.getTitle()) && !StringUtils.isNull(levePopData.getDesc()) && !StringUtils.isNull(levePopData.getBtn_scheme()) && levePopData.getLevel() > 0 && levePopData.getLevel() <= 10) {
+            RelativeLayout relativeLayout = new RelativeLayout(this.m.getPageActivity());
+            View view2 = new View(this.m.getPageActivity());
+            uu4 d = uu4.d(view2);
+            d.m(1);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(this.m.getPageActivity());
+            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08083f, WebPManager.ResourceStateType.NORMAL));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.m.getPageActivity());
+            tBAlertBuilder.u(levePopData.getTitle());
+            tBAlertBuilder.o(levePopData.getDesc());
+            tBAlertBuilder.m(true);
+            tBAlertBuilder.j(relativeLayout);
+            TBAlertConfig.a[] aVarArr = new TBAlertConfig.a[2];
+            if (StringUtils.isNull(levePopData.getCancel_btn_text())) {
+                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0828);
+            } else {
+                cancel_btn_text = levePopData.getCancel_btn_text();
             }
-            return view2;
+            aVarArr[0] = new TBAlertConfig.a(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new b(this));
+            if (StringUtils.isNull(levePopData.getBtn_text())) {
+                btn_text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03b5);
+            } else {
+                btn_text = levePopData.getBtn_text();
+            }
+            aVarArr[1] = new TBAlertConfig.a(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new c(this, levePopData));
+            tBAlertBuilder.r(aVarArr);
+            tBAlertBuilder.q(new a(this));
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.g();
+            tBAlertBuilder.w();
+            PollingModel.W(levePopData, true);
+            return;
         }
-        return (View) invokeCommon.objValue;
+        u();
     }
 
-    public void w(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
+            return !levePopData.isHadShow() && !StringUtils.isNull(levePopData.getTitle()) && !StringUtils.isNull(levePopData.getDesc()) && !StringUtils.isNull(levePopData.getBtn_scheme()) && levePopData.getLevel() > 0 && levePopData.getLevel() <= 10 && this.n.x1() && levePopData.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId();
+        }
+        return invokeV.booleanValue;
     }
 }

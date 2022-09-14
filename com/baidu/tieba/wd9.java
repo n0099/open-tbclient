@@ -1,12 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes6.dex */
-public interface wd9 {
-    public static final ServiceReference a = new ServiceReference("voyager", HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM);
+public interface wd9 extends Runnable {
 
-    void a();
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(DownloadException downloadException);
 
-    void b();
+        void onDownloadCanceled();
+
+        void onDownloadCompleted(String str);
+
+        void onDownloadPaused();
+
+        void onDownloadProgress(long j, long j2);
+    }
+
+    void cancel();
+
+    boolean isComplete();
+
+    boolean isDownloading();
+
+    void pause();
 }

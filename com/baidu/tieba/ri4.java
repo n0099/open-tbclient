@@ -1,36 +1,64 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sa3;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ri4 implements View.OnClickListener {
+public class ri4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public RelativeLayout b;
-    public TextView c;
-    public ImageView d;
+    public a a;
+    public b b;
+    public String c;
+    public String d;
     public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
 
     /* loaded from: classes5.dex */
-    public class a implements sa3.b {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ri4 a;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public int e;
+        public String f;
+        public String g;
+        public int h;
 
         public a(ri4 ri4Var) {
             Interceptable interceptable = $ic;
@@ -47,23 +75,23 @@ public class ri4 implements View.OnClickListener {
                     return;
                 }
             }
-            this.a = ri4Var;
-        }
-
-        @Override // com.baidu.tieba.sa3.b
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.j();
-            }
+            this.a = "Android";
+            this.b = Build.VERSION.RELEASE;
+            this.c = Build.MANUFACTURER;
+            this.e = Build.VERSION.SDK_INT;
+            this.f = Build.MODEL;
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+            this.g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
+            this.h = appContext.getResources().getDisplayMetrics().densityDpi;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ri4 a;
+        public String a;
 
         public b(ri4 ri4Var) {
             Interceptable interceptable = $ic;
@@ -80,25 +108,16 @@ public class ri4 implements View.OnClickListener {
                     return;
                 }
             }
-            this.a = ri4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                this.a.d();
-            }
+            this.a = ei4.g().u(AppRuntime.getAppContext());
         }
     }
 
-    public ri4(Context context) {
+    public ri4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,107 +127,166 @@ public class ri4 implements View.OnClickListener {
                 return;
             }
         }
-        this.a = context;
-        e();
-    }
-
-    public RelativeLayout a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (RelativeLayout) invokeV.objValue;
-    }
-
-    public void b() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 0) {
-            this.d.setVisibility(8);
+        this.a = new a(this);
+        this.b = new b(this);
+        this.i = vi4.c();
+        this.o = "";
+        Context appContext = AppRuntime.getAppContext();
+        try {
+            PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+            this.c = packageInfo.versionName;
+            this.e = packageInfo.packageName;
+        } catch (PackageManager.NameNotFoundException unused) {
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            z03.M().postDelayed(new b(this), 3000L);
+        TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
+        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission(com.kuaishou.weapon.p0.h.c) == 0)) {
+            this.j = telephonyManager.getSimOperator();
         }
+        this.f = ei4.g().getDeviceId(appContext);
+        this.g = ei4.g().o(appContext);
+        this.h = ei4.g().a();
+        this.n = ei4.g().b();
+        this.q = ei4.g().s();
+        this.r = str;
     }
 
-    public void d() {
-        TextView textView;
+    public static void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.c) != null && textView.getVisibility() == 0) {
-            this.c.setVisibility(8);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d081b, (ViewGroup) null);
-            this.b = relativeLayout;
-            relativeLayout.setVisibility(8);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f8f);
-            this.c = textView;
-            textView.setVisibility(8);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f8e);
-            this.d = imageView;
-            imageView.setOnClickListener(this);
-            this.d.setVisibility(8);
-            sa3.e().d("#com.baidu.swan.videoplayer&MediaMuteViewLayer", new a(this));
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sa3.e().i("#com.baidu.swan.videoplayer&MediaMuteViewLayer");
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(str);
+        if (interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) {
+            JSONObject e = new ri4(jSONObject.optString("bizId")).e();
+            Iterator<String> keys = e.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!jSONObject.has(next)) {
+                    try {
+                        jSONObject.putOpt(next, e.opt(next));
+                    } catch (JSONException unused) {
+                    }
+                }
             }
         }
     }
 
-    public void h() {
-        ImageView imageView;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 8) {
-            this.d.setVisibility(0);
-            c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (ei4.g() == null) {
+                return str;
+            }
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(str);
+                }
+                return c(jSONObject);
+            } catch (JSONException unused) {
+                return str;
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void i(boolean z) {
-        RelativeLayout relativeLayout;
+    public static String c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (relativeLayout = this.b) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            li4 g = ei4.g();
+            String str = "";
+            if (jSONObject == null || g == null) {
+                return "";
+            }
+            try {
+                if (g.k() == 0) {
+                    str = "swan";
+                } else if (g.k() == 1) {
+                    str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.putOpt("smartAppId", g.getAppId());
+                jSONObject2.putOpt("smartAppVersion", g.getAppVersion());
+                jSONObject2.putOpt("swanCoreVersion", g.m());
+                jSONObject2.putOpt("swanNativeVersion", g.b());
+                jSONObject2.putOpt("swanType", str);
+                jSONObject.putOpt(DI.APP_INFO_NAME, jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("source", g.getScene());
+                jSONObject.put("propagation", jSONObject3);
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return jSONObject.toString();
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) || jSONArray == null || jSONArray.length() < 1) {
             return;
         }
-        relativeLayout.setVisibility(z ? 0 : 8);
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                JSONObject jSONObject3 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
+                Iterator<String> keys = jSONObject3.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    jSONObject.putOpt(next, jSONObject3.optString(next));
+                }
+                jSONObject2.remove(DI.APP_INFO_NAME);
+            } catch (JSONException unused) {
+            }
+        }
     }
 
-    public void j() {
-        TextView textView;
+    public JSONObject e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || TextUtils.isEmpty(this.e) || (textView = this.c) == null || textView.getVisibility() != 8) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.putOpt("os", this.a.a);
+                jSONObject2.putOpt("osversion", this.a.b);
+                jSONObject2.putOpt("model", this.a.f);
+                jSONObject2.putOpt("deviceType", this.a.d);
+                jSONObject2.putOpt("sdk", this.a.e + "");
+                jSONObject2.putOpt(Constants.PHONE_BRAND, this.a.c);
+                jSONObject2.putOpt("screen", this.a.g);
+                jSONObject2.putOpt("density", this.a.h + "");
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.putOpt("passId", this.b.a);
+                jSONObject.putOpt("userInfo", jSONObject3);
+                jSONObject.putOpt("system", jSONObject2);
+                jSONObject.putOpt("appVersion", this.c);
+                jSONObject.putOpt("appBranch", this.d);
+                jSONObject.putOpt("appPackageName", this.e);
+                jSONObject.putOpt("cuid", this.f);
+                jSONObject.putOpt("uuid", this.g);
+                jSONObject.putOpt("hostName", this.h);
+                jSONObject.putOpt("net", this.i);
+                jSONObject.putOpt("operator", this.j);
+                jSONObject.putOpt("smartAppId", this.k);
+                jSONObject.putOpt("smartAppVersion", this.l);
+                jSONObject.putOpt("swanCoreVersion", this.m);
+                jSONObject.putOpt("swanNativeVersion", this.n);
+                jSONObject.putOpt("swanType", this.o);
+                jSONObject.putOpt("swanId", this.p);
+                jSONObject.putOpt("bizId", this.r);
+                jSONObject.putOpt("eventType", this.s);
+                jSONObject.putOpt("eventName", this.t);
+                jSONObject.putOpt("content", this.u);
+                if (!TextUtils.isEmpty(this.q)) {
+                    jSONObject.putOpt("appClientId", this.q);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        this.c.setVisibility(0);
-        c();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091f8e) {
-            j();
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

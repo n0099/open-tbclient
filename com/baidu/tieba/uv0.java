@@ -1,123 +1,331 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.player.layer.LayerContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public final class uv0 {
+public abstract class uv0 implements hw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ow0 a;
+    public LayerContainer b;
+    public Context c;
+    public Handler d;
 
-    public static final void a(zv0 mpdModel, JSONArray clarityUrlList) {
-        ArrayList<vv0> a;
-        vv0 vv0Var;
-        ArrayList<Object> d;
-        ArrayList<vv0> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
-            aw0 b = mpdModel.b();
-            if (b == null || (a = b.a()) == null) {
-                return;
-            }
-            aw0 b2 = mpdModel.b();
-            if (!(((b2 == null || (a2 = b2.a()) == null) ? 0 : a2.size()) > 0)) {
-                a = null;
-            }
-            if (a == null || (vv0Var = a.get(0)) == null || (d = vv0Var.d()) == null) {
-                return;
-            }
-            int size = d.size();
-            for (int i = 0; i < size; i++) {
-                JSONObject jSONObject = new JSONObject();
-                Object obj = d.get(i);
-                if (!(obj instanceof bw0)) {
-                    obj = null;
-                }
-                bw0 bw0Var = (bw0) obj;
-                if (bw0Var != null) {
-                    jSONObject.put("key", bw0Var.g());
-                    jSONObject.put("rank", bw0Var.j());
-                    jSONObject.put("title", bw0Var.k());
-                    jSONObject.put("url", bw0Var.l());
-                    jSONObject.put("width", bw0Var.m());
-                    jSONObject.put("height", bw0Var.f());
-                    jSONObject.put("download_url", bw0Var.d());
-                    jSONObject.put("airPlay_url", bx0.a(new String[]{bw0Var.a(), bw0Var.d(), bw0Var.l()}));
-                    jSONObject.put("videoBps", bw0Var.b());
-                    jSONObject.put("vodMoovSize", bw0Var.h());
-                    jSONObject.put("video_clarity_score", bw0Var.c());
-                    jSONObject.put("prefetch_size", bw0Var.i());
-                    Boolean b3 = vv0Var.b();
-                    jSONObject.put("gopAlign", b3 != null ? b3.booleanValue() : bw0Var.e());
-                    clarityUrlList.put(jSONObject);
+    /* loaded from: classes6.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<uv0> a;
+
+        public a(uv0 uv0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uv0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = new WeakReference<>(uv0Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            uv0 uv0Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (uv0Var = this.a.get()) == null || uv0Var.getContentView() == null || uv0Var.getContentView().getParent() == null) {
+                return;
+            }
+            uv0Var.z(message);
         }
     }
 
-    public static final void b(zv0 mpdModel, JSONObject mpdJson) {
-        JSONArray optJSONArray;
-        JSONArray jSONArray;
-        int i;
-        JSONArray optJSONArray2;
-        JSONArray jSONArray2;
-        int i2;
-        JSONArray jSONArray3;
-        int i3;
+    public uv0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
-            JSONObject optJSONObject = mpdJson.optJSONObject("video");
-            if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            int i4 = 0;
-            while (i4 < length) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i4);
-                if (optJSONObject2 == null || (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) == null) {
-                    jSONArray = optJSONArray;
-                    i = length;
-                } else {
-                    ArrayList arrayList2 = new ArrayList();
-                    int length2 = optJSONArray2.length();
-                    int i5 = 0;
-                    while (i5 < length2) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i5);
-                        if (optJSONObject3 != null) {
-                            jSONArray2 = optJSONArray;
-                            jSONArray3 = optJSONArray2;
-                            i3 = length2;
-                            i2 = length;
-                            arrayList2.add(new bw0(optJSONObject3.optString("key"), optJSONObject3.optInt("rank"), optJSONObject3.optString("title"), optJSONObject3.optString("url"), optJSONObject3.optString("download_url"), optJSONObject3.optString("airPlay_url"), optJSONObject3.optInt("bps"), optJSONObject3.optInt("width"), optJSONObject3.optInt("height"), optJSONObject3.optDouble("size"), optJSONObject3.optInt("moov_size"), optJSONObject3.optDouble("clarity_score", -1.0d), optJSONObject3.optInt("prefetch_size", 0), optJSONObject3.optBoolean("frm_align")));
-                        } else {
-                            jSONArray2 = optJSONArray;
-                            i2 = length;
-                            jSONArray3 = optJSONArray2;
-                            i3 = length2;
-                        }
-                        i5++;
-                        optJSONArray2 = jSONArray3;
-                        optJSONArray = jSONArray2;
-                        length2 = i3;
-                        length = i2;
-                    }
-                    jSONArray = optJSONArray;
-                    i = length;
-                    arrayList.add(new vv0(arrayList2, optJSONObject2.optString("type"), optJSONObject2.has("frm_align") ? Boolean.valueOf(optJSONObject2.optBoolean("frm_align")) : null, optJSONObject2.optString("pre"), optJSONObject2.optString("suf"), optJSONObject2.optString("codecs")));
-                }
-                i4++;
-                optJSONArray = jSONArray;
-                length = i;
-            }
-            mpdModel.f(new aw0(arrayList, null, null, null, null, 30, null));
         }
+        A(null);
+    }
+
+    public final void A(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            if (context == null) {
+                this.c = mq0.b();
+            } else {
+                this.c = context;
+            }
+            this.d = new a(this);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public final boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public final void E() {
+        int[] subscribeEvent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || !C() || (subscribeEvent = getSubscribeEvent()) == null || subscribeEvent.length <= 0) {
+            return;
+        }
+        for (int i : subscribeEvent) {
+            this.a.c(i, this);
+        }
+    }
+
+    public void F(ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ht0Var) == null) {
+            G(ht0Var);
+        }
+    }
+
+    public final void G(ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, ht0Var) == null) && C()) {
+            ht0Var.t(this);
+            this.a.d(ht0Var);
+        }
+    }
+
+    public void H(@Nullable ju0 ju0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ju0Var) == null) {
+            u().u0(ju0Var);
+        }
+    }
+
+    public void I(@NonNull LayerContainer layerContainer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layerContainer) == null) {
+            this.b = layerContainer;
+        }
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public void a(@NonNull ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ht0Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public void d(@NonNull ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ht0Var) == null) {
+        }
+    }
+
+    @Nullable
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? u().getActivity() : (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public int getExpectOrder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, playerStatus, playerStatus2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public void j(@NonNull ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ht0Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public void k(@NonNull ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, ht0Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public void n(@NonNull ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, ht0Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.hw0
+    public void onContainerDetach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.hw0
+    public void onLayerRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            qy0.a("onLayerRelease() = " + this);
+            this.d.removeCallbacksAndMessages(null);
+            this.c = null;
+            this.a = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.iu0
+    public void q(@NonNull ht0 ht0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, ht0Var) == null) {
+        }
+    }
+
+    public void r(@NonNull ow0 ow0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, ow0Var) == null) {
+            this.a = ow0Var;
+            E();
+        }
+    }
+
+    public void s() {
+        ow0 ow0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (ow0Var = this.a) == null) {
+            return;
+        }
+        ow0Var.e(this);
+        this.a = null;
+    }
+
+    @NonNull
+    public Context t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.c.getApplicationContext() : (Context) invokeV.objValue;
+    }
+
+    public nq0 u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            LayerContainer layerContainer = this.b;
+            if (layerContainer != null) {
+                return layerContainer.getBindPlayer();
+            }
+            return null;
+        }
+        return (nq0) invokeV.objValue;
+    }
+
+    public us0 v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? u().q() : (us0) invokeV.objValue;
+    }
+
+    public Handler w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.d : (Handler) invokeV.objValue;
+    }
+
+    public LayerContainer x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.b : (LayerContainer) invokeV.objValue;
+    }
+
+    @Nullable
+    public ow0 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.a : (ow0) invokeV.objValue;
+    }
+
+    public void z(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, message) == null) {
+        }
+    }
+
+    public uv0(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        qy0.a("AbsLayer(context@" + System.identityHashCode(context) + ") = " + this);
+        A(context);
     }
 }

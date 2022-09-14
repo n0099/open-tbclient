@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.qd6;
-import com.baidu.tieba.rd6;
+import com.baidu.tieba.gf6;
+import com.baidu.tieba.hf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumSquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qd6 a;
+    public gf6 a;
 
     public ForumSquareFragment() {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public class ForumSquareFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        rd6 rd6Var;
+        hf6 hf6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            qd6 qd6Var = this.a;
-            if (qd6Var == null || (rd6Var = qd6Var.d) == null) {
+            gf6 gf6Var = this.a;
+            if (gf6Var == null || (hf6Var = gf6Var.d) == null) {
                 return;
             }
-            rd6Var.a(i);
+            hf6Var.a(i);
         }
     }
 
@@ -53,9 +53,9 @@ public class ForumSquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                qd6 qd6Var = new qd6(getContext(), getPageContext());
-                this.a = qd6Var;
-                qd6Var.e();
+                gf6 gf6Var = new gf6(getContext(), getPageContext());
+                this.a = gf6Var;
+                gf6Var.e();
                 this.a.d();
             }
             return this.a.d.e();
@@ -64,23 +64,32 @@ public class ForumSquareFragment extends BaseFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroyView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroyView();
+            this.a = null;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            qd6 qd6Var = this.a;
-            if (qd6Var != null) {
-                qd6Var.m();
+            gf6 gf6Var = this.a;
+            if (gf6Var != null) {
+                gf6Var.m();
             }
         }
     }
 
-    public void r1(String str) {
-        qd6 qd6Var;
+    public void q1(String str) {
+        gf6 gf6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (qd6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (gf6Var = this.a) == null) {
             return;
         }
-        qd6Var.j(str);
+        gf6Var.j(str);
     }
 }

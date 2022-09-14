@@ -20,7 +20,7 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     @KsJson
     /* renamed from: com.kwad.sdk.core.webview.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0612a extends com.kwad.sdk.core.response.kwai.a {
+    public static final class C0617a extends com.kwad.sdk.core.response.kwai.a {
         public String LF;
         public int LG;
         public String LH;
@@ -52,49 +52,49 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
         public String appVersion;
         public String model;
 
-        public static C0612a wi() {
-            C0612a c0612a = new C0612a();
-            c0612a.LF = BuildConfig.VERSION_NAME;
-            c0612a.LG = BuildConfig.VERSION_CODE;
-            c0612a.abe = "4.0.2";
-            c0612a.LH = ((d) ServiceProvider.get(d.class)).getApiVersion();
-            c0612a.LI = ((d) ServiceProvider.get(d.class)).getApiVersionCode();
-            c0612a.LJ = 1;
+        public static C0617a wi() {
+            C0617a c0617a = new C0617a();
+            c0617a.LF = BuildConfig.VERSION_NAME;
+            c0617a.LG = BuildConfig.VERSION_CODE;
+            c0617a.abe = "4.0.2";
+            c0617a.LH = ((d) ServiceProvider.get(d.class)).getApiVersion();
+            c0617a.LI = ((d) ServiceProvider.get(d.class)).getApiVersionCode();
+            c0617a.LJ = 1;
             Context context = ((d) ServiceProvider.get(d.class)).getContext();
-            c0612a.appVersion = j.cb(context);
-            c0612a.appName = ((d) ServiceProvider.get(d.class)).getAppName();
-            c0612a.appId = ((d) ServiceProvider.get(d.class)).getAppId();
-            c0612a.agm = "";
-            c0612a.acB = w.zE();
+            c0617a.appVersion = j.cb(context);
+            c0617a.appName = ((d) ServiceProvider.get(d.class)).getAppName();
+            c0617a.appId = ((d) ServiceProvider.get(d.class)).getAppId();
+            c0617a.agm = "";
+            c0617a.acB = w.zE();
             f fVar = (f) c.f(f.class);
             if (fVar != null) {
-                c0612a.acA = fVar.nb();
+                c0617a.acA = fVar.nb();
             }
-            c0612a.LK = String.valueOf(ae.cw(context));
-            c0612a.LL = az.AN();
-            c0612a.model = az.AE();
-            c0612a.LM = az.AG();
-            c0612a.LN = 1;
-            c0612a.LO = az.getOsVersion();
-            c0612a.LP = az.AQ();
-            c0612a.LQ = az.getLanguage();
-            c0612a.LR = az.getLocale();
-            c0612a.agn = ar.getDeviceId();
-            c0612a.LS = az.getScreenWidth(context);
-            c0612a.LT = az.getScreenHeight(context);
-            c0612a.VB = ar.cI(context);
-            c0612a.VC = ar.getOaid();
-            c0612a.acv = ar.cJ(context);
-            c0612a.acO = ar.cK(context);
-            c0612a.LU = com.kwad.sdk.b.kwai.a.aH(context);
-            c0612a.LV = com.kwad.sdk.b.kwai.a.a(context, 50.0f);
-            return c0612a;
+            c0617a.LK = String.valueOf(ae.cw(context));
+            c0617a.LL = az.AN();
+            c0617a.model = az.AE();
+            c0617a.LM = az.AG();
+            c0617a.LN = 1;
+            c0617a.LO = az.getOsVersion();
+            c0617a.LP = az.AQ();
+            c0617a.LQ = az.getLanguage();
+            c0617a.LR = az.getLocale();
+            c0617a.agn = ar.getDeviceId();
+            c0617a.LS = az.getScreenWidth(context);
+            c0617a.LT = az.getScreenHeight(context);
+            c0617a.VB = ar.cI(context);
+            c0617a.VC = ar.getOaid();
+            c0617a.acv = ar.cJ(context);
+            c0617a.acO = ar.cK(context);
+            c0617a.LU = com.kwad.sdk.b.kwai.a.aH(context);
+            c0617a.LV = com.kwad.sdk.b.kwai.a.a(context, 50.0f);
+            return c0617a;
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        cVar.a(C0612a.wi());
+        cVar.a(C0617a.wi());
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a

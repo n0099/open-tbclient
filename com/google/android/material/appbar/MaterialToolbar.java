@@ -26,9 +26,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class MaterialToolbar extends Toolbar {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100395 = 2131755925;
+    public static final int DEF_STYLE_RES = 2131755926;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -123,7 +121,7 @@ public class MaterialToolbar extends Toolbar {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100395), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

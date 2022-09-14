@@ -17,8 +17,8 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.da8;
 import com.baidu.tieba.play.VideoControllerView;
-import com.baidu.tieba.v88;
 import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.view.VideoFullscreenButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
     public int e;
     public View.OnClickListener f;
     public boolean g;
-    public v88 h;
+    public da8 h;
     public TbImageView i;
     public TBLottieAnimationView j;
 
@@ -229,10 +229,10 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a32);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fd4);
-            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f09261f)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a04));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091a34);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a71);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fef);
+            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f09267d)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1f));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091a73);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());
             }
@@ -242,16 +242,16 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
                 this.i.setGifIconSupport(false);
                 this.i.K(this.c.getThumbPath(), 10, false);
             }
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f092084);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0920d4);
             this.j = tBLottieAnimationView;
             SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001b);
             I1();
             this.b.setOnPreparedListener(new b(this));
             this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091a30);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091a6f);
             this.d = videoControllerView;
             videoControllerView.setPlayer(this.b);
-            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f092495);
+            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f0924f0);
             if (this.g && (videoInfo = this.c) != null && videoInfo.getVideoWidth() > this.c.getVideoHeight()) {
                 videoFullscreenButton.setVisibility(0);
             } else {
@@ -294,7 +294,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
             this.c = (VideoInfo) serializableExtra;
         }
         this.g = intent.getBooleanExtra(GpVideoPreviewActivityConfig.KEY_IS_SUPPORT_FULLSCREEN, false);
-        this.h = new v88(this);
+        this.h = new da8(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

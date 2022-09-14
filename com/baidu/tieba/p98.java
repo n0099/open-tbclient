@@ -1,106 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface p98 {
+public class p98 extends v06<m88> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public View j;
+    public TbImageView k;
+    public TextView l;
 
-    /* loaded from: classes5.dex */
-    public static abstract class a implements p98 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final long b;
-
-        public a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p98(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = i;
-            this.b = System.currentTimeMillis();
         }
+        View h = h();
+        this.j = h;
+        this.i = tbPageContext;
+        h.setTag(this);
+        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090cbd);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090cbb);
+    }
 
-        @Override // com.baidu.tieba.p98
-        public JSONObject a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", this.a);
-                    jSONObject.put("timestamp", this.b);
-                    jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.d());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
+    @Override // com.baidu.tieba.v06
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d03ed : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.v06
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
+            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static abstract class b implements p98 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final String b;
-        public final long c;
-
-        public b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = System.currentTimeMillis();
-        }
-
-        @Override // com.baidu.tieba.p98
-        public JSONObject a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", this.a);
-                    jSONObject.put("source", this.b);
-                    jSONObject.put("timestamp", this.c);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    JSONObject a();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v06
+    /* renamed from: r */
+    public void i(m88 m88Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, m88Var) == null) {
+            if (m88Var == null) {
+                this.j.setVisibility(8);
+                return;
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            this.k.K(m88Var.a, 10, false);
+            this.j.setOnClickListener(this);
+            if (m88Var.b > 0) {
+                this.l.setVisibility(0);
+                long j = m88Var.b;
+                if (j > 99) {
+                    this.l.setText("99");
+                    return;
+                } else {
+                    this.l.setText(String.valueOf(j));
+                    return;
+                }
+            }
+            this.l.setVisibility(8);
+        }
+    }
 }

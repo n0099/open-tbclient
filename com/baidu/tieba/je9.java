@@ -1,147 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.media.MediaCodec;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.util.Log;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import java.nio.ByteBuffer;
+@RequiresApi(api = 16)
 /* loaded from: classes4.dex */
 public class je9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
-    public static void a(File file, List<a> list) throws IOException {
-        ?? r2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            r2 = interceptable;
-            if (r2.invokeLL(65536, null, file, list) != null) {
-                return;
-            }
-        }
-        if (file == null || !file.exists() || list == null || list.size() == 0) {
-            return;
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            try {
-                try {
-                    byte[] bArr = new byte[8192];
-                    r2 = new ZipOutputStream(new FileOutputStream(file));
-                    try {
-                        r2.setComment(file.getName());
-                        for (a aVar : list) {
-                            File file2 = aVar.a;
-                            if (file2.canRead()) {
-                                FileInputStream fileInputStream2 = new FileInputStream(file2);
-                                try {
-                                    r2.putNextEntry(new ZipEntry(aVar.b));
-                                    while (true) {
-                                        int read = fileInputStream2.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        r2.write(bArr, 0, read);
-                                    }
-                                    fileInputStream2.close();
-                                    fileInputStream = fileInputStream2;
-                                } catch (FileNotFoundException e) {
-                                    e = e;
-                                    fileInputStream = fileInputStream2;
-                                    e.printStackTrace();
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (IOException e2) {
-                                            e2.printStackTrace();
-                                        }
-                                    }
-                                    if (r2 != 0) {
-                                        r2.close();
-                                    }
-                                    return;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    fileInputStream = fileInputStream2;
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (IOException e3) {
-                                            e3.printStackTrace();
-                                        }
-                                    }
-                                    if (r2 != 0) {
-                                        try {
-                                            r2.close();
-                                        } catch (IOException e4) {
-                                            e4.printStackTrace();
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            }
-                        }
-                        r2.flush();
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        r2.close();
-                    } catch (FileNotFoundException e6) {
-                        e = e6;
-                    }
-                } catch (IOException e7) {
-                    e7.printStackTrace();
-                }
-            } catch (FileNotFoundException e8) {
-                e = e8;
-                r2 = 0;
-            } catch (Throwable th2) {
-                th = th2;
-                r2 = 0;
-            }
-        } catch (Throwable th3) {
-            th = th3;
-        }
-    }
+    public String a;
+    public MediaExtractor b;
+    public ByteBuffer c;
+    public int d;
+    public a e;
+    public a f;
+    public a g;
 
     /* loaded from: classes4.dex */
-    public static final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public File a;
-        @NonNull
-        public String b;
+        public MediaFormat a;
+        public int b;
+        public long c;
+        public MediaCodec.BufferInfo d;
+        public long e;
 
-        public a(@NonNull File file, @NonNull String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -151,34 +51,201 @@ public class je9 {
                     return;
                 }
             }
-            this.a = file;
-            if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
+            this.a = null;
+            this.b = -1;
+            this.c = 0L;
+            this.d = new MediaCodec.BufferInfo();
+            this.e = 0L;
+        }
+    }
+
+    public je9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = 512000;
+        this.e = new a();
+        this.f = new a();
+        this.g = new a();
+    }
 
-        public a(@NonNull File file, @NonNull String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.advance() : invokeV.booleanValue;
+    }
+
+    public a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (a) invokeV.objValue;
+    }
+
+    public ByteBuffer c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ByteBuffer) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.getSampleTrackIndex() : invokeV.intValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g.c : invokeV.longValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.getSampleTrackIndex() : invokeV.intValue;
+    }
+
+    public a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (a) invokeV.objValue;
+    }
+
+    public MediaCodec.BufferInfo h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? i(this.c, 0) : (MediaCodec.BufferInfo) invokeV.objValue;
+    }
+
+    public MediaCodec.BufferInfo i(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer, i)) == null) {
+            int readSampleData = this.b.readSampleData(byteBuffer, i);
+            if (readSampleData < 0) {
+                return null;
+            }
+            a aVar = this.g;
+            aVar.d.size = readSampleData;
+            if (aVar == this.f) {
+                aVar.c += aVar.e;
+            } else {
+                aVar.c = this.b.getSampleTime();
+            }
+            a aVar2 = this.g;
+            MediaCodec.BufferInfo bufferInfo = aVar2.d;
+            bufferInfo.presentationTimeUs = aVar2.c;
+            bufferInfo.offset = 0;
+            bufferInfo.flags = this.b.getSampleFlags();
+            return this.g.d;
+        }
+        return (MediaCodec.BufferInfo) invokeLI.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ByteBuffer byteBuffer = this.c;
+            if (byteBuffer != null) {
+                byteBuffer.clear();
+                this.c = null;
+            }
+            this.b.release();
+        }
+    }
+
+    public void k(a aVar) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            a aVar2 = this.g;
+            if (aVar2 != null && (i2 = aVar2.b) >= 0) {
+                this.b.unselectTrack(i2);
+            }
+            this.g = aVar;
+            if (aVar == null || (i = aVar.b) < 0) {
+                return;
+            }
+            this.b.selectTrack(i);
+            a aVar3 = this.g;
+            aVar3.a = this.b.getTrackFormat(aVar3.b);
+            try {
+                this.g.a.getLong("durationUs");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
+    }
+
+    public void m(String str, String str2) throws IOException {
+        int integer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            this.a = str;
+            FileUtils.VIDEO_FILE_START.equals(str2);
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            this.b = mediaExtractor;
+            mediaExtractor.setDataSource(this.a);
+            int trackCount = this.b.getTrackCount();
+            for (int i = 0; i < trackCount; i++) {
+                MediaFormat trackFormat = this.b.getTrackFormat(i);
+                String string = trackFormat.getString("mime");
+                if (string.startsWith(FileUtils.VIDEO_FILE_START)) {
+                    a aVar = this.f;
+                    aVar.a = trackFormat;
+                    aVar.b = i;
+                    if (trackFormat.containsKey("max-input-size") && (integer = this.f.a.getInteger("max-input-size")) > 0) {
+                        this.d = integer;
+                    }
+                } else if (string.startsWith("audio/")) {
+                    a aVar2 = this.e;
+                    aVar2.a = trackFormat;
+                    aVar2.b = i;
                 }
             }
-            this.a = file;
-            if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
+            if (this.c == null) {
+                this.c = ByteBuffer.allocateDirect(this.d);
+            }
+            MediaFormat mediaFormat = this.f.a;
+            if (mediaFormat != null) {
+                try {
+                    this.f.e = 1000000 / mediaFormat.getInteger("frame-rate");
+                } catch (Exception e) {
+                    Log.e("VideoExtractor", "frameRate:" + e.getMessage());
+                    e.printStackTrace();
+                }
+                if (this.f.e <= 0) {
+                    k(g());
+                    this.b.readSampleData(this.c, 0);
+                    if (this.b.getSampleFlags() == 1) {
+                        this.b.advance();
+                    }
+                    this.b.readSampleData(this.c, 0);
+                    long sampleTime = this.b.getSampleTime();
+                    this.b.advance();
+                    this.f.e = Math.abs(this.b.getSampleTime() - sampleTime);
+                }
+            }
+            if (FileUtils.VIDEO_FILE_START.equals(str2)) {
+                k(g());
+            } else if ("audio/".equals(str2)) {
+                k(b());
             }
         }
     }

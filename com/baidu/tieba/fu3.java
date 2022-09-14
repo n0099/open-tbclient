@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,92 +11,60 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class fu3 {
+public class fu3 extends ev3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public hv3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947776581, "Lcom/baidu/tieba/fu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947776581, "Lcom/baidu/tieba/fu3;");
-                return;
-            }
-        }
-        b = kh1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fu3() {
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static fu3 d(ht1 ht1Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ev3
+    public yu1 a(@NonNull JSONObject jSONObject, @NonNull cg2 cg2Var) {
+        InterceptResult invokeLL;
+        boolean b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ht1Var)) == null) {
-            if (ht1Var == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cg2Var)) == null) {
+            if (hg3.m()) {
+                b = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (hg3.n()) {
+                b = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (hg3.o()) {
+                b = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else {
+                b = hg3.r() ? b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2") : false;
             }
-            fu3 fu3Var = new fu3();
-            fu3Var.a = hv3.e(ht1Var);
-            return fu3Var;
+            if (!b) {
+                Toast.makeText(fm2.c(), (int) R.string.obfuscated_res_0x7f0f0190, 0).show();
+            }
+            cg2Var.a(null);
+            return null;
         }
-        return (fu3) invokeL.objValue;
+        return (yu1) invokeLL.objValue;
     }
 
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", mq3.a(str));
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return hf3.i(fm2.c(), intent, true, false);
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            hv3 hv3Var = this.a;
-            if (hv3Var != null) {
-                hv3Var.b(a);
-            }
-        }
-    }
-
-    public void c() {
-        hv3 hv3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hv3Var = this.a) == null) {
-            return;
-        }
-        hv3Var.c();
+        return invokeLL.booleanValue;
     }
 }

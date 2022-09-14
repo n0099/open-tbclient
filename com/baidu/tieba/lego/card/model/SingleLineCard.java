@@ -5,9 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ff7;
-import com.baidu.tieba.hf7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lg7;
+import com.baidu.tieba.ng7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class SingleLineCard extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
-    public final ff7 buttonInfo;
+    public final lg7 buttonInfo;
     public final int gravity;
     public final int height;
     public final String iconTitle;
@@ -66,9 +66,9 @@ public class SingleLineCard extends BaseCardInfo {
             this.iconUrlNight = optJSONObject.optString("urlNight");
             this.iconType = optJSONObject.optInt("type");
             this.iconTitle = optJSONObject.optString("text");
-            int b = hf7.b(optJSONObject.optString("tColor", ""));
-            int b2 = hf7.b(optJSONObject.optString("tColorN", ""));
-            if (!hf7.a(b) && !hf7.a(b2)) {
+            int b = ng7.b(optJSONObject.optString("tColor", ""));
+            int b2 = ng7.b(optJSONObject.optString("tColorN", ""));
+            if (!ng7.a(b) && !ng7.a(b2)) {
                 this.iconTitleColor = b;
                 this.iconTitleColorNight = b2;
             } else {
@@ -89,13 +89,13 @@ public class SingleLineCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             this.params.add(optJSONArray.optString(i3));
         }
-        this.paramColor = hf7.b(jSONObject.optString("pColor", ""));
-        this.paramColorNight = hf7.b(jSONObject.optString("pColorNight", ""));
-        this.titleColor = hf7.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = hf7.b(jSONObject.optString("tColorNight", ""));
-        this.bgColor = hf7.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = hf7.b(jSONObject.optString("bgColorNight", ""));
-        this.buttonInfo = ff7.a(jSONObject.optJSONObject("moreButton"));
+        this.paramColor = ng7.b(jSONObject.optString("pColor", ""));
+        this.paramColorNight = ng7.b(jSONObject.optString("pColorNight", ""));
+        this.titleColor = ng7.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = ng7.b(jSONObject.optString("tColorNight", ""));
+        this.bgColor = ng7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = ng7.b(jSONObject.optString("bgColorNight", ""));
+        this.buttonInfo = lg7.a(jSONObject.optJSONObject("moreButton"));
         this.showLeftLine = jSONObject.optInt("showLeftLine") == 1;
         this.showLeftIcon = jSONObject.optInt("showLeftIcon") == 1;
         this.maxLines = jSONObject.optInt("maxLines", 1);
@@ -116,10 +116,10 @@ public class SingleLineCard extends BaseCardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bgColorNight : invokeV.intValue;
     }
 
-    public ff7 getButtonInfo() {
+    public lg7 getButtonInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonInfo : (ff7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonInfo : (lg7) invokeV.objValue;
     }
 
     public int getGravity() {

@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.se8;
+import com.baidu.tieba.cg8;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public se8 b;
+    public cg8 b;
     public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -33,7 +33,7 @@ public class AccountSafeModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,10 +42,10 @@ public class AccountSafeModel extends BdBaseModel {
         this.a = false;
     }
 
-    public se8 A() {
+    public cg8 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (se8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (cg8) invokeV.objValue;
     }
 
     public String B() {
@@ -58,8 +58,8 @@ public class AccountSafeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            se8 se8Var = this.b;
-            if (se8Var == null || se8Var.f() == null) {
+            cg8 cg8Var = this.b;
+            if (cg8Var == null || cg8Var.f() == null) {
                 return null;
             }
             return this.b.f();
@@ -98,10 +98,10 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void G(se8 se8Var) {
+    public void G(cg8 cg8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, se8Var) == null) {
-            this.b = se8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cg8Var) == null) {
+            this.b = cg8Var;
             E();
         }
     }

@@ -1,20 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.smartcolor.utils.Tri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ug1 implements vg1 {
+public class ug1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ug1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public vg1 a;
-    public boolean b;
+    @Deprecated
+    public int a;
+    @Deprecated
+    public int b;
+    @Deprecated
+    public int c;
+    public String d;
+    public String e;
+    public Tri f;
+    public Tri g;
+    public Tri h;
+    public Tri i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public boolean n;
+    public int o;
+    public int p;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ug1 a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new ug1();
+        }
+
+        public ug1 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ug1) invokeV.objValue;
+        }
+
+        public a b(Tri tri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tri)) == null) {
+                this.a.g = tri;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(Tri tri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tri)) == null) {
+                this.a.f = tri;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+                if (i > 0 && i2 <= 100 && i2 >= i) {
+                    this.a.j = i;
+                    this.a.k = i2;
+                    return this;
+                }
+                throw new IllegalArgumentException("argument out of valid range!");
+            }
+            return (a) invokeII.objValue;
+        }
+
+        public a e(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+                if (i >= 10 && i2 <= 100 && i2 >= i && i % 10 == 0 && i2 % 10 == 0) {
+                    this.a.l = i;
+                    this.a.m = i2;
+                    return this;
+                }
+                throw new IllegalArgumentException("argument out of valid range!");
+            }
+            return (a) invokeII.objValue;
+        }
+    }
 
     public ug1() {
         Interceptable interceptable = $ic;
@@ -29,83 +122,113 @@ public class ug1 implements vg1 {
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
+        this.a = 0;
+        this.b = 0;
+        this.c = 32;
+        Tri tri = Tri.UNDEFINED;
+        this.f = tri;
+        this.g = tri;
+        this.h = tri;
+        this.i = tri;
+        this.n = true;
+        this.o = 800;
+        this.p = 800;
     }
 
-    public static ug1 b() {
+    public Tri g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ug1.class) {
-                    if (c == null) {
-                        c = new ug1();
-                    }
-                }
-            }
-            return c;
-        }
-        return (ug1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (Tri) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vg1
-    public String a() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vg1 vg1Var = this.a;
-            if (vg1Var == null) {
-                return null;
-            }
-            try {
-                return vg1Var.a();
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.vg1
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, wg1 wg1Var) {
-        vg1 vg1Var;
+    public Tri i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, wg1Var) != null) {
-            return;
-        }
-        try {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            int ordinal = com.baidu.sso.s.a.a(Build.MANUFACTURER).ordinal();
-            if (ordinal == 0) {
-                vg1Var = null;
-            } else if (ordinal == 1) {
-                vg1Var = new yg1();
-            } else if (ordinal == 2) {
-                vg1Var = new gh1();
-            } else if (ordinal == 3) {
-                vg1Var = new eh1();
-            } else if (ordinal != 4) {
-                if (this.a == null) {
-                    this.a.a(context, wg1Var);
-                    return;
-                }
-                return;
-            } else {
-                vg1Var = new ah1();
-            }
-            this.a = vg1Var;
-            if (this.a == null) {
-            }
-        } catch (Throwable unused) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (Tri) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public Tri m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (Tri) invokeV.objValue;
+    }
+
+    public Tri n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (Tri) invokeV.objValue;
+    }
+
+    @Deprecated
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.p : invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.o : invokeV.intValue;
+    }
+
+    public int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.l : invokeV.intValue;
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 }

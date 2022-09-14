@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes3.dex */
-public class b14 {
+public class b14 extends JSEvent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
     /* loaded from: classes3.dex */
-    public static class a implements Comparator<b14> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @V8JavascriptField
+        public boolean devhook;
+        @V8JavascriptField
+        public String scene;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -31,60 +34,38 @@ public class b14 {
                 }
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(b14 b14Var, b14 b14Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, b14Var, b14Var2)) == null) ? (int) (b14Var.a - b14Var2.a) : invokeLL.intValue;
-        }
     }
 
-    public b14() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b14(vn2 vn2Var) {
+        super("appshow");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vn2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.data = a(vn2Var);
     }
 
-    public static long[] a(b14 b14Var) {
+    public final Object a(vn2 vn2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, b14Var)) == null) {
-            if (b14Var == null) {
-                return null;
-            }
-            return new long[]{b14Var.a, b14Var.b};
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vn2Var)) == null) {
+            a aVar = new a();
+            aVar.scene = vn2Var.T();
+            aVar.devhook = vn2Var.m0();
+            return aVar;
         }
-        return (long[]) invokeL.objValue;
-    }
-
-    public boolean b(b14 b14Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b14Var)) == null) {
-            long j = this.a;
-            if (j <= b14Var.b) {
-                long j2 = this.b;
-                long j3 = b14Var.a;
-                if (j2 < j3) {
-                    return false;
-                }
-                this.a = Math.min(j, j3);
-                this.b = Math.max(this.b, b14Var.b);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeL.objValue;
     }
 }

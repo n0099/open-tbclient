@@ -2,15 +2,15 @@ package com.baidu.tieba.write.write.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.o19;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.pk8;
+import com.baidu.tieba.dm8;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.r59;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
@@ -24,11 +24,11 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o19 a;
-    public bb b;
+    public r59 a;
+    public pb b;
 
     /* loaded from: classes6.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StickerModel a;
@@ -55,7 +55,7 @@ public class StickerModel extends BdBaseModel {
             this.a = stickerModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -88,7 +88,7 @@ public class StickerModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -99,10 +99,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void A(o19 o19Var) {
+    public void A(r59 r59Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o19Var) == null) {
-            this.a = o19Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, r59Var) == null) {
+            this.a = r59Var;
         }
     }
 
@@ -129,9 +129,9 @@ public class StickerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (pi.A()) {
-                pk8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                pk8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                dm8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                dm8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);

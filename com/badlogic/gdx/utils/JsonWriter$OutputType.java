@@ -2,8 +2,8 @@ package com.badlogic.gdx.utils;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j8;
-import com.baidu.tieba.q7;
+import com.baidu.tieba.k8;
+import com.baidu.tieba.r7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,24 +90,24 @@ public final class JsonWriter$OutputType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            j8 j8Var = new j8(str);
-            j8Var.G('\\', "\\\\");
-            j8Var.G('\r', "\\r");
-            j8Var.G('\n', "\\n");
-            j8Var.G('\t', "\\t");
-            int i = q7.a[ordinal()];
+            k8 k8Var = new k8(str);
+            k8Var.G('\\', "\\\\");
+            k8Var.G('\r', "\\r");
+            k8Var.G('\n', "\\n");
+            k8Var.G('\t', "\\t");
+            int i = r7.a[ordinal()];
             if (i == 1) {
-                if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(j8Var).matches()) {
-                    return j8Var.toString();
+                if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(k8Var).matches()) {
+                    return k8Var.toString();
                 }
             }
-            if (javascriptPattern.matcher(j8Var).matches()) {
-                return j8Var.toString();
+            if (javascriptPattern.matcher(k8Var).matches()) {
+                return k8Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            j8Var.G(Typography.quote, "\\\"");
-            sb.append(j8Var.toString());
+            k8Var.G(Typography.quote, "\\\"");
+            sb.append(k8Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }
@@ -126,18 +126,18 @@ public final class JsonWriter$OutputType {
             if ((obj instanceof Number) || (obj instanceof Boolean)) {
                 return obj2;
             }
-            j8 j8Var = new j8(obj2);
-            j8Var.G('\\', "\\\\");
-            j8Var.G('\r', "\\r");
-            j8Var.G('\n', "\\n");
-            j8Var.G('\t', "\\t");
-            if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = j8Var.length()) > 0 && j8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(j8Var).matches()) {
-                return j8Var.toString();
+            k8 k8Var = new k8(obj2);
+            k8Var.G('\\', "\\\\");
+            k8Var.G('\r', "\\r");
+            k8Var.G('\n', "\\n");
+            k8Var.G('\t', "\\t");
+            if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = k8Var.length()) > 0 && k8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(k8Var).matches()) {
+                return k8Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            j8Var.G(Typography.quote, "\\\"");
-            sb.append(j8Var.toString());
+            k8Var.G(Typography.quote, "\\\"");
+            sb.append(k8Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }

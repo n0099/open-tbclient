@@ -49,9 +49,9 @@ public class EmotionFloatView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d024e, (ViewGroup) this, true);
-            this.a = (GifView) findViewById(R.id.obfuscated_res_0x7f0908c4);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090773);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0252, (ViewGroup) this, true);
+            this.a = (GifView) findViewById(R.id.obfuscated_res_0x7f0908d9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09078a);
         }
     }
 
@@ -75,11 +75,11 @@ public class EmotionFloatView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 1) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08092d, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080949, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             } else if (i == 2) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08092e, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             } else if (i == 3) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08092c, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             }
         }
     }

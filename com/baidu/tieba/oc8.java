@@ -1,79 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetWebviewCacheInfo.Offpack;
 /* loaded from: classes5.dex */
 public class oc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
 
-    public static int a(int i, nc8 nc8Var) {
-        InterceptResult invokeIL;
+    public oc8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, nc8Var)) == null) {
-            if (i <= 0) {
-                return nc8Var.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (nc8Var.c()) {
-                return i + nc8Var.b();
-            }
-            return i + nc8Var.b() + 1;
         }
-        return invokeIL.intValue;
+        this.d = true;
     }
 
-    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull nc8 nc8Var, int i2, @Nullable T t, @Nullable pc8 pc8Var, @Nullable qc8 qc8Var) {
-        InterceptResult invokeCommon;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), nc8Var, Integer.valueOf(i2), t, pc8Var, qc8Var})) == null) {
-            if (nc8Var.a() != -1 && nc8Var.b() != -1) {
-                int a = a(i2, nc8Var);
-                if (pc8Var != null && t != null) {
-                    if (i <= i2) {
-                        if (qc8Var != 0) {
-                            qc8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i3 = i + 1;
-                    if (i3 < a) {
-                        if (qc8Var != 0) {
-                            qc8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i4 = i > a ? i3 : a;
-                    int i5 = gf7.i(list);
-                    if (i4 >= i5 && (pc8Var.b() || i4 > i5)) {
-                        if (qc8Var != 0) {
-                            qc8Var.d(i, i4, i5, pc8Var, t);
-                        }
-                        return false;
-                    }
-                    pc8Var.a(i4);
-                    if (pc8Var.b()) {
-                        if (qc8Var != 0) {
-                            qc8Var.e(i, i4, gf7.d(list, i4), pc8Var, t);
-                            return true;
-                        }
-                        return true;
-                    }
-                    gf7.b(list, t, i4);
-                    if (qc8Var != 0) {
-                        qc8Var.c(i, i4, pc8Var, t);
-                        return true;
-                    }
-                    return true;
-                } else if (qc8Var != 0) {
-                    qc8Var.a(i, a);
-                }
-            }
-            return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void e(Offpack offpack) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, offpack) == null) || offpack == null) {
+            return;
         }
-        return invokeCommon.booleanValue;
+        this.a = offpack.src;
+        this.b = offpack.md5;
+        this.c = offpack.webview_version;
+        this.d = offpack.is_use.intValue() == 1;
     }
 }

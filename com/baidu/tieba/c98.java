@@ -1,258 +1,254 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.searchbox.player.constants.PlayerConstant;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.viewpager.ListViewPager;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumCardView;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class c98 {
+public class c98 extends v06<a88> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public TbPageContext<?> i;
+    public int j;
+    public a88 k;
+    public b l;
+    public ug<PersonCommonForumItemView> m;
+    public TextView n;
+    public ListViewPager o;
 
-    public c98() {
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends PagerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c98 a;
+
+        public b(c98 c98Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c98Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c98Var;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) && (obj instanceof PersonCommonForumCardView)) {
+                PersonCommonForumCardView personCommonForumCardView = (PersonCommonForumCardView) obj;
+                personCommonForumCardView.k();
+                viewGroup.removeView(personCommonForumCardView);
+            }
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.k == null || ListUtils.isEmpty(this.a.k.a)) {
+                    return 0;
+                }
+                return this.a.k.a.size() % 4 == 0 ? this.a.k.a.size() / 4 : (this.a.k.a.size() / 4) + 1;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public Object instantiateItem(ViewGroup viewGroup, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+                List<d88> v = this.a.v(i);
+                if (ListUtils.isEmpty(v)) {
+                    return null;
+                }
+                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.i.getPageActivity());
+                personCommonForumCardView.setForumItemViewBdObjectPool(this.a.m);
+                personCommonForumCardView.setData(v);
+                personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                viewGroup.addView(personCommonForumCardView);
+                return personCommonForumCardView;
+            }
+            return invokeLI.objValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public boolean isViewFromObject(View view2, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+        }
+
+        public /* synthetic */ b(c98 c98Var, a aVar) {
+            this(c98Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c98(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Unknown";
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1679289728:
-                    if (str.equals("Concern")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case -1152667590:
-                    if (str.equals("ad_feed")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -654725321:
-                    if (str.equals("ad_video_landing")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -421681106:
-                    if (str.equals("HomePage")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case -181435716:
-                    if (str.equals("HomeVideo")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 2546:
-                    if (str.equals("PB")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 70919:
-                    if (str.equals("Frs")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 175967569:
-                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 671041499:
-                    if (str.equals("ad_paster")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 1974553171:
-                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                case 1:
-                case 2:
-                    return LaunchStatsUtils.AD;
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case '\b':
-                case '\t':
-                    return "tbc";
-                default:
-                    return "Unknown";
+        this.j = 3;
+        this.l = new b(this, null);
+        this.i = tbPageContext;
+        View h = h();
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09069a);
+        this.o = (ListViewPager) h.findViewById(R.id.obfuscated_res_0x7f09069b);
+        if ("NX40X".equals(gj.g())) {
+            h.setLayerType(2, null);
+            if (h instanceof ViewGroup) {
+                ((ViewGroup) h).setClipChildren(true);
             }
         }
-        return (String) invokeL.objValue;
+        this.o.setOffscreenPageLimit(1);
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v06
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Unknown";
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 1567) {
-                if (hashCode != 1568) {
-                    if (hashCode != 1570) {
-                        if (hashCode != 1576) {
-                            if (hashCode != 1599) {
-                                switch (hashCode) {
-                                    case 49:
-                                        if (str.equals("1")) {
-                                            c = 0;
-                                            break;
-                                        }
-                                        break;
-                                    case 50:
-                                        if (str.equals("2")) {
-                                            c = 2;
-                                            break;
-                                        }
-                                        break;
-                                    case 51:
-                                        if (str.equals("3")) {
-                                            c = 4;
-                                            break;
-                                        }
-                                        break;
-                                    case 52:
-                                        if (str.equals("4")) {
-                                            c = 3;
-                                            break;
-                                        }
-                                        break;
-                                    default:
-                                        switch (hashCode) {
-                                            case 54:
-                                                if (str.equals("6")) {
-                                                    c = 7;
-                                                    break;
-                                                }
-                                                break;
-                                            case 55:
-                                                if (str.equals("7")) {
-                                                    c = 1;
-                                                    break;
-                                                }
-                                                break;
-                                            case 56:
-                                                if (str.equals("8")) {
-                                                    c = '\b';
-                                                    break;
-                                                }
-                                                break;
-                                            case 57:
-                                                if (str.equals("9")) {
-                                                    c = '\t';
-                                                    break;
-                                                }
-                                                break;
-                                        }
-                                }
-                            } else if (str.equals("21")) {
-                                c = '\f';
-                            }
-                        } else if (str.equals("19")) {
-                            c = '\n';
-                        }
-                    } else if (str.equals("13")) {
-                        c = 11;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0714 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.v06
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.j != i) {
+                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+                SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+                int childCount = this.o.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = this.o.getChildAt(i2);
+                    if (childAt instanceof PersonCommonForumCardView) {
+                        ((PersonCommonForumCardView) childAt).j();
                     }
-                } else if (str.equals("11")) {
-                    c = 6;
                 }
-            } else if (str.equals("10")) {
-                c = 5;
             }
-            switch (c) {
-                case 0:
-                    return "HomePage";
-                case 1:
-                    return "Concern";
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    return "Frs";
-                case 7:
-                    return "PB";
-                case '\b':
-                case '\t':
-                case '\n':
-                    return "HomeVideo";
-                case 11:
-                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
-                case '\f':
-                    return PlayerConstant.PAGE_VIDEO_LANDING;
-                default:
-                    return "Unknown";
-            }
+            this.j = i;
         }
-        return (String) invokeL.objValue;
     }
 
-    public int c(String str) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 1;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 49) {
-                if (hashCode == 50 && str.equals("2")) {
-                    c = 1;
-                }
-            } else if (str.equals("1")) {
-                c = 0;
-            }
-            return (c == 0 || c != 1) ? 1 : 0;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return invokeL.intValue;
+    }
+
+    public final List<d88> v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            a88 a88Var = this.k;
+            if (a88Var == null || ListUtils.isEmpty(a88Var.a)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int i2 = i * 4;
+            for (int i3 = i2; i3 < i2 + 4; i3++) {
+                d88 d88Var = (d88) ListUtils.getItem(this.k.a, i3);
+                if (d88Var != null) {
+                    arrayList.add(d88Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public final boolean w(a88 a88Var) {
+        InterceptResult invokeL;
+        a88 a88Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a88Var)) == null) {
+            if (a88Var == null || ListUtils.isEmpty(a88Var.a) || a88Var == (a88Var2 = this.k)) {
+                return false;
+            }
+            if (a88Var2 == null || ListUtils.isEmpty(a88Var2.a)) {
+                return true;
+            }
+            if (!ListUtils.isEmpty(a88Var.a)) {
+                if (a88Var.a.size() != this.k.a.size()) {
+                    return true;
+                }
+                for (int i = 0; i < a88Var.a.size(); i++) {
+                    if (this.k.a.get(i) == null || a88Var.a.get(i).a != this.k.a.get(i).a) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v06
+    /* renamed from: x */
+    public void i(a88 a88Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, a88Var) == null) {
+            if (w(a88Var)) {
+                this.k = a88Var;
+                if (ListUtils.getCount(a88Var.a) <= 2) {
+                    this.o.getLayoutParams().height = ej.f(this.i.getPageActivity(), R.dimen.obfuscated_res_0x7f070247);
+                }
+                this.o.setAdapter(this.l);
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void y(ug<PersonCommonForumItemView> ugVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ugVar) == null) {
+            this.m = ugVar;
+        }
     }
 }

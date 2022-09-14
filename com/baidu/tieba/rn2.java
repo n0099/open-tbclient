@@ -1,75 +1,162 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rn2 implements zq2 {
+public final class rn2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public tn2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
+    public final LruCache<String, Object> a;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final rn2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-455410347, "Lcom/baidu/tieba/rn2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-455410347, "Lcom/baidu/tieba/rn2$b;");
+                    return;
+                }
+            }
+            a = new rn2(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127315, "Lcom/baidu/tieba/rn2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948127315, "Lcom/baidu/tieba/rn2;");
+                return;
+            }
+        }
+        b = ij1.a;
+    }
+
+    public /* synthetic */ rn2(a aVar) {
+        this();
+    }
+
+    public static rn2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (rn2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.evictAll();
+                }
+            }
+        }
+    }
+
+    public synchronized <RESULT> RESULT b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                RESULT result = (RESULT) this.a.get(str);
+                if (result == null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
+                    }
+                    return null;
+                }
+                try {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
+                    }
+                    return result;
+                } catch (Exception e) {
+                    if (b) {
+                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
+                    }
+                    return null;
+                }
+            }
+        }
+        return (RESULT) invokeL.objValue;
+    }
+
+    public synchronized <RESULT> void d(String str, RESULT result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && result != null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
+                    }
+                    this.a.put(str, result);
+                }
+            }
+        }
+    }
+
+    public synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (b) {
+                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
+                }
+                this.a.remove(str);
+            }
+        }
+    }
 
     public rn2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
-    }
-
-    @Override // com.baidu.tieba.zq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("radius")) {
-            tn2 tn2Var = new tn2();
-            this.a = tn2Var;
-            tn2Var.a(jSONObject);
-            if (this.a.isValid()) {
-                this.b = nn2.a(jSONObject.optString("color"), 0);
-                this.c = nn2.a(jSONObject.optString("fillColor"), -16777216);
-                this.d = jSONObject.optInt("radius", -1);
-                this.e = Math.abs(nn2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            tn2 tn2Var = this.a;
-            return (tn2Var == null || !tn2Var.isValid() || this.d == -1) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
-        }
-        return (String) invokeV.objValue;
+        this.a = new LruCache<>(10);
     }
 }

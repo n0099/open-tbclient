@@ -21,7 +21,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -180,8 +179,8 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public static void configureEditModeLogo(Resources resources, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, resources, imageView) == null) {
-            imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804df));
-            imageView.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060729));
+            imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3));
+            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739));
         }
     }
 
@@ -189,8 +188,8 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public static void configureEditModeLogoV23(Resources resources, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, resources, imageView) == null) {
-            imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804df, null));
-            imageView.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060729, null));
+            imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3, null));
+            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739, null));
         }
     }
 
@@ -741,14 +740,14 @@ public final class SimpleExoPlayerView extends FrameLayout {
             addView(imageView);
             return;
         }
-        int i8 = R.layout.obfuscated_res_0x7f0d0278;
+        int i8 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027c;
         int i9 = 5000;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ae, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f040208, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f040308, R.attr.obfuscated_res_0x7f04055c, R.attr.obfuscated_res_0x7f0405bb, R.attr.obfuscated_res_0x7f0405be, R.attr.obfuscated_res_0x7f040625, R.attr.obfuscated_res_0x7f040628, R.attr.obfuscated_res_0x7f04066c, R.attr.obfuscated_res_0x7f04074f, R.attr.obfuscated_res_0x7f040750}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SimpleExoPlayerView, 0, 0);
             try {
                 z3 = obtainStyledAttributes.hasValue(9);
                 i3 = obtainStyledAttributes.getColor(9, 0);
-                i8 = obtainStyledAttributes.getResourceId(5, R.layout.obfuscated_res_0x7f0d0278);
+                i8 = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027c);
                 z4 = obtainStyledAttributes.getBoolean(11, true);
                 i4 = obtainStyledAttributes.getResourceId(2, 0);
                 z5 = obtainStyledAttributes.getBoolean(12, true);
@@ -777,12 +776,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
         LayoutInflater.from(context).inflate(i8, this);
         this.componentListener = new ComponentListener(this, null);
         setDescendantFocusability(262144);
-        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09092a);
+        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090942);
         this.contentFrame = aspectRatioFrameLayout;
         if (aspectRatioFrameLayout != null) {
             setResizeModeRaw(aspectRatioFrameLayout, i2);
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090939);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090951);
         this.shutterView = findViewById;
         if (findViewById != null && z3) {
             findViewById.setBackgroundColor(i3);
@@ -796,21 +795,21 @@ public final class SimpleExoPlayerView extends FrameLayout {
         } else {
             this.surfaceView = null;
         }
-        this.overlayFrameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090930);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090929);
+        this.overlayFrameLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090948);
+        ImageView imageView2 = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090941);
         this.artworkView = imageView2;
         this.useArtwork = z4 && imageView2 != null;
         if (i4 != 0) {
             this.defaultArtwork = BitmapFactory.decodeResource(context.getResources(), i4);
         }
-        SubtitleView subtitleView = (SubtitleView) findViewById(R.id.obfuscated_res_0x7f09093a);
+        SubtitleView subtitleView = (SubtitleView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090952);
         this.subtitleView = subtitleView;
         if (subtitleView != null) {
             subtitleView.setUserDefaultStyle();
             this.subtitleView.setUserDefaultTextSize();
         }
-        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(R.id.obfuscated_res_0x7f09092b);
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09092c);
+        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090943);
+        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090944);
         if (playbackControlView != null) {
             this.controller = playbackControlView;
         } else if (findViewById2 != null) {

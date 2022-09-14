@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WebRtcAudioManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;

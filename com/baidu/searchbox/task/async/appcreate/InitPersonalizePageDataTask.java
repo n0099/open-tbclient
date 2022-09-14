@@ -3,9 +3,7 @@ package com.baidu.searchbox.task.async.appcreate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.MainTabDataSwitch;
-import com.baidu.tieba.b17;
-import com.baidu.tieba.c17;
+import com.baidu.tieba.l27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,11 +32,7 @@ public class InitPersonalizePageDataTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            if (MainTabDataSwitch.isCacheOpen()) {
-                c17.c().g();
-            } else {
-                b17.m().p();
-            }
+            l27.c().g();
         }
     }
 

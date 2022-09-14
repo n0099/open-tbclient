@@ -2,14 +2,12 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.rtc.RTCLoadManager;
 import com.baidu.searchbox.StartupCountStatsController;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
-import com.baidu.tieba.bl4;
+import com.baidu.tieba.bn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,33 +40,24 @@ public class InitSDKTask extends LaunchTask {
         }
     }
 
+    private void initDeviceSdk() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            DeviceInfoManager.INSTANCE.init(511);
+        }
+    }
+
     private void initGrowthSdk() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            GrowthStatsUtil.statisticDeviceInfo();
-        }
-    }
-
-    private void initRTCLoadManager() {
-        Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            RTCLoadManager.getInstance(TbadkCoreApplication.getInst().getContext()).loadLibraries("armeabi", null);
-        }
-    }
-
-    private void initRuka() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            Ruka.startAnrMonitor(TbadkCoreApplication.getInst());
-            Ruka.startLooperMonitor(TbadkCoreApplication.getInst());
-            Ruka.startBlockMonitor(TbadkCoreApplication.getInst());
+            GrowthStatsUtil.statisticDeviceInfo();
         }
     }
 
     private void initTBTaskSDK() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            bl4.f().g(TbadkCoreApplication.getInst());
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
+            bn4.f().g(TbadkCoreApplication.getInst());
         }
     }
 
@@ -76,16 +65,10 @@ public class InitSDKTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            initDeviceSdk();
             initCountStats();
             initGrowthSdk();
-            if (!LaunchUpApplicationSwitch.getIsOn()) {
-                initRuka();
-            }
             initTBTaskSDK();
-            if (LaunchUpApplicationSwitch.getIsOn()) {
-                return;
-            }
-            initRTCLoadManager();
         }
     }
 

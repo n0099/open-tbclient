@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoEncoderWrapper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoEncoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class VideoEncoderWrapper {
     public static VideoEncoder.Callback createEncoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoEncoder.Callback() { // from class: com.baidu.tieba.hu9
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoEncoder.Callback() { // from class: com.baidu.tieba.zv9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

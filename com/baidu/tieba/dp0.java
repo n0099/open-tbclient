@@ -1,81 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class dp0 extends cp0 {
+public class dp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final Map<String, b> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dp0(@NonNull us0 us0Var, @Nullable Context context) {
-        super(us0Var, context);
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public /* synthetic */ b(JSONObject jSONObject, a aVar) {
+            this(jSONObject);
+        }
+
+        public b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.optString("type");
+            jSONObject.optString("zip_url");
+            jSONObject.optInt("width");
+            jSONObject.optInt("height");
+        }
+    }
+
+    public dp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {us0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((us0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.bp0
-    @NonNull
-    public vs0 E() {
-        InterceptResult invokeV;
+    @Nullable
+    public static dp0 a(@Nullable JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.v == null) {
-                this.v = this.y.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return null;
             }
-            return this.v;
+            dp0 dp0Var = new dp0();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    b bVar = new b(optJSONObject, null);
+                    lz0.e(dp0Var.a, bVar.a, bVar);
+                }
+            }
+            return dp0Var;
         }
-        return (vs0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void F0(@Nullable pu0 pu0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu0Var) == null) {
-            super.F0(E().b(this, pu0Var));
-        }
-    }
-
-    @Override // com.baidu.tieba.cp0
-    @CallSuper
-    public void F1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            E().c(this, z);
-            vr0 w = jr0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
-            w.n(9, Boolean.valueOf(z));
-            q0(w);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E().a(this);
-        }
+        return (dp0) invokeL.objValue;
     }
 }

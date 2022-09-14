@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -162,7 +161,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                 jSONObject.put("signal_sdk_version", 103050L);
                 jSONObject.put("unique_key", "" + currentTimeMillis);
                 jSONObject.put("source", this.mSource);
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
+                jSONObject.put("ts", currentTimeMillis);
                 jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
                 StringBuilder sb = new StringBuilder();
                 sb.append("RtcGetTokenRequest msg :");

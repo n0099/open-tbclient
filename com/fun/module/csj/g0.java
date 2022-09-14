@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh9;
+import com.baidu.tieba.ll9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,18 +110,18 @@ public class g0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0777;
+                i = R.string.obfuscated_res_0x7f0f078a;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0779;
+                i = R.string.obfuscated_res_0x7f0f078c;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0778;
+                i = R.string.obfuscated_res_0x7f0f078b;
             }
             button.setText(i);
         }
@@ -149,10 +149,10 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public hh9 getDownloadListener() {
+    public ll9 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new hh9(this.e) : (hh9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ll9(this.e) : (ll9) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -163,7 +163,7 @@ public class g0 extends LinearLayout {
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ec);
+            this.c = (TextView) findViewById(R.id.ad_source);
             this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09009d);
         }
     }

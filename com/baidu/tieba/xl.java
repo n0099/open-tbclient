@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.nps.interfa.IHostAppRuntime;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class xl implements IExceptionHandlerContext {
+public class xl implements IHostAppRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,13 +32,14 @@ public class xl implements IExceptionHandlerContext {
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext
-    public long getAppLaunchStartTimeStamp() {
+    @Override // com.baidu.nps.interfa.IHostAppRuntime
+    public Application getApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
+            Log.e("TAG", "" + BdBaseApplication.getInst());
+            return BdBaseApplication.getInst();
         }
-        return invokeV.longValue;
+        return (Application) invokeV.objValue;
     }
 }

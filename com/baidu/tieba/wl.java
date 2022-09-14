@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.statistic.StatisticCallback;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class wl implements StatisticCallback {
+public class wl implements IAlertManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,23 +28,17 @@ public class wl implements StatisticCallback {
         }
     }
 
-    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
-    public boolean addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.nps.interfa.IAlertManager
+    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, onClickListener, str3) == null) {
         }
-        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
-    public boolean addFetchStatistic2InHost(int i, String str, String str2, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.nps.interfa.IAlertManager
+    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject})) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
         }
-        return invokeCommon.booleanValue;
     }
 }

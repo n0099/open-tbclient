@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class a36 extends u26 {
+public class a36 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public PointF c;
-    public RectF d;
 
     public a36() {
         Interceptable interceptable = $ic;
@@ -27,58 +23,34 @@ public final class a36 extends u26 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new PointF();
-        this.d = new RectF();
     }
 
-    public final PointF c() {
+    public static Handler a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (PointF) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.u26, com.baidu.tieba.z7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.reset();
-            this.b = false;
-            this.c = new PointF();
-            this.d = new RectF();
-        }
-    }
-
-    public final a36 update(boolean z, int i, PointF position, RectF rect, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), position, rect, Integer.valueOf(i2)})) == null) {
-            Intrinsics.checkNotNullParameter(position, "position");
-            Intrinsics.checkNotNullParameter(rect, "rect");
-            this.b = z;
-            if (!Intrinsics.areEqual(this.c, position)) {
-                this.c.set(position);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (a36.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
+                }
             }
-            if (!Intrinsics.areEqual(this.d, rect)) {
-                this.d.set(rect);
-            }
-            return this;
+            return a;
         }
-        return (a36) invokeCommon.objValue;
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
+            }
+        }
     }
 }

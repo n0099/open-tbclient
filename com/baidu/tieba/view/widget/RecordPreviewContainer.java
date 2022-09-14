@@ -13,9 +13,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx8;
-import com.baidu.tieba.pc9;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.fz8;
+import com.baidu.tieba.sg9;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -263,11 +263,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < pc9.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < sg9.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = nx8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = nx8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = fz8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = fz8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 e eVar = this.u;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -275,8 +275,8 @@ public class RecordPreviewContainer extends FrameLayout {
                 if (this.r == null) {
                     k();
                 }
-                int k = ri.k(getContext());
-                int i = ri.i(getContext());
+                int k = ej.k(getContext());
+                int i = ej.i(getContext());
                 this.r.setTranslationX(motionEvent.getX() - (k * 0.5f));
                 this.r.setTranslationY(motionEvent.getY() - (i * 0.5f));
                 this.r.d();
@@ -366,7 +366,7 @@ public class RecordPreviewContainer extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.s == null) {
             ImageView imageView = new ImageView(getContext());
             this.s = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a40);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a5d);
             if (this.s != null) {
                 int width = getWidth();
                 int width2 = this.s.getWidth();
@@ -407,9 +407,9 @@ public class RecordPreviewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onFinishInflate();
             this.n = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-            this.d = ri.k(getContext());
-            this.c = ri.i(getContext());
-            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f0904b6);
+            this.d = ej.k(getContext());
+            this.c = ej.i(getContext());
+            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f0904c5);
             this.o = new Handler();
             postDelayed(new a(this), 4000L);
         }

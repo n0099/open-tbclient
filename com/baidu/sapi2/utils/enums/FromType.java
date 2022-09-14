@@ -2,7 +2,6 @@ package com.baidu.sapi2.utils.enums;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,7 @@ public final class FromType {
             }
         }
         LOGIN = new FromType("LOGIN", 0, "login");
-        FromType fromType = new FromType("REG", 1, TbConfig.ST_TYPE_REG);
+        FromType fromType = new FromType("REG", 1, "reg");
         REG = fromType;
         $VALUES = new FromType[]{LOGIN, fromType};
     }
@@ -65,7 +64,7 @@ public final class FromType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TbConfig.ST_TYPE_REG.equals(str)) {
+            if ("reg".equals(str)) {
                 return REG;
             }
             return LOGIN;

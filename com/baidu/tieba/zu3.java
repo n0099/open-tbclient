@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zu3 implements yu3 {
+public class zu3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, av3> a;
-    public HashMap<String, ArrayList<yu3>> b;
-    public String c;
-    public gz3 d;
-    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,114 +34,80 @@ public class zu3 implements yu3 {
                 return;
             }
         }
-        f = kh1.a;
+        a = ij1.a;
     }
 
-    public zu3(String str) {
+    public static void a(String str, String str2, String str3, String str4, xu3 xu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, xu3Var) == null) {
+            String l = yu3.l(str2);
+            if (TextUtils.isEmpty(l)) {
                 return;
             }
-        }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.c = str;
-    }
-
-    @Override // com.baidu.tieba.yu3
-    public void a(String str, String str2) {
-        ArrayList<yu3> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).a(str, str2);
-                        if (f) {
-                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
             }
-        }
-    }
-
-    public final void b(String str, yu3 yu3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, yu3Var) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(yu3Var);
+            if (TextUtils.isEmpty(str)) {
                 return;
             }
-            ArrayList<yu3> arrayList = new ArrayList<>();
-            arrayList.add(yu3Var);
-            this.b.put(str, arrayList);
+            yu3 yu3Var = new yu3();
+            yu3Var.m(xu3Var);
+            yu3Var.b = l;
+            yu3Var.e = str3;
+            yu3Var.v = str;
+            yu3Var.l = sg3.D();
+            if (y23.b0() != null) {
+                vn2.a W = y23.b0().W();
+                yu3Var.a = r93.n(W.G());
+                yu3Var.f = W.H();
+                yu3Var.c = W.T();
+            }
+            yu3Var.t = str4;
+            r93.x("1245", yu3Var);
         }
     }
 
-    public void c(String str) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
-            }
-            if (this.d == null) {
-                this.d = gz3.b();
-            }
-            av3 av3Var = new av3(this.d, this.c, str, this);
-            this.a.put(str, av3Var);
-            av3Var.e();
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
         }
     }
 
-    public final boolean d(String str) {
-        InterceptResult invokeL;
+    public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.a.containsKey(str) : invokeL.booleanValue;
-    }
-
-    public void e(String str, yu3 yu3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, yu3Var) == null) {
-            synchronized (this.e) {
-                if (!d(str)) {
-                    if (f) {
-                        Log.e("AudioDownloadManager", "start load url = " + str);
-                    }
-                    c(str);
-                } else if (f) {
-                    Log.e("AudioDownloadManager", "re load url = " + str);
-                }
-                b(str, yu3Var);
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = yu3.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
             }
+            yu3 yu3Var = new yu3();
+            yu3Var.b = l;
+            yu3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            yu3Var.a("packageName", str3);
+            r93.x("1245", yu3Var);
         }
     }
 
-    @Override // com.baidu.tieba.yu3
-    public void fail(int i, String str) {
-        ArrayList<yu3> arrayList;
+    public static void d(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).fail(i, str);
-                    }
-                    this.a.remove(str);
-                }
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = pz3.b().d();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cuid", fm2.h0().i(fm2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", fm2.n().a());
+                jSONObject.put("version", sg3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ca4.h(fm2.c()).postRequest().cookieManager(fm2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
             }
         }
     }

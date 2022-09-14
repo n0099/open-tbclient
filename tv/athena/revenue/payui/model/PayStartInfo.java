@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.a2a;
+import com.baidu.tieba.u3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
 /* loaded from: classes9.dex */
-public class PayStartInfo extends a2a {
+public class PayStartInfo extends u3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int code;

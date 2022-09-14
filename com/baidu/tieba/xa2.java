@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.ValueCallback;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,106 +12,182 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class xa2 implements em2 {
+public class xa2 implements wa2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    public static volatile xa2 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<ya2> c;
+    public HashMap<String, ya2> a;
+    public HashMap<String, ArrayList<ValueCallback<String>>> b;
+    public String c;
+    public HttpManager d;
+    public final Object e;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xa2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-295641214, "Lcom/baidu/tieba/xa2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-295641214, "Lcom/baidu/tieba/xa2$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948293568, "Lcom/baidu/tieba/xa2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new xa2(null);
-        }
-    }
-
-    public /* synthetic */ xa2(a aVar) {
-        this();
-    }
-
-    public static xa2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (xa2) invokeV.objValue;
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.c.clear();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948293568, "Lcom/baidu/tieba/xa2;");
+                return;
             }
         }
-    }
-
-    public synchronized void c(@NonNull ya2 ya2Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ya2Var, str) == null) {
-            synchronized (this) {
-                while (this.c.size() > 0) {
-                    ya2 peek = this.c.peek();
-                    if (peek == null) {
-                        this.c.remove();
-                    } else if (peek.a()) {
-                        break;
-                    } else {
-                        this.c.remove();
-                    }
-                }
-                int size = this.c.size();
-                if (size == 0) {
-                    this.c.offer(ya2Var);
-                    ue3.g0(ya2Var);
-                } else {
-                    ya2 peek2 = this.c.peek();
-                    this.c.offer(ya2Var);
-                    if (size == 1 && peek2 != null && peek2.b(str)) {
-                        ue3.g0(ya2Var);
-                    } else {
-                        ue3.q().post(ya2Var);
-                    }
-                }
-            }
-        }
+        f = ij1.a;
     }
 
     public xa2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ConcurrentLinkedQueue();
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.d = gm2.l().a();
+        this.c = gm2.f().a();
+    }
+
+    public static xa2 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (xa2.class) {
+                    if (g == null) {
+                        g = new xa2();
+                    }
+                }
+            }
+            return g;
+        }
+        return (xa2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wa2
+    public void a(String str, String str2) {
+        ArrayList<ValueCallback<String>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).onReceiveValue(str2);
+                        if (f) {
+                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
+                    }
+                    this.a.remove(str);
+                }
+            }
+        }
+    }
+
+    public final void b(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(valueCallback);
+                return;
+            }
+            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
+            arrayList.add(valueCallback);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
+            }
+            ya2 ya2Var = new ya2(this.d, this.c, str, this);
+            this.a.put(str, ya2Var);
+            ya2Var.e();
+        }
+    }
+
+    public final String d(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.c + gm2.f().c(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.a.containsKey(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wa2
+    public void fail(int i, String str) {
+        ArrayList<ValueCallback<String>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).onReceiveValue("");
+                    }
+                    this.a.remove(str);
+                }
+            }
+        }
+    }
+
+    public void g(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
+            if (TextUtils.isEmpty(str)) {
+                valueCallback.onReceiveValue(null);
+                return;
+            }
+            try {
+                String d = d(str);
+                if (TextUtils.isEmpty(d)) {
+                    return;
+                }
+                File file = new File(d(str));
+                if (file.exists() && !file.isDirectory()) {
+                    if (valueCallback != null) {
+                        valueCallback.onReceiveValue(d);
+                        return;
+                    }
+                    return;
+                }
+                synchronized (this.e) {
+                    if (!f(str)) {
+                        c(str);
+                    }
+                    b(str, valueCallback);
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

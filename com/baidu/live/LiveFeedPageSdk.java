@@ -12,10 +12,10 @@ import com.baidu.live.feedpage.interfaces.IHKLiveFeedPageInvoke;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.bb0;
-import com.baidu.tieba.fa0;
-import com.baidu.tieba.fr9;
-import com.baidu.tieba.r90;
+import com.baidu.tieba.hc0;
+import com.baidu.tieba.lb0;
+import com.baidu.tieba.xa0;
+import com.baidu.tieba.xs9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,6 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class LiveFeedPageSdk {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String FOLLOW_VIDEO = "follow_video";
     public static final String HK_START_LIVE = "baiduhaokan://video/yylive/router?url=yymobile%3a%2f%2fMobileLive%2fPreViewPage%3fneedLogin%3d1";
     public static final String HOST_BAIDU = "baidu";
     public static final String HOST_HAOKAN = "haokan";
@@ -33,7 +34,7 @@ public class LiveFeedPageSdk {
     public static final String HOST_QUANMIN = "quanmin";
     public static final String HOST_TIEBA = "tieba";
     public static final String IMMERSION = "immersion";
-    public static final String LIVE_SDK_VERSION = "6.2.5";
+    public static final String LIVE_SDK_VERSION = "6.3.5";
     public static final long REFRESH_TIME = 180000;
     public static final String UI_MODE_DARK = "dark";
     public static final String UI_MODE_DAY = "day";
@@ -186,14 +187,14 @@ public class LiveFeedPageSdk {
     public String getYYHDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? fr9.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? xs9.a(context) : (String) invokeL.objValue;
     }
 
     public void initHostInfo(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             this.mHost = str;
-            bb0.f().r(str, str2);
+            hc0.f().s(str, str2);
         }
     }
 
@@ -207,7 +208,7 @@ public class LiveFeedPageSdk {
     public void initNetWork(INetWork iNetWork) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iNetWork) == null) {
-            fa0.b(iNetWork);
+            lb0.b(iNetWork);
         }
     }
 
@@ -257,16 +258,16 @@ public class LiveFeedPageSdk {
 
     public void startLiveSearchActivity(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, context) == null) || r90.a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, context) == null) || xa0.a() == null) {
             return;
         }
-        r90.a().a(context, "");
+        xa0.a().a(context, "");
     }
 
     public void updateUiMode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            bb0.f().t(str);
+            hc0.f().u(str);
         }
     }
 

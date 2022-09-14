@@ -14,9 +14,9 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb0;
-import com.baidu.tieba.t80;
-import com.baidu.tieba.xa0;
+import com.baidu.tieba.dc0;
+import com.baidu.tieba.hc0;
+import com.baidu.tieba.w90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,10 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010 \n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\r\u0018\u0000 *2\u00020\u0001:\u0003*+,B\u000f\u0012\u0006\u0010!\u001a\u00020 ¢\u0006\u0004\b(\u0010)J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0005\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\f\u001a\u00020\u000b2\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\f\u0010\rJ\u001f\u0010\u0011\u001a\u00020\t2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0015\u0010\u0015\u001a\u00020\u000b2\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0015\u0010\u0016J\u0017\u0010\u0018\u001a\u00020\u000b2\u0006\u0010\u0017\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J#\u0010\u001d\u001a\u00020\u000b2\f\u0010\u001b\u001a\b\u0012\u0004\u0012\u00020\u00060\u001a2\u0006\u0010\u001c\u001a\u00020\u0002¢\u0006\u0004\b\u001d\u0010\u001eR\u0018\u0010\u0014\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0014\u0010\u001fR\u0019\u0010!\u001a\u00020 8\u0006@\u0006¢\u0006\f\n\u0004\b!\u0010\"\u001a\u0004\b#\u0010$R\u0016\u0010\u001c\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010%R\u001e\u0010&\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'¨\u0006-"}, d2 = {"Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "getItemCount", "()I", CriusAttrConstants.POSITION, "Lcom/baidu/live/business/model/data/LiveTabEntity;", "getPositionData", "(I)Lcom/baidu/live/business/model/data/LiveTabEntity;", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;", "holder", "", "onBindViewHolder", "(Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ItemClickListener;", "listener", "setOnItemClickListener", "(Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ItemClickListener;)V", "pos", "setSelect", "(I)V", "", "tabs", "selectPos", "setTabs", "(Ljava/util/List;I)V", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ItemClickListener;", "", "scene", "Ljava/lang/String;", "getScene", "()Ljava/lang/String;", "I", "tabList", "Ljava/util/List;", "<init>", "(Ljava/lang/String;)V", "Companion", "ExpandTabViewHolder", "ItemClickListener", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010 \n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\r\u0018\u0000 *2\u00020\u0001:\u0003*+,B\u000f\u0012\u0006\u0010!\u001a\u00020 ¢\u0006\u0004\b(\u0010)J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0005\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\f\u001a\u00020\u000b2\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\f\u0010\rJ\u001f\u0010\u0011\u001a\u00020\t2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0015\u0010\u0015\u001a\u00020\u000b2\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0015\u0010\u0016J\u0017\u0010\u0018\u001a\u00020\u000b2\u0006\u0010\u0017\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J#\u0010\u001d\u001a\u00020\u000b2\f\u0010\u001b\u001a\b\u0012\u0004\u0012\u00020\u00060\u001a2\u0006\u0010\u001c\u001a\u00020\u0002¢\u0006\u0004\b\u001d\u0010\u001eR\u0018\u0010\u0014\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0014\u0010\u001fR\u0019\u0010!\u001a\u00020 8\u0006@\u0006¢\u0006\f\n\u0004\b!\u0010\"\u001a\u0004\b#\u0010$R\u0016\u0010\u001c\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010%R\u001e\u0010&\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'¨\u0006-"}, d2 = {"Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "getItemCount", "()I", CriusAttrConstants.POSITION, "Lcom/baidu/live/business/model/data/LiveTabEntity;", "getPositionData", "(I)Lcom/baidu/live/business/model/data/LiveTabEntity;", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;", "holder", "", "onBindViewHolder", "(Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ItemClickListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setOnItemClickListener", "(Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ItemClickListener;)V", "pos", "setSelect", "(I)V", "", "tabs", "selectPos", "setTabs", "(Ljava/util/List;I)V", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ItemClickListener;", "", "scene", "Ljava/lang/String;", "getScene", "()Ljava/lang/String;", "I", "tabList", "Ljava/util/List;", "<init>", "(Ljava/lang/String;)V", "Companion", "ExpandTabViewHolder", "ItemClickListener", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -68,9 +69,9 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             }
             this.d = view2;
             this.e = str;
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091330);
-            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09132f);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091331);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f09134e);
+            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09134d);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09134f);
             a();
         }
 
@@ -81,13 +82,13 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TextView textView = this.c;
                 if (textView != null) {
-                    xa0.k(textView, 1, 12.0f, 0, 0, 12, null);
+                    dc0.k(textView, 1, 12.0f, 0, 0, 12, null);
                 }
                 View view2 = this.a;
-                Drawable drawable = (view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null) ? null : resources.getDrawable(R.drawable.obfuscated_res_0x7f080ce7);
+                Drawable drawable = (view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null) ? null : resources.getDrawable(R.drawable.obfuscated_res_0x7f080d06);
                 ImageView imageView = this.b;
                 if (imageView != null) {
-                    imageView.setImageDrawable(xa0.b(drawable, 0, 0, 6, null));
+                    imageView.setImageDrawable(dc0.b(drawable, 0, 0, 6, null));
                 }
             }
         }
@@ -122,28 +123,28 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
                 if (i2 == i) {
                     View view2 = this.a;
                     if (view2 != null) {
-                        t80 t80Var = t80.a;
+                        w90 w90Var = w90.a;
                         Context context = this.d.getContext();
                         Intrinsics.checkExpressionValueIsNotNull(context, "view.context");
-                        view2.setBackgroundDrawable(t80Var.e(context, this.e));
+                        view2.setBackgroundDrawable(w90Var.e(context, this.e));
                     }
                     TextView textView4 = this.c;
                     if (textView4 != null) {
-                        textView4.setTextColor(bb0.f().a(this.d.getContext(), this.e, "color_FF33551"));
+                        textView4.setTextColor(hc0.f().a(this.d.getContext(), this.e, "color_FF33551"));
                         return;
                     }
                     return;
                 }
                 View view3 = this.a;
                 if (view3 != null) {
-                    t80 t80Var2 = t80.a;
+                    w90 w90Var2 = w90.a;
                     Context context2 = this.d.getContext();
                     Intrinsics.checkExpressionValueIsNotNull(context2, "view.context");
-                    view3.setBackgroundDrawable(t80Var2.b(context2, this.e));
+                    view3.setBackgroundDrawable(w90Var2.b(context2, this.e));
                 }
                 TextView textView5 = this.c;
                 if (textView5 != null) {
-                    textView5.setTextColor(bb0.f().a(this.d.getContext(), this.e, "color_525252"));
+                    textView5.setTextColor(hc0.f().a(this.d.getContext(), this.e, "color_525252"));
                 }
             }
         }
@@ -294,7 +295,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0524, viewGroup, false);
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0539, viewGroup, false);
             Intrinsics.checkExpressionValueIsNotNull(inflate, "LayoutInflater.from(pare…rent, false\n            )");
             return new ExpandTabViewHolder(inflate, this.d);
         }

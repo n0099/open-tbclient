@@ -32,7 +32,7 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
 
     @ExperimentalCoroutinesApi
     /* renamed from: catch */
-    public static final <T> Flow<T> m2103catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+    public static final <T> Flow<T> m2104catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
         return new FlowKt__ErrorsKt$catch$$inlined$unsafeFlow$1(flow, function3);
     }
 
@@ -128,7 +128,7 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use catch { e -> if (predicate(e)) emitAll(fallback) else throw e }", replaceWith = @ReplaceWith(expression = "catch { e -> if (predicate(e)) emitAll(fallback) else throw e }", imports = {}))
     public static final <T> Flow<T> onErrorCollect(Flow<? extends T> flow, Flow<? extends T> flow2, Function1<? super Throwable, Boolean> function1) {
-        return FlowKt.m2098catch(flow, new FlowKt__ErrorsKt$onErrorCollect$2(function1, flow2, null));
+        return FlowKt.m2099catch(flow, new FlowKt__ErrorsKt$onErrorCollect$2(function1, flow2, null));
     }
 
     public static /* synthetic */ Flow onErrorCollect$default(Flow flow, Flow flow2, Function1 function1, int i, Object obj) {

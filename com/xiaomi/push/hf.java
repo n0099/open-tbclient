@@ -59,7 +59,7 @@ public class hf {
                 a(context, hhVar, a);
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m89a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m90a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         }
     }
 

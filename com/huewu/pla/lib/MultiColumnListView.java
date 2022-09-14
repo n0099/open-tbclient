@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -361,7 +361,7 @@ public class MultiColumnListView extends PLA_ListView {
             if (attributeSet == null) {
                 this.mColumnNumber = 2;
             } else {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04054f, R.attr.obfuscated_res_0x7f040550, R.attr.obfuscated_res_0x7f040551, R.attr.obfuscated_res_0x7f040553});
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, un5.MultiColumnListView);
                 int integer = obtainStyledAttributes.getInteger(3, -1);
                 int integer2 = obtainStyledAttributes.getInteger(0, -1);
                 if (this.mFrameRect.width() > this.mFrameRect.height() && integer != -1) {

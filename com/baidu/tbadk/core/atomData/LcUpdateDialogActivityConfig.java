@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -43,7 +42,6 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra(KEY_LC_UPDATE_DATA, clientUpdateInfo);
         intent.putExtra(KEY_LC_UPDATE_APKMD5RSA, str);
-        TbadkCoreApplication.getInst().setHasNewVersion(true);
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
@@ -54,7 +52,7 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09f5));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0a08));
             return false;
         }
         return invokeV.booleanValue;

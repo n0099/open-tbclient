@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sq;
+import com.baidu.tieba.gr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,17 +16,17 @@ import kotlin.jvm.internal.Lambda;
 public final class BDPTask$INSTANCE$registerTaskBusinessEventListener$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actionId;
-    public final /* synthetic */ sq $callback;
+    public final /* synthetic */ gr $callback;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskBusinessEventListener$1(String str, sq sqVar) {
+    public BDPTask$INSTANCE$registerTaskBusinessEventListener$1(String str, gr grVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, sqVar};
+            Object[] objArr = {str, grVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$registerTaskBusinessEventListener$1 extends 
             }
         }
         this.$actionId = str;
-        this.$callback = sqVar;
+        this.$callback = grVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

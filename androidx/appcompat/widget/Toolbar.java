@@ -28,8 +28,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$styleable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.CollapsibleActionView;
@@ -46,6 +44,7 @@ import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -571,7 +570,7 @@ public class Toolbar extends ViewGroup {
     private void ensureNavButtonView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.mNavButtonView == null) {
-            this.mNavButtonView = new AppCompatImageButton(getContext(), null, R$attr.toolbarNavigationButtonStyle);
+            this.mNavButtonView = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f040726);
             LayoutParams generateDefaultLayoutParams = generateDefaultLayoutParams();
             generateDefaultLayoutParams.gravity = 8388611 | (this.mButtonGravity & 112);
             this.mNavButtonView.setLayoutParams(generateDefaultLayoutParams);
@@ -838,7 +837,7 @@ public class Toolbar extends ViewGroup {
     public void ensureCollapseButtonView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mCollapseButtonView == null) {
-            AppCompatImageButton appCompatImageButton = new AppCompatImageButton(getContext(), null, R$attr.toolbarNavigationButtonStyle);
+            AppCompatImageButton appCompatImageButton = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f040726);
             this.mCollapseButtonView = appCompatImageButton;
             appCompatImageButton.setImageDrawable(this.mCollapseIcon);
             this.mCollapseButtonView.setContentDescription(this.mCollapseDescription);
@@ -2259,7 +2258,7 @@ public class Toolbar extends ViewGroup {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.toolbarStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040727);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2571,82 +2570,82 @@ public class Toolbar extends ViewGroup {
                 }
             }
         };
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R$styleable.Toolbar, i, 0);
-        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.Toolbar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
-        this.mTitleTextAppearance = obtainStyledAttributes.getResourceId(R$styleable.Toolbar_titleTextAppearance, 0);
-        this.mSubtitleTextAppearance = obtainStyledAttributes.getResourceId(R$styleable.Toolbar_subtitleTextAppearance, 0);
-        this.mGravity = obtainStyledAttributes.getInteger(R$styleable.Toolbar_android_gravity, this.mGravity);
-        this.mButtonGravity = obtainStyledAttributes.getInteger(R$styleable.Toolbar_buttonGravity, 48);
-        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_titleMargin, 0);
-        dimensionPixelOffset = obtainStyledAttributes.hasValue(R$styleable.Toolbar_titleMargins) ? obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_titleMargins, dimensionPixelOffset) : dimensionPixelOffset;
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, androidx.appcompat.R.styleable.Toolbar, i, 0);
+        ViewCompat.saveAttributeDataForStyleable(this, context, androidx.appcompat.R.styleable.Toolbar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+        this.mTitleTextAppearance = obtainStyledAttributes.getResourceId(28, 0);
+        this.mSubtitleTextAppearance = obtainStyledAttributes.getResourceId(19, 0);
+        this.mGravity = obtainStyledAttributes.getInteger(0, this.mGravity);
+        this.mButtonGravity = obtainStyledAttributes.getInteger(2, 48);
+        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(22, 0);
+        dimensionPixelOffset = obtainStyledAttributes.hasValue(27) ? obtainStyledAttributes.getDimensionPixelOffset(27, dimensionPixelOffset) : dimensionPixelOffset;
         this.mTitleMarginBottom = dimensionPixelOffset;
         this.mTitleMarginTop = dimensionPixelOffset;
         this.mTitleMarginEnd = dimensionPixelOffset;
         this.mTitleMarginStart = dimensionPixelOffset;
-        int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_titleMarginStart, -1);
+        int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(25, -1);
         if (dimensionPixelOffset2 >= 0) {
             this.mTitleMarginStart = dimensionPixelOffset2;
         }
-        int dimensionPixelOffset3 = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_titleMarginEnd, -1);
+        int dimensionPixelOffset3 = obtainStyledAttributes.getDimensionPixelOffset(24, -1);
         if (dimensionPixelOffset3 >= 0) {
             this.mTitleMarginEnd = dimensionPixelOffset3;
         }
-        int dimensionPixelOffset4 = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_titleMarginTop, -1);
+        int dimensionPixelOffset4 = obtainStyledAttributes.getDimensionPixelOffset(26, -1);
         if (dimensionPixelOffset4 >= 0) {
             this.mTitleMarginTop = dimensionPixelOffset4;
         }
-        int dimensionPixelOffset5 = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_titleMarginBottom, -1);
+        int dimensionPixelOffset5 = obtainStyledAttributes.getDimensionPixelOffset(23, -1);
         if (dimensionPixelOffset5 >= 0) {
             this.mTitleMarginBottom = dimensionPixelOffset5;
         }
-        this.mMaxButtonHeight = obtainStyledAttributes.getDimensionPixelSize(R$styleable.Toolbar_maxButtonHeight, -1);
-        int dimensionPixelOffset6 = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_contentInsetStart, Integer.MIN_VALUE);
-        int dimensionPixelOffset7 = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_contentInsetEnd, Integer.MIN_VALUE);
-        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R$styleable.Toolbar_contentInsetLeft, 0);
-        int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(R$styleable.Toolbar_contentInsetRight, 0);
+        this.mMaxButtonHeight = obtainStyledAttributes.getDimensionPixelSize(13, -1);
+        int dimensionPixelOffset6 = obtainStyledAttributes.getDimensionPixelOffset(9, Integer.MIN_VALUE);
+        int dimensionPixelOffset7 = obtainStyledAttributes.getDimensionPixelOffset(5, Integer.MIN_VALUE);
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(7, 0);
+        int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(8, 0);
         ensureContentInsets();
         this.mContentInsets.setAbsolute(dimensionPixelSize, dimensionPixelSize2);
         if (dimensionPixelOffset6 != Integer.MIN_VALUE || dimensionPixelOffset7 != Integer.MIN_VALUE) {
             this.mContentInsets.setRelative(dimensionPixelOffset6, dimensionPixelOffset7);
         }
-        this.mContentInsetStartWithNavigation = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_contentInsetStartWithNavigation, Integer.MIN_VALUE);
-        this.mContentInsetEndWithActions = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.Toolbar_contentInsetEndWithActions, Integer.MIN_VALUE);
-        this.mCollapseIcon = obtainStyledAttributes.getDrawable(R$styleable.Toolbar_collapseIcon);
-        this.mCollapseDescription = obtainStyledAttributes.getText(R$styleable.Toolbar_collapseContentDescription);
-        CharSequence text = obtainStyledAttributes.getText(R$styleable.Toolbar_title);
+        this.mContentInsetStartWithNavigation = obtainStyledAttributes.getDimensionPixelOffset(10, Integer.MIN_VALUE);
+        this.mContentInsetEndWithActions = obtainStyledAttributes.getDimensionPixelOffset(6, Integer.MIN_VALUE);
+        this.mCollapseIcon = obtainStyledAttributes.getDrawable(4);
+        this.mCollapseDescription = obtainStyledAttributes.getText(3);
+        CharSequence text = obtainStyledAttributes.getText(21);
         if (!TextUtils.isEmpty(text)) {
             setTitle(text);
         }
-        CharSequence text2 = obtainStyledAttributes.getText(R$styleable.Toolbar_subtitle);
+        CharSequence text2 = obtainStyledAttributes.getText(18);
         if (!TextUtils.isEmpty(text2)) {
             setSubtitle(text2);
         }
         this.mPopupContext = getContext();
-        setPopupTheme(obtainStyledAttributes.getResourceId(R$styleable.Toolbar_popupTheme, 0));
-        Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.Toolbar_navigationIcon);
+        setPopupTheme(obtainStyledAttributes.getResourceId(17, 0));
+        Drawable drawable = obtainStyledAttributes.getDrawable(16);
         if (drawable != null) {
             setNavigationIcon(drawable);
         }
-        CharSequence text3 = obtainStyledAttributes.getText(R$styleable.Toolbar_navigationContentDescription);
+        CharSequence text3 = obtainStyledAttributes.getText(15);
         if (!TextUtils.isEmpty(text3)) {
             setNavigationContentDescription(text3);
         }
-        Drawable drawable2 = obtainStyledAttributes.getDrawable(R$styleable.Toolbar_logo);
+        Drawable drawable2 = obtainStyledAttributes.getDrawable(11);
         if (drawable2 != null) {
             setLogo(drawable2);
         }
-        CharSequence text4 = obtainStyledAttributes.getText(R$styleable.Toolbar_logoDescription);
+        CharSequence text4 = obtainStyledAttributes.getText(12);
         if (!TextUtils.isEmpty(text4)) {
             setLogoDescription(text4);
         }
-        if (obtainStyledAttributes.hasValue(R$styleable.Toolbar_titleTextColor)) {
-            setTitleTextColor(obtainStyledAttributes.getColorStateList(R$styleable.Toolbar_titleTextColor));
+        if (obtainStyledAttributes.hasValue(29)) {
+            setTitleTextColor(obtainStyledAttributes.getColorStateList(29));
         }
-        if (obtainStyledAttributes.hasValue(R$styleable.Toolbar_subtitleTextColor)) {
-            setSubtitleTextColor(obtainStyledAttributes.getColorStateList(R$styleable.Toolbar_subtitleTextColor));
+        if (obtainStyledAttributes.hasValue(20)) {
+            setSubtitleTextColor(obtainStyledAttributes.getColorStateList(20));
         }
-        if (obtainStyledAttributes.hasValue(R$styleable.Toolbar_menu)) {
-            inflateMenu(obtainStyledAttributes.getResourceId(R$styleable.Toolbar_menu, 0));
+        if (obtainStyledAttributes.hasValue(14)) {
+            inflateMenu(obtainStyledAttributes.getResourceId(14, 0));
         }
         obtainStyledAttributes.recycle();
     }

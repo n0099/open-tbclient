@@ -63,29 +63,29 @@ public class w extends XMPushService.j {
         bg.b next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            t m680a = u.m680a((Context) this.a);
-            if (m680a == null) {
+            t m681a = u.m681a((Context) this.a);
+            if (m681a == null) {
                 try {
-                    m680a = u.a(this.a, this.f1009a, this.b, this.c);
+                    m681a = u.a(this.a, this.f1009a, this.b, this.c);
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
                 }
             }
-            if (m680a == null) {
+            if (m681a == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("no account for registration.");
                 x.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m89a("do registration now.");
-            Collection<bg.b> m637a = bg.a().m637a("5");
-            if (m637a.isEmpty()) {
-                next = m680a.a(this.a);
+            com.xiaomi.channel.commonutils.logger.b.m90a("do registration now.");
+            Collection<bg.b> m638a = bg.a().m638a("5");
+            if (m638a.isEmpty()) {
+                next = m681a.a(this.a);
                 ah.a(this.a, next);
                 bg.a().a(next);
             } else {
-                next = m637a.iterator().next();
+                next = m638a.iterator().next();
             }
-            if (!this.a.m597c()) {
+            if (!this.a.m598c()) {
                 x.a(this.f1009a, this.f1010a);
                 this.a.a(true);
                 return;

@@ -139,7 +139,7 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m88a(String str) {
+    public static String m89a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -195,10 +195,10 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             f11a = context;
-            if (m.m561a(context)) {
+            if (m.m562a(context)) {
                 f17a = true;
             }
-            if (m.m560a()) {
+            if (m.m561a()) {
                 f18b = true;
             }
         }
@@ -221,15 +221,15 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m89a(String str) {
+    public static void m90a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
-            a(2, m88a(str));
+            a(2, m89a(str));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m90a(String str, String str2) {
+    public static void m91a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
             a(2, b(str, str2));
@@ -239,7 +239,7 @@ public abstract class b {
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, str, th) == null) {
-            a(4, m88a(str), th);
+            a(4, m89a(str), th);
         }
     }
 
@@ -271,21 +271,21 @@ public abstract class b {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            a(0, m88a(str));
+            a(0, m89a(str));
         }
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
-            a(1, m88a(str));
+            a(1, m89a(str));
         }
     }
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            a(4, m88a(str));
+            a(4, m89a(str));
         }
     }
 
@@ -293,12 +293,12 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
             if (!f17a) {
-                Log.w(f14a, m88a(str));
+                Log.w(f14a, m89a(str));
                 if (f18b) {
                     return;
                 }
             }
-            m89a(str);
+            m90a(str);
         }
     }
 }

@@ -10,7 +10,7 @@ import android.view.InflateException;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.R$styleable;
+import androidx.appcompat.R;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.AppCompatButton;
@@ -238,9 +238,9 @@ public class AppCompatViewInflater {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.View, 0, 0);
-            int resourceId = z ? obtainStyledAttributes.getResourceId(R$styleable.View_android_theme, 0) : 0;
-            if (z2 && resourceId == 0 && (resourceId = obtainStyledAttributes.getResourceId(R$styleable.View_theme, 0)) != 0) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.View, 0, 0);
+            int resourceId = z ? obtainStyledAttributes.getResourceId(0, 0) : 0;
+            if (z2 && resourceId == 0 && (resourceId = obtainStyledAttributes.getResourceId(63, 0)) != 0) {
                 Log.i(LOG_TAG, "app:theme is now deprecated. Please move to using android:theme instead.");
             }
             obtainStyledAttributes.recycle();

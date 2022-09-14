@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class c14 {
+public final class c14 implements mk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
+    public final ArrayList<Integer> a;
 
-    public c14(long j, long j2, long j3) {
+    public c14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,58 +28,70 @@ public class c14 {
                 return;
             }
         }
-        this.a = j;
-        this.b = j2;
-        this.c = j3;
+        this.a = new ArrayList<>();
     }
 
-    @NonNull
-    public static c14 b(long j, double d, double d2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.mk1
+    public void a(fv1 fv1Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Double.valueOf(d), Double.valueOf(d2)})) == null) ? new c14(j, (long) (d * 1000.0d), (long) (d2 * 1000.0d)) : (c14) invokeCommon.objValue;
-    }
-
-    public b14 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c()) {
-                b14 b14Var = new b14();
-                b14Var.a = Math.max(this.a - this.b, 0L);
-                b14Var.b = this.a + this.c;
-                return b14Var;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, fv1Var) == null) || fv1Var == null) {
+            return;
         }
-        return (b14) invokeV.objValue;
+        d(fv1Var.B("action"), fv1Var.B("menuItemName"));
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mk1
+    public void b(f94 f94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.a;
-            if (j >= 0) {
-                long j2 = this.b;
-                if (j2 >= 0) {
-                    long j3 = this.c;
-                    if (j3 >= 0 && j2 + j3 > 0 && j + j3 > 0) {
-                        return true;
-                    }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f94Var) == null) || this.a.isEmpty()) {
+            return;
+        }
+        Iterator<Integer> it = this.a.iterator();
+        while (it.hasNext()) {
+            Integer id = it.next();
+            if (f94Var != null) {
+                Intrinsics.checkNotNullExpressionValue(id, "id");
+                f94Var.l(id.intValue());
+            }
+        }
+    }
+
+    public final boolean c(f94 f94Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f94Var, str)) == null) {
+            Integer a = d14.a(str);
+            if (a != null) {
+                if (!this.a.contains(a)) {
+                    this.a.add(a);
                 }
+                if (f94Var != null) {
+                    f94Var.l(a.intValue());
+                }
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final boolean d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "[ mBaseline = " + this.a + "; mLeftOffset = " + this.b + "; mRightOffset = " + this.c + " ]";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (str != null && str.hashCode() == 3202370 && str.equals("hide")) {
+                lo2 U = lo2.U();
+                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
+                h22 V = U.V();
+                vy3 vy3Var = V != null ? (vy3) V.n(vy3.class) : null;
+                f94 x3 = vy3Var != null ? vy3Var.x3() : null;
+                if (x3 != null && vy3Var != null) {
+                    vy3Var.J3(true);
+                }
+                return c(x3, str2);
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

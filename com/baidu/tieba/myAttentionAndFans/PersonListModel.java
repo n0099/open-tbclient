@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d9;
+import com.baidu.tieba.a25;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseFollowListSwitchMsg;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
-import com.baidu.tieba.oq4;
-import com.baidu.tieba.rz4;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.ts4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public d d;
     public int e;
     public PersonListActivity f;
-    public rz4 g;
+    public a25 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -146,7 +146,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (statusCode != 200 || error != 0) {
                     if (this.a.d != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c40);
+                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c59);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
@@ -155,7 +155,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     }
                     return;
                 }
-                oq4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                ts4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.g)) {
                         this.a.j = data.g;
@@ -203,7 +203,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
-                oq4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+                ts4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
                     if (this.a.d != null) {
                         this.a.d.b("", true);
@@ -226,7 +226,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes5.dex */
     public interface d {
-        oq4 a(oq4 oq4Var, boolean z);
+        ts4 a(ts4 ts4Var, boolean z);
 
         void b(String str, boolean z);
     }
@@ -302,7 +302,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -315,9 +315,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        rz4 rz4Var = new rz4(personListActivity.getPageContext());
-        this.g = rz4Var;
-        rz4Var.j(this.mLoadDataCallBack);
+        a25 a25Var = new a25(personListActivity.getPageContext());
+        this.g = a25Var;
+        a25Var.j(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;

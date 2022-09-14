@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ft6;
-import com.baidu.tieba.ns4;
+import com.baidu.tieba.qu6;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,15 +72,15 @@ public class FunAdSmallPicView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035b, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0360, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900e8);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900e6);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ea);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900eb);
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900e9);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900e7);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ec);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ea);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ee);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ef);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ed);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900eb);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setConrers(15);
             a(this.a);
@@ -91,9 +91,9 @@ public class FunAdSmallPicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebPManager.setPureDrawable(this.c, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            ns4.d(this.e).v(R.color.CAM_X0105);
-            ns4.d(this.d).v(R.color.CAM_X0109);
-            ns4.d(this.f).v(R.color.CAM_X0109);
+            uu4.d(this.e).v(R.color.CAM_X0105);
+            uu4.d(this.d).v(R.color.CAM_X0109);
+            uu4.d(this.f).v(R.color.CAM_X0109);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -107,7 +107,7 @@ public class FunAdSmallPicView extends LinearLayout {
             this.d.setText(funNativeAd2.getNativeInfo().getTitle());
             this.e.setText(funNativeAd2.getNativeInfo().getDescription());
         }
-        ft6.F(this.b, funNativeAd2);
+        qu6.F(this.b, funNativeAd2);
         if (!StringHelper.equals(str, this.a.getUrl())) {
             this.a.F();
         }

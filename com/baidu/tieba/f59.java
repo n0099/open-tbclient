@@ -1,185 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        u59 c;
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (c = a69.c()) == null) {
-            return;
-        }
-        c.b();
-    }
-
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            s59 a = a69.a();
-            if (a != null) {
-                return a.getAppContext();
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, writeData) == null) {
+            if (j19.b()) {
+                if (TextUtils.isEmpty(writeData.getTitle())) {
+                    str = "";
+                    i = 1;
+                } else {
+                    str = writeData.getTitle();
+                    i = 5;
+                }
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    j19.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), 3, Boolean.FALSE, "", "", "");
+                    return;
+                } else {
+                    j19.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), i, Boolean.TRUE, "", "", "");
+                    return;
+                }
             }
-            return null;
+            c(tbPageContext, writeData, writeData.getWriteImagesInfo() != null ? writeData.getWriteImagesInfo().toJsonString() : "", writeData.getFrom(), writeData.getDisableAudioMessage(), writeData.isVoiceEnable(), writeData.getPrefixData(), true);
         }
-        return (Context) invokeV.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, @NonNull WriteImagesInfo writeImagesInfo, String str, String str2, boolean z, PostPrefixData postPrefixData) {
+        String str3;
+        JSONObject json;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            s59 a = a69.a();
-            return a != null ? a.c(str) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            s59 a = a69.a();
-            if (a != null) {
-                return a.d();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, writeData, writeImagesInfo, str, str2, Boolean.valueOf(z), postPrefixData}) == null) {
+            String jsonString = writeImagesInfo.toJsonString();
+            if (writeData.getType() == 11 && (json = writeImagesInfo.toJson()) != null) {
+                try {
+                    json.put("maxImagesAllowed", 9 - writeImagesInfo.size());
+                    json.put("chosedFiles", (Object) null);
+                    jsonString = json.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    str3 = null;
+                }
             }
-            return 0;
+            str3 = jsonString;
+            c(tbPageContext, writeData, str3, str, str2, z, postPrefixData, false);
         }
-        return invokeV.intValue;
     }
 
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
+    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, String str, String str2, String str3, boolean z, PostPrefixData postPrefixData, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            u59 c = a69.c();
-            if (c != null) {
-                return c.a(str);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, writeData, str, str2, str3, Boolean.valueOf(z), postPrefixData, Boolean.valueOf(z2)}) == null) {
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(tbPageContext.getPageActivity(), str, true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", writeData.getForumId());
+            albumFloatActivityConfig.getIntent().putExtra("forum_name", writeData.getForumName());
+            albumFloatActivityConfig.getIntent().putExtra("from", str2);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            albumFloatActivityConfig.setAlbumThread(0);
+            albumFloatActivityConfig.setCanSelectVideo(z2);
+            albumFloatActivityConfig.setCanSelectOnlyVideo(z2);
+            albumFloatActivityConfig.setCanEditImage(false);
+            albumFloatActivityConfig.setFromWrite(3);
+            albumFloatActivityConfig.setCallFrom(writeData.getCallFrom());
+            albumFloatActivityConfig.setStatisticFrom(writeData.getStatisticFrom());
+            albumFloatActivityConfig.setProfessionZone(writeData.getProZone());
+            albumFloatActivityConfig.setFrsTabInfo(writeData.getFrsTabInfoData());
+            if (z2) {
+                if (!TextUtils.isEmpty(writeData.getTitle())) {
+                    albumFloatActivityConfig.setVideoTitle(writeData.getTitle());
+                } else {
+                    albumFloatActivityConfig.setVideoTitle("");
+                }
+                albumFloatActivityConfig.setBarName(writeData.getForumName());
+                albumFloatActivityConfig.setBarID(writeData.getForumId());
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    albumFloatActivityConfig.setCanChangeBarName(false);
+                } else {
+                    albumFloatActivityConfig.setCanChangeBarName(true);
+                }
+                albumFloatActivityConfig.setVideoAbstract(writeData.getContent());
             }
-            return null;
+            AntiData antiData = new AntiData();
+            antiData.voice_message = str3;
+            antiData.setIfVoice(z);
+            albumFloatActivityConfig.setExtraData(antiData, postPrefixData, writeData.getFirstDir(), writeData.getSecondDir());
+            tbPageContext.sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
         }
-        return (IBinder) invokeL.objValue;
     }
 
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
+    public static void d(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            s59 a = a69.a();
-            return a != null ? a.getInt(str, i) : i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            s59 a = a69.a();
-            return a != null ? a.getLong(str, j) : j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            s59 a = a69.a();
-            return a != null ? a.e(str) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static u49 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a69.e() : (u49) invokeV.objValue;
-    }
-
-    public static y49 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a69.f() : (y49) invokeV.objValue;
-    }
-
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            s59 a = a69.a();
-            return a != null ? a.b(z) : "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            t59 b = a69.b();
-            if (b != null) {
-                return b.a();
+        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, writeData) == null) {
+            int a = j19.a();
+            if (j19.c(a)) {
+                j19.e(tbPageContext.getPageActivity(), a, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
+            } else {
+                a(tbPageContext, writeData);
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            s59 a = a69.a();
-            if (a != null) {
-                return a.isDebug();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void n(String str, int i) {
-        s59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) || (a = a69.a()) == null) {
-            return;
-        }
-        a.putInt(str, i);
-    }
-
-    public static void o(String str, long j) {
-        s59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) || (a = a69.a()) == null) {
-            return;
-        }
-        a.putLong(str, j);
-    }
-
-    public static void p(String str, String str2) {
-        s59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) || (a = a69.a()) == null) {
-            return;
-        }
-        a.putString(str, str2);
-    }
-
-    public static void q(int i) {
-        s59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65552, null, i) == null) || (a = a69.a()) == null) {
-            return;
-        }
-        a.a(i);
     }
 }

@@ -78,11 +78,11 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hmVar)) == null) {
             if (hm.class.equals(hmVar.getClass())) {
-                int compareTo = Boolean.valueOf(m397a()).compareTo(Boolean.valueOf(hmVar.m397a()));
+                int compareTo = Boolean.valueOf(m398a()).compareTo(Boolean.valueOf(hmVar.m398a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m397a() || (a2 = iv.a(this.f475a, hmVar.f475a)) == 0) {
+                if (!m398a() || (a2 = iv.a(this.f475a, hmVar.f475a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -93,7 +93,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m396a() {
+    public void m397a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f475a == null) {
             throw new jg("Required field 'uploadDataItems' was not present! Struct: " + toString());
@@ -116,19 +116,19 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048580, this, jfVar) != null) {
             return;
         }
-        jfVar.m549a();
+        jfVar.m550a();
         while (true) {
-            jc m545a = jfVar.m545a();
-            byte b = m545a.a;
+            jc m546a = jfVar.m546a();
+            byte b = m546a.a;
             if (b == 0) {
                 jfVar.f();
-                m396a();
+                m397a();
                 return;
             }
-            if (m545a.f810a == 1 && b == 15) {
-                jd m546a = jfVar.m546a();
-                this.f475a = new ArrayList(m546a.f811a);
-                for (int i = 0; i < m546a.f811a; i++) {
+            if (m546a.f810a == 1 && b == 15) {
+                jd m547a = jfVar.m547a();
+                this.f475a = new ArrayList(m547a.f811a);
+                for (int i = 0; i < m547a.f811a; i++) {
                     hn hnVar = new hn();
                     hnVar.a(jfVar);
                     this.f475a.add(hnVar);
@@ -142,24 +142,24 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m397a() {
+    public boolean m398a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f475a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m398a(hm hmVar) {
+    public boolean m399a(hm hmVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hmVar)) == null) {
             if (hmVar == null) {
                 return false;
             }
-            boolean m397a = m397a();
-            boolean m397a2 = hmVar.m397a();
-            if (m397a || m397a2) {
-                return m397a && m397a2 && this.f475a.equals(hmVar.f475a);
+            boolean m398a = m398a();
+            boolean m398a2 = hmVar.m398a();
+            if (m398a || m398a2) {
+                return m398a && m398a2 && this.f475a.equals(hmVar.f475a);
             }
             return true;
         }
@@ -170,7 +170,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     public void b(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jfVar) == null) {
-            m396a();
+            m397a();
             jfVar.a(f474a);
             if (this.f475a != null) {
                 jfVar.a(a);
@@ -182,7 +182,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m553a();
+            jfVar.m554a();
         }
     }
 
@@ -191,7 +191,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
             if (obj != null && (obj instanceof hm)) {
-                return m398a((hm) obj);
+                return m399a((hm) obj);
             }
             return false;
         }

@@ -1,215 +1,147 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.io.ByteArrayOutputStream;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
-public class ai5 extends NotificationHelper {
+public class ai5 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public static class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ WXMediaMessage a;
+        public final /* synthetic */ IWXAPI b;
+        public final /* synthetic */ SendMessageToWX.Req c;
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-
-        public b() {
+        public a(WXMediaMessage wXMediaMessage, IWXAPI iwxapi, SendMessageToWX.Req req) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wXMediaMessage, iwxapi, req};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ai5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-946634115, "Lcom/baidu/tieba/ai5$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-946634115, "Lcom/baidu/tieba/ai5$c;");
                     return;
                 }
             }
-            a = new ai5(null);
+            this.a = wXMediaMessage;
+            this.b = iwxapi;
+            this.c = req;
         }
-    }
 
-    public /* synthetic */ ai5(a aVar) {
-        this();
-    }
-
-    public static ai5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (ai5) invokeV.objValue;
-    }
-
-    private Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? TbadkCoreApplication.getInst().getApplicationContext() : (Context) invokeV.objValue;
-    }
-
-    public synchronized void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this) {
-                if (g(str)) {
-                    return;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
+                super.onLoaded((a) onVar, str, i);
+                if (onVar != null) {
+                    Bitmap p = onVar.p();
+                    this.a.thumbData = ai5.a(p);
+                } else {
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080fa2);
+                    this.a.thumbData = ai5.a(cashBitmap);
                 }
-                b bVar = new b(null);
-                bVar.a = b(str);
-                bVar.b = str2;
-                b.put(str, bVar);
+                this.b.sendReq(this.c);
             }
         }
     }
 
-    public final int b(String str) {
+    public static byte[] a(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (g(str)) {
-                return b.get(str).a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
+            if (bitmap == null) {
+                try {
+                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080fa2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
-            return str.hashCode();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+            return byteArray;
         }
-        return invokeL.intValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public final PendingIntent d() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return String.valueOf(System.currentTimeMillis());
+            }
+            return str + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             try {
-                Class<?> cls = Class.forName("com.baidu.tieba.downloadmanager.DownloadManagerActivity");
-                Intent intent = new Intent();
-                intent.setClass(getContext(), cls);
-                intent.putExtra(DownloadManagerActivityConfig.CURRENT_TAB, 3);
-                return PendingIntent.getActivity(getContext(), 0, intent, 134217728);
-            } catch (Exception unused) {
-                return null;
+                Intent intent = new Intent("android.intent.action.MAIN");
+                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                intent.setComponent(componentName);
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-        }
-        return (PendingIntent) invokeV.objValue;
-    }
-
-    public final void e(DownloadData downloadData, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, downloadData, z) == null) && downloadData.getId() != null && g(downloadData.getId())) {
-            int length = z ? 100 : (int) ((((float) downloadData.getLength()) / ((float) downloadData.getSize())) * 100.0f);
-            b bVar = b.get(downloadData.getId());
-            if (bVar != null) {
-                NotificationHelper.showProgressNotification(getContext(), bVar.a, "", length, "", bVar.b, d(), false);
-            }
-            if (z) {
-                return;
-            }
-            i(downloadData, length);
         }
     }
 
-    public void f(List<DownloadData> list) {
+    public static void d(TiebaPlusInfo tiebaPlusInfo, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        for (DownloadData downloadData : list) {
-            if (downloadData != null) {
-                int status = downloadData.getStatus();
-                if (status == 0) {
-                    e(downloadData, true);
-                } else if (status == 1 || status == 5) {
-                    e(downloadData, false);
+        if (interceptable == null || interceptable.invokeLL(65539, null, tiebaPlusInfo, str) == null) {
+            UriBuilder uriBuilder = new UriBuilder(tiebaPlusInfo.h5_jump_param);
+            if (uriBuilder.getParamsObject() != null) {
+                WXWebpageObject wXWebpageObject = new WXWebpageObject();
+                String string = uriBuilder.getParamsObject().getString("url");
+                if (TextUtils.isEmpty(string)) {
+                    return;
                 }
+                wXWebpageObject.webpageUrl = string;
+                WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
+                wXMediaMessage.title = str;
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = b("webpage");
+                req.message = wXMediaMessage;
+                req.scene = 1;
+                zg.h().k(tiebaPlusInfo.wx_thumbnail, 10, new a(wXMediaMessage, WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID), req), 0, 0, null, new Object[0]);
             }
         }
-    }
-
-    public final boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? b.containsKey(str) : invokeL.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && g(str)) {
-            NotificationHelper.cancelNotification(getContext(), b(str));
-            b.remove(str);
-        }
-    }
-
-    public final void i(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048583, this, downloadData, i) == null) && downloadData != null && g(downloadData.getId())) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putInt(downloadData.getId() + downloadData.getName(), i);
-            edit.apply();
-        }
-    }
-
-    public ai5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b = new HashMap();
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
     }
 }

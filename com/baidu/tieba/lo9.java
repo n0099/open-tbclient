@@ -1,63 +1,129 @@
 package com.baidu.tieba;
 
-import android.os.IBinder;
-import android.os.Parcel;
-import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-import com.google.android.gms.common.zzs;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes4.dex */
-public final class lo9 implements Parcelable.Creator<zzs> {
+public class lo9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ModuleConfigKs a;
 
-    public lo9() {
+    public lo9(ModuleConfigKs moduleConfigKs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = moduleConfigKs;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ zzs createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        boolean z = false;
-        String str = null;
-        IBinder iBinder = null;
-        boolean z2 = false;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            int h = SafeParcelReader.h(k);
-            if (h == 1) {
-                str = SafeParcelReader.d(parcel, k);
-            } else if (h == 2) {
-                iBinder = SafeParcelReader.l(parcel, k);
-            } else if (h == 3) {
-                z = SafeParcelReader.i(parcel, k);
-            } else if (h != 4) {
-                SafeParcelReader.p(parcel, k);
-            } else {
-                z2 = SafeParcelReader.i(parcel, k);
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
+        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
+     */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            char c = 0;
+            try {
+                Long.parseLong(pid.pid);
+                String str = pid.type;
+                str.hashCode();
+                switch (str.hashCode()) {
+                    case -1377301807:
+                        break;
+                    case -1291455752:
+                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1187931233:
+                        if (str.equals(FunAdType.KS_NATIVE)) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1106926588:
+                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1031178769:
+                        if (str.equals(FunAdType.KS_SPLASH)) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1860126748:
+                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 2017609999:
+                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        return new vo9(pid);
+                    case 1:
+                        return new ro9(pid, this.a);
+                    case 2:
+                        return new xo9(pid);
+                    case 3:
+                        return new ap9(pid, this.a);
+                    case 4:
+                        return new cp9(pid);
+                    case 5:
+                        return new to9(pid, this.a);
+                    case 6:
+                        return new oo9(pid);
+                    default:
+                        return null;
+                }
+            } catch (NumberFormatException unused) {
+                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
+                return null;
             }
         }
-        SafeParcelReader.g(parcel, q);
-        return new zzs(str, iBinder, z, z2);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ zzs[] newArray(int i) {
-        return new zzs[i];
+        return (PidLoader) invokeL.objValue;
     }
 }

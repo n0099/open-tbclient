@@ -1,10 +1,17 @@
 package com.baidu.tieba;
 
-import android.widget.ListView;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.gb7;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ImShareDialog.java */
 /* loaded from: classes4.dex */
-public interface hb7 {
-    boolean a(ChatMessage... chatMessageArr);
+public final /* synthetic */ class hb7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(ListView listView, ChatMessage... chatMessageArr);
+    public static void a(gb7.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, bVar) == null) {
+        }
+    }
 }

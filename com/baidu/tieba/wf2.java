@@ -1,52 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import android.view.KeyEvent;
 /* loaded from: classes6.dex */
-public class wf2 extends ue2<kh2> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wf2 {
+    void a();
 
-    public wf2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b();
 
-    @Override // com.baidu.tieba.ue2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setItemType" : (String) invokeV.objValue;
-    }
+    void c();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ue2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull kh2 kh2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, kh2Var) == null) {
-            String str = command.what;
-            d(kh2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof String) {
-                kh2Var.m((String) obj);
-            }
-        }
-    }
+    void d();
+
+    void e();
+
+    void f();
+
+    void g();
+
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 }

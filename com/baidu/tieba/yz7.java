@@ -1,61 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class yz7 extends PbListView {
+public class yz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> E;
+    public List<EmotionImageData> a;
+    public List<String> b;
+    public SingleBarEmotionRecommendData c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public yz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.E = tbPageContext;
-        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fc));
-        z();
-        y();
-        v();
-        G(R.dimen.tbfontsize33);
     }
 
-    public void R() {
+    public List<EmotionImageData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.f();
-            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f0a3d));
-            b().setVisibility(0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public SingleBarEmotionRecommendData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (SingleBarEmotionRecommendData) invokeV.objValue;
+    }
+
+    public void d(List<EmotionImageData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.a = list;
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void f() {
+    public void e(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.f();
-            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f120e));
-            b().setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void f(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, singleBarEmotionRecommendData) == null) {
+            this.c = singleBarEmotionRecommendData;
         }
     }
 }

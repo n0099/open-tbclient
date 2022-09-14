@@ -1,13 +1,8 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
 public interface xm2 {
-    int a();
-
-    boolean b();
-
-    boolean c();
-
-    boolean d();
-
-    boolean e();
+    @Nullable
+    String a();
 }

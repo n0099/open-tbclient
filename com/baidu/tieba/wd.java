@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Queue;
 /* loaded from: classes6.dex */
-public class wd implements nd {
+public class wd implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<Object> a;
+    public Bundle a;
 
-    public wd(Queue<Object> queue) {
+    public wd(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {queue};
+            Object[] objArr = {bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,13 +27,16 @@ public class wd implements nd {
                 return;
             }
         }
-        this.a = queue;
+        this.a = bundle;
     }
 
-    @Override // com.baidu.tieba.nd
-    public Object a(de deVar) {
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) ? ce.d(this.a, deVar) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            return null;
+        }
+        return invokeL.objValue;
     }
 }

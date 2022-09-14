@@ -188,9 +188,9 @@ public final class a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09113c);
-            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09113e);
-            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f09113d);
+            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09115a);
+            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09115c);
+            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f09115b);
         }
     }
 

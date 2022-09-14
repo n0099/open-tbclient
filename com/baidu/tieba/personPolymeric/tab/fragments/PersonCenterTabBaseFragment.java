@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f88;
+import com.baidu.tieba.n98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import tbclient.User;
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f88 a;
+    public n98 a;
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -34,12 +34,12 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        f88 f88Var;
+        n98 n98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (f88Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (n98Var = this.a) == null) {
             return;
         }
-        f88Var.dettachView(view2);
+        n98Var.dettachView(view2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -47,27 +47,29 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            f88 f88Var = this.a;
-            if (f88Var != null) {
-                f88Var.onChangeSkinType();
+            n98 n98Var = this.a;
+            if (n98Var != null) {
+                n98Var.onChangeSkinType();
             }
         }
     }
 
-    public abstract void r1(boolean z);
+    public abstract void q1(boolean z);
 
-    public abstract int s1();
+    public abstract int r1();
+
+    public abstract boolean s1();
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048580, this, view2, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, view2, str, z) == null) {
             if (this.a == null) {
-                f88 f88Var = new f88(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = f88Var;
-                f88Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fbd));
+                n98 n98Var = new n98(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = n98Var;
+                n98Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
                 this.a.d(null);
-                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd8));
                 this.a.f();
                 this.a.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
@@ -76,13 +78,11 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         }
     }
 
-    public abstract boolean t1();
-
-    public void u1(MetaData metaData) {
+    public void t1(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, metaData) == null) {
         }
     }
 
-    public abstract void v1(User user);
+    public abstract void u1(User user);
 }

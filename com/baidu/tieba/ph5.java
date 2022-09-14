@@ -1,148 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.multidelmenu.model.MultiDelPostNetModel;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.Date;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class ph5 extends nh5 {
+public class ph5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, qh5> b;
-    public oh5 c;
-    public String d;
-    public String e;
 
-    /* loaded from: classes5.dex */
-    public class a extends c9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ph5 a;
-
-        public a(ph5 ph5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948062060, "Lcom/baidu/tieba/ph5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ph5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ph5Var;
-        }
-
-        @Override // com.baidu.tieba.c9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof sh5)) {
-                this.a.j((sh5) obj);
-            }
-        }
-    }
-
-    public ph5(oh5 oh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {oh5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948062060, "Lcom/baidu/tieba/ph5;");
                 return;
             }
         }
-        this.b = new ArrayMap();
-        this.c = oh5Var;
+        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    @Override // com.baidu.tieba.nh5
-    public oh5 b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (oh5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nh5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.nh5
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MultiDelPostNetModel multiDelPostNetModel = new MultiDelPostNetModel();
-            rh5 rh5Var = new rh5();
-            for (qh5 qh5Var : this.b.values()) {
-                rh5Var.d(qh5Var.a());
-                rh5Var.e(qh5Var.c());
-                rh5Var.b(this.d);
-                rh5Var.c(this.e);
-                rh5Var.a(qh5Var.b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (UbsABTestHelper.isSearchLoginTestA()) {
+                Date date = new Date(bx4.k().m("show_login_dialog_strategy_key", 0L));
+                long currentTimeMillis = System.currentTimeMillis();
+                Date date2 = new Date(currentTimeMillis);
+                bx4.k().x("show_login_dialog_strategy_key", currentTimeMillis);
+                return !TimeHelper.isSameDay(date, date2);
             }
-            multiDelPostNetModel.G(rh5Var);
-            multiDelPostNetModel.setLoadDataCallBack(new a(this));
-            multiDelPostNetModel.loadData();
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nh5
-    public void f(qh5 qh5Var) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, qh5Var) == null) || qh5Var == null || TextUtils.isEmpty(qh5Var.b())) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            return a.matcher(str.toLowerCase()).find();
         }
-        this.b.put(qh5Var.b(), qh5Var);
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nh5
-    public void g(String str) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            return b.matcher(str.toLowerCase()).find();
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nh5
-    public void h(String str) {
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nh5
-    public void i(String str) {
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.b.remove(str);
-    }
-
-    public void j(sh5 sh5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, sh5Var) == null) || d() == null) {
-            return;
-        }
-        d().h(sh5Var);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? b(str) || c(str) || d(str) : invokeL.booleanValue;
     }
 }

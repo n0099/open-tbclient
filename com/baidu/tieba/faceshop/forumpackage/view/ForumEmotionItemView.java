@@ -54,7 +54,7 @@ public class ForumEmotionItemView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0254a {
+        public static class C0253a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -62,7 +62,7 @@ public class ForumEmotionItemView extends LinearLayout {
             public TextView c;
             public View d;
 
-            public C0254a(View view2) {
+            public C0253a(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,9 +79,9 @@ public class ForumEmotionItemView extends LinearLayout {
                 }
                 this.a = view2;
                 view2.setEnabled(false);
-                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090897);
-                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908bb);
-                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090884);
+                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908ac);
+                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908d0);
+                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090899);
                 this.d = findViewById;
                 findViewById.setVisibility(8);
             }
@@ -92,7 +92,7 @@ public class ForumEmotionItemView extends LinearLayout {
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc3);
+                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be0);
                     this.b.K(singleEmotionData.thumbnail, 10, false);
                 }
                 if (z) {
@@ -183,17 +183,17 @@ public class ForumEmotionItemView extends LinearLayout {
         @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
-            C0254a c0254a;
+            C0253a c0253a;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0252, (ViewGroup) null);
-                    c0254a = new C0254a(view2);
-                    view2.setTag(c0254a);
+                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0256, (ViewGroup) null);
+                    c0253a = new C0253a(view2);
+                    view2.setTag(c0253a);
                 } else {
-                    c0254a = (C0254a) view2.getTag();
+                    c0253a = (C0253a) view2.getTag();
                 }
-                c0254a.a(this.a.get(i), i == 0 && this.c, this.d, i);
+                c0253a.a(this.a.get(i), i == 0 && this.c, this.d, i);
                 return view2;
             }
             return (View) invokeILL.objValue;
@@ -225,20 +225,20 @@ public class ForumEmotionItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02aa, this);
-            this.a = (HListView) findViewById(R.id.obfuscated_res_0x7f090a45);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090a47);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090a43);
-            this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a44);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a49);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a4b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a41);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a4a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a42);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0912e8);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3f);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02af, this);
+            this.a = (HListView) findViewById(R.id.obfuscated_res_0x7f090a5f);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090a61);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090a5d);
+            this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a5e);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a63);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a65);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a5b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a64);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a5c);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091306);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090a59);
             this.a.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-            this.a.setSelector(this.m.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081211));
+            this.a.setSelector(this.m.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08123c));
             a aVar = new a(this.m);
             this.l = aVar;
             this.a.setAdapter((ListAdapter) aVar);

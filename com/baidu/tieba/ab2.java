@@ -3,9 +3,10 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.smallgame.sdk.permission.PermissionListener;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.tieba.d83;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,32 +14,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes3.dex */
-public abstract class ab2 {
+public class ab2 implements PermissionProxy {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     /* loaded from: classes3.dex */
-    public class a extends ya2 {
+    public class a implements rh3<b83<d83.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz1 c;
-        public final /* synthetic */ String d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ PermissionListener c;
+        public final /* synthetic */ ab2 d;
 
-        public a(ab2 ab2Var, yz1 yz1Var, String str) {
+        public a(ab2 ab2Var, String str, String str2, PermissionListener permissionListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ab2Var, yz1Var, str};
+                Object[] objArr = {ab2Var, str, str2, permissionListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,41 +45,40 @@ public abstract class ab2 {
                     return;
                 }
             }
-            this.c = yz1Var;
-            this.d = str;
+            this.d = ab2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = permissionListener;
         }
 
-        @Override // com.baidu.tieba.ya2
-        public void c() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(b83<d83.e> b83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.isDestroyed()) {
-                    if (ab2.b) {
-                        Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.d)));
-                        return;
-                    }
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
+                if (w73.h(b83Var)) {
+                    this.d.b(this.a, this.b, this.c);
+                } else {
+                    this.c.onPermissionResult(this.a, 2);
                 }
-                this.c.evaluateJavascript(this.d, null);
-                eu2.a("postMessage", "dispatchJSEvent evaluateJavascript");
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends ya2 {
+    public class b implements by2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz1 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ ab2 e;
+        public final /* synthetic */ PermissionListener a;
+        public final /* synthetic */ String b;
 
-        public b(ab2 ab2Var, yz1 yz1Var, String str) {
+        public b(ab2 ab2Var, PermissionListener permissionListener, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ab2Var, yz1Var, str};
+                Object[] objArr = {ab2Var, permissionListener, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -92,16 +88,23 @@ public abstract class ab2 {
                     return;
                 }
             }
-            this.e = ab2Var;
-            this.c = yz1Var;
-            this.d = str;
+            this.a = permissionListener;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.ya2
-        public void c() {
+        @Override // com.baidu.tieba.by2
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.l(this.c, this.d);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.onPermissionResult(this.b, 0);
+            }
+        }
+
+        @Override // com.baidu.tieba.by2
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onPermissionResult(this.b, 1);
             }
         }
     }
@@ -119,7 +122,7 @@ public abstract class ab2 {
                 return;
             }
         }
-        b = kh1.a;
+        a = ij1.a;
     }
 
     public ab2() {
@@ -136,251 +139,61 @@ public abstract class ab2 {
         }
     }
 
-    public final void b(@NonNull JSONObject jSONObject) {
+    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.put("type", this.a);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
+            b bVar = new b(this, permissionListener, str);
+            ay2.e(str2, new String[]{str2}, 2, x23.K().w(), bVar);
         }
     }
 
-    public String c(yz1 yz1Var) {
+    public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz1Var)) == null) ? d("event", yz1Var) : (String) invokeL.objValue;
-    }
-
-    public String d(String str, yz1 yz1Var) {
-        InterceptResult invokeLL;
-        String format;
-        String b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, yz1Var)) == null) {
-            if (yz1Var == null || TextUtils.isEmpty(this.a)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
                 return null;
             }
-            if (TextUtils.isEmpty(str)) {
-                str = "event";
-            }
-            Locale locale = Locale.getDefault();
-            if (yz1Var.isWebView()) {
-                format = String.format(locale, "var %s = new Event('%s');", str, this.a);
-                b2 = "";
-            } else {
-                format = String.format(locale, "var %s = new Object();", str);
-                b2 = wa2.b(str, "type", this.a);
-            }
-            return format + (b2 + o(str)) + String.format(locale, "%s.dispatchEvent(%s);", wa2.c(yz1Var), str);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public JSEvent e(yz1 yz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, yz1Var)) == null) {
-            if (yz1Var == null || TextUtils.isEmpty(this.a)) {
-                return null;
-            }
-            JSEvent jSEvent = new JSEvent(this.a);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                n(jSONObject);
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1785599184) {
+                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
+                    c = 1;
                 }
+            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
+                c = 0;
             }
-            b(jSONObject);
-            jSEvent.data = jSONObject;
-            return jSEvent;
-        }
-        return (JSEvent) invokeL.objValue;
-    }
-
-    public boolean f(yz1 yz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yz1Var)) == null) ? (yz1Var == null || yz1Var.isWebView() || !(yz1Var instanceof k82)) ? false : true : invokeL.booleanValue;
-    }
-
-    public void g(yz1 yz1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, yz1Var) == null) || yz1Var == null) {
-            return;
-        }
-        eu2.a("postMessage", "dispatchJSEvent start.");
-        if (za2.b) {
-            r(yz1Var);
-        } else {
-            q(yz1Var);
-        }
-        eu2.a("postMessage", "dispatchJSEvent buildEvent");
-    }
-
-    public void h(yz1 yz1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, yz1Var) == null) || yz1Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-        }
-        JSEvent e = e(yz1Var);
-        if (e == null) {
-            return;
-        }
-        j(yz1Var, e);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-        }
-    }
-
-    public void i(yz1 yz1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, yz1Var) == null) || yz1Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on webView");
-        }
-        String c = c(yz1Var);
-        if (TextUtils.isEmpty(c)) {
-            return;
-        }
-        String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-        k(yz1Var, format);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action on webView: " + format);
-        }
-    }
-
-    public void j(yz1 yz1Var, JSEvent jSEvent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yz1Var, jSEvent) == null) || yz1Var.isDestroyed()) {
-            return;
-        }
-        if (yz1Var instanceof k82) {
-            ((k82) yz1Var).dispatchEvent(jSEvent);
-        }
-        eu2.a("postMessage", "dispatchJSEvent evaluateJavascript");
-    }
-
-    public void k(yz1 yz1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, yz1Var, str) == null) || yz1Var == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        xa2.b().c(new a(this, yz1Var, str), null);
-    }
-
-    public final void l(yz1 yz1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, yz1Var, str) == null) {
-            if (yz1Var.isDestroyed()) {
-                if (b) {
-                    Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
-                    return;
+            if (c != 0) {
+                if (c != 1) {
+                    return null;
                 }
-                return;
+                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
             }
-            yz1Var.evaluateJavascript(str, null);
-            eu2.a("postMessage", "dispatchJSEvent evaluateJavascript");
-        }
-    }
-
-    public abstract void m(Map<String, Object> map);
-
-    public void n(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            m(hashMap);
-            for (String str : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str)) {
-                    Object obj = hashMap.get(str);
-                    if (p(obj)) {
-                        jSONObject.put(str, obj);
-                    }
-                }
-            }
-        }
-    }
-
-    public String o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            Map<String, Object> hashMap = new HashMap<>();
-            m(hashMap);
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str2)) {
-                    Object obj = hashMap.get(str2);
-                    if (p(obj)) {
-                        if (obj instanceof String) {
-                            obj = JSONObject.quote((String) obj);
-                        }
-                        sb.append(str);
-                        sb.append(".");
-                        sb.append(str2);
-                        sb.append("=");
-                        sb.append(obj);
-                        sb.append(ParamableElem.DIVIDE_PARAM);
-                    }
-                }
-            }
-            return sb.toString();
+            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean p(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
+    public void requestPermission(String str, PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            if (obj == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
+            if (a) {
+                Log.d("V8PermissionDelegate", "requestPermission : " + str);
             }
-            if (obj instanceof String) {
-                return !TextUtils.isEmpty((String) obj);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void q(yz1 yz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, yz1Var) == null) {
-            String c = c(yz1Var);
-            if (TextUtils.isEmpty(c)) {
+            if (permissionListener == null) {
+                if (a) {
+                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
+                    return;
+                }
                 return;
             }
-            String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-            if (b) {
-                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format);
-            }
-            if (yz1Var.isWebView()) {
-                xa2.b().c(new b(this, yz1Var, format), null);
+            String c = c(str);
+            y23 M = y23.M();
+            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
+                M.e0().g(M.w(), str, new a(this, str, c, permissionListener));
             } else {
-                l(yz1Var, format);
-            }
-        }
-    }
-
-    public final void r(@NonNull yz1 yz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, yz1Var) == null) {
-            if (f(yz1Var)) {
-                h(yz1Var);
-            } else {
-                i(yz1Var);
+                permissionListener.onPermissionResult(str, 2);
             }
         }
     }

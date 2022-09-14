@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x94;
-import com.baidu.tieba.y94;
+import com.baidu.tieba.xb4;
+import com.baidu.tieba.yb4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -166,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(x94 x94Var) {
+    public void copyMainPkgInfo(xb4 xb4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x94Var) == null) || x94Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xb4Var) == null) || xb4Var == null) {
             return;
         }
-        this.appId = x94Var.g;
-        this.versionCode = x94Var.i;
-        this.versionName = x94Var.j;
-        this.type = x94Var.o;
-        this.pkgSize = x94Var.k;
+        this.appId = xb4Var.g;
+        this.versionCode = xb4Var.i;
+        this.versionName = xb4Var.j;
+        this.type = xb4Var.o;
+        this.pkgSize = xb4Var.k;
     }
 
-    public void copySubPkgInfo(y94 y94Var) {
+    public void copySubPkgInfo(yb4 yb4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, y94Var) == null) || y94Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, yb4Var) == null) || yb4Var == null) {
             return;
         }
-        this.appId = y94Var.o;
-        this.versionCode = y94Var.i;
-        this.versionName = y94Var.j;
-        this.type = y94Var.q;
-        this.pkgSize = y94Var.k;
+        this.appId = yb4Var.o;
+        this.versionCode = yb4Var.i;
+        this.versionName = yb4Var.j;
+        this.type = yb4Var.q;
+        this.pkgSize = yb4Var.k;
     }
 
     public void countLaunch(long j) {

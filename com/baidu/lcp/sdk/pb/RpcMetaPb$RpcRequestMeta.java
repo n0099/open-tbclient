@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m70;
+import com.baidu.tieba.o80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,7 +155,7 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta = new RpcMetaPb$RpcRequestMeta(this, (m70) null);
+                RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta = new RpcMetaPb$RpcRequestMeta(this, (o80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 rpcMetaPb$RpcRequestMeta.serviceId_ = this.b;
@@ -368,7 +368,7 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
         rpcMetaPb$RpcRequestMeta.initFields();
     }
 
-    public /* synthetic */ RpcMetaPb$RpcRequestMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, m70 m70Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcRequestMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, o80 o80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -528,7 +528,7 @@ public final class RpcMetaPb$RpcRequestMeta extends GeneratedMessageLite impleme
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcRequestMeta(GeneratedMessageLite.Builder builder, m70 m70Var) {
+    public /* synthetic */ RpcMetaPb$RpcRequestMeta(GeneratedMessageLite.Builder builder, o80 o80Var) {
         this(builder);
     }
 

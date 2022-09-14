@@ -1,64 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Process;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final Set<String> b;
 
-    public static int a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
+    public bf4(String str, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (str != null) {
-                return context.checkPermission(str, Process.myPid(), Process.myUid());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, set};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw new IllegalArgumentException("permission is null");
         }
-        return invokeLL.intValue;
+        this.a = str;
+        this.b = set;
     }
 
-    public static final int b(Context context, int i) {
-        InterceptResult invokeLI;
+    public static bf4 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return df4.a(context, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
+                return null;
             }
-            return context.getResources().getColor(i);
+            String optString = jSONObject.optString("version");
+            HashSet hashSet = new HashSet();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString2 = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString2)) {
+                    hashSet.add(optString2);
+                }
+            }
+            return new bf4(optString, hashSet);
         }
-        return invokeLI.intValue;
+        return (bf4) invokeL.objValue;
     }
 
-    public static final ColorStateList c(Context context, int i) {
-        InterceptResult invokeLI;
+    public Set<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return df4.b(context, i);
-            }
-            return context.getResources().getColorStateList(i);
-        }
-        return (ColorStateList) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
     }
 
-    public static final Drawable d(Context context, int i) {
-        InterceptResult invokeLI;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return cf4.a(context, i);
-            }
-            return context.getResources().getDrawable(i);
-        }
-        return (Drawable) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

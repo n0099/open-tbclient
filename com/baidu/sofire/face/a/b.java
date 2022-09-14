@@ -53,7 +53,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -126,12 +125,12 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         /* renamed from: com.baidu.sofire.face.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0163a implements Runnable {
+        public class RunnableC0162a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0163a(a aVar) {
+            public RunnableC0162a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,13 +161,13 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         /* renamed from: com.baidu.sofire.face.a.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0164b implements Runnable {
+        public class RunnableC0163b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0164b(a aVar, int i) {
+            public RunnableC0163b(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -296,7 +295,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 com.baidu.sofire.face.b.b.a(bVar7.a, bVar7.o, 0, 0, null);
                 b bVar8 = this.a;
                 if (bVar8.d != null && (activity3 = bVar8.b) != null) {
-                    activity3.runOnUiThread(new RunnableC0163a(this));
+                    activity3.runOnUiThread(new RunnableC0162a(this));
                 }
                 if (!FH.isInitSuc(1) && this.a.k.a()) {
                     this.a.a(-15);
@@ -325,7 +324,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         i2 = 1;
                         bVar3 = this.a;
                         if (bVar3.d != null && (activity2 = bVar3.b) != null) {
-                            activity2.runOnUiThread(new RunnableC0164b(this, i2));
+                            activity2.runOnUiThread(new RunnableC0163b(this, i2));
                         }
                         if (c2 != 65534) {
                             this.a.a(-3);
@@ -364,7 +363,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     i2 = -1;
                     bVar3 = this.a;
                     if (bVar3.d != null) {
-                        activity2.runOnUiThread(new RunnableC0164b(this, i2));
+                        activity2.runOnUiThread(new RunnableC0163b(this, i2));
                     }
                     if (c2 != 65534) {
                     }
@@ -383,12 +382,12 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
     /* renamed from: com.baidu.sofire.face.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0165b implements Runnable {
+    public class RunnableC0164b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0165b(b bVar) {
+        public RunnableC0164b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1411,7 +1410,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 if (com.baidu.sofire.face.b.e.a().a(new a(this)) != 1) {
                     a(-7);
                 }
-                com.baidu.sofire.face.b.e.a().a(new RunnableC0165b(this));
+                com.baidu.sofire.face.b.e.a().a(new RunnableC0164b(this));
             } catch (Throwable unused) {
             }
         }
@@ -1794,7 +1793,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 jSONObject5.put("zid", FH.gzfi(this.a, "", 5002));
                 jSONObject5.put(Config.EVENT_PART, "face");
                 jSONObject5.put(NotificationStyle.NOTIFICATION_STYLE, this.T);
-                jSONObject5.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis());
+                jSONObject5.put("ts", System.currentTimeMillis());
                 TimeZone timeZone = TimeZone.getDefault();
                 if (timeZone != null) {
                     jSONObject5.put("tz", timeZone.getID());

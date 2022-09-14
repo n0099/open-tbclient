@@ -1,14 +1,9 @@
 package com.baidu.nadcore.business.uitemplate;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,19 +17,26 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.business.uitemplate.PortraitVideoTailView;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag0;
-import com.baidu.tieba.bg0;
-import com.baidu.tieba.eh0;
-import com.baidu.tieba.h11;
-import com.baidu.tieba.iy0;
-import com.baidu.tieba.ng0;
-import com.baidu.tieba.on0;
-import com.baidu.tieba.q01;
-import com.baidu.tieba.y51;
+import com.baidu.tieba.g21;
+import com.baidu.tieba.ho0;
+import com.baidu.tieba.ih0;
+import com.baidu.tieba.lo0;
+import com.baidu.tieba.mi0;
+import com.baidu.tieba.ol0;
+import com.baidu.tieba.qg0;
+import com.baidu.tieba.r71;
+import com.baidu.tieba.sl0;
+import com.baidu.tieba.uz0;
+import com.baidu.tieba.v71;
+import com.baidu.tieba.vh0;
+import com.baidu.tieba.y21;
+import com.baidu.tieba.z21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,41 +47,46 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class NadVideoAdOverContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] s;
-    public static final String t;
+    public static final char[] x;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-    public LinearLayout b;
+    public AdImageView b;
     public TextView c;
-    public PortraitVideoTailView d;
-    public RelativeLayout e;
-    public View.OnClickListener f;
-    public View.OnClickListener g;
-    public LinearLayout h;
-    public y51<View> i;
-    public FrameLayout j;
-    public ag0 k;
-    public d l;
-    public boolean m;
-    public View n;
-    public LinearLayout o;
-    public SimpleAdInfoView p;
-    public boolean q;
-    public TextView r;
+    public LinearLayout d;
+    public TextView e;
+    public PortraitVideoTailView f;
+    public RelativeLayout g;
+    public View.OnClickListener h;
+    public LinearLayout i;
+    public r71<View> j;
+    public FrameLayout k;
+    public ih0 l;
+    public f m;
+    public boolean n;
+    public View o;
+    public LinearLayout p;
+    public SimpleAdInfoView q;
+    public boolean r;
+    public TextView s;
+    public y21 t;
+    public Runnable u;
+    public final Object v;
+    public String w;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ NadVideoAdOverContainer b;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ NadVideoAdOverContainer c;
 
-        public a(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel) {
+        public a(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nadVideoAdOverContainer, adBaseModel};
+                Object[] objArr = {nadVideoAdOverContainer, adBaseModel, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,37 +96,41 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.b = nadVideoAdOverContainer;
+            this.c = nadVideoAdOverContainer;
             this.a = adBaseModel;
+            this.b = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.s()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.c.v()) {
                 return;
             }
-            ng0.c(this.a.f.c, this.b.getContext());
-            this.b.u(ClogBuilder.LogType.CLICK, "hot", this.a);
-            if (this.b.f != null) {
-                this.b.f.onClick(view2);
+            AdBaseModel adBaseModel = this.a;
+            lo0 lo0Var = adBaseModel.m;
+            if (lo0Var != null && lo0Var.a == 0) {
+                vh0.c(adBaseModel.f.c, this.c.getContext());
+            }
+            this.c.y(ClogBuilder.LogType.CLICK, this.b, this.a);
+            if (this.c.h != null) {
+                this.c.h.onClick(view2);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements SimpleAdInfoView.c {
+    public class b extends y21.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ NadVideoAdOverContainer b;
+        public final /* synthetic */ NadVideoAdOverContainer a;
 
-        public b(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel) {
+        public b(NadVideoAdOverContainer nadVideoAdOverContainer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nadVideoAdOverContainer, adBaseModel};
+                Object[] objArr = {nadVideoAdOverContainer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -129,15 +140,14 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.b = nadVideoAdOverContainer;
-            this.a = adBaseModel;
+            this.a = nadVideoAdOverContainer;
         }
 
-        @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
-        public void a(String str) {
+        @Override // com.baidu.tieba.y21.b
+        public void f(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.u(ClogBuilder.LogType.FREE_CLICK, str, this.a);
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.a.A(Math.round((float) ((100000 - j) / 1000)));
             }
         }
     }
@@ -146,11 +156,44 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NadVideoAdOverContainer a;
+
+        public c(NadVideoAdOverContainer nadVideoAdOverContainer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nadVideoAdOverContainer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nadVideoAdOverContainer;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.t.e();
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel a;
         public final /* synthetic */ String b;
         public final /* synthetic */ NadVideoAdOverContainer c;
 
-        public c(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel, String str) {
+        public d(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,85 +217,66 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((LinearLayout.LayoutParams) this.c.c.getLayoutParams()).rightMargin = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07054e);
-                this.c.b.setBackgroundResource(0);
-                this.c.b.setPadding(0, 0, 0, 0);
-                this.c.c.setText(this.c.k(String.format("@%s", this.a.f.e), this.c.c.getPaint()));
-                this.c.b.requestLayout();
-                this.c.a.setText(this.c.j(this.b));
+                ((LinearLayout.LayoutParams) this.c.e.getLayoutParams()).rightMargin = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07054e);
+                this.c.d.setBackgroundResource(0);
+                this.c.d.setPadding(0, 0, 0, 0);
+                this.c.e.setText(this.c.m(String.format("@%s", this.a.f.e), this.c.e.getPaint()));
+                this.c.d.requestLayout();
+                this.c.a.setText(this.c.l(this.b));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public interface d {
-        int a();
-
-        int getPosition();
-    }
-
-    /* loaded from: classes2.dex */
-    public static class e extends ImageSpan {
+    public class e extends sl0<qg0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
+        public final /* synthetic */ AdBaseModel b;
+        public final /* synthetic */ NadVideoAdOverContainer c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Drawable drawable) {
-            super(drawable);
+        public e(NadVideoAdOverContainer nadVideoAdOverContainer, Class cls, AdBaseModel adBaseModel) {
+            super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {drawable};
+                Object[] objArr = {nadVideoAdOverContainer, cls, adBaseModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Drawable) newInitContext.callArgs[0]);
+                    super((Class) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.c = nadVideoAdOverContainer;
+            this.b = adBaseModel;
         }
 
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sl0
+        public void onEvent(@NonNull qg0 qg0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                canvas.save();
-                canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
-                drawable.draw(canvas);
-                canvas.restore();
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qg0Var) == null) || this.c.j == null || this.c.j.getRealView() == null || !(this.c.j.getRealView() instanceof NadEnhanceButtonDownloadView)) {
+                return;
             }
+            NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = (NadEnhanceButtonDownloadView) this.c.j.getRealView();
+            ho0 ho0Var = qg0Var.a;
+            if (ho0Var == null || ho0Var != this.b.l || nadEnhanceButtonDownloadView.getDownloadStatus() == AdDownloadStatus.DOWNLOADING) {
+                return;
+            }
+            nadEnhanceButtonDownloadView.performClick();
         }
+    }
 
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    fontMetricsInt.bottom = i6;
-                    fontMetricsInt.descent = i6;
-                }
-                int i8 = bounds.right;
-                this.a = i8;
-                return i8;
-            }
-            return invokeCommon.intValue;
-        }
+    /* loaded from: classes2.dex */
+    public interface f {
+        int a();
+
+        int getPosition();
     }
 
     static {
@@ -268,8 +292,8 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 return;
             }
         }
-        s = new char[]{21704};
-        t = new String(s);
+        x = new char[]{21704};
+        new String(x);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -290,215 +314,201 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f = null;
-        this.m = true;
-        l(context);
+        this.h = null;
+        this.n = true;
+        this.v = new Object();
+        this.w = "";
+        n(context);
     }
 
-    public static boolean h(on0 on0Var) {
-        InterceptResult invokeL;
-        on0.b bVar;
-        on0.a aVar;
+    public void A(int i) {
+        r71<View> r71Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, on0Var)) == null) {
-            if (on0Var == null) {
-                return false;
-            }
-            return (TextUtils.isEmpty(on0Var.f) && TextUtils.isEmpty(on0Var.d) && ((bVar = on0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = on0Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (r71Var = this.j) == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        r71Var.update(i);
     }
 
     public boolean getHotAreaEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : invokeV.booleanValue;
     }
 
-    public final void i(boolean z) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.m = z;
-            this.a.setClickable(z);
-            this.c.setClickable(z);
-            this.p.setClickable(z);
-            y51<View> y51Var = this.i;
-            if (y51Var == null || y51Var.getRealView() == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (getTag() instanceof AdBaseModel)) {
+            AdBaseModel adBaseModel = (AdBaseModel) getTag();
+            if (adBaseModel.f == null) {
                 return;
             }
-            this.i.getRealView().setClickable(z);
+            if (this.b.getParent() instanceof View) {
+                ((View) this.b.getParent()).setVisibility(0);
+            }
+            if (!TextUtils.isEmpty(adBaseModel.f.f)) {
+                this.b.setVisibility(0);
+                this.c.setVisibility(8);
+                this.b.g(adBaseModel.f.f);
+            } else if (!TextUtils.isEmpty(adBaseModel.f.e)) {
+                this.b.setVisibility(8);
+                this.c.setVisibility(0);
+                this.c.setText(adBaseModel.f.e);
+            } else {
+                this.b.setVisibility(8);
+                this.c.setVisibility(8);
+            }
         }
     }
 
-    public final SpannableStringBuilder j(String str) {
-        InterceptResult invokeL;
-        float e2;
+    public final void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080ddb);
-            if (drawable == null) {
-                return spannableStringBuilder;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.n = z;
+            this.a.setClickable(z);
+            this.e.setClickable(z);
+            this.q.setClickable(z);
+            r71<View> r71Var = this.j;
+            if (r71Var == null || r71Var.getRealView() == null) {
+                return;
             }
-            if (this.a.getMeasuredWidth() > 0) {
-                e2 = (this.a.getMeasuredWidth() * 4) - drawable.getIntrinsicWidth();
-            } else {
-                e2 = ((q01.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070530)) * 4.0f) - drawable.getIntrinsicWidth();
+            this.j.getRealView().setClickable(z);
+        }
+    }
+
+    public final SpannableStringBuilder l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (getResources() == null) {
+                return new SpannableStringBuilder(str);
             }
-            float dimension = e2 - (getResources().getDimension(R.dimen.obfuscated_res_0x7f070531) * 3.0f);
-            int length = str.length() + 1;
-            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) t);
-            if (dimension < this.a.getPaint().measureText(spannableStringBuilder.toString())) {
-                String b2 = bg0.b(spannableStringBuilder.toString(), t, dimension, this.a.getPaint(), drawable.getIntrinsicWidth());
-                SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(b2);
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                spannableStringBuilder2.setSpan(new e(drawable), b2.length() - t.length(), b2.length(), 17);
-                return spannableStringBuilder2;
-            }
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableStringBuilder.setSpan(new e(drawable), length, spannableStringBuilder.length(), 17);
-            return spannableStringBuilder;
+            return v71.b(str, 2, this.a, getContext(), ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dfa), (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070530));
         }
         return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public final String k(@Nullable String str, @Nullable TextPaint textPaint) {
+    public final String m(@Nullable String str, @Nullable TextPaint textPaint) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, textPaint)) == null) ? h11.b(str, "", (int) (((int) (q01.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070536))) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070532)), textPaint) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, textPaint)) == null) ? z21.b(str, "", (int) (((int) (g21.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070536))) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070532)), textPaint) : (String) invokeLL.objValue;
     }
 
-    public final void l(Context context) {
+    public final void n(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ec, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915f5);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915a9);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0915da);
-            this.d = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0900d9);
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0900d7);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915ec);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f7);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0915ac);
-            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915de);
-            this.p = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f0915a5);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0915aa);
-        }
-    }
-
-    public final void m(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, adBaseModel) == null) || adBaseModel == null) {
-            return;
-        }
-        on0 on0Var = adBaseModel.i;
-        if (!h(on0Var)) {
-            this.q = false;
-            this.p.setVisibility(8);
-            this.d.setAdInfo(null);
-            return;
-        }
-        this.q = true;
-        this.p.setVisibility(0);
-        this.p.setAdInfo(on0Var);
-        this.p.setAfterListener(new b(this, adBaseModel));
-        this.d.setAdInfo(on0Var);
-    }
-
-    public final void n(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0915f3);
-            if (!adBaseModel.d) {
-                findViewById.setVisibility(8);
-                return;
-            }
-            o(adBaseModel);
-            this.j.setVisibility(0);
-            findViewById.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0603, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09161e);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915d2);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091603);
+            this.f = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0900d9);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0900d7);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091615);
+            this.k = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fb);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0915d5);
+            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091607);
+            this.q = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f0915ce);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d3);
+            this.b = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09008a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09008b);
         }
     }
 
     public final void o(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) {
-            y51<View> y51Var = this.i;
-            if (y51Var != null) {
-                y51Var.a();
-                this.j.setVisibility(8);
-                this.i = null;
-            }
-            if (adBaseModel.m == null) {
-                return;
-            }
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0915f3);
-            findViewById.setVisibility(0);
-            this.j.setVisibility(0);
-            if (this.j.getChildCount() > 0) {
-                this.j.removeAllViews();
-            }
-            AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(eh0.b(), this.j, findViewById);
-            this.i = adEnhanceButtonView;
-            ag0 ag0Var = new ag0(adBaseModel, adEnhanceButtonView);
-            this.k = ag0Var;
-            ag0Var.h(this.f);
-            this.i.setEnhanceBtnListener(this.k);
-            this.i.setData(adBaseModel.m);
-            this.i.setBtnIconNightModeEnable(false);
+            findViewById(R.id.obfuscated_res_0x7f09161c).setVisibility(adBaseModel.d ? 0 : 8);
+            q(adBaseModel);
+            this.k.setVisibility(0);
+            p();
         }
     }
 
-    public final void p(@NonNull AdBaseModel adBaseModel) {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adBaseModel) == null) {
-            a aVar = new a(this, adBaseModel);
-            this.g = aVar;
-            this.a.setOnClickListener(aVar);
-            this.c.setOnClickListener(this.g);
-            this.p.setOnClickListener(this.g);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            y21 y21Var = new y21(100000L, 1000L);
+            y21Var.d(new b(this));
+            this.t = y21Var;
+            c cVar = new c(this);
+            this.u = cVar;
+            post(cVar);
         }
     }
 
     public final void q(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) {
+            r71<View> r71Var = this.j;
+            if (r71Var != null) {
+                r71Var.a();
+                this.k.setVisibility(8);
+                this.j = null;
+            }
+            if (adBaseModel.m == null) {
+                return;
+            }
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09161c);
+            findViewById.setVisibility(0);
+            this.k.setVisibility(0);
+            if (this.k.getChildCount() > 0) {
+                this.k.removeAllViews();
+            }
+            AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(mi0.b(), this.k, findViewById);
+            this.j = adEnhanceButtonView;
+            ih0 ih0Var = new ih0(adBaseModel, adEnhanceButtonView);
+            this.l = ih0Var;
+            ih0Var.h(this.h);
+            this.j.setEnhanceBtnListener(this.l);
+            this.j.setData(adBaseModel.m);
+            this.j.setBtnIconNightModeEnable(false);
         }
     }
 
-    public final boolean r(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
+    public final void r(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f == null) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) {
+            this.a.setOnClickListener(s(adBaseModel, ClogBuilder.Area.TITTLE.type));
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setOnClickListener(s(adBaseModel, ClogBuilder.Area.AVATAR.type));
+            }
+            AdImageView adImageView = this.b;
+            if (adImageView != null) {
+                adImageView.setOnClickListener(s(adBaseModel, ClogBuilder.Area.AVATAR.type));
+            }
+            this.e.setOnClickListener(s(adBaseModel, ClogBuilder.Area.NAME.type));
+        }
     }
 
-    public boolean s() {
-        InterceptResult invokeV;
+    public final View.OnClickListener s(@NonNull AdBaseModel adBaseModel, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d.getVisibility() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, adBaseModel, str)) == null) ? new a(this, adBaseModel, str) : (View.OnClickListener) invokeLL.objValue;
     }
 
     public void setAdInfoVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {
-                this.n.setVisibility(0);
-                if (this.i != null) {
-                    this.j.setVisibility(0);
+                this.o.setVisibility(0);
+                if (this.j != null) {
+                    this.k.setVisibility(0);
                 }
                 this.a.setVisibility(0);
-                this.b.setVisibility(0);
-                this.o.setVisibility(0);
-                this.p.setVisibility(this.q ? 0 : 8);
+                this.d.setVisibility(0);
+                this.p.setVisibility(0);
+                this.q.setVisibility(this.r ? 0 : 8);
                 return;
             }
-            this.n.setVisibility(4);
-            if (this.i != null) {
-                this.j.setVisibility(4);
+            this.o.setVisibility(4);
+            if (this.j != null) {
+                this.k.setVisibility(4);
             }
             this.a.setVisibility(4);
-            this.b.setVisibility(4);
-            this.o.setVisibility(4);
-            this.p.setVisibility(this.q ? 4 : 8);
+            this.d.setVisibility(4);
+            this.p.setVisibility(4);
+            this.q.setVisibility(this.r ? 4 : 8);
         }
     }
 
@@ -506,124 +516,158 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             if (z) {
-                this.e.setVisibility(0);
+                this.g.setVisibility(0);
             } else {
-                this.e.setVisibility(4);
+                this.g.setVisibility(4);
             }
+        }
+    }
+
+    public void setAlsLogPage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.w = str;
         }
     }
 
     public void setData(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) {
-            if (!r(adBaseModel)) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, adBaseModel) == null) {
+            if (!u(adBaseModel)) {
                 setVisibility(8);
                 return;
             }
             setTag(adBaseModel);
             setVisibility(0);
-            n(adBaseModel);
+            o(adBaseModel);
+            w(adBaseModel);
+            j();
+            r(adBaseModel);
             t(adBaseModel);
-            m(adBaseModel);
-            p(adBaseModel);
-            q(adBaseModel);
+            x(adBaseModel);
         }
     }
 
     public void setFeedbackBtnVisibility(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.r.setVisibility(z ? 0 : 8);
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.s.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setOnNewTailFrameReplayClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
-            this.d.setOnReplayClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
+            this.f.setOnReplayClickListener(onClickListener);
         }
     }
 
     public void setOnNewTailJumpHandler(PortraitVideoTailView.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) {
-            this.d.setOnTailJumpHandler(cVar);
+        if (interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) {
+            this.f.setOnTailJumpHandler(cVar);
         }
     }
 
     public void setOnUiClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
-            this.f = onClickListener;
-            PortraitVideoTailView portraitVideoTailView = this.d;
+        if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
+            this.h = onClickListener;
+            PortraitVideoTailView portraitVideoTailView = this.f;
             if (portraitVideoTailView != null) {
                 portraitVideoTailView.setOnAdClickListener(onClickListener);
             }
-            ag0 ag0Var = this.k;
-            if (ag0Var != null) {
-                ag0Var.h(onClickListener);
+            ih0 ih0Var = this.l;
+            if (ih0Var != null) {
+                ih0Var.h(onClickListener);
             }
         }
     }
 
     public void setOverLayInfoVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             setAdInfoVisible(z);
         }
     }
 
-    public void setPlayerProgressHandler(d dVar) {
+    public void setPlayerProgressHandler(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            this.l = dVar;
+        if (interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) {
+            this.m = fVar;
         }
     }
 
     public final void t(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, adBaseModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, adBaseModel) == null) {
+        }
+    }
+
+    public final boolean u(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f == null) ? false : true : invokeL.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f.getVisibility() == 0 : invokeV.booleanValue;
+    }
+
+    public final void w(@NonNull AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, adBaseModel) == null) {
             String str = adBaseModel.f.g;
             if (str == null) {
                 str = "";
             }
-            this.a.post(new c(this, adBaseModel, str));
+            this.a.post(new d(this, adBaseModel, str));
         }
     }
 
-    public final void u(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+    public final void x(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048598, this, logType, str, adBaseModel) == null) || adBaseModel == null || TextUtils.isEmpty(adBaseModel.f.d)) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, adBaseModel) == null) {
+            ol0.a().c(this.v, 1, new e(this, qg0.class, adBaseModel));
+        }
+    }
+
+    public final void y(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048603, this, logType, str, adBaseModel) == null) || adBaseModel == null || TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(logType);
         clogBuilder.j(str);
-        d dVar = this.l;
-        if (dVar != null) {
-            clogBuilder.k(String.valueOf(dVar.getPosition()));
-            clogBuilder.l(String.valueOf(this.l.a()));
+        clogBuilder.v(this.w);
+        f fVar = this.m;
+        if (fVar != null) {
+            clogBuilder.k(String.valueOf(fVar.getPosition()));
+            clogBuilder.l(String.valueOf(this.m.a()));
         }
         clogBuilder.p(adBaseModel.f.d);
-        iy0.b(clogBuilder);
+        uz0.b(clogBuilder);
     }
 
-    public void v(boolean z) {
+    public void z(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             Object tag = getTag();
             if (!(tag instanceof AdBaseModel)) {
-                this.d.e();
+                this.f.e();
                 setAdOverInfoVisiblity(true);
-                i(true);
+                k(true);
             } else if (z) {
-                this.d.j((AdBaseModel) tag);
+                this.f.j((AdBaseModel) tag);
                 setAdOverInfoVisiblity(false);
-                i(false);
+                k(false);
             } else {
-                this.d.e();
+                this.f.e();
                 setAdOverInfoVisiblity(true);
-                i(true);
+                k(true);
             }
         }
     }
@@ -647,9 +691,11 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f = null;
-        this.m = true;
-        l(context);
+        this.h = null;
+        this.n = true;
+        this.v = new Object();
+        this.w = "";
+        n(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -671,8 +717,10 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f = null;
-        this.m = true;
-        l(context);
+        this.h = null;
+        this.n = true;
+        this.v = new Object();
+        this.w = "";
+        n(context);
     }
 }

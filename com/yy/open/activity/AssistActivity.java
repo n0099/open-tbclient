@@ -24,10 +24,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.or9;
+import com.baidu.tieba.gt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -188,7 +187,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(or9.g(false))) {
+                if (str.startsWith(gt9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -231,7 +230,7 @@ public final class AssistActivity extends Activity {
                         e.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(or9.g(true))) {
+                } else if (str.startsWith(gt9.g(true))) {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -518,7 +517,7 @@ public final class AssistActivity extends Activity {
             this.a.addView(this.d);
             this.a.addView(this.c);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805d2);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e7);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(a(5.0f), a(5.0f), 0, 0);
@@ -569,12 +568,10 @@ public final class AssistActivity extends Activity {
             if (this.e == null) {
                 Log.e("YYOpenSdk", "URL Cannot Be NULL");
                 finish();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             b();
             c();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

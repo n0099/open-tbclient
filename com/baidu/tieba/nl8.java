@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nl8 {
+public class nl8 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xg a;
-    public String b;
-    public boolean c;
+    public ForumData a;
 
-    public nl8(String str) {
+    public nl8(ForumData forumData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {forumData, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,107 +29,31 @@ public class nl8 {
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        e(str, false);
+        this.a = forumData;
     }
 
-    public void a() {
-        ql8 c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (c = c()) == null || c.f == null) {
-            return;
-        }
-        long e = this.a.e();
-        if (e > 3000) {
-            pl8 pl8Var = c.f;
-            pl8Var.a += e;
-            pl8Var.b++;
-            ol8.b(c, 10);
-        }
-    }
-
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        ql8 c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.a == null || (c = c()) == null) {
-            return;
-        }
-        if (z) {
-            pl8 pl8Var = c.d;
-            if (pl8Var == null) {
-                return;
-            }
-            pl8Var.b++;
-            if (z2) {
-                pl8Var.a += j2;
-                pl8Var.d += j;
-            } else {
-                pl8Var.c++;
-            }
-        } else {
-            pl8 pl8Var2 = c.e;
-            if (pl8Var2 == null) {
-                return;
-            }
-            pl8Var2.b++;
-            if (z2) {
-                pl8Var2.a += j3;
-                pl8Var2.d += j;
-            } else {
-                pl8Var2.c++;
-            }
-            j2 = j3;
-        }
-        this.a = null;
-        if (z2) {
-            ol8.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                xg xgVar = new xg("dbg");
-                xgVar.b("act", "frs");
-                xgVar.b(TiebaStatic.LogFields.RESULT, z2 ? "0" : "1");
-                xgVar.b("isHttp", z ? "1" : "0");
-                xgVar.b("timeCost", String.valueOf(j2));
-                xgVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                xgVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
-                xgVar.b("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", xgVar);
-            }
-        }
-    }
-
-    public final ql8 c() {
+    public ForumData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ol8.e(this.b, d(), this.c) : (ql8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ForumData) invokeV.objValue;
     }
 
-    public final String d() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int I = pi.I();
-            return I == 0 ? "N" : I == 1 ? "WIFI" : I == 3 ? "3G" : I == 2 ? "2G" : "N";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void e(String str, boolean z) {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new xg("dbg");
-            ol8.c(str, d(), z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g();
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

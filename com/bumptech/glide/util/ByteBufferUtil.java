@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -206,7 +205,7 @@ public final class ByteBufferUtil {
         byteBuffer.position(0);
         FileChannel fileChannel = null;
         try {
-            randomAccessFile = new RandomAccessFile(file, rw.c);
+            randomAccessFile = new RandomAccessFile(file, "rw");
             try {
                 fileChannel = randomAccessFile.getChannel();
                 fileChannel.write(byteBuffer);

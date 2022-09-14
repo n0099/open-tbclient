@@ -1,83 +1,92 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.tieba.wq3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class vq3 extends uq3 {
+public class vq3 implements wq3.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean G;
+    public final ExecutorService a;
+    public final dr3 b;
+    public final DownloadInfo c;
+    public final a d;
+    public long e;
+    public volatile AtomicBoolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vq3(Context context, AdElementInfo adElementInfo, vp3 vp3Var) {
-        super(context, adElementInfo, vp3Var);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void e(DownloadInfo downloadInfo);
+    }
+
+    public vq3(ExecutorService executorService, dr3 dr3Var, DownloadInfo downloadInfo, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, adElementInfo, vp3Var};
+            Object[] objArr = {executorService, dr3Var, downloadInfo, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (vp3) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.G = false;
+        this.e = System.currentTimeMillis();
+        this.f = new AtomicBoolean(false);
+        this.a = executorService;
+        this.b = dr3Var;
+        this.c = downloadInfo;
+        this.d = aVar;
     }
 
-    @Override // com.baidu.tieba.uq3
-    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
+    @Override // com.baidu.tieba.wq3.a
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
-            int videoWidth = adElementInfo.getVideoWidth();
-            int videoHeight = adElementInfo.getVideoHeight();
-            this.n = rp3.b().k();
-            this.o = rp3.b().j();
-            if (videoWidth < videoHeight) {
-                this.G = true;
-                int i = this.n;
-                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
-                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
-                layoutParams.leftMargin = (this.n - i2) - i3;
-                layoutParams.addRule(15);
-                layoutParams.removeRule(13);
-                layoutParams.removeRule(12);
-                layoutParams.bottomMargin = 0;
-                relativeLayout.setLayoutParams(layoutParams);
-                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f060896));
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
+            this.c.setPackageName(qs3.d(AppRuntime.getAppContext(), this.c.getPath()));
+            this.c.setStatus(DownloadState.DOWNLOADED.value());
+            this.b.b(this.c);
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.e(this.c);
             }
         }
     }
 
-    @Override // com.baidu.tieba.uq3
-    public String q() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wq3.a
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.G ? "reward_banner_land_html" : "reward_banner_html" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f.get()) {
+            return;
+        }
+        synchronized (this) {
+            if (!this.f.get()) {
+                this.f.set(true);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.e > 1000) {
+                    this.b.b(this.c);
+                    this.e = currentTimeMillis;
+                }
+                this.f.set(false);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.uq3
-    @SuppressLint({"InflateParams"})
-    public View u() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0645, (ViewGroup) null) : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.submit(new wq3(this.b, this.c, this));
+        }
     }
 }

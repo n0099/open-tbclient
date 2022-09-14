@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,10 +55,10 @@ public class AnniversaryReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1394common = this.f1059common;
+                builder.f1392common = this.f1059common;
                 builder.source = Integer.valueOf(this.mSource);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ye5.a(builder, true);
+                    fh5.a(builder, true);
                 }
                 VideoTemplateReqIdl.Builder builder2 = new VideoTemplateReqIdl.Builder();
                 builder2.data = builder.build(false);

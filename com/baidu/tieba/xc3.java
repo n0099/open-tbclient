@@ -1,40 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public final class xc3 implements uc3, wc3 {
+public class xc3 {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile xc3 m;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<vc3<?>, Set<b>> l;
+    public Context a;
+    public SensorManager b;
+    public SensorEventListener c;
+    public SensorEventListener d;
+    public Sensor e;
+    public Sensor f;
+    public float[] g;
+    public float[] h;
+    public int i;
+    public c j;
+    public boolean k;
+    public long l;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ Set b;
+        public final /* synthetic */ xc3 a;
 
-        public a(xc3 xc3Var, Set set, Set set2) {
+        public a(xc3 xc3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xc3Var, set, set2};
+                Object[] objArr = {xc3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,46 +54,84 @@ public final class xc3 implements uc3, wc3 {
                     return;
                 }
             }
-            this.a = set;
-            this.b = set2;
+            this.a = xc3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (b bVar : this.a) {
-                    bVar.a(this.b);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+                    this.a.g = sensorEvent.values;
+                    this.a.i = sensorEvent.accuracy;
+                    yz1.b("SwanAppCompassManager", "accelerometer changed accuracy: " + this.a.i);
+                    this.a.k();
+                    return;
                 }
+                yz1.o("compass", "illegal accelerometer event");
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface b extends tf3<Set<vc3<?>>> {
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
+    public class b implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final xc3 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xc3 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-293764350, "Lcom/baidu/tieba/xc3$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-293764350, "Lcom/baidu/tieba/xc3$c;");
+        public b(xc3 xc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xc3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new xc3();
+            this.a = xc3Var;
         }
+
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
+                    this.a.h = sensorEvent.values;
+                    this.a.i = sensorEvent.accuracy;
+                    yz1.b("SwanAppCompassManager", "magneticFiled changed accuracy: " + this.a.i);
+                    this.a.k();
+                    return;
+                }
+                yz1.o("compass", "illegal magnetic filed event");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(float f, int i);
     }
 
     public xc3() {
@@ -99,140 +147,180 @@ public final class xc3 implements uc3, wc3 {
                 return;
             }
         }
-        this.l = new HashMap();
+        this.g = new float[3];
+        this.h = new float[3];
+        this.i = -100;
+        this.k = false;
+        this.l = 0L;
     }
 
-    public static xc3 a() {
+    public static String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? i != -1 ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? "unknow" : "high" : "medium" : Config.EXCEPTION_MEMORY_LOW : "unreliable" : "no-contact" : (String) invokeI.objValue;
+    }
+
+    public static xc3 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a : (xc3) invokeV.objValue;
-    }
-
-    public final <T> boolean b(T... tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tArr)) == null) ? tArr == null || tArr.length < 1 : invokeL.booleanValue;
-    }
-
-    public xc3 c(Set<vc3<?>> set) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set)) == null) {
-            if (set.isEmpty()) {
-                return this;
-            }
-            HashSet hashSet = new HashSet();
-            synchronized (this.l) {
-                for (vc3<?> vc3Var : set) {
-                    hashSet.addAll(i(vc3Var));
-                }
-            }
-            d(hashSet, set);
-            return this;
-        }
-        return (xc3) invokeL.objValue;
-    }
-
-    public final xc3 d(Set<b> set, Set<vc3<?>> set2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, set2)) == null) {
-            su2.j().i(new a(this, set, set2));
-            return this;
-        }
-        return (xc3) invokeLL.objValue;
-    }
-
-    public xc3 e(vc3<?>... vc3VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vc3VarArr)) == null) {
-            c(Sets.newHashSet(vc3VarArr));
-            return this;
-        }
-        return (xc3) invokeL.objValue;
-    }
-
-    public xc3 f(tc3 tc3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tc3Var)) == null) {
-            String tc3Var2 = tc3Var == null ? "" : tc3Var.toString();
-            if (uc3.a) {
-                Log.i("Tracer-ErrCode", tc3Var2);
-            }
-            ay1.c("Tracer-ErrCode", tc3Var2);
-            return this;
-        }
-        return (xc3) invokeL.objValue;
-    }
-
-    public xc3 g(b bVar, vc3<?>... vc3VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bVar, vc3VarArr)) == null) {
-            if (bVar != null) {
-                synchronized (this.l) {
-                    Set<vc3<?>> keySet = b(vc3VarArr) ? this.l.keySet() : Sets.newHashSet(vc3VarArr);
-                    for (vc3<?> vc3Var : keySet) {
-                        if (vc3Var != null) {
-                            i(vc3Var).add(bVar);
-                        }
-                    }
-                    d(Sets.newHashSet(bVar), keySet);
-                }
-            }
-            return this;
-        }
-        return (xc3) invokeLL.objValue;
-    }
-
-    public xc3 h(vc3<?>... vc3VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, vc3VarArr)) == null) {
-            synchronized (this.l) {
-                for (vc3<?> vc3Var : vc3VarArr) {
-                    if (!this.l.containsKey(vc3Var)) {
-                        this.l.put(vc3Var, new HashSet());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (m == null) {
+                synchronized (xc3.class) {
+                    if (m == null) {
+                        m = new xc3();
                     }
                 }
             }
-            return this;
+            return m;
         }
-        return (xc3) invokeL.objValue;
+        return (xc3) invokeV.objValue;
     }
 
-    public final Set<b> i(@NonNull vc3<?> vc3Var) {
-        InterceptResult invokeL;
+    public static void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, vc3Var)) == null) {
-            Set<b> set = this.l.get(vc3Var);
-            if (set == null) {
-                HashSet hashSet = new HashSet();
-                this.l.put(vc3Var, hashSet);
-                return hashSet;
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || m == null) {
+            return;
+        }
+        m.m();
+    }
+
+    public final float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            float[] fArr = new float[3];
+            float[] fArr2 = new float[9];
+            SensorManager.getRotationMatrix(fArr2, null, this.g, this.h);
+            SensorManager.getOrientation(fArr2, fArr);
+            return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final SensorEventListener g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            yz1.i("compass", "get Accelerometer listener");
+            SensorEventListener sensorEventListener = this.c;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
             }
-            return set;
+            a aVar = new a(this);
+            this.c = aVar;
+            return aVar;
         }
-        return (Set) invokeL.objValue;
+        return (SensorEventListener) invokeV.objValue;
     }
 
-    public xc3 j(b bVar, vc3<?>... vc3VarArr) {
-        InterceptResult invokeLL;
+    public final SensorEventListener j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, vc3VarArr)) == null) {
-            if (bVar != null) {
-                synchronized (this.l) {
-                    for (vc3<?> vc3Var : b(vc3VarArr) ? this.l.keySet() : Sets.newHashSet(vc3VarArr)) {
-                        if (vc3Var != null) {
-                            i(vc3Var).remove(bVar);
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            yz1.i("compass", "get MagneticFiled listener");
+            SensorEventListener sensorEventListener = this.d;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
+            }
+            b bVar = new b(this);
+            this.d = bVar;
+            return bVar;
+        }
+        return (SensorEventListener) invokeV.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.j == null || System.currentTimeMillis() - this.l <= 200) {
+            return;
+        }
+        float f = f();
+        yz1.b("SwanAppCompassManager", "orientation changed, orientation : " + f);
+        this.j.a(f, this.i);
+        this.l = System.currentTimeMillis();
+    }
+
+    public void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            yz1.i("compass", "release");
+            if (this.k) {
+                q();
+            }
+            this.b = null;
+            this.f = null;
+            this.e = null;
+            this.c = null;
+            this.d = null;
+            this.j = null;
+            this.a = null;
+            m = null;
+        }
+    }
+
+    public void o(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.j = cVar;
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Context context = this.a;
+            if (context == null) {
+                yz1.c("compass", "start error, none context");
+            } else if (this.k) {
+                yz1.o("compass", "has already start");
+            } else {
+                SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
+                this.b = sensorManager;
+                if (sensorManager != null) {
+                    this.e = sensorManager.getDefaultSensor(1);
+                    this.f = this.b.getDefaultSensor(2);
+                    this.b.registerListener(g(), this.e, 1);
+                    this.b.registerListener(j(), this.f, 1);
+                    this.k = true;
+                    yz1.i("compass", "start listen");
+                    return;
                 }
+                yz1.c("compass", "none sensorManager");
             }
-            return this;
         }
-        return (xc3) invokeLL.objValue;
+    }
+
+    public void q() {
+        SensorManager sensorManager;
+        SensorManager sensorManager2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (!this.k) {
+                yz1.o("compass", "has already stop");
+                return;
+            }
+            yz1.i("compass", "stop listen");
+            SensorEventListener sensorEventListener = this.c;
+            if (sensorEventListener != null && (sensorManager2 = this.b) != null) {
+                sensorManager2.unregisterListener(sensorEventListener);
+                this.c = null;
+            }
+            SensorEventListener sensorEventListener2 = this.d;
+            if (sensorEventListener2 != null && (sensorManager = this.b) != null) {
+                sensorManager.unregisterListener(sensorEventListener2);
+                this.d = null;
+            }
+            this.b = null;
+            this.f = null;
+            this.e = null;
+            this.k = false;
+        }
     }
 }

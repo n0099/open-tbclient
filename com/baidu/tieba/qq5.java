@@ -1,33 +1,44 @@
 package com.baidu.tieba;
 
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.ala.square.IAlaSquareTabController;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.BearTimeoutTryShowSwitch;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class qq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static qq5 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public BdTypeListView b;
-    public final List<cn> c;
-    public pq5 d;
-    public yt5 e;
-    public zt5 f;
+    public int a;
+    public boolean b;
+    public boolean c;
+    public long d;
+    public SplashNativePolicy e;
+    public ho4 f;
+    public final ArrayList<rq5> g;
 
-    public qq5(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    public qq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,66 +48,314 @@ public class qq5 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        a();
+        this.c = false;
+        this.d = -1L;
+        this.f = null;
+        this.g = new ArrayList<>();
+        this.a = bx4.k().l("splash_ad_strategy_key", 0);
+        m();
     }
 
-    public final void a() {
+    public static qq5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (h == null) {
+                synchronized (qq5.class) {
+                    if (h == null) {
+                        h = new qq5();
+                    }
+                }
+            }
+            return h;
+        }
+        return (qq5) invokeV.objValue;
+    }
+
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zt5 zt5Var = new zt5((TbPageContext) this.a);
-            this.f = zt5Var;
-            zt5Var.v(1);
-            yt5 yt5Var = new yt5((TbPageContext) this.a);
-            this.e = yt5Var;
-            yt5Var.v(1);
-            this.d = new pq5((TbPageContext) this.a, sq5.f);
-            this.c.add(this.f);
-            this.c.add(this.e);
-            this.c.add(this.d);
-            this.b.a(this.c);
+            Iterator<rq5> it = this.g.iterator();
+            while (it.hasNext()) {
+                rq5 next = it.next();
+                if (next != null) {
+                    next.destroy();
+                }
+            }
+            this.g.clear();
+            SplashNativePolicy splashNativePolicy = this.e;
+            if (splashNativePolicy != null) {
+                splashNativePolicy.releaseSplash();
+                this.e = null;
+            }
         }
     }
 
     public void b() {
-        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof BaseAdapter)) {
-            this.b.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Iterator<rq5> it = this.g.iterator();
+            while (it.hasNext()) {
+                rq5 next = it.next();
+                if (next instanceof aq5) {
+                    aq5 aq5Var = (aq5) next;
+                    boolean v = aq5Var.v();
+                    if (v && BearTimeoutTryShowSwitch.isOn()) {
+                        StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.c ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.d);
+                        if (!StringUtils.isNull(next.c())) {
+                            param.param(TiebaStatic.Params.OBJ_TO, next.c());
+                        }
+                        param.eventStat();
+                        aq5Var.t();
+                        return;
+                    }
+                    StatisticItem.make("fail_splash").param("obj_param1", v ? "1" : "0").eventStat();
+                }
+            }
+            ho4 ho4Var = this.f;
+            if (ho4Var != null) {
+                ho4Var.b("");
+            }
         }
     }
 
-    public void c(ju5 ju5Var) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ju5Var) == null) {
-            this.f.x(ju5Var);
-            this.e.x(ju5Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final byte e(rq5 rq5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rq5Var)) == null) {
+            if (rq5Var == null) {
+                return (byte) 0;
+            }
+            String f = rq5Var.f();
+            char c = 65535;
+            int hashCode = f.hashCode();
+            if (hashCode != -1348168235) {
+                if (hashCode == 3019700 && f.equals("bear")) {
+                    c = 0;
+                }
+            } else if (f.equals("prologue_gd")) {
+                c = 1;
+            }
+            if (c != 0) {
+                return c != 1 ? (byte) 0 : (byte) 5;
+            }
+            return (byte) 6;
+        }
+        return invokeL.byteValue;
+    }
+
+    public final synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.g.isEmpty()) {
+                    bq5 bq5Var = new bq5(this.e);
+                    aq5 aq5Var = new aq5(this.e);
+                    this.g.clear();
+                    if (eg5.w()) {
+                        this.g.add(bq5Var);
+                    } else {
+                        BaseVM.m(27);
+                    }
+                    if (eg5.q()) {
+                        this.g.add(aq5Var);
+                    }
+                    if (bx4.k().h("key_is_jump_splash_ad", false)) {
+                        h();
+                        this.g.clear();
+                    }
+                }
+            }
         }
     }
 
-    public void d(List<pn> list) {
-        BdTypeListView bdTypeListView;
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.b) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Iterator<rq5> it = this.g.iterator();
+            while (it.hasNext()) {
+                rq5 next = it.next();
+                if (next != null && next.b()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void h() {
+        UBCManager uBCManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
-        bdTypeListView.setData(list);
+        uBCManager.onEvent("5088");
     }
 
-    public void e(int i) {
+    public void i(int i) {
+        ho4 ho4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f.w(i);
-            this.e.w(i);
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (ho4Var = this.f) == null) {
+            return;
+        }
+        ho4Var.a(i);
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b = false;
+            f();
+            Iterator<rq5> it = this.g.iterator();
+            while (it.hasNext()) {
+                rq5 next = it.next();
+                if (i == 5 && (next instanceof bq5)) {
+                    if (wq5.g()) {
+                        BaseVM.m(29);
+                    } else {
+                        next.a();
+                        return;
+                    }
+                } else if (i == 6 && (next instanceof aq5)) {
+                    Iterator<rq5> it2 = this.g.iterator();
+                    while (it2.hasNext()) {
+                        rq5 next2 = it2.next();
+                        if (next2 instanceof bq5) {
+                            StatisticItem statisticItem = new StatisticItem("preload_bear");
+                            bq5 bq5Var = (bq5) next2;
+                            statisticItem.param("obj_param1", bq5Var.v() ? "1" : "0");
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, bq5Var.w() ? "1" : "0");
+                            TiebaStatic.log(statisticItem);
+                        }
+                    }
+                    next.a();
+                    return;
+                }
+            }
         }
     }
 
-    public void f(IAlaSquareTabController iAlaSquareTabController) {
+    public synchronized void k(ko4 ko4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iAlaSquareTabController) == null) {
-            this.d.x(iAlaSquareTabController);
+        if (interceptable == null || interceptable.invokeL(1048585, this, ko4Var) == null) {
+            synchronized (this) {
+                this.b = false;
+                this.d = ko4Var.c();
+                this.f = ko4Var.a();
+                this.c = ko4Var.d();
+                if (this.e != null) {
+                    this.e.onSplashEvent(96);
+                }
+                f();
+                vq5.c();
+                Iterator<rq5> it = this.g.iterator();
+                while (it.hasNext()) {
+                    rq5 next = it.next();
+                    if ((next instanceof bq5) && wq5.g()) {
+                        BaseVM.m(29);
+                    } else {
+                        next.e(ko4Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    return;
+                }
+                Iterator<rq5> it = this.g.iterator();
+                while (it.hasNext()) {
+                    rq5 next = it.next();
+                    if (next != null) {
+                        if ((z ? next instanceof aq5 : next instanceof bq5) && next.d() == AdLoadState.SUCCEED) {
+                            this.b = true;
+                            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.c ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.d);
+                            if (!StringUtils.isNull(next.c())) {
+                                param.param(TiebaStatic.Params.OBJ_TO, next.c());
+                            }
+                            param.eventStat();
+                            if (String.valueOf((int) e(next)).equals(wq5.c)) {
+                                BaseVM.m(28);
+                            }
+                            dp8.a(MainTabScheduleStrategy.UNSCHEDULE);
+                            if (this.f != null) {
+                                this.f.c(next instanceof bq5 ? ((bq5) next).k : null);
+                            }
+                            next.show();
+                            if (this.f != null) {
+                                this.f.d(String.valueOf((int) e(next)));
+                            }
+                            vq5.d(String.valueOf((int) e(next)));
+                            return;
+                        }
+                    }
+                }
+                if (this.f != null) {
+                    this.f.b("");
+                }
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            SplashNativePolicy splashNativePolicy = this.e;
+            if (splashNativePolicy == null) {
+                SplashNativePolicy splashNativePolicy2 = new SplashNativePolicy();
+                this.e = splashNativePolicy2;
+                boolean initSplashPolicy = splashNativePolicy2.initSplashPolicy(eg5.u(), eg5.w(), eg5.v(), eg5.k(), eg5.l());
+                PrintStream printStream = System.out;
+                printStream.println("SplashPolicy init result = " + initSplashPolicy);
+                if (initSplashPolicy) {
+                    return;
+                }
+                this.e = null;
+                return;
+            }
+            boolean updateSplashConfig = splashNativePolicy.updateSplashConfig(eg5.u(), eg5.w(), eg5.v(), eg5.k(), eg5.l());
+            PrintStream printStream2 = System.out;
+            printStream2.println("SplashPolicy update result = " + updateSplashConfig);
+            if (updateSplashConfig) {
+                return;
+            }
+            this.e = null;
+        }
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            this.a = dh.e(jSONObject.optString("ad_sdk_priority"), 0);
+            bx4.k().w("splash_ad_strategy_key", this.a);
+            bx4.k().w("splash_origin_ad_strategy_key", dh.e(jSONObject.optString("ad_origin_config_switch"), 1));
+            JSONObject optJSONObject = jSONObject.optJSONObject("screen_fill_data_result");
+            if (optJSONObject != null) {
+                int e = dh.e(optJSONObject.optString("screen_fill_advertisement_first_switch", com.tencent.connect.common.Constants.DEFAULT_UIN), 1000);
+                int e2 = dh.e(optJSONObject.optString("screen_fill_advertisement_second_switch", "1400"), 1400);
+                int e3 = dh.e(optJSONObject.optString("screen_fill_advertisement_bear_switch", "1"), 1);
+                int e4 = dh.e(optJSONObject.optString("screen_fill_advertisement_plj_switch", "1"), 1);
+                int e5 = dh.e(optJSONObject.optString("screen_fill_advertisement_plj_cpc_switch", "1"), 1);
+                bx4.k().w("key_splash_new_policy_bear_enable", e3);
+                bx4.k().w("key_splash_new_policy_plg_enable", e4);
+                bx4.k().w("key_splash_new_policy_plg_cpc_enable", e5);
+                bx4.k().w("key_splash_new_policy_first_timeout", e);
+                bx4.k().w("key_splash_new_policy_second_timeout", e2);
+            }
+            aq5.x(dh.e(jSONObject.optString("bear_sid_type"), 0));
         }
     }
 }

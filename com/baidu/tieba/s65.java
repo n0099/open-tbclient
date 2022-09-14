@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class s65 {
     public static /* synthetic */ Interceptable $ic;
+    public static s65 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<q65> a;
-    public Context b;
+    public int a;
 
-    public s65(Context context) {
+    public s65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,34 +26,35 @@ public class s65 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
+        this.a = 0;
     }
 
-    public void a(q65 q65Var) {
+    public static s65 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, q65Var) == null) || q65Var == null || q65Var.b() == null) {
-            return;
-        }
-        Iterator<q65> it = this.a.iterator();
-        while (it.hasNext()) {
-            q65 next = it.next();
-            if (next != null && next.b() != null && next.b().e == q65Var.b().e) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (s65.class) {
+                    if (b == null) {
+                        b = new s65();
+                    }
+                }
             }
+            return b;
         }
-        this.a.add(q65Var);
+        return (s65) invokeV.objValue;
     }
 
-    public ArrayList<q65> b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Context) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
     }
 }

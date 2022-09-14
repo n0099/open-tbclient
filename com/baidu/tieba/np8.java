@@ -1,58 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.ue7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class np8 extends CustomMessageListener {
+public class np8 implements ue7.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public tq4 b;
+    public ur8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public np8(MainTabActivity mainTabActivity, sn8 sn8Var) {
-        super(2921333);
+    public np8(MainTabActivity mainTabActivity, ip8 ip8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, sn8Var};
+            Object[] objArr = {mainTabActivity, ip8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = mainTabActivity;
+        this.b = new ur8(mainTabActivity.getPageContext(), ip8Var, mainTabActivity, true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.ue7.e
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-            return;
-        }
-        if (this.b != null || (customResponsedMessage.getData() instanceof tq4)) {
-            if (customResponsedMessage.getData() != null) {
-                this.b = (tq4) customResponsedMessage.getData();
-            }
-            if (this.b == null || !TbadkCoreApplication.isLogin()) {
-                return;
-            }
-            qn8 qn8Var = this.a.x;
-            tq4 tq4Var = this.b;
-            qn8Var.j(tq4Var.a, tq4Var.b, tq4Var.c);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ue7.m(this.a).i) {
+            this.a.d0().v(this.b);
         }
     }
 }

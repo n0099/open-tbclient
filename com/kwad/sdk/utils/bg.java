@@ -3,11 +3,11 @@ package com.kwad.sdk.utils;
 import android.os.Handler;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bg extends Handler {
     public WeakReference<a> apk;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(Message message);
     }

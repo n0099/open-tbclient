@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xa8;
+import com.baidu.tieba.fc8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public Camera a;
     public boolean b;
     public boolean c;
-    public xa8 d;
+    public fc8 d;
     public SurfaceTexture e;
     public Runnable f;
     public Camera.AutoFocusCallback g;
@@ -218,8 +218,8 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             int defaultSize = TextureView.getDefaultSize(getSuggestedMinimumWidth(), i);
             int defaultSize2 = TextureView.getDefaultSize(getSuggestedMinimumHeight(), i2);
-            xa8 xa8Var = this.d;
-            if (xa8Var != null && xa8Var.e() != null) {
+            fc8 fc8Var = this.d;
+            if (fc8Var != null && fc8Var.e() != null) {
                 Point e = this.d.e();
                 float f = defaultSize;
                 float f2 = defaultSize2;
@@ -280,9 +280,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeL(1048583, this, camera) == null) {
             this.a = camera;
             if (camera != null) {
-                xa8 xa8Var = new xa8(getContext());
-                this.d = xa8Var;
-                xa8Var.h(this.a);
+                fc8 fc8Var = new fc8(getContext());
+                this.d = fc8Var;
+                fc8Var.h(this.a);
                 if (this.b) {
                     requestLayout();
                 } else {

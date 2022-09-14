@@ -9,15 +9,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.tieba.b89;
-import com.baidu.tieba.dc9;
-import com.baidu.tieba.fd0;
-import com.baidu.tieba.ic9;
-import com.baidu.tieba.jc9;
-import com.baidu.tieba.qc9;
-import com.baidu.tieba.qe0;
-import com.baidu.tieba.yb9;
-import com.baidu.tieba.zb9;
+import com.baidu.tieba.bg9;
+import com.baidu.tieba.cg9;
+import com.baidu.tieba.ec9;
+import com.baidu.tieba.gg9;
+import com.baidu.tieba.le0;
+import com.baidu.tieba.lg9;
+import com.baidu.tieba.mg9;
+import com.baidu.tieba.tg9;
+import com.baidu.tieba.wf0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -154,11 +154,11 @@ public class ComposeThemeVideoModel {
                 list.add(aEffectProcessor);
                 return;
             }
-            qe0 qe0Var = new qe0();
-            qe0Var.j(b89.c().getContext());
-            multiMediaOutputSurface.setVlogCore(qe0Var);
+            wf0 wf0Var = new wf0();
+            wf0Var.j(ec9.c().getContext());
+            multiMediaOutputSurface.setVlogCore(wf0Var);
             MediaTrackConfig mediaTrackConfig2 = this.editTrackConfig;
-            qe0Var.e(mediaTrackConfig2.mediaTracks, mediaTrackConfig2.shaderConfigMapDebug);
+            wf0Var.e(mediaTrackConfig2.mediaTracks, mediaTrackConfig2.shaderConfigMapDebug);
             MultiMediaDataSourceViewAdapter.buildDefault(list, list2);
             for (IEffectProcessor iEffectProcessor : list) {
                 if (iEffectProcessor instanceof AREditProcessor) {
@@ -167,13 +167,13 @@ public class ComposeThemeVideoModel {
                     if (aREditSticker != null) {
                         aREditProcessor.setSticker(aREditSticker.sticker, aREditSticker.startTime, aREditSticker.endTime);
                     }
-                    aREditProcessor.setBeautyValues((!this.mIsDefaultMale ? dc9.f(this.mAREditBeautyMap) : !dc9.f(this.mAREditBeautyMapForMale)) ? this.mAREditBeautyMapForMale : this.mAREditBeautyMap);
+                    aREditProcessor.setBeautyValues((!this.mIsDefaultMale ? gg9.f(this.mAREditBeautyMap) : !gg9.f(this.mAREditBeautyMapForMale)) ? this.mAREditBeautyMapForMale : this.mAREditBeautyMap);
                     if (isOpenImageQuality()) {
                         ImageQualityData imageQualityData = this.mImageQualityData;
                         aREditProcessor.setImageQualityStatus(imageQualityData.isOpen, imageQualityData.needDefog, imageQualityData.needDenoise);
                     }
                     aREditProcessor.setSyncInputContent(true);
-                    if (!dc9.f(this.mAREditBeautyMap) && !dc9.f(this.mAREditBeautyMapForMale)) {
+                    if (!gg9.f(this.mAREditBeautyMap) && !gg9.f(this.mAREditBeautyMapForMale)) {
                         aREditProcessor.setEditProcessCallback(new AREditProcessor.DuArEditProcessorCallback(this, aREditProcessor) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -202,9 +202,9 @@ public class ComposeThemeVideoModel {
                             }
 
                             @Override // com.baidu.ugc.editvideo.record.processor.AREditProcessor.DuArEditProcessorCallback
-                            public void onBeautyEnableChanged(fd0 fd0Var) {
+                            public void onBeautyEnableChanged(le0 le0Var) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, fd0Var) == null) {
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, le0Var) == null) {
                                 }
                             }
 
@@ -230,7 +230,7 @@ public class ComposeThemeVideoModel {
                     }
                 }
             }
-            if (dc9.e(this.mStickerList)) {
+            if (gg9.e(this.mStickerList)) {
                 return;
             }
             for (IMediaRenderer iMediaRenderer : list2) {
@@ -249,7 +249,7 @@ public class ComposeThemeVideoModel {
         if ((interceptable == null || interceptable.invokeV(65551, this) == null) && this.mIsAudioReady && this.mIsVideoReady && !this.mIsMuxerStop) {
             this.mMuxer.stop();
             this.mIsMuxerStop = true;
-            qc9.a().postDelayed(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.5
+            tg9.a().postDelayed(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ComposeThemeVideoModel this$0;
@@ -289,12 +289,12 @@ public class ComposeThemeVideoModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, str)) == null) {
             try {
-                return jc9.g(str);
+                return mg9.g(str);
             } catch (Exception e) {
                 e.printStackTrace();
                 OnGenFilterVideoListener onGenFilterVideoListener = this.mListener;
                 if (onGenFilterVideoListener != null) {
-                    onGenFilterVideoListener.onGenFilterVideoFail(-1, "check audio track error!" + ic9.g(e));
+                    onGenFilterVideoListener.onGenFilterVideoFail(-1, "check audio track error!" + lg9.g(e));
                     return false;
                 }
                 return false;
@@ -499,7 +499,7 @@ public class ComposeThemeVideoModel {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.mOnInterrupt = true;
                         if (this.mListener != null) {
-                            qc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.2
+                            tg9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass2 this$1;
@@ -574,7 +574,7 @@ public class ComposeThemeVideoModel {
                     if (!(interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) || this.mListener == null) {
                         return;
                     }
-                    qc9.a().post(new Runnable(this, i) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.1
+                    tg9.a().post(new Runnable(this, i) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass2 this$1;
@@ -623,10 +623,10 @@ public class ComposeThemeVideoModel {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             buildProcessorAndRenderer(arrayList, arrayList2, multiMediaOutputSurface);
-            if (!dc9.e(arrayList)) {
+            if (!gg9.e(arrayList)) {
                 multiMediaOutputSurface.setEffectProcessors(arrayList);
             }
-            if (!dc9.e(arrayList2)) {
+            if (!gg9.e(arrayList2)) {
                 multiMediaOutputSurface.setMediaRenderers(arrayList2);
             }
             multiMediaOutputSurface.setPreviewSize(this.mPreviewWidth, this.mPreviewHeight);
@@ -670,7 +670,7 @@ public class ComposeThemeVideoModel {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (this.mListener != null) {
-                            qc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.2
+                            tg9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass4 this$1;
@@ -736,7 +736,7 @@ public class ComposeThemeVideoModel {
                     if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.mListener == null) {
                         return;
                     }
-                    qc9.a().post(new Runnable(this, i) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.1
+                    tg9.a().post(new Runnable(this, i) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass4 this$1;
@@ -789,7 +789,7 @@ public class ComposeThemeVideoModel {
                     outputSurfaceWithFilter.setMagicEffectList(videoEffectData.getMagicEffectList());
                 }
                 if (!TextUtils.isEmpty(this.mWaterMarkBase64)) {
-                    outputSurfaceWithFilter.setWaterMarkBitmap(zb9.a(this.mWaterMarkBase64));
+                    outputSurfaceWithFilter.setWaterMarkBitmap(cg9.a(this.mWaterMarkBase64));
                 }
                 outputSurfaceWithFilter.setAddWaterMark(this.mIsAddWaterMark);
                 this.mOutputSurface = outputSurfaceWithFilter;
@@ -984,7 +984,7 @@ public class ComposeThemeVideoModel {
             this.mVideoEffectData = videoEffectData;
             if (VideoEffectData.hasRepeatTimeEffect(videoEffectData)) {
                 BaseEffect timeEffect = this.mVideoEffectData.getTimeEffect();
-                MediaInfo d = jc9.d(this.mSourcePath);
+                MediaInfo d = mg9.d(this.mSourcePath);
                 if (d != null && (duration = (int) d.getDuration()) > 100) {
                     if (timeEffect.startTime < 0) {
                         timeEffect.startTime = 0;
@@ -1012,7 +1012,7 @@ public class ComposeThemeVideoModel {
         boolean hasAudioTrack;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            if (TextUtils.isEmpty(this.mSourcePath) && dc9.e(this.mediaDataTracks)) {
+            if (TextUtils.isEmpty(this.mSourcePath) && gg9.e(this.mediaDataTracks)) {
                 OnGenFilterVideoListener onGenFilterVideoListener = this.mListener;
                 if (onGenFilterVideoListener != null) {
                     onGenFilterVideoListener.onGenFilterVideoFail(-1, "filter job cannot start by no input!");
@@ -1036,9 +1036,9 @@ public class ComposeThemeVideoModel {
                 } catch (Exception e) {
                     OnGenFilterVideoListener onGenFilterVideoListener3 = this.mListener;
                     if (onGenFilterVideoListener3 != null) {
-                        onGenFilterVideoListener3.onGenFilterVideoFail(-1, "filter job start mux error!" + ic9.g(e));
+                        onGenFilterVideoListener3.onGenFilterVideoFail(-1, "filter job start mux error!" + lg9.g(e));
                     }
-                    yb9.g(e);
+                    bg9.g(e);
                 }
                 try {
                     this.mMuxer = new InnerMuxerWrapper(this.mOutputPath);
@@ -1105,7 +1105,7 @@ public class ComposeThemeVideoModel {
                 } catch (Exception e2) {
                     OnGenFilterVideoListener onGenFilterVideoListener4 = this.mListener;
                     if (onGenFilterVideoListener4 != null) {
-                        onGenFilterVideoListener4.onGenFilterVideoFail(-2, "FilterVideoGenerator muxer video async fail " + ic9.g(e2));
+                        onGenFilterVideoListener4.onGenFilterVideoFail(-2, "FilterVideoGenerator muxer video async fail " + lg9.g(e2));
                     }
                 }
             }

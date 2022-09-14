@@ -1,217 +1,340 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class eo2 extends x23 {
+public final class eo2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public rh3<eo2> b;
+    public final List<b> c;
+    public String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eo2(x13 x13Var) {
-        super(x13Var, "/swanAPI/backgroundAudio");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<String> a;
+        public final List<String> b;
+        public String c;
+        public final List<StackTraceElement> d;
+        public final /* synthetic */ eo2 e;
+
+        public /* synthetic */ b(eo2 eo2Var, a aVar) {
+            this(eo2Var);
+        }
+
+        public synchronized b a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                synchronized (this) {
+                    List<String> list = this.a;
+                    if (TextUtils.isEmpty(str)) {
+                        str = "";
+                    }
+                    list.add(str);
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public synchronized b c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                synchronized (this) {
+                    d(this.d.size());
+                }
+                return this;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public synchronized b d(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                synchronized (this) {
+                    if (i < 1) {
+                        i = 1;
+                    }
+                    if (i > this.d.size()) {
+                        i = this.d.size();
+                    }
+                    for (int i2 = 0; i2 < i; i2++) {
+                        eo2 eo2Var = this.e;
+                        eo2Var.e("[Trace]==> " + this.d.get(i2).toString());
+                    }
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public synchronized b e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                synchronized (this) {
+                    d(1);
+                }
+                return this;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public b(eo2 eo2Var) {
+            StackTraceElement[] stackTrace;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eo2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = eo2Var;
+            this.a = new ArrayList();
+            this.b = new ArrayList();
+            this.d = new ArrayList();
+            int i3 = 0;
+            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
+                i3++;
+                if (i3 > 2 && !stackTraceElement.getClassName().startsWith(eo2Var.d)) {
+                    this.d.add(stackTraceElement);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (unitedSchemeEntity != null) {
-                do2.b("AudioBGPlayerAction", "#handle entity.uri=" + unitedSchemeEntity.getUri());
-                return false;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
+    /* loaded from: classes3.dex */
+    public class c implements rh3<eo2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.x23
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, a13 a13Var) {
-        InterceptResult invokeLLLLL;
-        ao2 b;
-        char c;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, a13Var)) == null) {
-            if (a13Var == null) {
-                g83.b("audio", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        public c(eo2 eo2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eo2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            do2.b("AudioBGPlayerAction", "#handleSubAction subAction=" + str + " entity.uri=" + unitedSchemeEntity.getUri());
-            JSONObject j = j(unitedSchemeEntity.getParam("params"));
-            if (j == null) {
-                g83.b("audio", 2001, "param is null", 201, "param is null");
-                ay1.c("backgroundAudio", "param is null!");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            co2 P = a13Var.P();
-            if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
-                b = ao2.b(j, new ao2());
-            } else {
-                b = ao2.b(j, P.q());
-            }
-            do2.b("AudioBGPlayerAction", "#handleSubAction playerParams=" + b);
-            JSONObject jSONObject = null;
-            switch (str.hashCode()) {
-                case 312101659:
-                    if (str.equals("/swanAPI/backgroundAudio/getParamsSync")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335869926:
-                    if (str.equals("/swanAPI/backgroundAudio/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335895760:
-                    if (str.equals("/swanAPI/backgroundAudio/play")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335978516:
-                    if (str.equals("/swanAPI/backgroundAudio/seek")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335993246:
-                    if (str.equals("/swanAPI/backgroundAudio/stop")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 820188005:
-                    if (str.equals("/swanAPI/backgroundAudio/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1822525402:
-                    if (str.equals("/swanAPI/backgroundAudio/pause")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    ay1.i("backgroundAudio", "open, audioId " + b.a);
-                    P.z(b, callbackHandler);
-                    z = true;
-                    break;
-                case 1:
-                    ay1.i("backgroundAudio", "update, audioId " + b.a);
-                    P.update(b);
-                    z = true;
-                    break;
-                case 2:
-                    ay1.i("backgroundAudio", "play, audioId " + b.a);
-                    P.F();
-                    z = true;
-                    break;
-                case 3:
-                    ay1.i("backgroundAudio", "pause, audioId " + b.a);
-                    P.A();
-                    z = true;
-                    break;
-                case 4:
-                    ay1.i("backgroundAudio", "seek, audioId " + b.a + " position " + b.l);
-                    P.G(b.l);
-                    z = true;
-                    break;
-                case 5:
-                    ay1.i("backgroundAudio", "stop, audioId " + b.a);
-                    P.L();
-                    z = true;
-                    break;
-                case 6:
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt(b.m, P.t(b.m));
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException e) {
-                        g83.b("audio", UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, "json exception", -1, "");
-                        ay1.c("backgroundAudio", "getParams error " + e.toString());
-                        do2.c("backgroundAudio", "getParamsSync error", e);
-                        break;
-                    }
-                default:
-                    z = false;
-                    break;
-            }
-            do2.b("AudioBGPlayerAction", "#handleSubAction invokeSuccess=" + z);
-            if (z) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            return super.i(context, unitedSchemeEntity, callbackHandler, str, a13Var);
         }
-        return invokeLLLLL.booleanValue;
-    }
 
-    public final JSONObject j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return new JSONObject(str);
-                } catch (JSONException e) {
-                    if (x23.b) {
-                        Log.d("AudioBGPlayerAction", Log.getStackTraceString(e));
+        public final void b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && eo2.e) {
+                Log.i(str, str2);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: c */
+        public void a(eo2 eo2Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eo2Var) == null) && eo2.e) {
+                for (b bVar : eo2Var.c) {
+                    for (String str : bVar.a) {
+                        String h = eo2Var.h();
+                        String str2 = TextUtils.isEmpty(bVar.c) ? h : bVar.c;
+                        b(str2, h + " >>> " + str);
                     }
                 }
             }
-            return null;
         }
-        return (JSONObject) invokeL.objValue;
+
+        public /* synthetic */ c(eo2 eo2Var, a aVar) {
+            this(eo2Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740993, "Lcom/baidu/tieba/eo2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740993, "Lcom/baidu/tieba/eo2;");
+                return;
+            }
+        }
+        e = ij1.a;
+    }
+
+    public eo2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = new ArrayList();
+        this.d = eo2.class.getPackage().getName();
+    }
+
+    public synchronized b d() {
+        InterceptResult invokeV;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                bVar = new b(this, null);
+                this.c.add(bVar);
+            }
+            return bVar;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public synchronized b e(String str) {
+        InterceptResult invokeL;
+        b d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                d = d();
+                d.a(str);
+            }
+            return d;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public synchronized b f(String str, String str2) {
+        InterceptResult invokeLL;
+        b e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            synchronized (this) {
+                e2 = e(str2);
+                e2.b(str);
+            }
+            return e2;
+        }
+        return (b) invokeLL.objValue;
+    }
+
+    public eo2 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (eo2) invokeL.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public synchronized List<b> i() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList(this.c);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized eo2 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                k(this.b);
+            }
+            return this;
+        }
+        return (eo2) invokeV.objValue;
+    }
+
+    public synchronized eo2 k(rh3<eo2> rh3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, rh3Var)) == null) {
+            synchronized (this) {
+                if (rh3Var == null) {
+                    try {
+                        rh3Var = new c(this, null);
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                rh3Var.a(this);
+            }
+            return this;
+        }
+        return (eo2) invokeL.objValue;
+    }
+
+    public eo2 l(rh3<eo2> rh3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rh3Var)) == null) {
+            this.b = rh3Var;
+            return this;
+        }
+        return (eo2) invokeL.objValue;
     }
 }

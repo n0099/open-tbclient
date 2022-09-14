@@ -6,7 +6,7 @@ import com.baidu.bdtask.framework.ui.toast.ToastViewData;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.tieba.ys;
+import com.baidu.tieba.mt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ public final class TaskToastViewData extends ToastViewData {
     public final TaskInfo taskInfo;
     public final TaskStatus taskStatus;
 
-    public /* synthetic */ TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, ys ysVar, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, taskStatus, i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, (i3 & 8192) != 0 ? null : ysVar);
+    public /* synthetic */ TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, mt mtVar, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, taskStatus, i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, (i3 & 8192) != 0 ? null : mtVar);
     }
 
     public final TaskInfo getTaskInfo() {
@@ -39,19 +39,19 @@ public final class TaskToastViewData extends ToastViewData {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, ys ysVar) {
-        super(taskInfo.getSingleKey(), i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, ysVar);
+    public TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, mt mtVar) {
+        super(taskInfo.getSingleKey(), i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, mtVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {taskInfo, taskStatus, Integer.valueOf(i), str, str2, str3, Integer.valueOf(i2), str4, str5, str6, str7, str8, str9, ysVar};
+            Object[] objArr = {taskInfo, taskStatus, Integer.valueOf(i), str, str2, str3, Integer.valueOf(i2), str4, str5, str6, str7, str8, str9, mtVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], (String) objArr2[9], (String) objArr2[10], (String) objArr2[11], (ys) objArr2[12]);
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], (String) objArr2[9], (String) objArr2[10], (String) objArr2[11], (mt) objArr2[12]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +161,7 @@ public final class SoLoader implements NoProGuard {
                         }
                     }
                     try {
-                        fileChannel2 = new RandomAccessFile(file2, rw.c).getChannel();
+                        fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
                     } catch (FileNotFoundException e3) {
                         e = e3;
                         fileChannel2 = null;

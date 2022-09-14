@@ -1,91 +1,163 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.v20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class y20 {
+public class y20 extends v20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public v20 c;
+    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public y20(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = str;
         }
+        this.d = z;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.a, "").compareTo(jSONObject2.optString(this.a, "")) : invokeLL.intValue;
+    @Override // com.baidu.tieba.v20
+    public void a(String str, Bundle bundle, v20.c<String> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
+            this.c.a(str, bundle, cVar);
         }
     }
 
-    public static JSONArray a(JSONArray jSONArray, String str) {
+    @Override // com.baidu.tieba.v20
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.v20
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.c.e(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v20
+    public void f(v20.b bVar) {
+        v20 z20Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            if (this.d ? i() : j()) {
+                z20Var = new x20();
+            } else {
+                z20Var = new z20(this.d ? ".helios.ipc.default" : ".helios.ipc.isolate");
+            }
+            this.c = z20Var;
+            z20Var.b(this.a);
+            this.c.c(bVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.v20
+    public v20.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONArray, str)) == null) {
-            if (jSONArray == null || jSONArray.length() == 0) {
-                return jSONArray;
-            }
-            int length = jSONArray.length();
-            ArrayList arrayList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    arrayList.add(optJSONObject);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.c.g(str, bundle) : (v20.d) invokeLL.objValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                bufferedReader = new BufferedReader(new FileReader(new File(ProcessUtils.CMD_LINE_NAME)));
+                try {
+                    String readLine = bufferedReader.readLine();
+                    if (!TextUtils.isEmpty(readLine)) {
+                        d50.b(bufferedReader);
+                        return readLine;
+                    }
+                } catch (IOException unused) {
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader2 = bufferedReader;
+                    d50.b(bufferedReader2);
+                    throw th;
                 }
+            } catch (IOException unused2) {
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
-            Collections.sort(arrayList, new a(str));
-            return new JSONArray((Collection) arrayList);
+            d50.b(bufferedReader);
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.a.c.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo.pid == Process.myPid()) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            }
+            return null;
         }
-        return (JSONArray) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean b(JSONObject jSONObject, JSONObject jSONObject2, String str) {
-        InterceptResult invokeLLL;
+    public final boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, jSONObject2, str)) == null) ? jSONObject.optLong(str, -1L) != jSONObject2.optLong(str, -1L) : invokeLLL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String h = h();
+            if (h == null) {
+                return true;
+            }
+            Context context = this.a.c;
+            String str = context.getApplicationInfo().processName;
+            if (TextUtils.isEmpty(str)) {
+                str = context.getPackageName();
+            }
+            if (h.startsWith(str)) {
+                return h.length() == str.length() || h.charAt(str.length()) != ':';
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public static boolean c(JSONObject jSONObject, JSONObject jSONObject2, String str) {
-        InterceptResult invokeLLL;
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, jSONObject2, str)) == null) {
-            String optString = jSONObject.optString(str);
-            String optString2 = jSONObject2.optString(str);
-            return !(TextUtils.isEmpty(optString) ? TextUtils.isEmpty(optString2) : optString.equals(optString2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String h = h();
+            return h != null && h.contains(":helios");
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

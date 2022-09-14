@@ -1,21 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView;
-import com.baidu.tbadk.coreExtra.view.FaceGroupDownloadLayout;
-import com.baidu.tbadk.coreExtra.view.FloorImageTextViewNew;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,250 +12,158 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class r05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageViewerBottomLayout b;
-    public AbsFloorImageTextView c;
-    public LinearLayout d;
-    public FaceGroupDownloadLayout e;
-    public boolean f;
-    public final ImageViewerBottomLayout.a g;
+    public String a;
+    public String b;
+    public String c;
+    public EmotionGroupType d;
+    public int e;
+    public int f;
+    public String g;
+    public on h;
+    public boolean i;
+    public s05 j;
 
-    /* loaded from: classes5.dex */
-    public class a implements ImageViewerBottomLayout.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r05 a;
-
-        public a(r05 r05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r05Var;
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
-        public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, imageViewerBottomLayout, z) == null) {
-                this.a.f = z;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(this.a.f)));
-                this.a.r(z);
-            }
-        }
-    }
-
-    public r05(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
+    public r05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f = true;
-        this.g = new a(this);
-        this.a = context;
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.d = linearLayout;
-        linearLayout.setOrientation(1);
-        this.d.setVisibility(8);
-        SkinManager.setBackgroundColorToTransparent(this.d, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.addRule(12);
-        relativeLayout.addView(this.d, layoutParams);
-        d();
-        e();
-        f();
     }
 
-    public int c() {
+    public s05 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout == null || this.c == null) {
-                return 0;
-            }
-            return imageViewerBottomLayout.getHeight() + AbsFloorImageTextView.i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (s05) invokeV.objValue;
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            FaceGroupDownloadLayout faceGroupDownloadLayout = new FaceGroupDownloadLayout(this.a);
-            this.e = faceGroupDownloadLayout;
-            this.d.addView(faceGroupDownloadLayout, layoutParams);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            FloorImageTextViewNew floorImageTextViewNew = new FloorImageTextViewNew(this.a);
-            this.c = floorImageTextViewNew;
-            this.d.addView(floorImageTextViewNew, layoutParams);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.r);
-            ImageViewerBottomLayout imageViewerBottomLayout = new ImageViewerBottomLayout(this.a);
-            this.b = imageViewerBottomLayout;
-            this.d.addView(imageViewerBottomLayout, layoutParams);
-            this.b.setExpandButtonListener(this.g);
-        }
-    }
-
-    public boolean g() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public boolean h() {
+    public on c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? i(this.d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (on) invokeV.objValue;
     }
 
-    public final boolean i(View view2) {
-        InterceptResult invokeL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) ? view2 != null && view2.getVisibility() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void j(ImageUrlData imageUrlData) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, imageUrlData) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.f(imageUrlData);
-            }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.d(imageUrlData);
-            }
-            FaceGroupDownloadLayout faceGroupDownloadLayout = this.e;
-            if (faceGroupDownloadLayout != null) {
-                faceGroupDownloadLayout.j(imageUrlData);
-                AbsFloorImageTextView absFloorImageTextView2 = this.c;
-                if (absFloorImageTextView2 != null) {
-                    this.e.setFloorImageTextViewVisible(absFloorImageTextView2.getVisibility() == 0);
-                }
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public EmotionGroupType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (EmotionGroupType) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.i = z;
         }
     }
 
-    public void k(ImageViewerBottomLayout.b bVar) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public void k(s05 s05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) || (imageViewerBottomLayout = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048587, this, s05Var) == null) {
+            this.j = s05Var;
         }
-        imageViewerBottomLayout.setOnDownloadImageListener(bVar);
     }
 
-    public void l(View.OnClickListener onClickListener) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) || (imageViewerBottomLayout = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f = i;
         }
-        imageViewerBottomLayout.setOnReplyClickListener(onClickListener);
     }
 
-    public void m(ImageViewerBottomLayout.c cVar) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public void m(on onVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) || (imageViewerBottomLayout = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onVar) == null) {
+            this.h = onVar;
         }
-        imageViewerBottomLayout.setOnShareImageListener(cVar);
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.setUserId(str);
-            }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.setUserId(str);
-            }
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public void o(int i) {
-        LinearLayout linearLayout;
+    public void o(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (linearLayout = this.d) == null) {
-            return;
-        }
-        linearLayout.clearAnimation();
-        this.d.setVisibility(i);
-    }
-
-    public void p(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
-            if (i == 0) {
-                gs8.c(this.d, i2);
-            } else {
-                gs8.a(this.d, i2);
-            }
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void q(boolean z) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (imageViewerBottomLayout = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.b = str;
         }
-        imageViewerBottomLayout.setYoungterCoverSomeView(z);
     }
 
-    public void r(boolean z) {
+    public void q(EmotionGroupType emotionGroupType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.e(z);
-            }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.e(!z);
-            }
-            FaceGroupDownloadLayout faceGroupDownloadLayout = this.e;
-            if (faceGroupDownloadLayout != null) {
-                faceGroupDownloadLayout.l(!z);
-            }
+        if (interceptable == null || interceptable.invokeL(1048593, this, emotionGroupType) == null) {
+            this.d = emotionGroupType;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.e = i;
         }
     }
 }

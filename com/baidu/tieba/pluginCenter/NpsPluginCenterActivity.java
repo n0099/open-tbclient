@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl;
 import com.baidu.tieba.flutter.FlutterPluginManager;
+import com.baidu.tieba.tl;
 import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -91,14 +91,14 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d7e);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091dcc);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
             this.e.add("com.baidu.searchbox.yylive.extlib");
             this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
-            for (BundleInfo bundleInfo : fl.e().c()) {
+            for (BundleInfo bundleInfo : tl.e().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
                     TbSettingTextTipView B1 = B1();
                     B1.setText(bundleInfo.getName());
@@ -148,7 +148,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0662);
+            setContentView(R.layout.obfuscated_res_0x7f0d0679);
             z1();
             A1();
         }
@@ -160,9 +160,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e97));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0eb4));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }

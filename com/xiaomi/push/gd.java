@@ -65,7 +65,7 @@ public abstract class gd extends fw {
     private void a(fx fxVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, fxVar) == null) {
-            a(fxVar.c(), fxVar.mo361a());
+            a(fxVar.c(), fxVar.mo362a());
         }
     }
 
@@ -121,7 +121,7 @@ public abstract class gd extends fw {
             long j2 = 0;
             this.g = 0L;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            String m194a = bj.m194a((Context) this.b);
+            String m195a = bj.m195a((Context) this.b);
             StringBuilder sb2 = new StringBuilder();
             Iterator<String> it3 = arrayList.iterator();
             String str10 = "";
@@ -132,20 +132,20 @@ public abstract class gd extends fw {
                 ((fw) this).f405a++;
                 int i4 = i3 + 1;
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m89a("begin to connect to " + next2);
+                    com.xiaomi.channel.commonutils.logger.b.m90a("begin to connect to " + next2);
                     this.f424a = a();
-                    this.f424a.connect(ct.m249a(next2, i), 8000);
-                    com.xiaomi.channel.commonutils.logger.b.m89a("tcp connected");
+                    this.f424a.connect(ct.m250a(next2, i), 8000);
+                    com.xiaomi.channel.commonutils.logger.b.m90a("tcp connected");
                     this.f424a.setTcpNoDelay(true);
                     this.d = next2;
                     a();
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     ((fw) this).f406a = currentTimeMillis2;
-                    ((fw) this).f415b = m194a;
+                    ((fw) this).f415b = m195a;
                     if (a != null) {
                         it = it3;
                         sb = sb2;
-                        str3 = m194a;
+                        str3 = m195a;
                         j = 0;
                         crVar = a;
                         try {
@@ -198,21 +198,21 @@ public abstract class gd extends fw {
                                 } else {
                                     str9 = str5;
                                 }
-                                if (!TextUtils.equals(str9, bj.m194a((Context) this.b))) {
+                                if (!TextUtils.equals(str9, bj.m195a((Context) this.b))) {
                                     throw th;
                                 }
                                 str2 = str8;
                                 i2 = i4;
                                 z = false;
-                                cv.a().m259c();
+                                cv.a().m260c();
                                 int elapsedRealtime2 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                                 if (!z) {
                                 }
                             }
-                            if (TextUtils.equals(str7, bj.m194a((Context) this.b))) {
+                            if (TextUtils.equals(str7, bj.m195a((Context) this.b))) {
                                 str10 = str2;
                                 sb2 = sb;
-                                m194a = str7;
+                                m195a = str7;
                                 i3 = i4;
                                 it3 = it;
                                 j2 = j;
@@ -220,7 +220,7 @@ public abstract class gd extends fw {
                             } else {
                                 i2 = i4;
                                 z = false;
-                                cv.a().m259c();
+                                cv.a().m260c();
                                 int elapsedRealtime22 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                                 if (!z) {
                                 }
@@ -265,14 +265,14 @@ public abstract class gd extends fw {
                                 fj.a(next2, this.a);
                                 if (crVar == null) {
                                 }
-                                if (!TextUtils.equals(str9, bj.m194a((Context) this.b))) {
+                                if (!TextUtils.equals(str9, bj.m195a((Context) this.b))) {
                                 }
                             }
-                            if (TextUtils.equals(str6, bj.m194a((Context) this.b))) {
+                            if (TextUtils.equals(str6, bj.m195a((Context) this.b))) {
                                 str7 = str6;
                                 str10 = str2;
                                 sb2 = sb;
-                                m194a = str7;
+                                m195a = str7;
                                 i3 = i4;
                                 it3 = it;
                                 j2 = j;
@@ -280,7 +280,7 @@ public abstract class gd extends fw {
                             } else {
                                 i2 = i4;
                                 z = false;
-                                cv.a().m259c();
+                                cv.a().m260c();
                                 int elapsedRealtime222 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                                 if (!z) {
                                 }
@@ -289,12 +289,12 @@ public abstract class gd extends fw {
                     } else {
                         it = it3;
                         sb = sb2;
-                        str3 = m194a;
+                        str3 = m195a;
                         crVar = a;
                         j = 0;
                     }
                     this.g = SystemClock.elapsedRealtime();
-                    com.xiaomi.channel.commonutils.logger.b.m89a("connected to " + next2 + " in " + ((fw) this).f406a);
+                    com.xiaomi.channel.commonutils.logger.b.m90a("connected to " + next2 + " in " + ((fw) this).f406a);
                     str2 = str10;
                     i2 = i4;
                     z = true;
@@ -306,12 +306,12 @@ public abstract class gd extends fw {
                     crVar = a;
                     j = 0;
                     str4 = str10;
-                    str5 = m194a;
+                    str5 = m195a;
                 } catch (Throwable th4) {
                     th = th4;
                     it = it3;
                     sb = sb2;
-                    str3 = m194a;
+                    str3 = m195a;
                     crVar = a;
                     j = 0;
                 }
@@ -321,7 +321,7 @@ public abstract class gd extends fw {
             i2 = i3;
             str2 = str10;
             z = false;
-            cv.a().m259c();
+            cv.a().m260c();
             int elapsedRealtime2222 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
             if (!z) {
                 fj.a(0, ez.i.a(), elapsedRealtime2222, str2, i2);
@@ -404,7 +404,7 @@ public abstract class gd extends fw {
                     return;
                 }
                 String a = a();
-                com.xiaomi.channel.commonutils.logger.b.m89a("max short conn time reached, sink down current host:" + a);
+                com.xiaomi.channel.commonutils.logger.b.m90a("max short conn time reached, sink down current host:" + a);
                 a(a, 0L, exc);
             }
             this.c = 0;
@@ -418,11 +418,11 @@ public abstract class gd extends fw {
             return;
         }
         a.b(str, j, 0L, exc);
-        cv.a().m259c();
+        cv.a().m260c();
     }
 
     /* renamed from: a */
-    public abstract void mo348a(boolean z);
+    public abstract void mo349a(boolean z);
 
     @Override // com.xiaomi.push.fw
     public void a(fl[] flVarArr) {
@@ -449,8 +449,8 @@ public abstract class gd extends fw {
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             long currentTimeMillis = System.currentTimeMillis();
-            mo348a(z);
-            com.xiaomi.push.service.o.a(this.b).m667c();
+            mo349a(z);
+            com.xiaomi.push.service.o.a(this.b).m668c();
             if (z) {
                 return;
             }
@@ -477,12 +477,12 @@ public abstract class gd extends fw {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             synchronized (this) {
                 try {
-                    if (!m360c() && !m359b()) {
+                    if (!m361c() && !m360b()) {
                         a(0, 0, (Exception) null);
                         a(((fw) this).f407a);
                         return;
                     }
-                    com.xiaomi.channel.commonutils.logger.b.m89a("WARNING: current xmpp has connected");
+                    com.xiaomi.channel.commonutils.logger.b.m90a("WARNING: current xmpp has connected");
                 } catch (IOException e) {
                     throw new gh(e);
                 }

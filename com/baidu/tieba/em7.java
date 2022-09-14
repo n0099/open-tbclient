@@ -1,42 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.memberCenter.tail.edit.color.TailEditColorToolHost;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.SevenZipUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes3.dex */
-public class em7 extends w25 {
+public class em7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public static int d;
+    public static boolean e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public dm7 a;
+    public List<fm7> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public em7(TbPageContext<?> tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f136b), 17, i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947739226, "Lcom/baidu/tieba/em7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947739226, "Lcom/baidu/tieba/em7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+        d = 3;
+        e = false;
+    }
+
+    public em7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.tail_edit_tool_color_selector;
-        this.h = R.drawable.icon_pure_post_more_bubble64;
-        this.m = new TailEditColorToolHost(tbPageContext, str);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
+            return;
+        }
+        String str = vipSpecialList.card_id;
+        dm7 dm7Var = new dm7();
+        this.a = dm7Var;
+        dm7Var.e(4);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
+        if (StringUtils.isNull(f) || !f.equals(currentAccount)) {
+            e = false;
+            f = currentAccount;
+        }
+        this.b = new ArrayList();
+        for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
+            this.b.add(new fm7(vipSpecialList.item.get(i3)));
+            if (e) {
+                if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
+                    this.b.add(new fm7(true, true));
+                }
+            } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
+                this.b.add(new fm7(true, false));
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,131 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.AppOpsManager;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ot3 extends ft3 {
+public class ot3 implements rt3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public lt3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043739, "Lcom/baidu/tieba/ot3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948043739, "Lcom/baidu/tieba/ot3;");
-                return;
-            }
-        }
-        c = kh1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ot3() {
-        super("GetAppUseDuration");
+    public ot3(lt3 lt3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lt3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = lt3Var;
     }
 
-    @Override // com.baidu.tieba.ft3
-    public at1 a(@NonNull JSONObject jSONObject, @NonNull ee2 ee2Var) {
-        InterceptResult invokeLL;
+    private void setResult(st3 st3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ee2Var)) == null) {
-            if (jSONObject == null) {
-                ee2Var.onFail(202, "params may be error");
-                return null;
+        if (interceptable == null || interceptable.invokeL(65537, this, st3Var) == null) {
+            this.a.d.clear();
+            if (st3Var != null) {
+                this.a.d.putString("functionType", st3Var.a());
+                this.a.d.putString("resultData", st3Var.b());
+                this.a.d.putInt("resultStatus", st3Var.c());
             }
-            if (c) {
-                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                ee2Var.onFail(202, "params may be error");
-            } else {
-                b(optString, ee2Var);
-            }
-            return null;
-        }
-        return (at1) invokeLL.objValue;
-    }
-
-    public final void b(String str, @NonNull ee2 ee2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ee2Var) == null) {
-            try {
-                if (c()) {
-                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
-                    if (packageInfo != null) {
-                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
-                        if (queryUsageStats.size() == 0) {
-                            ee2Var.onFail(101, "noPermission");
-                            return;
-                        }
-                        for (UsageStats usageStats : queryUsageStats) {
-                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
-                                JSONObject jSONObject = new JSONObject();
-                                JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
-                                jSONObject.put("data", jSONObject2);
-                                ee2Var.a(jSONObject);
-                                return;
-                            }
-                        }
-                        ee2Var.onFail(31016, "no package info");
-                        return;
-                    }
-                    ee2Var.onFail(31016, "no package info");
-                    return;
-                }
-                ee2Var.onFail(101, "noPermission");
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                ee2Var.onFail(31011, "app is not installed");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
+            this.a.c();
         }
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rt3
+    public void a(st3 st3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, st3Var) == null) {
+            setResult(st3Var);
+        }
     }
 }

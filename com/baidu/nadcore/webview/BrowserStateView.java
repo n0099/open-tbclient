@@ -163,8 +163,8 @@ public class BrowserStateView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = R.layout.obfuscated_res_0x7f0d060f;
-            this.d = R.layout.obfuscated_res_0x7f0d0610;
+            this.e = R.layout.obfuscated_res_0x7f0d0626;
+            this.d = R.layout.obfuscated_res_0x7f0d0627;
             this.c = LayoutInflater.from(getContext());
             d();
             c();

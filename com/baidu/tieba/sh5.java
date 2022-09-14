@@ -1,48 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatusbarColorUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class sh5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public th5 c;
+    @NonNull
+    public final Activity a;
+    @Nullable
+    public Boolean b;
 
-    public sh5() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948151433, "Lcom/baidu/tieba/sh5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948151433, "Lcom/baidu/tieba/sh5;");
+        }
+    }
+
+    public sh5(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = activity;
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.b = Boolean.valueOf(z);
+            StatusbarColorUtils.setStatusBarDarkIcon(this.a, z);
         }
     }
 
-    public void a(String str) {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || qi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || c) {
             return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            jSONObject.optInt("error_code");
-            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            th5 th5Var = new th5();
-            this.c = th5Var;
-            th5Var.a(jSONObject.optJSONObject("info"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (z) {
+            Boolean bool = this.b;
+            if (bool != null) {
+                a(bool.booleanValue());
+                return;
+            }
+            return;
+        }
+        StatusbarColorUtils.setStatusBarDarkIcon(this.a, !UtilHelper.isNightOrDarkMode());
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            c = z;
         }
     }
 }

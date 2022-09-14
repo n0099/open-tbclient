@@ -1,87 +1,76 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ir0 extends pr0 {
+public final class ir0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    public ir0() {
+    public ir0(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 
-    public void d(int i) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            vr0 w = hr0.w(ControlEvent.ACTION_PAUSE);
-            w.n(11, Integer.valueOf(i));
-            w.n(7, Boolean.valueOf(i == 1));
-            c(w);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public void e() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(hr0.w(ControlEvent.ACTION_RESUME));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof ir0) {
+                    ir0 ir0Var = (ir0) obj;
+                    return this.a == ir0Var.a && this.b == ir0Var.b && this.c == ir0Var.c && this.d == ir0Var.d;
+                }
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void f(int i, int i2) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            vr0 w = hr0.w(ControlEvent.ACTION_SEEK_MS);
-            w.n(5, Integer.valueOf(i));
-            w.n(12, Integer.valueOf(i2));
-            c(w);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.b) * 31) + this.c) * 31) + this.d : invokeV.intValue;
     }
 
-    public void g() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(hr0.w(ControlEvent.ACTION_SHOW_TIP));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.b + ", tokenCode=" + this.c + ", modeCode=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
         }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(hr0.w(ControlEvent.ACTION_START));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(hr0.w(ControlEvent.ACTION_STOP));
-        }
-    }
-
-    public void j(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            vr0 w = hr0.w(ControlEvent.ACTION_SYNC_PROGRESS);
-            w.n(1, Integer.valueOf(i));
-            w.n(2, Integer.valueOf(i2));
-            w.n(3, Integer.valueOf(i3));
-            w.r(1);
-            c(w);
-        }
+        return (String) invokeV.objValue;
     }
 }

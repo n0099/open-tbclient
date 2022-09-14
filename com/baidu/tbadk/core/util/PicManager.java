@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.on;
+import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -111,10 +111,10 @@ public class PicManager {
         }
     }
 
-    public static void addPicMemoryCache(String str, an anVar) {
+    public static void addPicMemoryCache(String str, on onVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, anVar) == null) {
-            m55.k().d(str, anVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, onVar) == null) {
+            u75.k().d(str, onVar);
         }
     }
 
@@ -138,8 +138,8 @@ public class PicManager {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            int f = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds408);
-            int f2 = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds174);
+            int f = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds408);
+            int f2 = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds174);
             float f3 = (i * 1.0f) / i2;
             int i3 = (f3 > 1.0f ? 1 : (f3 == 1.0f ? 0 : -1));
             if (i3 == 0) {
@@ -263,7 +263,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    m55.k().i(imageSize);
+                    u75.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }
@@ -287,7 +287,7 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new an(fixBitmap, z2));
+                addPicMemoryCache(str, new on(fixBitmap, z2));
             } catch (Exception e) {
                 e.printStackTrace();
             }

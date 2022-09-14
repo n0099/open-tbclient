@@ -1,104 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.support.v4.app.FragmentActivity;
+import com.baidu.tieba.c83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rk3 {
+public class rk3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseCallback<byte[]> {
+    public class a implements rh3<y73> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ rk3 c;
 
-        /* renamed from: com.baidu.tieba.rk3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0393a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ byte[] a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0393a(a aVar, byte[] bArr) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bArr};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bArr;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.b.a) == null) {
-                    return;
-                }
-                bVar.a(true, this.a);
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.a.a) == null) {
-                    return;
-                }
-                bVar.a(false, null);
-            }
-        }
-
-        public a(rk3 rk3Var, b bVar) {
+        public a(rk3 rk3Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rk3Var, bVar};
+                Object[] objArr = {rk3Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -108,62 +45,215 @@ public class rk3 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.c = rk3Var;
+            this.a = callbackHandler;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(byte[] bArr, int i) {
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(y73 y73Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ud3.l(new RunnableC0393a(this, bArr), "HandshakeRequest");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y73Var) == null) {
+                if (y73Var == null || y73Var.d) {
+                    this.c.n(false, null, this.a, this.b, 10005, "system deny");
+                    r93.r(10005, y73Var);
+                    return;
+                }
+                this.c.p(y73Var, this.a, this.b);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                ud3.l(new b(this), "HandshakeRequest");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public byte[] parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response.body().bytes() : (byte[]) invokeLI.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, byte[] bArr);
-    }
+    public class b implements kj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y73 a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ rk3 d;
 
-    public rk3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public b(rk3 rk3Var, y73 y73Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rk3Var, y73Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = rk3Var;
+            this.a = y73Var;
+            this.b = callbackHandler;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.kj1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (v43.b) {
+                    Log.d("LoginAndGetMobileAction", "onResult: loginStatusCode = " + i);
+                }
+                if (i == -2) {
+                    this.d.n(false, null, this.b, this.c, 20050002, "user did cancel login");
+                } else if (i != 0) {
+                    this.d.n(false, null, this.b, this.c, 20050003, "user fail to login");
+                } else {
+                    this.d.o(this.a.c, lo2.U().getActivity(), this.b, this.c);
+                }
             }
         }
     }
 
-    public void a(byte[] bArr, b bVar) {
+    /* loaded from: classes5.dex */
+    public class c implements rh3<b83<c83.b>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ rk3 c;
+
+        public c(rk3 rk3Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rk3Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = rk3Var;
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(b83<c83.b> b83Var) {
+            c83.b bVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
+                if (b83Var == null || !b83Var.c() || (bVar = b83Var.a) == null || bVar.c == null) {
+                    this.c.n(true, null, this.a, this.b, 20050004, "user fail to get mobile information");
+                    return;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("data", b83Var.a.c.optString("data"));
+                    jSONObject.put("iv", b83Var.a.c.optString("iv"));
+                    this.c.n(true, jSONObject, this.a, this.b, 0, "success");
+                } catch (JSONException unused) {
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rk3(v33 v33Var) {
+        super(v33Var, "/swanAPI/getPhoneNumberByLogin");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, bVar) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/octet-stream");
-            hashMap.put("Bdtls", "Bdtls");
-            c84.g().postByteRequest().url(wj3.b).cookieManager(hk2.q().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty params");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                return false;
+            }
+            lj1 N = x23.K().q().N();
+            if (N == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty account");
+                return false;
+            }
+            if (N.e(context)) {
+                n(true, null, callbackHandler, optString, 20050001, "user already login");
+            } else {
+                y23Var.e0().e("login_with_mobile", new a(this, callbackHandler, optString));
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void n(boolean z, JSONObject jSONObject, CallbackHandler callbackHandler, String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), jSONObject, callbackHandler, str, Integer.valueOf(i), str2}) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject2.put("loginState", z);
+                if (jSONObject != null) {
+                    jSONObject2.put("mobile", jSONObject);
+                }
+                jSONObject3 = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, i, str2);
+            } catch (JSONException unused) {
+            }
+            callbackHandler.handleSchemeDispatchCallback(str, jSONObject3.toString());
+        }
+    }
+
+    public final void o(boolean z, FragmentActivity fragmentActivity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), fragmentActivity, callbackHandler, str}) == null) {
+            if (z) {
+                c83 a2 = x23.K().x().a().b().a(fragmentActivity, z, "login_with_mobile", null);
+                a2.o(new c(this, callbackHandler, str));
+                a2.call();
+                return;
+            }
+            n(true, null, callbackHandler, str, 20050004, "user fail to get mobile information");
+        }
+    }
+
+    public final void p(y73 y73Var, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, y73Var, callbackHandler, str) == null) {
+            new uk3().h(new b(this, y73Var, callbackHandler, str));
         }
     }
 }

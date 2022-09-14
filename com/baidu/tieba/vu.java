@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vu implements wu {
+public class vu implements ts {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,20 +24,13 @@ public class vu implements wu {
         }
     }
 
-    @Override // com.baidu.tieba.wu
-    @CallSuper
-    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
-        gs b;
+    @Override // com.baidu.tieba.ts
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
-            if (view2.getParent() != null) {
-                view2.setVisibility(8);
-            }
-            au v = BDPTask.m.v();
-            if (v == null || (b = v.b()) == null) {
-                return;
-            }
-            b.a(taskBuoyViewData.getScheme(), 3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

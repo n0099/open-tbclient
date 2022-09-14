@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.R$styleable;
+import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
@@ -94,44 +94,43 @@ public class AppCompatCompoundButtonHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mButtonTintMode : (PorterDuff.Mode) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x006e A[Catch: all -> 0x0096, TryCatch #0 {all -> 0x0096, blocks: (B:5:0x0023, B:7:0x002b, B:9:0x0033, B:13:0x0047, B:15:0x004f, B:17:0x0057, B:18:0x0066, B:20:0x006e, B:21:0x0079, B:23:0x0081), top: B:33:0x0023 }] */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0081 A[Catch: all -> 0x0096, TRY_LEAVE, TryCatch #0 {all -> 0x0096, blocks: (B:5:0x0023, B:7:0x002b, B:9:0x0033, B:13:0x0047, B:15:0x004f, B:17:0x0057, B:18:0x0066, B:20:0x006e, B:21:0x0079, B:23:0x0081), top: B:33:0x0023 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0065 A[Catch: all -> 0x0088, TryCatch #0 {all -> 0x0088, blocks: (B:5:0x0024, B:7:0x002a, B:9:0x0030, B:13:0x0043, B:15:0x0049, B:17:0x004f, B:18:0x005e, B:20:0x0065, B:21:0x006e, B:23:0x0075), top: B:33:0x0024 }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0075 A[Catch: all -> 0x0088, TRY_LEAVE, TryCatch #0 {all -> 0x0088, blocks: (B:5:0x0024, B:7:0x002a, B:9:0x0030, B:13:0x0043, B:15:0x0049, B:17:0x004f, B:18:0x005e, B:20:0x0065, B:21:0x006e, B:23:0x0075), top: B:33:0x0024 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
-        boolean z;
         int resourceId;
         int resourceId2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.CompoundButton, i, 0);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.CompoundButton, i, 0);
             CompoundButton compoundButton = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R$styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+            ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R.styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+            boolean z = true;
             try {
-                if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonCompat) && (resourceId2 = obtainStyledAttributes.getResourceId(R$styleable.CompoundButton_buttonCompat, 0)) != 0) {
+                if (obtainStyledAttributes.hasValue(1) && (resourceId2 = obtainStyledAttributes.getResourceId(1, 0)) != 0) {
                     try {
                         this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId2));
-                        z = true;
                     } catch (Resources.NotFoundException unused) {
                     }
-                    if (!z && obtainStyledAttributes.hasValue(R$styleable.CompoundButton_android_button) && (resourceId = obtainStyledAttributes.getResourceId(R$styleable.CompoundButton_android_button, 0)) != 0) {
+                    if (!z && obtainStyledAttributes.hasValue(0) && (resourceId = obtainStyledAttributes.getResourceId(0, 0)) != 0) {
                         this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId));
                     }
-                    if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTint)) {
-                        CompoundButtonCompat.setButtonTintList(this.mView, obtainStyledAttributes.getColorStateList(R$styleable.CompoundButton_buttonTint));
+                    if (obtainStyledAttributes.hasValue(2)) {
+                        CompoundButtonCompat.setButtonTintList(this.mView, obtainStyledAttributes.getColorStateList(2));
                     }
-                    if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTintMode)) {
-                        CompoundButtonCompat.setButtonTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(R$styleable.CompoundButton_buttonTintMode, -1), null));
+                    if (obtainStyledAttributes.hasValue(3)) {
+                        CompoundButtonCompat.setButtonTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(3, -1), null));
                     }
                 }
                 z = false;
                 if (!z) {
                     this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId));
                 }
-                if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTint)) {
+                if (obtainStyledAttributes.hasValue(2)) {
                 }
-                if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonTintMode)) {
+                if (obtainStyledAttributes.hasValue(3)) {
                 }
             } finally {
                 obtainStyledAttributes.recycle();

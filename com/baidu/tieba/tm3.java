@@ -1,27 +1,39 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes6.dex */
 public class tm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile sm3 a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized sm3 a() {
-        InterceptResult invokeV;
-        sm3 sm3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (tm3.class) {
-                if (a == null) {
-                    a = new sm3();
-                }
-                sm3Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948185967, "Lcom/baidu/tieba/tm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return sm3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948185967, "Lcom/baidu/tieba/tm3;");
+                return;
+            }
         }
-        return (sm3) invokeV.objValue;
+        a = getContext().isDebug();
+    }
+
+    @Inject
+    public static rm3 getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? rm2.a() : (rm3) invokeV.objValue;
     }
 }

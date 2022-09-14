@@ -1,134 +1,190 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import tbclient.BawuRoleInfoPub;
+import tbclient.ForumInfo;
+import tbclient.ForumRule;
+import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes6.dex */
-public class yl6 {
+public class yl6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<cn> c;
-    public String d;
-    public String e;
-    public h06 f;
+    public ForumInfo a;
+    public String b;
+    public String c;
+    public List<ForumRule> d;
+    public int e;
+    public String f;
+    public boolean g;
+    public String h;
+    public BawuRoleInfoPub i;
+    public String j;
+    public am6 k;
+    public xl6 l;
 
-    /* loaded from: classes6.dex */
-    public class a extends h06 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yl6 b;
-
-        public a(yl6 yl6Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948334054, "Lcom/baidu/tieba/yl6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yl6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = yl6Var;
-        }
-
-        @Override // com.baidu.tieba.h06
-        public void a(View view2, BaseCardInfo baseCardInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
-                super.a(view2, baseCardInfo);
-                this.b.b();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948334054, "Lcom/baidu/tieba/yl6;");
+                return;
             }
         }
+        m = BdUniqueId.gen();
     }
 
-    public yl6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
+    public yl6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f = new a(this);
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        this.d = str;
-        this.e = str2;
-        this.c = new ArrayList();
-        a();
     }
 
-    public final void a() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zl6 zl6Var = new zl6(this.a, this.d, this.e);
-            zl6Var.x(this.f);
-            this.c.add(zl6Var);
-            am6 am6Var = new am6(this.a, this.d);
-            am6Var.x(this.f);
-            this.c.add(am6Var);
-            this.c.add(new dm6(this.a, this.d));
-            this.c.add(new cm6(this.a, this.d));
-            List<cn> list = this.c;
-            TbPageContext tbPageContext = this.a;
-            list.add(new GameSpecialTopicAdapter(tbPageContext, d56.b, tbPageContext.getUniqueId(), this.d));
-            bm6 bm6Var = new bm6(this.a, this.d);
-            bm6Var.v(this.f);
-            this.c.add(bm6Var);
-            List<cn> list2 = this.c;
-            TbPageContext tbPageContext2 = this.a;
-            list2.add(new GameCompetitionAdapter(tbPageContext2, y46.b, tbPageContext2.getUniqueId(), this.d));
-            List<cn> list3 = this.c;
-            TbPageContext tbPageContext3 = this.a;
-            list3.add(new GameRecommendGameAdapter(tbPageContext3, b56.b, tbPageContext3.getUniqueId(), this.d));
-            TbPageContext tbPageContext4 = this.a;
-            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, mf6.e, tbPageContext4.getUniqueId());
-            frsUserRecommendAdapter.J();
-            frsUserRecommendAdapter.H(this.d);
-            this.c.add(frsUserRecommendAdapter);
-            this.b.a(this.c);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public void b() {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof gn)) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public void c(List<pn> list) {
-        BdTypeListView bdTypeListView;
+    public BawuRoleInfoPub c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (BawuRoleInfoPub) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public ForumInfo g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ForumInfo) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public List<ForumRule> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (List) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public xl6 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : (xl6) invokeV.objValue;
+    }
+
+    public void q(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        bdTypeListView.setData(list);
+        this.a = dataRes.forum;
+        this.b = dataRes.title;
+        this.c = dataRes.preface;
+        this.d = dataRes.rules;
+        this.e = dataRes.audit_status.intValue();
+        this.f = dataRes.audit_opinion;
+        this.g = dataRes.is_manager.intValue() == 1;
+        Long l = dataRes.forum_rule_id;
+        this.h = dataRes.publish_time;
+        this.i = dataRes.bazhu;
+        this.j = dataRes.cur_time;
+        am6 am6Var = new am6();
+        this.k = am6Var;
+        am6Var.a(dataRes);
+        xl6 xl6Var = new xl6();
+        this.l = xl6Var;
+        xl6Var.h(dataRes);
+    }
+
+    public void r(BawuRoleInfoPub bawuRoleInfoPub) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bawuRoleInfoPub) == null) {
+            this.i = bawuRoleInfoPub;
+        }
+    }
+
+    public void s(ForumInfo forumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, forumInfo) == null) {
+            this.a = forumInfo;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.c = str;
+        }
     }
 }

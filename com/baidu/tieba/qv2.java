@@ -1,74 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class qv2 implements sv2 {
+public class qv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static pv2 a;
+    public static final pv2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> a;
-    public long b;
 
-    public qv2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements pv2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pv2
+        public void onPayResult(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105212, "Lcom/baidu/tieba/qv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105212, "Lcom/baidu/tieba/qv2;");
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = -1L;
+        b = new a();
     }
 
-    @Override // com.baidu.tieba.sv2
-    public long a() {
+    public static pv2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Long> list = this.a;
-            if (list == null || list.size() <= 0 || this.b < 0) {
-                return -1L;
-            }
-            return this.b - ((Long) Collections.min(this.a)).longValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            pv2 pv2Var = a;
+            return pv2Var == null ? b : pv2Var;
         }
-        return invokeV.longValue;
+        return (pv2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sv2
-    public void b(long j) {
+    public static void b(pv2 pv2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    @Override // com.baidu.tieba.sv2
-    public void c(long j) {
-        List<Long> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || (list = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, pv2Var) == null) || a == pv2Var) {
             return;
         }
-        list.add(Long.valueOf(j));
-    }
-
-    @Override // com.baidu.tieba.sv2
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageUpdateRender" : (String) invokeV.objValue;
+        a = pv2Var;
     }
 }

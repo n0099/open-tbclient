@@ -53,7 +53,6 @@ import android.widget.Toolbar;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1121,7 +1120,6 @@ public abstract class GenerateProxyActivity extends Activity implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048654, this, bundle) == null) {
             c.a(this, bundle);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

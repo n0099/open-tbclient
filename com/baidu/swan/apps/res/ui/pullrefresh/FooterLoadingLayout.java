@@ -8,13 +8,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kv2;
+import com.baidu.tieba.ix2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View b = kv2.a().b(R.layout.obfuscated_res_0x7f0d00c2, viewGroup, false);
-            b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603e7));
+            View b = ix2.a().b(R.layout.obfuscated_res_0x7f0d00c4, viewGroup, false);
+            b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603e8));
             return b;
         }
         return (View) invokeLLL.objValue;
@@ -59,7 +59,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.f.setVisibility(0);
-            this.f.setText(R.string.obfuscated_res_0x7f0f01b3);
+            this.f.setText(R.string.obfuscated_res_0x7f0f01b5);
         }
     }
 
@@ -68,7 +68,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f.setVisibility(0);
-            this.f.setText(R.string.obfuscated_res_0x7f0f01b0);
+            this.f.setText(R.string.obfuscated_res_0x7f0f01b2);
         }
     }
 
@@ -77,7 +77,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ab8);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091af8);
             if (findViewById != null) {
                 return findViewById.getHeight();
             }
@@ -93,7 +93,7 @@ public class FooterLoadingLayout extends LoadingLayout {
             this.e.setVisibility(0);
             this.e.d();
             this.f.setVisibility(0);
-            this.f.setText(R.string.obfuscated_res_0x7f0f01af);
+            this.f.setText(R.string.obfuscated_res_0x7f0f01b1);
         }
     }
 
@@ -102,7 +102,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.f.setVisibility(0);
-            this.f.setText(R.string.obfuscated_res_0x7f0f01b1);
+            this.f.setText(R.string.obfuscated_res_0x7f0f01b3);
         }
     }
 
@@ -110,7 +110,7 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f.setText(R.string.obfuscated_res_0x7f0f01af);
+            this.f.setText(R.string.obfuscated_res_0x7f0f01b1);
         }
     }
 
@@ -128,10 +128,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091aba);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ab9);
+            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091afa);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091af9);
             this.f = textView;
-            textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603df));
+            textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e0));
             setState(ILoadingLayout$State.RESET);
         }
     }

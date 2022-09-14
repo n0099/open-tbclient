@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.zt6;
+import com.baidu.tieba.kv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.PlaceOrder.PlaceOrderResIdl;
 public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zt6 orderInfo;
+    public kv6 orderInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaceOrderHttpResponse(int i) {
@@ -37,10 +37,10 @@ public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
         }
     }
 
-    public zt6 getOrderInfo() {
+    public kv6 getOrderInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orderInfo : (zt6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orderInfo : (kv6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
             setErrorString(placeOrderResIdl.error.usermsg);
         }
         if (placeOrderResIdl.data != null) {
-            zt6 zt6Var = new zt6();
-            this.orderInfo = zt6Var;
-            zt6Var.c(placeOrderResIdl.data);
+            kv6 kv6Var = new kv6();
+            this.orderInfo = kv6Var;
+            kv6Var.c(placeOrderResIdl.data);
         }
     }
 }

@@ -4,10 +4,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.dm8;
 import com.baidu.tieba.homepage.video.message.VideoTabHttpResMessage;
 import com.baidu.tieba.homepage.video.message.VideoTabSocketResMessage;
-import com.baidu.tieba.pk8;
-import com.baidu.tieba.qb5;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,11 +33,11 @@ public class VideoTabStatic {
                 return;
             }
         }
-        qb5 qb5Var = new qb5(309648);
-        qb5Var.setResponsedClass(VideoTabSocketResMessage.class);
-        qb5Var.g(true);
-        MessageManager.getInstance().registerTask(qb5Var);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, pk8.a(TbConfig.URL_VIDEO_TAB, 309648));
+        zd5 zd5Var = new zd5(309648);
+        zd5Var.setResponsedClass(VideoTabSocketResMessage.class);
+        zd5Var.g(true);
+        MessageManager.getInstance().registerTask(zd5Var);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, dm8.a(TbConfig.URL_VIDEO_TAB, 309648));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(VideoTabHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

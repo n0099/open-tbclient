@@ -2,7 +2,7 @@ package com.baidu.tieba.postsearch;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ga8;
+import com.baidu.tieba.ob8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class PostSearchHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ga8 mSearchData;
+    public ob8 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PostSearchHttpResponseMessage(int i) {
@@ -39,15 +39,15 @@ public class PostSearchHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
-            ga8 ga8Var = new ga8();
-            this.mSearchData = ga8Var;
-            ga8Var.c(jSONObject);
+            ob8 ob8Var = new ob8();
+            this.mSearchData = ob8Var;
+            ob8Var.c(jSONObject);
         }
     }
 
-    public ga8 getSearchData() {
+    public ob8 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchData : (ga8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchData : (ob8) invokeV.objValue;
     }
 }

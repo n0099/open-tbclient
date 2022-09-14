@@ -1,105 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n83 extends x23 {
+public final class n83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n83(x13 x13Var) {
-        super(x13Var, "/swanAPI/file/getInfo");
+    public n83() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        String L;
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (context != null && callbackHandler != null && a13Var != null && a13Var.f0() != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    ay1.c("fileInfo", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("filePath");
-                if (i83.s(optString) == PathType.BD_FILE) {
-                    L = i83.M(optString, a13.g0());
-                } else {
-                    L = i83.s(optString) == PathType.RELATIVE ? i83.L(optString, a13Var, a13Var.k0()) : "";
-                }
-                if (x23.b) {
-                    Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
-                    Log.d("GetFileInfoAction", "——> handle: filePath " + L);
-                }
-                if (TextUtils.isEmpty(L)) {
-                    ay1.c("fileInfo", "absolute filePath is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                File file = new File(L);
-                String b = sd3.b(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", PackageTable.MD5), PackageTable.MD5) ? "MD5" : "SHA-1", file, false);
-                if (TextUtils.isEmpty(b)) {
-                    ay1.c("fileInfo", "hash is null");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, u13.a(2001)));
-                    if (x23.b) {
-                        Log.d("GetFileInfoAction", "——> handle: file not exist");
-                    }
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("digest", b);
-                    jSONObject.put("size", file.length());
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, u13.a(2003)));
-                    if (x23.b) {
-                        Log.d("GetFileInfoAction", "——> handle: jsonException ");
-                    }
-                    return false;
-                }
-            }
-            ay1.c("fileInfo", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        if (this.a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.a = frameLayout;
+            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603de);
+        }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+    }
+
+    public void b(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
+            return;
+        }
+        viewGroup.removeView(frameLayout);
+        this.a = null;
+    }
+
+    public void c(int i) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (frameLayout = this.a) == null) {
+            return;
+        }
+        frameLayout.setVisibility(i);
     }
 }

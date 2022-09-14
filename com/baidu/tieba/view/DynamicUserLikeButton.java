@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.tw4;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.dz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class DynamicUserLikeButton extends TBSpecificationBtn implements tw4 {
+public class DynamicUserLikeButton extends TBSpecificationBtn implements dz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -51,7 +51,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements tw4 {
         }
     }
 
-    @Override // com.baidu.tieba.tw4
+    @Override // com.baidu.tieba.dz4
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements tw4 {
         aVar.a(view2);
     }
 
-    @Override // com.baidu.tieba.tw4
+    @Override // com.baidu.tieba.dz4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -69,7 +69,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements tw4 {
         }
     }
 
-    @Override // com.baidu.tieba.tw4
+    @Override // com.baidu.tieba.dz4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -77,7 +77,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements tw4 {
         }
     }
 
-    @Override // com.baidu.tieba.tw4
+    @Override // com.baidu.tieba.dz4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -107,37 +107,37 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements tw4 {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (this.q) {
                 if (z) {
-                    qv4 qv4Var = new qv4();
-                    qv4Var.q();
-                    setConfig(qv4Var);
+                    ay4 ay4Var = new ay4();
+                    ay4Var.q();
+                    setConfig(ay4Var);
                     setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc0));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
                 } else {
-                    qv4 qv4Var2 = new qv4();
-                    qv4Var2.u(R.color.CAM_X0105);
-                    qv4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-                    qv4Var2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                    qv4Var2.h(R.color.CAM_X0105);
-                    setConfig(qv4Var2);
+                    ay4 ay4Var2 = new ay4();
+                    ay4Var2.u(R.color.CAM_X0105);
+                    ay4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                    ay4Var2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                    ay4Var2.h(R.color.CAM_X0105);
+                    setConfig(ay4Var2);
                     setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ac));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
                 }
             } else if (z) {
-                qv4 qv4Var3 = new qv4();
-                qv4Var3.t(R.color.CAM_X0109);
-                setConfig(qv4Var3);
+                ay4 ay4Var3 = new ay4();
+                ay4Var3.t(R.color.CAM_X0109);
+                setConfig(ay4Var3);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc0));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
             } else {
-                qv4 qv4Var4 = new qv4();
-                qv4Var4.r(R.color.CAM_X0302);
+                ay4 ay4Var4 = new ay4();
+                ay4Var4.r(R.color.CAM_X0302);
                 if (this.p) {
-                    qv4Var4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-                    qv4Var4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                    ay4Var4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                    ay4Var4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
                 }
-                setConfig(qv4Var4);
+                setConfig(ay4Var4);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ac));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -204,9 +204,9 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements tw4 {
                 return;
             }
         }
-        qv4 qv4Var = new qv4();
-        qv4Var.r(R.color.CAM_X0302);
-        setConfig(qv4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ac));
+        ay4 ay4Var = new ay4();
+        ay4Var.r(R.color.CAM_X0302);
+        setConfig(ay4Var);
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
     }
 }

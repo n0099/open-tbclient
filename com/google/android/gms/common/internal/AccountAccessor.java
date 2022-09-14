@@ -6,10 +6,10 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.IAccountAccessor;
 /* loaded from: classes7.dex */
 public class AccountAccessor extends IAccountAccessor.Stub {
@@ -17,6 +17,7 @@ public class AccountAccessor extends IAccountAccessor.Stub {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Nullable
+    @KeepForSdk
     public static Account getAccountBinderSafe(@NonNull IAccountAccessor iAccountAccessor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -53,7 +54,7 @@ public class AccountAccessor extends IAccountAccessor.Stub {
     public final Account zzb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             throw null;
         }
         return (Account) invokeV.objValue;

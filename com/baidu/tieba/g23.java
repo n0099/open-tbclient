@@ -1,172 +1,318 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.media.ExifInterface;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.res.ui.BdShimmerView;
+import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
+import com.baidu.tieba.f23;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.WeakHashMap;
 /* loaded from: classes4.dex */
-public class g23 extends x23 {
+public final class g23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final WeakHashMap<ViewGroup, h23> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g23(x13 x13Var) {
-        super(x13Var, "/swanAPI/getImageInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f23 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ boolean d;
+
+        public a(f23 f23Var, Context context, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f23Var, context, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f23Var;
+            this.b = context;
+            this.c = str;
+            this.d = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            LoadingView loadingView;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View d = this.a.d();
+                if (d instanceof LoadingView) {
+                    loadingView = (LoadingView) d;
+                } else {
+                    loadingView = new LoadingView(this.b);
+                    FrameLayout frameLayout = new FrameLayout(this.b);
+                    frameLayout.setPadding(0, 0, 0, pg3.g(160.0f));
+                    frameLayout.addView(loadingView);
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                    layoutParams.gravity = 17;
+                    this.a.o(frameLayout, layoutParams);
+                }
+                if (!TextUtils.isEmpty(this.c)) {
+                    loadingView.setMsg(this.c);
+                }
+                this.a.k(this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e22 a;
+
+        public b(e22 e22Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e22Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            f23 d;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (d = ((f23.a) this.a).d()) != null && (d.d() instanceof FrameLayout) && (((FrameLayout) d.d()).getChildAt(0) instanceof LoadingView)) {
+                d.g();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741985, "Lcom/baidu/tieba/g23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947741985, "Lcom/baidu/tieba/g23;");
                 return;
             }
         }
+        a = ij1.a & true;
+        b = new WeakHashMap<>();
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                ay1.c("getImageInfo", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            for (ViewGroup viewGroup : b.keySet()) {
+                h23 h23Var = b.get(viewGroup);
+                if (h23Var != null && h23Var.getLoadingView() != null) {
+                    viewGroup.removeView(h23Var.getLoadingView());
+                }
+            }
+            b.clear();
+        }
+    }
+
+    public static boolean b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        h23 h23Var;
+        View loadingView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewGroup)) == null) {
+            if (viewGroup == null) {
                 return false;
             }
-            String optString = ae3.d(unitedSchemeEntity.getParam("params")).optString("src");
-            if (TextUtils.isEmpty(optString)) {
-                ay1.c("getImageInfo", "path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject jSONObject = null;
-            if (i83.s(optString) == PathType.BD_FILE) {
-                jSONObject = k(i83.M(optString, a13Var.b), optString);
-            } else if (i83.s(optString) == PathType.RELATIVE) {
-                jSONObject = k(i83.L(optString, a13Var, a13Var.k0()), optString);
-            }
-            if (jSONObject != null) {
-                ay1.i("getImageInfo", "getImgInfo success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+            h23 h23Var2 = b.get(viewGroup);
+            if (h23Var2 != null && h23Var2.getLoadingView() != null) {
+                h23Var2.getLoadingView().setVisibility(8);
                 return true;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof h23) && (loadingView = (h23Var = (h23) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(8);
+                    b.put(viewGroup, h23Var);
+                    if (a) {
+                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
+                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final ExifInterface j(String str) {
+    public static void c(@NonNull e22 e22Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, e22Var) == null) && (e22Var instanceof f23.a)) {
+            sg3.e0(new b(e22Var));
+        }
+    }
+
+    public static boolean d(ViewGroup viewGroup) {
         InterceptResult invokeL;
+        h23 h23Var;
+        View loadingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
             }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
+            h23 h23Var2 = b.get(viewGroup);
+            if (h23Var2 != null) {
+                View loadingView2 = h23Var2.getLoadingView();
+                if (loadingView2 != null) {
+                    if (loadingView2 instanceof BdShimmerView) {
+                        ((BdShimmerView) loadingView2).p();
+                    }
+                    loadingView2.setVisibility(8);
+                    viewGroup.removeView(loadingView2);
+                    b.remove(viewGroup);
+                    if (a) {
+                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
+                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
+                    }
+                }
+                return true;
             }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof h23) && (loadingView = (h23Var = (h23) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(8);
+                    viewGroup.removeView((View) h23Var);
+                    b.remove(viewGroup);
+                    if (a) {
+                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
+                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-        return (ExifInterface) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final JSONObject k(String str, String str2) {
+    public static boolean e(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        h23 h23Var;
+        View loadingView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
+            }
+            h23 h23Var2 = b.get(viewGroup);
+            if (h23Var2 != null && h23Var2.getLoadingView() != null) {
+                h23Var2.getLoadingView().setVisibility(0);
+                return true;
+            }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof h23) && (loadingView = (h23Var = (h23) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(0);
+                    b.put(viewGroup, h23Var);
+                    if (a) {
+                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
+                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void f(@NonNull f23 f23Var, @NonNull Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{f23Var, context, str, Boolean.valueOf(z)}) == null) {
+            sg3.e0(new a(f23Var, context, str, z));
+        }
+    }
+
+    public static boolean g(Context context, ViewGroup viewGroup) {
         InterceptResult invokeLL;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            ay1.i("getImageInfo", "getImgInfo start");
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            int i = 1;
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            String str4 = options.outMimeType;
-            if (TextUtils.isEmpty(str4)) {
-                str3 = "";
-            } else {
-                String[] split = str4.split("/");
-                str3 = split[split.length - 1];
-            }
-            if (!TextUtils.equals("png", str3)) {
-                ExifInterface j = j(str);
-                if (j == null) {
-                    return null;
-                }
-                i = j.getAttributeInt("Orientation", 1);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i3);
-                jSONObject.put("path", str2);
-                jSONObject.put("orientation", l(i));
-                jSONObject.put("type", str3);
-            } catch (JSONException e) {
-                ay1.c("getImageInfo", "getImgInfo failed by json exception");
-                if (x23.b) {
-                    e.printStackTrace();
-                }
-            }
-            ay1.i("getImageInfo", "getImgInfo end");
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, viewGroup)) == null) ? h(context, viewGroup, "") : invokeLL.booleanValue;
     }
 
-    public final String l(int i) {
-        InterceptResult invokeI;
+    public static boolean h(Context context, ViewGroup viewGroup, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            switch (i) {
-                case 0:
-                case 1:
-                    return "up";
-                case 2:
-                    return "up-mirrored";
-                case 3:
-                    return "down";
-                case 4:
-                    return "down-mirrored";
-                case 5:
-                    return "left-mirrored";
-                case 6:
-                    return "left";
-                case 7:
-                    return "right-mirrored";
-                case 8:
-                    return "right";
-                default:
-                    return "";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, viewGroup, str)) == null) {
+            if (context != null && viewGroup != null) {
+                if (e(viewGroup)) {
+                    return true;
+                }
+                LoadingView loadingView = new LoadingView(context);
+                LoadingView loadingView2 = loadingView.getLoadingView();
+                if (loadingView2 == null) {
+                    return false;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    loadingView2.setMsg(str);
+                }
+                ViewGroup viewGroup2 = (ViewGroup) loadingView2.getParent();
+                if (viewGroup2 != null) {
+                    viewGroup2.removeView(loadingView2);
+                }
+                if (viewGroup instanceof RelativeLayout) {
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                    layoutParams.addRule(13);
+                    viewGroup.addView(loadingView2, layoutParams);
+                } else if (viewGroup instanceof LinearLayout) {
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                    layoutParams2.gravity = 17;
+                    viewGroup.addView(loadingView2, layoutParams2);
+                } else if (viewGroup instanceof FrameLayout) {
+                    FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
+                    layoutParams3.gravity = 17;
+                    viewGroup.addView(loadingView2, layoutParams3);
+                }
+                b.put(viewGroup, loadingView);
+                loadingView2.setVisibility(0);
+                if (a) {
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
+                }
+                return true;
             }
+            return false;
         }
-        return (String) invokeI.objValue;
+        return invokeLLL.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OADIDSDKHelper25 {
     public static final String SUB_TAG = "OADIDSDKHelper25:";
     public static final String TAG = "KSAdSDK";
@@ -18,7 +18,7 @@ public class OADIDSDKHelper25 {
     public static boolean sGetOaidFail;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class IIdentifierListener25 implements IIdentifierListener {
         public final a mOaidListener;
         public final long mStartTime;
@@ -43,7 +43,7 @@ public class OADIDSDKHelper25 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         @WorkerThread
         void cp(String str);

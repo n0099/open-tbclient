@@ -1,79 +1,56 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.camera2.CameraCharacteristics;
+import android.content.Context;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lx8 {
+public class lx8 extends f55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Matrix a;
-    public RectF b;
+    public EditText t;
 
-    public lx8(CameraCharacteristics cameraCharacteristics, RectF rectF) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lx8(Context context) {
+        super(context, (String) null, 28);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cameraCharacteristics, rectF};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (a(rectF)) {
-            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
-            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
-            int intValue = num == null ? 90 : num.intValue();
-            this.b = new RectF(rect);
-            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
-            this.a = b(num2 != null && num2.intValue() == 0, intValue, rectF);
-            return;
-        }
-        throw new IllegalArgumentException("previewRect");
+        this.o = false;
+        this.n = 3;
+        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
+        this.m = videoPlayInputContainer;
+        this.t = videoPlayInputContainer.getInputView();
+        this.p = new int[]{4, 24, 3, 9, 6};
     }
 
-    public final boolean a(RectF rectF) {
-        InterceptResult invokeL;
+    public EditText g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) ? (rectF.width() == 0.0f || rectF.height() == 0.0f) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.t : (EditText) invokeV.objValue;
     }
 
-    public final Matrix b(boolean z, int i, RectF rectF) {
-        InterceptResult invokeCommon;
+    public VideoPlayInputContainer h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
-            Matrix matrix = new Matrix();
-            matrix.setScale(z ? -1.0f : 1.0f, 1.0f);
-            matrix.postRotate(-i);
-            matrix.mapRect(rectF);
-            Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
-            matrix.setConcat(matrix2, matrix);
-            return matrix;
-        }
-        return (Matrix) invokeCommon.objValue;
-    }
-
-    public RectF c(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
-            RectF rectF2 = new RectF();
-            this.a.mapRect(rectF2, rectF);
-            return rectF2;
-        }
-        return (RectF) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (VideoPlayInputContainer) this.m : (VideoPlayInputContainer) invokeV.objValue;
     }
 }

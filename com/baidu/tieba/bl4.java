@@ -1,30 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.buoy.BuoyComponent;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.ui.components.buoy.TaskBuoyView;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,99 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class bl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static int b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
 
     /* loaded from: classes3.dex */
-    public class a implements fp {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(bl4 bl4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bl4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.fp
-        public void a(TaskInfo taskInfo, TaskStatus taskStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, taskInfo, taskStatus) == null) {
-                BdLog.d(taskInfo.getActionId() + " taskStatus onChanged :" + taskStatus);
-                if (taskStatus.isRegistered()) {
-                    BdLog.d("isRegistered=============>");
-                }
-                if (taskStatus.isUnRegistered()) {
-                    BdLog.d("isUnRegistered=============>");
-                }
-                if (taskStatus.isRunning()) {
-                    BdLog.d("isRunning=============>");
-                }
-                if (taskStatus.isFinished()) {
-                    BdLog.d("isFinished=============>");
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.fp
-        public void b(TaskInfo taskInfo, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i, str) == null) {
-                BdLog.d("[debug]error:" + str + " " + i);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends vu {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(bl4 bl4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bl4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.vu, com.baidu.tieba.wu
-        public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) {
-                super.a(view2, taskInfo, taskBuoyViewData);
-                taskBuoyViewData.getTaskStatus().isFinished();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final bl4 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,189 +31,18 @@ public class bl4 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-915264192, "Lcom/baidu/tieba/bl4$c;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-915264254, "Lcom/baidu/tieba/bl4$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-915264192, "Lcom/baidu/tieba/bl4$c;");
+                    classClinitInterceptable.invokePostClinit(-915264254, "Lcom/baidu/tieba/bl4$a;");
                     return;
                 }
             }
-            a = new bl4(null);
+            a = new bl4();
         }
-    }
-
-    public /* synthetic */ bl4(a aVar) {
-        this();
-    }
-
-    public static bl4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (bl4) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || b(str) == null) {
-            return;
-        }
-        BDPTask.m.h(str);
-    }
-
-    public TaskInfo b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (BDPTask.m.m(str) == null) {
-                return null;
-            }
-            return BDPTask.m.m(str).getTaskInfo();
-        }
-        return (TaskInfo) invokeL.objValue;
-    }
-
-    public final void c(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri) == null) {
-            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_EXPAND_DATA);
-            if (TextUtils.isEmpty(queryParameter)) {
-                return;
-            }
-            String queryParameter2 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TASK_ACTION_ID);
-            if (!TextUtils.isEmpty(queryParameter2)) {
-                l(queryParameter2, queryParameter);
-            }
-            d(uri, queryParameter);
-        }
-    }
-
-    public final void d(Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, uri, str) == null) {
-            dj4 dj4Var = new dj4(str);
-            int i = StringHelper.equals(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_SCHEME_FROM), BdUniDispatchSchemeController.SCHEME_FROM_TB_TOKEN) ? 2 : 1;
-            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_KW);
-            String queryParameter2 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
-            String queryParameter3 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY);
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", dj4Var.e()).param("obj_type", dj4Var.d()).param("obj_param1", dj4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, dj4Var.s()).param("extra", dj4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", queryParameter).param("tid", queryParameter2).param("query", queryParameter3).param("pid", uri.getQueryParameter("hightlight_anchor_pid")).param(TiebaStatic.Params.REFER, uri.getQueryParameter(TiebaStatic.Params.REFER)).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, dj4Var.G()));
-        }
-    }
-
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            su4 k = su4.k();
-            String q = k.q("key_sdk_task_expand_data_" + str, "");
-            if (TextUtils.isEmpty(q)) {
-                return null;
-            }
-            try {
-                return new JSONObject(q).optString(str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            zk4.e(context);
-            this.a = BdUniqueId.gen();
-            al4.a().b(this.a);
-            c = UtilHelper.getDimenPixelSize(R.dimen.tbds340);
-            b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X011);
-        }
-    }
-
-    public void h(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof op)) {
-            ((op) buoyComponent).F();
-        }
-    }
-
-    public void i(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, uri) == null) || uri == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TASK_INFO);
-        if (TextUtils.isEmpty(queryParameter)) {
-            return;
-        }
-        j(queryParameter);
-        c(uri);
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            BDPTask.m.A(str, new a(this));
-        }
-    }
-
-    public void k(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof op)) {
-            ((op) buoyComponent).H();
-        }
-    }
-
-    public void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            su4 k = su4.k();
-            k.y("key_sdk_task_expand_data_" + str, str2);
-        }
-    }
-
-    public BuoyComponent m(Activity activity, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLLL;
-        TaskInfo b2;
-        BuoyComponent buoyComponent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, activity, viewGroup, str)) == null) {
-            if (activity == null || (b2 = b(str)) == null) {
-                return null;
-            }
-            TaskBuoyView taskBuoyView = new TaskBuoyView(activity);
-            taskBuoyView.U(new b(this));
-            if (b2.isClickAction()) {
-                buoyComponent = hp.b(taskBuoyView, new TaskBuoyViewModel(b2), b2);
-            } else {
-                buoyComponent = hp.a(taskBuoyView, new pp(b2), b2);
-            }
-            if (viewGroup != null) {
-                buoyComponent.l(viewGroup, null);
-            } else {
-                int statusBarHeight = UtilHelper.getStatusBarHeight();
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 5;
-                layoutParams.topMargin = c + statusBarHeight;
-                layoutParams.rightMargin = b;
-                buoyComponent.l((FrameLayout) activity.findViewById(16908290), layoutParams);
-            }
-            if (buoyComponent instanceof op) {
-                ((op) buoyComponent).J();
-            }
-            return buoyComponent;
-        }
-        return (BuoyComponent) invokeLLL.objValue;
-    }
-
-    public void n(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, buoyComponent) == null) || buoyComponent == null) {
-            return;
-        }
-        buoyComponent.n();
     }
 
     public bl4() {
@@ -327,6 +55,224 @@ public class bl4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static final bl4 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (bl4) invokeV.objValue;
+    }
+
+    public synchronized long a(dl4 dl4Var) {
+        InterceptResult invokeL;
+        long h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dl4Var)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                h = h(f, dl4Var);
+                f.setTransactionSuccessful();
+                f.endTransaction();
+            }
+            return h;
+        }
+        return invokeL.longValue;
+    }
+
+    public synchronized void b(List<dl4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            synchronized (this) {
+                if (ListUtils.isEmpty(list)) {
+                    return;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                for (dl4 dl4Var : list) {
+                    h(f, dl4Var);
+                }
+                f.setTransactionSuccessful();
+                f.endTransaction();
+            }
+        }
+    }
+
+    public final ContentValues c(dl4 dl4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dl4Var)) == null) {
+            if (dl4Var == null) {
+                return null;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("activityid", Integer.valueOf(dl4Var.d()));
+            contentValues.put("missionid", Integer.valueOf(dl4Var.q()));
+            contentValues.put("activitysource", dl4Var.e());
+            contentValues.put("calltype", Integer.valueOf(dl4Var.i()));
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(dl4Var.x()));
+            contentValues.put("browsetimepage", dl4Var.g());
+            contentValues.put("browsetime", Long.valueOf(dl4Var.f()));
+            contentValues.put("threadnum", Integer.valueOf(dl4Var.A()));
+            contentValues.put("forumnum", Integer.valueOf(dl4Var.p()));
+            contentValues.put("cleartype", Integer.valueOf(dl4Var.k()));
+            contentValues.put("cleartime", Long.valueOf(dl4Var.j()));
+            contentValues.put("specificcleartime", Long.valueOf(dl4Var.t()));
+            contentValues.put("tid", Long.valueOf(dl4Var.C()));
+            contentValues.put("fid", Long.valueOf(dl4Var.o()));
+            contentValues.put("threadtext", dl4Var.B());
+            contentValues.put("threadimg", dl4Var.z());
+            contentValues.put("threadforum", Long.valueOf(dl4Var.y()));
+            contentValues.put("totalLimit", Integer.valueOf(dl4Var.F()));
+            contentValues.put("completedLimitCount", Integer.valueOf(dl4Var.w()));
+            contentValues.put("token", dl4Var.E());
+            contentValues.put("executingMissionList", dl4Var.b());
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public final dl4 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
+            if (cursor == null || cursor.isClosed()) {
+                return null;
+            }
+            dl4 dl4Var = new dl4();
+            dl4Var.T(cursor.getInt(cursor.getColumnIndex("activityid")));
+            dl4Var.c0(cursor.getInt(cursor.getColumnIndex("missionid")));
+            dl4Var.U(cursor.getString(cursor.getColumnIndex("activitysource")));
+            dl4Var.X(cursor.getInt(cursor.getColumnIndex("calltype")));
+            dl4Var.g0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
+            dl4Var.W(cursor.getString(cursor.getColumnIndex("browsetimepage")));
+            dl4Var.V(cursor.getLong(cursor.getColumnIndex("browsetime")));
+            dl4Var.j0(cursor.getInt(cursor.getColumnIndex("threadnum")));
+            dl4Var.b0(cursor.getInt(cursor.getColumnIndex("forumnum")));
+            dl4Var.Z(cursor.getInt(cursor.getColumnIndex("cleartype")));
+            dl4Var.Y(cursor.getLong(cursor.getColumnIndex("cleartime")));
+            dl4Var.e0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
+            dl4Var.l0(cursor.getLong(cursor.getColumnIndex("tid")));
+            dl4Var.a0(cursor.getLong(cursor.getColumnIndex("fid")));
+            dl4Var.k0(cursor.getString(cursor.getColumnIndex("threadtext")));
+            dl4Var.i0(cursor.getString(cursor.getColumnIndex("threadimg")));
+            dl4Var.h0(cursor.getInt(cursor.getColumnIndex("threadforum")));
+            dl4Var.n0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
+            dl4Var.f0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
+            dl4Var.Q(dl4Var.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
+            dl4Var.m0(cursor.getString(cursor.getColumnIndex("token")));
+            return dl4Var;
+        }
+        return (dl4) invokeL.objValue;
+    }
+
+    public synchronized boolean e(dl4 dl4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dl4Var)) == null) {
+            synchronized (this) {
+                if (dl4Var == null) {
+                    return false;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                int delete = f.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(dl4Var.d()), String.valueOf(dl4Var.q())});
+                f.setTransactionSuccessful();
+                f.endTransaction();
+                return delete >= 0;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized List<dl4> f() {
+        InterceptResult invokeV;
+        LinkedList linkedList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                linkedList = new LinkedList();
+                Cursor rawQuery = f.rawQuery("SELECT * FROM activity_mission_info", null);
+                while (rawQuery.moveToNext()) {
+                    dl4 d = d(rawQuery);
+                    if (d != null) {
+                        linkedList.add(d);
+                    }
+                }
+                f.setTransactionSuccessful();
+                fj.a(rawQuery);
+                f.endTransaction();
+            }
+            return linkedList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final long h(SQLiteDatabase sQLiteDatabase, dl4 dl4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, dl4Var)) == null) {
+            try {
+                return sQLiteDatabase.insert("activity_mission_info", null, c(dl4Var));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public synchronized long i(dl4 dl4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, dl4Var)) == null) {
+            synchronized (this) {
+                if (dl4Var == null) {
+                    return -1L;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                long j = j(f, dl4Var);
+                f.setTransactionSuccessful();
+                f.endTransaction();
+                return j;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public final long j(SQLiteDatabase sQLiteDatabase, dl4 dl4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, dl4Var)) == null) {
+            try {
+                return sQLiteDatabase.update("activity_mission_info", c(dl4Var), "activityid = ? and missionid = ?", new String[]{String.valueOf(dl4Var.d()), String.valueOf(dl4Var.q())});
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public synchronized void k(List<dl4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            synchronized (this) {
+                if (ListUtils.isEmpty(list)) {
+                    return;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                for (dl4 dl4Var : list) {
+                    j(f, dl4Var);
+                }
+                f.setTransactionSuccessful();
+                f.endTransaction();
             }
         }
     }

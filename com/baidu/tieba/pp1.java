@@ -1,243 +1,140 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pp1 extends dp1 {
+public class pp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public volatile long c;
+    public long d;
+    public long e;
+    public long f;
+    public String g;
 
-    /* loaded from: classes5.dex */
-    public class a implements qp1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(pp1 pp1Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948069624, "Lcom/baidu/tieba/pp1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pp1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements qp1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(pp1 pp1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pp1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements qp1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(pp1 pp1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pp1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pp1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948069624, "Lcom/baidu/tieba/pp1;");
                 return;
             }
         }
+        boolean z = ij1.a;
     }
 
-    @Override // com.baidu.tieba.dp1
-    public String h() {
+    public pp1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = "1";
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.g;
+            switch (str.hashCode()) {
+                case 48:
+                    if (str.equals("0")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 49:
+                    if (str.equals("1")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            return c != 0 ? c != 1 ? c != 2 ? c != 3 ? "unknown" : "fip" : "ftp" : "fcp" : "fmp";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HostDownloadManager" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.f;
+            if (j > 0) {
+                return j;
+            }
+            long[] jArr = {this.d, this.e, this.b};
+            long j2 = Long.MAX_VALUE;
+            for (int i = 0; i < 3; i++) {
+                long j3 = jArr[i];
+                if (j3 > 0 && j3 < j2) {
+                    j2 = j3;
+                }
+            }
+            if (j2 != Long.MAX_VALUE) {
+                this.f = j2;
+            }
+            return this.f;
+        }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.dp1
-    public String j() {
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? j == this.d ? "2" : j == this.e ? "3" : (j != this.b && j == this.c) ? "0" : "1" : (String) invokeJ.objValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "HostDownloadManagerApi" : (String) invokeV.objValue;
-    }
-
-    public at1 query(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#query", false);
-            if (a13.b0() == null) {
-                return new at1(1001);
-            }
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new at1(202, "taskId is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new at1(202, "cb is empty");
-                }
-                sl1 z = hk2.z();
-                if (z != null) {
-                    z.b(optString, new b(this, optString2));
-                }
-                return at1.f();
-            }
-            ay1.c("HostDownloadManagerApi", "parse fail");
-            return at1Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
         }
-        return (at1) invokeL.objValue;
-    }
-
-    public at1 x(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            a13 b0 = a13.b0();
-            if (b0 == null) {
-                return new at1(1001);
-            }
-            if (b0.w() == null) {
-                return new at1(1001);
-            }
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("url");
-                if (TextUtils.isEmpty(optString)) {
-                    return new at1(202, "url is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new at1(202, "cb is empty");
-                }
-                String optString3 = jSONObject.optString("name");
-                JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                sl1 z = hk2.z();
-                if (z != null) {
-                    z.d(optString, optString3, optJSONObject, new a(this, optString2));
-                }
-                return at1.f();
-            }
-            ay1.c("HostDownloadManagerApi", "parse fail");
-            return at1Var;
-        }
-        return (at1) invokeL.objValue;
-    }
-
-    public at1 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            q("#openDownloadCenter", false);
-            if (a13.b0() == null) {
-                return new at1(1001);
-            }
-            sl1 z = hk2.z();
-            if (z != null) {
-                z.a();
-            }
-            return at1.f();
-        }
-        return (at1) invokeV.objValue;
-    }
-
-    public at1 z(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#openFile", false);
-            if (a13.b0() == null) {
-                return new at1(1001);
-            }
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new at1(202, "taskId is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new at1(202, "cb is empty");
-                }
-                SwanAppActivity activity = nm2.U().getActivity();
-                if (activity == null) {
-                    return new at1(1001);
-                }
-                sl1 z = hk2.z();
-                if (z != null) {
-                    z.c(activity, optString, new c(this, optString2));
-                }
-                return at1.f();
-            }
-            ay1.c("HostDownloadManagerApi", "parse fail");
-            return at1Var;
-        }
-        return (at1) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

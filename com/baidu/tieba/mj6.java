@@ -1,165 +1,148 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.py;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.lj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mj6 extends af6<jr4, ThreadCardViewHolder<ThreadData>> implements f06, fq6, vl5, g06, zn {
+public class mj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
-    public int m;
-    public int n;
+    public hj6 a;
+    public TbPageContext b;
+    public a25 c;
+    public BdUniqueId d;
+    public CustomMessageListener e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mj6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mj6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mj6 mj6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mj6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mj6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            UpdateAttentionMessage updateAttentionMessage;
+            UpdateAttentionMessage.a data;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || this.a.a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
+                return;
+            }
+            if (!data.a) {
+                this.a.a.k(updateAttentionMessage.getData().b);
+            } else {
+                this.a.a.m(data.d);
+            }
+        }
+    }
+
+    public mj6(TbPageContext tbPageContext, hj6 hj6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext, hj6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = 3;
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId2;
+        this.d = BdUniqueId.gen();
+        this.e = new a(this, 2001115);
+        this.b = tbPageContext;
+        this.a = hj6Var;
+        this.c = new a25(tbPageContext);
+        this.e.setSelfListener(true);
+        this.e.setTag(this.d);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: E */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            ey.b bVar = new ey.b(this.c.getPageActivity(), false);
-            bVar.h(new tx(this.c.getPageActivity()));
-            dx dxVar = new dx(this.c.getPageActivity());
-            dxVar.u();
-            dxVar.w(this.n);
-            bVar.h(dxVar);
-            ey k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
-            k.r(3);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.mPageId);
-            setOnAdapterItemClickListener(this);
-            threadCardViewHolder.n(false);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.af6, com.baidu.tieba.cn
-    /* renamed from: F */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jr4 jr4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jr4Var, threadCardViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, jr4Var, threadCardViewHolder);
-            if (jr4Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a25 a25Var = this.c;
+            if (a25Var != null) {
+                a25Var.g();
             }
-            threadCardViewHolder.a().b(this.l);
-            threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(jr4Var.t);
-            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            jr4Var.t.updateShowStatus();
-            return threadCardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void G(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.n = i;
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 
-    @Override // com.baidu.tieba.f06
-    public void a(String str) {
+    public void c(lj6 lj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zn
-    public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof jr4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-            ThreadData threadData = ((jr4) pnVar).t;
-            threadData.objType = 1;
-            ThreadCardUtils.jumpToPB((go4) threadData, view2.getContext(), this.m, false);
-            ((ThreadCardViewHolder) view2.getTag()).a().o(new py.a(1));
-            cq6.e(threadData, 1, this.mPageId, fq6.p0, t());
-            FrsViewData frsViewData = this.b;
-            if (frsViewData == null || frsViewData.getForum() == null) {
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lj6Var) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c91);
+            } else if (lj6Var == null || lj6Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                a25 a25Var = this.c;
+                lj6.b bVar = lj6Var.m;
+                a25Var.k(!bVar.e, bVar.d, bVar.a, this.d);
             }
-            cq6.c(threadData, this.b.getForum().getId());
         }
     }
 
-    @Override // com.baidu.tieba.vl5
-    public void g(String str) {
+    public void d(lj6 lj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.fq6
-    public dq6 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? fq6.p0 : (dq6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g06
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.f06
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.m = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.af6
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lj6Var) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c91);
+            } else if (lj6Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("thread_id", lj6Var.b);
+                httpMessage.addParam("op_type", Boolean.valueOf(lj6Var.h));
+                httpMessage.addParam("obj_type", 3);
+                httpMessage.addParam("agree_type", 2);
+                httpMessage.addParam("forum_id", lj6Var.a);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                if (!StringUtil.isEmpty(lj6Var.i)) {
+                    httpMessage.addParam("obj_source", lj6Var.i);
+                }
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
+                this.a.l();
+            }
         }
     }
 }

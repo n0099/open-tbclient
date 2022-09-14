@@ -34,7 +34,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static Handler MX;
     public static ServiceConnection Zq = new ServiceConnection() { // from class: com.kwad.sdk.utils.f.1
@@ -70,7 +70,7 @@ public final class f {
     public static com.kwad.sdk.collector.h amP;
 
     /* renamed from: com.kwad.sdk.utils.f$2  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class AnonymousClass2 implements Runnable {
         public final /* synthetic */ Context gC;
 
@@ -125,7 +125,7 @@ public final class f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements com.kwad.sdk.core.b {
         public List<Long> amV = new ArrayList();
         public String appName;
@@ -225,12 +225,12 @@ public final class f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void m(List<com.kwad.sdk.collector.model.b> list);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c extends Handler {
         public c(@NonNull Looper looper) {
             super(looper);
@@ -336,7 +336,7 @@ public final class f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d implements b {
         public b amX = null;
 

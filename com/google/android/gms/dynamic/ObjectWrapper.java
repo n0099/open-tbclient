@@ -2,14 +2,18 @@ package com.google.android.gms.dynamic;
 
 import android.os.IBinder;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.Preconditions;
+import com.google.android.gms.common.util.RetainForClient;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import java.lang.reflect.Field;
+@RetainForClient
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
@@ -35,6 +39,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
     }
 
     @NonNull
+    @KeepForSdk
     public static <T> T unwrap(@NonNull IObjectWrapper iObjectWrapper) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -53,7 +58,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
                 }
             }
             if (i == 1) {
-                hn9.d(field);
+                Preconditions.checkNotNull(field);
                 if (!field.isAccessible()) {
                     field.setAccessible(true);
                     try {
@@ -76,6 +81,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
     }
 
     @NonNull
+    @KeepForSdk
     public static <T> IObjectWrapper wrap(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

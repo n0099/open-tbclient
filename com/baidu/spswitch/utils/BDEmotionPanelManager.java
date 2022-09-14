@@ -116,7 +116,7 @@ public class BDEmotionPanelManager {
                 bDEmotionBagVerticalLayout.setEmotionList(EmotionUtils.getInstance().getPanelEmotionList());
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(bDEmotionBagVerticalLayout);
-                ((ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f091fad)).setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
+                ((ViewPager) viewGroup.findViewById(R.id.vp_emotion_type)).setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
             }
         }
     }
@@ -127,11 +127,11 @@ public class BDEmotionPanelManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragmentActivity)) == null) {
             List<Fragment> fragments = fragmentActivity.getSupportFragmentManager().getFragments();
             for (Fragment fragment : fragments) {
-                if (fragment.getView() != null && fragment.getView().findViewById(R.id.obfuscated_res_0x7f091fad) != null) {
+                if (fragment.getView() != null && fragment.getView().findViewById(R.id.vp_emotion_type) != null) {
                     return fragment.getChildFragmentManager();
                 }
             }
-            if (fragmentActivity.findViewById(R.id.obfuscated_res_0x7f091fad) != null) {
+            if (fragmentActivity.findViewById(R.id.vp_emotion_type) != null) {
                 return fragmentActivity.getSupportFragmentManager();
             }
             if (DEBUG) {
@@ -168,8 +168,8 @@ public class BDEmotionPanelManager {
     private void handleEmotionTypeLayoutNightMode(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, viewGroup) == null) {
-            View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f09093e);
-            View findViewById2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f09093d);
+            View findViewById = viewGroup.findViewById(R.id.emotion_type_placeholer);
+            View findViewById2 = viewGroup.findViewById(R.id.emotion_type_layout);
             if (this.isNightMode) {
                 findViewById.setBackgroundColor(-14540254);
                 findViewById2.setBackgroundColor(-13421773);

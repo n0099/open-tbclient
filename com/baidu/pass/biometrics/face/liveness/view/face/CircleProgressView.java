@@ -17,8 +17,8 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.R;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -116,7 +116,7 @@ public class CircleProgressView extends View {
     private void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040529, R.attr.obfuscated_res_0x7f04052a, R.attr.obfuscated_res_0x7f04052b, R.attr.obfuscated_res_0x7f04052c, R.attr.obfuscated_res_0x7f04052d, R.attr.obfuscated_res_0x7f04052e, R.attr.obfuscated_res_0x7f04052f, R.attr.obfuscated_res_0x7f040530, R.attr.obfuscated_res_0x7f040531, R.attr.obfuscated_res_0x7f040532, R.attr.obfuscated_res_0x7f040533, R.attr.obfuscated_res_0x7f040534, R.attr.obfuscated_res_0x7f040535, R.attr.obfuscated_res_0x7f040536, R.attr.obfuscated_res_0x7f040537, R.attr.obfuscated_res_0x7f040538, R.attr.obfuscated_res_0x7f040539, R.attr.obfuscated_res_0x7f04053a});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.pass_liveness_CircleProgressView);
             DisplayMetrics displayMetrics = getDisplayMetrics();
             this.b = TypedValue.applyDimension(1, 6.0f, displayMetrics);
             this.m = TypedValue.applyDimension(1, 5.0f, displayMetrics);

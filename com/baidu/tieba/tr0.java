@@ -1,33 +1,29 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tr0 extends vr0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface tr0 {
+    void a(int i);
 
-    public tr0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void onBufferEnd();
 
-    public static vr0 w(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? vr0.m(str, 1) : (vr0) invokeL.objValue;
-    }
+    void onBufferStart();
+
+    void onEnd(int i);
+
+    void onError(int i, int i2, String str);
+
+    void onInfo(int i, int i2);
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

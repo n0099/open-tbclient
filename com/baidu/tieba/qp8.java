@@ -1,49 +1,150 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.SeekBar;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qp8 extends CustomMessageListener {
+public class qp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final sn8 b;
+    public BaseFragmentActivity a;
+    public SeekBar b;
+    public View c;
+    public int d;
+    public ViewTreeObserver.OnGlobalLayoutListener e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
-        super(2001374);
+    /* loaded from: classes5.dex */
+    public class a implements SeekBar.OnSeekBarChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(qp8 qp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
+                ia8 ia8Var = new ia8();
+                ia8Var.a = 1;
+                ia8Var.b = i;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, ia8Var));
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081285));
+                ia8 ia8Var = new ia8();
+                ia8Var.a = 2;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, ia8Var));
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081286));
+                ia8 ia8Var = new ia8();
+                ia8Var.a = 3;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, ia8Var));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qp8 a;
+
+        public b(qp8 qp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qp8Var;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
+                if (layoutParams.bottomMargin != this.a.d) {
+                    layoutParams.bottomMargin = this.a.c.getHeight() - ej.f(this.a.a, R.dimen.tbds16);
+                    this.a.b.setLayoutParams(layoutParams);
+                    this.a.d = layoutParams.bottomMargin;
+                }
+            }
+        }
+    }
+
+    public qp8(BaseFragmentActivity baseFragmentActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, sn8Var};
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = sn8Var;
+        this.d = -1;
+        this.e = new b(this);
+        this.a = baseFragmentActivity;
+        this.c = view2;
+        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f092566);
+        this.b = seekBar;
+        seekBar.setOnSeekBarChangeListener(new a(this));
+        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || ((PostWriteCallBackData) customResponsedMessage.getData()).isDyamicCallback()) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.b.setVisibility(z ? 0 : 4);
         }
-        this.b.S((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

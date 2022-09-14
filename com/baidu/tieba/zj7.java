@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
+import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class zj7 extends vc1<ShareChannelService> {
+public final class zj7 extends se1<LiveUserSecurityDeviceInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class zj7 extends vc1<ShareChannelService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vc1
+    @Override // com.baidu.tieba.se1
     /* renamed from: a */
-    public ShareChannelService createService() throws ServiceNotFoundException {
+    public LiveUserSecurityDeviceInfoService createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ak7() : (ShareChannelService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LiveUserSecurityDeviceInfoServiceImpl() : (LiveUserSecurityDeviceInfoService) invokeV.objValue;
     }
 }

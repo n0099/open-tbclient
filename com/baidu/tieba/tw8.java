@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tw8 extends LinkMovementMethod {
+public class tw8 implements sw8 {
     public static /* synthetic */ Interceptable $ic;
-    public static tw8 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public li5 a;
-    public int b;
-    public int c;
-    public long d;
-    public int e;
+    public VideoEasterEggData a;
 
     public tw8() {
         Interceptable interceptable = $ic;
@@ -34,122 +27,140 @@ public class tw8 extends LinkMovementMethod {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = -1;
     }
 
-    public static tw8 a() {
+    @Override // com.baidu.tieba.sw8
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                f = new tw8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
             }
-            return f;
+            return videoEasterEggData.getPopText();
         }
-        return (tw8) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.sw8
+    public void b(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            return Math.abs(f4 - f2) <= 100.0f && Math.abs(f5 - f3) <= 100.0f && j2 - j >= j3;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null) {
+            return;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public final li5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
-            if (motionEvent != null && motionEvent.getAction() != 3) {
-                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-                int scrollX = x + textView.getScrollX();
-                int scrollY = y + textView.getScrollY();
-                try {
-                    Layout layout = textView.getLayout();
-                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                    li5[] li5VarArr = (li5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, li5.class);
-                    if (li5VarArr == null || li5VarArr.length <= 0 || li5VarArr[0] == null) {
-                        return null;
-                    }
-                    return li5VarArr[0];
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return this.a;
-                }
-            }
-            return this.a;
-        }
-        return (li5) invokeLLL.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.e = i;
+        intent.getStringExtra("from");
+        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
+            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
         }
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.sw8
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
-            li5 b = b(textView, spannable, motionEvent);
-            if (b == null && motionEvent.getAction() == 0) {
-                try {
-                    return super.onTouchEvent(textView, spannable, motionEvent);
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
             }
-            if (b != null) {
-                this.a = b;
-            }
-            int i = this.e;
-            if (i > -1) {
-                this.a.g(i);
-            }
-            if (motionEvent.getAction() == 0) {
-                this.b = (int) motionEvent.getX();
-                this.c = (int) motionEvent.getY();
-                this.d = System.currentTimeMillis();
-                li5 li5Var = this.a;
-                if (li5Var != null) {
-                    li5Var.h(1);
-                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
-                }
-                textView.invalidate();
-            } else if (motionEvent.getAction() == 2) {
-                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
-                    this.a.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                li5 li5Var2 = this.a;
-                if (li5Var2 != null) {
-                    li5Var2.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
-                    return true;
-                }
-            }
-            try {
-                return super.onTouchEvent(textView, spannable, motionEvent);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return true;
-            }
+            return videoEasterEggData.getActivityID();
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sw8
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareTitle();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sw8
+    public void e(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || dj.isEmpty(g())) {
+            return;
+        }
+        zg.h().m(g(), 10, null, bdUniqueId);
+    }
+
+    @Override // com.baidu.tieba.sw8
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sw8
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getPopImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sw8
+    public String getVideoUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getVideoUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sw8
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sw8
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareContent();
+        }
+        return (String) invokeV.objValue;
     }
 }

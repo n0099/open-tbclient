@@ -5,8 +5,8 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.bt4;
-import com.baidu.tieba.ft4;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +54,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bt4.q();
-            bt4.t(null, true);
-            ft4.a().j(true);
+            jv4.p();
+            jv4.s(null, true);
+            nv4.a().j(true);
         }
     }
 
@@ -66,18 +66,18 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (a) {
                 a = false;
-                bt4.l("lifecycle-1st-create", false);
-                bt4.x();
+                jv4.l("lifecycle-1st-create", false);
+                jv4.w();
                 return;
             }
-            bt4.b = true;
+            jv4.b = true;
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            bt4.k(currentTimeMillis);
-            bt4.l("lifecycle", true);
-            bt4.x();
+            jv4.k(currentTimeMillis);
+            jv4.l("lifecycle", true);
+            jv4.w();
         }
     }
 
@@ -85,10 +85,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bt4.t(null, true);
+            jv4.s(null, true);
             b = System.currentTimeMillis();
-            bt4.b = false;
-            ft4.a().j(false);
+            jv4.b = false;
+            nv4.a().j(false);
         }
     }
 }

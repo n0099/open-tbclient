@@ -25,9 +25,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class SwitchMaterial extends SwitchCompat {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100363 = 2131755875;
+    public static final int DEF_STYLE_RES = 2131755876;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -176,7 +174,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100363), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +193,7 @@ public class SwitchMaterial extends SwitchCompat {
         }
         Context context2 = getContext();
         this.elevationOverlayProvider = new ElevationOverlayProvider(context2);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04074e}, i, obfuscated_res_0x7f100363, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.SwitchMaterial, i, DEF_STYLE_RES, new int[0]);
         this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
     }

@@ -2,15 +2,15 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cf;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FunAdSdkSwitch extends cf {
+public class FunAdSdkSwitch extends qf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "bear_wxb_download";
     public static final int TYPE_OFF = 0;
@@ -40,17 +40,17 @@ public class FunAdSdkSwitch extends cf {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? su4.k().l("pref_key_fun_ad_sdk_enable", 1) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? bx4.k().l("pref_key_fun_ad_sdk_enable", 1) == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class FunAdSdkSwitch extends cf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class FunAdSdkSwitch extends cf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class FunAdSdkSwitch extends cf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

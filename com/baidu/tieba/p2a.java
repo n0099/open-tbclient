@@ -1,31 +1,14 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Dialog;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes5.dex */
-public class p2a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p2a {
+    void f(Activity activity, a4a a4aVar, Dialog dialog, IYYPayWayView iYYPayWayView);
 
-    public static void a(Context context, View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, view2) == null) || context == null || view2 == null) {
-            return;
-        }
-        ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
-    }
+    void l(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, PurchaseStatus purchaseStatus);
 
-    public static void b(Activity activity, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view2) == null) {
-            if (view2 == null && (view2 = activity.getCurrentFocus()) == null) {
-                return;
-            }
-            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view2, 1);
-        }
-    }
+    void q(int i, String str, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar);
 }

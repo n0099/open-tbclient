@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.util.AppLaunchInfoFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kv4 {
+public class kv4 implements AppLaunchInfoFetcher.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CharSequence a;
-    public CharSequence b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
 
     public kv4() {
         Interceptable interceptable = $ic;
@@ -27,10 +20,16 @@ public class kv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = R.color.CAM_X0105;
-        this.d = R.color.CAM_X0108;
+    }
+
+    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
+    public void onFinish(ch5 ch5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ch5Var) == null) || ch5Var == null) {
+            return;
+        }
+        jv4.t(ch5Var.a, ch5Var.b);
     }
 }

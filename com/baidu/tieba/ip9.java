@@ -1,112 +1,129 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.live.frame.IntentData;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.kwad.sdk.api.KsAdVideoPlayConfig;
+import com.kwad.sdk.api.KsImage;
+import com.kwad.sdk.api.KsNativeAd;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ip9 implements ArCoreApk.a {
+public class ip9 extends BaseFunNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ jp9 a;
+    public final Context b;
+    public final KsNativeAd c;
+    public final xo9 d;
 
-    public ip9(jp9 jp9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ip9(Context context, KsNativeAd ksNativeAd, String str, Ssp.Pid pid, xo9 xo9Var) {
+        super(str, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jp9Var};
+            Object[] objArr = {context, ksNativeAd, str, pid, xo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = jp9Var;
+        this.b = context;
+        this.c = ksNativeAd;
+        this.d = xo9Var;
     }
 
-    public static Uri b(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build() : (Uri) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createKs(this.c) : (ChannelNativeAds) invokeV.objValue;
     }
 
-    public static ArCoreApk.Availability c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getAdDescription() : (String) invokeV.objValue;
     }
 
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable(IntentData.KEY);
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
-                        }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
-                    }
-                    throw new UnavailableUserDeclinedInstallationException();
-                }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.getAppIconUrl() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<KsImage> imageList = this.c.getImageList();
+            if (imageList == null) {
                 return null;
             }
+            ArrayList arrayList = new ArrayList();
+            for (KsImage ksImage : imageList) {
+                arrayList.add(ksImage.getImageUrl());
+            }
+            return arrayList;
         }
-        return (PendingIntent) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                jp9.c(this.a, availability);
-                jp9.f(this.a, false);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int interactionType = this.c.getInteractionType();
+            return interactionType != 1 ? interactionType != 2 ? FunNativeAd.InteractionType.TYPE_UNKNOW : FunNativeAd.InteractionType.TYPE_BROWSE : FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+        }
+        return (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c.getAppName() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c.getVideoView(this.b, new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build()) : (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            xo9 xo9Var = this.d;
+            KsNativeAd ksNativeAd = this.c;
+            xo9Var.i(ksNativeAd, this.mSid, viewGroup, list, new xo9.b(xo9Var, ksNativeAd), funAdInteractionListener);
         }
     }
 }

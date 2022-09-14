@@ -1,25 +1,25 @@
 package com.baidu.tbadk.browser;
 
-import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.fm8;
-import com.baidu.tieba.hf5;
-import com.baidu.tieba.jo;
-import com.baidu.tieba.lf5;
-import com.baidu.tieba.oe5;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.gj;
+import com.baidu.tieba.in8;
+import com.baidu.tieba.mn8;
+import com.baidu.tieba.qh5;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
-import com.baidu.tieba.ul8;
-import com.baidu.tieba.yl8;
+import com.baidu.tieba.tn8;
+import com.baidu.tieba.uh5;
+import com.baidu.tieba.vg5;
+import com.baidu.tieba.xo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,9 +31,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@jo
+@xo
 /* loaded from: classes3.dex */
-public class SearchJsBridge implements ul8 {
+public class SearchJsBridge implements in8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -64,7 +64,7 @@ public class SearchJsBridge implements ul8 {
     public List<String> mHistoryDatas;
 
     /* loaded from: classes3.dex */
-    public class a extends hf5<String> {
+    public class a extends qh5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -88,12 +88,12 @@ public class SearchJsBridge implements ul8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hf5
+        @Override // com.baidu.tieba.qh5
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                fm8.h(this.a);
+                tn8.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -101,7 +101,7 @@ public class SearchJsBridge implements ul8 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements oe5<String> {
+    public class b implements vg5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +122,7 @@ public class SearchJsBridge implements ul8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oe5
+        @Override // com.baidu.tieba.vg5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class SearchJsBridge implements ul8 {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends hf5 {
+    public class c extends qh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,12 +153,12 @@ public class SearchJsBridge implements ul8 {
             }
         }
 
-        @Override // com.baidu.tieba.hf5
+        @Override // com.baidu.tieba.qh5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                fm8.b();
+                tn8.b();
                 return null;
             }
             return invokeV.objValue;
@@ -166,7 +166,7 @@ public class SearchJsBridge implements ul8 {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements oe5 {
+    public class d implements vg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchJsBridge a;
@@ -189,7 +189,7 @@ public class SearchJsBridge implements ul8 {
             this.a = searchJsBridge;
         }
 
-        @Override // com.baidu.tieba.oe5
+        @Override // com.baidu.tieba.vg5
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -238,10 +238,10 @@ public class SearchJsBridge implements ul8 {
                     addCookie(jSONObject, COOKIE_MERCATOR_RADIUS, e.F());
                     addCookie(jSONObject, COOKIE_MERCATOR_TIME, String.valueOf(e.G()));
                 }
-                addCookie(jSONObject, COOKIE_MOD, Build.MODEL);
-                addCookie(jSONObject, "ov", Build.VERSION.RELEASE);
+                addCookie(jSONObject, COOKIE_MOD, gj.g());
+                addCookie(jSONObject, "ov", gj.k());
                 addCookie(jSONObject, "os_type", String.valueOf(2));
-                addCookie(jSONObject, "net_type", String.valueOf(pi.I()));
+                addCookie(jSONObject, "net_type", String.valueOf(BdNetTypeUtil.netType()));
                 addCookie(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
                 addCookie(jSONObject, "from", TbConfig.getFrom());
                 addCookie(jSONObject, "cfrom", TbConfig.getCurrentFrom());
@@ -261,7 +261,7 @@ public class SearchJsBridge implements ul8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ul8
+    @Override // com.baidu.tieba.in8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -301,64 +301,64 @@ public class SearchJsBridge implements ul8 {
         return invokeLLLL.booleanValue;
     }
 
-    public yl8 deleteAllSearchHistory() {
+    public mn8 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yl8 yl8Var = new yl8();
-            lf5.b(new c(this), new d(this));
-            return yl8Var;
+            mn8 mn8Var = new mn8();
+            uh5.b(new c(this), new d(this));
+            return mn8Var;
         }
-        return (yl8) invokeV.objValue;
+        return (mn8) invokeV.objValue;
     }
 
-    public yl8 deleteSearchHistory(String str) {
+    public mn8 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            yl8 yl8Var = new yl8();
-            lf5.b(new a(this, str), new b(this));
-            return yl8Var;
+            mn8 mn8Var = new mn8();
+            uh5.b(new a(this, str), new b(this));
+            return mn8Var;
         }
-        return (yl8) invokeL.objValue;
+        return (mn8) invokeL.objValue;
     }
 
-    public yl8 getSearchAdCookie() {
+    public mn8 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            yl8 yl8Var = new yl8();
-            yl8Var.o(initCookies());
-            return yl8Var;
+            mn8 mn8Var = new mn8();
+            mn8Var.o(initCookies());
+            return mn8Var;
         }
-        return (yl8) invokeV.objValue;
+        return (mn8) invokeV.objValue;
     }
 
-    public yl8 getSearchHistoryJson() {
+    public mn8 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            yl8 yl8Var = new yl8();
+            mn8 mn8Var = new mn8();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                yl8Var.o("");
+                mn8Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            yl8Var.o(jSONArray.toString());
+            mn8Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return yl8Var;
+            return mn8Var;
         }
-        return (yl8) invokeV.objValue;
+        return (mn8) invokeV.objValue;
     }
 
-    public yl8 openSearchPage(String str, int i) {
+    public mn8 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            yl8 yl8Var = new yl8();
+            mn8 mn8Var = new mn8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -367,9 +367,9 @@ public class SearchJsBridge implements ul8 {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return yl8Var;
+            return mn8Var;
         }
-        return (yl8) invokeLI.objValue;
+        return (mn8) invokeLI.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {

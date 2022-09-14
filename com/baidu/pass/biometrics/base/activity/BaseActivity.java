@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
 import com.baidu.tieba.R;
@@ -82,8 +81,7 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.c = getResources().getString(R.string.obfuscated_res_0x7f0f0d51);
-            LogUtil.logActivity(this, "onCreate");
+            this.c = getResources().getString(R.string.pass_bio_multi_window_tips);
         }
     }
 

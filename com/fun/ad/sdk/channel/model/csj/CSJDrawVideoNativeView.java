@@ -103,7 +103,7 @@ public final class CSJDrawVideoNativeView extends g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f9);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
         }
     }
 }

@@ -1,53 +1,53 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tieba.e13;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public interface d13 {
-    public static final Set<String> o0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+public final class d13 extends yy2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void A(e13.a aVar);
+    public d13() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    k33 B();
-
-    boolean E();
-
-    void G();
-
-    String getAppId();
-
-    int k();
-
-    void l(Bundle bundle, String str);
-
-    SwanAppCores m();
-
-    String n(String... strArr);
-
-    void o(tf3<e13.a> tf3Var);
-
-    void p(String str);
-
-    a13 q();
-
-    void r(SwanAppActivity swanAppActivity);
-
-    void s();
-
-    void t(SwanAppActivity swanAppActivity);
-
-    void u(tf3<e13.a> tf3Var);
-
-    void v(String str, Bundle bundle);
-
-    SwanAppActivity w();
-
-    di1 x();
-
-    vx2 y();
+    @Override // com.baidu.tieba.yy2
+    public void b(Bundle params) {
+        e13.a b;
+        e13.a b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
+            String string2 = params.getString("swanId");
+            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            String string4 = params.getString("hostName");
+            if (ProcessUtils.isMainProcess()) {
+                if (string != null && (b2 = e13.c.b()) != null) {
+                    b2.a(string, string3, string4);
+                }
+                if (string2 == null || (b = e13.c.b()) == null) {
+                    return;
+                }
+                b.b(string2, string3, string4);
+            }
+        }
+    }
 }

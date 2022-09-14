@@ -1,188 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBVideo;
-import com.win.opensdk.PBVideoListener;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class dk9 extends ReporterPidLoader<PBVideo> {
+public class dk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, PidLoaderCreator> a;
+    public final Map<Ssp.Pid, PidLoader> b;
 
-    /* loaded from: classes3.dex */
-    public class a implements PBVideoListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ PBVideo c;
-        public final /* synthetic */ dk9 d;
-
-        public a(dk9 dk9Var, PBVideo pBVideo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dk9Var, pBVideo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = dk9Var;
-            this.c = pBVideo;
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked(this.c, this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.e("onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded((dk9) this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onRewardedAdClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onRewardedAdOpened() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onRewardedShowFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, 0, str);
-            }
-        }
-
-        @Override // com.win.opensdk.PBVideoListener
-        public void onUserEarnedReward(boolean z, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-                LogPrinter.d();
-                this.d.onRewardedVideo(this.c, z, new String[0]);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dk9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+    public dk9(Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new HashMap();
+        this.a = map;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBVideo pBVideo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (pBVideo = (PBVideo) obj) == null) {
-            return;
-        }
-        pBVideo.destroy();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean isAdAvailable(Object obj) {
+    public PidLoader a(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            PBVideo pBVideo = (PBVideo) obj;
-            return pBVideo != null && pBVideo.isReady();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBVideo pBVideo = new PBVideo(context.getApplicationContext(), this.mPid.pid);
-            pBVideo.setVideoListener(new a(this, pBVideo));
-            pBVideo.load();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            PBVideo pBVideo = (PBVideo) obj;
-            onShowStart(pBVideo);
-            if (pBVideo.isReady()) {
-                pBVideo.show();
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            synchronized (this.b) {
+                PidLoader pidLoader = this.b.get(pid);
+                if (pidLoader != null) {
+                    return pidLoader;
+                }
+                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
+                if (pidLoaderCreator == null) {
+                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
+                    return null;
+                }
+                PidLoader create = pidLoaderCreator.create(pid);
+                if (create == null) {
+                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
+                    return null;
+                }
+                xp9 xp9Var = new xp9(create);
+                this.b.put(pid, xp9Var);
+                return xp9Var;
             }
-            LogPrinter.e("Ad isn't ready now", new Object[0]);
-            return false;
         }
-        return invokeLLLL.booleanValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

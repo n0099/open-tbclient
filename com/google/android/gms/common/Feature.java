@@ -5,9 +5,6 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fo9;
-import com.baidu.tieba.gn9;
-import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,16 +12,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@KeepForSdk
+@SafeParcelable.Class(creator = "FeatureCreator")
 /* loaded from: classes7.dex */
 public class Feature extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
     public static final Parcelable.Creator<Feature> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.Field(getter = "getName", id = 1)
     public final String zza;
+    @SafeParcelable.Field(getter = "getOldVersion", id = 2)
     @Deprecated
     public final int zzb;
+    @SafeParcelable.Field(defaultValue = "-1", getter = WebChromeClient.MSG_METHOD_GETVERSION, id = 3)
     public final long zzc;
 
     static {
@@ -40,10 +47,11 @@ public class Feature extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new fo9();
+        CREATOR = new zzc();
     }
 
-    public Feature(@NonNull String str, int i, long j) {
+    @SafeParcelable.Constructor
+    public Feature(@NonNull @SafeParcelable.Param(id = 1) String str, @SafeParcelable.Param(id = 2) int i, @SafeParcelable.Param(id = 3) long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,6 +71,7 @@ public class Feature extends AbstractSafeParcelable {
         this.zzc = j;
     }
 
+    @KeepForSdk
     public Feature(@NonNull String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,12 +108,14 @@ public class Feature extends AbstractSafeParcelable {
     }
 
     @NonNull
+    @KeepForSdk
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zza : (String) invokeV.objValue;
     }
 
+    @KeepForSdk
     public long getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,7 +129,7 @@ public class Feature extends AbstractSafeParcelable {
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? gn9.b(getName(), Long.valueOf(getVersion())) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hashCode(getName(), Long.valueOf(getVersion())) : invokeV.intValue;
     }
 
     @NonNull
@@ -126,10 +137,10 @@ public class Feature extends AbstractSafeParcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            gn9.a c = gn9.c(this);
-            c.a("name", getName());
-            c.a("version", Long.valueOf(getVersion()));
-            return c.toString();
+            Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
+            stringHelper.add("name", getName());
+            stringHelper.add("version", Long.valueOf(getVersion()));
+            return stringHelper.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -138,11 +149,11 @@ public class Feature extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.k(parcel, 1, getName(), false);
-            jn9.g(parcel, 2, this.zzb);
-            jn9.i(parcel, 3, getVersion());
-            jn9.b(parcel, a);
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeString(parcel, 1, getName(), false);
+            SafeParcelWriter.writeInt(parcel, 2, this.zzb);
+            SafeParcelWriter.writeLong(parcel, 3, getVersion());
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 }

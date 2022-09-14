@@ -6,12 +6,11 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableTextProperties;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class AnimatableTextPropertiesParser {
     public static JsonReader.Options PROPERTIES_NAMES = JsonReader.Options.of("a");
-    public static JsonReader.Options ANIMATABLE_PROPERTIES_NAMES = JsonReader.Options.of("fc", Config.STAT_SDK_CHANNEL, TbConfig.SW_APID, "t");
+    public static JsonReader.Options ANIMATABLE_PROPERTIES_NAMES = JsonReader.Options.of("fc", Config.STAT_SDK_CHANNEL, "sw", "t");
 
     public static AnimatableTextProperties parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         jsonReader.beginObject();

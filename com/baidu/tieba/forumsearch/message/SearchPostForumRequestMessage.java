@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class SearchPostForumRequestMessage extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.word = get_word();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ye5.a(builder, true);
+                    fh5.a(builder, true);
                 }
                 SearchPostForumReqIdl.Builder builder2 = new SearchPostForumReqIdl.Builder();
                 builder2.data = builder.build(false);

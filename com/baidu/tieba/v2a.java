@@ -1,26 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class v2a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v2a {
+    void a(String str, PayFlowType payFlowType);
 
-    public static PayFlowType a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i == PayFlowType.DIOALOG_PAY_FLOW.getTypeId()) {
-                return PayFlowType.DIOALOG_PAY_FLOW;
-            }
-            if (i == PayFlowType.WALLET_PAY_FLOW.getTypeId()) {
-                return PayFlowType.WALLET_PAY_FLOW;
-            }
-            return null;
-        }
-        return (PayFlowType) invokeI.objValue;
-    }
+    void b(PayFlowType payFlowType);
+
+    void c(String str, PayFlowType payFlowType);
+
+    void d(PayFlowType payFlowType, PayDialogType payDialogType);
 }

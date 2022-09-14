@@ -3,9 +3,9 @@ package com.baidu.tbadk.switchs;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.bx4;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.et4;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.mv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +61,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = su4.k().l("key_launch_up_main_tab_data", 1);
+                type = bx4.k().l("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;
@@ -78,7 +78,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
     public static boolean isCacheOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? type == 2 && et4.a().b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? type == 2 && mv4.a().b : invokeV.booleanValue;
     }
 
     public static boolean isOff() {
@@ -93,7 +93,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? type == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.cf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

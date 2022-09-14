@@ -4,15 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bt8;
-import com.baidu.tieba.km4;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.lo4;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
+import com.baidu.tieba.su8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092543);
         }
     }
 
@@ -63,14 +63,14 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (b() || bt8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !pi.x()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (b() || su8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !BdNetTypeUtil.isMobileNet()) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
     public int getLayoutR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d08bb : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d08da : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView, android.view.View.OnClickListener
@@ -80,9 +80,9 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f090abb) {
-            km4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06cf), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view2.getId() != R.id.obfuscated_res_0x7f0919aa || (onClickListener = this.c) == null) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090ad5) {
+            lo4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view2.getId() != R.id.obfuscated_res_0x7f0919e8 || (onClickListener = this.c) == null) {
         } else {
             onClickListener.onClick(view2);
         }
@@ -94,7 +94,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i <= 0) {
             return;
         }
-        this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0dfa), StringHelper.stringForVideoTime(i * 1000)));
+        this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0e14), StringHelper.stringForVideoTime(i * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.faceshop.EmotionData;
+import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,75 +14,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class gc6 {
+public class gc6 extends m55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hq4 a;
-    public ArrayList<fc6> b;
-    public b c;
-    public HttpMessageListener d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public ArrayList<String> i;
 
-    /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gc6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gc6 gc6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gc6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gc6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
-                GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                this.a.a = getForbiddenFansResponse.getPageData();
-                if (this.a.b == null) {
-                    this.a.b = new ArrayList();
-                }
-                if (this.a.a != null) {
-                    if (this.a.a.a() == 1) {
-                        this.a.b.clear();
-                    }
-                    if (getForbiddenFansResponse.getFansList() != null) {
-                        this.a.b.addAll(getForbiddenFansResponse.getFansList());
-                    }
-                }
-                if (this.a.c != null) {
-                    this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(int i, String str, ArrayList<fc6> arrayList);
-    }
-
-    public gc6() {
+    public gc6(EmotionGroupData emotionGroupData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {emotionGroupData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,62 +38,149 @@ public class gc6 {
                 return;
             }
         }
-        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.d);
+        this.i = new ArrayList<>();
+        this.e = emotionGroupData.getGroupId();
+        this.f = emotionGroupData.getGroupName();
+        this.g = emotionGroupData.getWidth();
+        this.h = emotionGroupData.getHeight();
+        u();
     }
 
-    public boolean f() {
+    @Override // com.baidu.tieba.m55
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= this.i.size()) {
+                return null;
+            }
+            return this.i.get(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hq4 hq4Var = this.a;
-            return hq4Var != null && hq4Var.b() == 1;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i.size() : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? EmotionGroupType.BIG_EMOTION : (EmotionGroupType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void g() {
+    @Override // com.baidu.tieba.m55
+    public int l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-            httpMessage.addParam("rn", 20);
-            httpMessage.addParam("pn", 1);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public void h() {
+    @Override // com.baidu.tieba.m55
+    public boolean m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hq4 hq4Var = this.a;
-            if (hq4Var == null || hq4Var.b() == 1) {
-                hq4 hq4Var2 = this.a;
-                int a2 = hq4Var2 != null ? 1 + hq4Var2.a() : 1;
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-                httpMessage.addParam("rn", 20);
-                httpMessage.addParam("pn", a2);
-                MessageManager.getInstance().sendMessage(httpMessage);
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.i.contains(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public on n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return null;
+        }
+        return (on) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m55
+    public on o(String str) {
+        InterceptResult invokeL;
+        String b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (v(str)) {
+                b = fc6.c(str, true, false);
+            } else {
+                b = fc6.b(str, false);
+            }
+            Bitmap f = fc6.f(this.e, b);
+            if (f == null) {
+                return null;
+            }
+            return new on(f, false, str);
+        }
+        return (on) invokeL.objValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            t(2);
+            q(4);
+            Bitmap f = fc6.f(this.e, "panel.png");
+            Bitmap f2 = fc6.f(this.e, "panel_momo.png");
+            if (f != null) {
+                r(new on(f, false));
+            }
+            if (f2 != null) {
+                s(new on(f2, false));
+            }
+            this.i.clear();
+            for (EmotionData emotionData : mc6.o().p(this.e)) {
+                this.i.add(emotionData.getSharpText());
             }
         }
     }
 
-    public void i() {
+    public boolean v(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_") && !substring.contains("collect_")) {
+                    return true;
+                }
+            }
+            return false;
         }
-    }
-
-    public void j(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
-        }
+        return invokeL.booleanValue;
     }
 }

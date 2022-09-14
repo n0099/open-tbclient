@@ -1,149 +1,158 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class kq2 extends qw1 {
+public class kq2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public jq2 B;
-    public boolean C;
-    public String j;
-    public boolean k;
-    public String l;
-    public String m;
-    public boolean n;
-    public boolean o;
-    public int p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public int y;
-    public boolean z;
+    public Activity a;
+    public String b;
+    public ArrayList<yq2> c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921661, "Lcom/baidu/tieba/kq2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SimpleDraweeView a;
+        public TextView b;
+        public TextView c;
+
+        public a(kq2 kq2Var, View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kq2Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947921661, "Lcom/baidu/tieba/kq2;");
-                return;
-            }
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09024d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090250);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024f);
         }
-        boolean z = kh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kq2() {
-        super("vrvideo", "viewId");
+    public kq2(Activity activity, String str, ArrayList<yq2> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = "";
-        this.k = false;
-        this.l = "";
-        this.m = "0";
-        this.n = false;
-        this.o = false;
-        this.p = 0;
-        this.r = true;
-        this.s = "";
-        this.t = "";
-        this.u = true;
-        this.v = true;
-        this.w = true;
-        this.x = true;
-        this.y = -1;
-        this.z = true;
-        this.A = true;
-        this.B = new jq2();
-        this.C = true;
+        this.a = activity;
+        this.b = str;
+        this.c = arrayList;
+        this.d = (int) (pg3.f(activity, 50.0f) / 2.0f);
     }
 
-    public static kq2 h(JSONObject jSONObject, @NonNull kq2 kq2Var) {
-        InterceptResult invokeLL;
+    public final String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, kq2Var)) == null) {
-            kq2 kq2Var2 = new kq2();
-            if (jSONObject != null) {
-                kq2Var2.e(jSONObject, kq2Var);
-                kq2Var2.j = jSONObject.optString("videoId", kq2Var.j);
-                kq2Var2.n = jSONObject.optBoolean("autoplay", kq2Var.n);
-                kq2Var2.k = jSONObject.optBoolean("muted", kq2Var.k);
-                kq2Var2.m = jSONObject.optString("initialTime", kq2Var.m);
-                kq2Var2.l = jSONObject.optString(NativeConstants.POSTER, kq2Var.l);
-                kq2Var2.p = jSONObject.optInt(CriusAttrConstants.POSITION, kq2Var.p);
-                kq2Var2.q = jSONObject.optBoolean("fullScreen", kq2Var.q);
-                kq2Var2.o = jSONObject.optBoolean("loop", kq2Var.o);
-                kq2Var2.r = jSONObject.optBoolean("controls", kq2Var.r);
-                kq2Var2.s = i(jSONObject.optString("src", kq2Var.s));
-                kq2Var2.A = !i83.E(jSONObject.optString("src", kq2Var.s));
-                kq2Var2.u = jSONObject.optBoolean("showPlayBtn", kq2Var.u);
-                kq2Var2.v = jSONObject.optBoolean("showMuteBtn", kq2Var.v);
-                kq2Var2.w = jSONObject.optBoolean("showCenterPlayBtn", kq2Var.w);
-                kq2Var2.x = jSONObject.optBoolean("showProgress", kq2Var.x);
-                kq2Var2.z = jSONObject.optBoolean("showFullscreenBtn", kq2Var.z);
-                kq2Var2.t = jSONObject.optString("sanId", kq2Var.t);
-                kq2Var2.B = kq2Var2.B.a(jSONObject.optJSONObject("vrVideoMode"));
-                kq2Var2.C = jSONObject.optBoolean("showNoWifiTip", kq2Var.C);
-            }
-            return kq2Var2;
-        }
-        return (kq2) invokeLL.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TextUtils.equals(this.b, "Image") ? this.a.getString(R.string.obfuscated_res_0x7f0f12e1, new Object[]{Integer.valueOf(i)}) : this.a.getString(R.string.obfuscated_res_0x7f0f12b0, new Object[]{Integer.valueOf(i)}) : (String) invokeI.objValue;
     }
 
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (!i83.E(str) || a13.M() == null) ? str : i83.H(str, a13.M()) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.j) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qw1
-    public String toString() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", mAutoPlay=" + this.n + ", mShowNoWifiTip=" + this.C + ", mLoop=" + this.o + ", mPos=" + this.p + ", mFullScreen=" + this.q + ", mShowControlPanel=" + this.r + ", mSrc='" + this.s + "', mSanId='" + this.t + "', mShowPlayBtn=" + this.u + ", mShowMuteBtn=" + this.v + ", mShowCenterPlayBtn=" + this.w + ", mShowProgress=" + this.x + ", mDirection=" + this.y + ", mShowFullscreenBtn=" + this.z + ", mIsRemoteFile=" + this.A + ", mVrVideoMode=" + this.B.toString() + '}';
+            ArrayList<yq2> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i < 0 || i > this.c.size()) {
+                return null;
+            }
+            return this.c.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0825, (ViewGroup) null);
+                aVar = new a(this, view2);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
+            }
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081180));
+            yq2 yq2Var = this.c.get(i);
+            if (yq2Var == null) {
+                return view2;
+            }
+            aVar.b.setText(yq2Var.c());
+            ArrayList<MediaModel> arrayList = yq2Var.d;
+            if (arrayList == null) {
+                return view2;
+            }
+            aVar.c.setText(a(arrayList.size()));
+            if (yq2Var.d.get(0) != null && !TextUtils.isEmpty(yq2Var.d.get(0).getPath())) {
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(yq2Var.d.get(0).getPath())));
+                int i2 = this.d;
+                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
+                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
+                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

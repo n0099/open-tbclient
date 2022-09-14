@@ -1,84 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.graphics.PointF;
+import android.view.animation.Interpolator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class c94 extends y84<x94> {
+public class c94 implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final PointF b;
+    public final PointF c;
 
-    public c94() {
+    public c94(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = new PointF();
+        PointF pointF = new PointF();
+        this.c = pointF;
+        PointF pointF2 = this.b;
+        pointF2.x = f;
+        pointF2.y = f2;
+        pointF.x = f3;
+        pointF.y = f4;
     }
 
-    @Override // com.baidu.tieba.y84
-    public List<x94> e(Cursor cursor) {
-        InterceptResult invokeL;
+    public final double a(double d, double d2, double d3, double d4, double d5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return arrayList;
-            }
-            do {
-                x94 x94Var = new x94();
-                if (b(cursor, x94Var)) {
-                    arrayList.add(x94Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
+            double d6 = 1.0d - d;
+            double d7 = d * d;
+            double d8 = d6 * d6;
+            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    @Override // android.animation.TimeInterpolator
+    public float getInterpolation(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            int i = this.a;
+            float f2 = f;
+            while (true) {
+                if (i >= 4096) {
+                    break;
                 }
-            } while (cursor.moveToNext());
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y84
-    /* renamed from: f */
-    public ContentValues c(x94 x94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, x94Var)) == null) {
-            ContentValues a = super.a(x94Var);
-            a.put("pkg_type", Integer.valueOf(x94Var.o));
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y84
-    /* renamed from: g */
-    public x94 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return null;
+                f2 = (i * 1.0f) / 4096.0f;
+                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
+                    this.a = i;
+                    break;
+                }
+                i++;
             }
-            x94 x94Var = new x94();
-            if (b(cursor, x94Var)) {
-                return x94Var;
+            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
+            if (a > 0.999d) {
+                a = 1.0d;
+                this.a = 0;
             }
-            return null;
+            return (float) a;
         }
-        return (x94) invokeL.objValue;
+        return invokeF.floatValue;
     }
 }

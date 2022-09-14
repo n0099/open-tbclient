@@ -1,48 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.asynctask.BdAsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes3.dex */
-public interface c90 {
+public abstract class c90<V> extends FutureTask<V> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public BdAsyncTask<?, ?, ?> a;
 
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(c90 c90Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj != null) {
-                throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c90(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
+        super(callable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callable, bdAsyncTask};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Callable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if ((i & 4) != 0) {
-                requestSearchData = new RequestSearchData();
-            }
-            c90Var.g(str, str2, requestSearchData);
         }
+        this.a = null;
+        this.a = bdAsyncTask;
     }
 
-    void a(Context context, String str);
+    public abstract void a();
 
-    void b(Context context);
-
-    void c();
-
-    void d();
-
-    void e(Context context);
-
-    void f(Context context, int i);
-
-    void g(String str, String str2, RequestSearchData requestSearchData);
-
-    void h();
-
-    void i(String str);
-
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
-
-    void onDetach();
+    public BdAsyncTask<?, ?, ?> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BdAsyncTask) invokeV.objValue;
+    }
 }

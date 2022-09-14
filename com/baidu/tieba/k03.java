@@ -2,48 +2,32 @@ package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l03;
+import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class k03 {
+public class k03 {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static k03 d;
+    public static Context e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public Context b;
-    public Resources c;
-    public List<l03> d;
-    public m03 e;
-    public l03.a f;
-    public PopupWindow g;
-    public View.OnKeyListener h;
-    public int i;
-    public View j;
-    public boolean k;
-    public f l;
-    public boolean m;
-    public float n;
-    public boolean o;
-    public int p;
-    public boolean q;
-    public Runnable r;
+    public EditText a;
+    public boolean b;
+    public Runnable c;
 
     /* loaded from: classes4.dex */
-    public class a implements l03.a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k03 a;
@@ -66,23 +50,18 @@ public abstract class k03 {
             this.a = k03Var;
         }
 
-        @Override // com.baidu.tieba.l03.a
-        public void a(l03 l03Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, l03Var) == null) {
-                if (l03Var.f()) {
-                    this.a.k(l03Var.a());
-                }
-                l03.a aVar = this.a.f;
-                if (aVar != null) {
-                    aVar.a(l03Var);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                this.a.a.postDelayed(this.a.c, 60L);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements View.OnKeyListener {
+    public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k03 a;
@@ -105,30 +84,37 @@ public abstract class k03 {
             this.a = k03Var;
         }
 
-        @Override // android.view.View.OnKeyListener
-        public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view2, i, keyEvent)) == null) {
-                if (keyEvent.getAction() == 1) {
-                    if (i == 4 || i == 82) {
-                        this.a.j();
-                        View.OnKeyListener onKeyListener = this.a.h;
-                        if (onKeyListener != null) {
-                            onKeyListener.onKey(view2, i, keyEvent);
-                        }
-                        return true;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                Object adapter = adapterView.getAdapter();
+                if (adapter instanceof EmojiBagLayout.b) {
+                    EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
+                    if (this.a.a == null) {
+                        return;
                     }
-                    return false;
+                    if (i == bVar.getCount() - 1) {
+                        if (this.a.b) {
+                            this.a.a.removeCallbacks(this.a.c);
+                            this.a.b = false;
+                            return;
+                        }
+                        this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                        return;
+                    }
+                    String item = bVar.getItem(i);
+                    if (TextUtils.isEmpty(item)) {
+                        return;
+                    }
+                    this.a.a.getEditableText().insert(this.a.a.getSelectionStart(), l03.c().g(k03.e, item, this.a.a));
                 }
-                return false;
             }
-            return invokeLIL.booleanValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements PopupWindow.OnDismissListener {
+    public class c implements AdapterView.OnItemLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k03 a;
@@ -151,23 +137,28 @@ public abstract class k03 {
             this.a = k03Var;
         }
 
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
+        @Override // android.widget.AdapterView.OnItemLongClickListener
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.m) {
-                    this.a.h();
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+                Object adapter = adapterView.getAdapter();
+                if ((adapter instanceof EmojiBagLayout.b) && i == ((EmojiBagLayout.b) adapter).getCount() - 1) {
+                    this.a.b = true;
+                    if (this.a.a != null) {
+                        this.a.a.post(this.a.c);
+                        return false;
+                    }
+                    return false;
                 }
-                m03 m03Var = this.a.e;
-                if (m03Var != null) {
-                    m03Var.a();
-                }
+                return false;
             }
+            return invokeCommon.booleanValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements Runnable {
+    public class d implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k03 a;
@@ -190,72 +181,25 @@ public abstract class k03 {
             this.a = k03Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.m) {
-                        this.a.i(this.a.n);
-                    }
-                    this.a.u(this.a.g);
-                } catch (Exception e) {
-                    if (kh1.a) {
-                        Log.w("PopupWindow", "Exception", e);
-                    }
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (motionEvent.getAction() == 1) {
+                    this.a.k();
+                    return false;
                 }
+                return false;
             }
+            return invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k03 a;
-
-        public e(k03 k03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k03Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface f {
-        void a(List<l03> list);
-    }
-
-    /* loaded from: classes4.dex */
-    public interface g {
-    }
-
-    public k03(View view2) {
+    public k03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -265,220 +209,57 @@ public abstract class k03 {
                 return;
             }
         }
-        this.k = true;
-        this.m = false;
-        this.n = 0.5f;
-        this.o = false;
-        this.p = R.style.obfuscated_res_0x7f100405;
-        this.r = new e(this);
-        this.a = view2;
-        this.b = view2.getContext();
-        this.c = this.a.getResources();
-        this.d = new ArrayList();
-        this.i = -2;
-        this.q = hk2.M().a();
-        o(this.b);
+        this.c = new a(this);
     }
 
-    public l03 e(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? f(i, this.c.getString(i2), null) : (l03) invokeII.objValue;
-    }
-
-    public l03 f(int i, CharSequence charSequence, Drawable drawable) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, charSequence, drawable)) == null) {
-            l03 l03Var = new l03(this.b, i, charSequence, drawable);
-            g(l03Var);
-            return l03Var;
-        }
-        return (l03) invokeILL.objValue;
-    }
-
-    public l03 g(l03 l03Var) {
+    public static k03 g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l03Var)) == null) {
-            l03Var.g(this);
-            if (this.k) {
-                l03Var.h(new a(this));
-            } else {
-                l03Var.h(this.f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            e = context.getApplicationContext();
+            if (d == null) {
+                synchronized (k03.class) {
+                    if (d == null) {
+                        d = new k03();
+                    }
+                }
             }
-            this.d.add(l03Var);
-            return l03Var;
+            return d;
         }
-        return (l03) invokeL.objValue;
+        return (k03) invokeL.objValue;
     }
 
-    public final void h() {
-        View view2;
+    public void f(EditText editText) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        ((ViewGroup) view2.getRootView()).getOverlay().clear();
-    }
-
-    public final void i(float f2) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        ViewGroup viewGroup = (ViewGroup) view2.getRootView();
-        ColorDrawable colorDrawable = new ColorDrawable(-16777216);
-        colorDrawable.setBounds(0, 0, viewGroup.getWidth(), viewGroup.getHeight());
-        colorDrawable.setAlpha((int) (f2 * 255.0f));
-        viewGroup.getOverlay().add(colorDrawable);
-    }
-
-    public void j() {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (popupWindow = this.g) == null) {
-            return;
-        }
-        try {
-            popupWindow.dismiss();
-        } catch (Exception e2) {
-            if (kh1.a) {
-                Log.w("PopupWindow", "Exception", e2);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
+            this.a = editText;
         }
     }
 
-    public void k(long j) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        view2.removeCallbacks(this.r);
-        if (j > 0) {
-            this.a.postDelayed(this.r, j);
-        } else {
-            j();
-        }
-    }
-
-    public abstract void l(View view2, List<l03> list);
-
-    public abstract View m(Context context);
-
-    public boolean n() {
+    public AdapterView.OnItemClickListener h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            PopupWindow popupWindow = this.g;
-            return popupWindow != null && popupWindow.isShowing();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new b(this) : (AdapterView.OnItemClickListener) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public void o(Context context) {
+    public AdapterView.OnItemLongClickListener i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            View m = m(context);
-            this.j = m;
-            m.setFocusable(true);
-            this.j.setFocusableInTouchMode(true);
-            if (!(this.j instanceof g) && kh1.a) {
-                throw new IllegalArgumentException("The view returned by getMenuView() MUST implement OnMenuSetChangedListener!");
-            }
-            this.j.setOnKeyListener(new b(this));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new c(this) : (AdapterView.OnItemLongClickListener) invokeV.objValue;
     }
 
-    public void p(boolean z) {
+    public View.OnTouchListener j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.m = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this) : (View.OnTouchListener) invokeV.objValue;
     }
 
-    public void q(boolean z) {
+    public void k() {
+        EditText editText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void r(l03.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.f = aVar;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (hk2.M().a() != this.q) {
-                o(this.b);
-                this.g = null;
-            }
-            v(true);
-            this.q = hk2.M().a();
-        }
-    }
-
-    public abstract void u(PopupWindow popupWindow);
-
-    public final void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            m03 m03Var = this.e;
-            if (m03Var != null) {
-                m03Var.b();
-            }
-            w(this.d);
-            l(this.j, this.d);
-            j();
-            if (this.g == null) {
-                PopupWindow popupWindow = new PopupWindow(this.j, this.i, -2, true);
-                this.g = popupWindow;
-                if (this.o) {
-                    popupWindow.setAnimationStyle(this.p);
-                }
-                if (z) {
-                    this.g.setBackgroundDrawable(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0801b0));
-                    this.g.setTouchable(true);
-                } else {
-                    this.g.setTouchable(false);
-                }
-                this.g.setOnDismissListener(new c(this));
-            }
-            View view2 = this.a;
-            if (view2 == null) {
-                m03 m03Var2 = this.e;
-                if (m03Var2 != null) {
-                    m03Var2.a();
-                    return;
-                }
-                return;
-            }
-            view2.post(new d(this));
-            this.j.postInvalidate();
-        }
-    }
-
-    public void w(List<l03> list) {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, list) == null) || (fVar = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (editText = this.a) == null) {
             return;
         }
-        fVar.a(list);
+        editText.removeCallbacks(this.c);
     }
 }

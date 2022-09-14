@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -298,12 +298,12 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
-            int i = ri.i(getContext());
+            int i = ej.i(getContext());
             int container = webViewCard.getContainer();
             if (container == 1) {
-                setWebviewHeight(i - ri.f(getContext(), R.dimen.obfuscated_res_0x7f070280));
+                setWebviewHeight(i - ej.f(getContext(), R.dimen.obfuscated_res_0x7f070280));
             } else if (container == 2) {
-                setWebviewHeight(i - ri.f(getContext(), R.dimen.obfuscated_res_0x7f07029e));
+                setWebviewHeight(i - ej.f(getContext(), R.dimen.obfuscated_res_0x7f07029e));
             }
         }
         if (TextUtils.isEmpty(webViewCard.getPageUrl())) {
@@ -312,7 +312,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.o, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.pf7
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.vg7
     public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {
@@ -327,7 +327,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null);
+            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c6, (ViewGroup) null);
             G();
             return this.n;
         }

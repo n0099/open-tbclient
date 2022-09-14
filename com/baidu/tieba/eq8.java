@@ -1,28 +1,58 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.od7;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes3.dex */
-public class eq8 extends PriorityOrganizer.Task {
+public class eq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity m;
-    public boolean n;
+    public Timer a;
+    public TimerTask b;
 
     /* loaded from: classes3.dex */
-    public class a implements od7.f {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ eq8 a;
+
+        /* renamed from: com.baidu.tieba.eq8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class RunnableC0244a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0244a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.b();
+                }
+            }
+        }
 
         public a(eq8 eq8Var) {
             Interceptable interceptable = $ic;
@@ -42,81 +72,52 @@ public class eq8 extends PriorityOrganizer.Task {
             this.a = eq8Var;
         }
 
-        @Override // com.baidu.tieba.od7.f
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.u();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eq8 a;
-
-        public b(eq8 eq8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eq8Var;
-        }
-
-        @Override // java.lang.Runnable
+        @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || od7.m(this.a.m).I(this.a.m.D.intValue(), 0)) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gh.a().post(new RunnableC0244a(this));
             }
-            this.a.u();
         }
     }
 
-    public eq8(TbPageContext tbPageContext, sn8 sn8Var, MainTabActivity mainTabActivity, boolean z) {
+    public eq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, sn8Var, mainTabActivity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.m = mainTabActivity;
-        this.n = z;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void A() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            od7.m(this.m).F(new a(this));
-            sg.a().postDelayed(new b(this), 400L);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
+            this.a = new Timer();
+            a aVar = new a(this);
+            this.b = aVar;
+            this.a.schedule(aVar, em5.a() ? 1000L : 2400000L);
         }
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean x() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !(TbSingleton.getInstance().isCanShowHotSplash || od7.n || TbSingleton.getInstance().mIsSplashClick) || this.n : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Timer timer = this.a;
+            if (timer != null) {
+                timer.cancel();
+                this.a = null;
+            }
+            TimerTask timerTask = this.b;
+            if (timerTask != null) {
+                timerTask.cancel();
+                this.b = null;
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ import com.baidubce.http.BceHttpResponse;
 import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.JsonUtils;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BceJsonResponseHandler implements HttpResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

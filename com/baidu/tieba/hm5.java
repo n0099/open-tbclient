@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
 /* loaded from: classes4.dex */
-public class hm5 extends og0 {
+public class hm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,21 +25,34 @@ public class hm5 extends og0 {
         }
     }
 
-    @Override // com.baidu.tieba.og0
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(d05 d05Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "commonVideo" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, d05Var) == null) || d05Var == null) {
+            return;
+        }
+        if (d05Var.b != 0) {
+            bx4.k().y("app_entrance_nologin", d05Var.b + "");
+        }
+        if (d05Var.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+            return;
+        }
+        bx4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), d05Var.a + "");
     }
 
-    @Override // com.baidu.tieba.og0
-    public boolean b(@NonNull Context context, @NonNull sg0 sg0Var, @Nullable Map<String, Object> map, @Nullable wg0 wg0Var) {
-        InterceptResult invokeLLLL;
+    public int a() {
+        InterceptResult invokeV;
+        String q;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sg0Var, map, wg0Var)) == null) {
-            super.b(context, sg0Var, map, wg0Var);
-            return fc8.d(context, sg0Var.d());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                q = bx4.k().q("app_entrance_nologin", "");
+            } else {
+                bx4 k = bx4.k();
+                q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
+            }
+            int e = dh.e(q, 0);
+            return (e != 1 && e == 2) ? 1 : 2;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.intValue;
     }
 }

@@ -2,33 +2,31 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.h03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes6.dex */
-public class w33 extends x23 {
+public class w33 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w33(x13 x13Var) {
-        super(x13Var, "/swanAPI/showLoading");
+    public w33(v33 v33Var) {
+        super(v33Var, "/swanAPI/abTestConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,63 +40,75 @@ public class w33 extends x23 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File a = nf3.a();
+            if (a == null) {
+                return null;
+            }
+            String path = a.getPath();
+            if (TextUtils.isEmpty(path)) {
+                return null;
+            }
+            return path + "/debug_abtest_config.json";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            if (a13Var != null && a13Var.n0()) {
-                if (x23.b) {
-                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                JSONObject a = v43.a(unitedSchemeEntity, "params");
+                if (a != null && context != null) {
+                    JSONObject optJSONObject = a.optJSONObject("abtest");
+                    if (optJSONObject != null) {
+                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f12c7 : R.string.obfuscated_res_0x7f0f12c5, 1).show();
+                    } else {
+                        j();
+                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c8, 1).show();
+                    }
+                    return true;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c6, 1).show();
                 return false;
-            } else if (!(context instanceof SwanAppActivity)) {
-                ay1.c("showLoading", "context not support");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    ay1.c("showLoading", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                ay1.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
-                String optString = optParamsAsJo.optString("title");
-                if (TextUtils.isEmpty(optString)) {
-                    ay1.c("showLoading", "none title");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-                j02 X = ((SwanAppActivity) context).X();
-                if (X == null) {
-                    ay1.c("showLoading", "none fragment");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
-                    return false;
-                }
-                g02 m = X.m();
-                if (!(m instanceof h03.a)) {
-                    ay1.c("showLoading", "fragment not support");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
-                    return false;
-                }
-                h03 d = ((h03.a) m).d();
-                if (d == null) {
-                    ay1.c("showLoading", "can't get floatLayer");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
-                    return false;
-                }
-                i03.f(d, context, optString, optBoolean);
-                ay1.i("showLoading", "show loading success");
-                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
             }
+            return false;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
+                return;
+            }
+            File file = new File(k);
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+    }
+
+    public final boolean l(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
+                return false;
+            }
+            return bm2.b(k, jSONObject.toString(), false);
+        }
+        return invokeL.booleanValue;
     }
 }

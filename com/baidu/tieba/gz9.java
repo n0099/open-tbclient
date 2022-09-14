@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes4.dex */
-public abstract class gz9 {
+public final class gz9<E> extends dz9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,42 +22,58 @@ public abstract class gz9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
+        f(linkedQueueNode);
+        e(linkedQueueNode);
+        linkedQueueNode.soNext(null);
     }
 
-    @Deprecated
-    public <T> yu9.a<T> a(yu9.a<T> aVar) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (yu9.a) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                b().soNext(linkedQueueNode);
+                f(linkedQueueNode);
+                return true;
+            }
+            throw new NullPointerException("null elements not allowed");
+        }
+        return invokeL.booleanValue;
     }
 
-    @Deprecated
-    public <T, R> yu9.b<? extends R, ? super T> b(yu9.b<? extends R, ? super T> bVar) {
-        InterceptResult invokeL;
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (yu9.b) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedQueueNode<E> lvNext = a().lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
     }
 
-    @Deprecated
-    public <T> Throwable c(Throwable th) {
-        InterceptResult invokeL;
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> fv9 d(fv9 fv9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fv9Var)) == null) ? fv9Var : (fv9) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> yu9.a<T> e(yu9<? extends T> yu9Var, yu9.a<T> aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, yu9Var, aVar)) == null) ? aVar : (yu9.a) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> lvNext = a().lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                e(lvNext);
+                return andNullValue;
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
     }
 }

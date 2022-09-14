@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GamePlayServiceData;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.bx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -144,7 +144,7 @@ public class GamePlayServiceModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            su4 k = su4.k();
+            bx4 k = bx4.k();
             return k.q(PREFIX + str, "");
         }
         return (String) invokeL.objValue;
@@ -183,11 +183,11 @@ public class GamePlayServiceModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, str, gamePlayServiceData) == null) {
             if (gamePlayServiceData == null) {
-                su4 k = su4.k();
+                bx4 k = bx4.k();
                 k.y(PREFIX + str, "");
                 return;
             }
-            su4 k2 = su4.k();
+            bx4 k2 = bx4.k();
             k2.y(PREFIX + str, new Gson().toJson(gamePlayServiceData));
         }
     }

@@ -5,18 +5,18 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bz2;
-import com.baidu.tieba.dz2;
-import com.baidu.tieba.sy2;
+import com.baidu.tieba.b13;
+import com.baidu.tieba.q03;
+import com.baidu.tieba.z03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class SPSwitchFSPanelLinearLayout extends LinearLayout implements dz2 {
+public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sy2 a;
+    public q03 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -42,11 +42,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements dz2 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new sy2(this);
+            this.a = new q03(this);
         }
     }
 
-    @Override // com.baidu.tieba.dz2
+    @Override // com.baidu.tieba.b13
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -54,11 +54,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements dz2 {
         }
     }
 
-    @Override // com.baidu.tieba.dz2
+    @Override // com.baidu.tieba.b13
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            bz2.g(this, i);
+            z03.g(this, i);
         }
     }
 

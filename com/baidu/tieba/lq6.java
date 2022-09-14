@@ -1,281 +1,120 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.KeyEventDealContainerView;
-import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tieba.frs.tab.HorizontalTabView;
-import com.baidu.tieba.frs.tab.TabItemView;
+import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
-public class lq6 {
+public class lq6 extends qn<jl8, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public wg6 b;
-    public MorePopupWindow c;
-    public View d;
-    public SparseArray<hq6> e;
-    public Context f;
-    public hq6 g;
-    public e h;
-    public d i;
+    public ThemeColorInfo a;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq6 a;
+        public final /* synthetic */ jl8 a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ lq6 d;
 
-        public a(lq6 lq6Var) {
+        public a(lq6 lq6Var, jl8 jl8Var, ViewGroup viewGroup, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lq6Var};
+                Object[] objArr = {lq6Var, jl8Var, viewGroup, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = lq6Var;
+            this.d = lq6Var;
+            this.a = jl8Var;
+            this.b = viewGroup;
+            this.c = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ug.c(this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements KeyEventDealContainerView.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq6 a;
-
-        public b(lq6 lq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lq6Var;
-        }
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.d.getOnAdapterItemClickListener() == null) {
                 return;
             }
-            ug.c(this.a.c);
+            this.d.getOnAdapterItemClickListener().b(view2, this.a, jl8.e, this.b, this.c, view2.getId());
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements PopupWindow.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TabItemView a;
-        public final /* synthetic */ lq6 b;
-
-        public c(lq6 lq6Var, TabItemView tabItemView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lq6Var, tabItemView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = lq6Var;
-            this.a = tabItemView;
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.i == null) {
-                return;
-            }
-            this.b.i.a(this.a);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface d {
-        void a(TabItemView tabItemView);
-    }
-
-    /* loaded from: classes4.dex */
-    public interface e {
-        void a(int i);
-    }
-
-    /* loaded from: classes4.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public View c;
-        public View d;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public lq6(Context context, e eVar, d dVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lq6(@NonNull Context context) {
+        super(context, jl8.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, eVar, dVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = context;
-        this.h = eVar;
-        this.i = dVar;
-        this.e = new SparseArray<>();
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.a = linearLayout;
-        linearLayout.setOrientation(1);
-        this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        View view2 = new View(context);
-        this.d = view2;
-        view2.setOnClickListener(new a(this));
     }
 
-    public void c() {
-        MorePopupWindow morePopupWindow;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jl8 jl8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        t(i, view2, viewGroup, jl8Var, frsLikeRecommendHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (morePopupWindow = this.c) == null) {
-            return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0331, viewGroup, false), this.a) : (FrsLikeRecommendHolder) invokeL.objValue;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, jl8 jl8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jl8Var, frsLikeRecommendHolder})) == null) {
+            if (jl8Var != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.a(jl8Var);
+                frsLikeRecommendHolder.c(new a(this, jl8Var, viewGroup, i));
+                frsLikeRecommendHolder.b();
+            }
+            return view2;
         }
-        try {
-            morePopupWindow.dismiss();
-        } catch (Exception e2) {
-            BdLog.e(e2);
-        }
+        return (View) invokeCommon.objValue;
     }
 
-    public e d() {
-        InterceptResult invokeV;
+    public void u(ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (e) invokeV.objValue;
-    }
-
-    public final void e(Activity activity, View view2, TabItemView tabItemView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, view2, tabItemView) == null) {
-            if (this.c == null) {
-                this.c = new MorePopupWindow(activity, this.a, view2, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081211), new b(this));
-            }
-            this.c.setOnDismissListener(new c(this, tabItemView));
-        }
-    }
-
-    public void f(Activity activity, View view2, TabItemView tabItemView, wg6 wg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, view2, tabItemView, wg6Var) == null) {
-            this.b = wg6Var;
-            hq6 hq6Var = this.e.get(wg6Var.a);
-            this.g = hq6Var;
-            if (hq6Var == null) {
-                hq6 a2 = oq6.a(this.b.a);
-                this.g = a2;
-                a2.a(this.f, this);
-                this.e.put(this.b.a, this.g);
-            }
-            this.g.setData(wg6Var.b);
-            if (view2 instanceof HorizontalTabView) {
-                HorizontalTabView horizontalTabView = (HorizontalTabView) view2;
-                if (horizontalTabView.getmShowMenuCallBack() != null) {
-                    int[] iArr = new int[2];
-                    horizontalTabView.getLocationInWindow(iArr);
-                    ri.y(horizontalTabView.getContext());
-                    int i = ri.i(horizontalTabView.getContext());
-                    int b2 = this.g.b();
-                    int measuredHeight = (i - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                    if (measuredHeight < b2) {
-                        horizontalTabView.getmShowMenuCallBack().b(b2 - measuredHeight);
-                    }
-                }
-            }
-            this.a.removeAllViews();
-            this.a.addView(this.g.getView());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            SkinManager.setBackgroundResource(this.d, R.color.common_color_10050);
-            this.a.addView(this.d, layoutParams);
-            e(activity, view2, tabItemView);
-            MorePopupWindow morePopupWindow = this.c;
-            if (morePopupWindow != null) {
-                morePopupWindow.refresh();
-                this.c.setWidthAsWidthOfDeviceScreen(activity);
-                this.c.setHeight(-1);
-                this.c.showWindowInCustomPosition(0, 0);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, themeColorInfo) == null) {
+            this.a = themeColorInfo;
         }
     }
 }

@@ -1,151 +1,120 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.annotation.NonNull;
-import androidx.core.view.MotionEventCompat;
-import androidx.core.view.ViewConfigurationCompat;
+import android.graphics.Bitmap;
+import com.airbnb.lottie.ImageAssetDelegate;
+import com.airbnb.lottie.LottieImageAsset;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tj5 {
+public class tj5 implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
-    public int g;
-    public VelocityTracker h;
-    @NonNull
-    public ViewGroup i;
-    public boolean j;
+    public String a;
+    public LocalFileImageLoaderProc b;
+    public boolean c;
 
-    public tj5(ViewGroup viewGroup) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948183146, "Lcom/baidu/tieba/tj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948183146, "Lcom/baidu/tieba/tj5;");
+                return;
+            }
+        }
+        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    }
+
+    public tj5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = -1;
-        this.j = true;
-        this.i = viewGroup;
-        this.c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(viewGroup.getContext()));
+        this.c = false;
     }
 
-    @SuppressLint({"LongLogTag"})
-    public boolean a(MotionEvent motionEvent) {
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d + "/" + TbConfig.getTempDirName() + "/animation/";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = a() + str + "/";
+        }
+    }
+
+    @Override // com.airbnb.lottie.ImageAssetDelegate
+    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            int action = motionEvent.getAction() & 255;
-            if (action != 3 && action != 1) {
-                if (action != 0) {
-                    if (this.a) {
-                        return true;
-                    }
-                    if (this.b) {
-                        return false;
-                    }
-                }
-                if (action == 0) {
-                    this.e = motionEvent.getX();
-                    float y = motionEvent.getY();
-                    this.f = y;
-                    this.d = y;
-                    this.g = MotionEventCompat.getPointerId(motionEvent, 0);
-                    this.b = false;
-                    this.a = false;
-                } else if (action == 2) {
-                    int i = this.g;
-                    if (i != -1) {
-                        int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
-                        if (findPointerIndex >= 0 && findPointerIndex < motionEvent.getPointerCount()) {
-                            float y2 = MotionEventCompat.getY(motionEvent, findPointerIndex) - this.d;
-                            float abs = Math.abs(y2);
-                            float abs2 = Math.abs(MotionEventCompat.getX(motionEvent, findPointerIndex) - this.e);
-                            float f = this.j ? 0.5f : 3.0f;
-                            if (abs > this.c && abs * f > abs2) {
-                                this.a = true;
-                                c(true);
-                                this.d = y2 > 0.0f ? this.f + this.c : this.f - this.c;
-                            } else if (abs2 > this.c) {
-                                this.b = true;
-                            }
-                        } else {
-                            this.a = false;
-                        }
-                    }
-                } else if (action == 6) {
-                    b(motionEvent);
-                }
-                if (this.h == null) {
-                    this.h = VelocityTracker.obtain();
-                }
-                this.h.addMovement(motionEvent);
-                return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
+            if (dj.isEmpty(this.a)) {
+                return null;
             }
-            this.a = false;
-            this.b = false;
-            this.g = -1;
-            VelocityTracker velocityTracker = this.h;
-            if (velocityTracker != null) {
-                velocityTracker.recycle();
-                this.h = null;
+            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
+            on onVar = (on) zg.h().n(str, 36, new Object[0]);
+            if (onVar == null && b()) {
+                if (this.b == null) {
+                    this.b = new LocalFileImageLoaderProc();
+                }
+                onVar = this.b.getBitmapFromFile(str, 0, 0);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void b(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
-            int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-            if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.g) {
-                int i = actionIndex == 0 ? 1 : 0;
-                this.d = MotionEventCompat.getY(motionEvent, i);
-                this.g = MotionEventCompat.getPointerId(motionEvent, i);
-                VelocityTracker velocityTracker = this.h;
-                if (velocityTracker != null) {
-                    velocityTracker.clear();
+            if (onVar != null && onVar.p() != null) {
+                Bitmap p = onVar.p();
+                try {
+                    if (p.getConfig() != null) {
+                        return p.copy(p.getConfig(), false);
+                    }
+                } catch (OutOfMemoryError e) {
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
+                    BdLog.e(e);
                 }
             }
+            zg.h().m(str, 36, null, null);
+            return null;
         }
-    }
-
-    public final void c(boolean z) {
-        ViewParent parent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (parent = this.i.getParent()) == null) {
-            return;
-        }
-        parent.requestDisallowInterceptTouchEvent(z);
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.j = z;
-        }
+        return (Bitmap) invokeL.objValue;
     }
 }

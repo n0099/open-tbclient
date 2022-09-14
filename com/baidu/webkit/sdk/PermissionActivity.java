@@ -6,7 +6,6 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,27 +39,23 @@ public class PermissionActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             int a = a.a(this);
             super.onCreate(bundle);
-            if (a != -1 && Build.VERSION.SDK_INT == 26 && getApplicationInfo().targetSdkVersion > 26 && a.c(this) && !a.b(this)) {
-                try {
-                    Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                    declaredField.setAccessible(true);
-                    Object obj = declaredField.get(this);
-                    Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
-                    declaredField2.setAccessible(true);
-                    if (declaredField2.getInt(obj) == -1) {
-                        declaredField2.setInt(obj, a);
-                    }
-                    LogUtil.logActivity(this, "onCreate");
-                    return;
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (NoSuchFieldException e2) {
-                    e2.printStackTrace();
-                    LogUtil.logActivity(this, "onCreate");
-                    return;
-                }
+            if (a == -1 || Build.VERSION.SDK_INT != 26 || getApplicationInfo().targetSdkVersion <= 26 || !a.c(this) || a.b(this)) {
+                return;
             }
-            LogUtil.logActivity(this, "onCreate");
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(this);
+                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+                declaredField2.setAccessible(true);
+                if (declaredField2.getInt(obj) == -1) {
+                    declaredField2.setInt(obj, a);
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 

@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.g19;
+import com.baidu.tieba.y09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d19 {
+public class d19 extends g19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public u16 b;
+    public y09.b h;
+    public Animation i;
+    public Animation j;
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d19 a;
@@ -38,70 +42,176 @@ public class d19 {
             this.a = d19Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a();
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.m();
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
             }
         }
     }
 
-    public d19(TbPageContext tbPageContext) {
+    /* loaded from: classes3.dex */
+    public class b implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d19 a;
+
+        public b(d19 d19Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d19Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d19Var;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.l();
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d19(Context context, y09.b bVar) {
+        super(context, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (y09) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.h = bVar;
+        this.i = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010143);
+        this.j = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010144);
+        this.i.setAnimationListener(new a(this));
+        this.j.setAnimationListener(new b(this));
     }
 
-    public void a() {
-        u16 u16Var;
+    @Override // com.baidu.tieba.g19
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (u16Var = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l();
         }
-        u16Var.N();
     }
 
-    public void b(View view2) {
-        TbPageContext tbPageContext;
+    @Override // com.baidu.tieba.g19
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (tbPageContext = this.a) == null || view2 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            k();
         }
-        if (this.b == null) {
-            u16 u16Var = new u16(tbPageContext, view2);
-            this.b = u16Var;
-            u16Var.q0(R.drawable.pic_sign_tip_down);
-            this.b.a0(1);
-            this.b.T(32);
-            this.b.Q(2);
-            this.b.d0(false);
-            this.b.R(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
-            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds44);
-            int dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds50);
-            int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds6);
-            this.b.j0(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
-            this.b.u0(-dimensionPixelSize4);
-            this.b.v0(-dimensionPixelSize5);
-            this.b.S(3000);
+    }
+
+    @Override // com.baidu.tieba.g19
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.e == 4) {
+            this.e = 1;
+            g19.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(1);
+            }
+            k();
+            this.h.f.startAnimation(this.i);
         }
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15c5);
-        this.b.i0(R.drawable.obfuscated_res_0x7f080940);
-        this.b.Z(true);
-        this.b.x0(string, "commodity_tip_show_controller");
+    }
+
+    @Override // com.baidu.tieba.g19
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e == 2) {
+            this.e = 3;
+            g19.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(3);
+            }
+            k();
+            this.h.f.startAnimation(this.j);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.i.cancel();
+            this.j.cancel();
+            this.h.f.clearAnimation();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.h.e.setClickable(false);
+            this.e = 4;
+            g19.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(4);
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h.e.setClickable(true);
+            this.e = 2;
+            g19.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(2);
+            }
+        }
     }
 }

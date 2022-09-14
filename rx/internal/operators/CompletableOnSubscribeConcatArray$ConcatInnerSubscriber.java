@@ -1,31 +1,31 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fv9;
-import com.baidu.tieba.uz9;
-import com.baidu.tieba.wu9;
-import com.baidu.tieba.xu9;
+import com.baidu.tieba.m1a;
+import com.baidu.tieba.ow9;
+import com.baidu.tieba.pw9;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
-public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements xu9 {
+/* loaded from: classes9.dex */
+public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements pw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7965400327305809232L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xu9 actual;
+    public final pw9 actual;
     public int index;
-    public final uz9 sd;
-    public final wu9[] sources;
+    public final m1a sd;
+    public final ow9[] sources;
 
-    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(xu9 xu9Var, wu9[] wu9VarArr) {
+    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(pw9 pw9Var, ow9[] ow9VarArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xu9Var, wu9VarArr};
+            Object[] objArr = {pw9Var, ow9VarArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,23 +35,23 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
                 return;
             }
         }
-        this.actual = xu9Var;
-        this.sources = wu9VarArr;
-        this.sd = new uz9();
+        this.actual = pw9Var;
+        this.sources = ow9VarArr;
+        this.sd = new m1a();
     }
 
     public void next() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isUnsubscribed() && getAndIncrement() == 0) {
-            wu9[] wu9VarArr = this.sources;
+            ow9[] ow9VarArr = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 int i = this.index;
                 this.index = i + 1;
-                if (i == wu9VarArr.length) {
+                if (i == ow9VarArr.length) {
                     this.actual.onCompleted();
                     return;
                 }
-                wu9VarArr[i].j(this);
+                ow9VarArr[i].j(this);
                 if (decrementAndGet() == 0) {
                     return;
                 }
@@ -59,7 +59,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.pw9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -67,7 +67,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.xu9
+    @Override // com.baidu.tieba.pw9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -75,11 +75,11 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.xu9
-    public void onSubscribe(fv9 fv9Var) {
+    @Override // com.baidu.tieba.pw9
+    public void onSubscribe(xw9 xw9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fv9Var) == null) {
-            this.sd.a(fv9Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, xw9Var) == null) {
+            this.sd.a(xw9Var);
         }
     }
 }

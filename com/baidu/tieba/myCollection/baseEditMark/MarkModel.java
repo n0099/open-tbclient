@@ -10,11 +10,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.cm4;
-import com.baidu.tieba.co7;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.eo7;
-import com.baidu.tieba.hu4;
+import com.baidu.tieba.do4;
+import com.baidu.tieba.mp7;
+import com.baidu.tieba.op7;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public cm4.a d;
+    public do4.a d;
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
@@ -35,7 +35,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public eo7 c;
+        public op7 c;
         public final /* synthetic */ MarkModel d;
 
         public a(MarkModel markModel, boolean z) {
@@ -58,7 +58,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new eo7();
+            this.c = new op7();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,9 +70,9 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    co7 co7Var = new co7();
-                    co7Var.j(this.d.b);
-                    this.a.addPostData("data", co7Var.E(0, 1));
+                    mp7 mp7Var = new mp7();
+                    mp7Var.j(this.d.b);
+                    this.a.addPostData("data", mp7Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -117,7 +117,7 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
                     if (this.c != null) {
-                        hu4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                        qw4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
                         if (this.d.d != null) {
@@ -150,7 +150,7 @@ public class MarkModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -230,7 +230,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void J(cm4.a aVar) {
+    public void J(do4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;
@@ -274,7 +274,7 @@ public class MarkModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

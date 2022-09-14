@@ -3,7 +3,6 @@ package com.baidu.sapi2.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -96,7 +95,6 @@ public class AccountToolsActivity extends Activity {
                     }
                 }
             }, accountCenterDTO);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

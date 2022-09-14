@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class h {
     public Path ZA;
     public float[] arl;
@@ -25,7 +25,7 @@ public final class h {
     public float wm;
     public RectF zV;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public boolean aro = true;
         public boolean arp = true;

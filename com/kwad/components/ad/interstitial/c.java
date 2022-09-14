@@ -325,11 +325,11 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sceneImpl, bVar}) == null) || this.fq) {
             return;
         }
-        SceneImpl m84clone = sceneImpl.m84clone();
+        SceneImpl m85clone = sceneImpl.m85clone();
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        m84clone.setAdStyle(16);
-        m84clone.setAdNum(i2);
-        a(new com.kwad.components.core.k.kwai.b(m84clone), new AnonymousClass1(this, sceneImpl, bVar, elapsedRealtime));
+        m85clone.setAdStyle(16);
+        m85clone.setAdNum(i2);
+        a(new com.kwad.components.core.k.kwai.b(m85clone), new AnonymousClass1(this, sceneImpl, bVar, elapsedRealtime));
     }
 
     public final void release() {

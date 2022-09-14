@@ -1,54 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.Proxy;
-import java.net.ProxySelector;
-import java.net.SocketAddress;
-import java.net.URI;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 /* loaded from: classes4.dex */
-public class k50 extends ProxySelector {
+public final class k50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String[] b;
+    public int c;
+    public String d;
+    public long e;
+    public long f;
 
-    public k50() {
+    public k50(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = str;
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            this.d = packageInfo.versionName;
+            this.c = packageInfo.versionCode;
+            this.e = packageInfo.firstInstallTime;
+            this.f = packageInfo.lastUpdateTime;
+            this.b = new String[packageInfo.signatures.length];
+            for (int i3 = 0; i3 < this.b.length; i3++) {
+                this.b[i3] = g50.c(packageInfo.signatures[i3].toByteArray());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // java.net.ProxySelector
-    public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
         }
-    }
-
-    @Override // java.net.ProxySelector
-    public List<Proxy> select(URI uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (uri != null) {
-                return Collections.singletonList(Proxy.NO_PROXY);
-            }
-            throw new IllegalArgumentException("uri must not be null");
-        }
-        return (List) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KSRatingBar extends LinearLayout {
     public boolean aqM;
     public int aqN;
@@ -26,7 +26,7 @@ public class KSRatingBar extends LinearLayout {
     public boolean xE;
     public int y;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
     }
 
@@ -35,9 +35,9 @@ public class KSRatingBar extends LinearLayout {
         this.y = 1;
         this.aqW = false;
         setOrientation(0);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c3b));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c58));
         setShowDividers(2);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040395, R.attr.obfuscated_res_0x7f0403a5, R.attr.obfuscated_res_0x7f0403bc, R.attr.obfuscated_res_0x7f0403bd, R.attr.obfuscated_res_0x7f0403be, R.attr.obfuscated_res_0x7f0403bf, R.attr.obfuscated_res_0x7f0403c0, R.attr.obfuscated_res_0x7f0403c1, R.attr.obfuscated_res_0x7f0403c2, R.attr.obfuscated_res_0x7f0403dc});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.kwad.sdk.R.styleable.ksad_KSRatingBar);
         this.aqV = obtainStyledAttributes.getDrawable(5);
         this.aqT = obtainStyledAttributes.getDrawable(3);
         this.aqU = obtainStyledAttributes.getDrawable(4);

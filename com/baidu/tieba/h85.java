@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h85 implements m75<MissionEvent> {
+public class h85 extends e85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     public h85() {
         Interceptable interceptable = $ic;
@@ -22,36 +26,66 @@ public class h85 implements m75<MissionEvent> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m75
-    /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
+    public static ImageOperation e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = "rotate";
+            imageOperation.actionParam = String.valueOf(i);
+            return imageOperation;
+        }
+        return (ImageOperation) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.e85
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.e85
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            u75.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            int i = this.a;
+            if (i == 0 || i == 1) {
+                return BitmapHelper.rotateBitmap(bitmap, this.a);
+            }
+            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.e85
+    public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                int i = missionEvent.pageId;
-                int i2 = missionEvent.pageType;
-                long j = missionEvent.tid;
-                String str = missionEvent.actionType;
-                if ("onResume".equals(str)) {
-                    ej4.w().K(i, j);
-                    ej4.w().P(i2, j);
-                } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                    ej4.w().E();
-                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                    ej4.w().F();
-                } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                    ej4.w().K(i, j);
-                }
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int max = Math.max(ej.k(TbadkCoreApplication.getInst().getApp()), ej.i(TbadkCoreApplication.getInst().getApp()));
+            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.e85
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
+            return;
+        }
+        this.a = Integer.parseInt(str);
     }
 }

@@ -1,24 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import android.content.Context;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class ha0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ha0 {
 
-    public static void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, runnable) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, "live-feedpage-" + ja0.a().b(), 3);
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static /* synthetic */ void a(ha0 ha0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
+            if (obj != null) {
+                throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+            }
+            if ((i & 4) != 0) {
+                requestSearchData = new RequestSearchData();
+            }
+            ha0Var.g(str, str2, requestSearchData);
         }
     }
 
-    public static void b(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, runnable, str, i) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, str, i);
-        }
-    }
+    void a(Context context, String str);
+
+    void b(Context context);
+
+    void c();
+
+    void d();
+
+    void e(Context context);
+
+    void f(Context context, int i);
+
+    void g(String str, String str2, RequestSearchData requestSearchData);
+
+    void h();
+
+    void i(String str);
+
+    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+
+    void onDetach();
 }

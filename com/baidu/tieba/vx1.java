@@ -1,90 +1,80 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.CRC32;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vx1 {
+public class vx1 extends oy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final String c;
-    public final Map<String, String> d;
+    public boolean j;
 
-    public vx1(long j) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948256058, "Lcom/baidu/tieba/vx1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948256058, "Lcom/baidu/tieba/vx1;");
+                return;
+            }
+        }
+        boolean z = ij1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vx1(String str) {
+        super("canvas", "canvasId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new HashMap();
-        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
-        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.c = Long.toHexString(a(this.a + "#" + this.b));
-        this.d.put("timestamp", Long.toString(this.a));
-        this.d.put("delta", Long.toString(this.b));
-        this.d.put("rasign", this.c);
+        this.j = false;
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            yz1.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
+        }
     }
 
-    public static vx1 b() {
+    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            this.f = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
+            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+            this.g = !TextUtils.equals(jSONObject.optString("gesture"), "0");
+        }
+    }
+
+    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new vx1(0L) : (vx1) invokeV.objValue;
-    }
-
-    public final long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            CRC32 crc32 = new CRC32();
-            crc32.reset();
-            crc32.update(str.getBytes());
-            return crc32.getValue();
-        }
-        return invokeL.longValue;
-    }
-
-    public String c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return Long.toHexString(a(j + "#smartapp_formid"));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public String d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            return Long.toHexString(a(j + "#payid"));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
     }
 }

@@ -2,8 +2,8 @@ package tv.athena.revenue;
 
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wz9;
-import com.baidu.tieba.y3a;
+import com.baidu.tieba.o1a;
+import com.baidu.tieba.s5a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +19,11 @@ import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
 /* loaded from: classes9.dex */
-public class RevenueManager implements wz9 {
+public class RevenueManager implements o1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public wz9 revenueService;
+    public o1a revenueService;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -64,7 +64,7 @@ public class RevenueManager implements wz9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (RevenueManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.o1a
     public void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
@@ -73,7 +73,7 @@ public class RevenueManager implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.o1a
     public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
@@ -83,7 +83,7 @@ public class RevenueManager implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.o1a
     public List<IRevenue> getAllRevenue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class RevenueManager implements wz9 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.o1a
     public IMiddleRevenue getMiddleRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class RevenueManager implements wz9 {
         return (IMiddleRevenue) invokeII.objValue;
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.o1a
     public IRevenue getRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) ? this.revenueService.getRevenue(i, i2) : (IRevenue) invokeII.objValue;
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.o1a
     public void removeRevenueConfig(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
@@ -121,7 +121,7 @@ public class RevenueManager implements wz9 {
         }
     }
 
-    @Override // com.baidu.tieba.wz9
+    @Override // com.baidu.tieba.o1a
     public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) {
@@ -145,6 +145,6 @@ public class RevenueManager implements wz9 {
         }
         this.TAG = "RevenueManager";
         RLog.info("RevenueManager", "create RevenueManager");
-        this.revenueService = new y3a();
+        this.revenueService = new s5a();
     }
 }

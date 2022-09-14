@@ -1,30 +1,144 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.ip1;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.z12;
+import com.baidu.tieba.z82;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes6.dex */
-public interface tk1 {
-    @NonNull
-    e63 a(Activity activity, boolean z, String str, String str2);
+public class tk1 implements bn1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    j63 b(Activity activity, ip1.d dVar, Bundle bundle);
+    /* loaded from: classes6.dex */
+    public class a implements z82.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z12.c a;
 
-    @NonNull
-    k63 c(Activity activity, String str, String str2, boolean z, boolean z2);
+        public a(tk1 tk1Var, z12.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tk1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
 
-    @NonNull
-    f63 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
+        @Override // com.baidu.tieba.z82.e
+        public void a() {
+            z12.c cVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.a) == null) {
+                return;
+            }
+            cVar.a();
+        }
+    }
 
-    @NonNull
-    i63 e(Context context);
+    public tk1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    @NonNull
-    h63 f(Context context);
+    @Override // com.baidu.tieba.bn1
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 10150;
+        }
+        return invokeV.intValue;
+    }
 
-    @NonNull
-    g63 g(Context context, String str);
+    @Override // com.baidu.tieba.bn1
+    public VideoPlayerFactory b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (VideoPlayerFactory) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bn1
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 5000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.bn1
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                z82.h(AppRuntime.getAppContext()).k(ProcessUtils.isMainProcess());
+            } else {
+                z82.h(AppRuntime.getAppContext()).i();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bn1
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bn1
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bn1
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bn1
+    public void h(z12.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            z82.h(AppRuntime.getAppContext()).f(new a(this, cVar));
+        }
+    }
 }

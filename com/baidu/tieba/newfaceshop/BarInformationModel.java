@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d9;
 import com.baidu.tieba.newfaceshop.message.BazhuInfoResponseMessage;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,14 +64,14 @@ public class BarInformationModel extends BdBaseModel {
                 if (bVar == null || (bazhuInfoResponseMessage = (BazhuInfoResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                bVar.B(bazhuInfoResponseMessage.data);
+                bVar.C(bazhuInfoResponseMessage.data);
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void B(BazhuInfoData bazhuInfoData);
+        void C(BazhuInfoData bazhuInfoData);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,7 +86,7 @@ public class BarInformationModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

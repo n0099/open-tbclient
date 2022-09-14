@@ -1,76 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class r79 {
+public class r79 {
     public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<ScheduledFuture<?>>> a;
-    public static ExecutorService b;
-    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948074677, "Lcom/baidu/tieba/r79;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948074677, "Lcom/baidu/tieba/r79;");
+        }
+    }
+
+    public r79() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList();
-        b = Executors.newFixedThreadPool(2);
-        c = Executors.newScheduledThreadPool(2);
+        this.a = new ArrayList();
     }
 
-    public static synchronized void a(Runnable runnable) {
+    public final void a(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            synchronized (r79.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null) {
+            return;
+        }
+        try {
+            if (jSONArray.length() > 0) {
+                if (this.a == null) {
+                    this.a = new ArrayList();
                 }
-                c.execute(runnable);
-            }
-        }
-    }
-
-    public static synchronized void b(Runnable runnable, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (r79.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    a aVar = new a();
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    optJSONObject.optInt("tab_id");
+                    optJSONObject.optString("tab_name");
+                    optJSONObject.optInt("obj_type");
+                    this.a.add(aVar);
                 }
-                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public static void c(Runnable runnable) {
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            ExecutorService executorService = b;
-            if (executorService == null || executorService.isShutdown()) {
-                b = Executors.newFixedThreadPool(2);
-            }
-            b.execute(runnable);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray == null) {
+            return;
         }
+        a(jSONArray);
     }
 }

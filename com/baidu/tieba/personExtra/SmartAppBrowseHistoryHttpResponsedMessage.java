@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.v48;
+import com.baidu.tieba.d68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.HistorySwan.HistorySwanResIdl;
 public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v48 mData;
+    public d68 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistoryHttpResponsedMessage() {
@@ -36,10 +36,10 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
         }
     }
 
-    public v48 getData() {
+    public d68 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (v48) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (d68) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
             setErrorString(historySwanResIdl.error.usermsg);
         }
         if (historySwanResIdl.data != null) {
-            v48 v48Var = new v48();
-            this.mData = v48Var;
-            v48Var.b(historySwanResIdl.data);
+            d68 d68Var = new d68();
+            this.mData = d68Var;
+            d68Var.b(historySwanResIdl.data);
         }
     }
 }

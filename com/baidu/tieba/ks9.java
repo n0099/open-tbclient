@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import android.widget.ImageView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface ks9 {
-    ks9 a();
+public final /* synthetic */ class ks9 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(String str);
-
-    void c(Framedata framedata);
-
-    String d();
-
-    boolean e(String str);
-
-    void f(Framedata framedata) throws InvalidDataException;
-
-    String g();
-
-    void h(Framedata framedata) throws InvalidDataException;
-
-    void reset();
-
-    String toString();
+    static {
+        int[] iArr = new int[ImageView.ScaleType.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
+        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_START.ordinal()] = 5;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_END.ordinal()] = 6;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+    }
 }

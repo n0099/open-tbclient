@@ -1,6 +1,5 @@
 package com.win.opensdk;
 
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +38,7 @@ public class V implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f15af), this.b.getString(R.string.obfuscated_res_0x7f0f15af), 100);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15cf), this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15cf), 100);
         }
     }
 }

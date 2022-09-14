@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.arch.ServiceLocator;
-import com.baidu.live.arch.runtime.MiniShellRuntime;
 import com.baidu.live.arch.utils.MiniUniqueId;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.data.pojo.LiveTypeData;
@@ -16,6 +15,7 @@ import com.baidu.searchbox.live.domain.SlideListInfo;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.live.frame.ListInfo;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.model.MixModel;
 import com.baidu.searchbox.live.model.repository.MixListRepository;
@@ -25,6 +25,8 @@ import com.baidu.searchbox.live.model.res.MixResult;
 import com.baidu.searchbox.live.model.res.OnMixDataLoaded;
 import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
 import com.baidu.searchbox.live.service.ILiveListState;
+import com.baidu.searchbox.live.service.MixRequestService;
+import com.baidu.searchbox.live.service.MixRequestServiceLocator;
 import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.searchbox.live.util.ListLogKt;
@@ -48,7 +50,7 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000:\u0001:B\u000f\u0012\u0006\u0010-\u001a\u00020,¢\u0006\u0004\b8\u00109J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00062\b\u0010\n\u001a\u0004\u0018\u00010\t¢\u0006\u0004\b\u000b\u0010\fJ\r\u0010\r\u001a\u00020\u0006¢\u0006\u0004\b\r\u0010\bJ+\u0010\u0014\u001a\u00020\u00062\u0006\u0010\u000f\u001a\u00020\u000e2\u0014\u0010\u0013\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00120\u0011\u0018\u00010\u0010¢\u0006\u0004\b\u0014\u0010\u0015J+\u0010\u0019\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u00162\u0014\u0010\u0013\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00180\u0011\u0018\u00010\u0010¢\u0006\u0004\b\u0019\u0010\u001aJ\u0015\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001b¢\u0006\u0004\b\u001d\u0010\u001eR\u001d\u0010$\u001a\u00020\u001f8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010!\u001a\u0004\b\"\u0010#R\u001d\u0010)\u001a\u00020%8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010!\u001a\u0004\b'\u0010(R\u0018\u0010*\u001a\u0004\u0018\u00010\u001b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0019\u0010-\u001a\u00020,8\u0006@\u0006¢\u0006\f\n\u0004\b-\u0010.\u001a\u0004\b/\u00100R\u0016\u00101\u001a\u00020\u00188\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b1\u00102R\u001d\u00107\u001a\u0002038B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b4\u0010!\u001a\u0004\b5\u00106¨\u0006;"}, d2 = {"Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/domain/SlideListInfo$SlideInfo;", "item", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "parseLiveItemModel", "(Lcom/baidu/searchbox/live/domain/SlideListInfo$SlideInfo;)Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "", "queryLiveList", "()V", "", ILiveNPSPlugin.PARAMS_ROOM_ID, "removeReqEnterIdCallbacks", "(Ljava/lang/String;)V", "reqLiveType", "Lcom/baidu/searchbox/live/data/req/RoomEnterParams;", "enterParams", "Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", WebChromeClient.KEY_ARG_CALLBACK, "reqRoomEnter", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "Lcom/baidu/searchbox/live/data/req/RoomExitParams;", "exitParams", "", "reqRoomExit", "(Lcom/baidu/searchbox/live/data/req/RoomExitParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "callBack", "setOnMixDataLoadedCallBack", "(Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;)V", "Lcom/baidu/searchbox/live/model/repository/MixListRepository;", "listApi$delegate", "Lkotlin/Lazy;", "getListApi", "()Lcom/baidu/searchbox/live/model/repository/MixListRepository;", "listApi", "Lcom/baidu/searchbox/live/model/repository/MixTypeRepository;", "liveTypeApi$delegate", "getLiveTypeApi", "()Lcom/baidu/searchbox/live/model/repository/MixTypeRepository;", "liveTypeApi", "mOnMixDataLoadedCallBack", "Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "getMixUniqueId", "()Lcom/baidu/live/arch/utils/MiniUniqueId;", "prefetchEnterSwitch", "Z", "Lcom/baidu/searchbox/live/model/repository/MixRoomRepository;", "roomApi$delegate", "getRoomApi", "()Lcom/baidu/searchbox/live/model/repository/MixRoomRepository;", "roomApi", "<init>", "(Lcom/baidu/live/arch/utils/MiniUniqueId;)V", "OnMixDataLoadedCallBack", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000p\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000:\u0001;B\u000f\u0012\u0006\u0010.\u001a\u00020-¢\u0006\u0004\b9\u0010:J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00062\b\u0010\n\u001a\u0004\u0018\u00010\t¢\u0006\u0004\b\u000b\u0010\fJ\r\u0010\r\u001a\u00020\u0006¢\u0006\u0004\b\r\u0010\bJ%\u0010\r\u001a\u00020\u00062\u0016\b\u0002\u0010\u0011\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00100\u000f\u0018\u00010\u000e¢\u0006\u0004\b\r\u0010\u0012J+\u0010\u0015\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\u0014\u0010\u0011\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00100\u000f\u0018\u00010\u000e¢\u0006\u0004\b\u0015\u0010\u0016J+\u0010\u001a\u001a\u00020\u00062\u0006\u0010\u0018\u001a\u00020\u00172\u0014\u0010\u0011\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00190\u000f\u0018\u00010\u000e¢\u0006\u0004\b\u001a\u0010\u001bJ\u0015\u0010\u001e\u001a\u00020\u00062\u0006\u0010\u001d\u001a\u00020\u001c¢\u0006\u0004\b\u001e\u0010\u001fR\u001d\u0010%\u001a\u00020 8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b!\u0010\"\u001a\u0004\b#\u0010$R\u001d\u0010*\u001a\u00020&8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010\"\u001a\u0004\b(\u0010)R\u0018\u0010+\u001a\u0004\u0018\u00010\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010,R\u0019\u0010.\u001a\u00020-8\u0006@\u0006¢\u0006\f\n\u0004\b.\u0010/\u001a\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u00198\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b2\u00103R\u001d\u00108\u001a\u0002048B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b5\u0010\"\u001a\u0004\b6\u00107¨\u0006<"}, d2 = {"Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/domain/SlideListInfo$SlideInfo;", "item", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "parseLiveItemModel", "(Lcom/baidu/searchbox/live/domain/SlideListInfo$SlideInfo;)Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "", "queryLiveList", "()V", "", ILiveNPSPlugin.PARAMS_ROOM_ID, "removeReqEnterIdCallbacks", "(Ljava/lang/String;)V", "reqLiveType", "Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", WebChromeClient.KEY_ARG_CALLBACK, "(Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "Lcom/baidu/searchbox/live/data/req/RoomEnterParams;", "enterParams", "reqRoomEnter", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "Lcom/baidu/searchbox/live/data/req/RoomExitParams;", "exitParams", "", "reqRoomExit", "(Lcom/baidu/searchbox/live/data/req/RoomExitParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "callBack", "setOnMixDataLoadedCallBack", "(Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;)V", "Lcom/baidu/searchbox/live/model/repository/MixListRepository;", "listApi$delegate", "Lkotlin/Lazy;", "getListApi", "()Lcom/baidu/searchbox/live/model/repository/MixListRepository;", "listApi", "Lcom/baidu/searchbox/live/model/repository/MixTypeRepository;", "liveTypeApi$delegate", "getLiveTypeApi", "()Lcom/baidu/searchbox/live/model/repository/MixTypeRepository;", "liveTypeApi", "mOnMixDataLoadedCallBack", "Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "getMixUniqueId", "()Lcom/baidu/live/arch/utils/MiniUniqueId;", "prefetchEnterSupport", "Z", "Lcom/baidu/searchbox/live/model/repository/MixRoomRepository;", "roomApi$delegate", "getRoomApi", "()Lcom/baidu/searchbox/live/model/repository/MixRoomRepository;", "roomApi", "<init>", "(Lcom/baidu/live/arch/utils/MiniUniqueId;)V", "OnMixDataLoadedCallBack", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class MixModel {
     public static final /* synthetic */ KProperty[] $$delegatedProperties;
@@ -58,7 +60,7 @@ public final class MixModel {
     public final Lazy liveTypeApi$delegate;
     public OnMixDataLoadedCallBack mOnMixDataLoadedCallBack;
     public final MiniUniqueId mixUniqueId;
-    public final boolean prefetchEnterSwitch;
+    public final boolean prefetchEnterSupport;
     public final Lazy roomApi$delegate;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J'\u0010\b\u001a\u00020\u00072\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0005H&¢\u0006\u0004\b\b\u0010\tJ-\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\u00052\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rH&¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0007H&¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0016\u001a\u00020\u00072\u0006\u0010\u0015\u001a\u00020\u0014H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "Lkotlin/Any;", "Ljava/lang/Exception;", "Lkotlin/Exception;", "exception", "", "errorno", "", "onSlideListFail", "(Ljava/lang/Exception;Ljava/lang/Integer;)V", "", "pageSession", "hasMore", "", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "data", "onSlideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "onTemplateIdFail", "()V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "liveType", "onTemplateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -127,7 +129,14 @@ public final class MixModel {
         this.liveTypeApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$liveTypeApi$2.INSTANCE);
         this.roomApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$roomApi$2.INSTANCE);
         AbConfigService abConfigService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
-        this.prefetchEnterSwitch = abConfigService != null ? abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false;
+        boolean z = false;
+        if (abConfigService != null ? abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false) {
+            PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+            if ((pluginMgrService != null ? pluginMgrService.getPluginVersionCode("com.baidu.searchbox.livenps") : 0) >= 603000000) {
+                z = true;
+            }
+        }
+        this.prefetchEnterSupport = z;
     }
 
     private final MixListRepository getListApi() {
@@ -215,6 +224,15 @@ public final class MixModel {
             return liveItemModel;
         }
         return (LiveContainer.LiveItemModel) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.live.model.MixModel */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static /* synthetic */ void reqLiveType$default(MixModel mixModel, OnMixDataLoaded onMixDataLoaded, int i, Object obj) {
+        if ((i & 1) != 0) {
+            onMixDataLoaded = null;
+        }
+        mixModel.reqLiveType(onMixDataLoaded);
     }
 
     public final MiniUniqueId getMixUniqueId() {
@@ -321,88 +339,124 @@ public final class MixModel {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.baidu.searchbox.live.model.repository.MixTypeRepository */
-    /* JADX DEBUG: Multi-variable search result rejected for r10v0, resolved type: com.baidu.searchbox.live.model.MixModel */
-    /* JADX WARN: Multi-variable type inference failed */
     public final void reqLiveType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            reqLiveType(null);
+        }
+    }
+
+    public final void reqRoomEnter(RoomEnterParams roomEnterParams, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, roomEnterParams, onMixDataLoaded) == null) {
+            getRoomApi().fetchRoomEnter(roomEnterParams, onMixDataLoaded);
+        }
+    }
+
+    public final void reqRoomExit(RoomExitParams roomExitParams, OnMixDataLoaded<MixResult<Boolean>> onMixDataLoaded) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, roomExitParams, onMixDataLoaded) == null) {
+            getRoomApi().fetchRoomExit(roomExitParams, onMixDataLoaded);
+        }
+    }
+
+    public final void setOnMixDataLoadedCallBack(OnMixDataLoadedCallBack onMixDataLoadedCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onMixDataLoadedCallBack) == null) {
+            this.mOnMixDataLoadedCallBack = onMixDataLoadedCallBack;
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidu.searchbox.live.service.MixRequestService */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final void reqLiveType(final OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onMixDataLoaded) == null) {
             ILiveListState iLiveListState = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
             IntentData intent = iLiveListState != null ? iLiveListState.getIntent() : null;
-            String str = (intent == null || (r0 = intent.getId()) == null) ? "" : "";
-            if (this.prefetchEnterSwitch && !MiniShellRuntime.INSTANCE.isTieba()) {
+            String str = (intent == null || (r1 = intent.getId()) == null) ? "" : "";
+            if (this.prefetchEnterSupport && MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class) != null) {
                 MediaLivePluginLogger.Companion.getInstance().logListGetLiveTypeStartToSendReqNet();
                 MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartGetLiveTypeTime();
-                reqRoomEnter(new RoomEnterParams(str, "", null, null, "", false, 44, null), new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>(this) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MixModel this$0;
+                MixRequestService mixRequestService = (MixRequestService) MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class);
+                if (mixRequestService != 0) {
+                    mixRequestService.requestRoomEnter(new RoomEnterParams(str, "", null, null, "", false, 44, null), true, new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
+                        public static /* synthetic */ Interceptable $ic;
+                        public final /* synthetic */ OnMixDataLoaded $callback;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ MixModel this$0;
 
-                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, onMixDataLoaded};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.$callback = onMixDataLoaded;
+                        }
+
+                        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                        @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                        public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveRoomEnterRespData> mixResult) {
+                            onMixDataLoaded2((MixResult<LiveRoomEnterRespData>) mixResult);
+                        }
+
+                        /* JADX WARN: Code restructure failed: missing block: B:44:0x009e, code lost:
+                            r7 = r6.this$0.mOnMixDataLoadedCallBack;
+                         */
+                        /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
+                        /*
+                            Code decompiled incorrectly, please refer to instructions dump.
+                        */
+                        public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
+                            MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
+                            MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, mixResult) == null) {
+                                MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
+                                if (mixResult instanceof MixResult.MixSuccess) {
+                                    OnMixDataLoaded onMixDataLoaded2 = this.$callback;
+                                    if (onMixDataLoaded2 != null) {
+                                        onMixDataLoaded2.onMixDataLoaded(mixResult);
+                                    }
+                                    JSONObject respJsonObj = ((LiveRoomEnterRespData) ((MixResult.MixSuccess) mixResult).getData()).getRespJsonObj();
+                                    JSONObject optJSONObject = respJsonObj != null ? respJsonObj.optJSONObject("data") : null;
+                                    JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject("room") : null;
+                                    String optString = optJSONObject2 != null ? optJSONObject2.optString("room_id") : null;
+                                    String optString2 = optJSONObject2 != null ? optJSONObject2.optString("template_id") : null;
+                                    String optString3 = optJSONObject2 != null ? optJSONObject2.optString("room_type") : null;
+                                    if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString3)) {
+                                        JSONObject optJSONObject3 = optJSONObject != null ? optJSONObject.optJSONObject("room_template_info") : null;
+                                        optString2 = optJSONObject3 != null ? optJSONObject3.optString("template_id") : null;
+                                        optString3 = optJSONObject3 != null ? optJSONObject3.optString("live_type") : null;
+                                    }
+                                    LiveTypeData liveTypeData = new LiveTypeData();
+                                    liveTypeData.setRoomId(optString);
+                                    liveTypeData.setTemplateId(optString2);
+                                    liveTypeData.setLiveType(optString3);
+                                    onMixDataLoadedCallBack2 = this.this$0.mOnMixDataLoadedCallBack;
+                                    if (onMixDataLoadedCallBack2 != null) {
+                                        onMixDataLoadedCallBack2.onTemplateIdSuccess(liveTypeData);
+                                    }
+                                } else if (!(mixResult instanceof MixResult.MixError) || onMixDataLoadedCallBack == null) {
+                                } else {
+                                    onMixDataLoadedCallBack.onTemplateIdFail();
+                                }
                             }
                         }
-                        this.this$0 = this;
-                    }
-
-                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                    @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-                    public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveRoomEnterRespData> mixResult) {
-                        onMixDataLoaded2((MixResult<LiveRoomEnterRespData>) mixResult);
-                    }
-
-                    /* JADX WARN: Code restructure failed: missing block: B:41:0x0096, code lost:
-                        r7 = r6.this$0.mOnMixDataLoadedCallBack;
-                     */
-                    /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
-                    /*
-                        Code decompiled incorrectly, please refer to instructions dump.
-                    */
-                    public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
-                        MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
-                        MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, mixResult) == null) {
-                            MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
-                            if (mixResult instanceof MixResult.MixSuccess) {
-                                JSONObject respJsonObj = ((LiveRoomEnterRespData) ((MixResult.MixSuccess) mixResult).getData()).getRespJsonObj();
-                                JSONObject optJSONObject = respJsonObj != null ? respJsonObj.optJSONObject("data") : null;
-                                JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject("room") : null;
-                                String optString = optJSONObject2 != null ? optJSONObject2.optString("room_id") : null;
-                                String optString2 = optJSONObject2 != null ? optJSONObject2.optString("template_id") : null;
-                                String optString3 = optJSONObject2 != null ? optJSONObject2.optString("room_type") : null;
-                                if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString3)) {
-                                    JSONObject optJSONObject3 = optJSONObject != null ? optJSONObject.optJSONObject("room_template_info") : null;
-                                    optString2 = optJSONObject3 != null ? optJSONObject3.optString("template_id") : null;
-                                    optString3 = optJSONObject3 != null ? optJSONObject3.optString("live_type") : null;
-                                }
-                                LiveTypeData liveTypeData = new LiveTypeData();
-                                liveTypeData.setRoomId(optString);
-                                liveTypeData.setTemplateId(optString2);
-                                liveTypeData.setLiveType(optString3);
-                                onMixDataLoadedCallBack2 = this.this$0.mOnMixDataLoadedCallBack;
-                                if (onMixDataLoadedCallBack2 != null) {
-                                    onMixDataLoadedCallBack2.onTemplateIdSuccess(liveTypeData);
-                                }
-                            } else if (!(mixResult instanceof MixResult.MixError) || onMixDataLoadedCallBack == null) {
-                            } else {
-                                onMixDataLoadedCallBack.onTemplateIdFail();
-                            }
-                        }
-                    }
-                });
+                    });
+                    return;
+                }
                 return;
             }
             getLiveTypeApi().fetchLiveType(str, new OnMixDataLoaded<MixResult<? extends LiveTypeData>>(this) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$2
@@ -459,27 +513,6 @@ public final class MixModel {
                     }
                 }
             });
-        }
-    }
-
-    public final void reqRoomEnter(RoomEnterParams roomEnterParams, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, roomEnterParams, onMixDataLoaded) == null) {
-            getRoomApi().fetchRoomEnter(roomEnterParams, onMixDataLoaded);
-        }
-    }
-
-    public final void reqRoomExit(RoomExitParams roomExitParams, OnMixDataLoaded<MixResult<Boolean>> onMixDataLoaded) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, roomExitParams, onMixDataLoaded) == null) {
-            getRoomApi().fetchRoomExit(roomExitParams, onMixDataLoaded);
-        }
-    }
-
-    public final void setOnMixDataLoadedCallBack(OnMixDataLoadedCallBack onMixDataLoadedCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onMixDataLoadedCallBack) == null) {
-            this.mOnMixDataLoadedCallBack = onMixDataLoadedCallBack;
         }
     }
 }

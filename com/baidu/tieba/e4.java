@@ -2,215 +2,150 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
+public abstract class e4 implements Comparable<e4> {
     public static /* synthetic */ Interceptable $ic;
+    public static final b7<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final a7<d4> b;
-    public boolean c;
+    public final long a;
+    public final int b;
 
-    public e4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301854, "Lcom/baidu/tieba/e4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448301854, "Lcom/baidu/tieba/e4;");
+                return;
+            }
+        }
+        c = new b7<>();
+    }
+
+    public e4(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new a7<>();
-        this.c = true;
+        this.a = j;
+        this.b = Long.numberOfTrailingZeros(j);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
+        r7 = com.baidu.tieba.e4.c;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
+        if (r0 >= r7.b) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
+        return r7.get(r0);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i();
-            int i = this.b.b;
-            long j = this.a + 71;
-            int i2 = 1;
-            for (int i3 = 0; i3 < i; i3++) {
-                i2 = (i2 * 7) & 65535;
-                j += this.a * this.b.get(i3).hashCode() * i2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            int i = -1;
+            while (j != 0 && (i = i + 1) < 63 && ((j >> i) & 1) == 0) {
             }
-            return (int) (j ^ (j >> 32));
+            return null;
         }
-        return invokeV.intValue;
+        return (String) invokeJ.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: b */
-    public final int compare(d4 d4Var, d4 d4Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d4Var, d4Var2)) == null) ? (int) (d4Var.a - d4Var2.a) : invokeLL.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: c */
-    public int compareTo(e4 e4Var) {
+    public static final long c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e4Var)) != null) {
-            return invokeL.intValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return invokeL.longValue;
         }
-        if (e4Var == this) {
-            return 0;
-        }
-        long j = this.a;
-        long j2 = e4Var.a;
-        if (j != j2) {
-            return j < j2 ? -1 : 1;
-        }
-        i();
-        e4Var.i();
         int i = 0;
         while (true) {
-            a7<d4> a7Var = this.b;
-            if (i >= a7Var.b) {
-                return 0;
+            b7<String> b7Var = c;
+            if (i >= b7Var.b) {
+                return 0L;
             }
-            int compareTo = a7Var.get(i).compareTo(e4Var.b.get(i));
-            if (compareTo != 0) {
-                if (compareTo < 0) {
-                    return -1;
-                }
-                return compareTo > 0 ? 1 : 0;
+            if (b7Var.get(i).compareTo(str) == 0) {
+                return 1 << i;
             }
             i++;
         }
     }
 
-    public final void d(long j) {
+    public static final long d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.a = j | this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            long c2 = c(str);
+            if (c2 > 0) {
+                return c2;
+            }
+            c.a(str);
+            return 1 << (c.b - 1);
         }
+        return invokeL.longValue;
     }
 
-    public final boolean e(long j) {
-        InterceptResult invokeJ;
+    public boolean a(e4 e4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) ? j != 0 && (this.a & j) == j : invokeJ.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e4Var)) == null) ? e4Var.hashCode() == hashCode() : invokeL.booleanValue;
     }
 
-    @Override // java.util.Comparator
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (obj == this) {
+                return true;
+            }
             if (obj instanceof e4) {
-                if (obj == this) {
-                    return true;
+                e4 e4Var = (e4) obj;
+                if (this.a != e4Var.a) {
+                    return false;
                 }
-                return g((e4) obj, true);
+                return a(e4Var);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public int f(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) != null) {
-            return invokeJ.intValue;
-        }
-        if (!e(j)) {
-            return -1;
-        }
-        int i = 0;
-        while (true) {
-            a7<d4> a7Var = this.b;
-            if (i >= a7Var.b) {
-                return -1;
-            }
-            if (a7Var.get(i).a == j) {
-                return i;
-            }
-            i++;
-        }
-    }
-
-    public final boolean g(e4 e4Var, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(1048585, this, e4Var, z)) != null) {
-            return invokeLZ.booleanValue;
-        }
-        if (e4Var == this) {
-            return true;
-        }
-        if (e4Var == null || this.a != e4Var.a) {
-            return false;
-        }
-        if (!z) {
-            return true;
-        }
-        i();
-        e4Var.i();
-        int i = 0;
-        while (true) {
-            a7<d4> a7Var = this.b;
-            if (i >= a7Var.b) {
-                return true;
-            }
-            if (!a7Var.get(i).a(e4Var.b.get(i))) {
-                return false;
-            }
-            i++;
-        }
-    }
-
-    public final void h(d4 d4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, d4Var) == null) {
-            int f = f(d4Var.a);
-            if (f < 0) {
-                d(d4Var.a);
-                this.b.a(d4Var);
-                this.c = false;
-            } else {
-                this.b.l(f, d4Var);
-            }
-            i();
-        }
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b * 7489 : invokeV.intValue;
     }
 
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.c) {
-            return;
-        }
-        this.b.sort(this);
-        this.c = true;
-    }
-
-    @Override // java.lang.Iterable
-    public final Iterator<d4> iterator() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.b.iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.a) : (String) invokeV.objValue;
     }
 }

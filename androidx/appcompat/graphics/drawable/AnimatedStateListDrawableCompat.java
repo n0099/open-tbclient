@@ -27,7 +27,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.graphics.drawable.DrawableContainer;
 import androidx.appcompat.graphics.drawable.StateListDrawable;
-import androidx.appcompat.resources.R$styleable;
+import androidx.appcompat.resources.R;
 import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SparseArrayCompat;
@@ -602,9 +602,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         int next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, this, context, resources, xmlPullParser, attributeSet, theme)) == null) {
-            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.AnimatedStateListDrawableItem);
-            int resourceId = obtainAttributes.getResourceId(R$styleable.AnimatedStateListDrawableItem_android_id, 0);
-            int resourceId2 = obtainAttributes.getResourceId(R$styleable.AnimatedStateListDrawableItem_android_drawable, -1);
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.AnimatedStateListDrawableItem);
+            int resourceId = obtainAttributes.getResourceId(0, 0);
+            int resourceId2 = obtainAttributes.getResourceId(1, -1);
             Drawable drawable = resourceId2 > 0 ? ResourceManagerInternal.get().getDrawable(context, resourceId2) : null;
             obtainAttributes.recycle();
             int[] extractStateSet = extractStateSet(attributeSet);
@@ -637,12 +637,12 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         int next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, this, context, resources, xmlPullParser, attributeSet, theme)) == null) {
-            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.AnimatedStateListDrawableTransition);
-            int resourceId = obtainAttributes.getResourceId(R$styleable.AnimatedStateListDrawableTransition_android_fromId, -1);
-            int resourceId2 = obtainAttributes.getResourceId(R$styleable.AnimatedStateListDrawableTransition_android_toId, -1);
-            int resourceId3 = obtainAttributes.getResourceId(R$styleable.AnimatedStateListDrawableTransition_android_drawable, -1);
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.AnimatedStateListDrawableTransition);
+            int resourceId = obtainAttributes.getResourceId(2, -1);
+            int resourceId2 = obtainAttributes.getResourceId(1, -1);
+            int resourceId3 = obtainAttributes.getResourceId(0, -1);
             Drawable drawable = resourceId3 > 0 ? ResourceManagerInternal.get().getDrawable(context, resourceId3) : null;
-            boolean z = obtainAttributes.getBoolean(R$styleable.AnimatedStateListDrawableTransition_android_reversible, false);
+            boolean z = obtainAttributes.getBoolean(3, false);
             obtainAttributes.recycle();
             if (drawable == null) {
                 do {
@@ -732,11 +732,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             if (Build.VERSION.SDK_INT >= 21) {
                 animatedStateListState.mChangingConfigurations |= typedArray.getChangingConfigurations();
             }
-            animatedStateListState.setVariablePadding(typedArray.getBoolean(R$styleable.AnimatedStateListDrawableCompat_android_variablePadding, animatedStateListState.mVariablePadding));
-            animatedStateListState.setConstantSize(typedArray.getBoolean(R$styleable.AnimatedStateListDrawableCompat_android_constantSize, animatedStateListState.mConstantSize));
-            animatedStateListState.setEnterFadeDuration(typedArray.getInt(R$styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration, animatedStateListState.mEnterFadeDuration));
-            animatedStateListState.setExitFadeDuration(typedArray.getInt(R$styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration, animatedStateListState.mExitFadeDuration));
-            setDither(typedArray.getBoolean(R$styleable.AnimatedStateListDrawableCompat_android_dither, animatedStateListState.mDither));
+            animatedStateListState.setVariablePadding(typedArray.getBoolean(2, animatedStateListState.mVariablePadding));
+            animatedStateListState.setConstantSize(typedArray.getBoolean(3, animatedStateListState.mConstantSize));
+            animatedStateListState.setEnterFadeDuration(typedArray.getInt(4, animatedStateListState.mEnterFadeDuration));
+            animatedStateListState.setExitFadeDuration(typedArray.getInt(5, animatedStateListState.mExitFadeDuration));
+            setDither(typedArray.getBoolean(0, animatedStateListState.mDither));
         }
     }
 
@@ -843,8 +843,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     public void inflate(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048597, this, context, resources, xmlPullParser, attributeSet, theme) == null) {
-            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.AnimatedStateListDrawableCompat);
-            setVisible(obtainAttributes.getBoolean(R$styleable.AnimatedStateListDrawableCompat_android_visible, true), true);
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.AnimatedStateListDrawableCompat);
+            setVisible(obtainAttributes.getBoolean(1, true), true);
             updateStateFromTypedArray(obtainAttributes);
             updateDensity(resources);
             obtainAttributes.recycle();

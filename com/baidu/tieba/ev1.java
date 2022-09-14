@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class ev1 extends gu1 {
+public final class ev1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public hn2 a;
 
     public ev1() {
         Interceptable interceptable = $ic;
@@ -23,33 +24,25 @@ public class ev1 extends gu1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new hn2();
+    }
+
+    public void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.a.a(activity);
         }
     }
 
-    @Override // com.baidu.tieba.gu1
-    public void a(hu1 hu1Var, Canvas canvas) {
-        int i;
+    public void b(ga2 ga2Var, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hu1Var, canvas) == null) || (i = this.a) <= 0) {
-            return;
-        }
-        hu1Var.e.setTextSize(i);
-    }
-
-    @Override // com.baidu.tieba.gu1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    this.a = re3.g((float) jSONArray.optDouble(0));
-                }
-            } catch (Exception e) {
-                if (kh1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ga2Var, context) == null) {
+            UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
+            this.a.e(ga2Var, context, ga2Var, unitedSchemeMainDispatcher);
+            r33.a(unitedSchemeMainDispatcher);
         }
     }
 }

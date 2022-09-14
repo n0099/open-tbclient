@@ -6,7 +6,7 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nb;
+import com.baidu.tieba.bc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HttpMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nb mConnectTimeOut;
+    public bc mConnectTimeOut;
     public boolean mIsImm;
     public HTTP_METHOD mMethod;
     public boolean mNeedGzip;
@@ -132,10 +132,10 @@ public class HttpMessageTask extends MessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FrameHelper.b(this.mCmd) : invokeV.booleanValue;
     }
 
-    public nb getConnectTimeOut() {
+    public bc getConnectTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mConnectTimeOut : (nb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mConnectTimeOut : (bc) invokeV.objValue;
     }
 
     public boolean getIsImm() {
@@ -168,10 +168,10 @@ public class HttpMessageTask extends MessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mNeedGzip : invokeV.booleanValue;
     }
 
-    public void setConnectTimeOut(nb nbVar) {
+    public void setConnectTimeOut(bc bcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nbVar) == null) {
-            this.mConnectTimeOut = nbVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bcVar) == null) {
+            this.mConnectTimeOut = bcVar;
         }
     }
 

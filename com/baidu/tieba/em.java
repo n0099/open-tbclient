@@ -1,84 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.nps.interfa.IStatisticManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.ConcurrentHashMap;
+@Service
 /* loaded from: classes3.dex */
-public class em extends DefaultDownloadCallback {
+public class em implements IStatisticManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
 
-    public em(DefaultDownloadCallback defaultDownloadCallback) {
+    public em() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = defaultDownloadCallback;
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) || errorInfo == null) {
-            return;
-        }
-        BdLog.e(errorInfo.errorMsg);
-        DefaultDownloadCallback defaultDownloadCallback = this.a;
-        if (defaultDownloadCallback != null) {
-            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void onPatchResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) || packageInfo == null || StringUtils.isNull(packageInfo.filePath) || StringUtils.isNull(packageInfo.name)) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
         }
-        File file = new File(packageInfo.filePath);
-        if (file.exists() && file.isFile()) {
-            String b = gm.b(packageInfo.name);
-            File file2 = new File(b);
-            if ((!file2.exists() || file2.delete()) && file.renameTo(file2)) {
-                if (b.contains(".so")) {
-                    if (im.a(BdBaseApplication.getInst().getContext(), gm.a(packageInfo.name))) {
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo.name;
-                        resHashMap.put(str, gm.a(str));
-                    }
-                    ((yl) ServiceManager.getService(yl.a)).a(packageInfo.name);
-                } else {
-                    ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                    String str2 = packageInfo.name;
-                    resHashMap2.put(str2, gm.a(str2));
-                }
-                DefaultDownloadCallback defaultDownloadCallback = this.a;
-                if (defaultDownloadCallback != null) {
-                    defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
-                }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void onUninstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordDownloadResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordException(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordInstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+            dm.c(str, i, i2);
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordInvokeResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+            if (i == 14) {
+                dm.a(str, i2);
             }
+            dm.d(str, i, i2);
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordPeriod(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordResult(long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
         }
     }
 }

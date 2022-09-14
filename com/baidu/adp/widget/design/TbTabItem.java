@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 /* loaded from: classes.dex */
 public final class TbTabItem extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -59,7 +60,7 @@ public final class TbTabItem extends View {
                 return;
             }
         }
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, new int[]{16842754, 16842994, 16843087});
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
         this.a = obtainStyledAttributes.getText(2);
         this.b = obtainStyledAttributes.getDrawable(0);
         this.c = obtainStyledAttributes.getResourceId(1, 0);

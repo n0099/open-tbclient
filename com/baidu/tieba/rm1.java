@@ -1,18 +1,30 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.gr1;
 /* loaded from: classes5.dex */
 public interface rm1 {
-    ExecutorService d();
+    @NonNull
+    c83 a(Activity activity, boolean z, String str, String str2);
 
-    void e(String str, int i, JSONArray jSONArray);
+    @NonNull
+    h83 b(Activity activity, gr1.d dVar, Bundle bundle);
 
-    void f(String str, int i);
+    @NonNull
+    i83 c(Activity activity, String str, String str2, boolean z, boolean z2);
 
-    void g(String str, String str2, int i, String str3, int i2);
+    @NonNull
+    d83 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
 
-    void i(String str, int i, String str2);
+    @NonNull
+    g83 e(Context context);
 
-    void n(String str, String str2, int i, String str3, long j, int i2);
+    @NonNull
+    f83 f(Context context);
+
+    @NonNull
+    e83 g(Context context, String str);
 }

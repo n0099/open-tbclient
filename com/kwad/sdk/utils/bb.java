@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bb {
     public static void a(long j, int i, @Nullable Context context) {
         if (j == 0 || context == null) {

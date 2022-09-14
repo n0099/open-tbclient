@@ -9,7 +9,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
@@ -21,7 +20,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment;
-import com.baidu.tieba.z8;
+import com.baidu.tieba.n9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +71,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.G0();
+                this.a.R0();
             }
         }
     }
@@ -91,7 +90,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
     }
 
-    public final void E0() {
+    public final void N0() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
             return;
@@ -102,7 +101,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         TiebaStatic.log(statisticItem);
     }
 
-    public final void F0() {
+    public final void O0() {
         SwipeBackLayout swipeBackLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (swipeBackLayout = this.mSwipeBackLayout) == null) {
@@ -111,17 +110,14 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         swipeBackLayout.setOnSlidingStateChangeListener(new a(this));
     }
 
-    public final void G0() {
+    public final void R0() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e) {
             return;
         }
         this.e = true;
         if (getIntent() != null && getIntent().getIntExtra(ReplyMeActivityConfig.KEY_REPLY_NUMBER, 0) > 0) {
-            int intExtra = getIntent().getIntExtra("last_page_unique_id", 0);
-            if (UbsABTestHelper.isPushOpenPlan2() || UbsABTestHelper.isPushOpenPlan3()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921700, new int[]{intExtra, 3}));
-            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921700, new int[]{getIntent().getIntExtra("last_page_unique_id", 0), 3}));
         }
     }
 
@@ -160,7 +156,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.hc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -193,27 +189,27 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             boolean z = true;
-            z = (z8.g().i("YunPushProxyActivity") && z8.g().h() == 1) ? false : false;
+            z = (n9.g().i("YunPushProxyActivity") && n9.g().h() == 1) ? false : false;
             this.d = z;
             if (z) {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004d);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0fe1));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ffd));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
             this.a = replyMessageFragment;
             replyMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906bd, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906d3, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
             VoiceManager t0 = t0();
             this.c = t0;
             t0.onCreate(getPageContext());
-            E0();
-            F0();
+            N0();
+            O0();
         }
     }
 
@@ -239,9 +235,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
                 return;
             }
             replyMessageFragment.setArguments(intent.getExtras());
-            if (this.a.B1() != null) {
-                this.a.P1();
-                this.a.N1();
+            if (this.a.A1() != null) {
+                this.a.O1();
+                this.a.M1();
             }
         }
     }
@@ -256,7 +252,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
                 voiceManager.onPause(getPageContext());
             }
             if (isFinishing()) {
-                G0();
+                R0();
             }
         }
     }

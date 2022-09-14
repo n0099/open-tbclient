@@ -1,62 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ux4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CharSequence a;
+    public CharSequence b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
 
-    public static List<String> a() {
-        InterceptResult invokeV;
+    public ux4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String q = su4.k().q("scheme_white_list", null);
-            if (StringUtils.isNull(q)) {
-                return null;
-            }
-            try {
-                return b(new JSONArray(q));
-            } catch (Exception unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (List) invokeV.objValue;
-    }
-
-    public static List<String> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString = jSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    arrayList.add(optString);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void c(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
-            if (jSONArray == null) {
-                su4.k().y("scheme_white_list", "");
-            } else {
-                su4.k().y("scheme_white_list", jSONArray.toString());
-            }
-        }
+        this.c = R.color.CAM_X0105;
+        this.d = R.color.CAM_X0108;
     }
 }

@@ -1,13 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface h9 {
-    BdUniqueId getUniqueId();
+public class h9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean isScroll();
+    public abstract boolean a();
 
-    void onPreLoad(tn tnVar);
+    public abstract String b();
 
-    void setIsScroll(boolean z);
+    public abstract String c();
+
+    public abstract Object d();
+
+    public abstract JSONObject e();
 }

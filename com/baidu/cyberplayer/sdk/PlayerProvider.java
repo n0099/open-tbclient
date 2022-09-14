@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class PlayerProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

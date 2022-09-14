@@ -88,7 +88,6 @@ public class BaseActivity extends Activity {
                 LogUtil.i(TAG, "onCreate fixOrientation when Oreo, result = " + fixOrientation);
             }
             super.onCreate(bundle);
-            com.baidu.mytransformapp.util.LogUtil.logActivity(this, "onCreate");
         }
     }
 

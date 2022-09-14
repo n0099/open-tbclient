@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pm4;
-import com.baidu.tieba.q55;
+import com.baidu.tieba.qo4;
+import com.baidu.tieba.y75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public interface b {
         void onFail(int i, String str);
 
-        void onSuccess(List<q55> list);
+        void onSuccess(List<y75> list);
     }
 
     public GetEmotionInfosModel() {
@@ -117,7 +117,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-            httpMessage.addParam("pic_urls", pm4.q(jSONArray.toString()));
+            httpMessage.addParam("pic_urls", qo4.t(jSONArray.toString()));
             sendMessage(httpMessage);
         }
     }

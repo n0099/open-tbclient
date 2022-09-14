@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,22 +29,21 @@ import com.baidubce.util.StringUtils;
 /* loaded from: classes4.dex */
 public class FrsPrivateCommonDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
+    public static final int j;
     public static final int k;
     public static final int l;
     public static final int m;
     public static final int n;
-    public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageView b;
-    public HeadImageView c;
-    public TbImageView d;
+    public ImageView a;
+    public HeadImageView b;
+    public TbImageView c;
+    public TextView d;
     public TextView e;
     public TextView f;
-    public TextView g;
-    public RelativeLayout h;
+    public RelativeLayout g;
+    public View h;
     public View i;
-    public View j;
 
     static {
         InterceptResult invokeClinit;
@@ -59,11 +58,11 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        k = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        l = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds250);
-        m = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        n = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds405);
-        o = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds220);
+        j = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        k = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds250);
+        l = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        m = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds405);
+        n = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds220);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,30 +83,29 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        this.a = context;
         d(context);
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.g.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
             if (z) {
-                int i = n;
+                int i = m;
                 layoutParams.height = i;
                 layoutParams2.height = i;
-                layoutParams3.height = o;
+                layoutParams3.height = n;
             } else {
-                int i2 = l;
+                int i2 = k;
                 layoutParams.height = i2;
                 layoutParams2.height = i2;
-                layoutParams3.height = m;
+                layoutParams3.height = l;
             }
-            this.h.setLayoutParams(layoutParams);
-            this.b.setLayoutParams(layoutParams2);
-            this.i.setLayoutParams(layoutParams3);
+            this.g.setLayoutParams(layoutParams);
+            this.a.setLayoutParams(layoutParams2);
+            this.h.setLayoutParams(layoutParams3);
         }
     }
 
@@ -120,26 +118,26 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             }
             a(e(privateForumPopInfoData.C()));
             if (privateForumPopInfoData.C().equals("left_time")) {
-                this.g.setText(R.string.obfuscated_res_0x7f0f0734);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f15);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0747);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3c);
             } else if (!privateForumPopInfoData.C().equals("clear_forum") && !privateForumPopInfoData.C().equals("task_fail")) {
                 if (privateForumPopInfoData.C().equals("task_complete")) {
-                    this.g.setText(R.string.obfuscated_res_0x7f0f0734);
-                    SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f16);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0747);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3d);
                 } else {
-                    this.g.setText(R.string.obfuscated_res_0x7f0f0734);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0747);
                     f();
-                    SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080f12);
-                    SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f13);
+                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f39);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3a);
                 }
             } else {
-                this.g.setText(R.string.obfuscated_res_0x7f0f0736);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f14);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0749);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3b);
             }
-            this.g.setTag(R.id.obfuscated_res_0x7f090f6e, Boolean.valueOf(z));
-            this.g.setTag(R.id.obfuscated_res_0x7f091a4f, privateForumPopInfoData);
-            this.e.setText(privateForumPopInfoData.getTitle());
-            this.f.setText(privateForumPopInfoData.A());
+            this.f.setTag(R.id.obfuscated_res_0x7f090f89, Boolean.valueOf(z));
+            this.f.setTag(R.id.obfuscated_res_0x7f091a8e, privateForumPopInfoData);
+            this.d.setText(privateForumPopInfoData.getTitle());
+            this.e.setText(privateForumPopInfoData.A());
             return true;
         }
         return invokeLZ.booleanValue;
@@ -153,10 +151,10 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (z) {
                 str = str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
-            if (su4.k().h(str, false)) {
+            if (bx4.k().h(str, false)) {
                 return true;
             }
-            su4.k().u(str, true);
+            bx4.k().u(str, true);
             return false;
         }
         return invokeLZ.booleanValue;
@@ -165,34 +163,34 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033d, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bbd);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090a78);
-            this.c = headImageView;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0342, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bd7);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090a92);
+            this.b = headImageView;
             headImageView.setIsRound(true);
-            this.c.setDrawBorder(true);
-            this.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            this.c.setBorderWidth(k);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a77);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbe);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbc);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbb);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a4e);
-            this.i = findViewById(R.id.obfuscated_res_0x7f090d2c);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091a4d);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0108);
-            ns4 d = ns4.d(this.g);
+            this.b.setDrawBorder(true);
+            this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+            this.b.setBorderWidth(j);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a91);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd6);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd5);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a8d);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090d47);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091a8c);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
+            uu4 d = uu4.d(this.f);
             d.l(R.dimen.tbds1);
             d.n(R.string.J_X07);
             d.k(R.color.CAM_X0304);
             d.v(R.color.CAM_X0304);
-            ns4 d2 = ns4.d(this.e);
+            uu4 d2 = uu4.d(this.d);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            ns4 d3 = ns4.d(this.i);
+            uu4 d3 = uu4.d(this.h);
             d3.n(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            ns4 d4 = ns4.d(this.j);
+            uu4 d4 = uu4.d(this.i);
             d4.n(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -207,13 +205,13 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.setVisibility(0);
             this.c.setVisibility(0);
-            this.d.setVisibility(0);
-            String avater = g55.d().e().getAvater();
+            String avater = o75.d().e().getAvater();
             if (avater.startsWith("http")) {
-                this.c.K(avater, 10, false);
+                this.b.K(avater, 10, false);
             } else {
-                this.c.K(avater, 12, false);
+                this.b.K(avater, 12, false);
             }
         }
     }
@@ -223,6 +221,6 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.g.setOnClickListener(onClickListener);
+        this.f.setOnClickListener(onClickListener);
     }
 }

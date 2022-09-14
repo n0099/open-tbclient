@@ -32,19 +32,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0159a a;
+    public C0158a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0159a extends SQLiteOpenHelper {
+    public class C0158a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0159a(a aVar, Context context) {
+        public C0158a(a aVar, Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, aVar.getClass());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -131,10 +131,10 @@ public class a {
             }
         }
         this.c = context.getApplicationContext();
-        C0159a c0159a = new C0159a(this, context.getApplicationContext());
-        this.a = c0159a;
+        C0158a c0158a = new C0158a(this, context.getApplicationContext());
+        this.a = c0158a;
         try {
-            this.b = c0159a.getWritableDatabase();
+            this.b = c0158a.getWritableDatabase();
         } catch (Throwable th) {
             com.baidu.sofire.k.a.a(th);
         }
@@ -492,8 +492,8 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00e5 A[Catch: all -> 0x0111, TRY_ENTER, TRY_LEAVE, TryCatch #1 {all -> 0x0111, blocks: (B:42:0x00e5, B:45:0x0102), top: B:54:0x00e3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0100  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00e8 A[Catch: all -> 0x0114, TRY_ENTER, TRY_LEAVE, TryCatch #2 {all -> 0x0114, blocks: (B:42:0x00e8, B:45:0x0105), top: B:54:0x00e6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0103  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

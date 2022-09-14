@@ -33,15 +33,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.db;
-import com.baidu.tieba.hu4;
-import com.baidu.tieba.jx4;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.p97;
-import com.baidu.tieba.pk8;
-import com.baidu.tieba.r97;
-import com.baidu.tieba.s97;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.dg8;
+import com.baidu.tieba.dm8;
+import com.baidu.tieba.jh;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.rb;
 import com.baidu.tieba.setting.ForbiddenForumActivityConfig;
 import com.baidu.tieba.setting.PrivacyPermissionActivityConfig;
 import com.baidu.tieba.setting.SecretSettingActivityConfig;
@@ -61,9 +59,11 @@ import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushRequestMes
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushSocketResponseMessage;
 import com.baidu.tieba.setting.privacy.PrivacyMarkActivity;
 import com.baidu.tieba.setting.privacy.PrivacyPermissionActivity;
-import com.baidu.tieba.su4;
-import com.baidu.tieba.te8;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.tz4;
+import com.baidu.tieba.wa7;
+import com.baidu.tieba.x15;
+import com.baidu.tieba.ya7;
+import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,14 +81,14 @@ public class SettingStatic {
     public static MaskInfo a;
     public static boolean b;
     public static boolean c;
-    public static final db d;
+    public static final rb d;
     public static final CustomMessageListener e;
     public static final CustomMessageListener f;
-    public static bb g;
+    public static pb g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends db {
+    public static class a extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,7 +199,7 @@ public class SettingStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class d extends bb {
+    public static class d extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -224,7 +224,7 @@ public class SettingStatic {
             }
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class SettingStatic {
                         }
                     }
                 }
-                nz4.d().U(z);
+                x15.d().U(z);
             }
         }
     }
@@ -284,7 +284,7 @@ public class SettingStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nz4.d().G();
+                x15.d().G();
             }
         }
     }
@@ -318,8 +318,8 @@ public class SettingStatic {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
                     TbadkCoreApplication.getInst().deleteAccountAllInfo(currentAccount);
-                    jx4.b().a();
-                    hu4.a(DI.ACCOUNT, -1L, 0, "logout_delete_account", 0, "", new Object[0]);
+                    tz4.b().a();
+                    qw4.a(DI.ACCOUNT, -1L, 0, "logout_delete_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, data);
                     TbadkCoreApplication.getInst().onUserChanged();
                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig(data, true);
@@ -463,23 +463,23 @@ public class SettingStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2015007, new h());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        pk8.f(303016, ResponsedPrivacySocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, pk8.a(TbConfig.GET_PRIVATE_INFO, 303016));
+        dm8.f(303016, ResponsedPrivacySocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, dm8.a(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(e);
         MessageManager.getInstance().registerListener(g);
         MessageManager.getInstance().registerListener(d);
         MessageManager.getInstance().registerListener(f);
-        pk8.f(104101, ResponseUpdateMaskMessage.class, false);
-        pk8.f(104106, ResponseUpdateForumMask.class, false);
+        dm8.f(104101, ResponseUpdateMaskMessage.class, false);
+        dm8.f(104106, ResponseUpdateForumMask.class, false);
         h();
         i();
         l();
         m();
         j();
         k();
-        SwitchManager.getInstance().registerSwitch(te8.class);
+        SwitchManager.getInstance().registerSwitch(dg8.class);
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2921695, new i());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
@@ -506,8 +506,8 @@ public class SettingStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            int j = nz4.d().j();
-            int k = nz4.d().k();
+            int j = x15.d().j();
+            int k = x15.d().k();
             if (j > 9) {
                 str = String.valueOf(j);
             } else {
@@ -518,9 +518,9 @@ public class SettingStatic {
             } else {
                 str2 = "0" + k;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1188, new Object[]{str, str2});
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11a5, new Object[]{str, str2});
             StatisticItem param = new StatisticItem("c13889").param("obj_locate", 1).param("obj_type", areNotificationsEnabled ? 1 : 2);
-            if (!nz4.d().D()) {
+            if (!x15.d().D()) {
                 string = "";
             }
             TiebaStatic.log(param.param("obj_param1", string).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", g()));
@@ -545,7 +545,7 @@ public class SettingStatic {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return f(1, nz4.d().y(), true) + f(2, nz4.d().f, true) + f(3, nz4.d().g, true) + f(4, nz4.d().t(), true) + f(5, nz4.d().r(), true) + f(6, nz4.d().E(), true) + f(7, nz4.d().n(), true) + f(8, nz4.d().m(), true) + f(9, nz4.d().D(), true) + f(10, nz4.d().C(), true) + f(13, nz4.d().o(), true) + f(11, nz4.d().q(), false);
+            return f(1, x15.d().y(), true) + f(2, x15.d().f, true) + f(3, x15.d().g, true) + f(4, x15.d().t(), true) + f(5, x15.d().r(), true) + f(6, x15.d().E(), true) + f(7, x15.d().n(), true) + f(8, x15.d().m(), true) + f(9, x15.d().D(), true) + f(10, x15.d().C(), true) + f(13, x15.d().o(), true) + f(11, x15.d().q(), false);
         }
         return (String) invokeV.objValue;
     }
@@ -589,8 +589,8 @@ public class SettingStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            pk8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
-            pk8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
+            dm8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
+            dm8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
         }
     }
 
@@ -643,32 +643,32 @@ public class SettingStatic {
         MaskInfo maskInfo = a;
         Integer num2 = maskInfo.remindMask;
         if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && a.shieldStatus.intValue() == 0) {
-            if (!su4.k().h("had_sync_setting_switch" + currentAccount, false)) {
+            if (!bx4.k().h("had_sync_setting_switch" + currentAccount, false)) {
                 z = true;
                 if (!z) {
-                    su4.k().u("had_sync_setting_switch" + currentAccount, true);
-                    if (!nz4.d().x()) {
+                    bx4.k().u("had_sync_setting_switch" + currentAccount, true);
+                    if (!x15.d().x()) {
                         p(14, false);
                     } else {
-                        if (!nz4.d().t()) {
+                        if (!x15.d().t()) {
                             p(2, false);
                         }
-                        if (!nz4.d().w()) {
+                        if (!x15.d().w()) {
                             p(3, false);
                         }
-                        if (!nz4.d().s()) {
+                        if (!x15.d().s()) {
                             p(4, false);
                         }
-                        if (!nz4.d().u()) {
+                        if (!x15.d().u()) {
                             p(5, false);
                         }
-                        if (!nz4.d().y()) {
+                        if (!x15.d().y()) {
                             p(1, false);
                         }
-                        if (!nz4.d().B()) {
+                        if (!x15.d().B()) {
                             p(20, false);
                         }
-                        if (!nz4.d().C()) {
+                        if (!x15.d().C()) {
                             p(30, false);
                         }
                     }
@@ -676,56 +676,56 @@ public class SettingStatic {
                     Integer num3 = a.remindMask;
                     if (num3 != null) {
                         if (num3.intValue() == 0) {
-                            nz4.d().H(true);
+                            x15.d().H(true);
                         } else if (a.remindMask.intValue() == 1) {
-                            nz4.d().H(false);
+                            x15.d().H(false);
                             z2 = false;
                             num = a.shieldStatus;
                             if (num != null) {
                                 int intValue = num.intValue();
                                 boolean z3 = (intValue & 16) == 0;
-                                nz4.d().J(z3);
+                                x15.d().J(z3);
                                 boolean z4 = (intValue & 1) == 0;
-                                nz4.d().N(z4);
+                                x15.d().N(z4);
                                 boolean z5 = (intValue & 2) == 0;
-                                nz4.d().I(z5);
+                                x15.d().I(z5);
                                 boolean z6 = (intValue & 4) == 0;
-                                nz4.d().M(z6);
-                                nz4.d().V((intValue & 2048) == 0);
-                                nz4.d().W((intValue & 16384) == 0);
+                                x15.d().M(z6);
+                                x15.d().V((intValue & 2048) == 0);
+                                x15.d().W((intValue & 16384) == 0);
                                 boolean z7 = (intValue & 4096) == 0;
-                                nz4.d().Q(z7);
-                                nz4.d().S((intValue & 8192) != 0);
+                                x15.d().Q(z7);
+                                x15.d().S((intValue & 8192) != 0);
                                 if (z4 || z5 || z6 || z3 || z2 || z7) {
-                                    nz4.d().K(300);
+                                    x15.d().K(300);
                                 } else {
-                                    nz4.d().K(0);
+                                    x15.d().K(0);
                                 }
                             }
-                            vg.a().b(new e());
+                            jh.a().b(new e());
                         }
                     }
                     z2 = true;
                     num = a.shieldStatus;
                     if (num != null) {
                     }
-                    vg.a().b(new e());
+                    jh.a().b(new e());
                 }
                 PushSignMask pushSignMask2 = a.signMask;
-                nz4.d().b0(pushSignMask2 == null && pushSignMask2.signPushMask.intValue() == 1, a.signMask == null ? pushSignMask.signPushTimeStamp.intValue() * 1000 : 0L);
+                x15.d().b0(pushSignMask2 == null && pushSignMask2.signPushMask.intValue() == 1, a.signMask == null ? pushSignMask.signPushTimeStamp.intValue() * 1000 : 0L);
                 if (!TextUtils.isEmpty(a.maskFids) && (split3 = a.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        r97.j().g(currentAccount, str, false, null);
+                        ya7.j().g(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskGids) && (split2 = a.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        p97.k().g(currentAccount, str2, false, null);
+                        wa7.k().g(currentAccount, str2, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskUids) && (split = a.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        s97.j().g(currentAccount, str3, false, null);
+                        za7.j().g(currentAccount, str3, false, null);
                     }
                 }
                 e();
@@ -738,7 +738,7 @@ public class SettingStatic {
         PushSignMask pushSignMask22 = a.signMask;
         if (pushSignMask22 == null) {
         }
-        nz4.d().b0(pushSignMask22 == null && pushSignMask22.signPushMask.intValue() == 1, a.signMask == null ? pushSignMask.signPushTimeStamp.intValue() * 1000 : 0L);
+        x15.d().b0(pushSignMask22 == null && pushSignMask22.signPushMask.intValue() == 1, a.signMask == null ? pushSignMask.signPushTimeStamp.intValue() * 1000 : 0L);
         if (!TextUtils.isEmpty(a.maskFids)) {
             while (r7 < r6) {
             }

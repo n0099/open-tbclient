@@ -1,29 +1,28 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.os.Environment;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class ic implements nc {
+public class ic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
+    public final String a;
+    public String b;
+    public String c;
+    public String d;
 
-    public ic(Bundle bundle) {
+    public ic() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,80 +32,101 @@ public class ic implements nc {
                 return;
             }
         }
-        this.a = bundle;
+        this.a = Environment.getExternalStorageDirectory().getAbsolutePath();
+        this.b = this.a + "/baidu/";
+        this.c = null;
+        this.d = null;
+        try {
+            this.c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object a(de deVar) {
-        InterceptResult invokeL;
+    public String a(String str, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) {
-            Object f = f(deVar);
-            if (f != null) {
-                if (f instanceof JSONObject) {
-                    return f.toString();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (z2) {
+                if (!b()) {
+                    return null;
                 }
-                return f instanceof JSONArray ? f.toString() : f;
+                if (str != null) {
+                    str3 = this.b + str + "/";
+                } else {
+                    str3 = this.b;
+                }
+            } else if (z3) {
+                str2 = this.d;
+                if (str2 == null) {
+                    return null;
+                }
+                if (str != null) {
+                    str3 = this.d + str + "/";
+                }
+                str3 = str2;
+            } else {
+                str2 = this.c;
+                if (str2 == null) {
+                    return null;
+                }
+                if (str != null) {
+                    str3 = this.c + str + "/";
+                }
+                str3 = str2;
+            }
+            File file = new File(str3);
+            if (file.exists()) {
+                return str3;
+            }
+            if (z && file.mkdirs()) {
+                return str3;
             }
             return null;
         }
-        return invokeL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object b(de deVar) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, deVar)) == null) ? this.a : invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object c(de deVar) {
-        InterceptResult invokeL;
+    public File c(String str, String str2, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        String a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, deVar)) == null) ? this.a : invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nc
-    public Object d(de deVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, deVar)) == null) ? this.a : invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nc
-    public Object e(de deVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, deVar)) == null) ? d(deVar) : invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nc
-    public Object f(de deVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, deVar)) == null) {
-            Type[] b = deVar.b();
-            Set<String> keySet = this.a.keySet();
-            JSONObject jSONObject = new JSONObject();
-            for (String str : keySet) {
-                Object obj = this.a.get(str);
-                if (b != null && b.length >= 2) {
-                    try {
-                        jSONObject.put(str, ge.a(obj).f(new de(b[1])));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    try {
-                        jSONObject.put(str, ge.a(obj).f(new de(deVar.a())));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (str2 == null || (a = a(str, z, z2, z3)) == null) {
+                return null;
             }
-            return jSONObject;
+            return new File(a + str2);
         }
-        return invokeL.objValue;
+        return (File) invokeCommon.objValue;
+    }
+
+    public File d(String str, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            String a = a(str, z, z2, z3);
+            if (a == null) {
+                return null;
+            }
+            return new File(a);
+        }
+        return (File) invokeCommon.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
+            return;
+        }
+        this.b = this.a + "/" + str + "/";
     }
 }

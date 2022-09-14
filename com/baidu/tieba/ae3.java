@@ -1,137 +1,94 @@
 package com.baidu.tieba;
 
+import android.net.wifi.WifiConfiguration;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.io.JSONUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class ae3 {
+public class ae3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612250, "Lcom/baidu/tieba/ae3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947612250, "Lcom/baidu/tieba/ae3;");
-                return;
-            }
-        }
-        a = kh1.a;
-    }
-
-    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            T t = (T) jSONObject.opt(str);
-            if (cls.isInstance(t)) {
-                if (a) {
-                    String obj = t.toString();
-                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
-                        obj = obj.substring(0, 30) + StringHelper.STRING_MORE;
-                    }
-                    if (a) {
-                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
-                    }
-                }
-                return t;
-            }
-            if (a) {
-                if (t == null) {
-                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
-                } else {
-                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
-                }
-            }
-            return null;
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static float b(JSONObject jSONObject, String str, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
-    }
-
-    public static JSONArray c(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) ? (JSONArray) a(jSONObject, str, JSONArray.class) : (JSONArray) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject d(String str) {
+    public static int a(WifiConfiguration wifiConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
+            if (wifiConfiguration == null) {
+                return -1;
             }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
-                }
-                return new JSONObject();
+            if (wifiConfiguration.allowedKeyManagement.get(1)) {
+                return 2;
             }
+            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
+                return 3;
+            }
+            if (wifiConfiguration.wepKeys[0] != null) {
+                return 1;
+            }
+            return wifiConfiguration.allowedKeyManagement.get(0) ? 0 : -1;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static JSONArray e(String str) {
+    public static int b(wd3 wd3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONArray();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wd3Var)) == null) {
+            if (wd3Var == null) {
+                return -1;
             }
-            try {
-                return new JSONArray(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
-                }
-                return new JSONArray();
+            if (TextUtils.isEmpty(wd3Var.c) && TextUtils.isEmpty(wd3Var.d)) {
+                return 0;
             }
+            if (TextUtils.isEmpty(wd3Var.c) || TextUtils.isEmpty(wd3Var.d)) {
+                return !TextUtils.isEmpty(wd3Var.d) ? 2 : -1;
+            }
+            return 3;
         }
-        return (JSONArray) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
-        InterceptResult invokeLLL;
+    public static int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            try {
-                jSONObject.put(str, obj);
-            } catch (JSONException unused) {
+            if (str.contains("WEP")) {
+                return 1;
             }
-            return jSONObject;
+            if (str.contains("PSK")) {
+                return 2;
+            }
+            return str.contains("EAP") ? 3 : -1;
         }
-        return (JSONObject) invokeLLL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static void d(WifiConfiguration wifiConfiguration, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, wifiConfiguration, i) == null) || wifiConfiguration == null) {
+            return;
+        }
+        wifiConfiguration.allowedKeyManagement.clear();
+        wifiConfiguration.allowedProtocols.clear();
+        wifiConfiguration.allowedAuthAlgorithms.clear();
+        wifiConfiguration.allowedPairwiseCiphers.clear();
+        wifiConfiguration.allowedGroupCiphers.clear();
+        if (i == 0) {
+            wifiConfiguration.allowedKeyManagement.set(0);
+        } else if (i == 1) {
+            wifiConfiguration.allowedKeyManagement.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(1);
+        } else if (i == 2) {
+            wifiConfiguration.allowedKeyManagement.set(1);
+        } else if (i != 3) {
+        } else {
+            wifiConfiguration.allowedKeyManagement.set(2);
+            wifiConfiguration.allowedKeyManagement.set(3);
+        }
     }
 }

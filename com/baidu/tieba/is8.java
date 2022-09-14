@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.KeyguardManager;
-import android.app.WallpaperManager;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.PowerManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,16 +22,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class is8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KeyguardManager a;
-    public PowerManager b;
-    public PowerManager.WakeLock c;
-    public KeyguardManager.KeyguardLock d;
-    public Context e;
+    public TbPageContext<?> a;
+    public int b;
+    public BdUniqueId c;
+    public int d;
 
-    public is8() {
+    public is8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,102 +42,66 @@ public class is8 {
                 return;
             }
         }
-        try {
-            Application app = TbadkCoreApplication.getInst().getApp();
-            this.e = app;
-            PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.b = powerManager;
-            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.c = newWakeLock;
-            newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
-            this.a = keyguardManager;
-            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        this.c = null;
+        this.d = -1;
+        this.a = tbPageContext;
+        this.c = bdUniqueId;
     }
 
-    public static Drawable a() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
-            return (Drawable) invokeV.objValue;
-        }
-        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        try {
-            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
-            if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
-                return null;
-            }
-            int min = Math.min(ri.k(inst), bitmap.getWidth());
-            int min2 = Math.min(ri.i(inst), bitmap.getHeight());
-            try {
-                try {
-                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                } catch (Throwable unused) {
-                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                }
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-                return null;
-            }
-        } catch (Exception unused2) {
-        }
-    }
-
-    public boolean b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void b(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) == null) || dressItemData == null || dressItemData.getPropsId() == 0) {
+            return;
         }
-        return invokeV.booleanValue;
+        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
+        personalBackgroundPreviewActivityConfig.setFrom(this.d);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.isScreenOn() : invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                this.d.reenableKeyguard();
-                if (this.c != null) {
-                    this.c.release();
-                    this.c = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.d = i;
         }
     }
 
-    public void e() {
+    public void d(int i, String str, DressItemData dressItemData, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.c == null) {
-                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.c = newWakeLock;
-                    newWakeLock.setReferenceCounted(false);
-                }
-                if (this.c != null) {
-                    this.c.acquire(10000L);
-                    this.d.disableKeyguard();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
+            int i2 = dressItemData.getFreeUserLevel() == 101 ? 9 : 0;
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            if (i == as8.a) {
+                int i3 = this.d;
+                zr8.d(this.a, z ? 4 : 2, str, i2, i3 == 1 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY : i3 == 0 ? MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY : "", MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+            } else if (i == as8.b) {
+                zr8.c(this.a, z ? 4 : 2, str, i2);
             }
         }
+    }
+
+    public void e(DressItemData dressItemData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, dressItemData, z) == null) || dressItemData == null) {
+            return;
+        }
+        if (!TbadkCoreApplication.isLogin()) {
+            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
+            return;
+        }
+        this.b = dressItemData.getPropsId();
+        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
+        backgroundSetRequestMessage.setFromDetail(z);
+        backgroundSetRequestMessage.setRequestUniqueId(this.c);
+        backgroundSetRequestMessage.setPropId(this.b);
+        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
     }
 }

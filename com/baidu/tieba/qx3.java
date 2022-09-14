@@ -1,84 +1,103 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qx3 {
+public class qx3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static gy3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? bp5.a() : (gy3) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public class a implements rh3<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(qx3 qx3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qx3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                Context appContext = AppRuntime.getAppContext();
+                if (bool.booleanValue()) {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0139, 1).show();
+                } else {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0138, 1).show();
+                }
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static ly3 b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qx3(v33 v33Var) {
+        super(v33Var, "/swanAPI/debugGameSconsole");
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new ux3() : (ly3) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static ky3 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new tx3() : (ky3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static hy3 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ar3.a() : (hy3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static jy3 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? fr3.a() : (jy3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static iy3 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? cr3.a() : (iy3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static my3 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new vx3() : (my3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ny3 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new wx3() : (ny3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static oy3 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new xx3() : (oy3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static py3 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new yx3() : (py3) invokeV.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                JSONObject a2 = v43.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0133, 1).show();
+                    return false;
+                }
+                String optString = a2.optString("downloadurl");
+                if (TextUtils.isEmpty(optString)) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0134, 1).show();
+                    return false;
+                }
+                px3.m().c(optString, new a(this));
+                return false;
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

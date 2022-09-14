@@ -7,34 +7,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.FloatBuffer;
 /* loaded from: classes5.dex */
-public class pb0 extends ob0 {
+public class pb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] g;
-    public static final float[] h;
-    public static final FloatBuffer i;
-    public static final FloatBuffer j;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056139, "Lcom/baidu/tieba/pb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948056139, "Lcom/baidu/tieba/pb0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948056139, "Lcom/baidu/tieba/pb0;")) == null) {
+            return;
         }
-        float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        g = fArr;
-        h = new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-        i = vb0.b(fArr);
-        j = vb0.b(h);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948056139, "Lcom/baidu/tieba/pb0;");
+        }
     }
 
     public pb0() {
@@ -42,19 +34,38 @@ public class pb0 extends ob0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = j;
-        this.d = 2;
-        this.e = 2 * 4;
-        this.c = g.length / 2;
-        this.f = 8;
+        this.a = 0;
+    }
+
+    public static synchronized pb0 a() {
+        InterceptResult invokeV;
+        pb0 pb0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (pb0.class) {
+                if (b < 1000000) {
+                    b = 1000000;
+                }
+                pb0Var = new pb0();
+                pb0Var.a = b;
+                b++;
+            }
+            return pb0Var;
+        }
+        return (pb0) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 }

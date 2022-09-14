@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,23 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class k4 extends d4 {
+public class k4 extends e4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long j;
-    public static final long k;
-    public static final long l;
-    public static final long m;
-    public static final long n;
-    public static final long o;
-    public static final long p;
-    public static long q;
+    public static final long e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n5<Texture> d;
-    public float e;
-    public float f;
-    public float g;
-    public float h;
-    public int i;
+    public float d;
 
     static {
         InterceptResult invokeClinit;
@@ -43,25 +28,18 @@ public class k4 extends d4 {
                 return;
             }
         }
-        j = d4.d("diffuseTexture");
-        k = d4.d("specularTexture");
-        l = d4.d("bumpTexture");
-        m = d4.d("normalTexture");
-        n = d4.d("ambientTexture");
-        o = d4.d("emissiveTexture");
-        long d = d4.d("reflectionTexture");
-        p = d;
-        q = d | j | k | l | m | n | o;
+        e = e4.d("shininess");
+        e4.d("alphaTest");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k4(long j2) {
-        super(j2);
+    public k4(long j, float f) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j), Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,133 +50,34 @@ public class k4 extends d4 {
                 return;
             }
         }
-        this.e = 0.0f;
-        this.f = 0.0f;
-        this.g = 1.0f;
-        this.h = 1.0f;
-        this.i = 0;
-        if (f(j2)) {
-            this.d = new n5<>();
-            return;
-        }
-        throw new GdxRuntimeException("Invalid type specified");
-    }
-
-    public static final boolean f(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? (j2 & q) != 0 : invokeJ.booleanValue;
+        this.d = f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: e */
-    public int compareTo(d4 d4Var) {
+    public int compareTo(e4 e4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d4Var)) == null) {
-            long j2 = this.a;
-            long j3 = d4Var.a;
-            if (j2 != j3) {
-                return j2 < j3 ? -1 : 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e4Var)) == null) {
+            long j = this.a;
+            long j2 = e4Var.a;
+            if (j != j2) {
+                return (int) (j - j2);
             }
-            k4 k4Var = (k4) d4Var;
-            int compareTo = this.d.compareTo(k4Var.d);
-            if (compareTo != 0) {
-                return compareTo;
-            }
-            int i = this.i;
-            int i2 = k4Var.i;
-            if (i != i2) {
-                return i - i2;
-            }
-            if (!com.badlogic.gdx.math.d.e(this.g, k4Var.g)) {
-                return this.g > k4Var.g ? 1 : -1;
-            } else if (!com.badlogic.gdx.math.d.e(this.h, k4Var.h)) {
-                return this.h > k4Var.h ? 1 : -1;
-            } else if (!com.badlogic.gdx.math.d.e(this.e, k4Var.e)) {
-                return this.e > k4Var.e ? 1 : -1;
-            } else if (com.badlogic.gdx.math.d.e(this.f, k4Var.f)) {
+            float f = ((k4) e4Var).d;
+            if (com.badlogic.gdx.math.d.e(this.d, f)) {
                 return 0;
-            } else {
-                return this.f > k4Var.f ? 1 : -1;
             }
+            return this.d < f ? -1 : 1;
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.d4
+    @Override // com.baidu.tieba.e4
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((((((((super.hashCode() * 991) + this.d.hashCode()) * 991) + t7.b(this.e)) * 991) + t7.b(this.f)) * 991) + t7.b(this.g)) * 991) + t7.b(this.h)) * 991) + this.i : invokeV.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public <T extends Texture> k4(long j2, n5<T> n5Var) {
-        this(j2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), n5Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d.c(n5Var);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public <T extends Texture> k4(long j2, n5<T> n5Var, float f, float f2, float f3, float f4, int i) {
-        this(j2, n5Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2), n5Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Long) objArr2[0]).longValue(), (n5) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.e = f;
-        this.f = f2;
-        this.g = f3;
-        this.h = f4;
-        this.i = i;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public <T extends Texture> k4(long j2, n5<T> n5Var, float f, float f2, float f3, float f4) {
-        this(j2, n5Var, f, f2, f3, f4, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), n5Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Long) objArr2[0]).longValue(), (n5) objArr2[1], ((Float) objArr2[2]).floatValue(), ((Float) objArr2[3]).floatValue(), ((Float) objArr2[4]).floatValue(), ((Float) objArr2[5]).floatValue(), ((Integer) objArr2[6]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + u7.b(this.d) : invokeV.intValue;
     }
 }

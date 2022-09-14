@@ -1,9 +1,15 @@
 package com.baidu.tieba;
+
+import android.graphics.drawable.Drawable;
 /* loaded from: classes5.dex */
 public interface mk5 {
-    void M(kk5 kk5Var);
+    void setLastUpdatedLabel(CharSequence charSequence);
 
-    lk5 Q0(int i);
+    void setLoadingDrawable(Drawable drawable);
 
-    void p0(int i, lk5 lk5Var);
+    void setPullLabel(CharSequence charSequence);
+
+    void setRefreshingLabel(CharSequence charSequence);
+
+    void setReleaseLabel(CharSequence charSequence);
 }

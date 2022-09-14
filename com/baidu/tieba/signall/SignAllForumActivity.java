@@ -12,6 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -31,22 +32,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.dh8;
-import com.baidu.tieba.fh8;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.qz4;
+import com.baidu.tieba.au4;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.e36;
+import com.baidu.tieba.ho;
+import com.baidu.tieba.ki8;
+import com.baidu.tieba.lx4;
+import com.baidu.tieba.mi8;
+import com.baidu.tieba.n9;
+import com.baidu.tieba.ni8;
+import com.baidu.tieba.ri8;
 import com.baidu.tieba.signall.GetForumListModel;
 import com.baidu.tieba.signall.SignAllForumModel;
-import com.baidu.tieba.ta5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tn;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.wg8;
-import com.baidu.tieba.yg8;
-import com.baidu.tieba.z8;
-import com.baidu.tieba.zg8;
+import com.baidu.tieba.ti8;
+import com.baidu.tieba.z15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,12 +54,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> implements bv4.g {
+public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> implements lx4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fh8 a;
+    public ti8 a;
     public GetForumListModel b;
-    public vr4 c;
+    public au4 c;
     public SignAllForumModel d;
     public boolean e;
     public boolean f;
@@ -143,7 +143,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            yg8 n;
+            mi8 n;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof SignData) || (n = this.a.a.n()) == null) {
                 return;
@@ -218,15 +218,15 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
 
         @Override // com.baidu.tieba.signall.GetForumListModel.b
-        public void a(yg8 yg8Var) {
+        public void a(mi8 mi8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, yg8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, mi8Var) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 this.a.a.k();
-                wg8 i = yg8Var.i();
+                ki8 i = mi8Var.i();
                 if (i != null) {
                     if (i.a() == 0) {
-                        this.a.a.t(yg8Var, this.a.b.G());
+                        this.a.a.t(mi8Var, this.a.b.G());
                     } else {
                         this.a.showToast(i.b(), false);
                         this.a.finish();
@@ -272,14 +272,14 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
 
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
-        public void a(dh8 dh8Var) {
+        public void a(ri8 ri8Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dh8Var) == null) || dh8Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, ri8Var) == null) || ri8Var == null) {
                 return;
             }
-            if (dh8Var.a() == 3250013 && this.a.g) {
+            if (ri8Var.a() == 3250013 && this.a.g) {
                 this.a.g = false;
-                BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), dh8Var.c());
+                BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), ri8Var.c());
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.c(3000);
                 b.i();
@@ -289,16 +289,16 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                 this.a.a.r().setSignBefore(0);
                 return;
             }
-            wg8 b2 = dh8Var.b();
+            ki8 b2 = ri8Var.b();
             if (b2 != null) {
                 if (b2.a() == 0) {
-                    yg8 n = this.a.a.n();
-                    n.D(dh8Var);
+                    mi8 n = this.a.a.n();
+                    n.D(ri8Var);
                     if (this.a.e) {
                         Intent intent = new Intent(this.a.getPageContext().getPageActivity(), SignAllForumActivity.class);
                         intent.addFlags(805306368);
                         intent.putExtra("signall_noyify_click", true);
-                        this.a.V1(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f118f, new Object[]{Integer.valueOf(n.s()), Integer.valueOf(n.j())}), PendingIntent.getActivity(this.a.getPageContext().getPageActivity(), 0, intent, 134217728), false);
+                        this.a.V1(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f11ac, new Object[]{Integer.valueOf(n.s()), Integer.valueOf(n.j())}), PendingIntent.getActivity(this.a.getPageContext().getPageActivity(), 0, intent, 134217728), false);
                         if (this.a.f) {
                             return;
                         }
@@ -306,13 +306,13 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     this.a.a.m().notifyDataSetChanged();
                     SignAllForumProgressView r = this.a.a.r();
                     if (!n.A()) {
-                        if (dh8Var.h() != 0) {
-                            this.a.Q1(dh8Var.f());
+                        if (ri8Var.h() != 0) {
+                            this.a.Q1(ri8Var.f());
                             this.a.c.show();
-                        } else if (dh8Var.e() != 0) {
-                            this.a.showToast(dh8Var.g());
+                        } else if (ri8Var.e() != 0) {
+                            this.a.showToast(ri8Var.g());
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f1194);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f11b1);
                         }
                     }
                     if (this.a.c == null || !this.a.c.isShowing()) {
@@ -360,17 +360,17 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(vr4 vr4Var) {
+        public void onNavigationButtonClick(au4 au4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_SIGN));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(vr4 vr4Var) {
+        public void onPositiveButtonClick(au4 au4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, au4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_SIGN));
             }
         }
@@ -416,7 +416,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* loaded from: classes5.dex */
-    public class g implements vr4.e {
+    public class g implements au4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SignAllForumActivity a;
@@ -439,11 +439,11 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             this.a = signAllForumActivity;
         }
 
-        @Override // com.baidu.tieba.vr4.e
-        public void onClick(vr4 vr4Var) {
+        @Override // com.baidu.tieba.au4.e
+        public void onClick(au4 au4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
-                vr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+                au4Var.dismiss();
             }
         }
     }
@@ -476,7 +476,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public final void O1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NotificationHelper.cancelNotification(getPageContext().getPageActivity(), R.drawable.obfuscated_res_0x7f0810d9);
+            NotificationHelper.cancelNotification(getPageContext().getPageActivity(), R.drawable.obfuscated_res_0x7f081102);
         }
     }
 
@@ -485,13 +485,13 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
             return;
         }
-        qz4.c().a(2, getPageContext(), this.a.s());
+        z15.c().a(2, getPageContext(), this.a.s(), false);
     }
 
     public final void Q1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            vr4 positiveButton = new vr4(getPageContext().getPageActivity()).setMessage(str).setPositiveButton(R.string.obfuscated_res_0x7f0f119b, new g(this));
+            au4 positiveButton = new au4(getPageContext().getPageActivity()).setMessage(str).setPositiveButton(R.string.obfuscated_res_0x7f0f11b8, new g(this));
             this.c = positiveButton;
             positiveButton.create(getPageContext());
         }
@@ -500,9 +500,9 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public final void R1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            fh8 fh8Var = new fh8(this);
-            this.a = fh8Var;
-            fh8Var.u(this);
+            ti8 ti8Var = new ti8(this);
+            this.a = ti8Var;
+            ti8Var.u(this);
             this.a.w(this);
             SignAllForumModel signAllForumModel = this.d;
             if (signAllForumModel.isRunning) {
@@ -517,7 +517,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void S1(long j, long j2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && this.i > 0) {
-            new ta5(1009, true, this.b.getResponsedMessage(), 0L, this.i, j2, false, 0L, 0L, j).c();
+            new cd5(1009, true, this.b.getResponsedMessage(), 0L, this.i, j2, false, 0L, 0L, j).c();
             this.i = 0L;
         }
     }
@@ -528,19 +528,19 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             this.e = true;
             Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
             intent.addFlags(805306368);
-            V1(getPageContext().getString(R.string.obfuscated_res_0x7f0f1190), PendingIntent.getActivity(getPageContext().getPageActivity(), 0, intent, 134217728), true);
+            V1(getPageContext().getString(R.string.obfuscated_res_0x7f0f11ad), PendingIntent.getActivity(getPageContext().getPageActivity(), 0, intent, 134217728), true);
         }
     }
 
-    public final void U1(yg8 yg8Var) {
+    public final void U1(mi8 mi8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, yg8Var) == null) || yg8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, mi8Var) == null) || mi8Var == null) {
             return;
         }
-        String d2 = yg8Var.d();
-        String e2 = yg8Var.e();
-        boolean B = yg8Var.B();
-        if (yg8Var.C()) {
+        String d2 = mi8Var.d();
+        String e2 = mi8Var.e();
+        boolean B = mi8Var.B();
+        if (mi8Var.C()) {
             this.a.v(0);
             new Handler().postDelayed(new f(this, d2, e2, B), 500L);
         }
@@ -549,14 +549,14 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public final void V1(String str, PendingIntent pendingIntent, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, str, pendingIntent, z) == null) {
-            NotificationHelper.showNotification(getPageContext().getPageActivity(), R.drawable.obfuscated_res_0x7f0810d9, getPageContext().getString(R.string.obfuscated_res_0x7f0f029e), str, str, pendingIntent, z);
+            NotificationHelper.showNotification(getPageContext().getPageActivity(), R.drawable.obfuscated_res_0x7f081102, getPageContext().getString(R.string.obfuscated_res_0x7f0f029e), str, str, pendingIntent, z);
         }
     }
 
     public final void W1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            yg8 n = this.a.n();
+            mi8 n = this.a.n();
             this.a.r().setDuration(Math.max(n.x().size() * 50, 2000));
             this.a.r().setSigning(0);
             this.d.G(n);
@@ -569,12 +569,12 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             if (this.e) {
-                yg8 n = this.a.n();
+                mi8 n = this.a.n();
                 Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
                 PendingIntent activity = PendingIntent.getActivity(getPageContext().getPageActivity(), 0, intent, 134217728);
-                str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f118f, new Object[]{0, Integer.valueOf(n.x().size())});
+                str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f11ac, new Object[]{0, Integer.valueOf(n.x().size())});
                 V1(str, activity, false);
                 if (this.f) {
                     return;
@@ -582,31 +582,31 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             }
             showToast(str);
             this.a.r().setSignSuccess();
-            ArrayList<zg8> x = this.a.n().x();
+            ArrayList<ni8> x = this.a.n().x();
             int size = x.size();
             for (int i = 0; i < size; i++) {
-                zg8 zg8Var = x.get(i);
-                zg8Var.s(true);
-                zg8Var.t(false);
-                zg8Var.u(false);
+                ni8 ni8Var = x.get(i);
+                ni8Var.s(true);
+                ni8Var.t(false);
+                ni8Var.u(false);
             }
             this.a.m().notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.bv4.g
+    @Override // com.baidu.tieba.lx4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.j = System.currentTimeMillis();
-            if (!pi.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c40);
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c59);
                 this.a.k();
                 return;
             }
             GetForumListModel getForumListModel = this.b;
             if (getForumListModel == null) {
-                showToast(R.string.obfuscated_res_0x7f0f0c40);
+                showToast(R.string.obfuscated_res_0x7f0f0c59);
             } else if (getForumListModel.loadData()) {
             } else {
                 this.a.k();
@@ -637,7 +637,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.z95
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.hc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -658,12 +658,12 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        fh8 fh8Var;
+        ti8 ti8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (i2 == -1 && i == 25050 && (fh8Var = this.a) != null) {
-                fh8Var.x();
+            if (i2 == -1 && i == 25050 && (ti8Var = this.a) != null) {
+                ti8Var.x();
             }
         }
     }
@@ -681,7 +681,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
-            yg8 n = this.a.n();
+            mi8 n = this.a.n();
             if (view2 != this.a.q()) {
                 if (view2 == this.a.o()) {
                     TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_3", "click", 1, new Object[0]);
@@ -702,16 +702,16 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_SIGN));
                     }
                 } else if (this.a.r().getCurrentStatus() == 2) {
-                    showToast(R.string.obfuscated_res_0x7f0f1195);
+                    showToast(R.string.obfuscated_res_0x7f0f11b2);
                 } else {
                     if (n.o() != 0) {
                         Q1(n.p());
                         this.c.show();
-                    } else if (pi.z()) {
+                    } else if (BdNetTypeUtil.isNetWorkAvailable()) {
                         this.g = true;
                         W1();
                     } else {
-                        showToast(R.string.obfuscated_res_0x7f0f0c40);
+                        showToast(R.string.obfuscated_res_0x7f0f0c59);
                     }
                     TiebaStatic.log("signall_click");
                 }
@@ -724,7 +724,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             this.h = System.currentTimeMillis();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !z8.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !n9.g().i("MainTabActivity")) {
                 this.k = true;
             }
             if (this.k) {
@@ -746,7 +746,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             initData();
             R1();
             this.i = System.currentTimeMillis() - this.h;
-            o16.a(getIntent(), getPageContext(), 25050);
+            e36.a(getIntent(), getPageContext(), 25050);
         }
     }
 
@@ -756,8 +756,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
             this.f = true;
-            vr4 vr4Var = this.c;
-            if (vr4Var != null && vr4Var.isShowing()) {
+            au4 au4Var = this.c;
+            if (au4Var != null && au4Var.isShowing()) {
                 this.c.dismiss();
             }
             GetForumListModel getForumListModel = this.b;
@@ -765,8 +765,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                 getForumListModel.cancelLoadData();
                 this.b = null;
             }
-            fh8 fh8Var = this.a;
-            if (fh8Var != null && fh8Var.m() != null) {
+            ti8 ti8Var = this.a;
+            if (ti8Var != null && ti8Var.m() != null) {
                 this.a.m().d();
             }
             SignAllForumModel signAllForumModel = this.d;
@@ -786,27 +786,27 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
-    public tn onGetPreLoadListView() {
+    public ho onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            fh8 fh8Var = this.a;
-            if (fh8Var == null || fh8Var.p() == null) {
+            ti8 ti8Var = this.a;
+            if (ti8Var == null || ti8Var.p() == null) {
                 return null;
             }
             return this.a.p().getPreLoadHandle();
         }
-        return (tn) invokeV.objValue;
+        return (ho) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        zg8 zg8Var;
+        ni8 ni8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.a.m().getItemViewType(i) != 0 || this.a.n() == null || this.a.n().k() == null || this.a.n().k().size() <= i || (zg8Var = this.a.n().k().get(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.a.m().getItemViewType(i) != 0 || this.a.n() == null || this.a.n().k() == null || this.a.n().k().size() <= i || (ni8Var = this.a.n().k().get(i)) == null) {
             return;
         }
-        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(zg8Var.d(), "SignTogetherPage").setCallFrom(6)));
+        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(ni8Var.d(), "SignTogetherPage").setCallFrom(6)));
         TiebaStatic.log("signall_frs_click");
     }
 

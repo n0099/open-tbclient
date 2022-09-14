@@ -1,49 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.security.MessageDigest;
 /* loaded from: classes4.dex */
-public abstract class lj implements ok {
+public class lj {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile byte[] a;
-    public volatile boolean b;
 
-    public lj() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448310255, "Lcom/baidu/tieba/lj;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448310255, "Lcom/baidu/tieba/lj;");
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public abstract byte[] d();
-
-    public byte[] e() {
-        InterceptResult invokeV;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    this.b = true;
-                    this.a = d();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
-            return this.a;
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
+            }
+            return sb.toString();
         }
-        return (byte[]) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            String str = null;
+            if (inputStream == null) {
+                return null;
+            }
+            try {
+                try {
+                    byte[] bArr = new byte[1024];
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    str = a(messageDigest.digest());
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
+                }
+                return str;
+            } finally {
+                fj.e(inputStream);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return d(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

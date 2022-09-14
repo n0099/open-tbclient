@@ -12,7 +12,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.MainTabFragmentIdleSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sb;
+import com.baidu.tieba.gc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,12 +37,12 @@ public abstract class LazyBaseFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tbadk.core.LazyBaseFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0188a implements Runnable {
+        public class RunnableC0187a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0188a(a aVar) {
+            public RunnableC0187a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.t1();
+                    this.a.a.s1();
                 }
             }
         }
@@ -98,10 +98,10 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 LazyBaseFragment lazyBaseFragment = this.a;
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
-                } else if (!sb.b().c()) {
-                    this.a.a.post(new RunnableC0188a(this));
+                } else if (!gc.b().c()) {
+                    this.a.a.post(new RunnableC0187a(this));
                 } else {
-                    this.a.t1();
+                    this.a.s1();
                 }
             }
         }
@@ -144,18 +144,18 @@ public abstract class LazyBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             if (MainTabFragmentIdleSwitch.isOn()) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0559, viewGroup, false);
-                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091470);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0570, viewGroup, false);
+                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091495);
                 this.d = viewStub;
-                viewStub.setLayoutResource(s1());
+                viewStub.setLayoutResource(r1());
                 if (this.c) {
-                    t1();
+                    s1();
                     return inflate;
                 }
                 return inflate;
             }
-            View inflate2 = layoutInflater.inflate(s1(), viewGroup, false);
-            u1(inflate2, bundle);
+            View inflate2 = layoutInflater.inflate(r1(), viewGroup, false);
+            t1(inflate2, bundle);
             return inflate2;
         }
         return (View) invokeLLL.objValue;
@@ -169,23 +169,23 @@ public abstract class LazyBaseFragment extends BaseFragment {
             if (!isPrimary() || this.b || getView() == null) {
                 return;
             }
-            t1();
+            s1();
         }
     }
 
-    public abstract int s1();
+    public abstract int r1();
 
-    public synchronized void t1() {
+    public synchronized void s1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 if (!this.b && this.d != null) {
                     this.b = true;
-                    u1(this.d.inflate(), this.e);
+                    t1(this.d.inflate(), this.e);
                 }
             }
         }
     }
 
-    public abstract void u1(View view2, Bundle bundle);
+    public abstract void t1(View view2, Bundle bundle);
 }

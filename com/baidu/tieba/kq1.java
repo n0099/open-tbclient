@@ -1,95 +1,36 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8NetFunctionTable;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestSettings;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.i73;
-import com.baidu.tieba.l13;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kq1 {
+public class kq1 extends m22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements ValueCallback<Long> {
+    public class a extends j42 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ V8Engine a;
+        public final /* synthetic */ kq1 c;
 
-        /* renamed from: com.baidu.tieba.kq1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0311a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0311a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    NetRequest netRequest = new NetRequest();
-                    NetRequestSettings netRequestSettings = new NetRequestSettings();
-                    netRequestSettings.mTimeout = 60000;
-                    netRequestSettings.mShouldNeverClearReferer = true;
-                    netRequestSettings.mLoadDoNotSendCookies = true;
-                    netRequest.setRequestInterceptor(new jq1());
-                    netRequest.setRedirectInterceptor(new qq1());
-                    netRequest.addObserver(new lq1());
-                    netRequest.setNetRequestSettings(netRequestSettings);
-                    int javaNetRequest = this.a.a.setJavaNetRequest(netRequest);
-                    boolean unused = kq1.c = javaNetRequest == 0;
-                    if (kq1.c) {
-                        return;
-                    }
-                    int unused2 = kq1.b = 0;
-                    kq1.g(javaNetRequest);
-                    ay1.c("ChromeNetManager", "setJavaNetRequest fail, code=" + javaNetRequest);
-                }
-            }
-        }
-
-        public a(V8Engine v8Engine) {
+        public a(kq1 kq1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v8Engine};
+                Object[] objArr = {kq1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -99,141 +40,133 @@ public class kq1 {
                     return;
                 }
             }
-            this.a = v8Engine;
+            this.c = kq1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(Long l) {
+        @Override // com.baidu.tieba.j42, com.baidu.tieba.m42
+        public boolean b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0311a(this));
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? super.b(str) : invokeL.booleanValue;
+        }
+    }
+
+    public kq1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i73.b bVar = new i73.b(SessionCommand.COMMAND_CODE_PLAYER_GET_CURRENT_MEDIA_ITEM);
-                bVar.l(String.valueOf(this.a));
-                bVar.h(z03.K().getAppId());
-                bVar.m();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921630, "Lcom/baidu/tieba/kq1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947921630, "Lcom/baidu/tieba/kq1;");
-                return;
-            }
-        }
-        a = kh1.a;
-        b = -1;
-        c = false;
-    }
-
-    public static boolean d() {
+    @Override // com.baidu.tieba.m22, com.baidu.tieba.e22
+    public boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? nd3.e() && h() : invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? hk2.g0().z() == 2 : invokeV.booleanValue;
-    }
-
-    public static void f(@NonNull V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, v8Engine) == null) {
-            if (!d()) {
-                ay1.k("ChromeNetManager", "Not Used ChromeNet");
-            } else {
-                V8NetFunctionTable.addOnCronetThreadInitializedListener(new a(v8Engine));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            fp1 fp1Var = this.G0;
+            if (fp1Var != null && fp1Var.canGoBack()) {
+                this.G0.goBack();
+                return true;
             }
-        }
-    }
-
-    public static void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            ud3.f().execute(new b(i));
-        }
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (b == -1) {
-                b = (!j() || pe3.f("3.300.0")) ? 0 : 1;
-            }
-            return b == 1;
+            g3();
+            SwanAppAllianceLoginHelper.d.a(lq1.d(), lq1.a());
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m22, com.baidu.tieba.e22
+    public void U1(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.U1(view2);
+            this.f0.setRightZoneVisibility(true);
+        }
     }
 
-    public static boolean j() {
+    @Override // com.baidu.tieba.m22
+    public m42 Z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? hk2.g0().z() >= 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this) : (m42) invokeV.objValue;
     }
 
-    public static void k(@Nullable SwanAppConfigData swanAppConfigData) {
-        l13.a aVar;
-        int i;
-        w22 W;
-        NetRequest n0;
-        NetRequestSettings netRequestSettings;
+    @Override // com.baidu.tieba.m22
+    public void a3() {
+        FragmentActivity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, swanAppConfigData) == null) || !d() || swanAppConfigData == null || (aVar = swanAppConfigData.h) == null || (i = aVar.b) <= 0 || (W = u72.U().W()) == null || !(W.e() instanceof i82) || (n0 = ((i82) W.e()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
+            this.g0 = new f94(activity, this.f0, h3(), fm2.K(), new hi3());
+            new os2(this.g0, this).z();
+        }
+    }
+
+    @Override // com.baidu.tieba.m22, com.baidu.tieba.e22
+    public boolean c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g3() {
+        kj1 d;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || SwanAppAllianceLoginHelper.d.c() || (d = SwanAppAllianceLoginHelper.d.d()) == null) {
             return;
         }
-        netRequestSettings.mTimeout = i;
-        if (a) {
-            Log.d("ChromeNetManager", "settings.mTimeout=" + i);
+        d.onResult(-2);
+    }
+
+    public final int h3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? d2() ? 18 : 12 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.m22
+    public hp1 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? s92.U().f0().f(getContext()) : (hp1) invokeV.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.fp1] */
+    @Override // com.baidu.tieba.m22, com.baidu.swan.support.v4.app.Fragment
+    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
+            U1(inflate);
+            hp1 k = k();
+            this.F0 = k;
+            k.Y(Z2());
+            this.G0 = this.F0.r();
+            this.F0.loadUrl(this.H0);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ad);
+            this.F0.j(frameLayout, this.G0.covertToView());
+            W2(frameLayout);
+            return T1() ? W1(inflate) : inflate;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m22, com.baidu.swan.support.v4.app.Fragment
+    public void y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            g3();
+            super.y0();
         }
     }
 }

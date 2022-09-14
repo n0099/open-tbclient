@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMoreMsg.DataRes;
-import tbclient.GetMoreMsg.MsgContent;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ie8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<he8> b;
+    public String a;
+    public String b;
+    public String c;
 
     public ie8() {
         Interceptable interceptable = $ic;
@@ -27,38 +25,24 @@ public class ie8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = true;
-        this.b = null;
     }
 
-    public ArrayList<he8> a() {
-        InterceptResult invokeV;
+    public static ie8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ie8 ie8Var = new ie8();
+            jSONObject.optString("brand_name");
+            ie8Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            ie8Var.b = jSONObject.optString("button_scheme");
+            ie8Var.c = jSONObject.optString("cmd_scheme");
+            return ie8Var;
         }
-        this.a = dataRes.has_more.intValue() == 1;
-        List<MsgContent> list = dataRes.msg_content;
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        this.b = new ArrayList<>();
-        for (MsgContent msgContent : dataRes.msg_content) {
-            this.b.add(new he8(msgContent));
-        }
+        return (ie8) invokeL.objValue;
     }
 }

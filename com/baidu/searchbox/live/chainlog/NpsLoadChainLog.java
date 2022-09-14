@@ -277,7 +277,7 @@ public class NpsLoadChainLog {
     public void endInitYY(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-            postTask(new Runnable(this, z, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.21
+            postTask(new Runnable(this, z, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.22
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -876,7 +876,7 @@ public class NpsLoadChainLog {
     public void startInitYY() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.20
+            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.21
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -1195,9 +1195,59 @@ public class NpsLoadChainLog {
         }
     }
 
+    public void yyCompletionEvent(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, str, jSONObject) == null) {
+            postTask(new Runnable(this, str, jSONObject) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.20
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ NpsLoadChainLog this$0;
+                public final /* synthetic */ JSONObject val$pathObj;
+                public final /* synthetic */ String val$tag;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, jSONObject};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$tag = str;
+                    this.val$pathObj = jSONObject;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode(this.val$tag) || this.this$0.pathJsonObj == null) {
+                        return;
+                    }
+                    NpsLoadChainLog npsLoadChainLog = this.this$0;
+                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + this.val$tag;
+                    try {
+                        this.this$0.pathJsonObj.put(this.val$tag, this.val$pathObj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    this.this$0.showPathAndDuration();
+                    this.this$0.ubcLog();
+                }
+            });
+        }
+    }
+
     public void yyMinilibUbc(String str, long j, @Nullable Boolean bool, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{str, Long.valueOf(j), bool, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Long.valueOf(j), bool, str2}) == null) {
             if (bool == null) {
                 postTask(new Runnable(this, str, j) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.18
                     public static /* synthetic */ Interceptable $ic;

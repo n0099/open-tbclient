@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.tn6;
-import com.baidu.tieba.zv4;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.xx;
+import com.baidu.tieba.zo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
-public class CardItemGameCodeLayout extends RelativeLayout implements jx {
+public class CardItemGameCodeLayout extends RelativeLayout implements xx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -71,7 +71,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements jx {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ListUtils.isEmpty(this.a.g)) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new zv4(14)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new jy4(14)));
             if (this.a.e == null) {
                 this.a.e = new GameCodeListDialog(view2.getContext());
             }
@@ -105,27 +105,27 @@ public class CardItemGameCodeLayout extends RelativeLayout implements jx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
-            setPadding(ri.f(context, R.dimen.M_W_X006), ri.f(context, R.dimen.M_H_X005), ri.f(context, R.dimen.M_W_X006), ri.f(context, R.dimen.M_H_X005));
+            setPadding(ej.f(context, R.dimen.M_W_X006), ej.f(context, R.dimen.M_H_X005), ej.f(context, R.dimen.M_W_X006), ej.f(context, R.dimen.M_H_X005));
             ImageView imageView = new ImageView(context);
             this.a = imageView;
             imageView.setId(1);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ri.f(context, R.dimen.tbds62), ri.f(context, R.dimen.tbds62));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ej.f(context, R.dimen.tbds62), ej.f(context, R.dimen.tbds62));
             layoutParams.addRule(9);
             layoutParams.addRule(15);
             this.a.setLayoutParams(layoutParams);
             addView(this.a);
             this.b = new TextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -1);
-            layoutParams2.setMargins(ri.f(context, R.dimen.tbds23), 0, 0, 0);
+            layoutParams2.setMargins(ej.f(context, R.dimen.tbds23), 0, 0, 0);
             layoutParams2.addRule(1, this.a.getId());
             layoutParams2.addRule(15);
             this.b.setLayoutParams(layoutParams2);
-            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0715));
+            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0728));
             addView(this.b);
             ImageView imageView2 = new ImageView(context);
             this.d = imageView2;
             imageView2.setId(2);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(ri.f(context, R.dimen.tbds42), ri.f(context, R.dimen.tbds42));
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(ej.f(context, R.dimen.tbds42), ej.f(context, R.dimen.tbds42));
             layoutParams3.addRule(11);
             layoutParams3.addRule(15);
             this.d.setLayoutParams(layoutParams3);
@@ -140,20 +140,20 @@ public class CardItemGameCodeLayout extends RelativeLayout implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.xx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            ns4 d = ns4.d(this.b);
+            uu4 d = uu4.d(this.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
-            ns4 d2 = ns4.d(this.c);
+            uu4 d2 = uu4.d(this.c);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X08);
-            ns4 d3 = ns4.d(this);
+            uu4 d3 = uu4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0807d5, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0807ef, WebPManager.ResourceStateType.NORMAL);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             GameCodeListDialog gameCodeListDialog = this.e;
             if (gameCodeListDialog != null) {
@@ -162,17 +162,17 @@ public class CardItemGameCodeLayout extends RelativeLayout implements jx {
         }
     }
 
-    public void setData(tn6 tn6Var) {
+    public void setData(zo6 zo6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tn6Var) == null) || tn6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zo6Var) == null) || zo6Var == null) {
             return;
         }
-        this.f = tn6Var.f();
-        this.g = tn6Var.c();
+        this.f = zo6Var.f();
+        this.g = zo6Var.c();
         if (this.f != 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02c4), Integer.valueOf(this.f)));
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02c8), Integer.valueOf(this.f)));
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f149f));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14bf));
         }
     }
 

@@ -1,62 +1,84 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.view.View;
+import android.widget.AbsoluteLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public class df3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Runnable b;
 
-    public df3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947702584, "Lcom/baidu/tieba/df3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947702584, "Lcom/baidu/tieba/df3;");
                 return;
             }
         }
-        this.a = new ArrayDeque();
-        this.b = null;
+        a = ij1.a;
     }
 
-    public synchronized boolean a(Runnable runnable) {
-        InterceptResult invokeL;
-        boolean z;
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            synchronized (this) {
-                z = true;
-                boolean z2 = runnable == null;
-                if (!z2) {
-                    this.a.offer(runnable);
-                }
-                boolean z3 = this.b == null && !this.a.isEmpty();
-                if (z3) {
-                    while (!this.a.isEmpty()) {
-                        Runnable poll = this.a.poll();
-                        this.b = poll;
-                        if (poll != null) {
-                            poll.run();
-                        }
-                        this.b = null;
-                    }
-                }
-                z = (z2 || !z3) ? false : false;
+        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
+            Drawable d = bh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081142);
+            Drawable d2 = bh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081141);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                webView = bdSailorWebView.getCurrentWebView();
+            } else {
+                webView = bdSailorWebView.getCurrentWebView().getWebView();
             }
-            return z;
+            if (Build.VERSION.SDK_INT >= 29) {
+                webView.setVerticalScrollbarThumbDrawable(d);
+                webView.setHorizontalScrollbarThumbDrawable(d2);
+                return;
+            }
+            b(webView, d, d2);
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, drawable, drawable2) == null) || view2 == null) {
+            return;
+        }
+        try {
+            Field declaredField = View.class.getDeclaredField("mScrollCache");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(view2);
+            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+            declaredField2.setAccessible(true);
+            Object obj2 = declaredField2.get(obj);
+            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(obj2, drawable);
+            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(obj2, drawable2);
+        } catch (Throwable th) {
+            if (a) {
+                th.printStackTrace();
+            }
+        }
     }
 }

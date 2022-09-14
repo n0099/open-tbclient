@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class ir5 {
+public class ir5 extends el1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<SdkLiveInfoData> a;
 
     public ir5() {
         Interceptable interceptable = $ic;
@@ -28,20 +31,25 @@ public class ir5 {
         }
     }
 
-    public void a(JSONObject jSONObject, String str) {
-        JSONArray optJSONArray;
+    @Override // com.baidu.tieba.in1
+    @Nullable
+    public String A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("live_list")) == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        this.a = new ArrayList<>(optJSONArray.length());
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                sdkLiveInfoData.fromJson(optJSONObject, str);
-                this.a.add(sdkLiveInfoData);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.in1
+    public boolean N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? isDebug() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.in1
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "flFqXclepWs7RdugAszy9eERL7G5dS0I" : (String) invokeV.objValue;
     }
 }

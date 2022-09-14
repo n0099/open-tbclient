@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface fe1 {
-    void onVideoSizeChanged(int i, int i2);
+public interface fe1<T> {
+    void a(ce1<T> ce1Var);
 
-    void setDisplayMode(int i);
+    T get();
 }

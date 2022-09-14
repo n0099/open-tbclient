@@ -16,11 +16,11 @@ import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.R;
 /* loaded from: classes7.dex */
 public class ViewPagerIndicator extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -119,13 +119,13 @@ public class ViewPagerIndicator extends View {
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65542, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04039b, R.attr.obfuscated_res_0x7f04039c, R.attr.obfuscated_res_0x7f04039d, R.attr.obfuscated_res_0x7f04039e, R.attr.obfuscated_res_0x7f04039f, R.attr.obfuscated_res_0x7f0403a6}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_ViewPagerIndicator, i, 0);
             this.jk = obtainStyledAttributes.getDimension(1, com.kwad.sdk.b.kwai.a.a(this.mContext, 5.0f));
             this.jm = obtainStyledAttributes.getDimension(2, com.kwad.sdk.b.kwai.a.a(this.mContext, 6.0f));
             this.jn = obtainStyledAttributes.getDimension(3, com.kwad.sdk.b.kwai.a.a(this.mContext, 50.0f));
             this.jo = obtainStyledAttributes.getDimension(4, com.kwad.sdk.b.kwai.a.a(this.mContext, 6.0f));
-            this.jg = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06075d));
-            this.jf = obtainStyledAttributes.getColor(5, getResources().getColor(R.color.obfuscated_res_0x7f060778));
+            this.jg = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06076f));
+            this.jf = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06078a));
             obtainStyledAttributes.recycle();
         }
     }

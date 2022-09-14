@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.mvvm.IViewData;
+import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
-public interface rs<ViewData extends IViewData> {
+public interface rs {
+    void a(Bitmap bitmap);
+
+    void onError();
 }

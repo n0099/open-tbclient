@@ -1,132 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.zip.GZIPInputStream;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class qe2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948088875, "Lcom/baidu/tieba/qe2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a() {
+        InterceptResult invokeV;
+        String optString;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            y23 b0 = y23.b0();
+            JSONObject jSONObject = new JSONObject();
+            if (b0 != null) {
+                jSONObject = b0.W().M();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948088875, "Lcom/baidu/tieba/qe2;");
-                return;
-            }
+            return (jSONObject == null || (optString = jSONObject.optString("keyfeed")) == null || (indexOf = optString.indexOf("_")) < 0 || !TextUtils.equals("miniapp", optString.substring(0, indexOf))) ? "" : optString.substring(indexOf + 1);
         }
-        a = kh1.a;
-        b = new byte[]{31, -117};
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static File a(byte[] bArr, File file) {
+    public static Map<String, Object> b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
-            if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-                byte[] bArr2 = b;
-                bArr[0] = bArr2[0];
-                bArr[1] = bArr2[1];
-                try {
-                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-                    GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                    InputStreamReader inputStreamReader = new InputStreamReader(gZIPInputStream);
-                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                    try {
-                        StringBuilder sb = new StringBuilder();
-                        while (true) {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            sb.append(readLine);
-                        }
-                        if (a) {
-                            Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
-                        }
-                        String string = new JSONObject(sb.toString()).getString(se2.l);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", string);
-                        }
-                        byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
-                        File file2 = new File(file, se2.l);
-                        new FileOutputStream(file2).write(doFinal);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", file2.getAbsolutePath());
-                        }
-                        bufferedReader.close();
-                        inputStreamReader.close();
-                        gZIPInputStream.close();
-                        byteArrayInputStream.close();
-                        return file2;
-                    } finally {
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put("op_type", str2);
+            String a = a();
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("nid", a);
             }
-            return null;
+            return hashMap;
         }
-        return (File) invokeLL.objValue;
+        return (Map) invokeLL.objValue;
     }
 
-    public static Cipher b(int i) throws Exception {
-        InterceptResult invokeI;
+    public static Map<String, Object> c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            cipher.init(i, new SecretKeySpec(c("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), "AES"), new IvParameterSpec("2081147213143090".getBytes()));
-            return cipher;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
+            hashMap.put("op_type", "add");
+            return hashMap;
         }
-        return (Cipher) invokeI.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return ch4.T(messageDigest.digest(), "", false);
-            } catch (NoSuchAlgorithmException e) {
-                if (a) {
-                    e.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (Map) invokeLI.objValue;
     }
 }

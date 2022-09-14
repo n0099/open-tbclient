@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-import java.io.ObjectInput;
 /* loaded from: classes5.dex */
 public class sg9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SharedPreferences b;
+    public static boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,101 +27,85 @@ public class sg9 {
                 return;
             }
         }
-        a = new Object();
-        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+        a();
+        b();
+        a = d();
+        c();
+        e();
+        f();
+        b = g();
+        h();
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return b.getInt("key_sid_c_pre_" + str, 0);
-        }
-        return invokeL.intValue;
-    }
-
-    public static vf9 b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (vf9) bg9.b(b.getString("key_adcfg", null), pf9.a) : (vf9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 14 : invokeV.booleanValue;
     }
 
-    public static /* synthetic */ vf9 c(ObjectInput objectInput) {
-        return new vf9(objectInput.readInt(), objectInput);
-    }
-
-    public static void d(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
-            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
-        }
-    }
-
-    public static void e(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65541, null, i, i2, i3) == null) {
-            synchronized (a) {
-                int j = j();
-                int k = k();
-                int i4 = i();
-                b.edit().putInt("key_rpt_req_c", ((j - i) - i2) - i3).putInt("key_rpt_fai_c", g() - i).putInt("key_rpt_suc_c", k - i2).putInt("key_rpt_mis_c", i4 - i3).apply();
-            }
-        }
-    }
-
-    public static void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, str, i) == null) {
-            b.edit().putInt(str, i).apply();
-        }
-    }
-
-    public static int g() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 16 : invokeV.booleanValue;
     }
 
-    public static /* synthetic */ hg9 h(ObjectInput objectInput) {
-        return new hg9(objectInput.readInt(), objectInput);
-    }
-
-    public static int i() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.VERSION.SDK_INT >= 17 : invokeV.booleanValue;
     }
 
-    public static int j() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 18 : invokeV.booleanValue;
     }
 
-    public static int k() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 19 : invokeV.booleanValue;
     }
 
-    public static hg9 l() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? (hg9) bg9.b(b.getString("key_rptcfg", null), jf9.a) : (hg9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
     }
 
-    public static double m() {
+    public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
     }
 
-    public static void n() {
+    public static boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            synchronized (a) {
-                f("key_rpt_req_c", j() + 1);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? Build.VERSION.SDK_INT >= 26 : invokeV.booleanValue;
+    }
+
+    public static float i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? ec9.c().getContext().getResources().getDimension(i) : invokeI.floatValue;
+    }
+
+    public static int j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? ec9.c().getContext().getResources().getDimensionPixelOffset(i) : invokeI.intValue;
+    }
+
+    public static int k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? ec9.c().getContext().getResources().getDimensionPixelSize(i) : invokeI.intValue;
+    }
+
+    public static String l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? ec9.c().getContext().getResources().getString(i) : (String) invokeI.objValue;
     }
 }

@@ -1,76 +1,114 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xn extends cn<yn, NoDataItemViewHolder> {
+public class xn<V extends TypeAdapter.ViewHolder> extends qn<wn, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public qn<Cdo, V> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xn(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), yn.c);
+    public xn(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(context, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yn ynVar, NoDataItemViewHolder noDataItemViewHolder) {
-        t(i, view2, viewGroup, ynVar, noDataItemViewHolder);
-        return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: s */
-    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public V onCreateViewHolder(ViewGroup viewGroup, wn wnVar) {
+        InterceptResult invokeLL;
+        V onCreateViewHolder;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new NoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0073, viewGroup, false)) : (NoDataItemViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, wnVar)) == null) {
+            qn<Cdo, V> qnVar = this.a;
+            if (qnVar == null) {
+                return null;
+            }
+            if (this.mType == qnVar.getHeaderId()) {
+                onCreateViewHolder = this.a.onCreateHeaderViewHolder(viewGroup, wnVar.c());
+            } else if (this.mType == this.a.getContentId()) {
+                onCreateViewHolder = this.a.onCreateContentViewHolder(viewGroup, wnVar.c());
+            } else if (this.mType == this.a.getExtendId()) {
+                onCreateViewHolder = this.a.onCreateExtendViewHolder(viewGroup, wnVar.c());
+            } else if (this.mType == this.a.getBottomId()) {
+                onCreateViewHolder = this.a.onCreateBottomViewHolder(viewGroup, wnVar.c());
+            } else {
+                onCreateViewHolder = this.a.onCreateViewHolder(viewGroup);
+            }
+            if (onCreateViewHolder != null) {
+                setOnAdapterItemClickListener(this.a.getOnAdapterItemClickListener());
+                return onCreateViewHolder;
+            }
+            throw new NullPointerException("Order error or holder created is NullPointerException");
+        }
+        return (V) invokeLL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, yn ynVar, NoDataItemViewHolder noDataItemViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wn wnVar, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ynVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.a.setText(ynVar.a);
-            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.b, ynVar.b);
-                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
-                this.a = TbadkCoreApplication.getInst().getSkinType();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wnVar, v})) == null) {
+            qn<Cdo, V> qnVar = this.a;
+            if (qnVar == null) {
+                return null;
             }
-            return view2;
+            if (this.mType == qnVar.getHeaderId()) {
+                return this.a.onFillHeaderViewHolder(i, view2, viewGroup, wnVar.c(), v);
+            }
+            if (this.mType == this.a.getContentId()) {
+                return this.a.onFillContentViewHolder(i, view2, viewGroup, wnVar.c(), v);
+            }
+            if (this.mType == this.a.getExtendId()) {
+                return this.a.onFillExtendViewHolder(i, view2, viewGroup, wnVar.c(), v);
+            }
+            if (this.mType == this.a.getBottomId()) {
+                return this.a.onFillBottomViewHolder(i, view2, viewGroup, wnVar.c(), v);
+            }
+            return this.a.onFillViewHolder(i, view2, viewGroup, wnVar.c(), v);
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void u(qn qnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qnVar) == null) {
+            this.a = qnVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.qn
+    public V onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? onCreateViewHolder(viewGroup, new wn()) : (V) invokeL.objValue;
     }
 }

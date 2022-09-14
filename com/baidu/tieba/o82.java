@@ -1,34 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class o82 {
+public class o82 implements p82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final j82 a;
+    public final int b;
 
-    public static i82 a(p82 p82Var, f92 f92Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, p82Var, f92Var, v8ThreadDelegatePolicy)) == null) {
-            q82 a = hk2.B0().a(p82Var);
-            i82 a2 = a.a(p82Var.a(), f92Var, v8ThreadDelegatePolicy);
-            a2.I0(a.getUserAgent());
-            return a2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986048, "Lcom/baidu/tieba/o82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947986048, "Lcom/baidu/tieba/o82;");
+                return;
+            }
         }
-        return (i82) invokeLLL.objValue;
+        c = ij1.a;
     }
 
-    public static i82 b(p82 p82Var, f92 f92Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+    public o82() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new l82();
+        this.b = 30;
+    }
+
+    @Override // com.baidu.tieba.p82
+    public j82 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (j82) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p82
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.p82
+    public boolean c(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, p82Var, f92Var, v8ThreadDelegatePolicy)) == null) {
-            i82 a = a(p82Var, f92Var, v8ThreadDelegatePolicy);
-            a.q0();
-            return a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            if (c) {
+                Log.d("GlobalRecorderStrategy", "prefetchId - " + str);
+                Log.d("GlobalRecorderStrategy", "appId - " + str2);
+                Log.d("GlobalRecorderStrategy", "url - " + str3);
+            }
+            k82 a = this.a.a(str2, str3);
+            if (a == null) {
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "has no record, need prelink");
+                }
+                return true;
+            } else if (!TextUtils.isEmpty(str)) {
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "in preload stage, has record, not real prelink ");
+                }
+                return false;
+            } else {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                if (!TextUtils.equals(curProcessName, a.a)) {
+                    if (c) {
+                        Log.d("GlobalRecorderStrategy", "process not match, current - " + curProcessName + ", record - " + a.a);
+                    }
+                    return true;
+                }
+                boolean z = System.currentTimeMillis() - a.b >= ((long) (this.b * 1000));
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "url in recorder, time is out - " + z);
+                }
+                return z;
+            }
         }
-        return (i82) invokeLLL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

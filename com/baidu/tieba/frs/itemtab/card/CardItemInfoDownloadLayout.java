@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.jy4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.zv4;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ import tbclient.ItemTable;
 import tbclient.Ranking;
 import tbclient.RankingParam;
 /* loaded from: classes4.dex */
-public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
+public class CardItemInfoDownloadLayout extends FrameLayout implements xx {
     public static /* synthetic */ Interceptable $ic;
     public static final String q;
     public static final int r;
@@ -158,8 +158,8 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
                 return;
             }
         }
-        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06d8);
-        r = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
+        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06eb);
+        r = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -236,23 +236,23 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0325, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d032a, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0921cb);
-            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f9f);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09221e);
+            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fba);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09002a);
-            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fb5);
-            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090fa4);
+            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fd0);
+            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090fbf);
             this.i = rankStarView;
-            rankStarView.setStarSpacing(ri.f(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090dc0);
-            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f91);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fa6);
+            rankStarView.setStarSpacing(ej.f(getContext(), R.dimen.M_W_X001));
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090ddc);
+            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fac);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fc1);
             this.d.setOnClickListener(this.p);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.topMargin = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+            marginLayoutParams.topMargin = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
         }
     }
@@ -260,26 +260,26 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            zv4 zv4Var = new zv4(6);
-            zv4Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, zv4Var));
+            jy4 jy4Var = new jy4(6);
+            jy4Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, jy4Var));
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.xx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            ns4 d = ns4.d(this.a);
+            uu4 d = uu4.d(this.a);
             d.m(1);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            ns4 d2 = ns4.d(this.g);
+            uu4 d2 = uu4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            ns4.d(this.h).v(R.color.CAM_X0305);
-            ns4.d(this.e).v(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08093c, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            uu4.d(this.h).v(R.color.CAM_X0305);
+            uu4.d(this.e).v(R.color.CAM_X0311);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080958, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
         }
@@ -289,12 +289,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                ns4 d = ns4.d(this.h);
+                uu4 d = uu4.d(this.h);
                 d.z(R.dimen.T_X06);
                 d.v(R.color.CAM_X0305);
                 return;
             }
-            ns4 d2 = ns4.d(this.h);
+            uu4 d2 = uu4.d(this.h);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
         }

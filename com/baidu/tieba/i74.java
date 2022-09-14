@@ -1,112 +1,144 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class i74 {
+public class i74 implements zm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<g74> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806403, "Lcom/baidu/tieba/i74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947806403, "Lcom/baidu/tieba/i74;");
-                return;
+    public i74() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        SparseArray<g74> sparseArray = new SparseArray<>();
-        a = sparseArray;
-        sparseArray.put(5, new g74(5, R.string.obfuscated_res_0x7f0f00fa, R.drawable.obfuscated_res_0x7f0800f4, true));
-        a.put(35, new g74(35, R.string.obfuscated_res_0x7f0f00ed, R.drawable.obfuscated_res_0x7f0800d4, true));
-        a.put(39, new g74(39, R.string.obfuscated_res_0x7f0f00f4, R.drawable.obfuscated_res_0x7f0800f7, true));
-        a.put(4, new g74(4, R.string.obfuscated_res_0x7f0f00fb, R.drawable.obfuscated_res_0x7f0800fa, true));
-        a.put(37, new g74(37, R.string.obfuscated_res_0x7f0f00ef, R.drawable.obfuscated_res_0x7f0800d7, true));
-        a.put(38, new g74(38, R.string.obfuscated_res_0x7f0f00f8, R.drawable.obfuscated_res_0x7f0800d3, true));
-        a.put(42, new g74(42, R.string.obfuscated_res_0x7f0f00f0, R.drawable.obfuscated_res_0x7f0800f7, true));
-        a.put(49, new g74(49, R.string.obfuscated_res_0x7f0f124c, R.drawable.obfuscated_res_0x7f081129, true));
-        a.put(50, new g74(50, R.string.obfuscated_res_0x7f0f12d0, R.drawable.obfuscated_res_0x7f081128, true));
-        a.put(43, new g74(43, R.string.obfuscated_res_0x7f0f00ee, R.drawable.obfuscated_res_0x7f0800d8, true));
-        a.put(9, new g74(9, R.string.obfuscated_res_0x7f0f00f9, R.drawable.obfuscated_res_0x7f0800e4, true));
-        a.put(46, new g74(46, R.string.obfuscated_res_0x7f0f00f1, R.drawable.obfuscated_res_0x7f0800e9, true));
-        a.put(47, new g74(47, R.string.obfuscated_res_0x7f0f00f2, R.drawable.obfuscated_res_0x7f0800ec, true));
     }
 
-    public static g74 a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.zm2
+    public boolean a(Context context, op2 op2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? g74.k(a.get(i)) : (g74) invokeI.objValue;
-    }
-
-    public static List<g74> b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i != 0) {
-                if (i != 12) {
-                    if (i != 13) {
-                        switch (i) {
-                            case 16:
-                                arrayList.add(g74.k(a.get(5)));
-                                break;
-                            case 17:
-                            case 18:
-                                arrayList.add(g74.k(a.get(38)));
-                                arrayList.add(g74.k(a.get(4)));
-                                arrayList.add(g74.k(a.get(39)));
-                                arrayList.add(g74.k(a.get(35)));
-                                arrayList.add(g74.k(a.get(5)));
-                                arrayList.add(g74.k(a.get(49)));
-                                break;
-                            case 19:
-                                arrayList.add(g74.l(a.get(38), false));
-                                arrayList.add(g74.l(a.get(4), false));
-                                arrayList.add(g74.k(a.get(39)));
-                                arrayList.add(g74.l(a.get(35), false));
-                                arrayList.add(g74.k(a.get(5)));
-                                arrayList.add(g74.l(a.get(49), false));
-                                break;
-                            case 20:
-                                arrayList.add(g74.k(a.get(38)));
-                                arrayList.add(g74.k(a.get(4)));
-                                arrayList.add(g74.k(a.get(39)));
-                                arrayList.add(g74.k(a.get(35)));
-                                arrayList.add(g74.k(a.get(5)));
-                                arrayList.add(g74.k(a.get(49)));
-                                break;
-                        }
-                    } else {
-                        arrayList.add(g74.k(a.get(43)));
-                    }
-                }
-                arrayList.add(g74.k(a.get(38)));
-                arrayList.add(g74.k(a.get(4)));
-                arrayList.add(g74.k(a.get(39)));
-                arrayList.add(g74.k(a.get(35)));
-                arrayList.add(g74.k(a.get(5)));
-                arrayList.add(g74.k(a.get(49)));
-            } else {
-                arrayList.add(g74.k(a.get(38)));
-                arrayList.add(g74.k(a.get(5)));
-                arrayList.add(g74.k(a.get(4)));
-                arrayList.add(g74.k(a.get(35)));
-                arrayList.add(g74.k(a.get(42)));
-            }
-            return arrayList;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, op2Var, hp2Var, y23Var)) == null) {
+            return false;
         }
-        return (List) invokeI.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean b(Context context, jp2 jp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jp2Var, hp2Var, y23Var)) == null) ? r74.e().c(context, jp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean c(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, kp2Var, hp2Var, y23Var)) == null) ? q74.d().c(context, kp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public void d(ep1 ep1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ep1Var) == null) {
+            h74.h(ep1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean e(Context context, ip2 ip2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, context, ip2Var, hp2Var, y23Var)) == null) ? o84.h().c(context, ip2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public void f(ep1 ep1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ep1Var) == null) {
+            h74.d(ep1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean g(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, kp2Var, hp2Var, y23Var)) == null) ? l74.e().c(context, kp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean h(Context context, mp2 mp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, mp2Var, hp2Var, y23Var)) == null) ? t74.e().c(context, mp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public void i(ep1 ep1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ep1Var) == null) {
+            h74.e(ep1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean j(Context context, np2 np2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, context, np2Var, hp2Var, y23Var)) == null) ? u74.e().c(context, np2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean k(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, context, kp2Var, hp2Var, y23Var)) == null) ? o74.d().c(context, kp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean l(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, context, kp2Var, hp2Var, y23Var)) == null) ? m74.d().c(context, kp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean m(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, context, kp2Var, hp2Var, y23Var)) == null) ? s74.f().c(context, kp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean n(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, context, kp2Var, hp2Var, y23Var)) == null) ? p74.d().c(context, kp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zm2
+    public boolean update(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, context, kp2Var, hp2Var, y23Var)) == null) ? n74.d().c(context, kp2Var, hp2Var, y23Var) : invokeLLLL.booleanValue;
     }
 }

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,24 +12,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class kp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kp0 b;
+    public static sp0 a;
+    public static sp0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920638, "Lcom/baidu/tieba/kp0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920638, "Lcom/baidu/tieba/kp0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947920638, "Lcom/baidu/tieba/kp0;")) == null) {
+            return;
         }
-        b = new kp0();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947920638, "Lcom/baidu/tieba/kp0;");
+        }
     }
 
     public kp0() {
@@ -40,9 +47,169 @@ public class kp0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 0;
+    }
+
+    public static sp0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (kp0.class) {
+                    if (b == null) {
+                        if (a == null) {
+                            a = (sp0) ServiceManager.getService(sp0.a);
+                        }
+                        b = a;
+                    }
+                    if (b != null) {
+                        return b;
+                    }
+                    if (TextUtils.equals("okhttp", "mixed")) {
+                        b = b.b().a("okhttp");
+                    } else {
+                        b = ip0.a;
+                    }
+                }
+            }
+            return b;
+        }
+        return (sp0) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public qp0 a;
+        public qp0 b;
+
+        /* loaded from: classes4.dex */
+        public class a implements sp0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ qp0 b;
+
+            public a(b bVar, qp0 qp0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, qp0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = qp0Var;
+            }
+
+            @Override // com.baidu.tieba.sp0
+            public qp0 a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (qp0) invokeV.objValue;
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.kp0$b$b  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public static class C0311b {
+            public static /* synthetic */ Interceptable $ic;
+            public static final b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1454686974, "Lcom/baidu/tieba/kp0$b$b;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1454686974, "Lcom/baidu/tieba/kp0$b$b;");
+                        return;
+                    }
+                }
+                a = new b(null);
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+        }
+
+        public static b b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0311b.a : (b) invokeV.objValue;
+        }
+
+        public sp0 a(String str) {
+            InterceptResult invokeL;
+            char c;
+            qp0 qp0Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != -1015101340) {
+                    if (hashCode == 1544803905 && str.equals("default")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("okhttp")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+                if (c == 0) {
+                    if (this.a == null) {
+                        synchronized (kp0.class) {
+                            if (this.a == null) {
+                                this.a = ip0.a.b(str);
+                            }
+                        }
+                    }
+                    qp0Var = this.a;
+                } else if (c == 1) {
+                    if (this.b == null) {
+                        synchronized (kp0.class) {
+                            if (this.b == null) {
+                                this.b = ip0.a.b(str);
+                            }
+                        }
+                    }
+                    qp0Var = this.b;
+                } else {
+                    throw new IllegalStateException("Unexpected type:" + str);
+                }
+                return new a(this, qp0Var);
+            }
+            return (sp0) invokeL.objValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
     }
 }

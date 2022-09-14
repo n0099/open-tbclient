@@ -48,7 +48,7 @@ public final class LiveFeedSearchActivity$suggestionListDivider$2 extends Lambda
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this.this$0, 1);
-            Drawable drawable = ContextCompat.getDrawable(this.this$0.getApplicationContext(), R.drawable.obfuscated_res_0x7f080d0d);
+            Drawable drawable = ContextCompat.getDrawable(this.this$0.getApplicationContext(), R.drawable.obfuscated_res_0x7f080d2c);
             if (drawable != null) {
                 dividerItemDecoration.setDrawable(drawable);
             }

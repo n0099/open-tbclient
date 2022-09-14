@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +110,7 @@ public class FixLengthTextView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404cb});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.fixtextview);
         this.a = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(0));
         obtainStyledAttributes.recycle();
     }

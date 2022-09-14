@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.security.cert.CertificateException;
+import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class zp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
-    public AntiData b;
-    public ArrayList<String> c;
-    public String d;
 
     public zp4() {
         Interceptable interceptable = $ic;
@@ -32,68 +35,54 @@ public class zp4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = null;
-        this.a = new UserData();
-        this.b = new AntiData();
-        this.c = new ArrayList<>();
-        f(0);
-    }
-
-    public AntiData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (AntiData) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public UserData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (UserData) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            try {
-                e(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void e(JSONObject jSONObject) {
+    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            try {
-                this.a.parserJson(jSONObject.optJSONObject("user"));
-                this.b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
-                JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        this.c.add(optJSONArray.optString(i, null));
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
+            JSONArray jSONArray = new JSONArray();
+            byte[] bytes = str2.getBytes("UTF-8");
+            if (bytes.length % 116 == 0) {
+                length = bytes.length / 116;
+            } else {
+                length = (bytes.length / 116) + 1;
+            }
+            for (int i = 0; i < length; i++) {
+                if (1 == length) {
+                    jSONArray.put(wi.j(b(publicKey, bytes)));
+                } else if (i != length - 1) {
+                    byte[] bArr = new byte[116];
+                    System.arraycopy(bytes, i * 116, bArr, 0, 116);
+                    jSONArray.put(wi.j(b(publicKey, bArr)));
+                } else {
+                    int i2 = i * 116;
+                    int length2 = bytes.length - i2;
+                    byte[] bArr2 = new byte[length2];
+                    System.arraycopy(bytes, i2, bArr2, 0, length2);
+                    jSONArray.put(wi.j(b(publicKey, bArr2)));
                 }
-                f(jSONObject.optInt("retrytime"));
-                this.d = jSONObject.optString("growth_switch");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
+            return wi.j(jSONArray.toString().getBytes("UTF-8"));
         }
+        return (String) invokeLL.objValue;
     }
 
-    public void f(int i) {
+    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, key);
+            return cipher.doFinal(bArr);
         }
+        return (byte[]) invokeLL.objValue;
     }
 }

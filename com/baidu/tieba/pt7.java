@@ -1,62 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pt7 {
+public class pt7 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public PayVcodeActivity a;
+    public jn8 b;
 
-    public pt7() {
+    public pt7(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = payVcodeActivity;
+    }
+
+    public void a(jn8 jn8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jn8Var) == null) {
+            this.b = jn8Var;
         }
     }
 
-    public static pt7 a(String str) {
-        InterceptResult invokeL;
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            jn8 jn8Var = this.b;
+            if ((jn8Var == null || !jn8Var.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.a) != null && ih.f(payVcodeActivity.getPageContext())) {
+                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                pt7 pt7Var = new pt7();
-                pt7Var.a = jSONObject.optBoolean("show", false);
-                pt7Var.b = jSONObject.optInt(CriusAttrConstants.POSITION, -1);
-                return pt7Var;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+            return true;
         }
-        return (pt7) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{\"show\":" + this.a + ",\"position\":" + this.b + '}';
-        }
-        return (String) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

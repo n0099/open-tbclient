@@ -1,58 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapRegionDecoder;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes3.dex */
 public class ah5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b = null;
+    public static String c = null;
+    public static String d = "floor";
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-    public Context b;
 
-    public ah5(Context context) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947615195, "Lcom/baidu/tieba/ah5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947615195, "Lcom/baidu/tieba/ah5;");
+        }
+    }
+
+    public static void a(String str, String str2, String str3, int i, r9 r9Var, BaijiahaoData baijiahaoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), r9Var, baijiahaoData}) == null) {
+            b = str;
+            c = str2;
+            a = str3;
+            if (StringUtils.isNull(str3) || r9Var == null || r9Var.getPageActivity() == null) {
                 return;
             }
-        }
-        this.a = new int[2];
-        this.b = context;
-    }
-
-    public BitmapRegionDecoder a(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return null;
+            if (d.equals(a)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(r9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
+                createSubPbActivityConfig.setKeyPageStartFrom(8);
+                createSubPbActivityConfig.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                return;
             }
-            BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
-            this.a[0] = newInstance.getWidth();
-            this.a[1] = newInstance.getHeight();
-            return newInstance;
+            PbActivityConfig createNormalCfg = new PbActivityConfig(r9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
+            createNormalCfg.setStartFrom(8);
+            createNormalCfg.setBjhData(baijiahaoData);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
         }
-        return (BitmapRegionDecoder) invokeL.objValue;
-    }
-
-    public int[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (int[]) invokeV.objValue;
     }
 }

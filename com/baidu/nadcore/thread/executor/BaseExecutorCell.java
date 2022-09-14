@@ -2,10 +2,10 @@ package com.baidu.nadcore.thread.executor;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.tieba.hz0;
-import com.baidu.tieba.jz0;
-import com.baidu.tieba.kz0;
-import com.baidu.tieba.lz0;
+import com.baidu.tieba.a11;
+import com.baidu.tieba.w01;
+import com.baidu.tieba.y01;
+import com.baidu.tieba.z01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -198,15 +198,15 @@ public abstract class BaseExecutorCell {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return new kz0(i);
+                            return new z01(i);
                         }
-                        return new lz0(i);
+                        return new a11(i);
                     }
-                    return new jz0(i);
+                    return new y01(i);
                 }
-                return new kz0(i);
+                return new z01(i);
             }
-            return new hz0(i);
+            return new w01(i);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }

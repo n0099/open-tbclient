@@ -1,32 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes3.dex */
-public class bm7 extends BaseAdapter {
+public class bm7 implements zu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public dm7 b;
-    public View.OnClickListener c;
-    public List<String> d;
+    public String a;
+    public String b;
 
-    public bm7(TbPageContext<?> tbPageContext, dm7 dm7Var, View.OnClickListener onClickListener) {
+    public bm7(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dm7Var, onClickListener};
+            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,57 +29,24 @@ public class bm7 extends BaseAdapter {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.d = new ArrayList();
-        this.b = dm7Var;
-        this.d = dm7Var.a();
-        this.c = onClickListener;
+        if (vipBannerItem == null) {
+            return;
+        }
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public String getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.d.get(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.tieba.zu4
+    public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.zu4
+    public String getPicUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        cm7 cm7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                cm7Var = new cm7();
-                view3 = cm7Var.a(this.a.getPageActivity());
-                cm7Var.e(this.c);
-                cm7Var.c(this.a);
-            } else {
-                view3 = view2;
-                cm7Var = (cm7) view2.getTag();
-            }
-            String str = this.d.get(i);
-            cm7Var.d(str);
-            cm7Var.f(this.b.b().equals(str));
-            return view3;
-        }
-        return (View) invokeILL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

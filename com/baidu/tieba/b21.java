@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.app.ActivityManager;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.RectF;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q01;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,216 +13,189 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class b21 extends a21 {
+public class b21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z11 u;
+    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint h;
-    public final RectF i;
-    public int j;
-    public float k;
-    public float l;
-    public float m;
-    public float n;
-    public float o;
-    public float p;
-    public float q;
-    public float r;
-    public float s;
-    public float t;
-
-    /* loaded from: classes3.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b21 a;
-
-        public a(b21 b21Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b21Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b21Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationRepeat(animator);
-                this.a.y();
-                b21 b21Var = this.a;
-                b21Var.o = b21Var.n;
-                b21 b21Var2 = this.a;
-                b21Var2.l = (b21Var2.l + 1.0f) % 5.0f;
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.l = 0.0f;
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592968, "Lcom/baidu/tieba/b21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947592968, "Lcom/baidu/tieba/b21;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947592968, "Lcom/baidu/tieba/b21;")) == null) {
+            return;
         }
-        u = new z11();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947592968, "Lcom/baidu/tieba/b21;");
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b21(Context context) {
-        super(context);
+    public b21() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.h = new Paint();
-        this.i = new RectF();
-        u(context);
-        x();
-        b(new a(this));
     }
 
-    @Override // com.baidu.tieba.a21
-    public void c(float f) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            if (f <= 0.5f) {
-                this.o = this.r + (u.a(f / 0.5f) * 288.0f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = a;
+            if (str == null) {
+                synchronized (b21.class) {
+                    str = a;
+                    if (str == null) {
+                        Context b = mi0.b();
+                        String c = c();
+                        if (c == null && (c = b(b)) == null) {
+                            c = b.getPackageName();
+                        }
+                        a = c;
+                        str = c;
+                    }
+                }
             }
-            if (f > 0.5f) {
-                this.n = this.q + (u.a((f - 0.5f) / 0.5f) * 288.0f);
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return null;
             }
-            if (Math.abs(this.n - this.o) > 0.0f) {
-                this.p = this.n - this.o;
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
             }
-            this.m = (f * 216.0f) + ((this.l / 5.0f) * 1080.0f);
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.a21
-    public void d(Canvas canvas) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    public static String c() {
+        InterceptResult invokeV;
+        ?? r2;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            int save = canvas.save();
-            this.i.set(this.b);
-            RectF rectF = this.i;
-            float f = this.k;
-            rectF.inset(f, f);
-            canvas.rotate(this.m, this.i.centerX(), this.i.centerY());
-            if (this.p != 0.0f) {
-                this.h.setColor(this.j);
-                canvas.drawArc(this.i, this.o, this.p, false, this.h);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            BufferedReader bufferedReader2 = 0;
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+                r2 = null;
             }
-            canvas.restoreToCount(save);
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                    return readLine;
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return readLine;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                r2 = null;
+                bufferedReader3 = bufferedReader;
+                e("AppProcessManager", e);
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                bufferedReader2 = r2;
+                return bufferedReader2;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != 0) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[Catch: Exception -> 0x003a, TryCatch #0 {Exception -> 0x003a, blocks: (B:5:0x0005, B:6:0x0015, B:8:0x001b, B:10:0x002d, B:12:0x0031), top: B:25:0x0005 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean d(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, null, context, str)) != null) {
+            return invokeLL.booleanValue;
+        }
+        try {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                String str2 = runningAppProcessInfo.processName;
+                int myPid = Process.myPid();
+                if (str2.equals(str) || runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.importance == 100;
+                }
+                while (r4.hasNext()) {
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
-    @Override // com.baidu.tieba.a21
-    public void h() {
+    public static void e(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w();
-        }
-    }
-
-    @Override // com.baidu.tieba.a21
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h.setAlpha(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.a21
-    public void l(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, colorFilter) == null) {
-            this.h.setColorFilter(colorFilter);
-        }
-    }
-
-    public final void u(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            this.s = q01.c.a(context, 2.0f);
-            this.t = q01.c.a(context, 11.5f);
-            this.j = -1;
-            v(this.f, this.g);
-        }
-    }
-
-    public final void v(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.k = Math.max((Math.min(f, f2) / 2.0f) - this.t, (float) Math.ceil(this.s / 2.0f));
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.q = 0.0f;
-            this.r = 0.0f;
-            this.n = 0.0f;
-            this.o = 0.0f;
-            this.p = 0.0f;
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h.setAntiAlias(true);
-            this.h.setStrokeWidth(this.s);
-            this.h.setStyle(Paint.Style.STROKE);
-            this.h.setStrokeCap(Paint.Cap.SQUARE);
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            float f = this.n;
-            this.q = f;
-            this.r = f;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) {
         }
     }
 }

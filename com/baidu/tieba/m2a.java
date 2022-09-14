@@ -1,20 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class m2a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface m2a {
 
-    public static void a(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) {
-            ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("Label", str));
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(CancelType cancelType);
     }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(CancelType cancelType);
+
+        void b();
+    }
+
+    GiftBagsInfo a();
+
+    boolean b(Activity activity, b bVar, o2a o2aVar, AbsViewEventHandler absViewEventHandler);
+
+    void c(ViewGroup viewGroup, Activity activity);
+
+    void d(GiftBagsInfo giftBagsInfo);
+
+    boolean e(Activity activity, a aVar, o2a o2aVar, AbsViewEventHandler absViewEventHandler);
+
+    void f(GiftBagsInfo giftBagsInfo);
 }

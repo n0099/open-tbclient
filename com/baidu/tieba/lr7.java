@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class lr7 {
     public static /* synthetic */ Interceptable $ic;
+    public static lr7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<cn> b;
-    public vn c;
+    public volatile boolean a;
 
-    public lr7(TbPageContext tbPageContext, vn vnVar) {
+    public lr7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,34 +26,38 @@ public class lr7 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = vnVar;
-        a();
-        this.c.a(this.b);
+        this.a = false;
     }
 
-    public final void a() {
+    public static lr7 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            this.b = arrayList;
-            arrayList.add(new mr7(this.a));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new lr7();
+            }
+            return b;
+        }
+        return (lr7) invokeV.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = false;
         }
     }
 
-    public void b() {
-        vn vnVar;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (vnVar = this.c) == null) {
-            return;
-        }
-        vnVar.getListAdapter().notifyDataSetChanged();
-    }
-
-    public void c(List<pn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
         }
     }
 }

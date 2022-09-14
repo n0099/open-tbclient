@@ -1,100 +1,280 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
+import android.text.TextUtils;
+import android.widget.FrameLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oy1 extends x23 {
+public abstract class oy1 implements qy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    @Nullable
+    public et2 h;
+    public String i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oy1(x13 x13Var) {
-        super(x13Var, "/swanAPI/remoteDebug");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048482, "Lcom/baidu/tieba/oy1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948048482, "Lcom/baidu/tieba/oy1;");
+                return;
+            }
+        }
+        boolean z = ij1.a;
+    }
+
+    public oy1(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            ay1.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
-            return false;
+        this.a = "unknown";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = false;
+        this.g = false;
+        this.i = "id";
+        if (!TextUtils.isEmpty(str)) {
+            this.a = str;
+        } else {
+            rz1.a("Component-Model-Base", "component type is empty");
         }
-        return invokeLLLL.booleanValue;
+        if (!TextUtils.isEmpty(str2)) {
+            this.i = str2;
+        } else {
+            rz1.a("Component-Model-Base", "component id key is empty");
+        }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, a13 a13Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.xs2
+    @CallSuper
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, a13Var)) == null) {
-            ay1.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-            if (!ry1.d()) {
-                ay1.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        if (!TextUtils.equals(this.i, "ARCameraId")) {
+            String optString = jSONObject.optString("componentId");
+            this.b = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.b = jSONObject.optString(this.i);
             }
-            SwanAppActivity w = z03.K().w();
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -279631955) {
-                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
-                    c = 0;
-                }
-            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
-                c = 1;
+        } else {
+            String optString2 = jSONObject.optString(this.i);
+            this.b = optString2;
+            if (TextUtils.isEmpty(optString2)) {
+                this.b = jSONObject.optString("componentId");
             }
-            if (c == 0) {
-                ay1.i("RemoteDebugAction", "Remote Debug reload");
-                if (w != null) {
-                    Intent intent = w.getIntent();
-                    ry1.f();
-                    z03.K().n(new String[0]);
-                    z03.K().l(intent.getExtras(), "update_tag_by_remote_debug");
-                }
-                return true;
-            } else if (c != 1) {
-                return super.i(context, unitedSchemeEntity, callbackHandler, str, a13Var);
+        }
+        if (TextUtils.isEmpty(this.b)) {
+            yz1.c("Component-Model-Base", this.a + " component componentId is empty");
+        }
+        String optString3 = jSONObject.optString("slaveId");
+        this.c = optString3;
+        if (TextUtils.isEmpty(optString3)) {
+            yz1.c("Component-Model-Base", this.a + " component slaveId is empty");
+        }
+        this.d = jSONObject.optString("parentId");
+        this.e = jSONObject.optString("cb");
+        this.f = jSONObject.optBoolean("hide", false);
+        this.g = TextUtils.equals(jSONObject.optString("gesture"), "1");
+        f(jSONObject);
+    }
+
+    public final FrameLayout.LayoutParams b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            et2 et2Var = this.h;
+            int f = et2Var != null ? et2Var.f() : -1;
+            et2 et2Var2 = this.h;
+            int c = et2Var2 != null ? et2Var2.c() : -1;
+            et2 et2Var3 = this.h;
+            int d = et2Var3 != null ? et2Var3.d() : 0;
+            et2 et2Var4 = this.h;
+            int e = et2Var4 != null ? et2Var4.e() : 0;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, c);
+            layoutParams.setMargins(d, e, 0, 0);
+            return layoutParams;
+        }
+        return (FrameLayout.LayoutParams) invokeV.objValue;
+    }
+
+    public final float c(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
+    }
+
+    @CallSuper
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            oy1 oy1Var = (oy1) super.clone();
+            et2 et2Var = this.h;
+            if (et2Var != null) {
+                oy1Var.h = (et2) et2Var.clone();
             } else {
-                if (w != null) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        w.finishAndRemoveTask();
-                    } else {
-                        w.finish();
-                    }
-                    System.exit(0);
-                }
-                return true;
+                oy1Var.h = null;
+            }
+            return oy1Var;
+        }
+        return invokeV.objValue;
+    }
+
+    @NonNull
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("【");
+            sb.append(this.a);
+            sb.append("#");
+            sb.append(TextUtils.isEmpty(this.b) ? "" : this.b);
+            sb.append("】");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e(JSONObject jSONObject, @NonNull oy1 oy1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, oy1Var) == null) || jSONObject == null) {
+            return;
+        }
+        if (!TextUtils.equals(this.i, "ARCameraId")) {
+            String optString = jSONObject.optString("componentId");
+            this.b = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.b = jSONObject.optString(this.i, oy1Var.b);
+            }
+        } else {
+            String optString2 = jSONObject.optString(this.i);
+            this.b = optString2;
+            if (TextUtils.isEmpty(optString2)) {
+                this.b = jSONObject.optString("componentId", oy1Var.b);
             }
         }
-        return invokeLLLLL.booleanValue;
+        if (TextUtils.isEmpty(this.b)) {
+            yz1.c("Component-Model-Base", this.a + " component componentId is empty");
+        }
+        String optString3 = jSONObject.optString("slaveId", oy1Var.c);
+        this.c = optString3;
+        if (TextUtils.isEmpty(optString3)) {
+            yz1.c("Component-Model-Base", this.a + " component slaveId is empty");
+        }
+        this.d = jSONObject.optString("parentId", oy1Var.d);
+        this.e = jSONObject.optString("cb", oy1Var.e);
+        this.f = jSONObject.optBoolean("hide", oy1Var.f);
+        this.g = TextUtils.equals(jSONObject.optString("gesture", oy1Var.g ? "1" : "0"), "1");
+        et2 et2Var = oy1Var.h;
+        this.h = et2Var;
+        if (et2Var == null) {
+            this.h = new et2();
+        }
+        f(jSONObject);
+    }
+
+    public final void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject(CriusAttrConstants.POSITION)) == null) {
+            return;
+        }
+        et2 et2Var = new et2();
+        this.h = et2Var;
+        et2Var.l(pg3.g(c(optJSONObject, "left", 0.0f)));
+        this.h.m(pg3.g(c(optJSONObject, "top", 0.0f)));
+        this.h.n(pg3.g(c(optJSONObject, "width", 0.0f)));
+        this.h.j(pg3.g(c(optJSONObject, "height", 0.0f)));
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            if (!TextUtils.equals(this.i, "ARCameraId")) {
+                String optString = jSONObject.optString("componentId");
+                this.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    this.b = jSONObject.optString(this.i, this.b);
+                }
+            } else {
+                String optString2 = jSONObject.optString(this.i);
+                this.b = optString2;
+                if (TextUtils.isEmpty(optString2)) {
+                    this.b = jSONObject.optString("componentId", this.b);
+                }
+            }
+            if (TextUtils.isEmpty(this.b)) {
+                yz1.c("Component-Model-Base", this.a + " component componentId is empty");
+            }
+            String optString3 = jSONObject.optString("slaveId", this.c);
+            this.c = optString3;
+            if (TextUtils.isEmpty(optString3)) {
+                yz1.c("Component-Model-Base", this.a + " component slaveId is empty");
+            }
+            this.d = jSONObject.optString("parentId", this.d);
+            this.e = jSONObject.optString("cb", this.e);
+            this.f = jSONObject.optBoolean("hide", this.f);
+            this.g = TextUtils.equals(jSONObject.optString("gesture", this.g ? "1" : "0"), "1");
+            f(jSONObject);
+        }
+    }
+
+    @Override // com.baidu.tieba.xs2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        et2 et2Var;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || (et2Var = this.h) == null || !et2Var.h()) ? false : true : invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "SwanAppBaseComponentModel{componentType='" + this.a + "', componentId='" + this.b + "', slaveId='" + this.c + "', parentId='" + this.d + "', callback='" + this.e + "', hidden=" + this.f + ", gesture=" + this.g + ", position=" + this.h + ", mComponentIdKey='" + this.i + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

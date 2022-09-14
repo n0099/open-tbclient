@@ -10,7 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.m60;
+import com.baidu.tieba.o70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,10 +108,10 @@ public class Heartbeat {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, m60.class);
+                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, o70.class);
                                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                                         intent.setPackage(this.this$2.this$1.this$0.mContext.getPackageName());
-                                        m60.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
+                                        o70.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
                                         this.this$2.this$1.this$0.mHandler.postDelayed(this.this$2.this$1.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
                                     }
                                 }
@@ -182,7 +182,7 @@ public class Heartbeat {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, m60.class);
+                intent.setClass(this.this$0.mContext, o70.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, LaunchTaskConstants.OTHER_PROCESS));
             }
@@ -195,7 +195,7 @@ public class Heartbeat {
                 cancelHearbeat();
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, m60.class);
+                intent.setClass(this.this$0.mContext, o70.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, LaunchTaskConstants.OTHER_PROCESS);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);

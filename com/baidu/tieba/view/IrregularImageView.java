@@ -12,9 +12,9 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.an;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.lg;
+import com.baidu.tieba.on;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,10 +26,10 @@ public class IrregularImageView extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public final kg<an> c;
+    public final yg<on> c;
 
     /* loaded from: classes6.dex */
-    public class a extends kg<an> {
+    public class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IrregularImageView a;
@@ -53,11 +53,11 @@ public class IrregularImageView extends AppCompatImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(an anVar, String str, int i) {
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, anVar, str, i) == null) {
-                if (anVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
+                if (onVar == null) {
                     if (this.a.b != 0) {
                         Bitmap bitmap = null;
                         try {
@@ -74,7 +74,7 @@ public class IrregularImageView extends AppCompatImageView {
                     }
                     return;
                 }
-                this.a.setImage(anVar.p(), this.a.a);
+                this.a.setImage(onVar.p(), this.a.a);
             }
         }
     }
@@ -152,7 +152,7 @@ public class IrregularImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i) == null) {
             this.a = i;
-            lg.h().k(str, 10, this.c, 0, 0, bdUniqueId, new Object[0]);
+            zg.h().k(str, 10, this.c, 0, 0, bdUniqueId, new Object[0]);
         }
     }
 

@@ -1,32 +1,23 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ae implements nd {
+public class ae implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Float a;
 
-    public ae(String str) {
+    public ae(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,21 +27,15 @@ public class ae implements nd {
                 return;
             }
         }
-        this.a = str;
+        this.a = Float.valueOf(f);
     }
 
-    @Override // com.baidu.tieba.nd
-    public Object a(de deVar) {
-        Class<?> a;
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) {
-            try {
-                a = deVar.a();
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            Class<?> a = reVar.a();
             if (a != Byte.class && a != Byte.TYPE) {
                 if (a != Short.class && a != Short.TYPE) {
                     if (a != Integer.class && a != Integer.TYPE) {
@@ -58,87 +43,38 @@ public class ae implements nd {
                             if (a != Float.class && a != Float.TYPE) {
                                 if (a != Double.class && a != Double.TYPE) {
                                     if (a != Character.class && a != Character.TYPE) {
-                                        if (a != Boolean.class && a != Boolean.TYPE) {
-                                            if (a == String.class) {
-                                                return this.a;
-                                            }
+                                        if (a == Boolean.class || a == Boolean.TYPE) {
+                                            return Boolean.valueOf(this.a.byteValue() == 0);
+                                        } else if (a == String.class) {
+                                            return String.valueOf(this.a);
+                                        } else {
                                             if (a == char[].class) {
-                                                return this.a.toCharArray();
+                                                return String.valueOf(this.a).toCharArray();
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return ii.e(this.a, 0);
-                                                } catch (IOException e2) {
-                                                    e2.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else if (dc.e(a, OrmObject.class)) {
-                                                return OrmObject.objectWithJsonStr(this.a, a);
-                                            } else {
-                                                if (dc.e(a, List.class)) {
-                                                    try {
-                                                        return new pd(new JSONArray(this.a)).a(deVar);
-                                                    } catch (JSONException e3) {
-                                                        e3.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (a.isArray()) {
-                                                    try {
-                                                        return new pd(new JSONArray(this.a)).a(deVar);
-                                                    } catch (JSONException e4) {
-                                                        e4.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, Queue.class)) {
-                                                    try {
-                                                        return new pd(new JSONArray(this.a)).a(deVar);
-                                                    } catch (JSONException e5) {
-                                                        e5.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, Set.class)) {
-                                                    try {
-                                                        return new pd(new JSONArray(this.a)).a(deVar);
-                                                    } catch (JSONException e6) {
-                                                        e6.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, Map.class)) {
-                                                    try {
-                                                        return new qd(new JSONObject(this.a)).a(deVar);
-                                                    } catch (JSONException e7) {
-                                                        e7.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, SparseArray.class)) {
-                                                    try {
-                                                        return new qd(new JSONObject(this.a)).a(deVar);
-                                                    } catch (JSONException e8) {
-                                                        e8.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else {
+                                                    return wi.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
                                                     return null;
                                                 }
                                             }
-                                            e.printStackTrace();
                                             return null;
                                         }
-                                        return Boolean.valueOf(Boolean.parseBoolean(this.a));
                                     }
-                                    return Character.valueOf(this.a.charAt(0));
+                                    return Character.valueOf((char) this.a.intValue());
                                 }
-                                return Double.valueOf(Double.parseDouble(this.a));
+                                return Double.valueOf(this.a.doubleValue());
                             }
-                            return Float.valueOf(Float.parseFloat(this.a));
+                            return Float.valueOf(this.a.floatValue());
                         }
-                        return Long.valueOf(Long.parseLong(this.a));
+                        return Long.valueOf(this.a.longValue());
                     }
-                    return Integer.valueOf(Integer.parseInt(this.a));
+                    return Integer.valueOf(this.a.intValue());
                 }
-                return Short.valueOf(Short.parseShort(this.a));
+                return Short.valueOf(this.a.shortValue());
             }
-            return Byte.valueOf(Byte.parseByte(this.a));
+            return Byte.valueOf(this.a.byteValue());
         }
         return invokeL.objValue;
     }

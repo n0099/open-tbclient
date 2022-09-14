@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dk4;
+import com.baidu.tieba.dm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dk4 mData;
+    public dm4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActiveConfigSocketResMsg() {
@@ -50,9 +50,9 @@ public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
                     setErrorString(activeConfigResIdl.error.usermsg);
                 }
                 if (activeConfigResIdl.data != null) {
-                    dk4 dk4Var = new dk4();
-                    this.mData = dk4Var;
-                    dk4Var.c(activeConfigResIdl.data);
+                    dm4 dm4Var = new dm4();
+                    this.mData = dm4Var;
+                    dm4Var.c(activeConfigResIdl.data);
                 }
             }
             return activeConfigResIdl;
@@ -60,9 +60,9 @@ public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public dk4 getData() {
+    public dm4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (dk4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (dm4) invokeV.objValue;
     }
 }

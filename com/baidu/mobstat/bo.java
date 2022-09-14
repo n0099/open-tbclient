@@ -63,41 +63,40 @@ public final class bo {
 
     public static String b(String str) {
         InterceptResult invokeL;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            File a2 = a(str);
-            if (a2 == null || !a2.exists()) {
-                return "";
-            }
-            FileInputStream fileInputStream2 = null;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65544, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
+        File a2 = a(str);
+        if (a2 == null || !a2.exists()) {
+            return "";
+        }
+        FileInputStream fileInputStream = null;
+        try {
+            FileInputStream fileInputStream2 = new FileInputStream(a2);
             try {
-                fileInputStream = new FileInputStream(a2);
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] a3 = a(fileInputStream);
+                byte[] a3 = a(fileInputStream2);
                 if (a3 == null) {
-                    bu.a(fileInputStream);
+                    bu.a(fileInputStream2);
                     return "";
                 }
                 String str2 = new String(a3, IMAudioTransRequest.CHARSET);
-                bu.a(fileInputStream);
+                bu.a(fileInputStream2);
                 return str2;
-            } catch (Exception unused2) {
-                fileInputStream2 = fileInputStream;
-                bu.a(fileInputStream2);
+            } catch (Exception unused) {
+                fileInputStream = fileInputStream2;
+                bu.a(fileInputStream);
                 return "";
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                bu.a(fileInputStream2);
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = fileInputStream2;
+                bu.a(fileInputStream);
                 throw th;
             }
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return (String) invokeL.objValue;
     }
 
     public static boolean c(String str) {

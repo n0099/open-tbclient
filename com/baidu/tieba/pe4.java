@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.AttributeSet;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class pe4 extends oe4 {
+public class pe4 extends he4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,14 +26,24 @@ public abstract class pe4 extends oe4 {
         }
     }
 
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.he4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-            View h = h(view2, str, context, attributeSet);
-            return (h != null || Build.VERSION.SDK_INT < 11) ? h : super.onCreateView(view2, str, context, attributeSet);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            oe4 c = oe4.c();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", c.a());
+                jSONObject.put("ceres_info", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("version", c.b());
+                jSONObject.put("global_info", jSONObject3);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return (View) invokeLLLL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

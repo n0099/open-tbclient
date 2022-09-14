@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,34 +12,41 @@ public class yc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
+    public static String a(UserData userData) {
         InterceptResult invokeL;
-        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String urlDecode = qi.getUrlDecode(str);
-            if (urlDecode == null) {
-                return urlDecode;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
+            if (userData == null) {
+                return "";
             }
-            int lastIndexOf = urlDecode.lastIndexOf("/");
-            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
-                return null;
+            if (UtilHelper.isFllowByPriorty(userData)) {
+                if (userData.getAuthType() == 1) {
+                    if (userData.isOfficial()) {
+                        return "";
+                    }
+                } else if (userData.getAuthType() == 2) {
+                    if (userData.isOriginal()) {
+                        return userData.getCreatorInfo().authDesc;
+                    }
+                } else if (userData.getAuthType() == 3) {
+                    if (userData.isNewGod()) {
+                        return userData.getNewGodData().getFieldName() + bi5.c(userData.isVideoGod());
+                    }
+                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
+                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
+                }
             }
-            return urlDecode.substring(lastIndexOf + 1, indexOf);
+            if (TextUtils.isEmpty("") && userData.isOfficial()) {
+                return "";
+            }
+            if (TextUtils.isEmpty("") && userData.isOriginal()) {
+                return userData.getCreatorInfo().authDesc;
+            }
+            if (!TextUtils.isEmpty("") || !userData.isNewGod()) {
+                return (TextUtils.isEmpty("") && userData.showBazhuGrade()) ? StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE) : "";
+            }
+            return userData.getNewGodData().getFieldName() + bi5.c(userData.isVideoGod());
         }
         return (String) invokeL.objValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            String urlDecode = qi.getUrlDecode(str);
-            return !StringUtils.isNull(urlDecode) && urlDecode.contains("?t=");
-        }
-        return invokeL.booleanValue;
     }
 }

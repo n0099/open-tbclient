@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.og;
-import com.baidu.tieba.wf5;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.fi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,12 +87,12 @@ public class ThirdStatisticHelper {
                         } catch (Exception e) {
                             e = e;
                             BdLog.e(e);
-                            og.f(httpURLConnection);
+                            ch.f(httpURLConnection);
                             return null;
                         }
                     } catch (Throwable th2) {
                         th = th2;
-                        og.f(httpURLConnection);
+                        ch.f(httpURLConnection);
                         throw th;
                     }
                 } catch (Exception e2) {
@@ -101,10 +101,10 @@ public class ThirdStatisticHelper {
                 } catch (Throwable th3) {
                     th = th3;
                     httpURLConnection = null;
-                    og.f(httpURLConnection);
+                    ch.f(httpURLConnection);
                     throw th;
                 }
-                og.f(httpURLConnection);
+                ch.f(httpURLConnection);
                 return null;
             }
             return (Integer) invokeL.objValue;
@@ -173,7 +173,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", wf5.b());
+                httpURLConnection.setRequestProperty("User-Agent", fi5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -264,7 +264,7 @@ public class ThirdStatisticHelper {
                                 BdLog.e(e);
                             }
                         } finally {
-                            og.f(httpURLConnection);
+                            ch.f(httpURLConnection);
                         }
                     }
                     if (i != 200) {
@@ -281,7 +281,7 @@ public class ThirdStatisticHelper {
                                     httpURLConnection.connect();
                                     i = httpURLConnection.getResponseCode();
                                     requestStatistic(i2 + 1, String.valueOf(i));
-                                    og.f(httpURLConnection);
+                                    ch.f(httpURLConnection);
                                 }
                             }
                         } else if (url != null) {
@@ -298,7 +298,7 @@ public class ThirdStatisticHelper {
                             }
                             i = httpURLConnection.getResponseCode();
                             requestStatistic(i2 + 1, String.valueOf(i));
-                            og.f(httpURLConnection);
+                            ch.f(httpURLConnection);
                         }
                     }
                 }

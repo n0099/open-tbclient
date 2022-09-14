@@ -15,13 +15,13 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
+import com.kwad.sdk.R;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
 public class KSCouponLabelTextView extends TextView implements e {
@@ -136,8 +136,8 @@ public class KSCouponLabelTextView extends TextView implements e {
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403ab, R.attr.obfuscated_res_0x7f0403ba, R.attr.obfuscated_res_0x7f0403c3, R.attr.obfuscated_res_0x7f0403c4}, i, 0);
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060771);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCouponLabelTextView, i, 0);
+            int color = context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060783);
             this.wt = obtainStyledAttributes.getDimension(0, 8.0f);
             this.wu = obtainStyledAttributes.getDimension(3, 2.0f);
             this.strokeColor = obtainStyledAttributes.getColor(2, color);
@@ -253,7 +253,7 @@ public class KSCouponLabelTextView extends TextView implements e {
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f060771);
+            int color = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060783);
             this.strokeColor = color;
             setTextColor(color);
             jd();

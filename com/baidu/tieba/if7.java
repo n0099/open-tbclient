@@ -1,28 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 /* loaded from: classes4.dex */
-public class if7 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface if7 {
+    yg7 C0();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947851663, "Lcom/baidu/tieba/if7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947851663, "Lcom/baidu/tieba/if7;");
-        }
-    }
+    tg7 W();
+
+    LegoListFragment c0();
 }

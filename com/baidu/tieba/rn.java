@@ -1,16 +1,47 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface rn<V extends ViewGroup> {
-    int getContentViewsCount();
+public abstract class rn {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    int getFooterViewsCount();
+    public rn() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
 
-    int getHeaderViewsCount();
+    public abstract View a();
 
-    V getListView();
+    public final View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = a();
+            }
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
 
-    boolean removeHeaderView(View view2);
+    public abstract void c();
 }

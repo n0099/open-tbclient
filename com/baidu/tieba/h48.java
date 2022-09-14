@@ -1,31 +1,66 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class h48 implements v38 {
+public class h48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Long b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public Integer h;
+    public TbPageContext a;
+    public NavigationBar b;
+    public BdTypeListView c;
+    public f48 d;
+    public v16<g58> e;
 
-    public h48(SmartApp smartApp) {
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h48 a;
+
+        public a(h48 h48Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h48Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h48Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.getPageActivity().finish();
+            }
+        }
+    }
+
+    public h48(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {smartApp};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,70 +70,50 @@ public class h48 implements v38 {
                 return;
             }
         }
-        this.a = 0;
-        if (smartApp == null) {
-            return;
+        this.a = tbPageContext;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0e42));
+            this.b.showBottomLine();
+            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
-        this.b = smartApp.swan_app_id;
-        this.c = smartApp.id;
-        this.d = smartApp.avatar;
-        this.e = smartApp.name;
-        String str = smartApp._abstract;
-        String str2 = smartApp.pic;
-        this.f = smartApp.h5_url;
-        this.g = smartApp.link;
-        if (smartApp.is_recom.intValue() == 1) {
-            this.a = 1;
+    }
+
+    public void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09197d);
+            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09197c);
+            this.c = bdTypeListView;
+            this.d = new f48(this.a, bdTypeListView, this.e);
+            b();
         }
-        this.h = smartApp.is_game;
     }
 
-    public Long a() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Long) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.a();
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void e(List<Cdo> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void f(v16<g58> v16Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public Integer e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (Integer) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v38
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, v16Var) == null) {
+            this.e = v16Var;
+        }
     }
 }

@@ -160,7 +160,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.pV, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703e8));
             Drawable background = this.nC.getBackground();
             if (background instanceof ColorDrawable) {
-                valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060770), getContext().getResources().getColor(R.color.obfuscated_res_0x7f060771));
+                valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060782), getContext().getResources().getColor(R.color.obfuscated_res_0x7f060783));
                 valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (ColorDrawable) background) { // from class: com.kwad.components.ad.reward.presenter.k.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -210,10 +210,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091112);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091130);
         this.nC = imageView;
-        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060770));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091113);
+        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060782));
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091131);
         this.pV.setOnClickListener(this);
     }
 
@@ -281,8 +281,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
             if (this.pV == null) {
-                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091118);
-                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091117));
+                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091136);
+                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091135));
                 initView();
             }
             if (!this.nM.fy()) {

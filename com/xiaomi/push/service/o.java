@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -164,7 +163,7 @@ public class o {
         this.c = new AtomicInteger(0);
         this.f982a = -1;
         this.f984a = context;
-        this.f991c = com.xiaomi.push.m.m561a(context);
+        this.f991c = com.xiaomi.push.m.m562a(context);
         this.f990b = ba.a(this.f984a).a(ho.bg.a(), true);
         this.f985a = this.f984a.getSharedPreferences("hb_record", 0);
         long currentTimeMillis = System.currentTimeMillis();
@@ -228,9 +227,9 @@ public class o {
                 map = new HashMap<>();
             }
             String str3 = null;
-            t m680a = u.m680a(this.f984a);
-            if (m680a != null && !TextUtils.isEmpty(m680a.f1005a)) {
-                String[] split = m680a.f1005a.split("@");
+            t m681a = u.m681a(this.f984a);
+            if (m681a != null && !TextUtils.isEmpty(m681a.f1005a)) {
+                String[] split = m681a.f1005a.split("@");
                 if (split.length > 0) {
                     str3 = split[0];
                 }
@@ -251,7 +250,7 @@ public class o {
 
     private void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) && m660c()) {
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) && m661c()) {
             int incrementAndGet = (z ? this.f989b : this.c).incrementAndGet();
             Object[] objArr = new Object[2];
             objArr[0] = z ? "short" : "long";
@@ -264,14 +263,14 @@ public class o {
                 Object[] objArr2 = new Object[2];
                 objArr2[0] = z ? "short" : "long";
                 objArr2[1] = Integer.valueOf(i);
-                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[HB] accumulate %s hb count(%s) and write to file. ", objArr2));
+                com.xiaomi.channel.commonutils.logger.b.m90a(String.format("[HB] accumulate %s hb count(%s) and write to file. ", objArr2));
                 (z ? this.f989b : this.c).set(0);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m658a() {
+    private boolean m659a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.f987a.get() >= Math.max(ba.a(this.f984a).a(ho.bi.a(), 5), 3) : invokeV.booleanValue;
@@ -326,7 +325,7 @@ public class o {
                 } else {
                     this.f988a = false;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[HB] network changed, netid:%s, %s", this.f986a, Boolean.valueOf(this.f988a)));
+                com.xiaomi.channel.commonutils.logger.b.m90a(String.format("[HB] network changed, netid:%s, %s", this.f986a, Boolean.valueOf(this.f988a)));
             }
             this.f986a = str;
             i = this.f985a.getInt(a.a(this.f986a), -1);
@@ -338,12 +337,12 @@ public class o {
             if (TextUtils.isEmpty(this.f986a)) {
             }
             this.f988a = false;
-            com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[HB] network changed, netid:%s, %s", this.f986a, Boolean.valueOf(this.f988a)));
+            com.xiaomi.channel.commonutils.logger.b.m90a(String.format("[HB] network changed, netid:%s, %s", this.f986a, Boolean.valueOf(this.f988a)));
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    private boolean m659b() {
+    private boolean m660b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? (TextUtils.isEmpty(this.f986a) || !this.f986a.startsWith("M-") || ba.a(this.f984a).a(ho.bj.a(), false)) ? false : true : invokeV.booleanValue;
@@ -364,7 +363,7 @@ public class o {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private boolean m660c() {
+    private boolean m661c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
@@ -377,7 +376,7 @@ public class o {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, this, str) == null) && m660c() && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(65549, this, str) == null) && m661c() && !TextUtils.isEmpty(str)) {
             if (str.startsWith("W-")) {
                 str2 = "W";
             } else if (!str.startsWith("M-")) {
@@ -423,7 +422,7 @@ public class o {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    private boolean m661e() {
+    private boolean m662e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
@@ -454,7 +453,7 @@ public class o {
     }
 
     /* renamed from: f  reason: collision with other method in class */
-    private boolean m662f() {
+    private boolean m663f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
@@ -473,7 +472,7 @@ public class o {
         String[] split;
         String[] split2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && m660c()) {
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && m661c()) {
             String string = this.f985a.getString(a.f(), null);
             char c = 1;
             char c2 = 0;
@@ -493,7 +492,7 @@ public class o {
                         hashMap.put("interval", str3);
                         hashMap.put("timestamp", str4);
                         a("category_hb_change", null, hashMap);
-                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report hb changed events.");
+                        com.xiaomi.channel.commonutils.logger.b.m90a("[HB] report hb changed events.");
                     }
                     i2++;
                     c = 1;
@@ -507,10 +506,10 @@ public class o {
                 hashMap2.put("model", Build.MODEL);
                 hashMap2.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
                 a("category_hb_change", null, hashMap2);
-                com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report support wifi digest events.");
+                com.xiaomi.channel.commonutils.logger.b.m90a("[HB] report support wifi digest events.");
                 this.f985a.edit().putBoolean(a.b(), true).apply();
             }
-            if (m661e()) {
+            if (m662e()) {
                 int i3 = this.f985a.getInt(a.d(), 0);
                 int i4 = this.f985a.getInt(a.e(), 0);
                 if (i3 > 0 || i4 > 0) {
@@ -524,19 +523,19 @@ public class o {
                         jSONObject.put("c_short", String.valueOf(i3));
                         jSONObject.put("c_long", String.valueOf(i4));
                         jSONObject.put("count", String.valueOf(i3 + i4));
-                        jSONObject.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, valueOf2);
+                        jSONObject.put("start_time", valueOf2);
                         jSONObject.put("end_time", valueOf3);
                         String jSONObject2 = jSONObject.toString();
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("event", "long_and_short_hb_count");
                         a("category_hb_count", jSONObject2, hashMap3);
-                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report short/long hb count events.");
+                        com.xiaomi.channel.commonutils.logger.b.m90a("[HB] report short/long hb count events.");
                     } catch (Throwable unused) {
                     }
                 }
                 this.f985a.edit().putInt(a.d(), 0).putInt(a.e(), 0).putLong(a.c(), System.currentTimeMillis()).apply();
             }
-            if (m662f()) {
+            if (m663f()) {
                 String valueOf4 = String.valueOf(this.f983a);
                 String valueOf5 = String.valueOf(System.currentTimeMillis());
                 int i5 = this.f985a.getInt(a.g(), 0);
@@ -545,13 +544,13 @@ public class o {
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("net_type", "M");
                         jSONObject3.put("ptc", i5);
-                        jSONObject3.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, valueOf4);
+                        jSONObject3.put("start_time", valueOf4);
                         jSONObject3.put("end_time", valueOf5);
                         String jSONObject4 = jSONObject3.toString();
                         HashMap hashMap4 = new HashMap();
                         hashMap4.put("event", "ptc_event");
                         a("category_lc_ptc", jSONObject4, hashMap4);
-                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report ping timeout count events of mobile network.");
+                        com.xiaomi.channel.commonutils.logger.b.m90a("[HB] report ping timeout count events of mobile network.");
                         this.f985a.edit().putInt(a.g(), 0).apply();
                     } catch (Throwable unused2) {
                         i = 0;
@@ -565,13 +564,13 @@ public class o {
                         JSONObject jSONObject5 = new JSONObject();
                         jSONObject5.put("net_type", "W");
                         jSONObject5.put("ptc", i6);
-                        jSONObject5.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, valueOf4);
+                        jSONObject5.put("start_time", valueOf4);
                         jSONObject5.put("end_time", valueOf5);
                         String jSONObject6 = jSONObject5.toString();
                         HashMap hashMap5 = new HashMap();
                         hashMap5.put("event", "ptc_event");
                         a("category_lc_ptc", jSONObject6, hashMap5);
-                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report ping timeout count events of wifi network.");
+                        com.xiaomi.channel.commonutils.logger.b.m90a("[HB] report ping timeout count events of wifi network.");
                     } catch (Throwable unused3) {
                     }
                     this.f985a.edit().putInt(a.h(), 0).apply();
@@ -583,26 +582,26 @@ public class o {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m663a() {
+    public long m664a() {
         InterceptResult invokeV;
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long b = gc.b();
-            if (this.f991c && !m659b() && ((ba.a(this.f984a).a(ho.bg.a(), true) || b() >= System.currentTimeMillis()) && (a2 = a()) != -1)) {
+            if (this.f991c && !m660b() && ((ba.a(this.f984a).a(ho.bg.a(), true) || b() >= System.currentTimeMillis()) && (a2 = a()) != -1)) {
                 b = a2;
             }
             if (!TextUtils.isEmpty(this.f986a) && !"WIFI-ID-UNKNOWN".equals(this.f986a) && this.f982a == 1) {
                 a(b < 300000);
             }
-            com.xiaomi.channel.commonutils.logger.b.m89a("[HB] ping interval:" + b);
+            com.xiaomi.channel.commonutils.logger.b.m90a("[HB] ping interval:" + b);
             return b;
         }
         return invokeV.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m664a() {
+    public void m665a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
@@ -644,7 +643,7 @@ public class o {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m665a(String str) {
+    public synchronized void m666a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             synchronized (this) {
@@ -659,15 +658,15 @@ public class o {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m666b() {
+    public void m667b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && d()) {
             f();
             if (this.f988a && !TextUtils.isEmpty(this.f986a) && this.f986a.equals(this.b)) {
                 this.f987a.getAndIncrement();
-                com.xiaomi.channel.commonutils.logger.b.m89a("[HB] ping timeout count:" + this.f987a);
-                if (m658a()) {
-                    com.xiaomi.channel.commonutils.logger.b.m89a("[HB] change hb interval for net:" + this.f986a);
+                com.xiaomi.channel.commonutils.logger.b.m90a("[HB] ping timeout count:" + this.f987a);
+                if (m659a()) {
+                    com.xiaomi.channel.commonutils.logger.b.m90a("[HB] change hb interval for net:" + this.f986a);
                     c(this.f986a);
                     this.f988a = false;
                     this.f987a.getAndSet(0);
@@ -678,7 +677,7 @@ public class o {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m667c() {
+    public void m668c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d()) {
             this.b = this.f986a;
@@ -686,7 +685,7 @@ public class o {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m668d() {
+    public void m669d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && d()) {
             g();

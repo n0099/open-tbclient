@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] q = ri.q(activity);
+            int[] q = ej.q(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
                 iArr[0] = q[0];
                 iArr[1] = q[1];
@@ -68,8 +68,8 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int s = ri.s(activity);
-            int d = MenuKeyUtils.hasSmartBar() ? ri.d(activity, 48.0f) : 0;
+            int s = ej.s(activity);
+            int d = MenuKeyUtils.hasSmartBar() ? ej.d(activity, 48.0f) : 0;
             int i = UtilHelper.canUseStyleImmersiveSticky() ? 0 : s;
             rect.bottom -= d;
             rect.top += i;

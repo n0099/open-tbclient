@@ -1,32 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.enterForum.data.ForumCreateInfoData;
-import com.baidu.tieba.enterForum.data.HotSearchInfoData;
+import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumGuide.DataRes;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class y66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c76 a;
-    public wq4 b;
-    public ForumCreateInfoData c;
-    public PrivateForumPopInfoData d;
-    public g76 e;
-    public h76 f;
-    public boolean g;
-    public int h;
-    public HotSearchInfoData i;
-    public int j;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final y66 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-306604333, "Lcom/baidu/tieba/y66$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-306604333, "Lcom/baidu/tieba/y66$a;");
+                    return;
+                }
+            }
+            a = new y66();
+        }
+    }
 
     public y66() {
         Interceptable interceptable = $ic;
@@ -38,165 +63,194 @@ public class y66 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = true;
-        this.h = 0;
-        this.a = new c76();
-        this.b = new wq4();
-        this.c = new ForumCreateInfoData();
-        this.d = new PrivateForumPopInfoData();
-        this.e = new g76();
-        this.f = new h76();
-        this.g = false;
     }
 
-    public boolean a() {
+    public static final y66 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() / h15.a.longValue() == (((long) this.h) * 1000) / h15.a.longValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (y66) invokeV.objValue;
     }
 
-    public ForumCreateInfoData b() {
+    private long insert(SQLiteDatabase sQLiteDatabase, x66 x66Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, sQLiteDatabase, x66Var)) == null) {
+            try {
+                return sQLiteDatabase.insert(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, null, a(x66Var));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    private long update(SQLiteDatabase sQLiteDatabase, x66 x66Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, sQLiteDatabase, x66Var)) == null) {
+            try {
+                return sQLiteDatabase.update(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, a(x66Var), "pkg_name = ?", new String[]{String.valueOf(x66Var.a.pkgName)});
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public final ContentValues a(x66 x66Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x66Var)) == null) {
+            if (x66Var == null) {
+                return null;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, x66Var.a.pkgName);
+            contentValues.put("download_time", Long.valueOf(System.currentTimeMillis()));
+            contentValues.put(WriteActivityConfig.ITEM_INFO, f(x66Var.a));
+            contentValues.put("item_source", Integer.valueOf(x66Var.b));
+            contentValues.put("storage_location", Integer.valueOf(x66Var.c));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    @SuppressLint({"Range"})
+    public final r35 b(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
+            if (cursor == null || cursor.isClosed()) {
+                return null;
+            }
+            r35 r35Var = new r35();
+            r35Var.a = cursor.getString(cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME));
+            cursor.getLong(cursor.getColumnIndex("download_time"));
+            r35Var.c = cursor.getString(cursor.getColumnIndex(WriteActivityConfig.ITEM_INFO));
+            r35Var.d = cursor.getInt(cursor.getColumnIndex("item_source"));
+            r35Var.e = cursor.getInt(cursor.getColumnIndex("storage_location"));
+            return r35Var;
+        }
+        return (r35) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                if (dj.isEmpty(str)) {
+                    return false;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                int delete = f.delete(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, "pkg_name = ?", new String[]{str});
+                f.setTransactionSuccessful();
+                f.endTransaction();
+                return delete >= 0;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized List<r35> d() {
         InterceptResult invokeV;
+        LinkedList linkedList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ForumCreateInfoData) invokeV.objValue;
-    }
-
-    public h76 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (h76) invokeV.objValue;
-    }
-
-    public HotSearchInfoData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (HotSearchInfoData) invokeV.objValue;
-    }
-
-    public c76 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (c76) invokeV.objValue;
-    }
-
-    public wq4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (wq4) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public void i(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        try {
-            if (dataRes.like_forum != null) {
-                this.a.c(dataRes.like_forum);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                linkedList = new LinkedList();
+                Cursor rawQuery = f.rawQuery(String.format("SELECT * FROM %s ORDER BY %s DESC", TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, "download_time"), null);
+                while (rawQuery.moveToNext()) {
+                    r35 b = b(rawQuery);
+                    if (b != null) {
+                        linkedList.add(b);
+                    }
+                }
+                f.setTransactionSuccessful();
+                fj.a(rawQuery);
+                f.endTransaction();
             }
-            if (dataRes.forum_create_info != null) {
-                this.c.D(dataRes.forum_create_info);
-            }
-            if (ListUtils.isEmpty(dataRes.hot_search)) {
-                return;
-            }
-            this.i = new HotSearchInfoData();
-            this.i.B(dataRes.hot_search.get(0).search_title);
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            return linkedList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void j(tbclient.ForumRecommend.DataRes dataRes) {
+    public final String f(ItemData itemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, itemData)) == null) {
+            if (itemData == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("item_id", itemData.itemId);
+                jSONObject.put("item_name", itemData.mTitle);
+                jSONObject.put("icon_size", itemData.mIconSize);
+                jSONObject.put("icon_url", itemData.mIconUrl);
+                if (!ListUtils.isEmpty(itemData.mTags)) {
+                    jSONObject.put("tags", new JSONArray((Collection) itemData.mTags));
+                }
+                jSONObject.put("score", itemData.mScore);
+                jSONObject.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, itemData.mStar);
+                jSONObject.put("button_name", itemData.buttonName);
+                jSONObject.put("button_link", itemData.buttonLink);
+                jSONObject.put("button_link_type", itemData.buttonLinkType);
+                jSONObject.put("apk_name", itemData.pkgName);
+                jSONObject.put("forum_name", itemData.forumName);
+                jSONObject.put("item_appid", itemData.appId);
+                if (itemData.apkDetail != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("developer", itemData.apkDetail.developer);
+                    jSONObject2.put("publisher", itemData.apkDetail.publisher);
+                    jSONObject2.put("version", itemData.apkDetail.version);
+                    jSONObject2.put("version_code", itemData.apkDetail.version_code);
+                    jSONObject2.put("update_time", itemData.apkDetail.update_time);
+                    jSONObject2.put("size", itemData.apkDetail.size);
+                    jSONObject2.put("need_network", itemData.apkDetail.need_network);
+                    jSONObject2.put("need_inner_buy", itemData.apkDetail.need_inner_buy);
+                    jSONObject2.put("authority_url", itemData.apkDetail.authority_url);
+                    jSONObject2.put("privacy_url", itemData.apkDetail.privacy_url);
+                    jSONObject2.put("pkg_source", itemData.apkDetail.pkg_source);
+                    jSONObject.put("apk_detail", jSONObject2);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
         }
-        try {
-            if (dataRes.forum_popup_info != null) {
-                this.f.f(dataRes.forum_popup_info);
-            }
-            p(dataRes.time.intValue());
-            this.j = dataRes.sort_type.intValue() == 0 ? 1 : dataRes.sort_type.intValue();
-            if (dataRes.like_forum != null) {
-                this.a.c(dataRes.like_forum);
-            }
-            if (dataRes.recommend_forum_info != null) {
-                this.b.j(dataRes.recommend_forum_info);
-            }
-            if (dataRes.forum_create_info != null) {
-                this.c.D(dataRes.forum_create_info);
-            }
-            if (dataRes.private_forum_popinfo != null) {
-                this.d.E(dataRes.private_forum_popinfo);
-            }
-            if (dataRes.hot_search != null) {
-                HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
-                this.i = hotSearchInfoData;
-                hotSearchInfoData.A(dataRes.hot_search);
-            }
-            if (dataRes.nav_tab_info != null) {
-                this.e.a(dataRes.nav_tab_info);
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
+        return (String) invokeL.objValue;
     }
 
-    public void k(ForumCreateInfoData forumCreateInfoData) {
+    public synchronized long g(x66 x66Var) {
+        InterceptResult invokeL;
+        long insert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, forumCreateInfoData) == null) {
-            this.c = forumCreateInfoData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, x66Var)) == null) {
+            synchronized (this) {
+                if (x66Var == null) {
+                    return -1L;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                Cursor rawQuery = f.rawQuery("SELECT * FROM download_info where pkg_name = ?", new String[]{x66Var.a.pkgName});
+                if (rawQuery.getCount() > 0) {
+                    insert = update(f, x66Var);
+                } else {
+                    insert = insert(f, x66Var);
+                }
+                f.setTransactionSuccessful();
+                fj.a(rawQuery);
+                f.endTransaction();
+                return insert;
+            }
         }
-    }
-
-    public void l(HotSearchInfoData hotSearchInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hotSearchInfoData) == null) {
-            this.i = hotSearchInfoData;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void n(c76 c76Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, c76Var) == null) {
-            this.a = c76Var;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.h = i;
-        }
+        return invokeL.longValue;
     }
 }

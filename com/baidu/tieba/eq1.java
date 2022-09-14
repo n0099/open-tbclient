@@ -1,40 +1,50 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.tieba.al2;
-import com.baidu.tieba.f63;
-import com.baidu.tieba.fq1;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.io.File;
+import java.util.Iterator;
+import java.util.Map;
+import okhttp3.Headers;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class eq1 extends dp1 implements fq1.c {
+public class eq1 extends aq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements tf3<d63<f63.e>> {
+    public class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ eq1 b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ fq1 c;
+        public final /* synthetic */ eq1 d;
 
-        public a(eq1 eq1Var, c cVar) {
+        public a(eq1 eq1Var, CallbackHandler callbackHandler, String str, fq1 fq1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eq1Var, cVar};
+                Object[] objArr = {eq1Var, callbackHandler, str, fq1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,74 +54,54 @@ public class eq1 extends dp1 implements fq1.c {
                     return;
                 }
             }
-            this.b = eq1Var;
-            this.a = cVar;
+            this.d = eq1Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = fq1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(d63<f63.e> d63Var) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d63Var) == null) {
-                this.b.z(d63Var, this.a, false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
             }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.d.r(response, this.a, this.b, this.c);
+                return response;
+            }
+            return invokeLI.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements tf3<d63<f63.e>> {
+    public class b extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ eq1 b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ eq1 d;
 
-        /* loaded from: classes3.dex */
-        public class a implements al2.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.al2.a
-            public void a(z33 z33Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, z33Var) == null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("data", z33Var.a().toString());
-                    nm2.U().u(new bb2("locationChange", hashMap));
-                }
-            }
-
-            @Override // com.baidu.tieba.al2.a
-            public void onFailed(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                    g83.b("startLocationUpdate", 4000, "sdk's errCode is " + i, -1, "");
-                }
-            }
-        }
-
-        public b(eq1 eq1Var, String str) {
+        public b(eq1 eq1Var, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eq1Var, str};
+                Object[] objArr = {eq1Var, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -121,103 +111,56 @@ public class eq1 extends dp1 implements fq1.c {
                     return;
                 }
             }
-            this.b = eq1Var;
-            this.a = str;
+            this.d = eq1Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(d63<f63.e> d63Var) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d63Var) == null) {
-                if (!y53.h(d63Var)) {
-                    int b = d63Var.b();
-                    g83.b("startLocationUpdate", 5000, y53.f(b), b, y53.f(b));
-                    this.b.d(this.a, new at1(b, y53.f(b)));
-                } else if (!ue3.M()) {
-                    g83.b("startLocationUpdate", 5004, "user no permission", 10005, y53.f(10005));
-                    this.b.d(this.a, new at1(10005, y53.f(10005)));
-                } else {
-                    this.b.d(this.a, new at1(0));
-                    hk2.I().f(new a(this));
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (aq1.c) {
+                    Log.i("CloudUploadAction", "onFailure: ");
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public String c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                eq1 eq1Var = this.d;
+                CallbackHandler callbackHandler = this.a;
+                String str = this.b;
+                eq1Var.s(callbackHandler, str, null, "uploadFile:fail" + exc.getMessage());
             }
         }
 
-        public static c b(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                c cVar = new c();
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    String optString = jSONObject.optString("type");
-                    cVar.a = optString;
-                    if (TextUtils.isEmpty(optString)) {
-                        cVar.a = CoordinateType.WGS84;
-                    }
-                    cVar.b = jSONObject.optBoolean("altitude");
-                    String optString2 = jSONObject.optString("cb");
-                    cVar.c = optString2;
-                    if (TextUtils.isEmpty(optString2)) {
-                        return null;
-                    }
-                    return cVar;
-                } catch (JSONException e) {
-                    ay1.d("GetLocationApi", "# parseFromJSON error", e);
-                    return null;
-                }
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(yp1.n(this.c, null, "uploadFile:ok"), 0).toString());
             }
-            return (c) invokeL.objValue;
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.equals(this.a, CoordinateType.WGS84) || TextUtils.equals(this.a, "gcj02") || TextUtils.equals(this.a, "bd09ll")) && !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) ? response : invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
+    public eq1(v33 v33Var) {
+        super(v33Var, "/swanAPI/cloudUploadFile");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((v33) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -225,125 +168,209 @@ public class eq1 extends dp1 implements fq1.c {
         }
     }
 
-    public at1 A(String str) {
+    @Override // com.baidu.tieba.aq1, com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                return l(unitedSchemeEntity, 1001, "swanApp is null");
+            }
+            JSONObject a2 = v43.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                return l(unitedSchemeEntity, 202, "illegal params");
+            }
+            String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
+            if (TextUtils.isEmpty(param)) {
+                return l(unitedSchemeEntity, 202, "illegal callback");
+            }
+            String optString = a2.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return l(unitedSchemeEntity, 202, "illegal cb");
+            }
+            if (aq1.c) {
+                Log.d("CloudUploadAction", "schema params : " + a2.toString());
+                Log.d("CloudUploadAction", "schema cb : " + optString);
+            }
+            fq1 p = p(a2);
+            if (p == null) {
+                l(unitedSchemeEntity, 202, "illegal params");
+                return false;
+            }
+            Request c = yp1.c(y23Var, a2, unitedSchemeEntity);
+            if (c != null) {
+                callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                yp1.p(c.url().toString(), c.body(), new a(this, callbackHandler, optString, p));
+                return true;
+            }
+            callbackHandler.handleSchemeDispatchCallback(param, unitedSchemeEntity.result.toString());
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aq1
+    public void j(Response response, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
+        }
+    }
+
+    public fq1 p(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#startLocationUpdate", false);
-            a13 b0 = a13.b0();
-            if (b0 == null) {
-                g83.b("startLocationUpdate", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                return new at1(1001, "SwanApp is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    g83.b("startLocationUpdate", 1001, "empty cb", 201, "empty cb");
-                    ay1.c("GetLocationApi", "empty cb");
-                    return new at1(201, "empty cb");
-                }
-                b0.e0().g(getContext(), "mapp_location", new b(this, optString));
-                return at1.f();
+            JSONObject optJSONObject = jSONObject.optJSONObject("fileMap");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("stringMap");
+            if (optJSONObject == null || optJSONObject2 == null) {
+                return null;
             }
-            return at1Var;
-        }
-        return (at1) invokeL.objValue;
-    }
-
-    public at1 B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            hk2.I().e();
-            return at1.f();
-        }
-        return (at1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fq1.c
-    public void b(c cVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cVar, i) == null) {
-            ay1.c("GetLocationApi", "request location error code : " + i);
-            d(cVar.c, new at1(1001, String.valueOf(i)));
-        }
-    }
-
-    @Override // com.baidu.tieba.fq1.c
-    public void f(c cVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, str) == null) {
-            d(cVar.c, new at1(10005, "system deny"));
-        }
-    }
-
-    @Override // com.baidu.tieba.fq1.c
-    public void g(c cVar, z33 z33Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, cVar, z33Var) == null) {
-            d(cVar.c, new at1(0, "success", z33Var.a()));
-        }
-    }
-
-    @Override // com.baidu.tieba.dp1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LocationService" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dp1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "GetLocationApi" : (String) invokeV.objValue;
-    }
-
-    public at1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            q("#getLocation", false);
-            a13 b0 = a13.b0();
-            if (b0 == null) {
-                g83.b("getLocation", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                return new at1(1001, "SwanApp is null");
+            String optString = optJSONObject2.optString("cloudPath");
+            if (TextUtils.isEmpty(optString) || optString.startsWith("/") || optString.contains("@")) {
+                return null;
             }
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                c b2 = c.b(((JSONObject) s.second).toString());
-                if (b2 != null && b2.a()) {
-                    if (TextUtils.isEmpty(b2.c)) {
-                        g83.b("getLocation", 1001, "empty cb", 201, "empty cb");
-                        ay1.c("GetLocationApi", "empty cb");
-                        return new at1(201, "empty cb");
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String M = ga3.M(optJSONObject.optString(keys.next()), y23.g0());
+                if (M != null && !TextUtils.isEmpty(M)) {
+                    File file = new File(M);
+                    if (file.exists()) {
+                        fq1 fq1Var = new fq1(file);
+                        u(jSONObject, fq1Var.contentLength());
+                        return fq1Var;
                     }
-                    b0.e0().g(getContext(), "mapp_location", new a(this, b2));
-                    return at1.f();
                 }
-                g83.b("getLocation", 1001, "params is invalid", 201, "params is invalid");
-                p("params is invalid", null, true);
-                return new at1(201, "params is invalid");
             }
-            return at1Var;
+            return null;
         }
-        return (at1) invokeL.objValue;
+        return (fq1) invokeL.objValue;
     }
 
-    public final void z(d63<f63.e> d63Var, c cVar, boolean z) {
+    public final int q(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, d63Var, cVar, z) == null) {
-            ay1.i("GetLocationApi", "authorized result is " + d63Var);
-            if (y53.h(d63Var)) {
-                fq1.d().e(cVar, this, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                if (aq1.c) {
+                    e.printStackTrace();
+                }
+                return 1001;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public final void r(Response response, CallbackHandler callbackHandler, String str, RequestBody requestBody) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, callbackHandler, str, requestBody) == null) {
+            if (!response.isSuccessful()) {
+                s(callbackHandler, str, null, null);
                 return;
             }
-            int b2 = d63Var.b();
-            g83.b("getLocation", 5000, y53.f(b2), b2, y53.f(b2));
-            d(cVar.c, new at1(b2, y53.f(b2)));
+            String header = response.header("Content-Type", "");
+            if (header != null && header.contains("application/json")) {
+                JSONObject m = yp1.m(response);
+                if (m != null && response.isSuccessful()) {
+                    String optString = m.optString("errno", String.valueOf(0));
+                    String optString2 = m.optString("errmsg");
+                    if (yp1.o(optString)) {
+                        s(callbackHandler, str, optString, optString2);
+                        return;
+                    }
+                    String optString3 = m.optString("UploadUrl");
+                    String optString4 = m.optString("fileID");
+                    if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
+                        JSONObject optJSONObject = m.optJSONObject("ExtraHeaders");
+                        if (optJSONObject == null) {
+                            s(callbackHandler, str, optString, optString2);
+                            return;
+                        }
+                        Map<String, String> t = t(optJSONObject);
+                        try {
+                            Request build = new Request.Builder().headers(Headers.of(t)).url(optString3).put(requestBody).build();
+                            if (y23.M() == null) {
+                                k(callbackHandler, str, 1001, "uploadFile:fail");
+                                return;
+                            }
+                            ba4 ba4Var = new ba4(build.url().toString(), build.body(), new b(this, callbackHandler, str, optString4));
+                            ba4Var.c = t;
+                            ba4Var.f = true;
+                            ba4Var.g = false;
+                            ba4Var.h = true;
+                            ca4.g().f(ba4Var);
+                            return;
+                        } catch (Exception e) {
+                            if (aq1.c) {
+                                e.printStackTrace();
+                            }
+                            s(callbackHandler, str, optString, optString2);
+                            return;
+                        }
+                    }
+                    s(callbackHandler, str, optString, optString2);
+                    return;
+                }
+                k(callbackHandler, str, 1001, "uploadFile:fail");
+                return;
+            }
+            k(callbackHandler, str, 1001, "uploadFile:fail");
+        }
+    }
+
+    public final void s(CallbackHandler callbackHandler, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, callbackHandler, str, str2, str3) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                k(callbackHandler, str, 1001, "uploadFile:fail");
+            } else {
+                k(callbackHandler, str, q(str2), yp1.k(str3));
+            }
+        }
+    }
+
+    @NonNull
+    public final Map<String, String> t(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            ArrayMap arrayMap = new ArrayMap();
+            if (jSONObject == null) {
+                return arrayMap;
+            }
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                arrayMap.put(next, jSONObject.optString(next));
+            }
+            return arrayMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void u(JSONObject jSONObject, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, jSONObject, j) == null) || jSONObject == null) {
+            return;
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject("stringMap");
+        JSONObject jSONObject2 = new JSONObject();
+        JSONObject jSONObject3 = new JSONObject();
+        try {
+            jSONObject3.put("Content-Length", String.valueOf(j));
+            jSONObject2.put("Headers", jSONObject3);
+            if (optJSONObject != null) {
+                optJSONObject.put("data", jSONObject2);
+                jSONObject.put("stringMap", optJSONObject);
+            }
+        } catch (JSONException e) {
+            if (aq1.c) {
+                e.printStackTrace();
+            }
         }
     }
 }

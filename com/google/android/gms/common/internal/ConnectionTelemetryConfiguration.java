@@ -4,9 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn9;
-import com.baidu.tieba.un9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,20 +11,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@KeepForSdk
+@SafeParcelable.Class(creator = "ConnectionTelemetryConfigurationCreator")
 /* loaded from: classes7.dex */
 public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
+    @KeepForSdk
     public static final Parcelable.Creator<ConnectionTelemetryConfiguration> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.Field(getter = "getRootTelemetryConfiguration", id = 1)
     public final RootTelemetryConfiguration zza;
+    @SafeParcelable.Field(getter = "getMethodInvocationTelemetryEnabled", id = 2)
     public final boolean zzb;
+    @SafeParcelable.Field(getter = "getMethodTimingTelemetryEnabled", id = 3)
     public final boolean zzc;
     @Nullable
+    @SafeParcelable.Field(getter = "getMethodInvocationMethodKeyAllowlist", id = 4)
     public final int[] zzd;
+    @SafeParcelable.Field(getter = "getMaxMethodInvocationsLogged", id = 5)
     public final int zze;
     @Nullable
+    @SafeParcelable.Field(getter = "getMethodInvocationMethodKeyDisallowlist", id = 6)
     public final int[] zzf;
 
     static {
@@ -43,10 +52,11 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new un9();
+        CREATOR = new zzl();
     }
 
-    public ConnectionTelemetryConfiguration(@NonNull RootTelemetryConfiguration rootTelemetryConfiguration, boolean z, boolean z2, @Nullable int[] iArr, int i, @Nullable int[] iArr2) {
+    @SafeParcelable.Constructor
+    public ConnectionTelemetryConfiguration(@NonNull @SafeParcelable.Param(id = 1) RootTelemetryConfiguration rootTelemetryConfiguration, @SafeParcelable.Param(id = 2) boolean z, @SafeParcelable.Param(id = 3) boolean z2, @Nullable @SafeParcelable.Param(id = 4) int[] iArr, @SafeParcelable.Param(id = 5) int i, @Nullable @SafeParcelable.Param(id = 6) int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,6 +79,7 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
         this.zzf = iArr2;
     }
 
+    @KeepForSdk
     public int getMaxMethodInvocationsLogged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,25 +87,29 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     }
 
     @Nullable
+    @KeepForSdk
     public int[] getMethodInvocationMethodKeyAllowlist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzd : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzd : (int[]) invokeV.objValue;
     }
 
     @Nullable
+    @KeepForSdk
     public int[] getMethodInvocationMethodKeyDisallowlist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzf : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzf : (int[]) invokeV.objValue;
     }
 
+    @KeepForSdk
     public boolean getMethodInvocationTelemetryEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzb : invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public boolean getMethodTimingTelemetryEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,14 +120,14 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.j(parcel, 1, this.zza, i, false);
-            jn9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
-            jn9.c(parcel, 3, getMethodTimingTelemetryEnabled());
-            jn9.h(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
-            jn9.g(parcel, 5, getMaxMethodInvocationsLogged());
-            jn9.h(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
-            jn9.b(parcel, a);
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeParcelable(parcel, 1, this.zza, i, false);
+            SafeParcelWriter.writeBoolean(parcel, 2, getMethodInvocationTelemetryEnabled());
+            SafeParcelWriter.writeBoolean(parcel, 3, getMethodTimingTelemetryEnabled());
+            SafeParcelWriter.writeIntArray(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
+            SafeParcelWriter.writeInt(parcel, 5, getMaxMethodInvocationsLogged());
+            SafeParcelWriter.writeIntArray(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 

@@ -129,7 +129,7 @@ public final class bx implements ar {
 
     @Override // com.xiaomi.push.service.ar
     /* renamed from: a  reason: collision with other method in class */
-    public void mo655a() {
+    public void mo656a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f960a) {
             return;

@@ -1,38 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.live.arch.utils.LiveActivityHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class j75 {
+public class j75 implements k75 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
-    public static final List<String> b;
-    public static final List<String> c;
-    public static final List<String> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public ImageView b;
+    public ImageView c;
+    public TextView d;
+    public LinearLayout e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836225, "Lcom/baidu/tieba/j75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947836225, "Lcom/baidu/tieba/j75;");
+    public j75(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Arrays.asList("com.baidu.searchbox.feed.video.VideoDetailActivity", LiveActivityHelper.MEDIA_ACTIVITY_NAME, "com.baidu.searchbox.schemedispatch.BdBoxSchemeDispatchActivity", "com.baidu.searchbox.music.TTSFullScreenPlayerActivity", "com.baidu.megapp.proxy.activity.FragmentActivityProxy", "com.baidu.searchbox.home.feed.AdVideoDetailScrollActivity", "com.baidu.searchbox.home.feed.video.minidetail.vertical.MiniVideoDetailVerticalNaActivity", "com.baidu.live.master.activity.VoteListActivity", "com.baidu.live.master.activity.EditLiveVoteActivity", "com.baidu.live.master.prepare.AlaLiveIntroActivity", "com.baidu.live.master.prepare.AlaLiveIntroActivity", "com.baidu.live.master.prepare.AlaLiveGoodsActivity", "com.baidu.live.master.prepare.AlaLiveVoteListActivity", "com.baidu.live.master.prepare.AlaLiveVoteEditActivity", "com.baidu.live.master.prepare.AlaLiveSuitableActivity", "com.baidu.live.master.prepare.AlaLiveMoreInfoActivity", "com.baidu.live.master.prepare.AlaLiveCategorySelectActivity", "com.baidu.live.master.prepare.AlaLiveTagEditActivity", "com.baidu.live.master.prepare.MasterMicTypeChooseActivity", "com.baidu.live.master.sdk.activity.CommonWebViewActivity", "com.baidu.live.master.sdk.activity.LivePlayerActivity", "com.baidu.live.master.tieba.personextra.EditHeadActivity", "com.baidu.live.master.tieba.write.album.AlbumActivity", "com.baidu.live.master.ala.person.PersonCardActivity", "com.baidu.live.master.gift.AlaGiftLuckyStarActivity", "com.baidu.live.master.gift.container.AlaGiftTabActivity", "com.baidu.live.master.AlaLiveEndActivity", "com.baidu.live.master.AlaMasterLiveRoomActivity", "com.baidu.live.master.prepare.LivePreLiveListActivity", "com.baidu.live.master.core.prepare.EditOrderLiveActivity", "com.baidu.live.master.prepare.LiveMasterPrepareGoodsActivity", "com.baidu.live.master.bjhlive.activity.LiveCouponDetailActivity", "com.baidu.searchbox.live.liveshow.LiveShowActivity", "com.duowan.mobile.basemedia.watchlive.activity.LiveTemplateActivity", "com.yy.mobile.plugin.pluginmobilelive.MobileLiveActivity");
-        b = Arrays.asList("com.baidu.tieba.write.write.WriteActivity", "com.baidu.tieba.write.write.work.WorkPublishActivity", "com.baidu.tieba.video.record.RecordVideoActivity", "com.baidu.tieba.view.capture.TbCaptureActivity", "com.baidu.tieba.videoplay.VideoPlayActivity", "com.baidu.tieba.videoplay.VideoRecommentPlayActivity", "com.baidu.tieba.videoplay.FrsVideoTabPlayActivity", "com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity", "com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity", "com.baidu.tieba.pb.pb.main.PbCommentFloatActivity", "com.baidu.tieba.view.videofile.TbFileVideoActivity", "com.baidu.tieba.view.videoedit.TbEditVideoActivity", "com.baidu.tieba.pb.pb.sub.NewSubPbActivity", "com.baidu.tieba.personExtra.PersonChangeActivity");
-        c = Arrays.asList("com.baidu.tieba.view.capture.TbCaptureActivity", "com.baidu.tieba.videoplay.VideoPlayActivity", "com.baidu.tieba.videoplay.VideoRecommentPlayActivity", "com.baidu.tieba.videoplay.FrsVideoTabPlayActivity", "com.baidu.tieba.view.videofile.TbFileVideoActivity", "com.baidu.tieba.view.videoedit.TbEditVideoActivity");
-        d = Arrays.asList("com.baidu.tieba.pb.pb.main.PbActivity", "com.baidu.tieba.frs.FrsActivity");
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0298, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a07);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a09);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a05);
+        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090a08);
+        this.d.setText(R.string.obfuscated_res_0x7f0f06f7);
+        b();
+    }
+
+    @Override // com.baidu.tieba.k75
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+            return;
+        }
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+        this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08080b, WebPManager.ResourceStateType.NORMAL));
+    }
+
+    @Override // com.baidu.tieba.k75
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            View view2 = this.a;
+            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0296, (ViewGroup) null);
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.k75
+    public void onClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
     }
 }

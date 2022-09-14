@@ -16,7 +16,7 @@ import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WebRtcAudioManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;
@@ -48,7 +48,7 @@ public class WebRtcAudioManager {
     public int sampleRate;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VolumeLogger {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
@@ -58,7 +58,7 @@ public class WebRtcAudioManager {
         @Nullable
         public Timer timer;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class LogVolumeTask extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

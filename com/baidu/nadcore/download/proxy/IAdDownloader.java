@@ -1,8 +1,8 @@
 package com.baidu.nadcore.download.proxy;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.lj0;
-import com.baidu.tieba.pi0;
+import com.baidu.tieba.uk0;
+import com.baidu.tieba.yj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,11 +79,11 @@ public interface IAdDownloader {
         }
     }
 
-    int a(@NonNull pi0 pi0Var, @NonNull lj0 lj0Var);
+    int a(@NonNull yj0 yj0Var, @NonNull uk0 uk0Var);
 
-    void b(@NonNull pi0 pi0Var);
+    void b(@NonNull yj0 yj0Var);
 
-    void c(@NonNull pi0 pi0Var);
+    void c(@NonNull yj0 yj0Var);
 
-    void d(@NonNull pi0 pi0Var, @NonNull lj0 lj0Var);
+    void d(@NonNull yj0 yj0Var, @NonNull uk0 uk0Var);
 }

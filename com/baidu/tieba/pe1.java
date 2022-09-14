@@ -1,162 +1,186 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.OperationApplicationException;
+import android.content.UriMatcher;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.Configuration;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.CancellationSignal;
+import android.os.ParcelFileDescriptor;
+import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.Thread;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class pe1 {
+public abstract class pe1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ThreadPoolExecutor a;
-    public static LinkedBlockingQueue<Runnable> b;
-    public static final ThreadFactory c;
-    public static final RejectedExecutionHandler d;
     public transient /* synthetic */ FieldHolder $fh;
+    public ContentProvider a;
+    public final int b;
+    public final int c;
 
-    /* loaded from: classes5.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        /* renamed from: com.baidu.tieba.pe1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0375a implements Thread.UncaughtExceptionHandler {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0375a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // java.lang.Thread.UncaughtExceptionHandler
-            public void uncaughtException(Thread thread, Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
-                    Log.i("ThreadPoolFactory", "线程名字=" + thread.getName() + "线程crash信息", th);
-                }
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, "TaskScheduler #" + this.a.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0375a(this));
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements RejectedExecutionHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.RejectedExecutionHandler
-        public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
-                Log.w("ThreadPoolFactory", "Exceeded ThreadPoolExecutor pool size");
-                synchronized (this) {
-                    if (pe1.a == null) {
-                        LinkedBlockingQueue unused = pe1.b = new LinkedBlockingQueue();
-                        ThreadPoolExecutor unused2 = pe1.a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, pe1.b, pe1.c);
-                    }
-                }
-                pe1.a.execute(runnable);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948059053, "Lcom/baidu/tieba/pe1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948059053, "Lcom/baidu/tieba/pe1;");
+    public pe1(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c = new a();
-        d = new b();
+        this.b = i;
+        this.c = i2;
     }
 
-    public static ScheduledThreadPoolExecutor f(int i) {
-        InterceptResult invokeI;
+    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? new ScheduledThreadPoolExecutor(i, c) : (ScheduledThreadPoolExecutor) invokeI.objValue;
-    }
-
-    public static ThreadPoolExecutor g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i2, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), c);
-            threadPoolExecutor.setRejectedExecutionHandler(d);
-            return threadPoolExecutor;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            int size = arrayList.size();
+            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
+            for (int i = 0; i < size; i++) {
+                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
+            }
+            return contentProviderResultArr;
         }
-        return (ThreadPoolExecutor) invokeII.objValue;
+        return (ContentProviderResult[]) invokeL.objValue;
     }
+
+    public void b(ContentProvider contentProvider) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
+            this.a = contentProvider;
+        }
+    }
+
+    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
+            int length = contentValuesArr.length;
+            for (ContentValues contentValues : contentValuesArr) {
+                insert(i, uri, contentValues);
+            }
+            return length;
+        }
+        return invokeILL.intValue;
+    }
+
+    public Bundle call(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
+            return null;
+        }
+        return (Bundle) invokeLLL.objValue;
+    }
+
+    public boolean d(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public abstract int delete(int i, Uri uri, String str, String[] strArr);
+
+    public void e(Uri uri, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, uri, i) == null) && Binder.getCallingUid() != Process.myUid()) {
+            throw new SecurityException();
+        }
+    }
+
+    public abstract void f(UriMatcher uriMatcher, String str);
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    public abstract String getType(int i, Uri uri);
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void i(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
+        }
+    }
+
+    public abstract Uri insert(int i, Uri uri, ContentValues contentValues);
+
+    public abstract boolean j();
+
+    public AssetFileDescriptor k(int i, Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048591, this, i, uri, str)) == null) {
+            m(i, uri, str);
+            throw null;
+        }
+        return (AssetFileDescriptor) invokeILL.objValue;
+    }
+
+    public AssetFileDescriptor l(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
+            k(i, uri, str);
+            throw null;
+        }
+        return (AssetFileDescriptor) invokeCommon.objValue;
+    }
+
+    public ParcelFileDescriptor m(int i, Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048593, this, i, uri, str)) == null) {
+            throw new FileNotFoundException("No files supported by provider at " + uri);
+        }
+        return (ParcelFileDescriptor) invokeILL.objValue;
+    }
+
+    public abstract Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
+
+    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) ? query(i, uri, strArr, str, strArr2, str2) : (Cursor) invokeCommon.objValue;
+    }
+
+    public abstract int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 }

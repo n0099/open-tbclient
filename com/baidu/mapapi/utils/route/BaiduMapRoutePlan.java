@@ -57,9 +57,9 @@ public class BaiduMapRoutePlan {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00c4  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00d2  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00e7  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00c5  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00d5  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00ea  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -5,12 +5,12 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.d9;
+import com.baidu.tieba.dm8;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
-import com.baidu.tieba.pk8;
-import com.baidu.tieba.qp4;
-import com.baidu.tieba.zt6;
+import com.baidu.tieba.kv6;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,11 +21,11 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
-    public bb b;
-    public bb c;
+    public pb b;
+    public pb c;
 
     /* loaded from: classes4.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SendGiftModel a;
@@ -52,7 +52,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             this.a = sendGiftModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -74,7 +74,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends bb {
+    public class b extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SendGiftModel a;
@@ -101,7 +101,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             this.a = sendGiftModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -109,14 +109,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             }
             boolean z = responsedMessage instanceof PlaceOrderHttpResponse;
             if (z || (responsedMessage instanceof PlaceOrderSocketResponse)) {
-                zt6 zt6Var = null;
+                kv6 kv6Var = null;
                 if (z) {
-                    zt6Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
+                    kv6Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
                 } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
-                    zt6Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
+                    kv6Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
                 }
                 if (this.a.a != null) {
-                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), zt6Var);
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), kv6Var);
                 }
             }
         }
@@ -124,7 +124,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(int i, String str, zt6 zt6Var);
+        void a(int i, String str, kv6 kv6Var);
 
         void b();
 
@@ -132,18 +132,18 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SendGiftModel(d9<GiftTabActivity> d9Var) {
-        super(d9Var);
+    public SendGiftModel(r9<GiftTabActivity> r9Var) {
+        super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -151,21 +151,21 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         }
         this.b = new a(this, CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
         this.c = new b(this, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
-        pk8.h(309050, SendFreeGiftSocketResponse.class, false, false);
-        pk8.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
-        pk8.h(309051, PlaceOrderSocketResponse.class, false, false);
-        pk8.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
+        dm8.h(309050, SendFreeGiftSocketResponse.class, false, false);
+        dm8.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
+        dm8.h(309051, PlaceOrderSocketResponse.class, false, false);
+        dm8.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
         registerListener(this.b);
         registerListener(this.c);
     }
 
-    public void A(qp4 qp4Var, int i, String str, long j, String str2, long j2, long j3) {
+    public void A(vr4 vr4Var, int i, String str, long j, String str2, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{qp4Var, Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (i > 0 && qp4Var != null && j > 0) {
-                if (qp4Var.f == 5) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{vr4Var, Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (i > 0 && vr4Var != null && j > 0) {
+                if (vr4Var.f == 5) {
                     SendFreeGiftRequest sendFreeGiftRequest = new SendFreeGiftRequest();
-                    sendFreeGiftRequest.setGiftId(qp4Var.a);
+                    sendFreeGiftRequest.setGiftId(vr4Var.a);
                     sendFreeGiftRequest.setToUserId(j);
                     sendFreeGiftRequest.setToUserName(str2);
                     sendFreeGiftRequest.setSceneFrom(str);
@@ -176,7 +176,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
                 PlaceOrderRequest placeOrderRequest = new PlaceOrderRequest();
-                placeOrderRequest.setGiftId(qp4Var.a);
+                placeOrderRequest.setGiftId(vr4Var.a);
                 placeOrderRequest.setToUserId(j);
                 placeOrderRequest.setToUserName(str2);
                 placeOrderRequest.setSceneFrom(str);
@@ -184,8 +184,8 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                 placeOrderRequest.setThreadId(j2);
                 placeOrderRequest.setPostId(j3);
                 placeOrderRequest.accountId = j;
-                placeOrderRequest.accountType = qp4Var.r;
-                placeOrderRequest.currency = qp4Var.s;
+                placeOrderRequest.accountType = vr4Var.r;
+                placeOrderRequest.currency = vr4Var.s;
                 sendMessage(placeOrderRequest);
                 return;
             }

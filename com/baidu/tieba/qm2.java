@@ -1,122 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class qm2 {
+public class qm2 implements rm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<pm2>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948096563, "Lcom/baidu/tieba/qm2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948096563, "Lcom/baidu/tieba/qm2;");
-                return;
-            }
-        }
-        a = new ArrayList();
-    }
-
-    public static void a(in1 in1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, in1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                pm2 pm2Var = a.get(size).get();
-                if (pm2Var == null) {
-                    a.remove(size);
-                } else {
-                    pm2Var.d(in1Var);
-                }
-            }
-        }
-    }
-
-    public static void b(in1 in1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, in1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                pm2 pm2Var = a.get(size).get();
-                if (pm2Var == null) {
-                    a.remove(size);
-                } else {
-                    pm2Var.b(in1Var);
-                }
-            }
-        }
-    }
-
-    public static void c(in1 in1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, in1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                pm2 pm2Var = a.get(size).get();
-                if (pm2Var == null) {
-                    a.remove(size);
-                } else {
-                    pm2Var.c(in1Var);
-                }
-            }
-        }
-    }
-
-    public static void d(in1 in1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, in1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                pm2 pm2Var = a.get(size).get();
-                if (pm2Var == null) {
-                    a.remove(size);
-                } else {
-                    pm2Var.a(in1Var);
-                }
-            }
-        }
-    }
-
-    public static void e(pm2 pm2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, pm2Var) == null) || pm2Var == null) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948096563, "Lcom/baidu/tieba/qm2;")) == null) {
             return;
         }
-        boolean z = false;
-        for (int size = a.size() - 1; size >= 0; size--) {
-            pm2 pm2Var2 = a.get(size).get();
-            if (pm2Var2 == null) {
-                a.remove(size);
-            } else {
-                z = pm2Var2 == pm2Var;
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        if (z) {
-            return;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948096563, "Lcom/baidu/tieba/qm2;");
         }
-        a.add(new WeakReference<>(pm2Var));
     }
 
-    public static void f(pm2 pm2Var) {
+    public qm2() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, pm2Var) == null) || pm2Var == null) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            pm2 pm2Var2 = a.get(size).get();
-            if (pm2Var2 == null || pm2Var == pm2Var2) {
-                a.remove(size);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.rm3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? jj1.a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rm3
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? fm2.n().a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rm3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? kj4.b(AppRuntime.getAppContext()).a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rm3
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? fm2.h0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rm3
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? sg3.D() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rm3
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ij1.a : invokeV.booleanValue;
     }
 }

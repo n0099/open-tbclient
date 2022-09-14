@@ -65,7 +65,7 @@ public class fp {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
-                if (fp.m346a(bArr)) {
+                if (fp.m347a(bArr)) {
                     fp a2 = fp.a(bArr);
                     return (a2.f390a == 0 || a2.f390a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f391a);
                 }
@@ -252,7 +252,7 @@ public class fp {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (m346a(bArr)) {
+            if (m347a(bArr)) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
                 order.getInt();
                 short s = order.getShort();
@@ -268,7 +268,7 @@ public class fp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m346a(byte[] bArr) {
+    public static boolean m347a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {

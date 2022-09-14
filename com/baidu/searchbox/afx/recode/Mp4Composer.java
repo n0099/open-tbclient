@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaMetadataRetriever;
@@ -136,6 +137,7 @@ public class Mp4Composer {
         }
     }
 
+    @SuppressLint({"InlinedApi"})
     private Mp4Info getMp4Info(MediaMetadataRetriever mediaMetadataRetriever) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

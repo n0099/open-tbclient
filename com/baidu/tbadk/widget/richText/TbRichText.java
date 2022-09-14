@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d75;
-import com.baidu.tieba.ki5;
+import com.baidu.tieba.cl5;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.ti5;
+import com.baidu.tieba.uk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,9 +111,9 @@ public class TbRichText extends OrmObject {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e7d);
-            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f157d);
-            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f153d);
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e9a);
+            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f159d);
+            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f155d);
         }
     }
 
@@ -137,7 +137,7 @@ public class TbRichText extends OrmObject {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
         TbRichTextCommInfo F;
-        Pair<CharSequence, ti5> p;
+        Pair<CharSequence, cl5> p;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) == null) || this.b == null) {
             return;
@@ -221,7 +221,7 @@ public class TbRichText extends OrmObject {
                         tbRichTextData8.Y(next.M());
                         this.c.add(tbRichTextData8);
                     } else if (next.getType() == 36) {
-                        if (TiePlusHelper.i(next.T())) {
+                        if (TiePlusHelper.l(next.T())) {
                             if (tbRichTextData != null) {
                                 this.c.add(tbRichTextData);
                                 tbRichTextData = null;
@@ -243,23 +243,23 @@ public class TbRichText extends OrmObject {
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
                             tbRichTextData.U(true);
                         }
-                        if (type == 35 && TiePlusHelper.i(next.T()) && (p = ki5.p(type, threadData, next.U())) != null) {
+                        if (type == 35 && TiePlusHelper.l(next.T()) && (p = uk5.p(type, threadData, next.U())) != null) {
                             charSequence = p.first;
-                            ti5 ti5Var = p.second;
-                            ti5Var.a(postData);
-                            ti5Var.b(i);
+                            cl5 cl5Var = p.second;
+                            cl5Var.a(postData);
+                            cl5Var.b(i);
                             tbRichTextData.U(true);
-                            tbRichTextData.z(ti5Var);
+                            tbRichTextData.z(cl5Var);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null && type == 18 && (F = next.F()) != null) {
                             PbContent C = F.C();
                             if (threadData != null && C != null) {
-                                d75 f = d75.f(threadData, C);
+                                l95 f = l95.f(threadData, C);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                                charSequence = ki5.o(f);
+                                charSequence = uk5.o(f);
                             }
                         }
                         if (charSequence == null && tbRichTextData != null) {

@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,82 +8,64 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bc extends DiskFileOperate {
+public class bc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public int[] a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bc(String str, String str2, DiskFileOperate.Action action) {
-        super(str, str2, action);
+    public bc(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, action};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.b = "UTF-8";
+        this.a = r0;
+        int[] iArr = {i, i2, i3};
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = this.a;
+            if (iArr == null || iArr.length != 1) {
+                return 0;
+            }
+            return iArr[0];
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] buildFormatData() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            if (str != null) {
-                try {
-                    return str.getBytes(this.b);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int[] iArr = this.a;
+            if (iArr == null || iArr.length != 3) {
+                return 0;
+            }
+            int netType = BdNetTypeUtil.netType();
+            if (netType != 1) {
+                if (netType != 2) {
+                    if (netType != 3) {
+                        return this.a[2];
+                    }
+                    return this.a[1];
                 }
+                return this.a[0];
             }
-            return null;
+            return this.a[2];
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean formatData(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            try {
-                this.a = new String(bArr, this.b);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 }

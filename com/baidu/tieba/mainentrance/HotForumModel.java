@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.dh7;
-import com.baidu.tieba.eh7;
+import com.baidu.tieba.li7;
+import com.baidu.tieba.mi7;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,15 +20,15 @@ import java.util.List;
 public class HotForumModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
+    public r9 a;
     public b b;
-    public List<dh7> c;
+    public List<li7> c;
     public HotSearchInfoData d;
-    public List<eh7> e;
+    public List<mi7> e;
     public String f;
 
     /* loaded from: classes5.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotForumModel a;
@@ -55,15 +55,15 @@ public class HotForumModel extends BdBaseModel {
             this.a = hotForumModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.D(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c40));
+                    this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c59));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    this.a.b.D(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c40));
+                    this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c59));
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {
                         HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
@@ -71,7 +71,7 @@ public class HotForumModel extends BdBaseModel {
                         this.a.e = hotForumHttpResponseMessage.getTopicInfoList();
                         this.a.d = hotForumHttpResponseMessage.getHotSearchInfo();
                         this.a.f = hotForumHttpResponseMessage.getTopicInfoTitle();
-                        this.a.b.r(this.a.c, this.a.e, this.a.d, this.a.f);
+                        this.a.b.s(this.a.c, this.a.e, this.a.d, this.a.f);
                     }
                     if (z) {
                         HotForumSocketResponseMessage hotForumSocketResponseMessage = (HotForumSocketResponseMessage) responsedMessage;
@@ -79,12 +79,12 @@ public class HotForumModel extends BdBaseModel {
                         this.a.e = hotForumSocketResponseMessage.getTopicInfoList();
                         this.a.d = hotForumSocketResponseMessage.getSearchInfo();
                         this.a.f = hotForumSocketResponseMessage.getTopicInfoTitle();
-                        this.a.b.r(this.a.c, this.a.e, this.a.d, this.a.f);
+                        this.a.b.s(this.a.c, this.a.e, this.a.d, this.a.f);
                     }
                 } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    this.a.b.D(responsedMessage.getErrorString());
+                    this.a.b.E(responsedMessage.getErrorString());
                 } else {
-                    this.a.b.D(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c40));
+                    this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c59));
                 }
             }
         }
@@ -92,30 +92,30 @@ public class HotForumModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void D(String str);
+        void E(String str);
 
-        void r(List<dh7> list, List<eh7> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void s(List<li7> list, List<mi7> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotForumModel(d9 d9Var, b bVar) {
-        super(d9Var);
+    public HotForumModel(r9 r9Var, b bVar) {
+        super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var, bVar};
+            Object[] objArr = {r9Var, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d9Var;
+        this.a = r9Var;
         this.b = bVar;
         J();
     }

@@ -1,237 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.atomData.CameraActivityConfig;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nd4 {
+public class nd4 extends ec4<td4> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nd4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public volatile boolean b;
+    public final String d;
 
-    /* loaded from: classes5.dex */
-    public static class a extends ih4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_host");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public nd4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nd4(String str, ta4 ta4Var, ee4 ee4Var) {
+        super(ta4Var, ee4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, ta4Var, ee4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ta4) objArr2[0], (ee4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.a = new a();
+        this.d = str;
     }
 
-    public static nd4 e() {
+    @Override // com.baidu.tieba.ec4
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (nd4.class) {
-                    if (c == null) {
-                        c = new nd4();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: v */
+    public boolean f(td4 td4Var) {
+        InterceptResult invokeL;
+        List<yb4> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, td4Var)) == null) {
+            if (td4Var == null) {
+                return false;
+            }
+            if (td4Var.a == null && (((list = td4Var.b) == null || list.isEmpty()) && td4Var.d == null && td4Var.f == null && td4Var.e == null)) {
+                return false;
+            }
+            xb4 xb4Var = td4Var.a;
+            if (xb4Var == null || xb4Var.a()) {
+                List<yb4> list2 = td4Var.b;
+                if (list2 != null) {
+                    for (yb4 yb4Var : list2) {
+                        if (!yb4Var.a()) {
+                            return false;
+                        }
                     }
                 }
+                vb4 vb4Var = td4Var.d;
+                if (vb4Var == null || vb4Var.a()) {
+                    tb4 tb4Var = td4Var.f;
+                    if (tb4Var == null || tb4Var.a()) {
+                        PMSAppInfo pMSAppInfo = td4Var.e;
+                        return pMSAppInfo == null || pMSAppInfo.checkValid();
+                    }
+                    return false;
+                }
+                return false;
             }
-            return c;
+            return false;
         }
-        return (nd4) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: w */
+    public boolean s(td4 td4Var, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.contains("version")) {
-                return this.a.getString("version", "0");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, td4Var, i)) == null) {
+            if (td4Var != null) {
+                r(td4Var.e);
+                return false;
             }
-            return f() ? this.a.getString("version", "0") : "0";
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String c2 = c("failureUrl");
-            return !TextUtils.isEmpty(c2) ? c2 : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: x */
+    public sb4 t(td4 td4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, td4Var)) == null) {
+            this.a.E();
+            gg4 gg4Var = new gg4();
+            o(td4Var.a, gg4Var);
+            p(td4Var.b, gg4Var);
+            n(g(td4Var.c), gg4Var);
+            m(td4Var.d, gg4Var);
+            l(td4Var.f, gg4Var);
+            r(td4Var.e);
+            if (gg4Var.n() == 0) {
+                this.a.F();
                 return null;
             }
-            String string = this.a.getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                if (f()) {
-                    String string2 = this.a.getString(str, "");
-                    if (!TextUtils.isEmpty(string2)) {
-                        return string2;
-                    }
-                }
-                return null;
-            }
-            return string;
+            this.a.G(gg4Var);
+            jc4.b(td4Var, this.a);
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (sb4) invokeL.objValue;
     }
 
-    public Long d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: y */
+    public td4 u(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Long.valueOf(this.a.getLong("identity", 0L)) : (Long) invokeV.objValue;
-    }
-
-    public synchronized boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    return true;
-                }
-                String D = ch4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
-                HashSet hashSet = null;
-                if (TextUtils.isEmpty(D)) {
-                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
-                    D = file.exists() ? ch4.E(file) : null;
-                }
-                if (TextUtils.isEmpty(D)) {
-                    return false;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(D);
-                    String optString = jSONObject.optString("hostName");
-                    String optString2 = jSONObject.optString("schemeHead");
-                    String optString3 = jSONObject.optString("shareCallbackUrl");
-                    String optString4 = jSONObject.optString("failureUrl");
-                    int optInt = jSONObject.optInt("version");
-                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        hashSet = new HashSet();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            hashSet.add(optJSONArray.optString(i));
-                        }
-                    }
-                    HashSet hashSet2 = hashSet;
-                    int optInt2 = jSONObject.optInt("officialNo");
-                    int optInt3 = jSONObject.optInt("containerNo");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("confsk");
-                    long j = 0;
-                    if (optJSONObject != null) {
-                        String optString5 = optJSONObject.optString("value");
-                        long optLong = optJSONObject.optLong("identity");
-                        if (j84.b() != null) {
-                            j84.b().d(optString5.getBytes());
-                        }
-                        j = optLong;
-                    }
-                    h(new md4(null, optInt2, optInt3, optString, optString3, optString4, String.valueOf(optInt), hashSet2, optString2, Long.valueOf(j)));
-                    this.b = true;
-                    return true;
-                } catch (JSONException unused) {
-                    return false;
-                }
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            int i = this.a.getInt("use_openbundleid", -1);
-            return i == -1 ? z : i == 1;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public final void h(md4 md4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, md4Var) == null) || md4Var == null || TextUtils.isEmpty(md4Var.d) || TextUtils.isEmpty(md4Var.i) || TextUtils.isEmpty(md4Var.g)) {
-            return;
-        }
-        SharedPreferences.Editor putString = this.a.edit().putString("hostName", md4Var.d).putString("schemeHead", md4Var.i).putString("shareCallbackUrl", md4Var.e).putString("failureUrl", md4Var.f).putString("version", md4Var.g);
-        Set<String> set = md4Var.h;
-        if (set != null && !set.isEmpty()) {
-            putString.putStringSet(SocialOperation.GAME_SIGNATURE, md4Var.h);
-        }
-        Long l = md4Var.j;
-        if (l != null) {
-            putString.putLong("identity", l.longValue());
-        }
-        putString.apply();
-    }
-
-    public void i(md4 md4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, md4Var) == null) || md4Var == null) {
-            return;
-        }
-        SharedPreferences.Editor putString = this.a.edit().putString("hostName", md4Var.d).putString("schemeHead", md4Var.i).putString("shareCallbackUrl", md4Var.e).putString("failureUrl", md4Var.f).putString(CameraActivityConfig.KEY_CONTENT_TYPE, md4Var.a).putInt("containerNo", md4Var.c).putInt("officialNo", md4Var.b).putString("version", md4Var.g);
-        Set<String> set = md4Var.h;
-        if (set != null && !set.isEmpty()) {
-            putString.putStringSet(SocialOperation.GAME_SIGNATURE, md4Var.h);
-        }
-        putString.apply();
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a.edit().putInt("use_openbundleid", i).apply();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? fg4.g(this.d, jSONObject) : (td4) invokeL.objValue;
     }
 }

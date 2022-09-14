@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ep;
+import com.baidu.tieba.sp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,16 +17,16 @@ public final class BDPTask$INSTANCE$registerPassiveTaskListenerWithActionId$1 ex
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actionId;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ep $taskCallback;
+    public final /* synthetic */ sp $taskCallback;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerPassiveTaskListenerWithActionId$1(String str, ep epVar) {
+    public BDPTask$INSTANCE$registerPassiveTaskListenerWithActionId$1(String str, sp spVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, epVar};
+            Object[] objArr = {str, spVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$registerPassiveTaskListenerWithActionId$1 ex
             }
         }
         this.$actionId = str;
-        this.$taskCallback = epVar;
+        this.$taskCallback = spVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

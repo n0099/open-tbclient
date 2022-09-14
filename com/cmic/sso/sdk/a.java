@@ -157,7 +157,7 @@ public class a {
                 return aVar;
             }
             c.a("UmcConfigBean为空", "请核查");
-            return new a.C0505a().a();
+            return new a.C0510a().a();
         }
         return (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }

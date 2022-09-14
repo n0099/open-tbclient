@@ -24,6 +24,10 @@ public class QuickPersistConfigConst {
     public static final String KEY_INTRODUCTION_WARM = "splash_warm_agree";
     public static final String KEY_KERNEL_WEBKIT_STATE = "kernel_webkit_state";
     public static final String KEY_LAST_TMP_USE_HTTP_TS = "key_last_tmp_http_ts";
+    public static final String KEY_LAUNCH_RESTORE_SWITCHER = "launch_restore_switcher";
+    public static final String KEY_LAUNCH_SET_SYSTEM_FONT = "launch_set_system_font";
+    public static final String KEY_LAUNCH_SET_SYSTEM_FONT_SHOW = "launch_set_system_font_show";
+    public static final String KEY_LAUNCH_SET_SYSTEM_FONT_TOAST_SHOW = "launch_set_system_font_toast_show";
     public static final String KEY_MAINACTIVITY_INPUTMODE_ADJUSTPAN = "key_keyboard_adjust";
     public static final String KEY_MESSAGE_FOLLOW_VERSION = "message_follow_version_code";
     public static final String KEY_NA2_WEB_ENABLE = "use_na2.0_h5_zeus";
@@ -44,6 +48,7 @@ public class QuickPersistConfigConst {
     public static final String KEY_TABBAR_SKIN_DATA = "tabbar_skin_data";
     public static final String KEY_TEXT_SIZE = "key_text_size";
     public static final String KEY_TMP_USE_HTTP = "key_tmp_use_http";
+    public static final String KEY_USER_ACTIVELY_SET_FONT = "user_actively_set_font";
     public static final String KEY_USE_SYS_WEBKIT = "use_sys_webkit";
     public static final String KEY_VIRTUAL_RUNTIME_CHECKED = "virtual_runtime_checked";
     public static final String KEY_WEBKIT_DO_BUILDIN_INSTALL = "webkit_do_buildin_install";

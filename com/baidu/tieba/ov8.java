@@ -1,58 +1,46 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.IdRes;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ov8 {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: e */
-    public static final int obfuscated = 2131232811;
-
-    /* renamed from: f */
-    public static final int obfuscated = 2131232810;
+public class ov8 extends p9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public ImageView b;
-    public b c;
-    public CustomMessageListener d;
+    public HorizontalListView b;
+    public lv8 c;
+    public wu8 d;
+    public yu8 e;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ov8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ov8 ov8Var, int i) {
-            super(i);
+        public a(ov8 ov8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ov8Var, Integer.valueOf(i)};
+                Object[] objArr = {ov8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,137 +49,120 @@ public class ov8 {
             this.a = ov8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                if (this.a.c != null) {
-                    this.a.c.a(booleanValue);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                gv8 gv8Var = (gv8) this.a.d.getItem(i);
+                if (this.a.e != null) {
+                    this.a.e.h(gv8Var);
                 }
+                if (this.a.c == null || this.a.c.C() == null) {
+                    return;
+                }
+                this.a.c.C().setFilter(gv8Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948045816, "Lcom/baidu/tieba/ov8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948045816, "Lcom/baidu/tieba/ov8;");
-        }
-    }
-
-    public ov8(View view2, @IdRes int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ov8(r9 r9Var, lv8 lv8Var) {
+        super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {r9Var, lv8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new a(this, 2921647);
-        MessageManager.getInstance().registerListener(this.d);
-        this.a = view2;
-        if (view2 != null) {
-            ImageView imageView = (ImageView) view2.findViewById(i);
-            this.b = imageView;
-            if (imageView != null) {
-                imageView.setVisibility(0);
+        this.c = lv8Var;
+        View inflate = LayoutInflater.from(r9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0245, (ViewGroup) null);
+        this.a = inflate;
+        inflate.getResources();
+        p();
+    }
+
+    public gv8 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            for (gv8 gv8Var : this.d.a()) {
+                if (gv8Var != null && StringHelper.equals(gv8Var.c, str)) {
+                    return gv8Var;
+                }
             }
+            return null;
         }
-        j(d());
+        return (gv8) invokeL.objValue;
     }
 
-    public static StatisticItem b(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) ? new StatisticItem(str).param("obj_locate", c(i)).param("tid", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()) : (StatisticItem) invokeLLI.objValue;
-    }
-
-    public static String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (i == 4 || i == 3) ? "2" : "1" : (String) invokeI.objValue;
-    }
-
-    public boolean d() {
+    public View n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbSingleton.getInstance().isDanmuSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public void e(String str, int i) {
+    public void o(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-            TiebaStatic.log(b("c14474", str, i).param("obj_type", d() ? "1" : "0"));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
         }
     }
 
-    public void f() {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
-            ImageView imageView = this.b;
-            if (imageView != null) {
-                imageView.setOnClickListener(null);
-            }
-            this.c = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090872);
+            this.d = new wu8();
+            v(yu8.c(this.a.getContext()));
+            this.b.setOnItemClickListener(new a(this));
         }
     }
 
-    public void g(View.OnClickListener onClickListener) {
-        ImageView imageView;
+    public void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (imageView = this.b) == null) {
-            return;
-        }
-        imageView.setOnClickListener(onClickListener);
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public void i() {
+    public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            boolean z = !d();
-            TbSingleton.getInstance().setDanmuSwitchOpen(z);
-            j(z);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921647, Boolean.valueOf(z)));
         }
     }
 
-    public void j(boolean z) {
-        ImageView imageView;
-        View view2;
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (imageView = this.b) == null || (view2 = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
         }
-        imageView.setImageDrawable(view2.getResources().getDrawable(z ? obfuscated : obfuscated));
+    }
+
+    public void t(gv8 gv8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, gv8Var) == null) {
+            this.d.b(gv8Var);
+        }
+    }
+
+    public void u(yu8 yu8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yu8Var) == null) {
+            this.e = yu8Var;
+        }
+    }
+
+    public void v(List<gv8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.d.c(list);
+            this.b.setAdapter((ListAdapter) this.d);
+        }
     }
 }

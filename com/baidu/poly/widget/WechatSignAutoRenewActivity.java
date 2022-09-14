@@ -9,12 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i91;
-import com.baidu.tieba.k91;
-import com.baidu.tieba.ma1;
-import com.baidu.tieba.ya1;
+import com.baidu.tieba.fb1;
+import com.baidu.tieba.hb1;
+import com.baidu.tieba.jc1;
+import com.baidu.tieba.vc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +36,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
     public int j;
 
     /* loaded from: classes2.dex */
-    public class a implements ma1 {
+    public class a implements jc1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -98,7 +97,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
             this.a = z;
         }
 
-        @Override // com.baidu.tieba.ma1
+        @Override // com.baidu.tieba.jc1
         public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -137,7 +136,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
             this.f.setEnable(false);
             this.f.setPressed(true);
             this.f.b();
-            k91.b().a(new a(this, z));
+            hb1.b().a(new a(this, z));
         }
     }
 
@@ -145,7 +144,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ((ActivityManager) getSystemService("activity")).moveTaskToFront(i91.a().b(), 1);
+                ((ActivityManager) getSystemService("activity")).moveTaskToFront(fb1.a().b(), 1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -156,8 +155,8 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             d();
-            k91.b c = k91.b().c();
-            k91.b().e(null);
+            hb1.b c = hb1.b().c();
+            hb1.b().e(null);
             if (c != null) {
                 int i = this.j;
                 if (i == 0) {
@@ -180,7 +179,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
             this.f.setPressed(false);
             this.f.c();
             if (i == 0) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08125b);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08129a);
                 this.b.setText(EventAlias.PayEventAlias.PAY_SUCCESS);
                 this.c.setVisibility(8);
                 this.d.setVisibility(0);
@@ -188,14 +187,14 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                 this.e.setVisibility(8);
                 this.h.setVisibility(0);
             } else if (400 == i) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081259);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081298);
                 this.b.setText("未查询到开通结果");
                 this.c.setVisibility(0);
                 this.d.setVisibility(8);
                 this.e.setVisibility(0);
                 this.h.setVisibility(8);
             } else if (200 == i) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08125a);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081299);
                 this.b.setText(EventAlias.PayEventAlias.PAY_FAIL);
                 this.c.setVisibility(8);
                 this.d.setVisibility(0);
@@ -203,15 +202,15 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                 this.e.setVisibility(8);
                 this.h.setVisibility(0);
             } else if (119501 == i) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08125a);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081299);
                 this.b.setText("未查询到开通结果");
                 this.c.setVisibility(0);
                 this.d.setVisibility(8);
                 this.e.setVisibility(0);
                 this.h.setVisibility(8);
-                ya1.f(this, "网络错误，请重试");
+                vc1.f(this, "网络错误，请重试");
             } else {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08125a);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081299);
                 this.b.setText("自动续费开通失败，请重试");
                 this.c.setVisibility(8);
                 this.d.setVisibility(8);
@@ -233,13 +232,13 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0919cc) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091a0a) {
                 c(false);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919c2) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a00) {
                 e();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919e2) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a20) {
                 e();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919e0) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a1e) {
                 e();
             }
         }
@@ -255,33 +254,31 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
             PolyActivity.g = null;
             if (getIntent().getIntExtra("code", 0) == -2) {
                 d();
-                k91.b c = k91.b().c();
-                k91.b().e(null);
+                hb1.b c = hb1.b().c();
+                hb1.b().e(null);
                 if (c != null) {
                     c.onResult(2, "支付取消");
                 }
                 finish();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e4);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e6);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0919e1);
-            this.f = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f0919cc);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0919c2);
-            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f0919e2);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a23);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a22);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091a21);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a24);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091a1f);
+            this.f = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091a0a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091a00);
+            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091a20);
             this.h = progressButton;
             progressButton.setText("我知道了");
-            this.i = findViewById(R.id.obfuscated_res_0x7f0919e0);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091a1e);
             this.f.setOnClickListener(this);
             this.f.setText("查询开通结果");
             this.g.setOnClickListener(this);
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             c(true);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

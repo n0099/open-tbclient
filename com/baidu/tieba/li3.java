@@ -1,101 +1,69 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.swan.apps.view.menu.SwanImageMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class li3 extends ProviderDelegation {
+public class li3 extends i23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements uf3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ li3 b;
-
-        public a(li3 li3Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {li3Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = li3Var;
-            this.a = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.uf3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.c(this.a) : (Bundle) invokeV.objValue;
-        }
-    }
-
-    public li3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public li3(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        s(-1);
+        p(true);
+        q(true);
+    }
+
+    @Override // com.baidu.tieba.i23
+    public void l(View view2, List<j23> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
+            ((SwanImageMenuView) view2).d(list);
         }
     }
 
-    public Bundle c(@NonNull Bundle bundle) {
+    @Override // com.baidu.tieba.i23
+    public View m(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            ki3 ki3Var = new ki3();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i == 1) {
-                bundle2.putBoolean(TiebaStatic.LogFields.RESULT, ki3Var.shouldAcceptCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 2) {
-                bundle2.putBoolean(TiebaStatic.LogFields.RESULT, ki3Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 3) {
-                ki3Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                return bundle2;
-            } else if (i != 4) {
-                return bundle2;
-            } else {
-                bundle2.putString(TiebaStatic.LogFields.RESULT, ki3Var.getCookie(string));
-                return bundle2;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
+            swanImageMenuView.setMenu(this);
+            return swanImageMenuView;
         }
-        return (Bundle) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i23
+    public void u(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) rf3.b(new a(this, bundle)) : (Bundle) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
+            popupWindow.showAtLocation(this.a, 80, 0, 0);
+        }
     }
 }

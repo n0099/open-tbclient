@@ -1,43 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class nx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public nx4() {
+    public static void a(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 1 : invokeV.booleanValue;
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) || imageView == null) {
             return;
         }
-        this.a = jSONObject.optInt("agree_icon", 0);
+        WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+        if (layoutParams != null) {
+            layoutParams.width = ej.f(TbadkApplication.getInst(), R.dimen.tbds52);
+            layoutParams.height = ej.f(TbadkApplication.getInst(), R.dimen.tbds52);
+            imageView.setLayoutParams(layoutParams);
+        }
+    }
+
+    public static void b(ViewGroup viewGroup) {
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) || viewGroup == null || (layoutParams = viewGroup.getLayoutParams()) == null) {
+            return;
+        }
+        layoutParams.height = ej.f(TbadkApplication.getInst(), R.dimen.tbds120);
+        viewGroup.setLayoutParams(layoutParams);
+    }
+
+    public static void c(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, textView) == null) || textView == null) {
+            return;
+        }
+        uu4.d(textView).v(R.color.CAM_X0107);
+    }
+
+    public static void d(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, textView) == null) || textView == null) {
+            return;
+        }
+        uu4.d(textView).z(R.dimen.tbds36);
+    }
+
+    public static void e(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) || textView == null) {
+            return;
+        }
+        uu4 d = uu4.d(textView);
+        d.z(R.dimen.tbds36);
+        d.v(R.color.CAM_X0107);
+    }
+
+    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) || tBLottieAnimationView == null) {
+            return;
+        }
+        if (i != 1 && i != 4) {
+            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110020);
+        } else {
+            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110022);
+        }
+        tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
     }
 }

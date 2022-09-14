@@ -26,6 +26,12 @@ public class EmotionStrategy {
     public int errorImageRes2;
     public int errorImageRes3;
     public float errorWidth;
+    public float minorHeight;
+    public int minorImageRes;
+    public int minorImageRes1;
+    public int minorImageRes2;
+    public int minorImageRes3;
+    public float minorWidth;
     public float networkHeight;
     public int networkImageRes;
     public int networkImageRes1;
@@ -129,9 +135,21 @@ public class EmotionStrategy {
         }
     }
 
-    public void setNetworkImageRes(int i, int i2, int i3, int i4, float f, float f2) {
+    public void setMinorImageRes(int i, int i2, int i3, int i4, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.minorImageRes = i;
+            this.minorImageRes1 = i2;
+            this.minorImageRes2 = i3;
+            this.minorImageRes3 = i4;
+            this.minorWidth = f;
+            this.minorHeight = f2;
+        }
+    }
+
+    public void setNetworkImageRes(int i, int i2, int i3, int i4, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             this.networkImageRes = i;
             this.networkImageRes1 = i2;
             this.networkImageRes2 = i3;
@@ -143,7 +161,7 @@ public class EmotionStrategy {
 
     public void setPlaceHolderRes(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
             this.placeHolderRes = i;
             this.placeHolderRes1 = i2;
             this.placeHolderRes2 = i3;
@@ -153,7 +171,7 @@ public class EmotionStrategy {
 
     public void setRecEmptyImageRes(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             this.recEmptyImageRes = i;
             this.emptyWidth = f;
             this.emptyHeight = f2;
@@ -162,7 +180,7 @@ public class EmotionStrategy {
 
     public void setRecErrorImageRes(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             this.recErrorImageRes = i;
             this.errorWidth = f;
             this.errorHeight = f2;
@@ -171,7 +189,7 @@ public class EmotionStrategy {
 
     public void setRecNetworkImageRes(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             this.recNetworkImageRes = i;
             this.networkWidth = f;
             this.networkHeight = f2;
@@ -180,14 +198,14 @@ public class EmotionStrategy {
 
     public void setRecPlaceHolderRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.recPlaceHolderRes = i;
         }
     }
 
     public void setVideoBarPlaceHolderRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.videoBarPlaceHolderRes = i;
         }
     }

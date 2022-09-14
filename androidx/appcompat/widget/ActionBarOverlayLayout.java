@@ -24,8 +24,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$id;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.graphics.Insets;
 import androidx.core.view.InputDeviceCompat;
@@ -36,6 +34,7 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -204,7 +203,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
                 return;
             }
         }
-        ATTRS = new int[]{R$attr.actionBarSize, 16842841};
+        ATTRS = new int[]{R.attr.obfuscated_res_0x7f04004d, 16842841};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -799,9 +798,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     public void pullChildren() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048618, this) == null) && this.mContent == null) {
-            this.mContent = (ContentFrameLayout) findViewById(R$id.action_bar_activity_content);
-            this.mActionBarTop = (ActionBarContainer) findViewById(R$id.action_bar_container);
-            this.mDecorToolbar = getDecorToolbar(findViewById(R$id.action_bar));
+            this.mContent = (ContentFrameLayout) findViewById(R.id.obfuscated_res_0x7f09005c);
+            this.mActionBarTop = (ActionBarContainer) findViewById(R.id.obfuscated_res_0x7f09005d);
+            this.mDecorToolbar = getDecorToolbar(findViewById(R.id.obfuscated_res_0x7f09005b));
         }
     }
 

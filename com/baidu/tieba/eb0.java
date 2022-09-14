@@ -1,126 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class eb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile int a;
+    public Class<?> b;
+    public WeakReference<db0> c;
+    public fb0 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947728438, "Lcom/baidu/tieba/eb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947728438, "Lcom/baidu/tieba/eb0;");
+    public eb0(int i, Class<?> cls, db0 db0Var, fb0 fb0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), cls, db0Var, fb0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
+        this.a = i;
+        this.b = cls;
+        this.c = new WeakReference<>(db0Var);
+        this.d = fb0Var;
     }
 
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 1;
+            WeakReference<db0> weakReference = this.c;
+            if (weakReference != null) {
+                weakReference.clear();
+                this.c = null;
             }
-            String c = c(map);
-            if (TextUtils.isEmpty(c)) {
-                return str;
-            }
-            if (str.contains("?")) {
-                return str + "&" + c;
-            }
-            return str + "?" + c;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(String str) {
+    public boolean b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(indexOf + 1);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj.getClass() == this.b : invokeL.booleanValue;
     }
 
-    public static String c(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
+    public void call(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str2 = map.get(str);
-                if (str != null) {
-                    try {
-                        encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        if (cb0.i()) {
-                            throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                        }
-                    }
-                } else {
-                    encode = "";
-                }
-                sb.append(encode);
-                sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
-            }
-            return sb.toString();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) || this.c.get() == null) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static Map<String, String> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
-                try {
-                    hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
+        this.d.a(this.a, obj, this.c.get());
     }
 }

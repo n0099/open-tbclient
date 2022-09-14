@@ -1,7 +1,7 @@
 package com.baidu.ugc.audioedit;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l89;
+import com.baidu.tieba.oc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.vinuxproject.sonic.Sonic;
 /* loaded from: classes6.dex */
-public class AudioSpeedOperator implements l89 {
+public class AudioSpeedOperator implements oc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Sonic mSonic;
@@ -28,7 +28,7 @@ public class AudioSpeedOperator implements l89 {
         }
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class AudioSpeedOperator implements l89 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public void close() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class AudioSpeedOperator implements l89 {
         sonic.b();
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public void flush() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class AudioSpeedOperator implements l89 {
         sonic.c();
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public byte[] getOutPutBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class AudioSpeedOperator implements l89 {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public void init(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
@@ -83,7 +83,7 @@ public class AudioSpeedOperator implements l89 {
         }
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public boolean putBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class AudioSpeedOperator implements l89 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public int receiveBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AudioSpeedOperator implements l89 {
         return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.l89
+    @Override // com.baidu.tieba.oc9
     public void setSpeed(float f) {
         Sonic sonic;
         Interceptable interceptable = $ic;

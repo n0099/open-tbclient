@@ -1,106 +1,125 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.vn2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes4.dex */
 public class k44 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends StringResponseCallback {
+    public static class a extends ez2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j44 c;
 
-        public a() {
+        public a(j44 j44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j44Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = j44Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
+        @Override // com.baidu.tieba.ez2, com.baidu.tieba.fz2, com.baidu.tieba.dz2
+        public void onEvent(@NonNull bz2 bz2Var) {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, bz2Var) == null) {
+                if (SwanAppNetworkUtils.i(null)) {
+                    i = bz2Var.a() != null ? bz2Var.a().getInt("net_quality") : -1;
+                } else {
+                    i = -2;
+                }
+                if (k44.a) {
+                    Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
+                }
+                j44 j44Var = this.c;
+                j44Var.m = i;
+                r93.x("976", j44Var);
             }
         }
     }
 
-    public static Map<String, String> a(@NonNull a13 a13Var, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, a13Var, i, str)) == null) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, a13Var.O());
-            treeMap.put("to_app_key", str);
-            treeMap.put("source", String.valueOf(i));
-            treeMap.put("timestamp", c());
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : treeMap.keySet()) {
-                sb.append(str2);
-                sb.append("=");
-                sb.append((String) treeMap.get(str2));
-                sb.append("&");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863102, "Lcom/baidu/tieba/k44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            sb.append("dsb9Ao44");
-            treeMap.put("sign", eh4.d(sb.toString().getBytes(), false));
-            return treeMap;
-        }
-        return (Map) invokeLIL.objValue;
-    }
-
-    public static void b(int i, @NonNull ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
-            a13 M = a13.M();
-            if (M == null) {
-                responseCallback.onFail(new Exception("framework error: swan app is null."));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947863102, "Lcom/baidu/tieba/k44;");
                 return;
             }
-            M.i0().getRequest().cookieManager(hk2.q().a()).url(qx3.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
         }
+        a = ij1.a;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static void b(j44 j44Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
-    }
-
-    public static void d(int i, String str) {
-        a13 M;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || (M = a13.M()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, j44Var) == null) || j44Var == null) {
             return;
         }
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(hk2.q().a())).url(qx3.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
+        tz2.Q().X(null, mu2.class, new a(j44Var));
+    }
+
+    public static void c(rg1 rg1Var) {
+        V8ExceptionInfo a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, rg1Var) == null) || rg1Var == null || (a2 = rg1Var.a()) == null) {
+            return;
+        }
+        String str = a2.exceptionMsg;
+        String str2 = a2.exceptionTrace;
+        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
+            return;
+        }
+        if (a) {
+            Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(iz3.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
+        }
+        if (a2.exceptionTime >= iz3.a()) {
+            return;
+        }
+        j44 j44Var = new j44();
+        j44Var.b = "stuck";
+        j44Var.e = "jserror";
+        j44Var.f = y23.g0();
+        if (y23.M() != null && y23.M().Y() != null) {
+            vn2.a Y = y23.M().Y();
+            j44Var.c = Y.T();
+            j44Var.a = r93.n(Y.G());
+        }
+        j44Var.l = str + ParamableElem.DIVIDE_PARAM + str2;
+        j44Var.k = v34.d() ? 20 : 10;
+        j44Var.n = iz3.b();
+        j44Var.o = System.currentTimeMillis() - a2.exceptionTime;
+        b(j44Var);
     }
 }

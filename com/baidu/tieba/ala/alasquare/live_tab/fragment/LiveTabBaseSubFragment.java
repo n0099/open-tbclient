@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l65;
+import com.baidu.tieba.t85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,13 +19,14 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public l65 c;
+    public t85 c;
     public boolean d;
     public boolean e;
     public int f;
     public String g;
     public String h;
-    public CustomMessageListener i;
+    public int i;
+    public CustomMessageListener j;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -80,7 +81,8 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
         this.d = false;
         this.e = false;
-        this.i = new a(this, 2921442);
+        this.g = "0";
+        this.j = new a(this, 2921442);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -88,21 +90,21 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            l65 l65Var = this.c;
-            if (l65Var != null) {
-                l65Var.onChangeSkinType();
+            t85 t85Var = this.c;
+            if (t85Var != null) {
+                t85Var.onChangeSkinType();
             }
         }
     }
 
-    public void r1() {
+    public void q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.setVisibility(8);
         }
     }
 
-    public void s1() {
+    public void r1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
@@ -110,7 +112,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     }
 
-    public void t1(String str, String str2) {
+    public void s1(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             this.g = str;
@@ -118,16 +120,16 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     }
 
-    public void u1() {
+    public void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new l65(this.a, null);
+                this.c = new t85(this.a, null);
             }
             this.c.e();
             this.c.i(R.drawable.new_pic_emotion_03);
-            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c59));
+            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c72));
             this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             if (this.c.b() == null || this.c.b().getParent() != null) {

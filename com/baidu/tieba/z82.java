@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.ValueCallback;
+import android.content.Context;
+import android.os.Process;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,21 +14,177 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.MalformedURLException;
+import com.baidu.webkit.sdk.CookieSyncManager;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
-public class z82 implements y82 {
+public final class z82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile z82 g;
+    public static final boolean h;
+    public static volatile z82 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, a92> a;
-    public HashMap<String, ArrayList<ValueCallback<String>>> b;
-    public String c;
-    public HttpManager d;
+    public Context a;
+    public volatile boolean b;
+    public boolean c;
+    public boolean d;
     public final Object e;
+    public final Object f;
+    public ArrayList<e> g;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ z82 c;
+
+        public a(z82 z82Var, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z82Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = z82Var;
+            this.a = z;
+            this.b = z2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(10);
+                this.c.g(this.a, this.b);
+                this.c.b = true;
+                synchronized (this.c.f) {
+                    this.c.d = true;
+                    this.c.f.notifyAll();
+                    this.c.m();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(z82 z82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z82Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                WebView.setWebContentsDebuggingEnabled(true);
+                Log.setMinLogLevel(3, true);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z82 a;
+
+        public c(z82 z82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z82Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z82Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                CookieSyncManager.createInstance(this.a.a);
+                BdSailor.initCookieSyncManager(this.a.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements sh3<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public d(z82 z82Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z82Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sh3
+        /* renamed from: a */
+        public Void create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.run();
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a();
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,153 +199,160 @@ public class z82 implements y82 {
                 return;
             }
         }
-        f = kh1.a;
+        h = ij1.a;
     }
 
-    public z82() {
+    public z82(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
+        this.b = false;
+        this.c = false;
+        this.d = false;
         this.e = new Object();
-        this.d = ik2.l().a();
-        this.c = ik2.f().a();
+        this.f = new Object();
+        this.g = new ArrayList<>();
+        this.a = context.getApplicationContext();
     }
 
-    public static z82 e() {
+    public static synchronized z82 h(Context context) {
+        InterceptResult invokeL;
+        z82 z82Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            synchronized (z82.class) {
+                if (i == null) {
+                    i = new z82(context);
+                }
+                z82Var = i;
+            }
+            return z82Var;
+        }
+        return (z82) invokeL.objValue;
+    }
+
+    public void f(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+            synchronized (this.f) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
+                }
+                if (!this.g.contains(eVar)) {
+                    this.g.add(eVar);
+                }
+                if (this.d) {
+                    m();
+                }
+            }
+        }
+    }
+
+    public final void g(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            WebKitFactory.setNeedDownloadCloudResource(false);
+            WebKitFactory.setProcessType("1");
+            com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
+            BdSailor.getInstance().init(this.a, null, null);
+            if (h) {
+                sg3.a0(new b(this));
+            }
+            BdSailor.getInstance().setWebkitEnable(!(h && xy2.G().booleanValue()));
+            BdSailor.getInstance().initWebkit("swan", false);
+            BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) success ^V^");
+                }
+            } else if (h) {
+                android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) fail !!!!");
+            }
+            c cVar = new c(this);
+            if (z2) {
+                x23.M().post(cVar);
+            } else {
+                ph3.b(new d(this, cVar));
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
+        }
+    }
+
+    public final void j(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.b) {
+            return;
+        }
+        boolean z3 = z && sg3.O();
+        synchronized (this.e) {
+            if (!this.c) {
+                Executors.newSingleThreadExecutor().execute(new a(this, z2, z3));
+                this.c = true;
+            }
+        }
+        if (z) {
+            synchronized (this.f) {
+                while (!this.d) {
+                    try {
+                        this.f.wait(1000L);
+                    } catch (InterruptedException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            j(false, z);
+        }
+    }
+
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (z82.class) {
-                    if (g == null) {
-                        g = new z82();
-                    }
-                }
-            }
-            return g;
-        }
-        return (z82) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.y82
-    public void a(String str, String str2) {
-        ArrayList<ValueCallback<String>> arrayList;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).onReceiveValue(str2);
-                        if (f) {
-                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this.f) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
                 }
+                Iterator<e> it = this.g.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.g.clear();
             }
         }
     }
 
-    public final void b(String str, ValueCallback<String> valueCallback) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(valueCallback);
-                return;
-            }
-            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
-            arrayList.add(valueCallback);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
-            }
-            a92 a92Var = new a92(this.d, this.c, str, this);
-            this.a.put(str, a92Var);
-            a92Var.e();
-        }
-    }
-
-    public final String d(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c + ik2.f().c(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.a.containsKey(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.y82
-    public void fail(int i, String str) {
-        ArrayList<ValueCallback<String>> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).onReceiveValue("");
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
-    }
-
-    public void g(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
-            if (TextUtils.isEmpty(str)) {
-                valueCallback.onReceiveValue(null);
-                return;
-            }
-            try {
-                String d = d(str);
-                if (TextUtils.isEmpty(d)) {
-                    return;
-                }
-                File file = new File(d(str));
-                if (file.exists() && !file.isDirectory()) {
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(d);
-                        return;
-                    }
-                    return;
-                }
-                synchronized (this.e) {
-                    if (!f(str)) {
-                        c(str);
-                    }
-                    b(str, valueCallback);
-                }
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && l()) {
+            BdSailor.getInstance().destroy();
         }
     }
 }

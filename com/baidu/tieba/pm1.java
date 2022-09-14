@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.widget.SlideInterceptor;
+import androidx.annotation.NonNull;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface pm1 extends SlideInterceptor {
-    double z();
+public interface pm1 {
+    boolean a(@NonNull JSONObject jSONObject);
 }

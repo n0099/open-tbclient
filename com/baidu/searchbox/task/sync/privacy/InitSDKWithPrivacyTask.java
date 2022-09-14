@@ -1,16 +1,10 @@
 package com.baidu.searchbox.task.sync.privacy;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.config.AppIdentityManager;
-import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
-import com.baidu.tieba.fh0;
-import com.baidu.tieba.g59;
-import com.baidu.tieba.k20;
-import com.baidu.tieba.kc1;
+import com.baidu.tieba.ni0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,25 +33,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                fh0.c();
-            }
-        }
-    }
-
-    private void initAxeSdk() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            k20.a.c(TbadkCoreApplication.getInst()).b().t();
-        }
-    }
-
-    private void initUBC() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            AppIdentityManager.getInstance().setAppName("tieba");
-            if (kc1.g()) {
-                g59.a();
-                CloudControlManager.getInstance().requestCloudControl("0");
+                ni0.c();
             }
         }
     }
@@ -66,9 +42,6 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!LaunchUpApplicationSwitch.getIsOn()) {
-                initAxeSdk();
-            }
             initAdRuntime();
         }
     }

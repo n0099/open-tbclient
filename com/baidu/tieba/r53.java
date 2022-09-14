@@ -1,34 +1,32 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.f23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes5.dex */
-public class r53 extends x23 {
+public class r53 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r53(x13 x13Var) {
-        super(x13Var, "/swanAPI/login");
+    public r53(v33 v33Var) {
+        super(v33Var, "/swanAPI/hideLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,55 +40,39 @@ public class r53 extends x23 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var != null && a13Var.n0()) {
-                if (x23.b) {
-                    Log.d("LoginAction", "LoginAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("HideLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (!(context instanceof SwanAppActivity)) {
+                yz1.c("hideLoading", "context not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
                 return false;
-            } else if (a13Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-                ik2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception").toString());
+            }
+            h22 X = ((SwanAppActivity) context).X();
+            if (X == null) {
+                yz1.c("hideLoading", "none fragmentManger");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragmentManger");
+                return false;
+            }
+            e22 m = X.m();
+            if (!(m instanceof f23.a)) {
+                yz1.c("hideLoading", "fragment not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
+                return false;
+            } else if (m.getContext() == null) {
+                yz1.c("hideLoading", "fragment has detached");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
                 return false;
             } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
-                    ik2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "params is null").toString());
-                    ip1.J(a13Var, 1, 201, "params is null");
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("invokeFrom");
-                String str = optString.equals(NativeConstants.COMPONENT) ? "loginButton" : "loginApi";
-                t73.T(str, "create");
-                String optString2 = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                    ik2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
-                    ip1.J(a13Var, 1, 201, "empty cb");
-                    return false;
-                } else if (!optParamsAsJo.optBoolean(TTDownloadField.TT_FORCE, true) && !a13Var.N().e(context)) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                    ik2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                    ip1.J(a13Var, 43, 10004, "user not logged in");
-                    return true;
-                } else {
-                    if (!a13Var.N().e(context)) {
-                        t73.S("show", 1, optString);
-                    }
-                    if (!z03.K().q().N().e(context)) {
-                        t73.T(str, "passLogin");
-                    }
-                    ip1.D(a13Var, (Activity) context, optParamsAsJo, callbackHandler, optString2, true, str);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
+                g23.c(m);
+                yz1.i("hideLoading", "hide loading success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
         return invokeLLLL.booleanValue;

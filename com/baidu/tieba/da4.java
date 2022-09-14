@@ -1,135 +1,121 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes3.dex */
 public class da4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public long d;
-    public JSONObject e;
 
-    public da4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-    }
-
-    public static da4 a(String str) {
+    public static HttpRequestBuilder a(@NonNull ba4 ba4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ba4Var)) == null) ? b(ba4Var, null) : (HttpRequestBuilder) invokeL.objValue;
+    }
+
+    @NonNull
+    public static HttpRequestBuilder b(@NonNull ba4 ba4Var, @Nullable ca4 ca4Var) {
+        InterceptResult invokeLL;
+        HttpCommonRequestBuilder o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ba4Var, ca4Var)) == null) {
+            if (ca4Var == null) {
+                ca4Var = ca4.g();
             }
-            try {
-                return b(new JSONObject(str));
-            } catch (JSONException unused) {
-                return null;
+            String str = ba4Var.b;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -531492226:
+                    if (str.equals(HttpOptions.METHOD_NAME)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 70454:
+                    if (str.equals("GET")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 79599:
+                    if (str.equals(HttpPut.METHOD_NAME)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 2213344:
+                    if (str.equals("HEAD")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 2461856:
+                    if (str.equals("POST")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 80083237:
+                    if (str.equals(HttpTrace.METHOD_NAME)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1669334218:
+                    if (str.equals("CONNECT")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 2012838315:
+                    if (str.equals(HttpDelete.METHOD_NAME)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
             }
+            switch (c) {
+                case 0:
+                    return ca4Var.getRequest();
+                case 1:
+                    return ca4Var.headerRequest();
+                case 2:
+                    o = ca4Var.o();
+                    break;
+                case 3:
+                    o = ca4Var.postRequest();
+                    break;
+                case 4:
+                    o = ca4Var.putRequest();
+                    break;
+                case 5:
+                    o = ca4Var.deleteRequest();
+                    break;
+                case 6:
+                    o = ca4Var.y();
+                    break;
+                case 7:
+                    o = ca4Var.a();
+                    break;
+                default:
+                    return ca4Var.getRequest();
+            }
+            RequestBody requestBody = ba4Var.d;
+            if (requestBody != null) {
+                o.requestBody(requestBody);
+            }
+            return o;
         }
-        return (da4) invokeL.objValue;
-    }
-
-    public static da4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            da4 da4Var = new da4();
-            da4Var.i(jSONObject.optInt("errno", -1));
-            da4Var.j(jSONObject.optString("errmsg"));
-            da4Var.l(jSONObject.optString("tipmsg"));
-            da4Var.k(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID));
-            da4Var.h(jSONObject.optJSONObject("data"));
-            return da4Var;
-        }
-        return (da4) invokeL.objValue;
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            this.e = jSONObject;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.c = str;
-        }
+        return (HttpRequestBuilder) invokeLL.objValue;
     }
 }

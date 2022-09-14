@@ -1,67 +1,104 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.passaccount.app.LoginDialogActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.yr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class zr7 implements xr7, View.OnClickListener {
+public class zr7 extends yr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LoginDialogActivity a;
-    public View b;
-    public View c;
-    public View d;
-    public ImageView e;
-    public TextView f;
-    public TextView g;
-    public View h;
-    public TbImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public View m;
-    public View n;
-    public View o;
-    public View p;
-    public View q;
-    public final ShareStorage.StorageModel r;
 
     /* loaded from: classes6.dex */
-    public class a extends WebAuthListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zr7 a;
+        public final /* synthetic */ hs7 a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ zr7 d;
 
-        public a(zr7 zr7Var) {
+        public a(zr7 zr7Var, hs7 hs7Var, b bVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zr7Var};
+                Object[] objArr = {zr7Var, hs7Var, bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = zr7Var;
+            this.a = hs7Var;
+            this.b = bVar;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                hs7 hs7Var = this.a;
+                hs7Var.j(!hs7Var.e());
+                zr7 zr7Var = this.d;
+                b bVar = this.b;
+                zr7Var.f(bVar.d, bVar.e, this.a);
+                this.d.d(this.a);
+                zr7 zr7Var2 = this.d;
+                yr7.a aVar = zr7Var2.d;
+                if (aVar != null) {
+                    aVar.o1(zr7Var2.a);
+                }
+                if (this.a.e()) {
+                    StatisticItem statisticItem = new StatisticItem("c13682");
+                    statisticItem.param("obj_type", 2);
+                    statisticItem.param("obj_locate", 1);
+                    statisticItem.param("obj_source", this.c);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LinearLayout a;
+        public HeadImageView b;
+        public TextView c;
+        public ImageView d;
+        public View e;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,283 +108,91 @@ public class zr7 implements xr7, View.OnClickListener {
                     return;
                 }
             }
-            this.a = zr7Var;
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f54);
+            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f4a);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f56);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e51);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f4b);
+            int k = ej.k(TbadkCoreApplication.getInst()) / 5;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);
+            this.b.setLayoutParams(layoutParams);
+            this.e.setLayoutParams(layoutParams);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
+        public void a(Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f113d), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-                this.a.a.i1();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.a.a.j1();
-                this.a.a.W0(DialogLoginHelper.DIALOG_TYPE_SHARE);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends WebAuthListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SocialType a;
-        public final /* synthetic */ zr7 b;
-
-        public b(zr7 zr7Var, SocialType socialType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zr7Var, socialType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zr7Var;
-            this.a = socialType;
-        }
-
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
-        public void beforeSuccess(SapiAccount sapiAccount) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-                this.b.a.l1();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f13c2), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-                this.b.a.i1();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                this.b.a.j1();
-                this.b.a.W0(this.a.name().toLowerCase());
+            if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+                uu4 d = uu4.d(this.c);
+                d.v(R.color.CAM_X0105);
+                d.z(R.dimen.T_X06);
+                this.b.setConrers(15);
+                this.b.setIsRound(true);
+                this.b.setDrawBorder(true);
+                this.b.setPlaceHolder(3);
+                this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+                this.b.setBorderWidth(ej.f(context, R.dimen.L_X02));
             }
         }
     }
 
-    public zr7(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zr7(List<hs7> list, Context context) {
+        super(list, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((List) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = (ShareStorage.StorageModel) new Gson().fromJson(str, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
-    @Override // com.baidu.tieba.xr7
-    public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
+    public final void f(ImageView imageView, View view2, hs7 hs7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
-            this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d07a7, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09079a);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0907b2);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09064b);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09064c);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bd);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bb);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f092450);
-            this.i = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09242b);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092459);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092474);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09141b);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091adf);
-            this.n = inflate.findViewById(R.id.obfuscated_res_0x7f09260d);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f092610);
-            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f092693);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f09153c);
-            this.b.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.c.setOnClickListener(this);
-            this.i.setIsRound(true);
-            this.i.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n.setOnClickListener(this);
-            this.o.setOnClickListener(this);
-            this.p.setOnClickListener(this);
-            this.q.setOnClickListener(this);
-            d();
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.h1();
-            this.a.finish();
-        }
-    }
-
-    public final void d() {
-        ShareStorage.StorageModel storageModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (storageModel = this.r) == null) {
-            return;
-        }
-        this.i.K(storageModel.url, 10, false);
-        this.j.setText(this.r.displayname);
-        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f113c, this.r.app));
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.r == null) {
-            return;
-        }
-        PassportSDK.getInstance().invokeV2ShareLogin(this.a, new a(this), this.r);
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.finish();
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.a, true);
-            loginActivityConfig.setLoginListener(this.a.c1());
-            loginActivityConfig.setFrom(this.a.getPreExtraPageKey());
-            loginActivityConfig.setFromDialog("share_more");
-            loginActivityConfig.start();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h(SocialType.QQ_SSO);
-        }
-    }
-
-    @Override // com.baidu.tieba.xr7
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public final void h(SocialType socialType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, socialType) == null) {
-            PassportSDK.getInstance().loadThirdPartyLogin(new b(this, socialType), socialType);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h(SocialType.WEIXIN);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h(SocialType.SINA_WEIBO_SSO);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h(SocialType.YY);
-        }
-    }
-
-    @Override // com.baidu.tieba.xr7
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            ns4 d = ns4.d(this.c);
-            d.m(1);
-            d.n(R.string.J_X14);
-            d.f(R.color.CAM_X0207);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08091e, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            ns4 d2 = ns4.d(this.f);
-            d2.v(R.color.CAM_X0105);
-            d2.z(R.dimen.T_X05);
-            d2.A(R.string.F_X02);
-            ns4 d3 = ns4.d(this.g);
-            d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.T_X08);
-            d3.A(R.string.F_X01);
-            ns4 d4 = ns4.d(this.h);
-            d4.n(R.string.J_X05);
-            d4.f(R.color.CAM_X0204);
-            ns4 d5 = ns4.d(this.j);
-            d5.v(R.color.CAM_X0105);
-            d5.z(R.dimen.T_X05);
-            d5.A(R.string.F_X02);
-            ns4 d6 = ns4.d(this.k);
-            d6.v(R.color.CAM_X0108);
-            d6.z(R.dimen.T_X08);
-            d6.A(R.string.F_X01);
-            ns4 d7 = ns4.d(this.l);
-            d7.v(R.color.CAM_X0101);
-            d7.z(R.dimen.T_X05);
-            d7.A(R.string.F_X01);
-            d7.n(R.string.J_X01);
-            d7.f(R.color.CAM_X0302);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
-            int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09079a || id == R.id.obfuscated_res_0x7f09064b || id == R.id.obfuscated_res_0x7f09064c) {
-                c();
-            } else if (id == R.id.obfuscated_res_0x7f09141b) {
-                e();
-            } else if (id == R.id.obfuscated_res_0x7f091adf) {
-                g();
-            } else if (id == R.id.obfuscated_res_0x7f09260d) {
-                i();
-            } else if (id == R.id.obfuscated_res_0x7f092610) {
-                j();
-            } else if (id == R.id.obfuscated_res_0x7f092693) {
-                k();
-            } else if (id == R.id.obfuscated_res_0x7f09153c) {
-                f();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, imageView, view2, hs7Var) == null) {
+            if (hs7Var.e()) {
+                SkinManager.setImageResource(imageView, R.drawable.icon_interest_checked);
+                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0608).into(view2);
+                return;
             }
+            SkinManager.setImageResource(imageView, R.drawable.icon_interest_unchecked);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0601).into(view2);
         }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d052a, viewGroup, false);
+                bVar = new b(view2);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            bVar.a(this.b);
+            hs7 hs7Var = this.c.get(i);
+            if (hs7Var == null) {
+                return view2;
+            }
+            bVar.b.K(hs7Var.b(), 25, false);
+            bVar.c.setText(hs7Var.a());
+            f(bVar.d, bVar.e, hs7Var);
+            view2.setOnClickListener(new a(this, hs7Var, bVar, i));
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

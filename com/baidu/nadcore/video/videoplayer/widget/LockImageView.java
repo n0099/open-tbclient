@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c21;
+import com.baidu.tieba.u31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LockImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c21 a;
+    public u31 a;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -93,7 +93,7 @@ public class LockImageView extends ImageView {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new c21(c(getResources(), R.drawable.obfuscated_res_0x7f080e0f), c(getResources(), R.drawable.obfuscated_res_0x7f080e0e));
+            this.a = new u31(c(getResources(), R.drawable.obfuscated_res_0x7f080e2e), c(getResources(), R.drawable.obfuscated_res_0x7f080e2d));
         }
     }
 

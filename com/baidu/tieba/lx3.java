@@ -1,62 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class lx3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public double clientX;
-    @V8JavascriptField
-    public double clientY;
-    @V8JavascriptField
-    public int identifier;
 
-    public lx3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947958210, "Lcom/baidu/tieba/lx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947958210, "Lcom/baidu/tieba/lx3;");
+                return;
             }
         }
+        a = ij1.a;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @NonNull
+    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof lx3) {
-                lx3 lx3Var = (lx3) obj;
-                return this.identifier == lx3Var.identifier && this.clientX == lx3Var.clientX && this.clientY == lx3Var.clientY;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
+            codeCacheSetting.id = str;
+            ArrayList<String> arrayList = new ArrayList<>();
+            codeCacheSetting.pathList = arrayList;
+            arrayList.add(str2);
+            if (((str.hashCode() == -1253235525 && str.equals("gamejs")) ? (char) 0 : (char) 65535) != 0) {
+                codeCacheSetting.maxCount = 20;
+                codeCacheSetting.sizeLimit = 102400;
+            } else {
+                jx3 a2 = kx3.a();
+                codeCacheSetting.maxCount = a2.a;
+                codeCacheSetting.sizeLimit = a2.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
             }
-            return false;
+            if (a) {
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
+            }
+            return codeCacheSetting;
         }
-        return invokeL.booleanValue;
+        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static int b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z && z2) {
+                return 3;
+            }
+            if (z) {
+                return 1;
+            }
+            return z2 ? 2 : 0;
         }
-        return (String) invokeV.objValue;
+        return invokeCommon.intValue;
     }
 }

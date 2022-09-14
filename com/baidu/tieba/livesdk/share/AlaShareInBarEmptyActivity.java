@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -13,8 +14,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.rg7;
+import com.baidu.tieba.zh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,13 +88,13 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, rg7 rg7Var) {
+        public void a(int i, String str, zh7 zh7Var) {
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, rg7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, zh7Var) == null) {
                 this.a.closeLoadingDialog();
-                if (i == 0 && rg7Var != null) {
-                    BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f112b));
+                if (i == 0 && zh7Var != null) {
+                    BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1148));
                     b.f(BdToast.ToastIcon.SUCCESS);
                     b.c(3000);
                     b.i();
@@ -150,8 +150,8 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!pi.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c40);
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c59);
                 finish();
             } else if ((StringUtils.isNull(this.a) && TextUtils.isEmpty(this.b)) || ListUtils.isEmpty(this.c)) {
                 finish();

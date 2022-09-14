@@ -87,20 +87,20 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             getLayoutMode().l(i == 1);
             getLayoutMode().k(this.d);
             boolean isOn = new CreateBarTipSwitch().isOn();
-            String string = getPageContext().getString(isOn ? R.string.obfuscated_res_0x7f0f046e : R.string.obfuscated_res_0x7f0f046b);
+            String string = getPageContext().getString(isOn ? R.string.obfuscated_res_0x7f0f0472 : R.string.obfuscated_res_0x7f0f046f);
             int length = string.length();
             if (isOn) {
                 sb = new StringBuilder();
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i2 = R.string.obfuscated_res_0x7f0f046f;
+                i2 = R.string.obfuscated_res_0x7f0f0473;
             } else {
                 sb = new StringBuilder();
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i2 = R.string.obfuscated_res_0x7f0f046c;
+                i2 = R.string.obfuscated_res_0x7f0f0470;
             }
             sb.append(pageContext.getString(i2));
             SpannableString spannableString = new SpannableString(sb.toString());
@@ -116,7 +116,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01fe);
+            setContentView(R.layout.obfuscated_res_0x7f0d0202);
             initData();
             z1();
         }
@@ -125,19 +125,19 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public final void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906bd);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921c3);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092216);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
                 relativeLayout.setLayoutParams(layoutParams);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f046a));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ac);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920d1);
+            this.e.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f046e));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092122);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.nadcore.max.uicomponent;
 
-import com.baidu.tieba.im0;
+import com.baidu.tieba.un0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ public final class PanelComponent$panelService$2 extends Lambda implements Funct
     public final /* synthetic */ PanelComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements im0 {
+    public static final class a implements un0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PanelComponent$panelService$2 a;
@@ -41,7 +41,7 @@ public final class PanelComponent$panelService$2 extends Lambda implements Funct
             this.a = panelComponent$panelService$2;
         }
 
-        @Override // com.baidu.tieba.im0
+        @Override // com.baidu.tieba.un0
         public void d(long j, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {

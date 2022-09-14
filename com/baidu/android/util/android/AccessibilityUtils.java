@@ -74,6 +74,6 @@ public class AccessibilityUtils {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, touchExplorationStateChangeListener) == null) || (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) == null || Build.VERSION.SDK_INT < 19) {
             return;
         }
-        accessibilityManager.addTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
+        accessibilityManager.removeTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
     }
 }

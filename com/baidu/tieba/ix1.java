@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public final class ix1 extends mw1 {
+public class ix1 extends ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int D;
-    public String E;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ix1() {
-        super("coverView", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,33 +21,30 @@ public final class ix1 extends mw1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.E = "";
+        this.a = -1;
     }
 
-    @Override // com.baidu.tieba.mw1, com.baidu.tieba.ow1, com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
+    @Override // com.baidu.tieba.ew1
+    public void a(fw1 fw1Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || (i = this.a) < 0) {
             return;
         }
-        super.a(jSONObject);
-        this.D = jSONObject.optInt("scrollTop");
-        JSONObject jSONObject3 = this.j;
-        if (jSONObject3 != null) {
-            this.E = jSONObject3.optString("overflowY");
-        }
-        gr2 gr2Var = this.h;
-        if (gr2Var == null || (jSONObject2 = this.j) == null) {
+        fw1Var.c.setStrokeMiter(i);
+    }
+
+    @Override // com.baidu.tieba.ew1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
             return;
         }
-        gr2Var.i(jSONObject2.optBoolean("fixed", false));
+        this.a = pg3.g((float) jSONArray.optDouble(0));
     }
 }

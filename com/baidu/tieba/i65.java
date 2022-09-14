@@ -1,56 +1,49 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.content.Context;
+import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i65 {
+public class i65 extends f55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LocalInputContainer t;
 
-    public static h65 a(View view2) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i65(Context context, z55 z55Var) {
+        super(context, (String) null, 36);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, z55Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (view2 instanceof LinearLayout) {
-                return new j65();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new m65();
-            }
-            if (view2 instanceof FrameLayout) {
-                return new f65();
-            }
-            return null;
         }
-        return (h65) invokeL.objValue;
+        g(context, z55Var);
+        this.m = this.t;
+        this.o = false;
+        this.n = 3;
+        this.p = new int[]{24, 3};
     }
 
-    public static h65 b(View view2, boolean z) {
-        InterceptResult invokeLZ;
+    public final void g(Context context, z55 z55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            if (view2 instanceof LinearLayout) {
-                return new j65();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new m65();
-            }
-            if (view2 instanceof FrameLayout) {
-                return z ? new n65() : new f65();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, z55Var) == null) {
+            LocalInputContainer localInputContainer = new LocalInputContainer(context);
+            this.t = localInputContainer;
+            localInputContainer.e(z55Var);
         }
-        return (h65) invokeLZ.objValue;
     }
 }

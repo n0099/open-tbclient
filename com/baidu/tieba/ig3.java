@@ -1,128 +1,149 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.e03;
+import android.content.res.Resources;
+import android.os.Build;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.Display;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ig3 implements e03.c {
+public class ig3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ ig3 b;
-
-        public a(ig3 ig3Var, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947852500, "Lcom/baidu/tieba/ig3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ig3Var, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = ig3Var;
-            this.a = viewGroup;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603dd);
-                }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
-            }
-        }
-    }
-
-    public ig3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947852500, "Lcom/baidu/tieba/ig3;");
                 return;
             }
         }
-        this.a = null;
+        a = gh3.b;
     }
 
-    @Override // com.baidu.tieba.e03.c
-    public void a(e03 e03Var, e03.b bVar) {
+    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, e03Var, bVar) == null) || e03Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        f(e03Var);
-        ViewGroup viewGroup = (ViewGroup) e03Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (hk2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Resources resources = context.getResources();
+            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
+            boolean z = false;
+            boolean z2 = identifier > 0 ? resources.getBoolean(identifier) : false;
+            try {
+                if (Build.VERSION.SDK_INT < 21) {
+                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                } else {
+                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                }
+                if (i != 0) {
+                    return false;
+                }
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                String str = (String) cls.getMethod("get", String.class).invoke(cls, "qemu.hw.mainkeys");
+                if (!"1".equals(str)) {
+                    z = "0".equals(str) ? true : z2;
+                }
+                return z;
+            } catch (Exception unused) {
+                return z2;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public final void d(ViewGroup viewGroup, View view2) {
+    public static Pair<Integer, Integer> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) == null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Pair<Integer, Integer> d = d();
+            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
         }
-        view2.post(new a(this, viewGroup));
+        return (Pair) invokeV.objValue;
     }
 
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
-            return;
-        }
-        viewGroup.removeView(frameLayout);
-        this.a = null;
-    }
-
-    public final void f(e03 e03Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, e03Var) == null) {
-            Context context = e03Var.getContext();
-            if (e03Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) e03Var.getContext()).getBaseContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e()) {
+                return pg3.r(AppRuntime.getAppContext().getResources(), pg3.L() ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
             }
-            if (context instanceof Activity) {
-                jd3.b((Activity) context, e03Var);
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static Pair<Integer, Integer> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+            if (windowManager == null) {
+                return new Pair<>(Integer.valueOf(pg3.o(appContext)), Integer.valueOf(pg3.n(appContext)));
+            }
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getRealMetrics(displayMetrics);
+            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (f(appContext)) {
+                return false;
+            }
+            return a(appContext);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            String str = Build.BRAND;
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
+                }
+                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
+                    return str.equalsIgnoreCase("XIAOMI") ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) != 0 : str.equalsIgnoreCase("VIVO") ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(a) ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase("SAMSUNG") ? Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) != 0 : Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0;
+                }
+                return Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
+            } catch (Exception e) {
+                if (ij1.a) {
+                    e.printStackTrace();
+                }
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 }

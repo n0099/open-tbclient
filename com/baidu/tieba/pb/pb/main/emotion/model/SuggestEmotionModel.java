@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.gh;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
-import com.baidu.tieba.ry7;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.yz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,13 +37,13 @@ public class SuggestEmotionModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0371a implements Runnable {
+        public class RunnableC0375a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0371a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0375a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class SuggestEmotionModel extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                sg.a().post(new RunnableC0371a(this, customResponsedMessage));
+                gh.a().post(new RunnableC0375a(this, customResponsedMessage));
             }
         }
     }
@@ -150,7 +150,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(ry7 ry7Var);
+        void a(yz7 yz7Var);
 
         void onFail(int i, String str);
     }

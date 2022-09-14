@@ -260,7 +260,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
                 wrap.setClickable(false);
                 wrap.removeAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
             }
-            wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f099c));
+            wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f09af));
         }
     }
 
@@ -568,12 +568,12 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
         this.itemPosition = -1;
         Resources resources = getResources();
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0210, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f080482);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0214, (ViewGroup) this, true);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f08048b);
         this.defaultMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb);
-        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e06);
-        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb4);
-        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091238);
+        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e21);
+        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091f04);
+        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091256);
         ViewCompat.setImportantForAccessibility(this.smallLabel, 2);
         ViewCompat.setImportantForAccessibility(this.largeLabel, 2);
         setFocusable(true);

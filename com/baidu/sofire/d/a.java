@@ -23,12 +23,12 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC0160a extends Binder implements a {
+    public static abstract class AbstractBinderC0159a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractBinderC0160a() {
+        public AbstractBinderC0159a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                     return (a) queryLocalInterface;
                 }
-                return new C0161a(iBinder);
+                return new C0160a(iBinder);
             }
             return (a) invokeL.objValue;
         }
@@ -118,12 +118,12 @@ public interface a extends IInterface {
 
         /* renamed from: com.baidu.sofire.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0161a implements a {
+        public static class C0160a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0161a(IBinder iBinder) {
+            public C0160a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,7 +153,7 @@ public interface a extends IInterface {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
                         if (!this.a.transact(1, obtain, obtain2, 0)) {
-                            int i = AbstractBinderC0160a.a;
+                            int i = AbstractBinderC0159a.a;
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -184,7 +184,7 @@ public interface a extends IInterface {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
                         if (!this.a.transact(2, obtain, obtain2, 0)) {
-                            int i = AbstractBinderC0160a.a;
+                            int i = AbstractBinderC0159a.a;
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -207,7 +207,7 @@ public interface a extends IInterface {
                         obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                         obtain.writeString(str);
                         if (!this.a.transact(3, obtain, obtain2, 0)) {
-                            int i = AbstractBinderC0160a.a;
+                            int i = AbstractBinderC0159a.a;
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;

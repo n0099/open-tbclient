@@ -11,12 +11,12 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static int aiY = 80;
     public static int port = 80;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Thread {
         public LinkedList aja = new LinkedList();
         public volatile boolean ajb = false;
@@ -29,8 +29,8 @@ public final class b {
         private void xK() {
             synchronized (this.aja) {
                 while (this.aja.size() > 0) {
-                    C0615b c0615b = (C0615b) this.aja.removeFirst();
-                    c0615b.ajd.register(this.aiZ, 8, c0615b);
+                    C0620b c0620b = (C0620b) this.aja.removeFirst();
+                    c0620b.ajd.register(this.aiZ, 8, c0620b);
                 }
             }
         }
@@ -40,17 +40,17 @@ public final class b {
             while (it.hasNext()) {
                 SelectionKey next = it.next();
                 it.remove();
-                C0615b c0615b = (C0615b) next.attachment();
+                C0620b c0620b = (C0620b) next.attachment();
                 SocketChannel socketChannel = (SocketChannel) next.channel();
                 try {
                     if (socketChannel.finishConnect()) {
                         next.cancel();
-                        c0615b.ajh = SystemClock.elapsedRealtime();
+                        c0620b.ajh = SystemClock.elapsedRealtime();
                         socketChannel.close();
                     }
                 } catch (Throwable th) {
                     bd.b(socketChannel);
-                    c0615b.aje = th;
+                    c0620b.aje = th;
                 }
             }
         }
@@ -59,23 +59,23 @@ public final class b {
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0005 */
         /* JADX DEBUG: Multi-variable search result rejected for r5v4, resolved type: java.nio.channels.Selector */
         /* JADX WARN: Multi-variable type inference failed */
-        public final void a(C0615b c0615b) {
+        public final void a(C0620b c0620b) {
             SocketChannel socketChannel;
             try {
                 socketChannel = SocketChannel.open();
                 try {
                     socketChannel.configureBlocking(false);
-                    boolean connect = socketChannel.connect(c0615b.ajc);
-                    c0615b.ajd = socketChannel;
+                    boolean connect = socketChannel.connect(c0620b.ajc);
+                    c0620b.ajd = socketChannel;
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    c0615b.ajg = elapsedRealtime;
+                    c0620b.ajg = elapsedRealtime;
                     if (connect) {
-                        c0615b.ajh = elapsedRealtime;
+                        c0620b.ajh = elapsedRealtime;
                         bd.b(socketChannel);
-                        c0615b = c0615b;
+                        c0620b = c0620b;
                     } else {
                         synchronized (this.aja) {
-                            this.aja.add(c0615b);
+                            this.aja.add(c0620b);
                         }
                         if (this.aiZ == null) {
                             return;
@@ -83,14 +83,14 @@ public final class b {
                         try {
                             Selector selector = this.aiZ;
                             selector.wakeup();
-                            c0615b = selector;
+                            c0620b = selector;
                         } catch (Throwable unused) {
                         }
                     }
                 } catch (Throwable th) {
                     th = th;
                     bd.b(socketChannel);
-                    c0615b.aje = th;
+                    c0620b.aje = th;
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -137,8 +137,8 @@ public final class b {
     }
 
     /* renamed from: com.kwad.sdk.ip.direct.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0615b {
+    /* loaded from: classes8.dex */
+    public static class C0620b {
         public InetSocketAddress ajc;
         public SocketChannel ajd;
         public Throwable aje;
@@ -148,7 +148,7 @@ public final class b {
         public boolean aji = false;
         public boolean success;
 
-        public C0615b(String str) {
+        public C0620b(String str) {
             try {
                 this.ajc = new InetSocketAddress(InetAddress.getByName(str), b.port);
             } catch (Throwable th) {
@@ -195,10 +195,10 @@ public final class b {
             aVar.start();
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < cVar.xN(); i++) {
-                C0615b c0615b = new C0615b(str);
-                linkedList.add(c0615b);
+                C0620b c0620b = new C0620b(str);
+                linkedList.add(c0620b);
                 try {
-                    aVar.a(c0615b);
+                    aVar.a(c0620b);
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                 }
@@ -212,11 +212,11 @@ public final class b {
                     Iterator it = linkedList.iterator();
                     boolean z = true;
                     while (it.hasNext()) {
-                        C0615b c0615b2 = (C0615b) it.next();
-                        c0615b2.xM();
-                        z &= c0615b2.success;
+                        C0620b c0620b2 = (C0620b) it.next();
+                        c0620b2.xM();
+                        z &= c0620b2.success;
                         cVar.aU(z);
-                        f += c0615b2.ajf;
+                        f += c0620b2.ajf;
                     }
                     com.kwad.sdk.core.e.b.d("IpDirect_Ping", "sum:" + f + "*size:" + linkedList.size());
                     cVar.g(f / ((float) linkedList.size()));

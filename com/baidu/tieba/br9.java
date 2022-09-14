@@ -1,161 +1,244 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.session.XRSessionAnchor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.internal.ImmutableList;
-import com.squareup.wire2.internal.MutableOnWriteList;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes3.dex */
-public final class br9 {
+public final class br9 extends ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
+    public static final br9 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public Exception a;
+    public ArCoreApk.Availability b;
+    public boolean c;
+    public hr9 d;
+    public boolean e;
+    public boolean f;
+    public int g;
 
-    public static void a(List<?> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            if (list != null) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) == null) {
-                        throw new NullPointerException("Element at index " + i + " is null");
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654720, "Lcom/baidu/tieba/br9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947654720, "Lcom/baidu/tieba/br9;");
                 return;
             }
-            throw new NullPointerException("list == null");
+        }
+        h = new br9();
+    }
+
+    public br9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static void b(Map<?, ?> map) {
+    public static br9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
-            if (map != null) {
-                for (Map.Entry<?, ?> entry : map.entrySet()) {
-                    if (entry.getKey() != null) {
-                        if (entry.getValue() == null) {
-                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? h : (br9) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
+    }
+
+    public static int k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
+                int i = packageInfo.versionCode;
+                if (i == 0) {
+                    if (packageInfo.services != null) {
+                        if (packageInfo.services.length == 0) {
                         }
-                    } else {
-                        throw new NullPointerException("map.containsKey(null)");
                     }
+                    return -1;
                 }
-                return;
+                return i;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return -1;
             }
-            throw new NullPointerException("map == null");
         }
+        return invokeL.intValue;
     }
 
-    public static <T> List<T> c(String str, List<T> list) {
-        InterceptResult invokeLL;
+    @Override // com.google.ar.core.ArCoreApk
+    public final ArCoreApk.Availability a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            if (list != null) {
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    return new ArrayList(list);
-                }
-                return new MutableOnWriteList(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!i()) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
             }
-            throw new NullPointerException(str + " == null");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (map != null) {
-                return new LinkedHashMap(map);
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static int e(Object obj, Object obj2, Object obj3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
-            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
-        }
-        return invokeLLL.intValue;
-    }
-
-    public static boolean f(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
-    }
-
-    public static <T> List<T> g(String str, List<T> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
-            if (list != null) {
-                if (list instanceof MutableOnWriteList) {
-                    list = ((MutableOnWriteList) list).mutableList;
+            try {
+                if (h(context)) {
+                    g();
+                    return ar9.c(context);
                 }
-                if (list == Collections.emptyList() || (list instanceof ImmutableList)) {
-                    return list;
-                }
-                ImmutableList immutableList = new ImmutableList(list);
-                if (immutableList.contains(null)) {
-                    throw new IllegalArgumentException(str + ".contains(null)");
-                }
-                return immutableList;
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
-            if (map != null) {
-                if (map.isEmpty()) {
-                    return Collections.emptyMap();
-                }
-                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
-                if (!linkedHashMap.containsKey(null)) {
-                    if (!linkedHashMap.containsValue(null)) {
-                        return Collections.unmodifiableMap(linkedHashMap);
+                synchronized (this) {
+                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
+                        this.c = true;
+                        ar9 ar9Var = new ar9(this);
+                        if (h(context)) {
+                            ar9Var.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
+                        } else if (k(context) != -1) {
+                            ar9Var.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
+                        } else if (j(context)) {
+                            ar9Var.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                        } else {
+                            e(context).e(context, ar9Var);
+                        }
                     }
-                    throw new IllegalArgumentException(str + ".containsValue(null)");
+                    if (this.b != null) {
+                        return this.b;
+                    }
+                    if (this.c) {
+                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
+                    }
+                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
+                    return ArCoreApk.Availability.UNKNOWN_ERROR;
                 }
-                throw new IllegalArgumentException(str + ".containsKey(null)");
+            } catch (FatalException e) {
+                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
             }
-            throw new NullPointerException(str + " == null");
         }
-        return (Map) invokeLL.objValue;
+        return (ArCoreApk.Availability) invokeL.objValue;
     }
 
-    public static <T> List<T> i() {
-        InterceptResult invokeV;
+    public final synchronized hr9 e(Context context) {
+        InterceptResult invokeL;
+        hr9 hr9Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new MutableOnWriteList(Collections.emptyList()) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    hr9 hr9Var2 = new hr9((byte) 0);
+                    hr9Var2.d(context.getApplicationContext());
+                    this.d = hr9Var2;
+                }
+                hr9Var = this.d;
+            }
+            return hr9Var;
+        }
+        return (hr9) invokeL.objValue;
     }
 
-    public static <K, V> Map<K, V> j() {
-        InterceptResult invokeV;
+    public final synchronized void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new LinkedHashMap() : (Map) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Exception exc = this.a;
+                if (this.d != null) {
+                    this.d.a();
+                    this.d = null;
+                }
+            }
+        }
     }
 
-    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
+    public final boolean h(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                list.set(i, protoAdapter.redact(list.get(i)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            l(context);
+            return k(context) == 0 || k(context) >= this.g;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            l(context);
+            return this.f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            synchronized (this) {
+                if (this.e) {
+                    return;
+                }
+                PackageManager packageManager = context.getPackageManager();
+                String packageName = context.getPackageName();
+                try {
+                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
+                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
+                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
+                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
+                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
+                            try {
+                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
+                                String canonicalName = InstallActivity.class.getCanonicalName();
+                                int length = activityInfoArr.length;
+                                boolean z = false;
+                                int i = 0;
+                                while (true) {
+                                    if (i >= length) {
+                                        break;
+                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                if (!z) {
+                                    String valueOf = String.valueOf(canonicalName);
+                                    throw new FatalException(valueOf.length() != 0 ? "Application manifest must contain activity ".concat(valueOf) : new String("Application manifest must contain activity "));
+                                } else {
+                                    this.e = true;
+                                    return;
+                                }
+                            } catch (PackageManager.NameNotFoundException e) {
+                                throw new FatalException("Could not load application package info", e);
+                            }
+                        }
+                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
+                    }
+                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
+                } catch (PackageManager.NameNotFoundException e2) {
+                    throw new FatalException("Could not load application package metadata", e2);
+                }
             }
         }
     }

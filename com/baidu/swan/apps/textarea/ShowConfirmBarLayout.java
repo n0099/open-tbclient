@@ -74,7 +74,7 @@ public class ShowConfirmBarLayout extends RelativeLayout {
                 return;
             }
         }
-        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d3, this).findViewById(R.id.obfuscated_res_0x7f0906b0);
+        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d5, this).findViewById(R.id.obfuscated_res_0x7f0906c6);
         this.a = button;
         button.setOnClickListener(new a(this));
     }

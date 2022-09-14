@@ -80,9 +80,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final int CHIP_BODY_VIRTUAL_ID = 0;
     public static final int CLOSE_ICON_VIRTUAL_ID = 1;
     public static final String COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.CompoundButton";
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f10035c = 2131755868;
+    public static final int DEF_STYLE_RES = 2131755869;
     public static final Rect EMPTY_BOUNDS;
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public static final int MIN_TOUCH_TARGET_DP = 48;
@@ -211,7 +209,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         Context context = this.this$0.getContext();
                         Object[] objArr = new Object[1];
                         objArr[0] = TextUtils.isEmpty(text) ? "" : text;
-                        accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0b04, objArr).trim());
+                        accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0b1a, objArr).trim());
                     }
                     accessibilityNodeInfoCompat.setBoundsInParent(this.this$0.getCloseIconTouchBoundsInt());
                     accessibilityNodeInfoCompat.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
@@ -416,7 +414,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     private void initMinTouchTarget(Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65555, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040143, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f04015a, R.attr.obfuscated_res_0x7f04015c, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f04015e, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f040162, R.attr.obfuscated_res_0x7f040163, R.attr.obfuscated_res_0x7f040287, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f0406ea, R.attr.obfuscated_res_0x7f0406f2}, i, obfuscated_res_0x7f10035c, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, com.google.android.material.R.styleable.Chip, i, DEF_STYLE_RES, new int[0]);
             this.ensureMinTouchTargetSize = obtainStyledAttributes.getBoolean(31, false);
             this.minTouchTargetSize = (int) Math.ceil(obtainStyledAttributes.getDimension(19, (float) Math.ceil(ViewUtils.dpToPx(getContext(), 48))));
             obtainStyledAttributes.recycle();
@@ -2248,7 +2246,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Chip(Context context, AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035c), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2310,11 +2308,11 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         };
         Context context2 = getContext();
         validateAttributes(attributeSet);
-        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i, obfuscated_res_0x7f10035c);
+        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i, DEF_STYLE_RES);
         initMinTouchTarget(context2, attributeSet, i);
         setChipDrawable(createFromAttributes);
         createFromAttributes.setElevation(ViewCompat.getElevation(this));
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040143, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f04015a, R.attr.obfuscated_res_0x7f04015c, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f04015e, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f040162, R.attr.obfuscated_res_0x7f040163, R.attr.obfuscated_res_0x7f040287, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f0406ea, R.attr.obfuscated_res_0x7f0406f2}, i, obfuscated_res_0x7f10035c, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.Chip, i, DEF_STYLE_RES, new int[0]);
         if (Build.VERSION.SDK_INT < 23) {
             setTextColor(MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1));
         }

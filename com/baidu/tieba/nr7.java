@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes5.dex */
-public interface nr7 {
-    public static final BdUniqueId a = BdUniqueId.gen();
+public interface nr7<T> {
+    void onUpdate(T t);
 }

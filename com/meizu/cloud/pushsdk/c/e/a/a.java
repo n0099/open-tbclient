@@ -4,7 +4,7 @@ import com.meizu.cloud.pushsdk.c.b.a.b;
 import com.meizu.cloud.pushsdk.c.e.c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c {
     public static final String n = "a";
     public static ScheduledExecutorService o;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.template.message;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.uc5;
+import com.baidu.tieba.df5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uc5 mIResp;
+    public df5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateHttpResponseMessage(int i) {
@@ -47,10 +47,10 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
         return (TemplateNetMessage) invokeV.objValue;
     }
 
-    public uc5 getIResp() {
+    public df5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (uc5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (df5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
             if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
                 return;
             }
-            uc5 iResp = templateNetMessage.getIResp();
+            df5 iResp = templateNetMessage.getIResp();
             this.mIResp = iResp;
             iResp.a(i, bArr);
             setError(this.mIResp.getErrorCode());

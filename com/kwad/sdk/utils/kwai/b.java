@@ -2,7 +2,7 @@ package com.kwad.sdk.utils.kwai;
 
 import java.nio.charset.Charset;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static final Charset UTF_8 = Charset.forName("UTF-8");
     public char[] apv;

@@ -1,95 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ys5 {
+public class ys5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    public SdkLiveInfoData a;
     public boolean b;
-    public long c;
-    public List<a> d;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948340750, "Lcom/baidu/tieba/ys5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948340750, "Lcom/baidu/tieba/ys5;");
                 return;
             }
-            this.a = jSONObject.optInt("tag_type");
-            this.b = jSONObject.optString("tag_word");
         }
+        i = BdUniqueId.gen();
     }
 
     public ys5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.b = jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) == 1;
-        this.c = jSONObject.optLong("last_watch_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
-        if (optJSONObject != null) {
-            ThreadData threadData = new ThreadData();
-            this.a = threadData;
-            threadData.parserJson(optJSONObject);
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("tags");
-        if (optJSONArray == null) {
-            return;
-        }
-        int length = optJSONArray.length();
-        this.d = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-            if (optJSONObject2 != null) {
-                a aVar = new a();
-                aVar.a(optJSONObject2);
-                this.d.add(aVar);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
     }
 }

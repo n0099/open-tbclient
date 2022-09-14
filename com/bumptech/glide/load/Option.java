@@ -23,7 +23,7 @@ public final class Option<T> {
     public final String key;
     public volatile byte[] keyBytes;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface CacheKeyUpdater<T> {
         void update(@NonNull byte[] bArr, @NonNull T t, @NonNull MessageDigest messageDigest);
     }

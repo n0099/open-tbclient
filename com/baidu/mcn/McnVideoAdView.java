@@ -18,9 +18,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc8;
-import com.baidu.tieba.mc0;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.nd8;
+import com.baidu.tieba.sd0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ public class McnVideoAdView extends FrameLayout {
     public float g;
     public float h;
     public boolean i;
-    public mc0 j;
+    public sd0 j;
     public c k;
     public final Handler l;
     public ViewParent m;
@@ -133,11 +133,11 @@ public class McnVideoAdView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface c {
-        void a(mc0 mc0Var);
+        void a(sd0 sd0Var);
 
-        void b(mc0 mc0Var);
+        void b(sd0 sd0Var);
 
-        void c(mc0 mc0Var);
+        void c(sd0 sd0Var);
     }
 
     static {
@@ -182,20 +182,20 @@ public class McnVideoAdView extends FrameLayout {
         h();
     }
 
-    private void setData(mc0 mc0Var) {
+    private void setData(sd0 sd0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, mc0Var) == null) || mc0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, this, sd0Var) == null) || sd0Var == null) {
             return;
         }
-        this.j = mc0Var;
-        this.b.K(mc0Var.a, 10, false);
-        if (!StringUtils.isNull(mc0Var.b)) {
-            this.c.setText(mc0Var.b);
+        this.j = sd0Var;
+        this.b.K(sd0Var.a, 10, false);
+        if (!StringUtils.isNull(sd0Var.b)) {
+            this.c.setText(sd0Var.b);
         }
-        if (StringUtils.isNull(mc0Var.c)) {
+        if (StringUtils.isNull(sd0Var.c)) {
             return;
         }
-        this.d.setText(mc0Var.c);
+        this.d.setText(sd0Var.c);
     }
 
     public final void d() {
@@ -207,13 +207,13 @@ public class McnVideoAdView extends FrameLayout {
 
     public final void e() {
         Context context;
-        mc0 mc0Var;
+        sd0 sd0Var;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (mc0Var = this.j) == null || (str = mc0Var.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (sd0Var = this.j) == null || (str = sd0Var.d) == null) {
             return;
         }
-        fc8.a(context, str, null, null, null);
+        nd8.a(context, str, null, null, null);
         c cVar = this.k;
         if (cVar != null) {
             cVar.b(this.j);
@@ -239,14 +239,14 @@ public class McnVideoAdView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0561, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e28);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e2a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e29);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0578, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e43);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e45);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e44);
             this.b.setConrers(5);
-            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d3c);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d3c);
-            this.b.setRadius(ri.f(this.a, R.dimen.tbds20));
+            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d5b);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d5b);
+            this.b.setRadius(ej.f(this.a, R.dimen.tbds20));
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009e);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009d);
             this.f = loadAnimation;
@@ -277,10 +277,10 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void l(mc0 mc0Var, ViewGroup viewGroup) {
+    public void l(sd0 sd0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mc0Var, viewGroup) == null) {
-            m(mc0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sd0Var, viewGroup) == null) {
+            m(sd0Var, viewGroup);
             if (this.e != null) {
                 clearAnimation();
                 startAnimation(this.e);
@@ -288,11 +288,11 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void m(mc0 mc0Var, ViewGroup viewGroup) {
+    public void m(sd0 sd0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, mc0Var, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, sd0Var, viewGroup) == null) {
             this.i = true;
-            setData(mc0Var);
+            setData(sd0Var);
             viewGroup.removeView(this);
             viewGroup.addView(this);
             if (viewGroup instanceof FrameLayout) {
@@ -309,7 +309,7 @@ public class McnVideoAdView extends FrameLayout {
             }
             c cVar = this.k;
             if (cVar != null) {
-                cVar.c(mc0Var);
+                cVar.c(sd0Var);
             }
         }
     }

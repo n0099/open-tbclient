@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ie8;
+import com.baidu.tieba.rf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ie8 loadMoreData;
+    public rf8 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreSocketResponseMessage() {
@@ -54,18 +54,18 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
             }
             DataRes dataRes = getMoreMsgResIdl.data;
             if (dataRes != null && dataRes != null) {
-                ie8 ie8Var = new ie8();
-                this.loadMoreData = ie8Var;
-                ie8Var.c(getMoreMsgResIdl.data);
+                rf8 rf8Var = new rf8();
+                this.loadMoreData = rf8Var;
+                rf8Var.c(getMoreMsgResIdl.data);
             }
             return getMoreMsgResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public ie8 getData() {
+    public rf8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadMoreData : (ie8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadMoreData : (rf8) invokeV.objValue;
     }
 }

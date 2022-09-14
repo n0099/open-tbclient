@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class ConcernUnreadTipReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ye5.a(builder, true);
+                    fh5.a(builder, true);
                 }
                 UnreadTipReqIdl.Builder builder2 = new UnreadTipReqIdl.Builder();
                 builder2.data = builder.build(false);

@@ -26,7 +26,7 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k = new a.C0147a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k = new a.C0146a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k.i();
             com.baidu.searchbox.dns.d.a.a h = k.h();
             int j = k.j();

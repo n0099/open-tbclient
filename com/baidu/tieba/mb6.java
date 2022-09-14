@@ -1,153 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.qb6;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class mb6 {
+public class mb6 extends kb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Pattern a;
-    public TbPageContext<?> b;
-    public View c;
-    public CoverFlowView<ss4> d;
-    public qb6 e;
-    public vs4<ss4> f;
 
-    /* loaded from: classes5.dex */
-    public class a extends ts4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mb6 a;
-
-        public a(mb6 mb6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mb6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mb6Var;
-        }
-
-        @Override // com.baidu.tieba.ts4, com.baidu.tieba.rs4
-        public us4 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                us4 a = super.a();
-                if (a != null) {
-                    a.d(81);
-                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
-                }
-                return a;
-            }
-            return (us4) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ts4, com.baidu.tieba.rs4
-        public ws4 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ws4 ws4Var = new ws4();
-                ws4Var.a((int) (ri.k(this.a.b.getPageActivity()) / 2.5714285f));
-                return ws4Var;
-            }
-            return (ws4) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ts4, com.baidu.tieba.rs4
-        public TbImageView d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                TbImageView tbImageView = new TbImageView(context);
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.setGifIconSupport(false);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements vs4<ss4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mb6 a;
-
-        public b(mb6 mb6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mb6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mb6Var;
-        }
-
-        @Override // com.baidu.tieba.vs4
-        public void a(int i, ss4 ss4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, ss4Var) != null) || ss4Var == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vs4
-        public void b(int i, String str) {
-            qb6.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (aVar = (qb6.a) this.a.d.n(i)) == null) {
-                return;
-            }
-            Matcher matcher = this.a.a.matcher(aVar.b());
-            if (matcher.find()) {
-                this.a.b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
-            }
-        }
-    }
-
-    public mb6(TbPageContext<?> tbPageContext) {
+    public mb6(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,60 +25,21 @@ public class mb6 {
                 return;
             }
         }
-        this.a = Pattern.compile(UrlSchemaHelper.PB_URL);
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.b = tbPageContext;
-        d();
+        this.d = z;
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kb6
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public final void d() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            qb6 qb6Var = this.a;
+            if (qb6Var.h == null) {
+                this.b.onError(qb6Var.f, "cover config is null !!");
+                return;
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(qb6Var.a, qb6Var.b, Bitmap.Config.ARGB_8888);
+            createBitmap.copyPixelsFromBuffer(this.a.h);
+            g(new pb6(), createBitmap);
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07cc, (ViewGroup) null);
-        this.c = inflate;
-        if (inflate == null) {
-            return;
-        }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091eee);
-        a aVar = new a(this);
-        this.d.setDisableParentEvent(false);
-        this.d.setCoverFlowFactory(aVar);
-        this.d.setCallback(this.f);
-    }
-
-    public void e(qb6 qb6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qb6Var) == null) || qb6Var == null || qb6Var == this.e) {
-            return;
-        }
-        this.d.setData(qb6Var.a());
-        this.e = qb6Var;
-    }
-
-    public void f(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
-        }
-    }
-
-    public void g() {
-        CoverFlowView<ss4> coverFlowView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.d) == null) {
-            return;
-        }
-        coverFlowView.v();
     }
 }

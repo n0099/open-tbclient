@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.IntentFilter;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,42 +16,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class ju2 implements lu2 {
+public class ju2 extends z23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ku2 a;
-    public SimpleDateFormat b;
-    public HashMap<String, List<iu2>> c;
-    public final Object d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public long h;
-    public long i;
-    public volatile wu2 j;
+    public NetworkBroadcastReceiver a;
+    public TelephonyManager b;
+    public a c;
 
     /* loaded from: classes4.dex */
-    public class a implements ku2 {
+    public class a extends PhoneStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ju2 a;
+        public WeakReference<CallbackHandler> a;
+        public String b;
+        public String c;
+        public final /* synthetic */ ju2 d;
 
-        public a(ju2 ju2Var) {
+        public a(ju2 ju2Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ju2Var};
+                Object[] objArr = {ju2Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,23 +50,36 @@ public class ju2 implements lu2 {
                     return;
                 }
             }
-            this.a = ju2Var;
+            this.d = ju2Var;
+            this.c = "";
+            this.a = new WeakReference<>(callbackHandler);
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.ku2
-        public boolean a(iu2 iu2Var) {
-            InterceptResult invokeL;
+        public void a(CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iu2Var)) == null) {
-                if (iu2Var == null || iu2Var.c() < 0) {
-                    return false;
-                }
-                if (ju2.k || iu2Var.b() == 0) {
-                    return this.a.m(iu2Var.e());
-                }
-                return false;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+                this.a = new WeakReference<>(callbackHandler);
+                this.b = str;
             }
-            return invokeL.booleanValue;
+        }
+
+        @Override // android.telephony.PhoneStateListener
+        public void onDataConnectionStateChanged(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                if (ju2.d) {
+                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
+                }
+                if (2 == i) {
+                    String d = SwanAppNetworkUtils.d(i2, null);
+                    if (TextUtils.isEmpty(d) || d.equals(this.c)) {
+                        return;
+                    }
+                    this.c = d;
+                    SwanAppNetworkUtils.k(this.d, this.a.get(), this.b);
+                }
+            }
         }
     }
 
@@ -89,300 +96,59 @@ public class ju2 implements lu2 {
                 return;
             }
         }
-        k = kh1.a;
+        d = ij1.a;
     }
 
-    public ju2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ju2(y23 y23Var) {
+        super(y23Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {y23Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((y23) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new Object();
     }
 
-    @Override // com.baidu.tieba.lu2
-    public void b(JSONObject jSONObject) {
+    public void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && nu2.h().k()) {
-            n();
-            if (this.f) {
-                o("aiapp start finish");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+            if (this.b == null) {
+                this.b = (TelephonyManager) getSystemService("phone");
+                a aVar = new a(this, callbackHandler, str);
+                this.c = aVar;
+                this.b.listen(aVar, 64);
                 return;
             }
-            o("ubcReport enter");
-            if (jSONObject != null && jSONObject.length() > 0) {
-                String k2 = k(jSONObject);
-                o("Id " + k2);
-                if (TextUtils.equals(k2, "786")) {
-                    if (k) {
-                        Log.d("ApiCalledMarker", jSONObject.toString());
-                    }
-                    JSONObject j = j(jSONObject);
-                    if (j != null && j.length() > 0) {
-                        JSONObject optJSONObject = j.optJSONObject("ext");
-                        if (optJSONObject != null && optJSONObject.length() > 0) {
-                            if (TextUtils.isEmpty(this.e)) {
-                                this.e = optJSONObject.optString("swan");
-                                o("current swan version " + this.e);
-                            }
-                            JSONArray optJSONArray = optJSONObject.optJSONArray("list");
-                            if (optJSONArray != null && optJSONArray.length() > 0) {
-                                q(optJSONArray);
-                                o("ubcReport over");
-                                t(i());
-                                return;
-                            }
-                            o("value-ext-list is empty");
-                            return;
-                        }
-                        o("value-ext is empty");
-                        return;
-                    }
-                    o("value is empty");
-                    return;
-                }
-                return;
-            }
-            o("json data is empty");
-        }
-    }
-
-    @Override // com.baidu.tieba.mu2
-    public void end(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.g = true;
-            this.i = j;
-            t(i());
-            o("launch end time-" + (this.h + this.i));
-        }
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.g && this.b != null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("----- ");
-                sb.append("launch start time ");
-                sb.append(this.b.format(Long.valueOf(this.h)));
-                sb.append("\n");
-                sb.append("----- ");
-                sb.append("launch end time ");
-                sb.append(this.b.format(Long.valueOf(this.h + this.i)));
-                sb.append("\n");
-                sb.append("----- ");
-                sb.append("swan js version ");
-                sb.append(this.e);
-                sb.append("\n");
-                synchronized (this.d) {
-                    i = 0;
-                    i2 = 0;
-                    for (Map.Entry<String, List<iu2>> entry : this.c.entrySet()) {
-                        List<iu2> value = entry.getValue();
-                        if (value != null && value.size() > 0) {
-                            StringBuilder sb2 = new StringBuilder();
-                            int i3 = 0;
-                            for (iu2 iu2Var : value) {
-                                if (this.a == null || this.a.a(iu2Var)) {
-                                    sb2.append("----- start time ");
-                                    sb2.append(this.b.format(Long.valueOf(iu2Var.e())));
-                                    sb2.append("\n");
-                                    sb2.append("----- end time ");
-                                    sb2.append(this.b.format(Long.valueOf(iu2Var.d())));
-                                    sb2.append("\n");
-                                    sb2.append("----- cost time ");
-                                    sb2.append(iu2Var.c());
-                                    sb2.append("ms\n");
-                                    sb2.append("----------------------------\n");
-                                    i2++;
-                                    i3++;
-                                }
-                            }
-                            if (i3 > 0) {
-                                sb.append("\n===== ");
-                                sb.append(entry.getKey());
-                                sb.append(" ");
-                                sb.append(i3);
-                                sb.append(" times\n");
-                                sb.append((CharSequence) sb2);
-                                i++;
-                            }
-                        }
-                    }
-                }
-                sb.append("===== total: ");
-                sb.append(i);
-                sb.append(" apis, ");
-                sb.append(i2);
-                sb.append(" times");
-                String sb3 = sb.toString();
-                ay1.b("ApiCalledMarker", sb3);
-                return sb3;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final JSONObject j(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("content");
-            return optJSONObject == null ? jSONObject.optJSONObject("value") : optJSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final String k(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("ubcId");
-            return TextUtils.isEmpty(optString) ? jSONObject.optString("actionId") : optString;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void l(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) && this.j == null) {
-            synchronized (this.d) {
-                if (this.j == null) {
-                    this.j = jSONObject.has("caller") ? new vu2() : new uu2();
-                }
+            a aVar2 = this.c;
+            if (aVar2 != null) {
+                aVar2.a(callbackHandler, str);
             }
         }
     }
 
-    public final boolean m(long j) {
-        InterceptResult invokeJ;
+    public void b(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            long j2 = this.h;
-            return j >= j2 && j <= j2 + this.i;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.c == null) {
-            synchronized (this.d) {
-                if (this.c == null) {
-                    this.c = new HashMap<>();
-                    this.b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
-                    this.a = new a(this);
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
+            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
+            if (networkBroadcastReceiver == null) {
+                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                registerReceiver(this.a, intentFilter);
+            } else if (networkBroadcastReceiver != null) {
+                networkBroadcastReceiver.updateCallback(callbackHandler, str);
             }
+            a(callbackHandler, str);
         }
-    }
-
-    public final void o(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && k) {
-            Log.d("ApiCalledMarker", str);
-        }
-    }
-
-    public final boolean p(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) ? this.g && j > this.h + this.i : invokeJ.booleanValue;
-    }
-
-    public final void q(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jSONArray) == null) {
-            o("start parse api info");
-            int length = jSONArray.length();
-            boolean z = length > 0;
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null && optJSONObject.length() > 0 && optJSONObject.optInt("success") == 1) {
-                    z &= !r(optJSONObject);
-                }
-            }
-            this.f = z;
-            o("start done " + this.f);
-        }
-    }
-
-    public final boolean r(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        List<iu2> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jSONObject)) == null) {
-            l(jSONObject);
-            String optString = jSONObject.optString("apiName");
-            if (TextUtils.isEmpty(optString) || (a2 = this.j.a(jSONObject)) == null || a2.size() <= 0) {
-                return true;
-            }
-            boolean z = a2.size() > 0;
-            synchronized (this.d) {
-                List<iu2> list = this.c.get(optString);
-                if (list == null) {
-                    list = new ArrayList<>();
-                    this.c.put(optString, list);
-                }
-                list.addAll(a2);
-                for (iu2 iu2Var : a2) {
-                    z &= p(iu2Var.e());
-                }
-            }
-            if (k) {
-                Log.d("ApiCalledMarker", "api - " + optString + ", all after fmp - " + z);
-            }
-            return !z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.c.size() > 0) {
-                synchronized (this.d) {
-                    this.c.clear();
-                }
-            }
-            this.f = false;
-            this.g = false;
-            this.i = 0L;
-            this.h = 0L;
-            this.e = null;
-            t("===== loading... =====");
-        }
-    }
-
-    @Override // com.baidu.tieba.mu2
-    public void start(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            n();
-            s();
-            this.h = j;
-            o("launch start time-" + j);
-        }
-    }
-
-    public final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        wc3.j.update((vc3<String>) str);
     }
 }

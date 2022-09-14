@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ea5 implements ha5 {
+public class ea5 implements u95<AgreeEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,5 +27,27 @@ public abstract class ea5 implements ha5 {
         }
     }
 
-    public abstract void a(byte b);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.u95
+    /* renamed from: a */
+    public boolean onEvent(AgreeEvent agreeEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
+            if (agreeEvent != null && agreeEvent.agreeData != null) {
+                lm8 lm8Var = new lm8();
+                lm8Var.b = agreeEvent.agreeData;
+                String str = agreeEvent.agreeExtra;
+                if (AgreeEvent.IS_THREAD.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, lm8Var));
+                    return true;
+                } else if (AgreeEvent.IS_POST.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, lm8Var));
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

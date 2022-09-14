@@ -1,5 +1,5 @@
 package com.kwad.sdk.widget;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface j {
     void av();
 }

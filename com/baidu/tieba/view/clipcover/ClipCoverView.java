@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ls4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +99,7 @@ public class ClipCoverView extends View {
                 this.c = new Path();
             }
             this.c.reset();
-            this.c.addRoundRect(clipCoverRect, ls4.y(R.string.J_X05), Path.Direction.CW);
+            this.c.addRoundRect(clipCoverRect, su4.y(R.string.J_X05), Path.Direction.CW);
             canvas.drawPath(this.c, this.a);
             a(canvas, this.c);
             canvas.restore();

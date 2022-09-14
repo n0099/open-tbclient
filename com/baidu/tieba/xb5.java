@@ -1,232 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.template.adapter.stats.StatsType;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class xb5<T, V extends TypeAdapter.ViewHolder> extends cn<T, V> {
+public class xb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public TbPageContext<?> c;
-    public vn d;
-    public cn4 e;
-    public kc5 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xb5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
+    public static String a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
+            JSONObject params = SchemeActionHelper.getParams(Uri.parse(str), "data");
+            String str3 = null;
+            try {
+                params.put(str2, i);
+                int indexOf = str.indexOf("data");
+                if (indexOf > 0) {
+                    str3 = str.substring(0, indexOf) + "data=" + params;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return TextUtils.isEmpty(str3) ? str : str3;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? TbadkCoreApplication.getCurrentAccount() : (String) invokeV.objValue;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        jf<String> i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && TextUtils.equals(b(), str2) && (i = zt4.i("tb.novel_thread_read_record", b(), str)) != null && !StringUtils.isNull(i.get(str))) {
+                return i.get(str);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921697, Boolean.TRUE));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
+        }
+    }
+
+    public static void e(String str, ReadRecordsData readRecordsData) {
+        jf<String> i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, readRecordsData) == null) {
+            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || (i = zt4.i("tb.novel_thread_read_record", b(), str)) == null || readRecordsData == null) {
                 return;
             }
-        }
-        this.a = 0;
-        this.b = true;
-        m(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
-    }
-
-    public int A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            t();
-            return this.f.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            t();
-            return this.f.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            t();
-            return this.f.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            t();
-            return this.f.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean F(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? (i & this.a) > 0 : invokeI.booleanValue;
-    }
-
-    public void G(kc5 kc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, kc5Var) == null) {
-            this.f = kc5Var;
+            i.g(str, OrmObject.jsonStrWithObject(readRecordsData));
         }
     }
 
-    public void H(cn4 cn4Var) {
+    public static String f(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cn4Var) == null) {
-            this.e = cn4Var;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, str2, str3, str4)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return str;
+            }
+            String queryParameter = parse.getQueryParameter(str2);
+            if (dj.isEmpty(queryParameter)) {
+                return str;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(queryParameter);
+                jSONObject.put(str3, str4);
+                int indexOf = str.indexOf("&data");
+                if (indexOf > 0) {
+                    String substring = str.substring(0, indexOf);
+                    return substring + "&data=" + jSONObject.toString();
+                }
+                return null;
+            } catch (Exception e) {
+                bg9.g(e);
+                return str;
+            }
         }
+        return (String) invokeLLLL.objValue;
     }
 
-    public void J(BdUniqueId bdUniqueId) {
+    public static String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.mPageId = bdUniqueId;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return CommonUrlParamManager.getInstance().processUrl(str) + "&ctv=2&cen=ua_ut_uid";
         }
-    }
-
-    public void K(vn vnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vnVar) == null) {
-            this.d = vnVar;
-        }
-    }
-
-    public void L(View view2, go4 go4Var, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{view2, go4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || go4Var == null) {
-            return;
-        }
-        cn4 cn4Var = this.e;
-        if (cn4Var != null) {
-            cn4Var.d(view2, go4Var, go4Var.position, j);
-        } else {
-            mc5.a(new lc5(StatsType.SHOW, go4Var, view2, this.mPageId));
-        }
-    }
-
-    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
-            return;
-        }
-        this.mContext = tbPageContext.getPageActivity();
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId;
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.a = i | this.a;
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.f == null) {
-            this.f = new kc5(this.d);
-        }
-    }
-
-    public void u(View view2, go4 go4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, view2, go4Var) == null) || go4Var == null) {
-            return;
-        }
-        cn4 cn4Var = this.e;
-        if (cn4Var != null) {
-            int i = go4Var.position;
-            cn4Var.c(view2, go4Var, i, i);
-            return;
-        }
-        mc5.a(new lc5(StatsType.CLICK, go4Var, view2, this.mPageId));
-    }
-
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            t();
-            return this.f.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            t();
-            return this.f.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            t();
-            return this.f.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            t();
-            return this.f.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            t();
-            return this.f.h;
-        }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 }

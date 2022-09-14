@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.constraintlayout.widget.ConstraintHelper;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -168,13 +168,13 @@ public class Layer extends ConstraintHelper {
             super.init(attributeSet);
             this.mUseViewMeasure = false;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
-                    if (index == R$styleable.ConstraintLayout_Layout_android_visibility) {
+                    if (index == 6) {
                         this.mApplyVisibilityOnAttach = true;
-                    } else if (index == R$styleable.ConstraintLayout_Layout_android_elevation) {
+                    } else if (index == 13) {
                         this.mApplyElevationOnAttach = true;
                     }
                 }

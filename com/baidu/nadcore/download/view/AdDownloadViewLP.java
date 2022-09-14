@@ -19,9 +19,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij0;
-import com.baidu.tieba.pi0;
-import com.baidu.tieba.q01;
+import com.baidu.tieba.g21;
+import com.baidu.tieba.rk0;
+import com.baidu.tieba.yj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdDownloadViewLP extends View implements ij0<AdDownloadViewLP> {
+public class AdDownloadViewLP extends View implements rk0<AdDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint a;
@@ -207,13 +207,13 @@ public class AdDownloadViewLP extends View implements ij0<AdDownloadViewLP> {
         i();
     }
 
-    @Override // com.baidu.tieba.ij0
+    @Override // com.baidu.tieba.rk0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.width = (int) (q01.c.e(getContext()) * q01.c.h(R.dimen.obfuscated_res_0x7f07051e));
-            layoutParams.height = (int) (q01.c.c(getContext()) * q01.c.h(R.dimen.obfuscated_res_0x7f07051c));
+            layoutParams.width = (int) (g21.c.e(getContext()) * g21.c.h(R.dimen.obfuscated_res_0x7f07051e));
+            layoutParams.height = (int) (g21.c.c(getContext()) * g21.c.h(R.dimen.obfuscated_res_0x7f07051c));
             layoutParams.addRule(13, -1);
             viewGroup.addView(this, layoutParams);
             viewGroup.setVisibility(0);
@@ -309,7 +309,7 @@ public class AdDownloadViewLP extends View implements ij0<AdDownloadViewLP> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ij0
+    @Override // com.baidu.tieba.rk0
     @NonNull
     public AdDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -341,7 +341,7 @@ public class AdDownloadViewLP extends View implements ij0<AdDownloadViewLP> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070553));
-            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060829));
+            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083b));
             n(-1);
             l(true);
             k(true);
@@ -437,15 +437,15 @@ public class AdDownloadViewLP extends View implements ij0<AdDownloadViewLP> {
         }
     }
 
-    @Override // com.baidu.tieba.ij0
-    public void update(String str, @NonNull pi0 pi0Var) {
+    @Override // com.baidu.tieba.rk0
+    public void update(String str, @NonNull yj0 yj0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, str, pi0Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, str, yj0Var) == null) {
             this.l = str;
-            if (pi0Var.c == AdDownloadStatus.DOWNLOADING) {
+            if (yj0Var.c == AdDownloadStatus.DOWNLOADING) {
                 this.l = "已下载 : " + this.l;
             }
-            setProgress((int) pi0Var.i);
+            setProgress((int) yj0Var.i);
             postInvalidate();
         }
     }

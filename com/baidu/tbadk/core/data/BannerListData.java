@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ec8;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.x06;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.md8;
+import com.baidu.tieba.o26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class BannerListData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AdvertAppInfo> advertAppList;
     public ArrayList<FeedForumData> feedForumList;
-    public x06 recomTopicData;
+    public o26 recomTopicData;
 
     /* loaded from: classes3.dex */
     public class a implements Comparator<AdvertAppInfo> {
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? pg.e(advertAppInfo.f, 0) : 0) - (advertAppInfo2 != null ? pg.e(advertAppInfo2.f, 0) : 0);
+                return (advertAppInfo != null ? dh.e(advertAppInfo.f, 0) : 0) - (advertAppInfo2 != null ? dh.e(advertAppInfo2.f, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -117,10 +117,10 @@ public class BannerListData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public x06 getRecomTopicData() {
+    public o26 getRecomTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (x06) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (o26) invokeV.objValue;
     }
 
     public void parserJson(String str) {
@@ -137,7 +137,7 @@ public class BannerListData implements Serializable {
     public void parserProtobuf(BannerList bannerList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
-            List<AdvertAppInfo> f = ec8.l().f();
+            List<AdvertAppInfo> f = md8.l().f();
             if (f != null) {
                 f.clear();
             }
@@ -157,7 +157,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            ec8.l().e();
+            md8.l().e();
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {

@@ -11,7 +11,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
-import android.os.Build;
 import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
@@ -32,18 +31,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.bj;
 import com.baidu.tieba.bx4;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.ij;
-import com.baidu.tieba.k75;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.su4;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.xm8;
+import com.baidu.tieba.gj;
+import com.baidu.tieba.ih;
+import com.baidu.tieba.kz4;
+import com.baidu.tieba.lo8;
+import com.baidu.tieba.lz4;
+import com.baidu.tieba.pj;
+import com.baidu.tieba.rj;
+import com.baidu.tieba.s95;
+import com.baidu.tieba.v9;
+import com.baidu.tieba.wj;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,8 +86,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public k mPlayCall;
-    public CustomResponsedMessage<xm8> mRecorderManagerRespMsg;
-    public kg<bx4> mResourceCall;
+    public CustomResponsedMessage<lo8> mRecorderManagerRespMsg;
+    public yg<lz4> mResourceCall;
     public final BroadcastReceiver mVoicePlayerReceiver;
     public Sensor proximitySensor;
     public i sNewPlayView;
@@ -246,7 +246,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     /* loaded from: classes3.dex */
-    public class c extends kg<bx4> {
+    public class c extends yg<lz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceManager a;
@@ -270,19 +270,19 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
+        @Override // com.baidu.tieba.yg
         /* renamed from: a */
-        public void onLoaded(bx4 bx4Var, String str, int i) {
+        public void onLoaded(lz4 lz4Var, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, bx4Var, str, i) == null) {
-                super.onLoaded(bx4Var, str, i);
-                if (this.a.mCurPlayModel == null || this.a.sPlayView == null || bx4Var == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, lz4Var, str, i) == null) {
+                super.onLoaded(lz4Var, str, i);
+                if (this.a.mCurPlayModel == null || this.a.sPlayView == null || lz4Var == null) {
                     return;
                 }
-                String str2 = bx4Var.b;
-                String str3 = bx4Var.a;
-                int i2 = bx4Var.c;
-                String str4 = bx4Var.d;
+                String str2 = lz4Var.b;
+                String str3 = lz4Var.a;
+                int i2 = lz4Var.c;
+                String str4 = lz4Var.d;
                 if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
                     if (this.a.mCurPlayModel.voiceId.equals(str3) && VoiceManager.isVoiceDownloading(this.a.mCurPlayModel.voice_status.intValue())) {
                         VoiceManager voiceManager = this.a;
@@ -291,9 +291,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                     return;
                 }
-                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f155d), str2);
+                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f157d), str2);
                 if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                    this.a.sPlayView.onShowErr(5, ij.a(R.string.obfuscated_res_0x7f0f1567));
+                    this.a.sPlayView.onShowErr(5, wj.a(R.string.obfuscated_res_0x7f0f1587));
                 } else {
                     this.a.sPlayView.onShowErr(5, str4);
                 }
@@ -501,9 +501,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     i playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            a = ij.a(R.string.obfuscated_res_0x7f0f1566);
+                            a = wj.a(R.string.obfuscated_res_0x7f0f1586);
                         } else {
-                            a = ij.a(R.string.obfuscated_res_0x7f0f156b);
+                            a = wj.a(R.string.voice_err_play);
                         }
                         playView4.onShowErr(5, a);
                     }
@@ -650,7 +650,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     /* loaded from: classes3.dex */
-    public class k implements dj {
+    public class k implements rj {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceManager a;
@@ -673,14 +673,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             this.a = voiceManager;
         }
 
-        @Override // com.baidu.tieba.fj
+        @Override // com.baidu.tieba.tj
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.fj
+        @Override // com.baidu.tieba.tj
         public void c(String str, int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) || this.a.sPlayView == null || this.a.mCurPlayModel == null) {
@@ -707,7 +707,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             }
         }
 
-        @Override // com.baidu.tieba.dj
+        @Override // com.baidu.tieba.rj
         public void d(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -721,7 +721,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             }
         }
 
-        @Override // com.baidu.tieba.fj
+        @Override // com.baidu.tieba.tj
         public void error(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
@@ -794,7 +794,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = true ^ isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, xm8.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, lo8.class);
     }
 
     private void acquireWakeLock() {
@@ -822,7 +822,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         if (this.windowManager == null) {
             this.windowManager = (WindowManager) this.context.getContext().getSystemService("window");
         }
-        if (ug.f(this.context)) {
+        if (ih.f(this.context)) {
             try {
                 if (!this.isAddScreenView) {
                     if (this.screenView.getParent() != null) {
@@ -927,7 +927,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         if (interceptable == null || interceptable.invokeV(65567, null) == null) {
             synchronized (VoiceManager.class) {
                 if (!bInitConfig) {
-                    bVoiceUseSoftDecoder = su4.k().h("voice_use_soft_decoder", ij.b());
+                    bVoiceUseSoftDecoder = bx4.k().h("voice_use_soft_decoder", wj.b());
                 }
             }
         }
@@ -997,7 +997,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     private boolean mi3Filter(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65574, this, f2)) == null) ? Build.MODEL.equals(MI3_MODEL_NAME) && this.sensorRegisterTime + 300 > new Date().getTime() : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65574, this, f2)) == null) ? gj.g().equals(MI3_MODEL_NAME) && this.sensorRegisterTime + 300 > new Date().getTime() : invokeF.booleanValue;
     }
 
     private void putPlayView(i iVar) {
@@ -1106,15 +1106,15 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 if (this.mResourceCall == null) {
                     this.mResourceCall = new c(this);
                 }
-                Object b2 = ax4.b(voiceModel.getId());
+                Object b2 = kz4.b(voiceModel.getId());
                 if (b2 == null) {
-                    b2 = lg.h().k(voiceModel.getId(), 23, this.mResourceCall, 0, 0, (this.context == null || !(this.context.getOrignalPage() instanceof h9)) ? null : ((h9) this.context.getOrignalPage()).getUniqueId(), voiceModel.from);
+                    b2 = zg.h().k(voiceModel.getId(), 23, this.mResourceCall, 0, 0, (this.context == null || !(this.context.getOrignalPage() instanceof v9)) ? null : ((v9) this.context.getOrignalPage()).getUniqueId(), voiceModel.from);
                 }
                 if (voiceModel.isLocal && b2 == null) {
                     if (this.mPlayCall == null) {
                         this.mPlayCall = new k(this, null);
                     }
-                    this.mPlayCall.error(5, ij.a(R.string.obfuscated_res_0x7f0f1569));
+                    this.mPlayCall.error(5, wj.a(R.string.voice_err_no_file));
                     FieldBuilder fieldBuilder = new FieldBuilder();
                     if (voiceModel != null) {
                         fieldBuilder.append("id", voiceModel.getId());
@@ -1157,9 +1157,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 if (isVoicePlaying(voiceModel.voice_status.intValue())) {
                     setStatusWaiting(voiceModel);
-                    bj.f();
-                    if (k75.b().d()) {
-                        k75.b().l(false);
+                    pj.f();
+                    if (s95.b().d()) {
+                        s95.b().l(false);
                     }
                 } else {
                     setStatusWaiting(voiceModel);
@@ -1185,7 +1185,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     this.mPlayCall = new k(this, null);
                 }
                 if (!new File(str).exists()) {
-                    this.mPlayCall.error(5, ij.a(R.string.obfuscated_res_0x7f0f1569));
+                    this.mPlayCall.error(5, wj.a(R.string.voice_err_no_file));
                     return;
                 }
                 registSensor();
@@ -1193,9 +1193,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 firstOpenSpeaker();
                 if (this.audioManager != null) {
                     if (this.audioManager.isSpeakerphoneOn()) {
-                        ij.b = 3;
+                        wj.b = 3;
                     } else {
-                        ij.b = 0;
+                        wj.b = 0;
                     }
                 }
                 setVolumeControlStream();
@@ -1204,7 +1204,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     voiceModel.curr_time = 0;
                     return;
                 }
-                boolean e2 = bj.e(str, this.mPlayCall, voiceModel.curr_time);
+                boolean e2 = pj.e(str, this.mPlayCall, voiceModel.curr_time);
                 voiceModel.curr_time = 0;
                 if (!e2) {
                     FieldBuilder fieldBuilder = new FieldBuilder();
@@ -1257,7 +1257,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         if (interceptable == null || interceptable.invokeL(65585, this, voiceModel) == null) {
             unRegistSensorHandler();
             voiceModel.voice_status = 1;
-            ij.b = 2;
+            wj.b = 2;
             setVolumeControlStream();
             i playView = getPlayView();
             if (playView != null) {
@@ -1270,7 +1270,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65586, null, z) == null) {
             bVoiceUseSoftDecoder = true;
-            su4.k().u("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+            bx4.k().u("voice_use_soft_decoder", bVoiceUseSoftDecoder);
         }
     }
 
@@ -1282,7 +1282,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 if (this.context == null || this.context.getPageActivity() == null) {
                     return;
                 }
-                this.context.getPageActivity().setVolumeControlStream(ij.b);
+                this.context.getPageActivity().setVolumeControlStream(wj.b);
             } catch (Exception e2) {
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_VOLUME, "setVolumeControlStream exception: " + e2.getMessage(), "");
             }
@@ -1378,7 +1378,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         saveInitVoiceStatus();
         try {
             setSpeakerphone(false);
-            ij.b = 0;
+            wj.b = 0;
             stopVoiceAndRePlay();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -1405,19 +1405,19 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         stopPlay();
     }
 
-    public xm8 getRecorderManager() {
+    public lo8 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            CustomResponsedMessage<xm8> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<lo8> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return null;
             }
-            xm8 data = this.mRecorderManagerRespMsg.getData();
+            lo8 data = this.mRecorderManagerRespMsg.getData();
             data.a(this.context);
             return data;
         }
-        return (xm8) invokeV.objValue;
+        return (lo8) invokeV.objValue;
     }
 
     public boolean isPlayDoing(VoiceData.VoiceModel voiceModel) {
@@ -1487,7 +1487,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) {
             if (this.mCurPlayModel != null) {
-                lg.h().c(this.mCurPlayModel.getId(), 23);
+                zg.h().c(this.mCurPlayModel.getId(), 23);
             }
             release();
         }
@@ -1575,14 +1575,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public void openSpeaker() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || this.audioManager == null || ij.a == 2) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || this.audioManager == null || wj.a == 2) {
             return;
         }
         if (!TbadkCoreApplication.getInst().isHeadsetModeOn() && !TbadkCoreApplication.getInst().getIsPhoneCalling()) {
             try {
                 saveInitVoiceStatus();
                 setSpeakerphone(true);
-                ij.b = 3;
+                wj.b = 3;
                 stopVoiceAndRePlay();
                 return;
             } catch (Exception e2) {
@@ -1625,7 +1625,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     return;
                 }
                 setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-                ij.b = 3;
+                wj.b = 3;
                 bInitSpeakerphoneOn = null;
                 bInitMode = null;
                 bInitVolume = null;
@@ -1690,8 +1690,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.mNewClickModel = voiceModel;
         Integer num = voiceModel.voice_status;
         int intValue = num != null ? num.intValue() : 1;
-        k75.b().l(true);
-        k75.b().n(true);
+        s95.b().l(true);
+        s95.b().n(true);
         VoiceData.VoiceModel voiceModel2 = this.mCurPlayModel;
         if (voiceModel2 != null) {
             voiceModel2.curr_time = 0;

@@ -1,82 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.ul2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class r02 implements q02 {
+public class r02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q02> a;
 
-    public r02() {
+    public static ul2.g a(vn2 vn2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vn2Var)) == null) {
+            File e = e();
+            ul2.M(b(), e, vn2Var);
+            ul2.g gVar = new ul2.g();
+            File file = new File(e, "app.json");
+            SwanAppConfigData b = k33.b(e.getAbsolutePath());
+            gVar.a = e.getPath() + File.separator;
+            gVar.b = b;
+            yz1.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
+        }
+        return (ul2.g) invokeL.objValue;
+    }
+
+    public static File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new File(c(), "wireless_debug.aiapps") : (File) invokeV.objValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
             }
+            return file;
         }
-        this.a = new CopyOnWriteArrayList();
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q02
-    public void a() {
-        List<q02> list;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug_zip";
         }
-        for (q02 q02Var : this.a) {
-            q02Var.a();
-        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q02
-    public void b() {
-        List<q02> list;
+    public static File e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
         }
-        for (q02 q02Var : this.a) {
-            q02Var.b();
-        }
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q02
-    public void c() {
-        List<q02> list;
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug";
         }
-        for (q02 q02Var : this.a) {
-            q02Var.c();
-        }
-    }
-
-    public void d(@NonNull q02 q02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, q02Var) == null) {
-            this.a.add(q02Var);
-        }
-    }
-
-    public void e(@NonNull q02 q02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, q02Var) == null) {
-            this.a.remove(q02Var);
-        }
+        return (String) invokeV.objValue;
     }
 }

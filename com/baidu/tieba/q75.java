@@ -1,230 +1,116 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.growth.ActivityChangeSchemeModel;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class q75 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<String> a;
-    public static String b;
-    public static String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
-    public static String g;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a extends qh5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.qh5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(fl4.D().F()) : (Boolean) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements vg5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vg5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || bool == null || bool.booleanValue()) {
+                return;
+            }
+            q75.c();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948044762, "Lcom/baidu/tieba/q75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948044762, "Lcom/baidu/tieba/q75;");
-                return;
-            }
-        }
-        a = new ArrayList<>();
-        d = false;
-    }
-
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!d) {
-                r(context);
-            }
-            return d;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                b = d(TbadkCoreApplication.getInst().getApp());
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        ActivityManager activityManager;
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null || (activityManager = (ActivityManager) context.getSystemService("activity")) == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
-                return null;
-            }
-            int myPid = Process.myPid();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f : (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? g : (String) invokeV.objValue;
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            String packageName = TbadkCoreApplication.getInst().getPackageName();
-            String str = packageName + ":swan";
-            c = str;
-            a.clear();
-            a.add(packageName);
-            a.add(packageName + ":remote");
-            a.add(packageName + ":cdnTachometer");
-            a.add(packageName + ":daemon");
-            a.add(packageName + ":third");
-            a.add(packageName + ":pluginInstaller");
-            a.add(packageName + ":xiaoying");
-            a.add(packageName + ":media");
-            a.add(packageName + ":kmyas__");
-            a.add(packageName + ":guardService");
-            a.add(packageName + ":warkup");
-            a.add(str);
-            a.add(packageName + ":bdservice_v1");
-            a.add(packageName + ":live");
-            m("initProcess-->CurrentProcessName=" + c());
-        }
-    }
-
-    public static boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return str != null && str.equalsIgnoreCase(c());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? j(c()) : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Iterator<String> it = a.iterator();
-            while (it.hasNext()) {
-                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(c)) {
-                    return true;
-                }
-                while (it.hasNext()) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d : invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? h(TbadkCoreApplication.getInst().getPackageName()) : invokeV.booleanValue;
-    }
-
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
-            Log.e("MutiProcess", str);
-        }
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            e = str;
-        }
-    }
-
-    public static void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            d = z;
-        }
-    }
-
-    public static void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            g = str;
-        }
-    }
-
-    public static void r(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65554, null, context) == null) || context == null) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948044762, "Lcom/baidu/tieba/q75;")) == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948044762, "Lcom/baidu/tieba/q75;");
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || a) {
+            return;
+        }
+        if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+            uh5.b(new a(), new b());
+        } else if (fl4.D().F()) {
+        } else {
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && BdNetTypeUtil.isNetWorkAvailable()) {
+            ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();
+            r75.a();
+            activityChangeSchemeModel.request();
+        }
     }
 }

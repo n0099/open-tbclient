@@ -1,14 +1,14 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.av9;
-import com.baidu.tieba.tv9;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.sw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
-public final class OperatorZip$ZipProducer<R> extends AtomicLong implements av9 {
+/* loaded from: classes9.dex */
+public final class OperatorZip$ZipProducer<R> extends AtomicLong implements sw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1216676403723546796L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,11 +32,11 @@ public final class OperatorZip$ZipProducer<R> extends AtomicLong implements av9 
         this.zipper = operatorZip$Zip;
     }
 
-    @Override // com.baidu.tieba.av9
+    @Override // com.baidu.tieba.sw9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            tv9.b(this, j);
+            lx9.b(this, j);
             this.zipper.tick();
         }
     }

@@ -1,37 +1,38 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
 /* loaded from: classes6.dex */
-public class vr7 extends qr7 {
+public class vr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ShareStorage.StorageModel i;
+    public View a;
+    public View b;
+    public TextView c;
 
     /* loaded from: classes6.dex */
-    public class a extends WebAuthListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr7 a;
+        public final /* synthetic */ Integer a;
+        public final /* synthetic */ vr7 b;
 
-        public a(vr7 vr7Var) {
+        public a(vr7 vr7Var, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vr7Var};
+                Object[] objArr = {vr7Var, num};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,77 +42,73 @@ public class vr7 extends qr7 {
                     return;
                 }
             }
-            this.a = vr7Var;
+            this.b = vr7Var;
+            this.a = num;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
+        @Override // java.lang.Runnable
+        public void run() {
+            Integer num;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f113d), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.a) == null || num.intValue() == 0) {
+                return;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.a.f();
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
-            }
+            this.b.a.setVisibility(0);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vr7(TbPageContext tbPageContext, rr7 rr7Var) {
-        super(tbPageContext, rr7Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
+    public vr7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, rr7Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (rr7) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0264, (ViewGroup) null);
+        this.b = inflate;
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0908b8);
+        this.a = findViewById;
+        findViewById.setVisibility(8);
+        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0908be);
     }
 
-    @Override // com.baidu.tieba.qr7
-    public void j(sr7 sr7Var) {
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, sr7Var) == null) || sr7Var == null) {
-            return;
-        }
-        this.e = sr7Var;
-        this.i = (ShareStorage.StorageModel) new Gson().fromJson(sr7Var.d, (Class<Object>) ShareStorage.StorageModel.class);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qr7
-    public void n(View view2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f09141b) {
-                r();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            View view2 = this.b;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
+            }
+            View view3 = this.a;
+            if (view3 != null) {
+                SkinManager.setBackgroundColor(view3, R.color.CAM_X0204, i);
+            }
+            TextView textView = this.c;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
             }
         }
     }
 
-    public void r() {
+    /* JADX DEBUG: Method merged with bridge method */
+    public void update(Integer num) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.i == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+            gh.a().post(new a(this, num));
         }
-        PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
     }
 }

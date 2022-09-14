@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.HotThread;
 /* loaded from: classes3.dex */
-public class d57 implements pn {
+public class d57 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +30,7 @@ public class d57 implements pn {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public d57() {
@@ -42,22 +43,17 @@ public class d57 implements pn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = R.dimen.tbds16;
+        this.b = R.color.CAM_X0204;
     }
 
-    public void a(HotThread hotThread) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hotThread) == null) || hotThread == null) {
-            return;
-        }
-        String str = hotThread.hot_title;
-    }
-
-    @Override // com.baidu.tieba.pn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

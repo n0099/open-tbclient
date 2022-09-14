@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +39,6 @@ public class BridgeActivity extends Activity {
             attributes.width = 1;
             attributes.gravity = 51;
             window.setAttributes(attributes);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

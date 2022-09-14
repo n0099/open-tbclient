@@ -1,94 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
-import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class k61 {
+public abstract class k61<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static k61 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public ic1<IResourcesFetcher> a;
+    public r61 a;
+    public n61 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864931, "Lcom/baidu/tieba/k61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947864931, "Lcom/baidu/tieba/k61;");
-                return;
-            }
-        }
-        b = new k61();
-    }
-
-    public k61() {
+    public k61(n61 n61Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {n61Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        e();
+        this.a = n61Var.f();
+        this.b = n61Var;
     }
 
-    public static k61 c() {
-        InterceptResult invokeV;
+    public k61<T> a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (k61) invokeV.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b.d(z);
+            return this;
+        }
+        return (k61) invokeZ.objValue;
     }
 
-    public Resources a() {
-        InterceptResult invokeV;
+    public k61<T> b(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (i71.a()) {
-                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
+            this.a.s(view2, viewGroup);
+            return this;
+        }
+        return (k61) invokeLL.objValue;
+    }
+
+    public k61<T> c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.b.m(i);
+            return this;
+        }
+        return (k61) invokeI.objValue;
+    }
+
+    public k61<T> d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            if (i != -1) {
+                try {
+                    this.a.w(i);
+                } catch (Exception e) {
+                    jj0.h("BubbleBuilder", "", e);
+                    this.a.w(-1);
+                    return this;
+                }
             }
-            return this.a.get().getBaseContextResources();
+            if (i2 != -1) {
+                try {
+                    this.a.x(i2);
+                } catch (Exception e2) {
+                    jj0.h("BubbleBuilder", "", e2);
+                    this.a.x(-1);
+                }
+            }
+            return this;
         }
-        return (Resources) invokeV.objValue;
+        return (k61) invokeII.objValue;
     }
 
-    public Resources b() {
-        InterceptResult invokeV;
+    public k61<T> e(BubblePosition bubblePosition) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get().getGlobalResources() : (Resources) invokeV.objValue;
-    }
-
-    public Resources[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.get().getWrapperResources() : (Resources[]) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gc1 b2 = gc1.b();
-            this.a = b2;
-            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
+            this.b.e().d = false;
+            this.b.e().e = bubblePosition;
+            return this;
         }
+        return (k61) invokeL.objValue;
+    }
+
+    public k61<T> f(BubbleManager.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
+            this.b.n(bVar);
+            return this;
+        }
+        return (k61) invokeL.objValue;
+    }
+
+    public k61<T> g(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            this.b.e().q(f);
+            return this;
+        }
+        return (k61) invokeF.objValue;
     }
 }

@@ -5,9 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.appframework.BaseActivity;
-import com.baidu.tieba.k11;
-import com.baidu.tieba.n11;
-import com.baidu.tieba.o11;
+import com.baidu.tieba.c31;
+import com.baidu.tieba.f31;
+import com.baidu.tieba.g31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,31 +41,31 @@ public class NadPermissionActivity extends BaseActivity {
         }
         boolean z = false;
         for (String str : strArr) {
-            z = z || k11.a(this, str);
+            z = z || c31.a(this, str);
         }
         if (z) {
-            k11.requestPermissions(this, this.v, this.u);
-        } else if (o11.a(this, this.u)) {
-            k11.requestPermissions(this, this.v, this.u);
+            c31.requestPermissions(this, this.v, this.u);
+        } else if (g31.a(this, this.u)) {
+            c31.requestPermissions(this, this.v, this.u);
         } else {
             onRequestPermissionsResult(this.u, this.v, new int[0]);
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void P0(Bundle bundle) {
+    public void Z0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.P0(bundle);
-            q1();
+            super.Z0(bundle);
+            w1();
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void Z0() {
+    public void h1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.Z0();
+            super.h1();
             requestPermissions();
         }
     }
@@ -74,7 +74,7 @@ public class NadPermissionActivity extends BaseActivity {
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            k11.b c = n11.b().c(this.u);
+            c31.b c = f31.b().c(this.u);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }
@@ -82,7 +82,7 @@ public class NadPermissionActivity extends BaseActivity {
         }
     }
 
-    public final void q1() {
+    public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Intent intent = getIntent();

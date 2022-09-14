@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.se5;
-import com.baidu.tieba.vz4;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.wa5;
-import com.baidu.tieba.z8;
+import com.baidu.tieba.e25;
+import com.baidu.tieba.f35;
+import com.baidu.tieba.fd5;
+import com.baidu.tieba.n9;
+import com.baidu.tieba.x15;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,8 +40,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            se5.c();
-            wa5.b().r(System.currentTimeMillis() - currentTimeMillis);
+            zg5.c();
+            fd5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -54,9 +54,9 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            nz4.d().p();
-            wa5.b().y(System.currentTimeMillis() - currentTimeMillis);
-            z8.g().r(20);
+            x15.d().p();
+            fd5.b().y(System.currentTimeMillis() - currentTimeMillis);
+            n9.g().r(20);
         }
     }
 
@@ -84,14 +84,14 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            vz4 vz4Var = new vz4();
-            vz4Var.e(loadString);
-            w05 a = w05.a();
-            a.g(vz4Var.b() == 1);
-            a.h(vz4Var.c());
-            a.i(vz4Var.d() * 1000);
-            if (vz4Var.a() != null) {
-                a.j(vz4Var.a());
+            e25 e25Var = new e25();
+            e25Var.e(loadString);
+            f35 a = f35.a();
+            a.g(e25Var.b() == 1);
+            a.h(e25Var.c());
+            a.i(e25Var.d() * 1000);
+            if (e25Var.a() != null) {
+                a.j(e25Var.a());
             }
         }
     }

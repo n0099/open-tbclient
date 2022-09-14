@@ -1,99 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
-import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
 /* loaded from: classes5.dex */
-public class ss6 implements y85 {
+public class ss6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public List<ThreadInfo> a;
 
-    public ss6() {
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-    }
-
-    @NonNull
-    public List<VoiceRoomWrapper> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (ThreadInfo threadInfo : this.a) {
-                VoiceRoom voiceRoom = threadInfo.voice_room;
-                if (voiceRoom != null && b(voiceRoom)) {
-                    String str = threadInfo.fname;
-                    if (str == null) {
-                        str = "";
-                    }
-                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean b(@NonNull VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
-            Long l = voiceRoom.room_id;
-            return (l == null || l.longValue() == 0 || TextUtils.isEmpty(voiceRoom.room_name)) ? false : true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.y85
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
-                if (optJSONArray != null) {
-                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            TbSingleton.getInstance().setSchemaForStartOtherAppAfterSwanApp(str);
         }
     }
 
-    @Override // com.baidu.tieba.y85
-    public void initByProtobuf(Message message) {
-        List<ThreadInfo> list;
+    public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
-            this.a = list;
+        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) || UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) || str2 == null) {
+            return;
         }
+        wt8.a(tbPageContext, str2);
     }
 }

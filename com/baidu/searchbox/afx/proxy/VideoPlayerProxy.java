@@ -265,13 +265,30 @@ public class VideoPlayerProxy extends PlayerProxy {
         videoPlayer.release();
         this.mPlayTask.release();
         super.destroy();
+        this.mOnVideoStartedListener = null;
+        this.mOnVideoEndedListener = null;
+        this.mOnVideoErrorListener = null;
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            VideoPlayer videoPlayer = this.mVideoPlayer;
+            if (videoPlayer == null) {
+                return 0;
+            }
+            return videoPlayer.getCurrentPosition();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             VideoPlayer videoPlayer = this.mVideoPlayer;
             if (videoPlayer == null) {
                 return 0L;
@@ -285,7 +302,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public int getFps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             VideoPlayer videoPlayer = this.mVideoPlayer;
             if (videoPlayer == null) {
                 return 0;
@@ -298,7 +315,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void pause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mVideoPlayer != null && isPlaying()) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mVideoPlayer != null && isPlaying()) {
             this.mVideoPlayer.requestPause();
             super.pause();
         }
@@ -307,7 +324,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void play() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int i = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
             if (i == 1 || i == 2 || i == 3) {
                 VideoPlayer.PlayTask playTask = this.mPlayTask;
@@ -323,7 +340,7 @@ public class VideoPlayerProxy extends PlayerProxy {
 
     public void prepareAsync(String str, OnVideoPreparedListener onVideoPreparedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, onVideoPreparedListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, onVideoPreparedListener) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             File file = new File(str);
             File parentFile = file.getParentFile();
@@ -385,7 +402,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void resume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.mVideoPlayer != null && isPaused()) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.mVideoPlayer != null && isPaused()) {
             this.mVideoPlayer.requestResume();
             super.resume();
         }
@@ -395,7 +412,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setGLTextureView(GLTextureView gLTextureView) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, gLTextureView) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gLTextureView) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
         videoPlayer.setGLTextureView(gLTextureView);
@@ -405,7 +422,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setLoopSection(long j, long j2) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
         videoPlayer.setLoopSection(j, j2);
@@ -415,7 +432,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setLooping(boolean z) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
         videoPlayer.setLooping(z);
@@ -424,7 +441,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
     public void setSourceFD(FileDescriptor fileDescriptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, fileDescriptor) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, fileDescriptor) == null) {
             try {
                 if (this.mVideoPlayer != null) {
                     this.mVideoPlayer.setDataSource(fileDescriptor);
@@ -439,7 +456,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setSurface(Surface surface) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, surface) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, surface) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
         videoPlayer.setSurface(surface);
@@ -448,7 +465,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void stop() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.mVideoPlayer == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.mVideoPlayer == null) {
             return;
         }
         if (isPlaying() || isPaused()) {
@@ -461,7 +478,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setLoopSection(long j) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048586, this, j) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
         videoPlayer.setLoopSection(j);
@@ -470,7 +487,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
     public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             try {
                 if (this.mVideoPlayer != null) {
                     this.mVideoPlayer.setDataSource(fileDescriptor, j, j2);
@@ -485,7 +502,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setLoopSection(int i, int i2) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
         videoPlayer.setLoopSection(i, i2);
@@ -495,7 +512,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setLoopSection(int i) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
         videoPlayer.setLoopSection(i);

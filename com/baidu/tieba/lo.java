@@ -1,206 +1,76 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lo {
+public class lo extends qn<mo, NoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static mo b;
-    public static String c;
-    public static hj d;
-    public static long e;
-    public static Handler f;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.what;
-                if (i != 100) {
-                    switch (i) {
-                        case 0:
-                            if (lo.d != null) {
-                                lo.d.c(lo.c, message.arg1);
-                                hj unused = lo.d = null;
-                                break;
-                            }
-                            break;
-                        case 1:
-                        case 3:
-                            if (lo.d != null) {
-                                if (li.d()) {
-                                    lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f1563));
-                                } else {
-                                    lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f156c));
-                                }
-                                hj unused2 = lo.d = null;
-                                break;
-                            }
-                            break;
-                        case 2:
-                            if (lo.d != null) {
-                                lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f1564));
-                                hj unused3 = lo.d = null;
-                                break;
-                            }
-                            break;
-                        case 4:
-                            if (lo.d != null) {
-                                lo.d.b(message.arg1);
-                                break;
-                            }
-                            break;
-                        case 5:
-                            if (lo.d != null) {
-                                lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f1568));
-                                hj unused4 = lo.d = null;
-                                break;
-                            }
-                            break;
-                        case 6:
-                            if (lo.d != null) {
-                                lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f1565));
-                                hj unused5 = lo.d = null;
-                                break;
-                            }
-                            break;
-                        case 7:
-                            if (lo.d != null) {
-                                lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f1574));
-                                hj unused6 = lo.d = null;
-                                break;
-                            }
-                            break;
-                        case 8:
-                            if (lo.d != null) {
-                                lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f1572));
-                                hj unused7 = lo.d = null;
-                                break;
-                            }
-                            break;
-                        case 9:
-                            if (lo.d != null) {
-                                lo.d.a(message.arg1);
-                                break;
-                            }
-                            break;
-                        default:
-                            if (lo.d != null) {
-                                lo.d.error(message.what, ij.a(R.string.obfuscated_res_0x7f0f156a));
-                                hj unused8 = lo.d = null;
-                                break;
-                            }
-                            break;
-                    }
-                } else if (lo.d != null) {
-                    lo.d.e();
-                }
-                int unused9 = lo.a = 0;
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448310410, "Lcom/baidu/tieba/lo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448310410, "Lcom/baidu/tieba/lo;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lo(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), mo.c);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f = new Handler(new a());
+        this.a = 3;
     }
 
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            mo moVar = b;
-            if (moVar != null) {
-                moVar.cancel();
-            }
-            a = 0;
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mo moVar, NoDataItemViewHolder noDataItemViewHolder) {
+        t(i, view2, viewGroup, moVar, noDataItemViewHolder);
+        return view2;
     }
 
-    public static void f(int i) {
-        mo moVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65542, null, i) == null) || (moVar = b) == null) {
-            return;
-        }
-        moVar.h(i);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new NoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0075, viewGroup, false)) : (NoDataItemViewHolder) invokeL.objValue;
     }
 
-    public static boolean g(String str, int i, hj hjVar) {
-        InterceptResult invokeLIL;
+    public View t(int i, View view2, ViewGroup viewGroup, mo moVar, NoDataItemViewHolder noDataItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, str, i, hjVar)) == null) {
-            if (System.currentTimeMillis() - e < 1000) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, moVar, noDataItemViewHolder})) == null) {
+            noDataItemViewHolder.a.setText(moVar.a);
+            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
+                SkinManager.setImageResource(noDataItemViewHolder.b, moVar.b);
+                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
+                this.a = TbadkCoreApplication.getInst().getSkinType();
             }
-            e = System.currentTimeMillis();
-            if (a == 0) {
-                if (b == null) {
-                    b = new mo(f);
-                }
-                c = str;
-                d = hjVar;
-                if (b.j(str, i)) {
-                    a = 3;
-                    new Thread(b).start();
-                    return true;
-                }
-                b = null;
-            }
-            return false;
+            return view2;
         }
-        return invokeLIL.booleanValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            mo moVar = b;
-            if (moVar != null) {
-                moVar.k();
-            }
-            a = 0;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

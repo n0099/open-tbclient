@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,13 +52,13 @@ public class RequestHotRanklistMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1374common = getCommon();
+                builder.f1372common = getCommon();
                 builder.call_from = getCallFrom();
                 builder.list_type = getListType();
                 builder.need_tab_list = getNeedTabList();
                 builder.fid = Long.valueOf(this.fid);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ye5.a(builder, true);
+                    fh5.a(builder, true);
                 }
                 TopicListReqIdl.Builder builder2 = new TopicListReqIdl.Builder();
                 builder2.data = builder.build(false);

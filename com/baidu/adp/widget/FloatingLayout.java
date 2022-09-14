@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -300,7 +300,7 @@ public class FloatingLayout extends LinearLayout {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040410});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {
                 if ("before".equals(string)) {

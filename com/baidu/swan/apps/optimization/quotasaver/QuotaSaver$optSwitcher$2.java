@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xm2;
+import com.baidu.tieba.vo2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class a implements xm2 {
+    public static final class a implements vo2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,7 +39,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             }
         }
 
-        @Override // com.baidu.tieba.xm2
+        @Override // com.baidu.tieba.vo2
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -52,28 +52,28 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.xm2
+        @Override // com.baidu.tieba.vo2
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.h() && QuotaSaver.l.k() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.xm2
+        @Override // com.baidu.tieba.vo2
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.i() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.xm2
+        @Override // com.baidu.tieba.vo2
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.j() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.xm2
+        @Override // com.baidu.tieba.vo2
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

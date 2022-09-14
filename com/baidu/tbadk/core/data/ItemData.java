@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.dh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -167,7 +167,7 @@ public class ItemData extends OrmObject implements Serializable {
             }
         }
         this.mIconSize = itemInfo.icon_size.doubleValue();
-        this.itemId = pg.g(String.valueOf(itemInfo.id), 0L);
+        this.itemId = dh.g(String.valueOf(itemInfo.id), 0L);
         this.buttonName = itemInfo.button_name;
         this.buttonLink = itemInfo.button_link;
         this.buttonLinkType = itemInfo.button_link_type;
@@ -188,7 +188,7 @@ public class ItemData extends OrmObject implements Serializable {
         this.appId = tiebaPlusInfo.app_id;
         this.mIconUrl = tiebaPlusInfo.app_icon;
         this.mIconSize = 1.0d;
-        this.itemId = pg.g(String.valueOf(tiebaPlusInfo.item_id), 0L);
+        this.itemId = dh.g(String.valueOf(tiebaPlusInfo.item_id), 0L);
         ApkDetail.Builder builder = new ApkDetail.Builder();
         builder.version = tiebaPlusInfo.app_version;
         builder.privacy_url = tiebaPlusInfo.app_privacy;

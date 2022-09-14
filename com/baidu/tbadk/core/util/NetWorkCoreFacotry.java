@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
-import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,13 +54,13 @@ public class NetWorkCoreFacotry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                if (pi.z()) {
-                    if (pi.H()) {
+                if (BdNetTypeUtil.isNetWorkAvailable()) {
+                    if (BdNetTypeUtil.isWifiNet()) {
                         return "wifi";
                     }
-                    String c = pi.c();
-                    if (c != null) {
-                        if (c.length() > 0) {
+                    String curMobileProxyHost = BdNetTypeUtil.curMobileProxyHost();
+                    if (curMobileProxyHost != null) {
+                        if (curMobileProxyHost.length() > 0) {
                             return "wap";
                         }
                     }

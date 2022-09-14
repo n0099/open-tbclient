@@ -1,29 +1,36 @@
 package com.baidu.tieba;
+
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
-public interface gp0 {
-    void a(int i);
+public abstract class gp0 implements qp0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onBufferEnd();
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(Exception exc, int i);
 
-    void onBufferStart();
+        void b(Headers headers, InputStream inputStream, int i) throws Exception;
 
-    void onEnd(int i);
+        void c(Headers headers, String str, int i) throws Exception;
+    }
 
-    void onError(int i, int i2, String str);
-
-    void onInfo(int i, int i2);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i, int i2, int i3);
-
-    void onVideoSizeChanged(int i, int i2);
+    public gp0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

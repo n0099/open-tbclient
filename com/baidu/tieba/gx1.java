@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public final class gx1 extends jw1 {
+public class gx1 extends ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    public Paint.Join a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gx1() {
-        super("coverImage", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,29 +23,35 @@ public final class gx1 extends jw1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.u = false;
     }
 
-    @Override // com.baidu.tieba.jw1, com.baidu.tieba.ow1, com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
+    @Override // com.baidu.tieba.ew1
+    public void a(fw1 fw1Var, Canvas canvas) {
+        Paint.Join join;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || (join = this.a) == null) {
             return;
         }
-        super.a(jSONObject);
-        this.u = jSONObject.optBoolean("loadState", false);
-        gr2 gr2Var = this.h;
-        if (gr2Var == null || (jSONObject2 = this.j) == null) {
+        fw1Var.c.setStrokeJoin(join);
+    }
+
+    @Override // com.baidu.tieba.ew1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
             return;
         }
-        gr2Var.i(jSONObject2.optBoolean("fixed", false));
+        String optString = jSONArray.optString(0);
+        if (TextUtils.equals(optString, "bevel")) {
+            this.a = Paint.Join.BEVEL;
+        } else if (TextUtils.equals(optString, "round")) {
+            this.a = Paint.Join.ROUND;
+        } else if (TextUtils.equals(optString, "miter")) {
+            this.a = Paint.Join.MITER;
+        }
     }
 }

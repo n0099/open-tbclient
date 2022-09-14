@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wx1 {
+public class wx1 extends vx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String[] b;
+    public static Map<String, Class<? extends ew1>> m;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ew1> k;
+    public boolean l;
 
     static {
         InterceptResult invokeClinit;
@@ -37,312 +36,107 @@ public class wx1 {
                 return;
             }
         }
-        a = ux1.b();
-        b = new String[]{ux1.c(), ux1.b(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
+        HashMap hashMap = new HashMap();
+        m = hashMap;
+        hashMap.put("setFillStyle", bx1.class);
+        m.put("fillRect", qw1.class);
+        m.put("setStrokeStyle", kx1.class);
+        m.put("strokeStyle", rx1.class);
+        m.put("setLineCap", ex1.class);
+        m.put("setLineJoin", gx1.class);
+        m.put("setLineWidth", hx1.class);
+        m.put("setLineDash", fx1.class);
+        m.put("setMiterLimit", ix1.class);
+        m.put("strokeRect", qx1.class);
+        m.put("moveTo", uw1.class);
+        m.put("lineTo", tw1.class);
+        m.put("stroke", px1.class);
+        m.put("fill", pw1.class);
+        m.put("beginPath", hw1.class);
+        m.put("rect", ww1.class);
+        m.put("clearRect", jw1.class);
+        m.put("closePath", lw1.class);
+        m.put("arc", gw1.class);
+        m.put("bezierCurveTo", iw1.class);
+        m.put("quadraticCurveTo", vw1.class);
+        m.put("scale", ax1.class);
+        m.put("rotate", yw1.class);
+        m.put("translate", ux1.class);
+        m.put("transform", tx1.class);
+        m.put("setTransform", nx1.class);
+        m.put("font", sw1.class);
+        m.put("setFontSize", cx1.class);
+        m.put("setTextAlign", lx1.class);
+        m.put("setTextBaseline", mx1.class);
+        m.put("fillText", rw1.class);
+        m.put("strokeText", sx1.class);
+        m.put("clip", kw1.class);
+        m.put("drawImage", ow1.class);
+        m.put("save", zw1.class);
+        m.put("restore", xw1.class);
+        m.put("setShadow", jx1.class);
+        m.put("setGlobalAlpha", dx1.class);
     }
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wx1(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+        }
+        this.k = new ArrayList();
+        this.l = false;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
+            int length = jSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                String optString = optJSONObject.optString("method");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+                Class<? extends ew1> cls = m.get(optString);
+                if (cls != null) {
+                    ew1 newInstance = cls.newInstance();
+                    newInstance.b(optJSONArray);
+                    this.k.add(newInstance);
                 }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
             }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String b2 = av2.b();
-            return b2 != null ? a(str, "launchid", b2) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        NetworkInfo networkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = null;
-            try {
-                networkInfo = ((ConnectivityManager) hk2.c().getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (NullPointerException unused) {
-                networkInfo = null;
-            }
-            if (networkInfo != null) {
-                str = "wifi".equals(networkInfo.getTypeName().toLowerCase()) ? "WIFI" : networkInfo.getExtraInfo();
-            }
-            if (str != null) {
-                String upperCase = str.toUpperCase();
-                if ("WIFI".equals(upperCase)) {
-                    return 1;
-                }
-                if ("3GNET".equals(upperCase)) {
-                    return 21;
-                }
-                if ("3GWAP".equals(upperCase)) {
-                    return 22;
-                }
-                if ("CMNET".equals(upperCase)) {
-                    return 31;
-                }
-                if ("UNINET".equals(upperCase)) {
-                    return 32;
-                }
-                if ("CTNET".equals(upperCase)) {
-                    return 33;
-                }
-                if ("CMWAP".equals(upperCase)) {
-                    return 41;
-                }
-                if ("UNIWAP".equals(upperCase)) {
-                    return 42;
-                }
-                return "CTWAP".equals(upperCase) ? 43 : 5;
-            }
-            return 5;
-        }
-        return invokeV.intValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? hk2.n().a() : (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "a0" : (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String g = g();
-            String h = h();
-            int i = Build.VERSION.SDK_INT;
-            String i2 = i();
-            return g + "_" + h + "_" + i + "_" + i2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str = Build.MODEL;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String str = Build.MANUFACTURER;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
+            this.l = jSONObject.optInt("reserve") != 0;
+        } catch (Exception e) {
+            if (ij1.a) {
                 e.printStackTrace();
-                return str;
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String k() {
+    public List<ew1> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? j(s()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (List) invokeV.objValue;
     }
 
-    public static String l() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? j(t()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : invokeV.booleanValue;
     }
 
-    public static String m() {
+    @Override // com.baidu.tieba.vx1, com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? j(f()) : (String) invokeV.objValue;
-    }
-
-    public static int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            NetworkInfo c = SwanAppNetworkUtils.c(hk2.c());
-            if (c == null) {
-                return 0;
-            }
-            return c.getSubtype();
-        }
-        return invokeV.intValue;
-    }
-
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return c() + "_" + n();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? AppRuntime.getApplication().getPackageName() : (String) invokeV.objValue;
-    }
-
-    public static String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? "android" : (String) invokeV.objValue;
-    }
-
-    public static String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? lh1.a() : (String) invokeV.objValue;
-    }
-
-    public static String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            int o = re3.o(appContext);
-            int n = re3.n(appContext);
-            int m = re3.m(appContext);
-            String q = q();
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(o);
-            stringBuffer.append("_");
-            stringBuffer.append(n);
-            stringBuffer.append("_");
-            stringBuffer.append(q);
-            stringBuffer.append("_");
-            stringBuffer.append(ue3.D());
-            stringBuffer.append("_");
-            stringBuffer.append(m);
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? hk2.h0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
-    }
-
-    public static boolean u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : b) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) ? w(str, false) : (String) invokeL.objValue;
-    }
-
-    public static String w(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
-            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(SwanAppAllianceLoginHelper.d.f() ? 2 : 0));
-            return z ? b(a2) : a2;
-        }
-        return (String) invokeLZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.isValid() : invokeV.booleanValue;
     }
 }

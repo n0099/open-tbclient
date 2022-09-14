@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoDecoderWrapper;
 import org.webrtc.VideoFrame;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoDecoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class VideoDecoderWrapper {
     public static VideoDecoder.Callback createDecoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoDecoder.Callback() { // from class: com.baidu.tieba.gu9
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoDecoder.Callback() { // from class: com.baidu.tieba.yv9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

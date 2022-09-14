@@ -29,14 +29,14 @@ import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi;
-import com.baidu.tieba.i05;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ge8;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
-import com.baidu.tieba.iy0;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.yc8;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.uz0;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int r0;
     public int s0;
     public int t0;
-    public yc8 u0;
+    public ge8 u0;
 
     static {
         InterceptResult invokeClinit;
@@ -99,24 +99,24 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void C(View view2) {
-        yc8 yc8Var;
+        ge8 ge8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.B == null || this.C == null || (yc8Var = this.u0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.B == null || this.C == null || (ge8Var = this.u0) == null) {
             return;
         }
-        k0(yc8Var.getThreadData(), "share", 0);
+        k0(ge8Var.getThreadData(), "share", 0);
         l0(this.u0.getThreadData(), "2", "1");
         if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.C)) {
             ShareItem shareItem = new ShareItem();
-            shareItem.u = this.u0.getTitle();
-            shareItem.G = this.u0.getTitle();
-            shareItem.w = this.u0.getShareLink();
-            shareItem.I = 3;
+            shareItem.v = this.u0.getTitle();
+            shareItem.H = this.u0.getTitle();
+            shareItem.x = this.u0.getShareLink();
+            shareItem.J = 3;
             shareItem.f = true;
             String imageUrl = this.u0.getImageUrl();
             Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
             if (parse != null) {
-                shareItem.y = parse;
+                shareItem.z = parse;
             }
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.C, shareItem, true, true);
             shareDialogConfig.setIsCopyLink(true);
@@ -150,13 +150,13 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.w = i05.u(shareItem2.w, shareItem2.N, UtilHelper.isVideoThread(shareItem2.P));
-                        gi.a(this.a.w);
-                        ri.N(this.b.C, view3.getResources().getString(R.string.obfuscated_res_0x7f0f0451));
+                        shareItem2.x = r25.u(shareItem2.x, shareItem2.O, UtilHelper.isVideoThread(shareItem2.Q));
+                        ui.a(this.a.x);
+                        ej.N(this.b.C, view3.getResources().getString(R.string.obfuscated_res_0x7f0f0455));
                     }
                 }
             });
-            shareDialogConfig.setHideMode(f0(shareItem.w));
+            shareDialogConfig.setHideMode(f0(shareItem.x));
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
@@ -251,7 +251,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
             try {
-                return new JSONObject(new String(ii.d(str))).getString(str2);
+                return new JSONObject(new String(wi.d(str))).getString(str2);
             } catch (Exception e) {
                 e.printStackTrace();
                 return "";
@@ -270,7 +270,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public final void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            v0 = ri.f(this.C, R.dimen.tbds44);
+            v0 = ej.f(this.C, R.dimen.tbds44);
             setManageVisible(false);
             setSelectVisible(false);
             setShowFlag(11);
@@ -429,7 +429,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 i = -1;
             }
             q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-            iy0.b(clogBuilder);
+            uz0.b(clogBuilder);
         }
     }
 
@@ -534,11 +534,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(yc8 yc8Var) {
+    public void setShareData(ge8 ge8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, yc8Var) == null) {
-            this.u0 = yc8Var;
-            setData(yc8Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048594, this, ge8Var) == null) {
+            this.u0 = ge8Var;
+            setData(ge8Var.getThreadData());
         }
     }
 

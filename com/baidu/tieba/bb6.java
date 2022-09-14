@@ -1,29 +1,150 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.card.view.RecommendForumLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class bb6 extends a35 {
+public class bb6 {
     public static /* synthetic */ Interceptable $ic;
-    public static bb6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<d35> a;
+    public TbPageContext<?> a;
+    public RecommendForumLayout b;
+    public View.OnClickListener c;
+    public PullLeftRefreshLayout.f d;
+    public dp4 e;
 
-    public bb6() {
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bb6 a;
+
+        public a(bb6 bb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bb6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                g86.b(this.a.a, null);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements PullLeftRefreshLayout.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bb6 a;
+
+        public b(bb6 bb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bb6Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g86.b(this.a.a, null);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements dp4<at4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bb6 a;
+
+        public c(bb6 bb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bb6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dp4
+        /* renamed from: a */
+        public void d(View view2, at4 at4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, at4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dp4
+        /* renamed from: b */
+        public void c(View view2, at4 at4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, at4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (at4Var == null) {
+                    g86.b(this.a.a, null);
+                    return;
+                }
+                String l = at4Var.l();
+                if (dj.isForumName(l)) {
+                    this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                }
+            }
+        }
+    }
+
+    public bb6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,60 +154,31 @@ public class bb6 extends a35 {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.c = new a(this);
+        this.d = new b(this);
+        this.e = new c(this);
+        this.a = tbPageContext;
+        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
+        this.b = recommendForumLayout;
+        recommendForumLayout.setShowMore(true);
+        this.b.setSquareEntranceAtStart(true);
+        this.b.setTabName(null);
+        this.b.setFrom(0);
+        this.b.setOnClickRightArrowListener(this.c);
+        this.b.setOnRullOkCallbackr(this.d);
+        this.b.setOnItemCoverListener(this.e);
     }
 
-    public static bb6 e() {
+    public void b(bt4 bt4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bt4Var) == null) {
+            this.b.a(bt4Var);
+        }
+    }
+
+    public RecommendForumLayout c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (bb6.class) {
-                    if (b == null) {
-                        b = new bb6();
-                    }
-                }
-            }
-            return b;
-        }
-        return (bb6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a35
-    public void b(a35.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            List<MyEmotionGroupData> h = oa6.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : h) {
-                EmotionGroupData n = wa6.o().n(myEmotionGroupData.getGroupId());
-                if (n != null) {
-                    qa6 qa6Var = new qa6(n);
-                    if (qa6Var.d() != null) {
-                        this.a.add(qa6Var);
-                        if (aVar != null) {
-                            aVar.a(qa6Var);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.a35
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.a35
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (RecommendForumLayout) invokeV.objValue;
     }
 }

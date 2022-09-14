@@ -122,7 +122,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m110a(String str) {
+    public void m111a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             synchronized (this.f50a) {
@@ -138,7 +138,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m111a(String str) {
+    public boolean m112a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {

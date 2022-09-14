@@ -1,53 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tieba.im.data.JsonMsgItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.j87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class n87 {
     public static /* synthetic */ Interceptable $ic;
-    public static n87 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ArrayList<JsonMsgItem> b;
-    public c c;
 
     /* loaded from: classes5.dex */
-    public class a extends TypeToken<List<JsonMsgItem>> {
+    public static class a implements j87.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(n87 n87Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n87Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,192 +41,106 @@ public class n87 {
                 }
             }
         }
+
+        @Override // com.baidu.tieba.j87.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
+            }
+            return invokeL.booleanValue;
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends ClickableSpan {
+    public static class b implements j87.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsonMsgItem a;
-        public final /* synthetic */ n87 b;
 
-        public b(n87 n87Var, JsonMsgItem jsonMsgItem) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n87Var, jsonMsgItem};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = n87Var;
-            this.a = jsonMsgItem;
         }
 
-        @Override // android.text.style.ClickableSpan
-        public void onClick(@NonNull View view2) {
+        @Override // com.baidu.tieba.j87.a
+        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.c.a(this.a.getUrl());
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(@NonNull TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setColor(this.b.a.getResources().getColor(this.b.d(this.a.getColor())));
-                textPaint.setUnderlineText(false);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947956412, "Lcom/baidu/tieba/n87;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947956412, "Lcom/baidu/tieba/n87;");
-        }
-    }
-
-    public n87(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList<>();
-        this.a = context;
-    }
-
-    public static n87 f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                d = new n87(context);
-            }
-            return d;
-        }
-        return (n87) invokeL.objValue;
-    }
-
-    public int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 0) {
-                return 0;
-            }
-            int i2 = 0;
-            for (int i3 = 0; i3 < i; i3++) {
-                if (this.b.get(i3) != null) {
-                    i2 += this.b.get(i3).getText().length();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
+                if (chatMessage == null || chatMessage.getMsgType() != 22) {
+                    return false;
                 }
+                if (fc7.v(chatMessage)) {
+                    return true;
+                }
+                long a = n87.a(chatMessage);
+                if (a > imMessageCenterPojo.getRead_msgId()) {
+                    imMessageCenterPojo.setRead_msgId(a);
+                }
+                return true;
             }
-            return i2;
+            return invokeLL.booleanValue;
         }
-        return invokeI.intValue;
     }
 
-    public final int d(String str) {
+    public static long a(ChatMessage chatMessage) {
         InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int identifier = this.a.getResources().getIdentifier(str, "color", this.a.getPackageName());
-            return identifier == 0 ? this.a.getResources().getIdentifier("CAM_X0101", "color", this.a.getPackageName()) : identifier;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int identifier = this.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, this.a.getPackageName());
-            return identifier == 0 ? this.a.getResources().getIdentifier("T_X09", EMABTest.TYPE_DIMEN, this.a.getPackageName()) : identifier;
-        }
-        return invokeL.intValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = (ArrayList) new Gson().fromJson(str, new a(this).getType());
-        }
-    }
-
-    public void h(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, textView) == null) {
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
-            textView.setHighlightColor(0);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            for (int i = 0; i < this.b.size(); i++) {
-                JsonMsgItem jsonMsgItem = this.b.get(i);
-                if (jsonMsgItem != null && !TextUtils.isEmpty(jsonMsgItem.getText())) {
-                    SpannableString spannableString = new SpannableString(jsonMsgItem.getText());
-                    spannableString.setSpan(new ForegroundColorSpan(this.a.getResources().getColor(d(jsonMsgItem.getColor()))), 0, jsonMsgItem.getText().length(), 33);
-                    spannableString.setSpan(new AbsoluteSizeSpan((int) this.a.getResources().getDimension(e(jsonMsgItem.getFont()))), 0, jsonMsgItem.getText().length(), 0);
-                    spannableStringBuilder.append((CharSequence) spannableString);
-                    if (jsonMsgItem.getType().intValue() == 1) {
-                        spannableStringBuilder.setSpan(new b(this, jsonMsgItem), c(i), c(i) + jsonMsgItem.getText().length(), 17);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            if (chatMessage != null) {
+                if (chatMessage.getMsgType() == 22) {
+                    try {
+                        String content = chatMessage.getContent();
+                        if (TextUtils.isEmpty(content)) {
+                            return -1L;
+                        }
+                        JSONObject jSONObject = new JSONObject(content);
+                        String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                        if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != ra7.j.longValue()) {
+                            return -1L;
+                        }
+                    } catch (Exception unused) {
+                        return -1L;
                     }
                 }
+                return ec7.a(optJSONObject.optLong("readMsgId"));
             }
-            textView.setText(spannableStringBuilder);
+            return -1L;
+        }
+        return invokeL.longValue;
+    }
+
+    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, j87.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            j87.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
         }
     }
 
-    public boolean i(String str) {
-        InterceptResult invokeL;
+    public static void c(GroupMsgData groupMsgData) {
+        LinkedList<ChatMessage> listMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!sc9.a(str)) {
-                if (str.startsWith("{") && str.endsWith("}")) {
-                    return true;
-                }
-                if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
-                    return true;
-                }
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, groupMsgData) == null) || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.c = cVar;
+        for (int i = 0; i < listMessage.size(); i++) {
+            try {
+                if (new JSONObject(listMessage.get(i).getContent()).optString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+                }
+            } catch (Exception unused) {
+            }
         }
     }
 }

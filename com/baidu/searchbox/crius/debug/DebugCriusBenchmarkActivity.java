@@ -58,10 +58,10 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Inflate");
             for (int i = 0; i < 500; i++) {
                 criusBenchmarkAggregator.startTrace();
-                from.inflate(R.layout.obfuscated_res_0x7f0d0155, (ViewGroup) null);
+                from.inflate(R.layout.benchmark_layout, (ViewGroup) null);
                 criusBenchmarkAggregator.endTrace();
                 criusBenchmarkAggregator2.startTrace();
-                from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
+                from.inflate(R.layout.benchmark_flatten_layout, (ViewGroup) null);
                 criusBenchmarkAggregator2.endTrace();
             }
             textView.setText(criusBenchmarkAggregator.toString() + "\n" + criusBenchmarkAggregator2.toString());
@@ -76,8 +76,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             LayoutInflater from = LayoutInflater.from(this);
             CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Layout");
             CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Layout");
-            View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0155, (ViewGroup) null);
-            View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
+            View inflate = from.inflate(R.layout.benchmark_layout, (ViewGroup) null);
+            View inflate2 = from.inflate(R.layout.benchmark_flatten_layout, (ViewGroup) null);
             for (int i = 0; i < 500; i++) {
                 inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
                 inflate2.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -100,8 +100,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             LayoutInflater from = LayoutInflater.from(this);
             CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Measure");
             CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Measure");
-            View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0155, (ViewGroup) null);
-            View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
+            View inflate = from.inflate(R.layout.benchmark_layout, (ViewGroup) null);
+            View inflate2 = from.inflate(R.layout.benchmark_flatten_layout, (ViewGroup) null);
             for (int i = 0; i < 500; i++) {
                 criusBenchmarkAggregator.startTrace();
                 inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -118,7 +118,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     public void startBenchmark() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ac);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
             int i = this.mBenchmarkWhich;
             if (i == 1) {
                 benchmarkInflate(textView);
@@ -135,8 +135,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     private void updatePreview() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c1c);
-            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) linearLayout, false);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6a);
+            View inflate = LayoutInflater.from(this).inflate(R.layout.benchmark_flatten_layout, (ViewGroup) linearLayout, false);
             inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
             linearLayout.removeAllViews();
             linearLayout.addView(inflate);
@@ -150,9 +150,9 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             CriusLoader.init(this);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d002d);
+            setContentView(R.layout.activity_benchmark);
             updatePreview();
-            ((Button) findViewById(R.id.obfuscated_res_0x7f09040f)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
+            ((Button) findViewById(R.id.obfuscated_res_0x7f09041b)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DebugCriusBenchmarkActivity this$0;
@@ -183,7 +183,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
                     }
                 }
             });
-            Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f090372);
+            Spinner spinner = (Spinner) findViewById(R.id.benchmarkSelect);
             spinner.setAdapter((SpinnerAdapter) new ArrayAdapter((Context) this, 17367048, (Object[]) new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
             spinner.setOnItemSelectedListener(this);
         }

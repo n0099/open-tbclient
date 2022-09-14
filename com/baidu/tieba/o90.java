@@ -1,100 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class o90 {
+public class o90 extends n90 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, List<n90>> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean x;
+    public boolean y;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986947, "Lcom/baidu/tieba/o90;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947986947, "Lcom/baidu/tieba/o90;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o90(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ConcurrentHashMap<>();
+        this.y = false;
     }
 
-    @JvmStatic
-    @JvmOverloads
-    public static final n90 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.n90, com.baidu.tieba.l90
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (n90) invokeL.objValue;
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final n90 b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
-            List<n90> list = a.get(str2);
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (!list.isEmpty() && list.size() >= 2) {
-                n90 n90Var = list.get(0);
-                Collections.swap(list, 0, 1);
-                if (n90Var.isPlaying()) {
-                    n90Var.detachFromContainer();
-                    n90Var.stop();
-                }
-                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + n90Var);
-                return n90Var;
-            }
-            n90 n90Var2 = new n90(new p90(str, 0, null, null, 14, null));
-            list.add(n90Var2);
-            a.put(str2, list);
-            return n90Var2;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.g(z);
         }
-        return (n90) invokeLL.objValue;
     }
 
-    public static /* synthetic */ n90 c(String str, String str2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            str = "";
-        }
-        return b(str, str2);
-    }
-
-    @JvmStatic
-    public static final void d(String str) {
+    @Override // com.baidu.tieba.n90, com.baidu.tieba.l90
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
-            List<n90> list = a.get(str);
-            if (list == null || list.isEmpty()) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.l(z);
+            if (this.x) {
                 return;
             }
-            for (n90 n90Var : list) {
-                n90Var.detachFromContainer();
-                n90Var.release();
+            u(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.n90, com.baidu.tieba.l90
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.m();
+        }
+    }
+
+    @Override // com.baidu.tieba.n90
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.u(i);
+            LinearLayout linearLayout = this.e;
+            if (linearLayout == null) {
+                return;
             }
-            list.clear();
-            a.remove(str);
+            this.x = false;
+            if (this.y) {
+                linearLayout.setBackgroundColor(0);
+            }
         }
     }
 }

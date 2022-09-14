@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s0a;
+import com.baidu.tieba.qw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes4.dex */
-public class i1a implements q3a {
+public abstract class i1a<T, R> extends qw9<R> implements rw9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s0a.a a;
 
-    public i1a(s0a.a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i1a(qw9.a<R> aVar) {
+        super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,33 +23,23 @@ public class i1a implements q3a {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((qw9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.q3a
-    public void a(CancelType cancelType) {
+    public final h1a<T, R> C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogListener", "createConfirmFinishDialog cancel clickArea:" + cancelType);
-            s0a.a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(cancelType);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (getClass() == h1a.class) {
+                return (h1a) this;
             }
+            return new h1a<>(this);
         }
-    }
-
-    @Override // com.baidu.tieba.q3a
-    public boolean b(DialogInterface dialogInterface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (h1a) invokeV.objValue;
     }
 }

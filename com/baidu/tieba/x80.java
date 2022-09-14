@@ -1,160 +1,129 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.os.Environment;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.MarginLayoutParamsCompat;
-import androidx.core.view.ViewCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 /* loaded from: classes6.dex */
-public final class x80 {
+public class x80 {
     public static /* synthetic */ Interceptable $ic;
+    public static Context a;
+    public static x80 b;
+    public static File c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(View view2) {
-        InterceptResult invokeL;
+    public x80() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? b(view2, false) : invokeL.intValue;
-    }
-
-    public static int b(View view2, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
-            if (view2 == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return n(view2) ? z ? view2.getLeft() + g(view2) : view2.getLeft() : z ? view2.getRight() - g(view2) : view2.getRight();
         }
-        return invokeLZ.intValue;
     }
 
-    public static int c(View view2) {
-        InterceptResult invokeL;
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                File file = new File(a.getExternalFilesDir("Log").getPath() + "/");
+                Log.i("LogToFileUtils", "file path ..." + file.getPath());
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                File file2 = new File(file.getPath() + "/logs.txt");
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                try {
+                    file2.createNewFile();
+                } catch (Exception e) {
+                    Log.e("LogToFileUtils", "Create log file failure !!! " + e.toString());
+                }
+                return file2;
             }
-            return MarginLayoutParamsCompat.getMarginEnd((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
+            Log.e("LogToFileUtils", "sd not mounted");
+            return null;
         }
-        return invokeL.intValue;
+        return (File) invokeV.objValue;
     }
 
-    public static int d(View view2) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.baidu.android.imsdk.internal.IMConfigInternal");
+                String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), a));
+                return String.format("%s.%s.%s", valueOf.substring(0, 1), valueOf.substring(1, 2), valueOf.substring(2, 3));
+            } catch (Exception e) {
+                Log.i("LogToFileUtils", e.getMessage());
+                e.printStackTrace();
+                return "";
             }
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            return MarginLayoutParamsCompat.getMarginStart(marginLayoutParams) + MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
         }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int e(View view2) {
+    public static x80 c(Context context) {
         InterceptResult invokeL;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            Log.i("LogToFileUtils", "init ...");
+            if (a != null && b != null && (file = c) != null && file.exists()) {
+                Log.i("LogToFileUtils", "LogToFileUtils has been init ...");
+            } else {
+                a = context;
+                b = new x80();
+                c = a();
+                e("imsdkversion:" + b());
+                e("lcpsdkversion:" + d());
+                Log.i("LogToFileUtils", "LogFilePath is: " + c.getPath());
             }
-            return MarginLayoutParamsCompat.getMarginStart((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
+            return b;
         }
-        return invokeL.intValue;
+        return (x80) invokeL.objValue;
     }
 
-    public static int f(View view2) {
-        InterceptResult invokeL;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "2280016" : (String) invokeV.objValue;
+    }
+
+    public static void e(Object obj) {
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
+            if (a != null && b != null && (file = c) != null && file.exists()) {
+                String str = System.currentTimeMillis() + ":" + obj.toString();
+                Log.i("LogToFileUtils", str);
+                try {
+                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(c, true));
+                    bufferedWriter.write(str);
+                    bufferedWriter.write("\r\n");
+                    bufferedWriter.flush();
+                    return;
+                } catch (Exception e) {
+                    Log.e("LogToFileUtils", "Write failure !!! " + e.toString());
+                    return;
+                }
             }
-            return view2.getMeasuredWidth();
+            Log.e("LogToFileUtils", "Initialization failure !!!");
         }
-        return invokeL.intValue;
-    }
-
-    public static int g(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return ViewCompat.getPaddingEnd(view2);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int h(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return view2.getPaddingLeft() + view2.getPaddingRight();
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return ViewCompat.getPaddingStart(view2);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int j(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) ? k(view2, false) : invokeL.intValue;
-    }
-
-    public static int k(View view2, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, view2, z)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return n(view2) ? z ? view2.getRight() - i(view2) : view2.getRight() : z ? view2.getLeft() + i(view2) : view2.getLeft();
-        }
-        return invokeLZ.intValue;
-    }
-
-    public static int l(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return view2.getWidth();
-        }
-        return invokeL.intValue;
-    }
-
-    public static int m(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, view2)) == null) ? l(view2) + d(view2) : invokeL.intValue;
-    }
-
-    public static boolean n(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
     }
 }

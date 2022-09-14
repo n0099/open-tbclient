@@ -1,164 +1,102 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rj2 extends BaseAdapter {
+public class rj2 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String[] b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-    }
-
-    public rj2(Context context, @NonNull String[] strArr) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rj2(v33 v33Var) {
+        super(v33Var, "/swanAPI/setFullscreenOrientationSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, strArr};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = strArr;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.length : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b[i] : invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.rj2$b */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
-        View inflate;
-        c cVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                if (i == 11) {
-                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b2, null);
-                    b bVar = new b(null);
-                    bVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09077a);
-                    cVar2 = bVar;
-                } else {
-                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b4, null);
-                    c cVar3 = new c(null);
-                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091021);
-                    cVar2 = cVar3;
-                    if (i == 9) {
-                        if (TextUtils.isEmpty(this.b[9])) {
-                            inflate.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603cd));
-                            cVar2 = cVar3;
-                        } else {
-                            inflate.setBackgroundResource(R.drawable.obfuscated_res_0x7f080183);
-                            cVar2 = cVar3;
-                        }
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                yz1.c("setFullscreenOrientationSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal runtime");
+                if (v43.b) {
+                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal runtime");
                 }
-                view2 = inflate;
-                view2.setTag(cVar2);
-                cVar = cVar2;
+                return false;
+            } else if (context == null) {
+                yz1.c("setFullscreenOrientationSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (v43.b) {
+                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal context");
+                }
+                return false;
             } else {
-                cVar = view2.getTag();
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    yz1.c("setFullscreenOrientationSync", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                int optInt = optParamsAsJo.optInt("orientationType", -10000);
+                gp1 A = lo2.U().A(optParamsAsJo.optString("slaveId"));
+                if (!(A instanceof SwanAppWebViewManager)) {
+                    yz1.c("setFullscreenOrientationSync", "no WebView with this slaveId");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                int j = j(optInt);
+                ((SwanAppWebViewManager) A).a1(j);
+                if (v43.b) {
+                    Log.d("setFullscreenOrientationSync", "orientation set to : " + j);
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
             }
-            if (i != 11 && (cVar instanceof c)) {
-                ((c) cVar).a.setText(this.b[i]);
-            }
-            return view2;
         }
-        return (View) invokeILL.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final int j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i != -90) {
+                if (i != 0) {
+                    return i != 90 ? -1 : 0;
+                }
+                return 1;
+            }
+            return 8;
+        }
+        return invokeI.intValue;
     }
 }

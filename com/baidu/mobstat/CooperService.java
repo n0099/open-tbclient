@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.bm;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +76,7 @@ public class CooperService implements ICooperService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             String e = bq.a().e(context);
-            if (TextUtils.isEmpty(e) || e.equals("000000000000000")) {
+            if (TextUtils.isEmpty(e) || e.equals(Config.NULL_DEVICE_ID)) {
                 String str = new Date().getTime() + "";
                 String str2 = "hol" + str.hashCode() + "mes";
                 bq.a().a(context, str2);
@@ -235,7 +236,7 @@ public class CooperService implements ICooperService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
             try {
-                return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
             } catch (Exception unused) {
                 return "";
             }
@@ -264,22 +265,22 @@ public class CooperService implements ICooperService {
             } else {
                 Pattern compile = Pattern.compile("\\s*|\t|\r|\n");
                 try {
-                    String deviceId = telephonyManager.getDeviceId();
+                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
                     if (deviceId != null) {
                         s = compile.matcher(deviceId).replaceAll("");
                     }
                 } catch (Exception unused) {
                 }
-                if (s == null || s.equals("000000000000000")) {
+                if (s == null || s.equals(Config.NULL_DEVICE_ID)) {
                     s = a(context);
                 }
-                if (bw.w(context) && (TextUtils.isEmpty(s) || s.equals("000000000000000"))) {
+                if (bw.w(context) && (TextUtils.isEmpty(s) || s.equals(Config.NULL_DEVICE_ID))) {
                     try {
                         s = c(context);
                     } catch (Exception unused2) {
                     }
                 }
-                if (TextUtils.isEmpty(s) || s.equals("000000000000000")) {
+                if (TextUtils.isEmpty(s) || s.equals(Config.NULL_DEVICE_ID)) {
                     s = d(context);
                 }
                 HeadObject headObject = this.b;

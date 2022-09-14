@@ -2,13 +2,11 @@ package com.baidu.tieba.homepage.topic.topicdetail.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.b37;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.f37;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.RequestGetTopicDetailMessage;
@@ -17,9 +15,11 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicDe
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicThreadMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicDetailMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
+import com.baidu.tieba.i47;
+import com.baidu.tieba.m47;
 import com.baidu.tieba.message.RequestBlessMessage;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ import java.util.List;
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b37 a;
-    public f37 b;
-    public bb c;
+    public i47 a;
+    public m47 b;
+    public pb c;
 
     /* loaded from: classes4.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -62,7 +62,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             long j2;
@@ -93,7 +93,7 @@ public class TopicDetailModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends bb {
+    public class b extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -120,7 +120,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
@@ -132,12 +132,12 @@ public class TopicDetailModel extends BdBaseModel {
             if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
                 this.a.b = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
-            this.a.a.t(responsedMessage.getError(), this.a.b);
+            this.a.a.u(responsedMessage.getError(), this.a.b);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends bb {
+    public class c extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -164,23 +164,23 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                 return;
             }
-            List<pn> list = null;
+            List<Cdo> list = null;
             boolean z = false;
             if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
                 ResponseHttpGetTopicThreadMessage responseHttpGetTopicThreadMessage = (ResponseHttpGetTopicThreadMessage) responsedMessage;
-                List<pn> dataList = responseHttpGetTopicThreadMessage.getDataList();
+                List<Cdo> dataList = responseHttpGetTopicThreadMessage.getDataList();
                 z = responseHttpGetTopicThreadMessage.getHasMore();
                 list = dataList;
             }
             if (responsedMessage instanceof ResponseSocketGetTopicThreadMessage) {
                 ResponseSocketGetTopicThreadMessage responseSocketGetTopicThreadMessage = (ResponseSocketGetTopicThreadMessage) responsedMessage;
-                List<pn> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
+                List<Cdo> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
@@ -200,7 +200,7 @@ public class TopicDetailModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -215,10 +215,10 @@ public class TopicDetailModel extends BdBaseModel {
     public void E(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            if (!pi.A()) {
-                b37 b37Var = this.a;
-                if (b37Var != null) {
-                    b37Var.t(-1, null);
+            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                i47 i47Var = this.a;
+                if (i47Var != null) {
+                    i47Var.u(-1, null);
                     return;
                 }
                 return;
@@ -234,10 +234,10 @@ public class TopicDetailModel extends BdBaseModel {
     public void F(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (!pi.A()) {
-                b37 b37Var = this.a;
-                if (b37Var != null) {
-                    b37Var.M0(-1, false, null);
+            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                i47 i47Var = this.a;
+                if (i47Var != null) {
+                    i47Var.M0(-1, false, null);
                     return;
                 }
                 return;
@@ -252,10 +252,10 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void G(b37 b37Var) {
+    public void G(i47 i47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b37Var) == null) {
-            this.a = b37Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i47Var) == null) {
+            this.a = i47Var;
         }
     }
 

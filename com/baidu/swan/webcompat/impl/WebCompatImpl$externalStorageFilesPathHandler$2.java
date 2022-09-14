@@ -1,7 +1,7 @@
 package com.baidu.swan.webcompat.impl;
 
-import com.baidu.tieba.vi4;
-import com.baidu.tieba.z03;
+import com.baidu.tieba.vk4;
+import com.baidu.tieba.x23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class WebCompatImpl$externalStorageFilesPathHandler$2 extends Lambda implements Function0<vi4> {
+public final class WebCompatImpl$externalStorageFilesPathHandler$2 extends Lambda implements Function0<vk4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ WebCompatImpl this$0;
@@ -41,17 +41,17 @@ public final class WebCompatImpl$externalStorageFilesPathHandler$2 extends Lambd
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final vi4 invoke() {
+    public final vk4 invoke() {
         InterceptResult invokeV;
         FilePathInfo j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             j = this.this$0.j();
             if (j != null) {
-                return new vi4(z03.K(), j.c());
+                return new vk4(x23.K(), j.c());
             }
             return null;
         }
-        return (vi4) invokeV.objValue;
+        return (vk4) invokeV.objValue;
     }
 }

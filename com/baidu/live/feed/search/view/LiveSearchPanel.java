@@ -23,10 +23,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb0;
-import com.baidu.tieba.e90;
-import com.baidu.tieba.f90;
-import com.baidu.tieba.n80;
+import com.baidu.tieba.hc0;
+import com.baidu.tieba.ja0;
+import com.baidu.tieba.ka0;
+import com.baidu.tieba.q90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,9 +41,9 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.Random;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u0000 m2\u00020\u00012\u00020\u0002:\u0002mnB)\b\u0007\u0012\b\u0010f\u001a\u0004\u0018\u00010e\u0012\n\b\u0002\u0010h\u001a\u0004\u0018\u00010g\u0012\b\b\u0002\u0010j\u001a\u00020i¢\u0006\u0004\bk\u0010lJ\r\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0006¢\u0006\u0004\b\t\u0010\bJ\u0019\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0016¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u000e\u001a\u00020\u0003¢\u0006\u0004\b\u000e\u0010\u0005J\r\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0013\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u0006¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0015\u001a\u00020\u0003¢\u0006\u0004\b\u0015\u0010\u0005J\u000f\u0010\u0016\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u0016\u0010\u0005J\u0015\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b\u0018\u0010\u0014J\r\u0010\u0019\u001a\u00020\u0003¢\u0006\u0004\b\u0019\u0010\u0005J\r\u0010\u001a\u001a\u00020\u0003¢\u0006\u0004\b\u001a\u0010\u0005J\r\u0010\u001b\u001a\u00020\u0003¢\u0006\u0004\b\u001b\u0010\u0005J\u0015\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0006¢\u0006\u0004\b\u001d\u0010\u0014J\u0015\u0010\u001f\u001a\u00020\u00032\u0006\u0010\u001e\u001a\u00020\u000f¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010#\u001a\u00020\u00032\b\u0010\"\u001a\u0004\u0018\u00010!¢\u0006\u0004\b#\u0010$J\u000f\u0010%\u001a\u00020\u0003H\u0002¢\u0006\u0004\b%\u0010\u0005J)\u0010(\u001a\u00020\u00032\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00062\u000e\u0010'\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&¢\u0006\u0004\b(\u0010)J\u0015\u0010*\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b*\u0010\u0014J\u000f\u0010+\u001a\u00020\u0003H\u0002¢\u0006\u0004\b+\u0010\u0005J\u000f\u0010,\u001a\u00020\u0003H\u0002¢\u0006\u0004\b,\u0010\u0005J\r\u0010-\u001a\u00020\u0003¢\u0006\u0004\b-\u0010\u0005J\u000f\u0010.\u001a\u00020\u0003H\u0002¢\u0006\u0004\b.\u0010\u0005J\u000f\u0010/\u001a\u00020\u0003H\u0002¢\u0006\u0004\b/\u0010\u0005R\"\u00100\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u00101\u001a\u0004\b2\u0010\u0011\"\u0004\b3\u0010 R\u0018\u00104\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\"\u0010:\u001a\u0002098\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b:\u0010;\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u0016\u0010D\u001a\u00020C8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010ER\u0016\u0010G\u001a\u00020F8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR$\u0010J\u001a\u0004\u0018\u00010I8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bJ\u0010K\u001a\u0004\bL\u0010M\"\u0004\bN\u0010OR\"\u0010P\u001a\u00020\u00068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bP\u00105\u001a\u0004\bQ\u0010\b\"\u0004\bR\u0010\u0014R\"\u0010T\u001a\u00020S8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bT\u0010U\u001a\u0004\bV\u0010W\"\u0004\bX\u0010YR\u001e\u0010Z\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bZ\u0010[R\"\u0010\\\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\\\u00108\u001a\u0004\b]\u0010^\"\u0004\b_\u0010`R\"\u0010a\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\ba\u00108\u001a\u0004\bb\u0010^\"\u0004\bc\u0010`R\u0018\u0010d\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u00105¨\u0006o"}, d2 = {"Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "com/baidu/tieba/f90$a", "Landroid/widget/LinearLayout;", "", "clearEditFocus", "()V", "", "getCurrentQueryHint", "()Ljava/lang/String;", "getText", "Landroid/os/Message;", "msg", "handleMsg", "(Landroid/os/Message;)V", "hideSoftInput", "", "isEditHasFocus", "()Z", "uiMode", "onDarkModeChange", "(Ljava/lang/String;)V", MissionEvent.MESSAGE_DESTROY, "onDetachedFromWindow", "content", "performSearch", "requestEditFocus", "requestInput", "resetView", "showHint", "setCurrentQueryHint", "editable", "setEditable", "(Z)V", "Landroid/view/View$OnClickListener;", "l", "setOnEditClickListener", "(Landroid/view/View$OnClickListener;)V", "setQuery", "", "hintList", "setQueryHintList", "(Ljava/lang/String;Ljava/util/List;)V", "setText", "showHintTextAndSwitcherLoop", "showNextHotWord", "showSoftInput", "startHintSwitcherLoop", "stopHintTextSwitcher", "canSearchHint", "Z", "getCanSearchHint", "setCanSearchHint", "curShowHint", "Ljava/lang/String;", "Landroid/widget/ImageView;", "deleteIcon", "Landroid/widget/ImageView;", "Landroid/widget/EditText;", "editText", "Landroid/widget/EditText;", "getEditText", "()Landroid/widget/EditText;", "setEditText", "(Landroid/widget/EditText;)V", "Landroid/text/TextWatcher;", "editTextChangedListener", "Landroid/text/TextWatcher;", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "handler", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "Landroid/widget/TextSwitcher;", "hintTextSwitcher", "Landroid/widget/TextSwitcher;", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "queryListener", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "getQueryListener", "()Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "setQueryListener", "(Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;)V", "scene", "getScene", "setScene", "Landroid/widget/TextView;", "searchDoneBtn", "Landroid/widget/TextView;", "getSearchDoneBtn", "()Landroid/widget/TextView;", "setSearchDoneBtn", "(Landroid/widget/TextView;)V", "searchHintList", "Ljava/util/List;", "searchTag", "getSearchTag", "()Landroid/widget/ImageView;", "setSearchTag", "(Landroid/widget/ImageView;)V", "splitLineView", "getSplitLineView", "setSplitLineView", "userQuery", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "OnQueryTextListener", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u0000 m2\u00020\u00012\u00020\u0002:\u0002mnB)\b\u0007\u0012\b\u0010f\u001a\u0004\u0018\u00010e\u0012\n\b\u0002\u0010h\u001a\u0004\u0018\u00010g\u0012\b\b\u0002\u0010j\u001a\u00020i¢\u0006\u0004\bk\u0010lJ\r\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0006¢\u0006\u0004\b\t\u0010\bJ\u0019\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0016¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u000e\u001a\u00020\u0003¢\u0006\u0004\b\u000e\u0010\u0005J\r\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0013\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u0006¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0015\u001a\u00020\u0003¢\u0006\u0004\b\u0015\u0010\u0005J\u000f\u0010\u0016\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u0016\u0010\u0005J\u0015\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b\u0018\u0010\u0014J\r\u0010\u0019\u001a\u00020\u0003¢\u0006\u0004\b\u0019\u0010\u0005J\r\u0010\u001a\u001a\u00020\u0003¢\u0006\u0004\b\u001a\u0010\u0005J\r\u0010\u001b\u001a\u00020\u0003¢\u0006\u0004\b\u001b\u0010\u0005J\u0015\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0006¢\u0006\u0004\b\u001d\u0010\u0014J\u0015\u0010\u001f\u001a\u00020\u00032\u0006\u0010\u001e\u001a\u00020\u000f¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010#\u001a\u00020\u00032\b\u0010\"\u001a\u0004\u0018\u00010!¢\u0006\u0004\b#\u0010$J\u000f\u0010%\u001a\u00020\u0003H\u0002¢\u0006\u0004\b%\u0010\u0005J)\u0010(\u001a\u00020\u00032\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00062\u000e\u0010'\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&¢\u0006\u0004\b(\u0010)J\u0015\u0010*\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b*\u0010\u0014J\u000f\u0010+\u001a\u00020\u0003H\u0002¢\u0006\u0004\b+\u0010\u0005J\u000f\u0010,\u001a\u00020\u0003H\u0002¢\u0006\u0004\b,\u0010\u0005J\r\u0010-\u001a\u00020\u0003¢\u0006\u0004\b-\u0010\u0005J\u000f\u0010.\u001a\u00020\u0003H\u0002¢\u0006\u0004\b.\u0010\u0005J\u000f\u0010/\u001a\u00020\u0003H\u0002¢\u0006\u0004\b/\u0010\u0005R\"\u00100\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u00101\u001a\u0004\b2\u0010\u0011\"\u0004\b3\u0010 R\u0018\u00104\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\"\u0010:\u001a\u0002098\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b:\u0010;\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u0016\u0010D\u001a\u00020C8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010ER\u0016\u0010G\u001a\u00020F8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR$\u0010J\u001a\u0004\u0018\u00010I8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bJ\u0010K\u001a\u0004\bL\u0010M\"\u0004\bN\u0010OR\"\u0010P\u001a\u00020\u00068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bP\u00105\u001a\u0004\bQ\u0010\b\"\u0004\bR\u0010\u0014R\"\u0010T\u001a\u00020S8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bT\u0010U\u001a\u0004\bV\u0010W\"\u0004\bX\u0010YR\u001e\u0010Z\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bZ\u0010[R\"\u0010\\\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\\\u00108\u001a\u0004\b]\u0010^\"\u0004\b_\u0010`R\"\u0010a\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\ba\u00108\u001a\u0004\bb\u0010^\"\u0004\bc\u0010`R\u0018\u0010d\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u00105¨\u0006o"}, d2 = {"Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "com/baidu/tieba/ka0$a", "Landroid/widget/LinearLayout;", "", "clearEditFocus", "()V", "", "getCurrentQueryHint", "()Ljava/lang/String;", "getText", "Landroid/os/Message;", "msg", "handleMsg", "(Landroid/os/Message;)V", "hideSoftInput", "", "isEditHasFocus", "()Z", "uiMode", "onDarkModeChange", "(Ljava/lang/String;)V", MissionEvent.MESSAGE_DESTROY, "onDetachedFromWindow", "content", "performSearch", "requestEditFocus", "requestInput", "resetView", "showHint", "setCurrentQueryHint", "editable", "setEditable", "(Z)V", "Landroid/view/View$OnClickListener;", "l", "setOnEditClickListener", "(Landroid/view/View$OnClickListener;)V", "setQuery", "", "hintList", "setQueryHintList", "(Ljava/lang/String;Ljava/util/List;)V", "setText", "showHintTextAndSwitcherLoop", "showNextHotWord", "showSoftInput", "startHintSwitcherLoop", "stopHintTextSwitcher", "canSearchHint", "Z", "getCanSearchHint", "setCanSearchHint", "curShowHint", "Ljava/lang/String;", "Landroid/widget/ImageView;", "deleteIcon", "Landroid/widget/ImageView;", "Landroid/widget/EditText;", "editText", "Landroid/widget/EditText;", "getEditText", "()Landroid/widget/EditText;", "setEditText", "(Landroid/widget/EditText;)V", "Landroid/text/TextWatcher;", "editTextChangedListener", "Landroid/text/TextWatcher;", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "handler", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "Landroid/widget/TextSwitcher;", "hintTextSwitcher", "Landroid/widget/TextSwitcher;", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "queryListener", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "getQueryListener", "()Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "setQueryListener", "(Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;)V", "scene", "getScene", "setScene", "Landroid/widget/TextView;", "searchDoneBtn", "Landroid/widget/TextView;", "getSearchDoneBtn", "()Landroid/widget/TextView;", "setSearchDoneBtn", "(Landroid/widget/TextView;)V", "searchHintList", "Ljava/util/List;", "searchTag", "getSearchTag", "()Landroid/widget/ImageView;", "setSearchTag", "(Landroid/widget/ImageView;)V", "splitLineView", "getSplitLineView", "setSplitLineView", "userQuery", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "OnQueryTextListener", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class LiveSearchPanel extends LinearLayout implements f90.a {
+public final class LiveSearchPanel extends LinearLayout implements ka0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -54,7 +54,7 @@ public final class LiveSearchPanel extends LinearLayout implements f90.a {
     public TextView f;
     public List<String> g;
     public String h;
-    public f90 i;
+    public ka0 i;
     public String j;
     public g k;
     public TextWatcher l;
@@ -267,10 +267,10 @@ public final class LiveSearchPanel extends LinearLayout implements f90.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 TextView textView = new TextView(this.b);
-                textView.setTextSize(0, n80.c(textView.getResources(), 15.0f));
+                textView.setTextSize(0, q90.c(textView.getResources(), 15.0f));
                 textView.setSingleLine();
                 textView.setEllipsize(TextUtils.TruncateAt.END);
-                textView.setTextColor(bb0.f().a(this.b, this.a.getScene(), "color_858585"));
+                textView.setTextColor(hc0.f().a(this.b, this.a.getScene(), "color_858585"));
                 return textView;
             }
             return (TextView) invokeV.objValue;
@@ -431,7 +431,7 @@ public final class LiveSearchPanel extends LinearLayout implements f90.a {
         liveSearchPanel.setQueryHintList(str, list);
     }
 
-    @Override // com.baidu.tieba.f90.a
+    @Override // com.baidu.tieba.ka0.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1) {
@@ -520,16 +520,16 @@ public final class LiveSearchPanel extends LinearLayout implements f90.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             if (Intrinsics.areEqual(str, "day")) {
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d04);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d06);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d23);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d25);
             } else if (Intrinsics.areEqual(str, "night")) {
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d05);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d07);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d24);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d26);
             }
-            this.b.setHintTextColor(bb0.f().a(getContext(), this.n, "color_858585"));
-            this.b.setTextColor(bb0.f().a(getContext(), this.n, "color_1F1F1F"));
-            this.f.setTextColor(bb0.f().a(getContext(), this.n, "color_4E6EF2"));
-            this.e.setBackgroundColor(bb0.f().a(getContext(), this.n, "color_E0E0E0"));
+            this.b.setHintTextColor(hc0.f().a(getContext(), this.n, "color_858585"));
+            this.b.setTextColor(hc0.f().a(getContext(), this.n, "color_1F1F1F"));
+            this.f.setTextColor(hc0.f().a(getContext(), this.n, "color_4E6EF2"));
+            this.e.setBackgroundColor(hc0.f().a(getContext(), this.n, "color_E0E0E0"));
         }
     }
 
@@ -832,31 +832,30 @@ public final class LiveSearchPanel extends LinearLayout implements f90.a {
                 return;
             }
         }
-        this.i = new f90(this);
-        this.m = true;
+        this.i = new ka0(this);
         this.n = LiveFeedPageSdk.HOST_LIVE_TAB;
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0543, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d04);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0559, (ViewGroup) this, true);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d23);
         setGravity(16);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091385);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0913a3);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.live_search_panel_search_tag)");
         this.a = (ImageView) findViewById;
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091384);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0913a2);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.live_s…panel_hint_text_switcher)");
         this.c = (TextSwitcher) findViewById2;
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091383);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0913a1);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "findViewById(R.id.live_search_panel_edit_text)");
         this.b = (EditText) findViewById3;
-        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f091381);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09139f);
         Intrinsics.checkExpressionValueIsNotNull(findViewById4, "findViewById(R.id.live_search_panel_delete)");
         this.d = (ImageView) findViewById4;
-        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091386);
+        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f0913a4);
         Intrinsics.checkExpressionValueIsNotNull(findViewById5, "findViewById(R.id.live_search_panel_split)");
         this.e = (ImageView) findViewById5;
-        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f091382);
+        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0913a0);
         Intrinsics.checkExpressionValueIsNotNull(findViewById6, "findViewById(R.id.live_search_panel_done_btn)");
         this.f = (TextView) findViewById6;
-        this.b.setFilters(new InputFilter[]{e90.a()});
+        this.b.setFilters(new InputFilter[]{ja0.a()});
         a aVar = new a(this);
         this.l = aVar;
         this.b.addTextChangedListener(aVar);

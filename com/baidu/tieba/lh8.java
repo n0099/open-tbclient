@@ -1,47 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class lh8 {
+public class lh8 implements IAperfOverlayContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
+    public lh8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
-            if (intent == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return intent.getBooleanExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, false);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (intent == null) {
-                return false;
-            }
-            boolean booleanExtra = intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
-            if (booleanExtra) {
-                String stringExtra = intent.getStringExtra("fname");
-                if (!StringUtils.isNull(stringExtra)) {
-                    TiebaStatic.log(new StatisticItem("c11897").param("fname", stringExtra));
-                }
-            }
-            return booleanExtra;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.getVersion() : (String) invokeV.objValue;
     }
 }

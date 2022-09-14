@@ -18,7 +18,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -398,7 +397,7 @@ public class FileProvider extends ContentProvider {
             if ("wa".equals(str)) {
                 return 704643072;
             }
-            if (rw.c.equals(str)) {
+            if ("rw".equals(str)) {
                 return 939524096;
             }
             if ("rwt".equals(str)) {

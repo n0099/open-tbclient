@@ -8,26 +8,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BdToastData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> content;
+    @SerializedName("content")
+    public List<ContentBean> content;
+    @SerializedName("icon_type")
     public int iconType;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public static class ContentBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
+        @SerializedName("has_color")
+        public int hasColor;
+        @SerializedName("text")
+        public String text;
 
-        public a() {
+        public ContentBean() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,29 +48,29 @@ public class BdToastData implements Serializable {
             }
         }
 
-        public int a() {
+        public int getHasColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.hasColor : invokeV.intValue;
         }
 
-        public String b() {
+        public String getText() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.text : (String) invokeV.objValue;
         }
 
-        public void c(int i) {
+        public void setHasColor(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.b = i;
+                this.hasColor = i;
             }
         }
 
-        public void d(String str) {
+        public void setText(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.a = str;
+                this.text = str;
             }
         }
     }
@@ -82,7 +89,7 @@ public class BdToastData implements Serializable {
         }
     }
 
-    public List<a> getContent() {
+    public List<ContentBean> getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.content : (List) invokeV.objValue;
@@ -106,7 +113,7 @@ public class BdToastData implements Serializable {
         }
     }
 
-    public void setContent(List<a> list) {
+    public void setContent(List<ContentBean> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.content = list;
@@ -118,6 +125,20 @@ public class BdToastData implements Serializable {
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.iconType = i;
         }
+    }
+
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                return new JSONObject(new Gson().toJson(this));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -133,10 +154,10 @@ public class BdToastData implements Serializable {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        a aVar = new a();
-                        aVar.d(optJSONObject.optString("text"));
-                        aVar.c(optJSONObject.optInt("has_color", 0));
-                        this.content.add(aVar);
+                        ContentBean contentBean = new ContentBean();
+                        contentBean.setText(optJSONObject.optString("text"));
+                        contentBean.setHasColor(optJSONObject.optInt("has_color", 0));
+                        this.content.add(contentBean);
                     }
                 }
             }

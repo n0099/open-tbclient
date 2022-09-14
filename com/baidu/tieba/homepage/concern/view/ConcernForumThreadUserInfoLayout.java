@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sz5;
+import com.baidu.tieba.g16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null || StringUtils.isNull(this.a.f.getForum_name())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), sz5.g())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), g16.g())));
             if (this.a.h != null) {
                 this.a.h.onClick(view2);
             }
@@ -98,12 +98,12 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01eb, (ViewGroup) this, true);
-            this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09053b);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092145);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09216b);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09213f);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0907e4);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ef, (ViewGroup) this, true);
+            this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09054a);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092196);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921bc);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092190);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0907f9);
             setGravity(16);
             d();
             this.b.setOnClickListener(this.i);

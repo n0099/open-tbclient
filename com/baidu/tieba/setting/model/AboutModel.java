@@ -1,7 +1,6 @@
 package com.baidu.tieba.setting.model;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -14,16 +13,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.c9;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.fi;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.f25;
+import com.baidu.tieba.gj;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.q9;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.setting.more.AboutActivity;
-import com.baidu.tieba.su4;
-import com.baidu.tieba.wz4;
+import com.baidu.tieba.ti;
+import com.baidu.tieba.x15;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,25 +45,25 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AboutModel(BaseActivity baseActivity, c9 c9Var) {
+    public AboutModel(BaseActivity baseActivity, q9 q9Var) {
         super(baseActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, c9Var};
+            Object[] objArr = {baseActivity, q9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = baseActivity.getPageContext().getPageActivity();
-        this.mLoadDataCallBack = c9Var;
+        this.mLoadDataCallBack = q9Var;
         this.c = false;
     }
 
@@ -104,7 +104,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, Integer, wz4> {
+    public class b extends BdAsyncTask<String, Integer, f25> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -132,23 +132,23 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public wz4 doInBackground(String... strArr) {
+        public f25 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (wz4) invokeL.objValue;
+                return (f25) invokeL.objValue;
             }
-            wz4 wz4Var = null;
+            f25 f25Var = null;
             try {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
                 this.a = netWork;
-                netWork.addPostData("_os_version", Build.VERSION.RELEASE);
+                netWork.addPostData("_os_version", gj.k());
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(ri.k(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(ej.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
-                stringBuffer.append(String.valueOf(ri.i(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(ej.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("_phone_screen", stringBuffer.toString());
-                if (nz4.d().f() > 0) {
+                if (x15.d().f() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -164,37 +164,37 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 this.a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
                 NetWork netWork3 = this.a;
-                boolean a = fi.a();
+                boolean a = ti.a();
                 String str = WebKitFactory.OS_64;
                 netWork3.addPostData("running_abi", a ? WebKitFactory.OS_64 : "32");
                 NetWork netWork4 = this.a;
-                if (!fi.b()) {
+                if (!ti.b()) {
                     str = "32";
                 }
                 netWork4.addPostData("support_abi", str);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    wz4 wz4Var2 = new wz4();
+                    f25 f25Var2 = new f25();
                     try {
-                        wz4Var2.A(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && wz4Var2.i().a() != null && wz4Var2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.b.b, wz4Var2.i().a());
-                            TbadkCoreApplication.setClientId(wz4Var2.i().a());
+                        f25Var2.A(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && f25Var2.i().a() != null && f25Var2.i().a().length() > 0) {
+                            TbadkCoreApplication.saveClientId(this.b.b, f25Var2.i().a());
+                            TbadkCoreApplication.setClientId(f25Var2.i().a());
                         }
-                        fz4 u = wz4Var2.u();
+                        p15 u = f25Var2.u();
                         if (u != null) {
-                            su4.k().u("localvideo_open", u.y());
+                            bx4.k().u("localvideo_open", u.y());
                         }
-                        ox4 e = wz4Var2.e();
+                        yz4 e = f25Var2.e();
                         if (e != null && !TextUtils.isEmpty(e.c())) {
-                            su4.k().y("sync_ad_privacy_url", e.c());
+                            bx4.k().y("sync_ad_privacy_url", e.c());
                         }
-                        return wz4Var2;
+                        return f25Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        wz4Var = wz4Var2;
+                        f25Var = f25Var2;
                         BdLog.e(e.getMessage());
-                        return wz4Var;
+                        return f25Var;
                     }
                 }
                 return null;
@@ -206,15 +206,15 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(wz4 wz4Var) {
+        public void onPostExecute(f25 f25Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz4Var) == null) {
-                super.onPostExecute(wz4Var);
-                if (wz4Var != null && wz4Var.e() != null) {
-                    TbadkCoreApplication.getInst().setAdAdSense(wz4Var.e());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f25Var) == null) {
+                super.onPostExecute(f25Var);
+                if (f25Var != null && f25Var.e() != null) {
+                    TbadkCoreApplication.getInst().setAdAdSense(f25Var.e());
                 }
                 this.b.a = null;
-                this.b.mLoadDataCallBack.c(wz4Var);
+                this.b.mLoadDataCallBack.c(f25Var);
             }
         }
 

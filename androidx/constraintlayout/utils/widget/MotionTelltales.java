@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.ViewParent;
 import androidx.constraintlayout.motion.widget.MotionLayout;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,15 +58,15 @@ public class MotionTelltales extends MockView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.MotionTelltales);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.MotionTelltales);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
-                    if (index == R$styleable.MotionTelltales_telltales_tailColor) {
+                    if (index == 0) {
                         this.mTailColor = obtainStyledAttributes.getColor(index, this.mTailColor);
-                    } else if (index == R$styleable.MotionTelltales_telltales_velocityMode) {
+                    } else if (index == 2) {
                         this.mVelocityMode = obtainStyledAttributes.getInt(index, this.mVelocityMode);
-                    } else if (index == R$styleable.MotionTelltales_telltales_tailScale) {
+                    } else if (index == 1) {
                         this.mTailScale = obtainStyledAttributes.getFloat(index, this.mTailScale);
                     }
                 }

@@ -1,191 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
-import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
-import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
-import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.nio.ByteBuffer;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes4.dex */
-public class k70 {
-    public static /* synthetic */ Interceptable $ic;
+public final class k70 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "liteUBC";
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public k70() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865861, "Lcom/baidu/tieba/k70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947865861, "Lcom/baidu/tieba/k70;");
+                return;
             }
         }
+        b = b70.d().b();
     }
 
-    public final byte[] a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) ? i == 1 ? g(bArr) : bArr : (byte[]) invokeLI.objValue;
-    }
-
-    public c70 b(c70 c70Var, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c70Var, z)) == null) {
-            c70Var.o = z;
-            h(c70Var, f(c70Var.h, c70Var.i, c70Var.n, d(false)), a(c70Var.a, d(false)));
-            return c70Var;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-        return (c70) invokeLZ.objValue;
     }
 
-    public c70 c(Context context, long j) {
-        InterceptResult invokeLJ;
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
-            long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
-            c70 c70Var = new c70();
-            c70Var.n = random;
-            c70Var.o = true;
-            c70Var.h = 1L;
-            c70Var.i = j;
-            c70Var.l = j == 1;
-            c70Var.k = j == 3;
-            h(c70Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
-            return c70Var;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
         }
-        return (c70) invokeLJ.objValue;
     }
 
-    public final int d(boolean z) {
-        InterceptResult invokeZ;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
-    }
-
-    public final byte[] e(Context context, long j, long j2) {
-        InterceptResult invokeCommon;
-        LcmPb$LcmRequest build;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j2 == 4) {
-                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder();
-                newBuilder.w(j);
-                newBuilder.v(2);
-                LcmPb$LcmNotify build2 = newBuilder.build();
-                LcmPb$RpcData.b newBuilder2 = LcmPb$RpcData.newBuilder();
-                newBuilder2.D(build2);
-                return newBuilder2.build().toByteArray();
-            }
-            if (j2 == 1) {
-                try {
-                    LcmPb$Common lcmPb$Common = (LcmPb$Common) t70.c(context, false);
-                    LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
-                    newBuilder3.z(j);
-                    newBuilder3.x(lcmPb$Common);
-                    newBuilder3.C(x70.j(context));
-                    newBuilder3.B(System.currentTimeMillis());
-                    newBuilder3.A(u60.c(context));
-                    newBuilder3.y(x70.d(context));
-                    build = newBuilder3.build();
-                    w70.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
-                } catch (Exception unused) {
-                    LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
-                    newBuilder4.z(j);
-                    newBuilder4.C(x70.j(context));
-                    newBuilder4.B(System.currentTimeMillis());
-                    newBuilder4.A(u60.c(context));
-                    newBuilder4.y(x70.d(context));
-                    build = newBuilder4.build();
-                }
-            } else if (j2 == 2) {
-                LcmPb$LcmRequest.b newBuilder5 = LcmPb$LcmRequest.newBuilder();
-                newBuilder5.z(j);
-                newBuilder5.B(System.currentTimeMillis());
-                build = newBuilder5.build();
-            } else {
-                LcmPb$LcmRequest.b newBuilder6 = LcmPb$LcmRequest.newBuilder();
-                newBuilder6.z(j);
-                newBuilder6.B(System.currentTimeMillis());
-                build = newBuilder6.build();
-            }
-            w70.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
-            LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
-            newBuilder7.E(build);
-            return newBuilder7.build().toByteArray();
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public final byte[] f(long j, long j2, long j3, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
-            RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder();
-            newBuilder.u(j3);
-            newBuilder.x(j);
-            newBuilder.v(j2);
-            newBuilder.w(1);
-            RpcMetaPb$RpcRequestMeta build = newBuilder.build();
-            RpcMetaPb$RpcMeta.b newBuilder2 = RpcMetaPb$RpcMeta.newBuilder();
-            newBuilder2.F(build);
-            newBuilder2.E(j3);
-            newBuilder2.D(i);
-            newBuilder2.A(1);
-            return newBuilder2.build().toByteArray();
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public final byte[] g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return byteArrayOutputStream.toByteArray();
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final c70 h(c70 c70Var, byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, c70Var, bArr, bArr2)) == null) {
-            try {
-                ByteBuffer allocate = ByteBuffer.allocate(bArr.length + 12 + bArr2.length);
-                allocate.put((byte) 108);
-                allocate.put((byte) 99);
-                allocate.put((byte) 112);
-                allocate.put((byte) 1);
-                allocate.putInt(bArr.length + bArr2.length);
-                allocate.putInt(bArr.length);
-                allocate.put(bArr);
-                allocate.put(bArr2);
-                c70Var.a = allocate.array();
-            } catch (Exception unused) {
-            }
-            return c70Var;
-        }
-        return (c70) invokeLLL.objValue;
     }
 }

@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.tieba.ul2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class t62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,51 +26,37 @@ public class t62 {
                 return;
             }
         }
-        a = kh1.a;
+        boolean z = ij1.a;
     }
 
-    @NonNull
-    public static r62 a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            r62 b = b(c());
-            if (a) {
-                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
-            }
-            return b;
-        }
-        return (r62) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b(x23.K().q().W().e0()) : invokeV.booleanValue;
     }
 
-    public static r62 b(int i) {
-        InterceptResult invokeI;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i == 0) {
-                return new p62();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = lo2.U().g();
             }
-            if (i > 0) {
-                return new s62(i);
-            }
-            if (i == -1) {
-                return new q62();
-            }
-            return new p62();
+            String f = qg3.f(str);
+            boolean z = lo2.U().e(f, lo2.U().s(), ul2.e.i(x23.K().getAppId(), x23.K().q().W().v1()).getPath() + File.separator).o;
+            yz1.i("PreCreateVideoHelper", "hasVideoInPage path : " + f + " has video :" + z);
+            return z;
         }
-        return (r62) invokeI.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static int c() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            hk2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
-            if (a) {
-                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
-            }
-            return 0;
+            fm2.g0().getSwitch("swan_app_precreate_video_switch_v2", false);
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 }

@@ -1,166 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Process;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.wd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.UUID;
-import org.json.JSONObject;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class ce9 {
+public abstract class ce9 implements wd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public ArrayList<String> c;
-    public boolean d;
-    public long e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public long j;
-    public JSONObject k;
-    public JSONObject l;
+    public final zd9 b;
+    public final he9 c;
+    public final wd9.a d;
+    public volatile int e;
+    public volatile int f;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public /* synthetic */ ce9(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (JSONObject) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public ArrayList<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void m(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            this.l = jSONObject;
-        }
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) {
-            this.k = jSONObject;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.j = j;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-        }
-    }
-
-    public void q(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public ce9(b bVar) {
+    public ce9(zd9 zd9Var, he9 he9Var, wd9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {zd9Var, he9Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -170,139 +47,292 @@ public class ce9 {
                 return;
             }
         }
-        this.a = bVar.a;
-        this.e = bVar.e;
-        this.b = bVar.b;
-        this.c = bVar.c;
-        this.d = bVar.d;
-        this.g = bVar.f;
-        this.l = bVar.j;
-        this.i = bVar.g;
-        this.j = bVar.i;
-        this.h = bVar.h;
+        this.f = 0;
+        this.b = zd9Var;
+        this.c = he9Var;
+        this.d = aVar;
+        String h = h();
+        this.a = h;
+        if (TextUtils.isEmpty(h)) {
+            this.a = getClass().getSimpleName();
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public ArrayList<String> c;
-        public boolean d;
-        public long e;
-        public int f;
-        public int g;
-        public int h;
-        public long i;
-        public JSONObject j;
-
-        public b(String str, ArrayList<String> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, arrayList};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+    public final void a() throws DownloadException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.f != 107) {
+                if (this.f != 106) {
                     return;
                 }
+                n(this.c);
+                throw new DownloadException(106, "Download paused!");
             }
-            this.a = UUID.randomUUID().toString().replace("-", "");
-            this.e = System.currentTimeMillis();
-            this.f = 0;
-            this.d = true;
-            this.i = sd9.f().j();
-            this.g = sd9.f().k();
-            this.h = sd9.f().i();
-            this.b = str;
-            this.c = arrayList;
+            throw new DownloadException(107, "Download canceled!");
         }
+    }
 
-        public ce9 k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ce9(this, null) : (ce9) invokeV.objValue;
+    public final void b(Closeable closeable) throws IOException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeable) == null) || closeable == null) {
+            return;
         }
+        synchronized (ce9.class) {
+            closeable.close();
+        }
+    }
 
-        public b l(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-                this.j = jSONObject;
-                return this;
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.a().getAbsolutePath() + File.separator + this.b.d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wd9
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = 107;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x005c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x007a  */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r7v0, types: [com.baidu.tieba.ce9, java.lang.Object] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void d() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
+            return;
+        }
+        try {
+            URL url = new URL(this.c.d());
+            ?? r2 = 0;
+            try {
+                try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    try {
+                        httpURLConnection.setConnectTimeout(4000);
+                        httpURLConnection.setReadTimeout(4000);
+                        httpURLConnection.setRequestMethod("GET");
+                        k(f(this.c), httpURLConnection);
+                        int responseCode = httpURLConnection.getResponseCode();
+                        if (responseCode == g()) {
+                            m(httpURLConnection);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            return;
+                        }
+                        throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
+                        throw new DownloadException(108, "IO error", e);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r2 = url;
+                    if (r2 != 0) {
+                        r2.disconnect();
+                    }
+                    throw th;
+                }
+            } catch (ProtocolException e5) {
+                e2 = e5;
+            } catch (IOException e6) {
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                if (r2 != 0) {
+                }
+                throw th;
             }
-            return (b) invokeL.objValue;
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
+    }
 
-        public b m(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                this.i = j;
-                return this;
+    public abstract RandomAccessFile e(File file, String str, long j) throws IOException;
+
+    public abstract Map<String, String> f(he9 he9Var);
+
+    public abstract int g();
+
+    public abstract String h();
+
+    public final void i(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.d) {
+                        this.e = 106;
+                        this.d.onDownloadPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.d) {
+                        this.e = 107;
+                        this.d.onDownloadCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.d) {
+                        this.e = 108;
+                        this.d.a(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
             }
-            return (b) invokeJ.objValue;
         }
+    }
 
-        public b n(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.h = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
+    @Override // com.baidu.tieba.wd9
+    public boolean isComplete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e == 105 : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wd9
+    public boolean isDownloading() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e == 104 : invokeV.booleanValue;
+    }
+
+    public abstract void j(he9 he9Var);
+
+    public final void k(Map<String, String> map, URLConnection uRLConnection) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, map, uRLConnection) == null) || map == null) {
+            return;
         }
-
-        public b o(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.f = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
+        for (String str : map.keySet()) {
+            uRLConnection.setRequestProperty(str, map.get(str));
         }
+    }
 
-        public b p(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.d = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
+    public final void l(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048590, this, inputStream, randomAccessFile) != null) {
+            return;
         }
-
-        public b(String str, String str2, ArrayList<String> arrayList, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, arrayList, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        byte[] bArr = new byte[8192];
+        while (true) {
+            a();
+            try {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
                     return;
                 }
+                randomAccessFile.write(bArr, 0, read);
+                long j = read;
+                this.c.e(this.c.b() + j);
+                synchronized (this.d) {
+                    this.b.f(this.b.b() + j);
+                    this.d.onDownloadProgress(this.b.b(), this.b.c());
+                }
+            } catch (IOException e) {
+                n(this.c);
+                throw new DownloadException(108, e);
             }
-            this.a = str;
-            this.e = j;
-            this.b = str2;
-            this.c = arrayList;
-            this.f = 0;
-            this.d = true;
-            this.i = sd9.f().j();
-            this.g = sd9.f().k();
-            this.h = sd9.f().i();
+        }
+    }
+
+    public final void m(HttpURLConnection httpURLConnection) throws DownloadException {
+        Closeable closeable;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048591, this, httpURLConnection) != null) {
+            return;
+        }
+        Closeable closeable2 = null;
+        try {
+            try {
+                InputStream inputStream = httpURLConnection.getInputStream();
+                try {
+                    long c = this.c.c() + this.c.b();
+                    try {
+                        File a = this.b.a();
+                        if (!a.exists()) {
+                            a.mkdirs();
+                        }
+                        RandomAccessFile e = e(a, this.b.d(), c);
+                        l(inputStream, e);
+                        try {
+                            b(inputStream);
+                            b(e);
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    } catch (IOException e3) {
+                        throw new DownloadException(108, "File occur IOException ", e3);
+                    } catch (Exception e4) {
+                        throw new DownloadException(108, "Occur Exception ", e4);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = inputStream;
+                    closeable = null;
+                    try {
+                        b(closeable2);
+                        b(closeable);
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (IOException e6) {
+                throw new DownloadException(108, "http get inputStream error", e6);
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            closeable = null;
+        }
+    }
+
+    public abstract void n(he9 he9Var);
+
+    @Override // com.baidu.tieba.wd9
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.f = 106;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            Process.setThreadPriority(10);
+            j(this.c);
+            try {
+                this.e = 104;
+                d();
+                synchronized (this.d) {
+                    this.e = 105;
+                    this.d.onDownloadCompleted(c());
+                }
+            } catch (DownloadException e) {
+                i(e);
+            }
         }
     }
 }

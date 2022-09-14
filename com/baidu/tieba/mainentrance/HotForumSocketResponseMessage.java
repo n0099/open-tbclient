@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh7;
-import com.baidu.tieba.eh7;
+import com.baidu.tieba.li7;
+import com.baidu.tieba.mi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dh7> forumInfoList;
+    public List<li7> forumInfoList;
     public HotSearchInfoData mSearchInfo;
-    public List<eh7> mTopicInfoList;
+    public List<mi7> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,16 +68,16 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
             if (list != null) {
                 for (ForumInfo forumInfo : list) {
                     if (forumInfo != null) {
-                        dh7 dh7Var = new dh7();
-                        dh7Var.a(forumInfo);
-                        this.forumInfoList.add(dh7Var);
+                        li7 li7Var = new li7();
+                        li7Var.a(forumInfo);
+                        this.forumInfoList.add(li7Var);
                     }
                 }
             }
             if (hotForumResIdl.data.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
                 this.mSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.A(hotForumResIdl.data.hot_search);
+                hotSearchInfoData.B(hotForumResIdl.data.hot_search);
             }
             if (hotForumResIdl.data.hot_topic != null) {
                 this.mTopicInfoList = new ArrayList();
@@ -85,9 +85,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
                 if (list2 != null) {
                     for (HotTopicList hotTopicList : list2) {
                         if (hotTopicList != null) {
-                            eh7 eh7Var = new eh7();
-                            eh7Var.d(hotTopicList);
-                            this.mTopicInfoList.add(eh7Var);
+                            mi7 mi7Var = new mi7();
+                            mi7Var.d(hotTopicList);
+                            this.mTopicInfoList.add(mi7Var);
                         }
                     }
                 }
@@ -102,7 +102,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<dh7> getForumInfoList() {
+    public List<li7> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forumInfoList : (List) invokeV.objValue;
@@ -114,7 +114,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSearchInfo : (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<eh7> getTopicInfoList() {
+    public List<mi7> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTopicInfoList : (List) invokeV.objValue;

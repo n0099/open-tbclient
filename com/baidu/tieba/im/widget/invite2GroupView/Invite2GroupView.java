@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.oe5;
-import com.baidu.tieba.p97;
-import com.baidu.tieba.r87;
+import com.baidu.tieba.vg5;
+import com.baidu.tieba.wa7;
+import com.baidu.tieba.y97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -146,7 +146,7 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements oe5<Boolean> {
+    public class d implements vg5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -180,7 +180,7 @@ public final class Invite2GroupView extends LinearLayout {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.b.getContext() instanceof Activity)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0833);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0846);
                 }
             }
         }
@@ -205,7 +205,7 @@ public final class Invite2GroupView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oe5
+        @Override // com.baidu.tieba.vg5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -247,12 +247,12 @@ public final class Invite2GroupView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e4, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e8, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f9);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ef);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f6a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09060c);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090602);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090601);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f85);
             this.b.setIsRound(false);
         }
     }
@@ -262,7 +262,7 @@ public final class Invite2GroupView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
             this.d.setEnabled(true);
             this.d.setTag(String.valueOf(this.e.getGroupId()));
-            this.d.setText(R.string.obfuscated_res_0x7f0f08ab);
+            this.d.setText(R.string.obfuscated_res_0x7f0f08be);
             this.d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
             this.d.setOnClickListener(new a(this));
             this.a.setText(this.e.getTitle());
@@ -270,15 +270,15 @@ public final class Invite2GroupView extends LinearLayout {
             this.b.K(this.e.getPortrait(), 10, false);
             this.c.setText(this.e.getNotice());
             setOnClickListener(new b(this, tbPageContext));
-            if (r87.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
+            if (y97.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
                 if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
-                    this.d.setText(R.string.obfuscated_res_0x7f0f08ac);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f08bf);
                     this.d.setOnClickListener(new c(this));
                     return;
                 }
                 return;
             }
-            p97.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
+            wa7.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
         }
     }
 

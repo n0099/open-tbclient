@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.gj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +86,7 @@ public class RomTypeUtil {
                                     sName = "FLYME";
                                 } else {
                                     sVersion = "unknown";
-                                    sName = Build.MANUFACTURER.toUpperCase();
+                                    sName = gj.f().toUpperCase();
                                 }
                             }
                         }

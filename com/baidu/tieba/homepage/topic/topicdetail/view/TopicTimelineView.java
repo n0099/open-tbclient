@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.homepage.topic.topicdetail.adapter.TopicTimelineAdapter;
-import com.baidu.tieba.k37;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.r47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -117,15 +117,15 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0882, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0922bb);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0922ba);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089c, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09230f);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09230e);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);
             this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.c.setItemAnimator(new DefaultItemAnimator());
-            this.c.addItemDecoration(new a(this, ri.f(context, R.dimen.tbds44), ri.f(context, R.dimen.tbds20), ri.f(context, R.dimen.tbds44)));
+            this.c.addItemDecoration(new a(this, ej.f(context, R.dimen.tbds44), ej.f(context, R.dimen.tbds20), ej.f(context, R.dimen.tbds44)));
             b();
         }
     }
@@ -141,13 +141,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         this.d.notifyDataSetChanged();
     }
 
-    public void setData(k37 k37Var) {
+    public void setData(r47 r47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k37Var) == null) {
-            if (k37Var != null && !ListUtils.isEmpty(k37Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r47Var) == null) {
+            if (r47Var != null && !ListUtils.isEmpty(r47Var.b)) {
                 setVisibility(0);
-                this.b.setText(k37Var.a);
-                this.d.setData(k37Var.b);
+                this.b.setText(r47Var.a);
+                this.d.setData(r47Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }

@@ -1,28 +1,16 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mx extends sw<go4> {
+public class mx extends az {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public ThreadLinkView g;
-    public TextView h;
-    public go4 i;
+    public boolean y;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mx(Context context) {
@@ -42,49 +30,35 @@ public class mx extends sw<go4> {
                 return;
             }
         }
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().o != null && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
-            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().o;
-        } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a2, (ViewGroup) null, true);
-        }
-        this.g = (ThreadLinkView) this.f.findViewById(R.id.obfuscated_res_0x7f091304);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0912ff);
+        this.y = false;
     }
 
-    @Override // com.baidu.tieba.sw
-    public View h() {
+    @Override // com.baidu.tieba.az
+    public ra8 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new sa8(this.b, this.i, this.y) : (ra8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mx(Context context, boolean z) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.g.b();
-            go4 go4Var = this.i;
-            if (go4Var == null || go4Var.getThreadData() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            sz5.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: p */
-    public void a(go4 go4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) {
-            if (go4Var != null && go4Var.getThreadData() != null) {
-                this.i = go4Var;
-                ThreadData threadData = go4Var.getThreadData();
-                sz5.j(threadData, this.h);
-                this.g.setData(threadData);
-                return;
-            }
-            h().setVisibility(8);
-        }
+        this.y = false;
+        this.y = z;
     }
 }

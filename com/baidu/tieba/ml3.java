@@ -1,88 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class ml3 {
+public class ml3 extends kl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Method a;
-    public Object b;
 
-    public ml3(Class<?> cls) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976469, "Lcom/baidu/tieba/ml3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947976469, "Lcom/baidu/tieba/ml3;");
+                return;
+            }
+        }
+        boolean z = ij1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ml3(v33 v33Var) {
+        super(v33Var, "/swanAPI/recommendSimilarProducts");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((v33) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (cls == null) {
-            return;
-        }
-        try {
-            this.b = d54.m(cls);
-            Method i3 = d54.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
-            this.a = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-        } catch (Throwable unused) {
-        }
     }
 
-    public static ml3 a(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = d54.b("com.hisi.perfhub.PerfHub", true);
-            } catch (Throwable unused) {
-                cls = null;
-            }
-            return new ml3(cls);
-        }
-        return (ml3) invokeL.objValue;
-    }
-
-    public boolean b() {
+    @Override // com.baidu.tieba.kl3
+    @NonNull
+    public String r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.b == null || this.a == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public int c(int i, String str, int... iArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
-            if (b()) {
-                try {
-                    Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
-                    if (invoke == null) {
-                        return -1;
-                    }
-                    return ((Integer) invoke).intValue();
-                } catch (Throwable unused) {
-                    return -1;
-                }
-            }
-            return -1;
-        }
-        return invokeILL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? yi3.b() : (String) invokeV.objValue;
     }
 }

@@ -1,135 +1,88 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
-import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
-import com.baidu.tbadk.BdToken.GetTokenSocketResponsedMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class gj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public bb c;
 
-    /* loaded from: classes4.dex */
-    public class a extends bb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gj4 a;
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        if (inputStream == null) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            try {
+                i = inputStream.read(bArr, 0, 1024);
+            } catch (IOException unused) {
+                i = 0;
+            }
+            if (i != -1) {
+                byteArrayOutputStream.write(bArr, 0, i);
+            } else {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                cj4.d(byteArrayOutputStream);
+                return byteArray;
+            }
+        }
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gj4 gj4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gj4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                byte[] a = a(inputStream);
+                if (a != null) {
+                    String str = new String(a);
+                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                        str = str.substring(1);
+                    }
+                    cj4.d(inputStream);
+                    return str;
                 }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                cj4.d(inputStream);
+                throw th;
             }
-            this.a = gj4Var;
+            cj4.d(inputStream);
+            return null;
         }
-
-        @Override // com.baidu.tieba.bb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (responsedMessage == null || responsedMessage.getError() != 0) {
-                    this.a.d(false, null);
-                } else if (responsedMessage instanceof GetTokenSocketResponsedMessage) {
-                    this.a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
-                } else if (responsedMessage instanceof GetTokenHttpResponsedMessage) {
-                    this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(boolean z, bk4 bk4Var);
-    }
-
-    public gj4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
-        f();
-        e();
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a) {
-            return;
-        }
-        this.a = true;
-        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
-        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
-        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
-    }
-
-    public final void d(boolean z, bk4 bk4Var) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, bk4Var) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.a(z, bk4Var);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pk8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            pk8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
-        }
-    }
-
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.b = bVar;
-        }
+        return (String) invokeL.objValue;
     }
 }

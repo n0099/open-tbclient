@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class c {
     public Context d;
     public Uri.Builder e;
@@ -40,7 +40,7 @@ public abstract class c {
     public final com.meizu.cloud.pushsdk.b.c.g c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     public AtomicBoolean t = new AtomicBoolean(false);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public final String a;
         public final Context b;

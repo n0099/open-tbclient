@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
+@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,6 +33,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public SurfaceTexture mSurfaceTexture;
     public TextureRender mTextureRender;
 
+    @SuppressLint({"BDThrowableCheck"})
     public OutputSurface(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,6 +71,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
     }
 
+    @SuppressLint({"BDThrowableCheck, InlinedApi"})
     private void eglSetup(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
@@ -112,6 +116,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void awaitNewImage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -140,6 +145,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public boolean checkForNewImage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -178,6 +184,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSurface : (Surface) invokeV.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void makeCurrent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l74;
+import com.baidu.tieba.l94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l74<View> a;
+    public l94<View> a;
     public SparseArray<View> b;
 
     /* loaded from: classes3.dex */
@@ -37,7 +37,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 return;
             }
         }
-        this.a = new l74<>(5);
+        this.a = new l94<>(5);
         this.b = new SparseArray<>();
     }
 

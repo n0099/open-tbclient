@@ -14,9 +14,9 @@ import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb0;
-import com.baidu.tieba.n80;
-import com.baidu.tieba.xa0;
+import com.baidu.tieba.dc0;
+import com.baidu.tieba.hc0;
+import com.baidu.tieba.q90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,18 +54,18 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xa0.h(this.i, 1, 13.0f);
-            xa0.f(this.j, n80.c(getContext().getResources(), 12.0f), n80.c(getContext().getResources(), 12.0f));
+            dc0.h(this.i, 1, 13.0f);
+            dc0.f(this.j, q90.c(getContext().getResources(), 12.0f), q90.c(getContext().getResources(), 12.0f));
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0528, this);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091257);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923bb);
-            this.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fda);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d053d, this);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091275);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092415);
+            this.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ff6);
             d();
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
@@ -81,17 +81,17 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
             if (view2 != null) {
                 Drawable background = view2.getBackground();
                 if (background instanceof GradientDrawable) {
-                    ((GradientDrawable) background).setColor(bb0.f().a(getContext(), this.c, "color_F5F5F53"));
+                    ((GradientDrawable) background).setColor(hc0.f().a(getContext(), this.c, "color_F5F5F53"));
                     this.h.setBackgroundDrawable(background);
                 }
             }
             TextView textView = this.i;
             if (textView != null) {
-                textView.setTextColor(bb0.f().a(getContext(), this.c, "color_white4"));
+                textView.setTextColor(hc0.f().a(getContext(), this.c, "color_white4"));
             }
             ImageView imageView = this.j;
             if (imageView != null) {
-                imageView.setImageResource(bb0.f().o(this.c));
+                imageView.setImageResource(hc0.f().p(this.c));
             }
         }
     }

@@ -12,10 +12,9 @@ import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dc9;
-import com.baidu.tieba.jc9;
-import com.baidu.tieba.rw;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.bg9;
+import com.baidu.tieba.gg9;
+import com.baidu.tieba.mg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +123,7 @@ public class VideoReverseHelper {
                 }
             }
             try {
-                FileChannel channel = new RandomAccessFile(str2, rw.c).getChannel();
+                FileChannel channel = new RandomAccessFile(str2, "rw").getChannel();
                 ArrayList arrayList = new ArrayList();
                 int andSelectVideoTrackIndex = getAndSelectVideoTrackIndex(this.mMediaExtractor);
                 MediaFormat trackFormat = this.mMediaExtractor.getTrackFormat(andSelectVideoTrackIndex);
@@ -422,24 +421,88 @@ public class VideoReverseHelper {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:198:0x041a, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(10:19|20|(15:(2:22|(14:24|25|26|27|(1:261)(1:31)|32|(2:34|(8:36|(4:40|(2:43|44)(1:42)|37|38)|218|219|(1:46)|47|(1:217)|50))|260|219|(0)|47|(0)|217|50))|25|26|27|(1:29)|261|32|(0)|260|219|(0)|47|(0)|217|50)|272|273|274|(1:276)(1:288)|(1:287)|(2:284|285)|283) */
+    /* JADX WARN: Code restructure failed: missing block: B:198:0x041c, code lost:
         r3 = r29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x01ec, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:224:0x0498, code lost:
+        r23 = "MediaCodec预倒放失败";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:230:0x04b7, code lost:
+        if (r48 != false) goto L253;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:231:0x04b9, code lost:
+        r3 = r22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:232:0x04bc, code lost:
+        r3 = r23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:233:0x04be, code lost:
+        r2.onTimeReverseError(new java.lang.Exception(r3 + r0.getMessage()));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:234:0x04d9, code lost:
+        return false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:238:0x04de, code lost:
+        r23 = "MediaCodec预倒放失败";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:244:0x04fd, code lost:
+        if (r48 != false) goto L240;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:245:0x04ff, code lost:
+        r3 = r22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:246:0x0502, code lost:
+        r3 = r23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:247:0x0504, code lost:
+        r2.onTimeReverseError(new java.lang.Exception(r3 + r0.getMessage()));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:248:0x051f, code lost:
+        return false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:252:0x0524, code lost:
+        r23 = "MediaCodec预倒放失败";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:258:0x0543, code lost:
+        if (r48 != false) goto L227;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:259:0x0545, code lost:
+        r3 = r22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:260:0x0548, code lost:
+        r3 = r23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:261:0x054a, code lost:
+        r2.onTimeReverseError(new java.lang.Exception(r3 + r0.getMessage()));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:262:0x0565, code lost:
+        return false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x01a9, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x01ac, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x01af, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x01ee, code lost:
         com.baidu.ugc.utils.FileUtils.deleteFile(r5);
         com.baidu.ugc.utils.FileUtils.deleteFile(r28);
      */
-    /* JADX WARN: Removed duplicated region for block: B:162:0x0335 A[Catch: Exception -> 0x0486, IOException -> 0x048a, FileNotFoundException -> 0x048e, TryCatch #15 {FileNotFoundException -> 0x048e, IOException -> 0x048a, Exception -> 0x0486, blocks: (B:55:0x0147, B:57:0x014a, B:64:0x0158, B:65:0x015c, B:69:0x0182, B:83:0x01be, B:85:0x01e8, B:87:0x01ec, B:91:0x01fe, B:93:0x0202, B:94:0x020a, B:175:0x03ae, B:177:0x03b2, B:178:0x03b9, B:183:0x03ca, B:186:0x03d7, B:187:0x03e9, B:189:0x03f1, B:190:0x03f8, B:192:0x03fc, B:193:0x040a, B:196:0x0411, B:98:0x021f, B:100:0x0239, B:104:0x0252, B:160:0x032a, B:162:0x0335, B:164:0x033f, B:166:0x0346, B:168:0x034e, B:169:0x0354, B:101:0x0240, B:103:0x0250, B:170:0x0371, B:68:0x0163, B:60:0x0150), top: B:294:0x0147 }] */
-    /* JADX WARN: Removed duplicated region for block: B:168:0x034e A[Catch: Exception -> 0x0486, IOException -> 0x048a, FileNotFoundException -> 0x048e, TryCatch #15 {FileNotFoundException -> 0x048e, IOException -> 0x048a, Exception -> 0x0486, blocks: (B:55:0x0147, B:57:0x014a, B:64:0x0158, B:65:0x015c, B:69:0x0182, B:83:0x01be, B:85:0x01e8, B:87:0x01ec, B:91:0x01fe, B:93:0x0202, B:94:0x020a, B:175:0x03ae, B:177:0x03b2, B:178:0x03b9, B:183:0x03ca, B:186:0x03d7, B:187:0x03e9, B:189:0x03f1, B:190:0x03f8, B:192:0x03fc, B:193:0x040a, B:196:0x0411, B:98:0x021f, B:100:0x0239, B:104:0x0252, B:160:0x032a, B:162:0x0335, B:164:0x033f, B:166:0x0346, B:168:0x034e, B:169:0x0354, B:101:0x0240, B:103:0x0250, B:170:0x0371, B:68:0x0163, B:60:0x0150), top: B:294:0x0147 }] */
-    /* JADX WARN: Removed duplicated region for block: B:228:0x04ad  */
-    /* JADX WARN: Removed duplicated region for block: B:242:0x04f3  */
-    /* JADX WARN: Removed duplicated region for block: B:256:0x0539  */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x0337 A[Catch: Exception -> 0x0488, IOException -> 0x048c, FileNotFoundException -> 0x0490, TryCatch #16 {FileNotFoundException -> 0x0490, IOException -> 0x048c, Exception -> 0x0488, blocks: (B:55:0x0149, B:57:0x014c, B:64:0x015a, B:65:0x015e, B:69:0x0184, B:83:0x01c0, B:85:0x01ea, B:87:0x01ee, B:91:0x0200, B:93:0x0204, B:94:0x020c, B:175:0x03b0, B:177:0x03b4, B:178:0x03bb, B:183:0x03cc, B:186:0x03d9, B:187:0x03eb, B:189:0x03f3, B:190:0x03fa, B:192:0x03fe, B:193:0x040c, B:196:0x0413, B:98:0x0221, B:100:0x023b, B:104:0x0254, B:160:0x032c, B:162:0x0337, B:164:0x0341, B:166:0x0348, B:168:0x0350, B:169:0x0356, B:101:0x0242, B:103:0x0252, B:170:0x0373, B:68:0x0165, B:60:0x0152), top: B:292:0x0149 }] */
+    /* JADX WARN: Removed duplicated region for block: B:168:0x0350 A[Catch: Exception -> 0x0488, IOException -> 0x048c, FileNotFoundException -> 0x0490, TryCatch #16 {FileNotFoundException -> 0x0490, IOException -> 0x048c, Exception -> 0x0488, blocks: (B:55:0x0149, B:57:0x014c, B:64:0x015a, B:65:0x015e, B:69:0x0184, B:83:0x01c0, B:85:0x01ea, B:87:0x01ee, B:91:0x0200, B:93:0x0204, B:94:0x020c, B:175:0x03b0, B:177:0x03b4, B:178:0x03bb, B:183:0x03cc, B:186:0x03d9, B:187:0x03eb, B:189:0x03f3, B:190:0x03fa, B:192:0x03fe, B:193:0x040c, B:196:0x0413, B:98:0x0221, B:100:0x023b, B:104:0x0254, B:160:0x032c, B:162:0x0337, B:164:0x0341, B:166:0x0348, B:168:0x0350, B:169:0x0356, B:101:0x0242, B:103:0x0252, B:170:0x0373, B:68:0x0165, B:60:0x0152), top: B:292:0x0149 }] */
+    /* JADX WARN: Removed duplicated region for block: B:228:0x04af  */
+    /* JADX WARN: Removed duplicated region for block: B:242:0x04f5  */
+    /* JADX WARN: Removed duplicated region for block: B:256:0x053b  */
     /* JADX WARN: Removed duplicated region for block: B:323:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:325:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:327:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0141 A[Catch: Exception -> 0x019e, IOException -> 0x01a1, FileNotFoundException -> 0x01a4, TRY_LEAVE, TryCatch #16 {FileNotFoundException -> 0x01a4, IOException -> 0x01a1, Exception -> 0x019e, blocks: (B:43:0x011b, B:46:0x0127, B:48:0x012f, B:50:0x013b, B:52:0x0141), top: B:292:0x011b }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0158 A[Catch: Exception -> 0x0486, IOException -> 0x048a, FileNotFoundException -> 0x048e, TryCatch #15 {FileNotFoundException -> 0x048e, IOException -> 0x048a, Exception -> 0x0486, blocks: (B:55:0x0147, B:57:0x014a, B:64:0x0158, B:65:0x015c, B:69:0x0182, B:83:0x01be, B:85:0x01e8, B:87:0x01ec, B:91:0x01fe, B:93:0x0202, B:94:0x020a, B:175:0x03ae, B:177:0x03b2, B:178:0x03b9, B:183:0x03ca, B:186:0x03d7, B:187:0x03e9, B:189:0x03f1, B:190:0x03f8, B:192:0x03fc, B:193:0x040a, B:196:0x0411, B:98:0x021f, B:100:0x0239, B:104:0x0252, B:160:0x032a, B:162:0x0335, B:164:0x033f, B:166:0x0346, B:168:0x034e, B:169:0x0354, B:101:0x0240, B:103:0x0250, B:170:0x0371, B:68:0x0163, B:60:0x0150), top: B:294:0x0147 }] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0161 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0143 A[Catch: Exception -> 0x01a0, IOException -> 0x01a3, FileNotFoundException -> 0x01a6, TRY_LEAVE, TryCatch #15 {FileNotFoundException -> 0x01a6, IOException -> 0x01a3, Exception -> 0x01a0, blocks: (B:43:0x011d, B:46:0x0129, B:48:0x0131, B:50:0x013d, B:52:0x0143), top: B:294:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x015a A[Catch: Exception -> 0x0488, IOException -> 0x048c, FileNotFoundException -> 0x0490, TryCatch #16 {FileNotFoundException -> 0x0490, IOException -> 0x048c, Exception -> 0x0488, blocks: (B:55:0x0149, B:57:0x014c, B:64:0x015a, B:65:0x015e, B:69:0x0184, B:83:0x01c0, B:85:0x01ea, B:87:0x01ee, B:91:0x0200, B:93:0x0204, B:94:0x020c, B:175:0x03b0, B:177:0x03b4, B:178:0x03bb, B:183:0x03cc, B:186:0x03d9, B:187:0x03eb, B:189:0x03f3, B:190:0x03fa, B:192:0x03fe, B:193:0x040c, B:196:0x0413, B:98:0x0221, B:100:0x023b, B:104:0x0254, B:160:0x032c, B:162:0x0337, B:164:0x0341, B:166:0x0348, B:168:0x0350, B:169:0x0356, B:101:0x0242, B:103:0x0252, B:170:0x0373, B:68:0x0165, B:60:0x0152), top: B:292:0x0149 }] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0163 A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -450,12 +513,6 @@ public class VideoReverseHelper {
         String str5;
         String str6;
         String str7;
-        WeakReference<OnTimeReverseListener> weakReference;
-        OnTimeReverseListener onTimeReverseListener;
-        WeakReference<OnTimeReverseListener> weakReference2;
-        OnTimeReverseListener onTimeReverseListener2;
-        WeakReference<OnTimeReverseListener> weakReference3;
-        OnTimeReverseListener onTimeReverseListener3;
         long j;
         String str8;
         long j2;
@@ -473,9 +530,7 @@ public class VideoReverseHelper {
         FileChannel fileChannel2;
         List<BuffeInfoWrapper> list;
         int i7;
-        OnTimeReverseListener onTimeReverseListener4;
-        int[] uVPos;
-        byte b;
+        OnTimeReverseListener onTimeReverseListener;
         int i8;
         int i9;
         int i10;
@@ -492,12 +547,12 @@ public class VideoReverseHelper {
         String str9 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp";
         String str10 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp_reverse";
         List<BuffeInfoWrapper> extractVideoToPath = extractVideoToPath(str, str9);
-        if (dc9.e(extractVideoToPath) || !FileUtils.checkFile(str9)) {
+        if (gg9.e(extractVideoToPath) || !FileUtils.checkFile(str9)) {
             FileUtils.deleteFile(str9);
             return false;
         }
         try {
-            long duration = jc9.d(str).getDuration() * 1000;
+            long duration = mg9.d(str).getDuration() * 1000;
             if (this.mMediaMuxer == null) {
                 this.mMediaMuxer = new MediaMuxer(str10, 0);
             }
@@ -507,213 +562,172 @@ public class VideoReverseHelper {
                 i3 = trackFormat.getInteger("width");
                 i4 = trackFormat.getInteger("height");
                 try {
-                    try {
-                        if (i3 % 16 == 0) {
-                            if (i4 % 16 == 0) {
-                                str3 = "MediaCodec点击倒放失败";
-                                str4 = "MediaCodec预倒放失败";
-                                i = i3;
-                                i2 = i4;
-                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
-                                j = currentTimeMillis;
-                                if (this.mDeocderOutputFormat == null && this.mDeocderOutputFormat.containsKey("color-format")) {
-                                    i10 = this.mDeocderOutputFormat.getInteger("color-format");
-                                    j2 = duration;
-                                } else {
-                                    j2 = duration;
-                                    i10 = -1;
-                                }
-                                allSupportColorFormat = getAllSupportColorFormat();
-                                if (allSupportColorFormat != null) {
-                                    if (allSupportColorFormat.length > 0) {
-                                        str8 = str10;
-                                        for (int i11 : allSupportColorFormat) {
-                                            try {
-                                                if (i11 == i10) {
-                                                    z3 = true;
-                                                    break;
-                                                }
-                                            } catch (FileNotFoundException e) {
-                                                e = e;
-                                                str7 = str8;
-                                                e.printStackTrace();
-                                                yb9.d(e.toString());
-                                                FileUtils.deleteFile(str9);
-                                                FileUtils.deleteFile(str7);
-                                                weakReference3 = this.mOnTimeReverseListenerWeakReference;
-                                                return weakReference3 != null ? false : false;
-                                            } catch (IOException e2) {
-                                                e = e2;
-                                                str6 = str8;
-                                                e.printStackTrace();
-                                                yb9.d(e.toString());
-                                                FileUtils.deleteFile(str9);
-                                                FileUtils.deleteFile(str6);
-                                                weakReference2 = this.mOnTimeReverseListenerWeakReference;
-                                                return weakReference2 != null ? false : false;
-                                            } catch (Exception e3) {
-                                                e = e3;
-                                                str5 = str8;
-                                                e.printStackTrace();
-                                                yb9.d(e.toString());
-                                                FileUtils.deleteFile(str9);
-                                                FileUtils.deleteFile(str5);
-                                                weakReference = this.mOnTimeReverseListenerWeakReference;
-                                                return weakReference != null ? false : false;
-                                            }
-                                        }
-                                        z3 = false;
-                                        if (!z3) {
-                                            i10 = getSupportColorFormat();
-                                        }
-                                        createVideoFormat.setInteger("color-format", i10);
-                                        if (i == i3 || i2 != i4) {
-                                            createVideoFormat.setInteger("stride", i);
-                                            createVideoFormat.setInteger("slice-height", i2);
-                                            createVideoFormat.setInteger("crop-left", 0);
-                                            createVideoFormat.setInteger("crop-right", i3 - 1);
-                                            createVideoFormat.setInteger("crop-top", 0);
-                                            createVideoFormat.setInteger("crop-bottom", i4 - 1);
-                                        }
-                                        setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
-                                        setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
-                                        setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
-                                        this.mVideoEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                                    }
-                                }
-                                str8 = str10;
-                                z3 = false;
-                                if (!z3) {
-                                }
-                                createVideoFormat.setInteger("color-format", i10);
-                                if (i == i3) {
-                                }
-                                createVideoFormat.setInteger("stride", i);
-                                createVideoFormat.setInteger("slice-height", i2);
-                                createVideoFormat.setInteger("crop-left", 0);
-                                createVideoFormat.setInteger("crop-right", i3 - 1);
-                                createVideoFormat.setInteger("crop-top", 0);
-                                createVideoFormat.setInteger("crop-bottom", i4 - 1);
-                                setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
-                                setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
-                                setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
-                                this.mVideoEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                    if (i3 % 16 == 0) {
+                        if (i4 % 16 == 0) {
+                            str3 = "MediaCodec点击倒放失败";
+                            str4 = "MediaCodec预倒放失败";
+                            i = i3;
+                            i2 = i4;
+                            MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
+                            j = currentTimeMillis;
+                            if (this.mDeocderOutputFormat == null && this.mDeocderOutputFormat.containsKey("color-format")) {
+                                i10 = this.mDeocderOutputFormat.getInteger("color-format");
+                                j2 = duration;
+                            } else {
+                                j2 = duration;
+                                i10 = -1;
                             }
-                        }
-                        MediaFormat createVideoFormat2 = MediaFormat.createVideoFormat("video/avc", i, i2);
-                        j = currentTimeMillis;
-                        if (this.mDeocderOutputFormat == null) {
-                        }
-                        j2 = duration;
-                        i10 = -1;
-                        allSupportColorFormat = getAllSupportColorFormat();
-                        if (allSupportColorFormat != null) {
-                        }
-                        str8 = str10;
-                        z3 = false;
-                        if (!z3) {
-                        }
-                        createVideoFormat2.setInteger("color-format", i10);
-                        if (i == i3) {
-                        }
-                        createVideoFormat2.setInteger("stride", i);
-                        createVideoFormat2.setInteger("slice-height", i2);
-                        createVideoFormat2.setInteger("crop-left", 0);
-                        createVideoFormat2.setInteger("crop-right", i3 - 1);
-                        createVideoFormat2.setInteger("crop-top", 0);
-                        createVideoFormat2.setInteger("crop-bottom", i4 - 1);
-                        setMediaFormatProperty(trackFormat, createVideoFormat2, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
-                        setMediaFormatProperty(trackFormat, createVideoFormat2, "frame-rate", 30);
-                        setMediaFormatProperty(trackFormat, createVideoFormat2, "i-frame-interval", 5);
-                        this.mVideoEncoder.configure(createVideoFormat2, (Surface) null, (MediaCrypto) null, 1);
-                    } catch (FileNotFoundException e4) {
-                        e = e4;
-                        str7 = str10;
-                        e.printStackTrace();
-                        yb9.d(e.toString());
-                        FileUtils.deleteFile(str9);
-                        FileUtils.deleteFile(str7);
-                        weakReference3 = this.mOnTimeReverseListenerWeakReference;
-                        if (weakReference3 != null && (onTimeReverseListener3 = weakReference3.get()) != null) {
-                            onTimeReverseListener3.onTimeReverseError(new Exception((z ? str3 : str4) + e.getMessage()));
-                            return false;
-                        }
-                    } catch (IOException e5) {
-                        e = e5;
-                        str6 = str10;
-                        e.printStackTrace();
-                        yb9.d(e.toString());
-                        FileUtils.deleteFile(str9);
-                        FileUtils.deleteFile(str6);
-                        weakReference2 = this.mOnTimeReverseListenerWeakReference;
-                        if (weakReference2 != null && (onTimeReverseListener2 = weakReference2.get()) != null) {
-                            onTimeReverseListener2.onTimeReverseError(new Exception((z ? str3 : str4) + e.getMessage()));
-                            return false;
-                        }
-                    } catch (Exception e6) {
-                        e = e6;
-                        str5 = str10;
-                        e.printStackTrace();
-                        yb9.d(e.toString());
-                        FileUtils.deleteFile(str9);
-                        FileUtils.deleteFile(str5);
-                        weakReference = this.mOnTimeReverseListenerWeakReference;
-                        if (weakReference != null && (onTimeReverseListener = weakReference.get()) != null) {
-                            onTimeReverseListener.onTimeReverseError(new Exception((z ? str3 : str4) + e.getMessage()));
-                            return false;
+                            allSupportColorFormat = getAllSupportColorFormat();
+                            if (allSupportColorFormat != null) {
+                                if (allSupportColorFormat.length > 0) {
+                                    str8 = str10;
+                                    for (int i11 : allSupportColorFormat) {
+                                        try {
+                                            if (i11 == i10) {
+                                                z3 = true;
+                                                break;
+                                            }
+                                        } catch (FileNotFoundException e) {
+                                            e = e;
+                                            str7 = str8;
+                                            e.printStackTrace();
+                                            bg9.d(e.toString());
+                                            FileUtils.deleteFile(str9);
+                                            FileUtils.deleteFile(str7);
+                                            WeakReference<OnTimeReverseListener> weakReference = this.mOnTimeReverseListenerWeakReference;
+                                            return weakReference == null ? false : false;
+                                        } catch (IOException e2) {
+                                            e = e2;
+                                            str6 = str8;
+                                            e.printStackTrace();
+                                            bg9.d(e.toString());
+                                            FileUtils.deleteFile(str9);
+                                            FileUtils.deleteFile(str6);
+                                            WeakReference<OnTimeReverseListener> weakReference2 = this.mOnTimeReverseListenerWeakReference;
+                                            return weakReference2 == null ? false : false;
+                                        } catch (Exception e3) {
+                                            e = e3;
+                                            str5 = str8;
+                                            e.printStackTrace();
+                                            bg9.d(e.toString());
+                                            FileUtils.deleteFile(str9);
+                                            FileUtils.deleteFile(str5);
+                                            WeakReference<OnTimeReverseListener> weakReference3 = this.mOnTimeReverseListenerWeakReference;
+                                            return weakReference3 == null ? false : false;
+                                        }
+                                    }
+                                    z3 = false;
+                                    if (!z3) {
+                                        i10 = getSupportColorFormat();
+                                    }
+                                    createVideoFormat.setInteger("color-format", i10);
+                                    if (i == i3 || i2 != i4) {
+                                        createVideoFormat.setInteger("stride", i);
+                                        createVideoFormat.setInteger("slice-height", i2);
+                                        createVideoFormat.setInteger("crop-left", 0);
+                                        createVideoFormat.setInteger("crop-right", i3 - 1);
+                                        createVideoFormat.setInteger("crop-top", 0);
+                                        createVideoFormat.setInteger("crop-bottom", i4 - 1);
+                                    }
+                                    setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
+                                    setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
+                                    setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                                    this.mVideoEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                                }
+                            }
+                            str8 = str10;
+                            z3 = false;
+                            if (!z3) {
+                            }
+                            createVideoFormat.setInteger("color-format", i10);
+                            if (i == i3) {
+                            }
+                            createVideoFormat.setInteger("stride", i);
+                            createVideoFormat.setInteger("slice-height", i2);
+                            createVideoFormat.setInteger("crop-left", 0);
+                            createVideoFormat.setInteger("crop-right", i3 - 1);
+                            createVideoFormat.setInteger("crop-top", 0);
+                            createVideoFormat.setInteger("crop-bottom", i4 - 1);
+                            setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
+                            setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
+                            setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                            this.mVideoEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                         }
                     }
-                    if (this.mDeocderOutputFormat != null) {
-                        int integer = this.mDeocderOutputFormat.getInteger("stride");
-                        i9 = this.mDeocderOutputFormat.getInteger("slice-height");
-                        i = integer;
-                    } else {
-                        i = i3;
-                        i9 = i4;
+                    MediaFormat createVideoFormat2 = MediaFormat.createVideoFormat("video/avc", i, i2);
+                    j = currentTimeMillis;
+                    if (this.mDeocderOutputFormat == null) {
                     }
-                    if (i == 0 || i % 16 != 0) {
-                        i = (16 - (i3 % 16)) + i3;
+                    j2 = duration;
+                    i10 = -1;
+                    allSupportColorFormat = getAllSupportColorFormat();
+                    if (allSupportColorFormat != null) {
                     }
-                    if (i9 == 0 || i9 % 16 != 0) {
-                        i9 = i4 + (16 - (i4 % 16));
+                    str8 = str10;
+                    z3 = false;
+                    if (!z3) {
                     }
-                    str4 = "MediaCodec预倒放失败";
-                    i2 = i9;
-                } catch (FileNotFoundException e7) {
-                    e = e7;
-                    str4 = "MediaCodec预倒放失败";
+                    createVideoFormat2.setInteger("color-format", i10);
+                    if (i == i3) {
+                    }
+                    createVideoFormat2.setInteger("stride", i);
+                    createVideoFormat2.setInteger("slice-height", i2);
+                    createVideoFormat2.setInteger("crop-left", 0);
+                    createVideoFormat2.setInteger("crop-right", i3 - 1);
+                    createVideoFormat2.setInteger("crop-top", 0);
+                    createVideoFormat2.setInteger("crop-bottom", i4 - 1);
+                    setMediaFormatProperty(trackFormat, createVideoFormat2, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
+                    setMediaFormatProperty(trackFormat, createVideoFormat2, "frame-rate", 30);
+                    setMediaFormatProperty(trackFormat, createVideoFormat2, "i-frame-interval", 5);
+                    this.mVideoEncoder.configure(createVideoFormat2, (Surface) null, (MediaCrypto) null, 1);
+                } catch (FileNotFoundException e4) {
+                    e = e4;
                     str7 = str10;
                     e.printStackTrace();
-                    yb9.d(e.toString());
+                    bg9.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str7);
-                    weakReference3 = this.mOnTimeReverseListenerWeakReference;
-                    if (weakReference3 != null) {
+                    WeakReference<OnTimeReverseListener> weakReference4 = this.mOnTimeReverseListenerWeakReference;
+                    if (weakReference4 == null) {
                     }
-                } catch (IOException e8) {
-                    e = e8;
-                    str4 = "MediaCodec预倒放失败";
+                } catch (IOException e5) {
+                    e = e5;
                     str6 = str10;
                     e.printStackTrace();
-                    yb9.d(e.toString());
+                    bg9.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str6);
-                    weakReference2 = this.mOnTimeReverseListenerWeakReference;
-                    if (weakReference2 != null) {
+                    WeakReference<OnTimeReverseListener> weakReference22 = this.mOnTimeReverseListenerWeakReference;
+                    if (weakReference22 == null) {
                     }
-                } catch (Exception e9) {
-                    e = e9;
-                    str4 = "MediaCodec预倒放失败";
+                } catch (Exception e6) {
+                    e = e6;
                     str5 = str10;
                     e.printStackTrace();
-                    yb9.d(e.toString());
+                    bg9.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str5);
-                    weakReference = this.mOnTimeReverseListenerWeakReference;
-                    if (weakReference != null) {
+                    WeakReference<OnTimeReverseListener> weakReference32 = this.mOnTimeReverseListenerWeakReference;
+                    if (weakReference32 == null) {
                     }
                 }
                 str3 = "MediaCodec点击倒放失败";
+                if (this.mDeocderOutputFormat != null) {
+                    int integer = this.mDeocderOutputFormat.getInteger("stride");
+                    i9 = this.mDeocderOutputFormat.getInteger("slice-height");
+                    i = integer;
+                } else {
+                    i = i3;
+                    i9 = i4;
+                }
+                if (i == 0 || i % 16 != 0) {
+                    i = (16 - (i3 % 16)) + i3;
+                }
+                if (i9 == 0 || i9 % 16 != 0) {
+                    i9 = i4 + (16 - (i4 % 16));
+                }
+                str4 = "MediaCodec预倒放失败";
+                i2 = i9;
             } else {
                 str3 = "MediaCodec点击倒放失败";
                 str4 = "MediaCodec预倒放失败";
@@ -788,73 +802,72 @@ public class VideoReverseHelper {
                                         int i17 = i16 * i;
                                         int i18 = i3 - 1;
                                         try {
-                                            uVPos = getUVPos(i16, i18, i, i2);
-                                            b = byteBuffer.get(i18 + i17);
+                                            int[] uVPos = getUVPos(i16, i18, i, i2);
+                                            byte b = byteBuffer.get(i18 + i17);
                                             byteBufferArr2 = inputBuffers;
-                                        } catch (Exception e10) {
-                                            e = e10;
-                                            byteBufferArr2 = inputBuffers;
-                                        }
-                                        try {
-                                            byte b2 = byteBuffer.get(uVPos[0]);
-                                            byte b3 = byteBuffer.get(uVPos[1]);
-                                            int i19 = i3;
-                                            while (i19 < i) {
-                                                fileChannel2 = channel;
-                                                try {
-                                                    byteBuffer.put(i17 + i19, b);
-                                                    if (i16 % 2 == 0 && i19 % 2 == 0) {
-                                                        int[] uVPos2 = getUVPos(i16, i19, i, i2);
-                                                        i8 = i17;
-                                                        byteBuffer.put(uVPos2[0], b2);
-                                                        byteBuffer.put(uVPos2[1], b3);
-                                                    } else {
-                                                        i8 = i17;
+                                            try {
+                                                byte b2 = byteBuffer.get(uVPos[0]);
+                                                byte b3 = byteBuffer.get(uVPos[1]);
+                                                int i19 = i3;
+                                                while (i19 < i) {
+                                                    fileChannel2 = channel;
+                                                    try {
+                                                        byteBuffer.put(i17 + i19, b);
+                                                        if (i16 % 2 == 0 && i19 % 2 == 0) {
+                                                            int[] uVPos2 = getUVPos(i16, i19, i, i2);
+                                                            i8 = i17;
+                                                            byteBuffer.put(uVPos2[0], b2);
+                                                            byteBuffer.put(uVPos2[1], b3);
+                                                        } else {
+                                                            i8 = i17;
+                                                        }
+                                                        i19++;
+                                                        i17 = i8;
+                                                        channel = fileChannel2;
+                                                    } catch (Exception e7) {
+                                                        e = e7;
+                                                        i4 = i15;
+                                                        i6 = i;
+                                                        bg9.d(e.toString());
+                                                        if (this.mOnTimeReverseListenerWeakReference != null && (onTimeReverseListener = this.mOnTimeReverseListenerWeakReference.get()) != null) {
+                                                            onTimeReverseListener.onTimeReverseError(e);
+                                                        }
+                                                        if (bufferInfo4.size > byteBuffer.position()) {
+                                                        }
+                                                        this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
+                                                        i13 = i7 - 1;
+                                                        z6 = z7;
+                                                        z4 = z2;
+                                                        i = i6;
+                                                        extractVideoToPath = list;
+                                                        inputBuffers = byteBufferArr2;
+                                                        channel = fileChannel2;
                                                     }
-                                                    i19++;
-                                                    i17 = i8;
-                                                    channel = fileChannel2;
-                                                } catch (Exception e11) {
-                                                    e = e11;
-                                                    i4 = i15;
-                                                    i6 = i;
-                                                    yb9.d(e.toString());
-                                                    if (this.mOnTimeReverseListenerWeakReference != null && (onTimeReverseListener4 = this.mOnTimeReverseListenerWeakReference.get()) != null) {
-                                                        onTimeReverseListener4.onTimeReverseError(e);
-                                                    }
-                                                    if (bufferInfo4.size > byteBuffer.position()) {
-                                                    }
-                                                    this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                                    i13 = i7 - 1;
-                                                    z6 = z7;
-                                                    z4 = z2;
-                                                    i = i6;
-                                                    extractVideoToPath = list;
-                                                    inputBuffers = byteBufferArr2;
-                                                    channel = fileChannel2;
                                                 }
+                                                i16++;
+                                                inputBuffers = byteBufferArr2;
+                                            } catch (Exception e8) {
+                                                e = e8;
+                                                fileChannel2 = channel;
+                                                i4 = i15;
+                                                i6 = i;
+                                                bg9.d(e.toString());
+                                                if (this.mOnTimeReverseListenerWeakReference != null) {
+                                                }
+                                                if (bufferInfo4.size > byteBuffer.position()) {
+                                                }
+                                                this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
+                                                i13 = i7 - 1;
+                                                z6 = z7;
+                                                z4 = z2;
+                                                i = i6;
+                                                extractVideoToPath = list;
+                                                inputBuffers = byteBufferArr2;
+                                                channel = fileChannel2;
                                             }
-                                            i16++;
-                                            inputBuffers = byteBufferArr2;
-                                        } catch (Exception e12) {
-                                            e = e12;
-                                            fileChannel2 = channel;
-                                            i4 = i15;
-                                            i6 = i;
-                                            yb9.d(e.toString());
-                                            if (this.mOnTimeReverseListenerWeakReference != null) {
-                                                onTimeReverseListener4.onTimeReverseError(e);
-                                            }
-                                            if (bufferInfo4.size > byteBuffer.position()) {
-                                            }
-                                            this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                            i13 = i7 - 1;
-                                            z6 = z7;
-                                            z4 = z2;
-                                            i = i6;
-                                            extractVideoToPath = list;
-                                            inputBuffers = byteBufferArr2;
-                                            channel = fileChannel2;
+                                        } catch (Exception e9) {
+                                            e = e9;
+                                            byteBufferArr2 = inputBuffers;
                                         }
                                     }
                                 }
@@ -880,9 +893,9 @@ public class VideoReverseHelper {
                                                     i6 = i;
                                                     try {
                                                         byteBuffer.put(uVPos4[0], b5);
-                                                    } catch (Exception e13) {
-                                                        e = e13;
-                                                        yb9.d(e.toString());
+                                                    } catch (Exception e10) {
+                                                        e = e10;
+                                                        bg9.d(e.toString());
                                                         if (this.mOnTimeReverseListenerWeakReference != null) {
                                                         }
                                                         if (bufferInfo4.size > byteBuffer.position()) {
@@ -898,9 +911,9 @@ public class VideoReverseHelper {
                                                     }
                                                     try {
                                                         byteBuffer.put(uVPos4[1], b6);
-                                                    } catch (Exception e14) {
-                                                        e = e14;
-                                                        yb9.d(e.toString());
+                                                    } catch (Exception e11) {
+                                                        e = e11;
+                                                        bg9.d(e.toString());
                                                         if (this.mOnTimeReverseListenerWeakReference != null) {
                                                         }
                                                         if (bufferInfo4.size > byteBuffer.position()) {
@@ -923,11 +936,12 @@ public class VideoReverseHelper {
                                             }
                                             i20++;
                                             i = i;
-                                        } catch (Exception e15) {
-                                            e = e15;
+                                        } catch (Exception e12) {
+                                            e = e12;
                                             i6 = i;
-                                            yb9.d(e.toString());
+                                            bg9.d(e.toString());
                                             if (this.mOnTimeReverseListenerWeakReference != null) {
+                                                onTimeReverseListener.onTimeReverseError(e);
                                             }
                                             if (bufferInfo4.size > byteBuffer.position()) {
                                             }
@@ -1026,32 +1040,32 @@ public class VideoReverseHelper {
             try {
                 this.mMediaMuxer.stop();
                 this.mMediaMuxer.release();
-            } catch (Exception e16) {
-                yb9.g(e16);
+            } catch (Exception e13) {
+                bg9.g(e13);
             }
             try {
                 this.mMediaExtractor.release();
-            } catch (Exception e17) {
-                yb9.g(e17);
+            } catch (Exception e14) {
+                bg9.g(e14);
             }
             try {
                 this.mVideoEncoder.stop();
                 this.mVideoEncoder.release();
-            } catch (Exception e18) {
-                yb9.g(e18);
+            } catch (Exception e15) {
+                bg9.g(e15);
             }
-            yb9.d("finish:" + (System.currentTimeMillis() - j));
+            bg9.d("finish:" + (System.currentTimeMillis() - j));
             FileUtils.deleteFile(str9);
             new File(str8).renameTo(new File(str2));
             return true;
-        } catch (FileNotFoundException e19) {
-            e = e19;
+        } catch (FileNotFoundException e16) {
+            e = e16;
             str3 = "MediaCodec点击倒放失败";
-        } catch (IOException e20) {
-            e = e20;
+        } catch (IOException e17) {
+            e = e17;
             str3 = "MediaCodec点击倒放失败";
-        } catch (Exception e21) {
-            e = e21;
+        } catch (Exception e18) {
+            e = e18;
             str3 = "MediaCodec点击倒放失败";
         }
     }

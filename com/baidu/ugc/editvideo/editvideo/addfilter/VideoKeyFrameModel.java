@@ -9,9 +9,9 @@ import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.HandlerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b89;
-import com.baidu.tieba.dc9;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.bg9;
+import com.baidu.tieba.ec9;
+import com.baidu.tieba.gg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,10 +117,10 @@ public class VideoKeyFrameModel {
         this.isMirror = true;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:111:0x0219  */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0223  */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x0259  */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x025c  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x021a  */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0224  */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x025a  */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x025d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -141,7 +141,7 @@ public class VideoKeyFrameModel {
             MediaExtractor mediaExtractor2 = mediaExtractor;
             ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            if (dc9.e(list) || list.size() != 1) {
+            if (gg9.e(list) || list.size() != 1) {
                 j = 0;
                 j2 = -1;
             } else {
@@ -159,7 +159,7 @@ public class VideoKeyFrameModel {
                 }
                 j2 = j5;
             }
-            if (dc9.e(list)) {
+            if (gg9.e(list)) {
                 if (this.mStartPosition > j) {
                     mediaExtractor.getSampleTime();
                     long j6 = this.mStartPosition;
@@ -198,7 +198,7 @@ public class VideoKeyFrameModel {
                         j4 = j3;
                         i2 = i3;
                         if (mediaExtractor.getSampleTrackIndex() != i) {
-                            yb9.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
+                            bg9.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
                         }
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
                         mediaExtractor.advance();
@@ -214,10 +214,10 @@ public class VideoKeyFrameModel {
                         if (dequeueOutputBuffer == -2) {
                             mediaCodec.getOutputFormat();
                         } else if (dequeueOutputBuffer < 0) {
-                            yb9.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                            bg9.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                         } else {
                             boolean z7 = (bufferInfo.flags & 4) != 0 ? true : z5;
-                            if (this.mDuration > j4 || dc9.e(list)) {
+                            if (this.mDuration > j4 || gg9.e(list)) {
                                 if (bufferInfo.size != 0) {
                                     z2 = z7;
                                     if (bufferInfo.presentationTimeUs >= this.mStartPosition) {
@@ -266,7 +266,7 @@ public class VideoKeyFrameModel {
                                         } else if (bufferInfo.presentationTimeUs >= j2) {
                                             long currentTimeMillis = System.currentTimeMillis();
                                             this.mBitmap = baseOutputSurface.getFrameBitmap();
-                                            yb9.c("zmy", "draw cost : " + (System.currentTimeMillis() - currentTimeMillis));
+                                            bg9.c("zmy", "draw cost : " + (System.currentTimeMillis() - currentTimeMillis));
                                         }
                                         i3 = i2;
                                         z7 = true;
@@ -313,101 +313,101 @@ public class VideoKeyFrameModel {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:0x0048 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:0x0049 */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Can't wrap try/catch for region: R(15:11|(13:15|16|17|(2:19|20)(2:60|61)|21|22|23|25|26|27|(1:29)|30|31)|66|16|17|(0)(0)|21|22|23|25|26|27|(0)|30|31) */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ac, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(15:11|(13:15|16|17|(2:19|20)(2:60|61)|21|22|23|24|25|26|(1:28)|29|30)|66|16|17|(0)(0)|21|22|23|24|25|26|(0)|29|30) */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ad, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b1, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b2, code lost:
         r11 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00b2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00b3, code lost:
         r1 = r10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b6, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b7, code lost:
         r11 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00b7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00b8, code lost:
         r1 = r10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00b9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00ba, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00ba, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00bb, code lost:
         r11 = null;
         r1 = r2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00bd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00be, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00be, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00bf, code lost:
         r11 = null;
         r1 = r2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00fc, code lost:
-        com.baidu.tieba.yb9.g(r0);
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00fd, code lost:
+        com.baidu.tieba.bg9.g(r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x00ff, code lost:
-        if (r1 != null) goto L39;
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0100, code lost:
+        if (r1 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x0101, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x0102, code lost:
         r1.release();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0104, code lost:
-        if (r11 != null) goto L41;
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x0105, code lost:
+        if (r11 != null) goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x0106, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x0107, code lost:
         r11.stop();
         r11.release();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x010c, code lost:
-        if (r9 == null) goto L43;
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x010d, code lost:
+        if (r9 == null) goto L42;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0112, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0113, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x0113, code lost:
-        if (r1 != null) goto L47;
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x0114, code lost:
+        if (r1 != null) goto L46;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x0115, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0116, code lost:
         r1.release();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0118, code lost:
-        if (r11 != null) goto L49;
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0119, code lost:
+        if (r11 != null) goto L48;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x011a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x011b, code lost:
         r11.stop();
         r11.release();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x0120, code lost:
-        if (r9 != null) goto L51;
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x0121, code lost:
+        if (r9 != null) goto L50;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x0122, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x0123, code lost:
         r9.release();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x0125, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x0126, code lost:
         throw r0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:84:?, code lost:
         return;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x004a A[Catch: all -> 0x00d8, Exception -> 0x00db, TRY_LEAVE, TryCatch #8 {Exception -> 0x00db, all -> 0x00d8, blocks: (B:8:0x0019, B:10:0x0026, B:16:0x0042, B:18:0x004a, B:21:0x006a, B:15:0x0034, B:43:0x00c1, B:44:0x00d7), top: B:82:0x0019 }] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x006a A[Catch: all -> 0x00d8, Exception -> 0x00db, TRY_ENTER, TRY_LEAVE, TryCatch #8 {Exception -> 0x00db, all -> 0x00d8, blocks: (B:8:0x0019, B:10:0x0026, B:16:0x0042, B:18:0x004a, B:21:0x006a, B:15:0x0034, B:43:0x00c1, B:44:0x00d7), top: B:82:0x0019 }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00a4  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0115  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x011a  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0122  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004b A[Catch: all -> 0x00d9, Exception -> 0x00dc, TRY_LEAVE, TryCatch #8 {Exception -> 0x00dc, all -> 0x00d9, blocks: (B:8:0x0019, B:10:0x0026, B:16:0x0043, B:18:0x004b, B:21:0x006b, B:15:0x0034, B:43:0x00c2, B:44:0x00d8), top: B:82:0x0019 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x006b A[Catch: all -> 0x00d9, Exception -> 0x00dc, TRY_ENTER, TRY_LEAVE, TryCatch #8 {Exception -> 0x00dc, all -> 0x00d9, blocks: (B:8:0x0019, B:10:0x0026, B:16:0x0043, B:18:0x004b, B:21:0x006b, B:15:0x0034, B:43:0x00c2, B:44:0x00d8), top: B:82:0x0019 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0116  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x011b  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0123  */
     /* JADX WARN: Type inference failed for: r2v12, types: [boolean] */
     /* JADX WARN: Type inference failed for: r2v13 */
     /* JADX WARN: Type inference failed for: r2v14 */
@@ -462,7 +462,7 @@ public class VideoKeyFrameModel {
                 integer2 = i2;
                 hasEffect = VideoEffectData.hasEffect(this.mVideoEffectData);
                 if (hasEffect == 0) {
-                    OutputSurfaceWithFilter outputSurfaceWithFilter = new OutputSurfaceWithFilter(b89.c().getContext(), null, false, integer, integer2, true, this.mHandler);
+                    OutputSurfaceWithFilter outputSurfaceWithFilter = new OutputSurfaceWithFilter(ec9.c().getContext(), null, false, integer, integer2, true, this.mHandler);
                     outputSurfaceWithFilter.setMagicEffectList(this.mVideoEffectData.getMagicEffectList());
                     hasEffect = outputSurfaceWithFilter;
                 } else {
@@ -506,7 +506,7 @@ public class VideoKeyFrameModel {
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (videoEffectData = this.mVideoEffectData) == null) {
             return;
         }
-        if (!dc9.e(videoEffectData.getMagicEffectList())) {
+        if (!gg9.e(videoEffectData.getMagicEffectList())) {
             ArrayList arrayList = new ArrayList();
             for (BaseEffect baseEffect : this.mVideoEffectData.getMagicEffectList()) {
                 EffectUtil.addEffect(baseEffect, arrayList);
@@ -520,7 +520,7 @@ public class VideoKeyFrameModel {
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || dc9.e(this.mVideoEffectData.getMagicEffectList()) || this.mVideoEffectData.getTimeEffect() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || gg9.e(this.mVideoEffectData.getMagicEffectList()) || this.mVideoEffectData.getTimeEffect() == null) {
             return;
         }
         BaseEffect timeEffect = this.mVideoEffectData.getTimeEffect();
@@ -684,7 +684,7 @@ public class VideoKeyFrameModel {
                             arrayList.add(Long.valueOf(this.val$timeUs));
                             this.this$0.extractMpegFrames(this.val$videoPath, arrayList, this.val$exactTime, this.val$width, this.val$height);
                         } catch (Exception e2) {
-                            yb9.g(e2);
+                            bg9.g(e2);
                             e2.printStackTrace();
                         }
                     }
@@ -748,7 +748,7 @@ public class VideoKeyFrameModel {
                         try {
                             this.this$0.extractMpegFrames(this.val$videoPath, this.val$timeUsList, true, this.val$width, this.val$height);
                         } catch (Exception e) {
-                            yb9.g(e);
+                            bg9.g(e);
                             e.printStackTrace();
                         }
                     }

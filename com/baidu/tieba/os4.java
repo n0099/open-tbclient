@@ -1,35 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import android.graphics.RectF;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes5.dex */
 public class os4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public ArrayList<a> b;
 
-    public static Path a(RectF rectF, float[] fArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rectF, fArr)) == null) {
-            Path path = new Path();
-            path.addRoundRect(rectF, fArr, Path.Direction.CW);
-            return path;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (Path) invokeLL.objValue;
     }
 
-    public static float[] b(float f) {
-        InterceptResult invokeF;
+    public os4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            float[] fArr = new float[8];
-            Arrays.fill(fArr, f);
-            return fArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (float[]) invokeF.objValue;
+    }
+
+    public ArrayList<a> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void c(PbPresent pbPresent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) == null) || pbPresent == null) {
+            return;
+        }
+        this.a = pbPresent.total.intValue();
+        List<PbPresentList> list = pbPresent.list;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        this.b = new ArrayList<>();
+        for (PbPresentList pbPresentList : pbPresent.list) {
+            if (pbPresentList != null) {
+                a aVar = new a();
+                pbPresentList.gift_id.intValue();
+                String str = pbPresentList.gift_name;
+                aVar.a = pbPresentList.thumbnail_url;
+                pbPresentList.num.intValue();
+                this.b.add(aVar);
+            }
+        }
+    }
+
+    public void d(ArrayList<a> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b = arrayList;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
+        }
     }
 }

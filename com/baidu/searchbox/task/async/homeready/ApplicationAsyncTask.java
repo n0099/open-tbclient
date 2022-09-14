@@ -5,8 +5,9 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
-import com.baidu.tieba.db5;
+import com.baidu.tbadk.switchs.ImageChangeCacheKeySwitch;
+import com.baidu.tieba.md5;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +34,7 @@ public class ApplicationAsyncTask extends LaunchTask {
 
     private void initAppAsync() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && LaunchUpApplicationSwitch.getIsOn()) {
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             trackPushSwitchOpen();
         }
     }
@@ -41,7 +42,7 @@ public class ApplicationAsyncTask extends LaunchTask {
     private void trackPushSwitchOpen() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (db5.a(TbadkCoreApplication.getInst())) {
+            if (md5.a(TbadkCoreApplication.getInst())) {
                 TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
             } else {
                 TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
@@ -54,6 +55,7 @@ public class ApplicationAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             initAppAsync();
+            zg.h().q(ImageChangeCacheKeySwitch.isOn());
         }
     }
 

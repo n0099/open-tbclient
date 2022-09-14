@@ -1,283 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.os.Build;
-import android.os.Process;
-import android.os.SystemClock;
-import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Locale;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class nm9 {
+public class nm9 implements TTNativeExpressAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static String A;
-    public static int B;
-    public static final SimpleDateFormat x;
-    public static String y;
-    public static String z;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public String k;
-    public long l;
-    public long m;
-    public String n;
-    public String o;
-    public boolean p;
-    public String q;
-    public String r;
-    public ArrayList<String> s;
-    public StringBuilder t;
-    public StringBuilder u;
-    public StringBuilder v;
-    public StringBuilder w;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ gm9 c;
+    public final /* synthetic */ km9 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948007407, "Lcom/baidu/tieba/nm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948007407, "Lcom/baidu/tieba/nm9;");
-                return;
-            }
-        }
-        x = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
-        A = "";
-        B = -1;
-        B = om9.b();
-        z = Build.MODEL;
-        A = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
-        y = gm9.getContext().provideQualifier();
-    }
-
-    public nm9() {
+    public nm9(km9 km9Var, gm9 gm9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {km9Var, gm9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = "";
-        this.d = -1;
-        this.g = "";
-        this.r = "-1";
-        this.s = new ArrayList<>();
-        this.t = new StringBuilder();
-        this.u = new StringBuilder();
-        this.v = new StringBuilder();
-        this.w = new StringBuilder();
+        this.d = km9Var;
+        this.c = gm9Var;
     }
 
-    public static nm9 b() {
-        InterceptResult invokeV;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            nm9 nm9Var = new nm9();
-            Context provideContext = gm9.getContext().provideContext();
-            String str = nm9Var.g;
-            if (str == null || str.length() == 0) {
-                try {
-                    PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
-                    nm9Var.h = packageInfo.versionCode;
-                    nm9Var.g = packageInfo.versionName;
-                } catch (Throwable th) {
-                    Log.e("BlockInfo", "newInstance: ", th);
-                }
-            }
-            nm9Var.d = B;
-            nm9Var.b = z;
-            nm9Var.c = A;
-            nm9Var.a = y;
-            nm9Var.e = gm9.getContext().provideUid();
-            nm9Var.f = pm9.a();
-            nm9Var.i = gm9.getContext().provideNetworkType();
-            nm9Var.j = String.valueOf(om9.a());
-            nm9Var.k = String.valueOf(om9.c());
-            if (Build.VERSION.SDK_INT >= 24) {
-                nm9Var.r = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
-            }
-            return nm9Var;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (nm9) invokeV.objValue;
     }
 
-    public nm9 a() {
-        InterceptResult invokeV;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.AdInteractionListener
+    public void onAdDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = this.t;
-            sb.append("qua");
-            sb.append(" = ");
-            sb.append(this.a);
-            sb.append("\r\n");
-            StringBuilder sb2 = this.t;
-            sb2.append(PushManager.APP_VERSION_NAME);
-            sb2.append(" = ");
-            sb2.append(this.g);
-            sb2.append("\r\n");
-            StringBuilder sb3 = this.t;
-            sb3.append(PushManager.APP_VERSION_CODE);
-            sb3.append(" = ");
-            sb3.append(this.h);
-            sb3.append("\r\n");
-            StringBuilder sb4 = this.t;
-            sb4.append("uid");
-            sb4.append(" = ");
-            sb4.append(this.e);
-            sb4.append("\r\n");
-            StringBuilder sb5 = this.t;
-            sb5.append("network");
-            sb5.append(" = ");
-            sb5.append(this.i);
-            sb5.append("\r\n");
-            StringBuilder sb6 = this.t;
-            sb6.append("model");
-            sb6.append(" = ");
-            sb6.append(this.b);
-            sb6.append("\r\n");
-            StringBuilder sb7 = this.t;
-            sb7.append("api-level");
-            sb7.append(" = ");
-            sb7.append(this.c);
-            sb7.append("\r\n");
-            StringBuilder sb8 = this.t;
-            sb8.append("cpu-core");
-            sb8.append(" = ");
-            sb8.append(this.d);
-            sb8.append("\r\n");
-            StringBuilder sb9 = this.t;
-            sb9.append("process");
-            sb9.append(" = ");
-            sb9.append(this.f);
-            sb9.append("\r\n");
-            StringBuilder sb10 = this.t;
-            sb10.append("freeMemory");
-            sb10.append(" = ");
-            sb10.append(this.j);
-            sb10.append("\r\n");
-            StringBuilder sb11 = this.t;
-            sb11.append("totalMemory");
-            sb11.append(" = ");
-            sb11.append(this.k);
-            sb11.append("\r\n");
-            StringBuilder sb12 = this.v;
-            sb12.append("time");
-            sb12.append(" = ");
-            sb12.append(this.l);
-            sb12.append("\r\n");
-            StringBuilder sb13 = this.v;
-            sb13.append("thread-time");
-            sb13.append(" = ");
-            sb13.append(this.m);
-            sb13.append("\r\n");
-            StringBuilder sb14 = this.v;
-            sb14.append("time-start");
-            sb14.append(" = ");
-            sb14.append(this.n);
-            sb14.append("\r\n");
-            StringBuilder sb15 = this.v;
-            sb15.append("time-end");
-            sb15.append(" = ");
-            sb15.append(this.o);
-            sb15.append("\r\n");
-            StringBuilder sb16 = this.u;
-            sb16.append("cpu-busy");
-            sb16.append(" = ");
-            sb16.append(this.p);
-            sb16.append("\r\n");
-            StringBuilder sb17 = this.u;
-            sb17.append("cpu-rate");
-            sb17.append(" = ");
-            sb17.append(this.q);
-            sb17.append("\r\n");
-            ArrayList<String> arrayList = this.s;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                StringBuilder sb18 = new StringBuilder();
-                Iterator<String> it = this.s.iterator();
-                while (it.hasNext()) {
-                    sb18.append(it.next());
-                    sb18.append("\r\n");
-                }
-                StringBuilder sb19 = this.w;
-                sb19.append("stack");
-                sb19.append(" = ");
-                sb19.append(sb18.toString());
-                sb19.append("\r\n");
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
-        return (nm9) invokeV.objValue;
     }
 
-    public nm9 c(long j, long j2, long j3, long j4) {
-        InterceptResult invokeCommon;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
-            this.l = j2 - j;
-            this.m = j4 - j3;
-            this.n = Long.toString(j);
-            this.o = Long.toString(j2);
-            return this;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
         }
-        return (nm9) invokeCommon.objValue;
     }
 
-    public nm9 d(String str) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.q = str;
-            return this;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, view2, str, i) == null) {
+            LogPrinter.e("onRenderFail message: " + str + ", code: " + i, new Object[0]);
+            this.d.onError(i, str);
         }
-        return (nm9) invokeL.objValue;
     }
 
-    public nm9 e(ArrayList<String> arrayList) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
-            this.s = arrayList;
-            return this;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.d.onAdLoaded((km9) this.c);
         }
-        return (nm9) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(this.t) + ((Object) this.v) + ((Object) this.u) + ((Object) this.w);
-        }
-        return (String) invokeV.objValue;
     }
 }

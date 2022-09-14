@@ -19,11 +19,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.RotateLoadingLayout;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ci5;
-import com.baidu.tieba.di5;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.fi5;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.nk5;
+import com.baidu.tieba.ok5;
+import com.baidu.tieba.pk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -658,7 +658,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.i.setHeaderScroll(round);
                 }
                 if (this.f && this.b != this.h) {
-                    fi5.a(this.i, this);
+                    pk5.a(this.i, this);
                     return;
                 }
                 g gVar = this.e;
@@ -922,10 +922,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.r.getContentSize() : invokeV.intValue;
     }
 
-    public final ci5 getLoadingLayoutProxy() {
+    public final mk5 getLoadingLayoutProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (ci5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (mk5) invokeV.objValue;
     }
 
     public final Mode getMode() {
@@ -978,28 +978,28 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.g : (State) invokeV.objValue;
     }
 
-    public di5 h(boolean z, boolean z2) {
+    public nk5 h(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            di5 di5Var = new di5();
+            nk5 nk5Var = new nk5();
             if (z && this.h.showHeaderLoadingLayout()) {
-                di5Var.a(this.r);
+                nk5Var.a(this.r);
             }
             if (z2 && this.h.showFooterLoadingLayout()) {
-                di5Var.a(this.s);
+                nk5Var.a(this.s);
             }
-            return di5Var;
+            return nk5Var;
         }
-        return (di5) invokeCommon.objValue;
+        return (nk5) invokeCommon.objValue;
     }
 
     public abstract T i(Context context, AttributeSet attributeSet);
 
-    public final ci5 j(boolean z, boolean z2) {
+    public final mk5 j(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (ci5) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (mk5) invokeCommon.objValue;
     }
 
     public void k(TypedArray typedArray) {
@@ -1018,7 +1018,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             }
             setGravity(17);
             this.a = ViewConfiguration.get(context).getScaledTouchSlop();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406af, R.attr.obfuscated_res_0x7f0406b0, R.attr.obfuscated_res_0x7f0406b1, R.attr.obfuscated_res_0x7f0406b2, R.attr.obfuscated_res_0x7f0406b3, R.attr.obfuscated_res_0x7f0406b4, R.attr.obfuscated_res_0x7f0406b5, R.attr.obfuscated_res_0x7f0406b6, R.attr.obfuscated_res_0x7f0406b7, R.attr.obfuscated_res_0x7f0406b8, R.attr.obfuscated_res_0x7f0406b9, R.attr.obfuscated_res_0x7f0406ba, R.attr.obfuscated_res_0x7f0406bb, R.attr.obfuscated_res_0x7f0406bc, R.attr.obfuscated_res_0x7f0406bd, R.attr.obfuscated_res_0x7f0406be, R.attr.obfuscated_res_0x7f0406bf, R.attr.obfuscated_res_0x7f0406c0, R.attr.obfuscated_res_0x7f0406c1});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.PullToRefresh);
             if (obtainStyledAttributes.hasValue(12)) {
                 this.h = Mode.mapIntToValue(obtainStyledAttributes.getInteger(12, 0));
             }
@@ -1036,7 +1036,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.j.setBackgroundDrawable(drawable);
                 }
             } else if (obtainStyledAttributes.hasValue(0)) {
-                ei5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+                ok5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
                 Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
                 if (drawable2 != null) {
                     this.j.setBackgroundDrawable(drawable2);

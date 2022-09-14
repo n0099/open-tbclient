@@ -1,76 +1,91 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class at5 extends q65 {
+public class at5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpecialLiveFragment c;
+    public TbPageContext a;
+    public Context b;
+    public BdTypeRecyclerView c;
+    public List<qn> d;
+    public ht5 e;
+    public ht5 f;
+    public gt5 g;
+    public ft5 h;
+    public uu5 i;
+    public et5 j;
+    public int k;
+    public int l;
+    public String m;
 
-    public at5(String str, String str2) {
+    public at5(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = SpecialLiveFragment.t2(str, str2);
-        b().a = this.c;
+        this.m = "0";
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        this.c = bdTypeRecyclerView;
+        this.k = i;
+        this.l = i2;
+        this.m = str;
+        a();
     }
 
-    @Override // com.baidu.tieba.q65
-    public r65 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r65 r65Var = new r65();
-            r65Var.e = 4;
-            r65Var.b = R.string.obfuscated_res_0x7f0f0224;
-            r65Var.i = r65.k;
-            return r65Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new ArrayList();
+            this.e = new ht5(this.a, this.k, false);
+            this.f = new ht5(this.a, this.k, true);
+            this.g = new gt5(this.a);
+            this.h = new ft5(this.a);
+            this.i = new uu5(this.a, this.l, this.m);
+            this.j = new et5(this.a);
+            this.d.add(this.e);
+            this.d.add(this.f);
+            this.d.add(this.g);
+            this.d.add(this.h);
+            this.d.add(this.i);
+            this.d.add(this.j);
+            this.c.a(this.d);
         }
-        return (r65) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q65
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public void b() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeRecyclerView = this.c) == null) {
+            return;
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.q65
-    public boolean d() {
-        InterceptResult invokeV;
+    public void c(List<Cdo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
         }
-        return invokeV.booleanValue;
     }
 }

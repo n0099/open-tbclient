@@ -1,111 +1,141 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes3.dex */
-public class ex extends sw<go4> {
+public final class ex {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
+    public static ex e;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardForumHeadLayout f;
-    public go4 g;
+    public Context a;
+    public WebView b;
+    public boolean c;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ex a;
-
-        public a(ex exVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303962, "Lcom/baidu/tieba/ex;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {exVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = exVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e() == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448303962, "Lcom/baidu/tieba/ex;");
                 return;
             }
-            this.a.e().a(view2, this.a.g);
         }
+        d = BdSailor.class.getName();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ex(Context context) {
-        super(context);
+    public ex() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().e instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().e.getParent() == null) {
-            this.f = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().e;
-        } else {
-            this.f = new CardForumHeadLayout(context);
-        }
-        this.f.setAfterClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.sw
-    public View h() {
+    public static ex a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ex exVar = e;
+            if (exVar == null) {
+                e = new ex();
+            } else if (exVar.b != null && (exVar.c ^ BdZeusUtil.isWebkitLoaded())) {
+                Log.d(d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
+                e.f();
+                e.e();
+            }
+            return e;
+        }
+        return (ex) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        CardForumHeadLayout cardForumHeadLayout;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (cardForumHeadLayout = this.f) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            ex a = a();
+            a.f();
+            a.a = null;
+            e = null;
         }
-        cardForumHeadLayout.d();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: q */
-    public void a(go4 go4Var) {
-        CardForumHeadLayout cardForumHeadLayout;
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) || (cardForumHeadLayout = this.f) == null || go4Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Log.d(d, "BdWebViewSingleton pauseTimer");
+            try {
+                e();
+                this.b.pauseTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
+            }
         }
-        this.g = go4Var;
-        cardForumHeadLayout.setOnClickListener();
-        this.f.setData(go4Var.getThreadData());
+        return invokeV.booleanValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Log.d(d, "BdWebViewSingleton resumeTimer");
+            try {
+                e();
+                this.b.resumeTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null && this.a != null) {
+            if (BdZeusUtil.isWebkitLoaded()) {
+                this.c = true;
+            } else {
+                this.c = false;
+                Log.d(d, "BdWebViewSingleton init system webview,zeus was not load complete");
+            }
+            this.b = new WebView(this.a);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Log.w(d, "BdWebViewSingleton, old instance has been destroyed");
+            WebView webView = this.b;
+            if (webView != null) {
+                webView.destroy();
+                this.b = null;
+            }
+        }
     }
 }

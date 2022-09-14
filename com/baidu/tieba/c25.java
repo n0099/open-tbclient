@@ -1,24 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.utils.Constant;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.message.HotEventRequestMessage;
+import com.baidu.tbadk.coreExtra.message.HotEventRespondedMessage;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c25 implements g25 {
+public class c25 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile c25 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public final HttpMessageListener c;
+
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c25 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c25 c25Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c25Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c25Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.a = false;
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003543 && (httpResponsedMessage instanceof HotEventRespondedMessage) && httpResponsedMessage.getError() == 0) {
+                    t25.g(HotEventData.getInstance());
+                }
+            }
+        }
+    }
 
     public c25() {
         Interceptable interceptable = $ic;
@@ -30,88 +74,72 @@ public class c25 implements g25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = false;
+        this.b = "";
+        this.c = new a(this, CmdConfigHttp.CMD_HOT_EVENT);
+        c();
+    }
+
+    public static c25 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (c25.class) {
+                    if (d == null) {
+                        d = new c25();
+                    }
+                }
+            }
+            return d;
+        }
+        return (c25) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
         }
     }
 
-    @Override // com.baidu.tieba.g25
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            tc8 n = tc8.n();
-            if (i == 3) {
-                n.v(downloadData);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
-            } else {
-                n.B(downloadData);
-            }
-            d25.a(downloadData);
-            tc8.n().y(downloadData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_EVENT, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setResponsedClass(HotEventRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    @Override // com.baidu.tieba.g25
-    public void onFileDownloadSucceed(DownloadData downloadData) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.a) {
             return;
         }
-        String[] tag = downloadData.getTag();
-        if (tag != null && tag.length == 3) {
-            String str = tag[0];
-            String str2 = tag[1];
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
+        if (!this.b.equals(str)) {
+            this.b = str;
+            g();
+            d(str);
         }
-        d25.c(downloadData);
-        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        tc8.n().y(downloadData);
-        if (downloadData.isNeedInvokeApk()) {
-            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-        }
+        MessageManager.getInstance().sendMessage(new HotEventRequestMessage(CmdConfigHttp.CMD_HOT_EVENT));
+        this.a = true;
     }
 
-    @Override // com.baidu.tieba.g25
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        InterceptResult invokeL;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            downloadData.setStatusMsg(null);
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HOT_EVENT);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.g25
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
-        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
-        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putLong(downloadData.getId(), downloadData.getSize());
-            edit.commit();
-        }
-        tc8.n().C(downloadData);
-        tc8.n().y(downloadData);
-    }
-
-    @Override // com.baidu.tieba.g25
-    public boolean onPreDownload(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            downloadData.setStatusMsg(null);
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -1,68 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.FileDescriptor;
 /* loaded from: classes3.dex */
 public class db1 {
     public static /* synthetic */ Interceptable $ic;
-    public static bb1 a;
-    public static cb1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947698678, "Lcom/baidu/tieba/db1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947698678, "Lcom/baidu/tieba/db1;");
-        }
-    }
-
-    public static bb1 a() {
-        InterceptResult invokeV;
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (rk0.class) {
-                    if (a == null) {
-                        a = (bb1) ServiceManager.getService(bb1.a);
-                    }
-                    if (a == null) {
-                        a = bb1.b;
-                    }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
                 }
             }
-            return a;
+            return i5;
         }
-        return (bb1) invokeV.objValue;
+        return invokeLII.intValue;
     }
 
-    public static cb1 b() {
-        InterceptResult invokeV;
+    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (rk0.class) {
-                    if (b == null) {
-                        b = (cb1) ServiceManager.getService(cb1.a);
-                    }
-                    if (b == null) {
-                        b = cb1.b;
-                    }
-                }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+            int a = a(options, i, i2);
+            options.inSampleSize = a;
+            options.inJustDecodeBounds = false;
+            if (a <= 1) {
+                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
             }
-            return b;
+            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-        return (cb1) invokeV.objValue;
+        return (Bitmap) invokeLII.objValue;
     }
 }

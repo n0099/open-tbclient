@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,8 +35,8 @@ public class LinkProxyActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00da A[Catch: Exception -> 0x00ec, TryCatch #0 {Exception -> 0x00ec, blocks: (B:27:0x009d, B:29:0x00a3, B:31:0x00af, B:33:0x00b5, B:35:0x00bd, B:38:0x00c4, B:40:0x00cc, B:42:0x00d0, B:47:0x00da, B:48:0x00de), top: B:57:0x009d }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00de A[Catch: Exception -> 0x00ec, TRY_LEAVE, TryCatch #0 {Exception -> 0x00ec, blocks: (B:27:0x009d, B:29:0x00a3, B:31:0x00af, B:33:0x00b5, B:35:0x00bd, B:38:0x00c4, B:40:0x00cc, B:42:0x00d0, B:47:0x00da, B:48:0x00de), top: B:57:0x009d }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00d5 A[Catch: Exception -> 0x00e7, TryCatch #2 {Exception -> 0x00e7, blocks: (B:27:0x0098, B:29:0x009e, B:31:0x00aa, B:33:0x00b0, B:35:0x00b8, B:38:0x00bf, B:40:0x00c7, B:42:0x00cb, B:47:0x00d5, B:48:0x00d9), top: B:62:0x0098 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00d9 A[Catch: Exception -> 0x00e7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e7, blocks: (B:27:0x0098, B:29:0x009e, B:31:0x00aa, B:33:0x00b0, B:35:0x00b8, B:38:0x00bf, B:40:0x00c7, B:42:0x00cb, B:47:0x00d5, B:48:0x00d9), top: B:62:0x0098 }] */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -53,7 +52,6 @@ public class LinkProxyActivity extends Activity {
             if (intent == null) {
                 p.d("LinkProxyActivity", "enter RequestPermissionsActivity onCreate, intent is null, finish");
                 finish();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             boolean z = true;
@@ -108,7 +106,6 @@ public class LinkProxyActivity extends Activity {
                 }
             }
             finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

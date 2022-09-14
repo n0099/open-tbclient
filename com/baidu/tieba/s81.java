@@ -1,143 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class s81 {
+public abstract class s81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public s81() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return h() + "/cps/user/recordBatch/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return h() + "/cashier/calcMoney";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/cashier/channelAllInfo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (p81.a() != 2) {
-                return h() + "/cashier/innerChannelAllInfo";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return h() + "/cashier/innerChannelAllInfo";
         }
-        return (String) invokeV.objValue;
+        this.a = false;
     }
 
-    public static final String e() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/cashier/order/orderInfo";
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
+
+    public void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) != null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/cps/user/record/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/cashier/drmb/drmbPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? p81.a() != 1 ? "https://trade.baidu-int.com/sandbox/tradegateway" : "https://etrade-api.baidu.com" : (String) invokeV.objValue;
-    }
-
-    public static final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (p81.a() != 1) {
-                return h() + "/cashier/agreement/judgeGuideSign";
+        this.a = false;
+        try {
+            sQLiteDatabase.beginTransaction();
+            if (b(sQLiteDatabase)) {
+                sQLiteDatabase.setTransactionSuccessful();
+                this.a = true;
             }
-            return h() + "/cashier/agreement/judgeGuideSign";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return h() + "/cashier/launchpayment";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (p81.a() != 1) {
-                return h() + "/cashier/agreement/guideApplySign";
+        } catch (Exception unused) {
+        } catch (Throwable th) {
+            try {
+                sQLiteDatabase.endTransaction();
+            } catch (Exception unused2) {
             }
-            return h() + "/cashier/agreement/guideApplySign";
+            throw th;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return h() + "/cashier/pay";
+        try {
+            sQLiteDatabase.endTransaction();
+        } catch (Exception unused3) {
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return h() + "/cashier/sdkAdaptH5QueryPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return h() + "/cashier/drmb/reqCode";
-        }
-        return (String) invokeV.objValue;
     }
 }

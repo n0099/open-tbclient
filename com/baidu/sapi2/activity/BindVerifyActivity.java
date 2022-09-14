@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -306,11 +305,9 @@ public class BindVerifyActivity extends Activity {
             this.a = intent;
             if (intent == null) {
                 finish();
-                LogUtil.logActivity(this, "onCreate");
-                return;
+            } else {
+                a(intent.getStringExtra("cmd"));
             }
-            a(intent.getStringExtra("cmd"));
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

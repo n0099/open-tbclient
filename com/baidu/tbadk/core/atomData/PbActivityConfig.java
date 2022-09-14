@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.sq4;
+import com.baidu.tieba.xs4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -343,8 +343,8 @@ public class PbActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().K())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().K());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().L())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().L());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());
@@ -808,13 +808,13 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(sq4 sq4Var) {
+    public void setRecomData(xs4 xs4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, sq4Var) == null) || (intent = getIntent()) == null || sq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, xs4Var) == null) || (intent = getIntent()) == null || xs4Var == null) {
             return;
         }
-        sq4Var.c(intent);
+        xs4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

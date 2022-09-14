@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.by4;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +48,7 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0863));
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0876));
         }
     }
 
@@ -65,19 +65,19 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                rv4 rv4Var = new rv4();
-                rv4Var.p(R.color.CAM_X0101);
-                rv4Var.v(R.dimen.tbds6);
-                rv4Var.u(R.string.A_X01);
-                rv4Var.i(R.drawable.obfuscated_res_0x7f08094c, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                rv4Var.g(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                setConfig(rv4Var);
+                by4 by4Var = new by4();
+                by4Var.p(R.color.CAM_X0101);
+                by4Var.v(R.dimen.tbds6);
+                by4Var.u(R.string.A_X01);
+                by4Var.i(R.drawable.obfuscated_res_0x7f080968, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                by4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                setConfig(by4Var);
             } else {
-                qv4 qv4Var = new qv4();
-                qv4Var.i(R.drawable.obfuscated_res_0x7f08094c, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                qv4Var.g(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                qv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(qv4Var);
+                ay4 ay4Var = new ay4();
+                ay4Var.i(R.drawable.obfuscated_res_0x7f080968, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                ay4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                ay4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(ay4Var);
             }
             k();
         }

@@ -1,299 +1,148 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class wf0 implements nl0, ml0, ol0, pl0 {
+public class wf0 implements rf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
-    public static wf0 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CopyOnWriteArrayList<nl0> a;
-    public final LinkedList<WeakReference<Activity>> b;
-    public int c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948268520, "Lcom/baidu/tieba/wf0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948268520, "Lcom/baidu/tieba/wf0;");
-        }
-    }
+    public rf0 a;
 
     public wf0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList<>();
-        this.b = new LinkedList<>();
+        this.a = new uf0();
     }
 
-    public static wf0 e() {
+    @Override // com.baidu.tieba.rf0
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (wf0.class) {
-                    if (e == null) {
-                        e = new wf0();
-                    }
-                }
-            }
-            return e;
-        }
-        return (wf0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.ml0
-    @Nullable
-    public Activity a() {
+    @Override // com.baidu.tieba.rf0
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.a.b(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public int c(int i, int i2, Map<String, float[]> map) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, map)) == null) ? this.a.c(i, i2, map) : invokeIIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public int d(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, mediaTrack, i, map)) == null) ? this.a.d(mediaTrack, i, map) : invokeLIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public void e(List<MediaTrack> list, Map<String, ShaderConfig> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, map) == null) {
+            this.a.e(list, map);
+        }
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) ? this.a.f(mediaTrack, i, i2, map) : invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public void g(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.a.g(i, j);
+        }
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public int h(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, mediaSegment, i, map)) == null) ? this.a.h(mediaSegment, i, map) : invokeLIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public int i(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaTrack, i, map)) == null) ? this.a.i(mediaTrack, i, map) : invokeLIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+            this.a.j(context);
+        }
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) ? this.a.k(i, fArr, fArr2, i2, i3, f) : invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.rf0
+    public List<MediaTrack> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.isEmpty() || this.b.size() < 2) {
-                return null;
-            }
-            LinkedList<WeakReference<Activity>> linkedList = this.b;
-            return linkedList.get(linkedList.size() - 2).get();
-        }
-        return (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.l() : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pl0
-    public void b(@Nullable nl0 nl0Var) {
+    @Override // com.baidu.tieba.rf0
+    public int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nl0Var) == null) || nl0Var == null || this.a.contains(nl0Var)) {
-            return;
-        }
-        if (d && this.a.size() > 0) {
-            CopyOnWriteArrayList<nl0> copyOnWriteArrayList = this.a;
-            copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, nl0Var);
-            return;
-        }
-        this.a.add(nl0Var);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) ? this.a.m(i, fArr, fArr2, i2, i3, i4, map) : invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.ml0
-    @Nullable
-    public Activity c() {
-        InterceptResult invokeV;
-        Activity activity;
+    @Override // com.baidu.tieba.rf0
+    public void n(List<MediaTrack> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int size = this.b.size();
-            if (size < 2) {
-                return f();
-            }
-            for (int i = size - 1; i >= 0; i--) {
-                WeakReference<Activity> weakReference = this.b.get(i);
-                if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
-                    return activity;
-                }
-            }
-            return null;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pl0
-    public void d(@Nullable nl0 nl0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, nl0Var) == null) && nl0Var != null && this.a.contains(nl0Var)) {
-            this.a.remove(nl0Var);
+        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
+            this.a.n(list);
         }
     }
 
-    @Nullable
-    public Activity f() {
-        InterceptResult invokeV;
-        WeakReference<Activity> last;
+    @Override // com.baidu.tieba.rf0
+    public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.isEmpty() || (last = this.b.getLast()) == null) {
-                return null;
-            }
-            return last.get();
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.size() > 0 : invokeV.booleanValue;
-    }
-
-    public void h(@Nullable nl0 nl0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, nl0Var) == null) || nl0Var == null || this.a.contains(nl0Var)) {
-            return;
-        }
-        d = true;
-        this.a.add(nl0Var);
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, bundle) == null) {
-            this.b.add(new WeakReference<>(activity));
-            if (g()) {
-                Iterator<nl0> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().onActivityCreated(activity, bundle);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            if (g()) {
-                Iterator<nl0> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().onActivityDestroyed(activity);
-                }
-            }
-            if (this.b.isEmpty()) {
-                return;
-            }
-            int size = this.b.size();
-            while (true) {
-                size--;
-                if (size < 0) {
-                    size = -1;
-                    break;
-                } else if (this.b.get(size).get() == activity) {
-                    break;
-                }
-            }
-            if (size != -1) {
-                this.b.remove(size);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && g()) {
-            Iterator<nl0> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().onActivityPaused(activity);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, activity) == null) && g()) {
-            Iterator<nl0> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().onActivityResumed(activity);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, activity, bundle) == null) && g()) {
-            Iterator<nl0> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().onActivitySaveInstanceState(activity, bundle);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
-            if (g()) {
-                Iterator<nl0> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().onActivityStarted(activity);
-                }
-            }
-            int i = this.c + 1;
-            this.c = i;
-            if (i == 1) {
-                onBackgroundToForeground(activity);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
-            if (g()) {
-                Iterator<nl0> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().onActivityStopped(activity);
-                }
-            }
-            int i = this.c - 1;
-            this.c = i;
-            if (i == 0) {
-                onForegroundToBackground(activity);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, activity) == null) && g()) {
-            Iterator<nl0> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().onBackgroundToForeground(activity);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nl0
-    public void onForegroundToBackground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, activity) == null) && g()) {
-            Iterator<nl0> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().onForegroundToBackground(activity);
-            }
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.release();
         }
     }
 }

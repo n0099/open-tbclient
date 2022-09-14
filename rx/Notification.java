@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Notification<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Notification<Void> d;
@@ -20,7 +20,7 @@ public final class Notification<T> {
     public final T c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

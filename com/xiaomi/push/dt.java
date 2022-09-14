@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,8 +48,8 @@ public abstract class dt extends al.a {
     public static void a(Context context, hr hrVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, hrVar) == null) {
-            dm m269a = dn.a().m269a();
-            String a = m269a == null ? "" : m269a.a();
+            dm m270a = dn.a().m270a();
+            String a = m270a == null ? "" : m270a.a();
             if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hrVar.a())) {
                 return;
             }
@@ -72,8 +71,8 @@ public abstract class dt extends al.a {
             try {
                 try {
                     File file2 = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    ab.m161a(file2);
-                    randomAccessFile = new RandomAccessFile(file2, rw.c);
+                    ab.m162a(file2);
+                    randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
                         try {
@@ -160,7 +159,7 @@ public abstract class dt extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return "dc_job_result_time_" + mo207a();
+            return "dc_job_result_time_" + mo208a();
         }
         return (String) invokeV.objValue;
     }
@@ -169,27 +168,27 @@ public abstract class dt extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            return "dc_job_result_" + mo207a();
+            return "dc_job_result_" + mo208a();
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public abstract hl mo207a();
+    public abstract hl mo208a();
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public boolean mo207a() {
+    public boolean mo208a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dp.a(this.f233a, String.valueOf(mo207a()), this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dp.a(this.f233a, String.valueOf(mo208a()), this.a) : invokeV.booleanValue;
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m271b() {
+    public boolean m272b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -199,7 +198,7 @@ public abstract class dt extends al.a {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m272c() {
+    public boolean m273c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -216,14 +215,14 @@ public abstract class dt extends al.a {
             if (TextUtils.isEmpty(b)) {
                 return;
             }
-            if (mo207a()) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("DC run job mutual: " + mo207a());
+            if (mo208a()) {
+                com.xiaomi.channel.commonutils.logger.b.m90a("DC run job mutual: " + mo208a());
                 return;
             }
-            dm m269a = dn.a().m269a();
-            String a = m269a == null ? "" : m269a.a();
-            if (!TextUtils.isEmpty(a) && m271b()) {
-                if (m272c()) {
+            dm m270a = dn.a().m270a();
+            String a = m270a == null ? "" : m270a.a();
+            if (!TextUtils.isEmpty(a) && m272b()) {
+                if (m273c()) {
                     SharedPreferences sharedPreferences = this.f233a.getSharedPreferences("mipush_extra", 0);
                     if (bp.a(b).equals(sharedPreferences.getString(d(), null))) {
                         long j = sharedPreferences.getLong(c(), 0L);
@@ -239,7 +238,7 @@ public abstract class dt extends al.a {
                 hr hrVar = new hr();
                 hrVar.a(b);
                 hrVar.a(System.currentTimeMillis());
-                hrVar.a(mo207a());
+                hrVar.a(mo208a());
                 a(this.f233a, hrVar, a);
             }
         }

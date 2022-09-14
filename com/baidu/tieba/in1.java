@@ -1,45 +1,94 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.hn1;
+import android.content.Context;
+import android.os.Message;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.HttpRequest;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public interface in1<T extends hn1> extends TypedCallbackHandler {
-    SwanAppWebViewManager.d G();
+public interface in1 {
+    @Nullable
+    String A();
 
-    @UiThread
-    void N();
+    String B();
 
-    void U(n22 n22Var);
+    String C();
 
-    String a();
+    String D();
 
-    void attachActivity(Activity activity);
+    long E();
 
-    void b(oz1 oz1Var);
+    HttpRequest F(Context context, Map<String, String> map);
 
-    String b0();
+    String G();
 
-    void destroy();
+    String H();
 
-    void e0();
+    String I();
 
-    String getUserAgent();
+    boolean J();
 
-    void loadUrl(String str);
+    String K();
 
-    void onJSLoaded();
+    String L();
 
-    void onPause();
+    HttpRequest M(Context context, Map<String, String> map);
 
-    void onResume();
+    boolean N();
 
-    @UiThread
-    void p();
+    String O();
 
-    T r();
+    HttpRequest a(Context context, Map<String, String> map);
 
-    void s(n22 n22Var);
+    String b();
+
+    String c();
+
+    void d();
+
+    String e();
+
+    String f();
+
+    HttpRequest g(Context context, Map<String, String> map);
+
+    String h();
+
+    String i();
+
+    boolean isDebug();
+
+    String j();
+
+    void k();
+
+    String l();
+
+    String m(String str);
+
+    String n();
+
+    HttpRequest o(Context context, Map<String, String> map);
+
+    String p();
+
+    String q();
+
+    int r();
+
+    HttpRequest s(Context context, Map<String, String> map);
+
+    String t();
+
+    HttpRequest u(Context context, Map<String, String> map);
+
+    String v();
+
+    String w();
+
+    void x(Message message, yp2 yp2Var);
+
+    String y();
+
+    String z(Context context);
 }

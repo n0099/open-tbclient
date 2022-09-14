@@ -63,9 +63,9 @@ public final class r extends a {
             this.rd.setVisibility(z2 ? 4 : 0);
             if (aY) {
                 this.rf.setVisibility(8);
-                i = R.layout.obfuscated_res_0x7f0d0445;
+                i = R.layout.obfuscated_res_0x7f0d0449;
             } else {
-                i = R.layout.obfuscated_res_0x7f0d03fe;
+                i = R.layout.obfuscated_res_0x7f0d0402;
             }
             P(i);
             if (!com.kwad.sdk.core.response.a.a.ay(bQ)) {
@@ -94,10 +94,10 @@ public final class r extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09120e);
-            this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091103);
-            this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f091104);
-            this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091105);
+            this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09122c);
+            this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091121);
+            this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f091122);
+            this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091123);
         }
     }
 

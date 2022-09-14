@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +12,57 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Date;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class a93 implements e93 {
+public class a93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReadWriteLock c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public final long b;
+    public final String a;
+
+    /* loaded from: classes3.dex */
+    public class a implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(a93 a93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                long lastModified = file.lastModified();
+                long lastModified2 = file2.lastModified();
+                if (lastModified == lastModified2) {
+                    return 0;
+                }
+                return lastModified - lastModified2 > 0 ? 1 : -1;
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,10 +77,11 @@ public abstract class a93 implements e93 {
                 return;
             }
         }
-        c = new ReentrantReadWriteLock();
+        b = ij1.a;
     }
 
     public a93() {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,85 +94,104 @@ public abstract class a93 implements e93 {
                 return;
             }
         }
-        this.a = d();
-        this.b = getMaxSize();
+        try {
+            str = AppRuntime.getAppContext().getFilesDir().getPath();
+        } catch (Exception e) {
+            if (b) {
+                throw e;
+            }
+            str = "";
+        }
+        if (!TextUtils.isEmpty(str)) {
+            this.a = str + File.separator + "aiapps_folder/stability";
+            return;
+        }
+        this.a = "";
     }
 
-    @Override // com.baidu.tieba.e93
-    public boolean a(long j) {
+    public final void a(int i) {
+        File[] c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (c = c()) == null || c.length == 0) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        Arrays.sort(c, new a(this));
+        ArrayList<File> arrayList = new ArrayList(c.length);
+        int i2 = 0;
+        for (File file : c) {
+            if (i2 < i) {
+                if (file.lastModified() - currentTimeMillis > 172800000) {
+                    arrayList.add(file);
+                }
+            } else {
+                arrayList.add(file);
+            }
+            i2++;
+        }
+        for (File file2 : arrayList) {
+            cj4.j(file2);
+        }
+    }
+
+    public final File b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            c.readLock().lock();
-            try {
-                return e() + j > this.b;
-            } finally {
-                c.readLock().unlock();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                return null;
             }
+            String g0 = y23.g0() == null ? "" : y23.g0();
+            return new File(this.a + File.separator + g0 + "_" + j + "_swan_stability_traces.log");
         }
-        return invokeJ.booleanValue;
+        return (File) invokeJ.objValue;
     }
 
-    @Override // com.baidu.tieba.e93
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            c.writeLock().lock();
-            try {
-                try {
-                    if (this.a == null) {
-                        this.a = d();
-                    }
-                    File file = this.a;
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    ch4.O(String.valueOf(e() + j).getBytes(), file);
-                } catch (Exception e) {
-                    if (kh1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            } finally {
-                c.writeLock().unlock();
-            }
-        }
-    }
-
-    @NonNull
-    public abstract String c();
-
-    public final File d() {
+    public File[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(c() + File.separator + "record.pro");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            try {
+                return new File(this.a).listFiles();
+            } catch (Exception e) {
+                if (b) {
+                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+                }
+                return null;
+            }
         }
-        return (File) invokeV.objValue;
+        return (File[]) invokeV.objValue;
     }
 
-    public final long e() {
-        InterceptResult invokeV;
+    public File d(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                this.a = d();
-            }
-            File file = this.a;
-            if (file.exists() && file.isFile()) {
-                String E = ch4.E(file);
-                try {
-                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
-                        return Long.parseLong(E.trim());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                a(9);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("_app_id", y23.g0() == null ? "" : y23.g0());
+                jSONObject.put("_date", mf3.b(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
+                jSONArray.put(jSONObject);
+                File b2 = b(currentTimeMillis);
+                if (b2 != null) {
+                    if (bm2.b(b2.getPath(), jSONArray.toString(), false)) {
+                        return b2;
                     }
-                } catch (Exception e) {
-                    if (kh1.a) {
-                        e.printStackTrace();
-                    }
+                    return null;
                 }
+                return null;
+            } catch (Exception e) {
+                if (b) {
+                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+                }
+                return null;
             }
-            return 0L;
         }
-        return invokeV.longValue;
+        return (File) invokeL.objValue;
     }
 }

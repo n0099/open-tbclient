@@ -1,236 +1,192 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.net.URLDecoder;
 import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class sh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public oh a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public Map<String, String> i;
 
-    public static void a(HashMap<String, Object> hashMap, String str, String str2) {
+    public sh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, hashMap, str, str2) == null) || hashMap == null || str == null || str2 == null) {
-            return;
-        }
-        hashMap.put(str, str2);
-    }
-
-    public static void b(StringBuilder sb, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, str, str2, Boolean.valueOf(z)}) == null) || sb == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            sb.append("&");
-            sb.append(str);
-            sb.append("=");
-            if (z) {
-                str2 = URLEncoder.encode(str2, IMAudioTransRequest.CHARSET);
-            }
-            sb.append(str2);
-        } catch (Exception e) {
-            BdLog.e(e);
         }
     }
 
-    public static String c(ah ahVar) {
-        InterceptResult invokeL;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ahVar)) == null) {
-            if (ahVar == null) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? BdNetTypeUtil.isWifiNet() ? "WIFI" : BdNetTypeUtil.is2GNet() ? "2G" : BdNetTypeUtil.is3GNet() ? "3G" : (BdNetTypeUtil.is4GNet() || BdNetTypeUtil.isNetWorkAvailable()) ? "4G" : HlsPlaylistParser.METHOD_NONE : (String) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.i == null) {
+                this.i = new HashMap();
             }
-            StringBuilder sb = new StringBuilder();
+            String[] split2 = str.split("&");
+            if (split2 == null || split2.length == 0) {
+                return;
+            }
+            for (String str2 : split2) {
+                if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
+                    try {
+                        this.i.put(split[0], URLDecoder.decode(split[1], IMAudioTransRequest.CHARSET));
+                    } catch (UnsupportedEncodingException e) {
+                        BdLog.e(e);
+                    }
+                }
+            }
+        }
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            if (this.i == null) {
+                this.i = new HashMap();
+            }
+            this.i.put(str, str2);
+        }
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                sb.append("product");
-                sb.append("=");
-                sb.append(URLEncoder.encode(ahVar.a, IMAudioTransRequest.CHARSET));
-                sb.append("&");
-                sb.append("sub_sys");
-                sb.append("=");
-                sb.append(URLEncoder.encode(ahVar.b, IMAudioTransRequest.CHARSET));
-                sb.append("&");
-                sb.append("version");
-                sb.append("=");
-                sb.append(URLEncoder.encode(ahVar.c, IMAudioTransRequest.CHARSET));
-                sb.append("&");
-                sb.append("os");
-                sb.append("=");
-                sb.append("android");
-                sb.append("&");
-                sb.append(HttpConstants.OS_VERSION);
-                sb.append("=");
-                sb.append(URLEncoder.encode(ahVar.q, IMAudioTransRequest.CHARSET));
-                if (!TextUtils.isEmpty(ahVar.d)) {
-                    sb.append("&");
-                    sb.append("from");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.d, IMAudioTransRequest.CHARSET));
+                JSONObject jSONObject2 = new JSONObject();
+                if (this.a != null) {
+                    jSONObject2.put("app_version", this.a.c);
+                    jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
+                    jSONObject2.put("cuid", this.a.g);
+                    jSONObject2.put("shoubai_cuid", this.a.h);
+                    jSONObject2.put("from", this.a.d);
+                    jSONObject2.put("uid", this.a.l);
                 }
-                if (!TextUtils.isEmpty(ahVar.e)) {
-                    sb.append("&");
-                    sb.append("cfrom");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.e, IMAudioTransRequest.CHARSET));
+                jSONObject2.put("client_ip", rh.b());
+                jSONObject2.put("network", d());
+                jSONObject2.put("model", gj.g());
+                jSONObject2.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
+                jSONObject2.put("os_type", "AND");
+                jSONObject2.put(HttpConstants.OS_VERSION, gj.k());
+                jSONObject2.put("active_id", rh.a());
+                jSONObject2.put("mission_id", rh.c());
+                jSONObject.put("base_info", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                if (this.b != null) {
+                    jSONObject3.put("module", this.b);
                 }
-                sb.append("&");
-                sb.append("phone");
-                sb.append("=");
-                sb.append(URLEncoder.encode(ahVar.k, IMAudioTransRequest.CHARSET));
-                if (!TextUtils.isEmpty(ahVar.l)) {
-                    sb.append("&");
-                    sb.append("uid");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.l, IMAudioTransRequest.CHARSET));
+                if (this.c != null) {
+                    jSONObject3.put("action", this.c);
                 }
-                if (!TextUtils.isEmpty(ahVar.f)) {
-                    sb.append("&");
-                    sb.append("client_id");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.f, IMAudioTransRequest.CHARSET));
+                if (this.d != null) {
+                    jSONObject3.put("error_code", this.d);
                 }
-                if (!TextUtils.isEmpty(ahVar.i)) {
-                    sb.append("&");
-                    sb.append("imei");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.i, IMAudioTransRequest.CHARSET));
+                if (this.e != null) {
+                    jSONObject3.put("error_message", this.e);
                 }
-                if (!TextUtils.isEmpty(ahVar.m)) {
-                    sb.append("&");
-                    sb.append("uname");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.m, IMAudioTransRequest.CHARSET));
+                if (this.i != null) {
+                    StringBuilder sb = new StringBuilder();
+                    for (Map.Entry<String, String> entry : this.i.entrySet()) {
+                        sb.append(entry.getKey());
+                        sb.append(":");
+                        sb.append(entry.getValue());
+                        sb.append("|");
+                    }
+                    if (sb.length() > 0) {
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
+                    jSONObject3.put("ext1", sb);
                 }
-                if (!TextUtils.isEmpty(ahVar.g)) {
-                    sb.append("&");
-                    sb.append("cuid");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.g, IMAudioTransRequest.CHARSET));
+                if (this.f != null) {
+                    jSONObject3.put("id", this.f);
                 }
-                if (!TextUtils.isEmpty(ahVar.h)) {
-                    sb.append("&");
-                    sb.append("cuid_galaxy2");
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(ahVar.h, IMAudioTransRequest.CHARSET));
+                if (this.g != null) {
+                    jSONObject3.put("title", this.g);
                 }
-                sb.append("&");
-                sb.append("net");
-                sb.append("=");
-                sb.append(URLEncoder.encode(ahVar.o, IMAudioTransRequest.CHARSET));
-            } catch (UnsupportedEncodingException e) {
+                if (this.h != null) {
+                    jSONObject3.put("abstract", this.h);
+                }
+                jSONObject.put("debug_info", jSONObject3);
+                jSONObject.put("kpi", new JSONObject());
+            } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return sb.toString();
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static String d(boolean z, ah ahVar) {
-        InterceptResult invokeZL;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65539, null, z, ahVar)) == null) {
-            if (ahVar == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("_client_type=2");
-            b(sb, "_client_version", ahVar.c, z);
-            b(sb, HttpRequest.PHONE_IMEI, ahVar.i, z);
-            b(sb, HttpRequest.CLIENT_ID, ahVar.f, z);
-            b(sb, HttpRequest.SUBAPP_TYPE, ahVar.j, z);
-            b(sb, HttpConstants.OS_VERSION, ahVar.q, z);
-            b(sb, "from", ahVar.d, z);
-            b(sb, "cfrom", ahVar.e, z);
-            b(sb, "net_type", ahVar.p, z);
-            b(sb, "cuid", ahVar.g, z);
-            b(sb, "model", ahVar.k, z);
-            if (TextUtils.isEmpty(ahVar.l)) {
-                b(sb, "uid", "0", z);
-            } else {
-                b(sb, "uid", ahVar.l, z);
-            }
-            b(sb, "un", ahVar.m, z);
-            b(sb, "utbrand", ahVar.w, z);
-            b(sb, "cuid_galaxy2", ahVar.h, z);
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
         }
-        return (String) invokeZL.objValue;
     }
 
-    public static String e(gh ghVar, ah ahVar) {
-        InterceptResult invokeLL;
+    public void f(oh ohVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ghVar, ahVar)) == null) {
-            if (ghVar.p() != null && (ghVar.p().equals("omp") || ghVar.p().equals("mon"))) {
-                return c(ahVar);
-            }
-            return d(true, ahVar);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ohVar) == null) {
+            this.a = ohVar;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static HashMap<String, Object> f(String str, ah ahVar, boolean z) {
-        InterceptResult invokeLLZ;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, ahVar, z)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            a(hashMap, HttpRequest.CLIENT_TYPE, "2");
-            a(hashMap, "_client_version", ahVar.c);
-            a(hashMap, HttpRequest.CLIENT_ID, ahVar.f);
-            a(hashMap, HttpRequest.SUBAPP_TYPE, ahVar.j);
-            a(hashMap, "from", ahVar.d);
-            a(hashMap, "net_type", ahVar.p);
-            a(hashMap, "cuid", ahVar.g);
-            a(hashMap, "cuid_galaxy2", ahVar.h);
-            a(hashMap, "model", ahVar.k);
-            if (TextUtils.isEmpty(ahVar.l)) {
-                ahVar.l = "0";
-            }
-            a(hashMap, "uid", ahVar.l);
-            a(hashMap, "un", ahVar.m);
-            a(hashMap, HttpRequest.BDUSS, ahVar.n);
-            if (z) {
-                a(hashMap, "find_bug", "2");
-            } else {
-                a(hashMap, "find_bug", "0");
-            }
-            a(hashMap, "sz", ahVar.r);
-            a(hashMap, "cua", ahVar.s);
-            a(hashMap, TiebaStatic.Params.BDID, ahVar.z);
-            a(hashMap, "cookie", ahVar.n);
-            a(hashMap, "oaid", ahVar.t);
-            a(hashMap, "utbrand", ahVar.w);
-            a(hashMap, "baiduapppb_ut", ahVar.x);
-            a(hashMap, HttpRequest.USER_AGENT, ahVar.y);
-            a(hashMap, "active_timestamp", ahVar.A);
-            a(hashMap, "first_install_time", ahVar.B);
-            a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, ahVar.C);
-            a(hashMap, "event_day", ahVar.D);
-            if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, str).getData()).booleanValue()) {
-                MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
-            } else {
-                a(hashMap, "mac", ahVar.u);
-                a(hashMap, HttpRequest.ANDROID_ID, ahVar.v);
-                a(hashMap, HttpRequest.PHONE_IMEI, ahVar.i);
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
         }
-        return (HashMap) invokeLLZ.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
     }
 }

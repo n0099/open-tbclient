@@ -1,53 +1,159 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class wk4 extends rk4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wk4 {
 
-    public wk4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements wk4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final wk4 a;
+
+        public a(wk4 delegation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {delegation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(delegation, "delegation");
+            this.a = delegation;
+        }
+
+        @Override // com.baidu.tieba.wk4
+        public String a(String url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.a(url);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.wk4
+        public WebResourceResponse b(Uri url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.b(url);
+            }
+            return (WebResourceResponse) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.wk4
+        public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
+                Intrinsics.checkNotNullParameter(transform, "transform");
+                return (Target) this.a.c(webResourceResponse, transform);
+            }
+            return (Target) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Inject
+        public fe1<wk4> a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            b();
+        }
+
+        public final fe1<wk4> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                fe1<wk4> fe1Var = this.a;
+                if (fe1Var == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("impl");
+                }
+                return fe1Var;
+            }
+            return (fe1) invokeV.objValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                de1 b = de1.b();
+                this.a = b;
+                b.a(new xk4());
             }
         }
     }
 
-    @Override // com.baidu.tieba.qk4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return null;
+    /* loaded from: classes6.dex */
+    public static class c extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Illegal instructions before constructor call */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public c(b ioc) {
+            super(r7);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ioc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((wk4) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
-            sb.append("?tid=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
+            Intrinsics.checkNotNullParameter(ioc, "ioc");
+            wk4 wk4Var = ioc.a().get();
+            Intrinsics.checkNotNullExpressionValue(wk4Var, "ioc.impl.get()");
         }
-        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qk4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "t" : (String) invokeV.objValue;
-    }
+    String a(String str);
+
+    WebResourceResponse b(Uri uri);
+
+    <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> function1);
 }

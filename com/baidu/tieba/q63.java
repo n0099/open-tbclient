@@ -1,52 +1,49 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class q63 implements r63 {
+public class q63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q63() {
+    public static void a(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, map) == null) || TextUtils.isEmpty(str) || map == null) {
+            return;
+        }
+        String f = qg3.f(str);
+        String o = qg3.o(str);
+        String b = b(f);
+        if (TextUtils.equals(f, b)) {
+            return;
+        }
+        if (!TextUtils.isEmpty(o)) {
+            b = b + "?" + o;
+        }
+        map.put("pageRoutePath", b);
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str, x23.K().q().Q()) : (String) invokeL.objValue;
+    }
+
+    public static String c(String str, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, swanAppConfigData)) == null) {
+            if (swanAppConfigData == null) {
+                return str;
             }
+            String f = fy2.f(str);
+            return !TextUtils.isEmpty(f) ? f : swanAppConfigData.j(str);
         }
-    }
-
-    public static q63 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new q63() : (q63) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r63
-    @SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
-    public void load(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            System.load(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.r63
-    @SuppressLint({"BDSoLoader"})
-    public void loadLibrary(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            System.loadLibrary(str);
-        }
+        return (String) invokeLL.objValue;
     }
 }

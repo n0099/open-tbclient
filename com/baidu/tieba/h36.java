@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.res.Configuration;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.splashad.SplashAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public final class h36 extends e36 {
+public class h36 {
     public static /* synthetic */ Interceptable $ic;
+    public static h36 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+    public WeakReference<SplashAdView> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h36() {
-        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,35 +26,64 @@ public final class h36 extends e36 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.e36
-    public boolean b(n26 item, q46 timer, h26 config) {
-        InterceptResult invokeLLL;
+    public static h36 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            o26 e = item.e();
-            if (e.i() == 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new h36();
             }
-            if (this.b) {
-                if (e.i() != 1) {
-                    return false;
-                }
-            } else if (e.i() != 2) {
-                return false;
-            }
-            return true;
+            return b;
         }
-        return invokeLLL.booleanValue;
+        return (h36) invokeV.objValue;
+    }
+
+    public void b(Configuration configuration) {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
+            return;
+        }
+        splashAdView.onConfigurationChanged(configuration);
+    }
+
+    public void c() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
+            return;
+        }
+        splashAdView.a();
+    }
+
+    public void d() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
+            return;
+        }
+        splashAdView.b();
+    }
+
+    public void e(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, baseFragmentActivity) == null) || baseFragmentActivity == null) {
+            return;
+        }
+        SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
+        this.a = new WeakReference<>(splashAdView);
+        ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f0912a7);
+        if (viewGroup != null) {
+            viewGroup.addView(splashAdView);
+        }
     }
 }

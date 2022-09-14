@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.ma0;
-import com.baidu.tieba.p80;
+import com.baidu.tieba.s90;
+import com.baidu.tieba.sb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,7 +155,7 @@ public class LiveFeedWrapData implements Parcelable {
                 }
             }
         }
-        this.hasMore = (this.errCode == 0 && ma0.c(this.roomInfoList)) ? true : true;
+        this.hasMore = (this.errCode == 0 && sb0.c(this.roomInfoList)) ? true : true;
     }
 
     public void parserJson(JSONObject jSONObject, int i, boolean z) {
@@ -171,7 +171,7 @@ public class LiveFeedWrapData implements Parcelable {
             } catch (JSONException e) {
                 LiveFeedPageSdk.liveLog("Feed 缓存记录时间失败 " + e.getMessage());
             }
-            p80.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
+            s90.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
         }
     }
 

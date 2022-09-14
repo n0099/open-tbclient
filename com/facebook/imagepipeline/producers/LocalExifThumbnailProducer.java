@@ -28,6 +28,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imageutils.BitmapUtil;
 import com.facebook.imageutils.JfifUtil;
 import com.facebook.soloader.DoNotOptimize;
+import com.google.android.gms.common.internal.ImagesContract;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -189,7 +190,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
         if (interceptable == null || interceptable.invokeLL(1048579, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
-            producerContext.putOriginExtra("local", "exif");
+            producerContext.putOriginExtra(ImagesContract.LOCAL, "exif");
             StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, PRODUCER_NAME, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalExifThumbnailProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

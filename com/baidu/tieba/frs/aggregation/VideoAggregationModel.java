@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.gi6;
+import com.baidu.tieba.lj6;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public static class VideoAggregationResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<gi6> mDataList;
+        public List<lj6> mDataList;
         public boolean mHasMore;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,10 +82,10 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        gi6 gi6Var = new gi6();
-                        gi6Var.f(jSONArray.optString(i2));
-                        if (gi6Var.n != null) {
-                            this.mDataList.add(gi6Var);
+                        lj6 lj6Var = new lj6();
+                        lj6Var.f(jSONArray.optString(i2));
+                        if (lj6Var.n != null) {
+                            this.mDataList.add(lj6Var);
                         }
                     }
                 }
@@ -138,7 +138,7 @@ public class VideoAggregationModel extends BdBaseModel {
                 VideoAggregationModel.C(this.a);
                 String errorString = httpResponsedMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05b5);
+                    errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
                 this.a.g.a(errorString);
             }
@@ -190,7 +190,7 @@ public class VideoAggregationModel extends BdBaseModel {
                 VideoAggregationModel.C(this.a);
                 String errorString = httpResponsedMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05b5);
+                    errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
                 this.a.g.a(errorString);
             }
@@ -201,7 +201,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface c {
         void a(String str);
 
-        void b(List<gi6> list, boolean z, boolean z2);
+        void b(List<lj6> list, boolean z, boolean z2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -216,7 +216,7 @@ public class VideoAggregationModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

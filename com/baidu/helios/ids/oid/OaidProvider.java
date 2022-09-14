@@ -10,10 +10,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a40;
-import com.baidu.tieba.d40;
-import com.baidu.tieba.g40;
-import com.baidu.tieba.j40;
+import com.baidu.tieba.c50;
+import com.baidu.tieba.f50;
+import com.baidu.tieba.i50;
+import com.baidu.tieba.l50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,13 +32,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class OaidProvider extends j40 {
+public class OaidProvider extends l50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g40.a d;
+    public i50.a d;
     public g e;
     public f f;
-    public List<j40.c<String>> g;
+    public List<l50.d<String>> g;
     public boolean h;
     public boolean i;
 
@@ -292,7 +292,7 @@ public class OaidProvider extends j40 {
                 this.d.e.o(this.b);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, "00000000-0000-0000-0000-000000000000")) {
                     try {
-                        String b = j40.b("A10", new a40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
+                        String b = l50.b("A10", new c50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
                         this.d.e.h(b);
                         this.d.e.e(b);
                         this.d.e.d(32L, 124L);
@@ -364,15 +364,15 @@ public class OaidProvider extends j40 {
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j40.c a;
+        public final /* synthetic */ l50.d a;
         public final /* synthetic */ OaidProvider b;
 
-        public e(OaidProvider oaidProvider, j40.c cVar) {
+        public e(OaidProvider oaidProvider, l50.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oaidProvider, cVar};
+                Object[] objArr = {oaidProvider, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -383,7 +383,7 @@ public class OaidProvider extends j40 {
                 }
             }
             this.b = oaidProvider;
-            this.a = cVar;
+            this.a = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -432,7 +432,7 @@ public class OaidProvider extends j40 {
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
         public boolean b;
-        public d40 c;
+        public f50 c;
         public String d;
         public int e;
         public ArrayList<String> f;
@@ -459,7 +459,7 @@ public class OaidProvider extends j40 {
             }
             this.k = oaidProvider;
             this.b = true;
-            this.c = new d40();
+            this.c = new f50();
             this.f = new ArrayList<>();
         }
 
@@ -713,24 +713,24 @@ public class OaidProvider extends j40 {
         this.i = false;
     }
 
-    @Override // com.baidu.tieba.j40
+    @Override // com.baidu.tieba.l50
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.f() : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j40
-    public void f(j40.b bVar) {
+    @Override // com.baidu.tieba.l50
+    public void f(l50.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             this.d = this.a.f(e());
             Context context = this.b.a;
             f fVar = new f(this);
             this.f = fVar;
             this.e.q();
             long currentTimeMillis = System.currentTimeMillis();
-            if (!bVar.a && !r(currentTimeMillis)) {
+            if (!cVar.a && !r(currentTimeMillis)) {
                 fVar.c.set(true);
                 return;
             }
@@ -743,11 +743,11 @@ public class OaidProvider extends j40 {
         }
     }
 
-    @Override // com.baidu.tieba.j40
-    public void g(j40.c<String> cVar) {
+    @Override // com.baidu.tieba.l50
+    public void g(l50.d<String> dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.b.d.submit(new e(this, cVar));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            this.b.d.submit(new e(this, dVar));
         }
     }
 
@@ -776,21 +776,21 @@ public class OaidProvider extends j40 {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (j40.c<String> cVar : this.g) {
-                l(cVar);
+            for (l50.d<String> dVar : this.g) {
+                l(dVar);
             }
             this.g.clear();
         }
     }
 
-    public final void l(j40.c<String> cVar) {
+    public final void l(l50.d<String> dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
             Bundle bundle = new Bundle();
             if (TextUtils.isEmpty(this.e.f())) {
-                cVar.a(this.e.e, null, bundle);
+                dVar.a(this.e.e, null, bundle);
             } else {
-                cVar.onResult(this.e.f(), bundle);
+                dVar.onResult(this.e.f(), bundle);
             }
         }
     }

@@ -8,6 +8,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -223,7 +224,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             try {
                 try {
-                    return m.c(context) ? Settings.System.getString(context.getContentResolver(), "com.q.zi.i") : "";
+                    return m.c(context) ? ApiReplaceUtil.getString(context.getContentResolver(), "com.q.zi.i") : "";
                 } catch (Throwable unused) {
                     int i = com.baidu.sofire.a.b.a;
                     return null;

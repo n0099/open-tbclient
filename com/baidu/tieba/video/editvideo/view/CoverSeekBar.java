@@ -21,7 +21,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.video.editvideo.scale.ScalableType;
 import com.baidu.tieba.video.editvideo.scale.ScalableVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,12 +55,12 @@ public class CoverSeekBar extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.video.editvideo.view.CoverSeekBar$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0433a implements MediaPlayer.OnInfoListener {
+        public class C0438a implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0433a(a aVar) {
+            public C0438a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class CoverSeekBar extends FrameLayout {
                 mediaPlayer.setVolume(0.0f, 0.0f);
                 if (Build.VERSION.SDK_INT >= 17) {
                     this.a.c.i();
-                    mediaPlayer.setOnInfoListener(new C0433a(this));
+                    mediaPlayer.setOnInfoListener(new C0438a(this));
                     return;
                 }
                 this.a.c.h(0);
@@ -253,11 +253,11 @@ public class CoverSeekBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-            this.d = ri.k(getContext()) / 10;
-            this.e = ri.f(getContext(), R.dimen.obfuscated_res_0x7f070237);
+            this.d = ej.k(getContext()) / 10;
+            this.e = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070237);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e98);
-            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f090709);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090eb3);
+            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f09071f);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }
     }
@@ -480,7 +480,7 @@ public class CoverSeekBar extends FrameLayout {
         }
         this.a = 10;
         this.l = new b(this);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0490, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0497, this);
         g();
     }
 }

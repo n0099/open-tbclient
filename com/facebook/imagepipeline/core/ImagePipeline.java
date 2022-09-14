@@ -3,8 +3,8 @@ package com.facebook.imagepipeline.core;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h0;
 import com.baidu.tieba.i0;
+import com.baidu.tieba.j0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -818,14 +818,14 @@ public class ImagePipeline {
         } : (Supplier) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.baidu.tieba.h0<java.lang.Boolean, com.baidu.tieba.i0<java.lang.Boolean>>, com.baidu.tieba.h0<java.lang.Boolean, com.baidu.tieba.i0<TContinuationResult>> */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.baidu.tieba.i0<java.lang.Boolean, com.baidu.tieba.j0<java.lang.Boolean>>, com.baidu.tieba.i0<java.lang.Boolean, com.baidu.tieba.j0<TContinuationResult>> */
     public DataSource<Boolean> isInDiskCache(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, imageRequest)) == null) {
             CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, null);
             SimpleDataSource create = SimpleDataSource.create();
-            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new h0<Boolean, i0<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.7
+            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new i0<Boolean, j0<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -852,19 +852,19 @@ public class ImagePipeline {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.h0
-                public i0<Boolean> then(i0<Boolean> i0Var) throws Exception {
+                @Override // com.baidu.tieba.i0
+                public j0<Boolean> then(j0<Boolean> j0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, i0Var)) == null) {
-                        if (i0Var.n() || i0Var.p() || !i0Var.l().booleanValue()) {
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, j0Var)) == null) {
+                        if (j0Var.n() || j0Var.p() || !j0Var.l().booleanValue()) {
                             return this.this$0.mSmallImageBufferedDiskCache.contains(this.val$cacheKey);
                         }
-                        return i0.j(Boolean.TRUE);
+                        return j0.j(Boolean.TRUE);
                     }
-                    return (i0) invokeL2.objValue;
+                    return (j0) invokeL2.objValue;
                 }
-            }).e(new h0<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
+            }).e(new i0<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -890,12 +890,12 @@ public class ImagePipeline {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.h0
-                public Void then(i0<Boolean> i0Var) throws Exception {
+                @Override // com.baidu.tieba.i0
+                public Void then(j0<Boolean> j0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i0Var)) == null) {
-                        this.val$dataSource.setResult(Boolean.valueOf((i0Var.n() || i0Var.p() || !i0Var.l().booleanValue()) ? false : true));
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j0Var)) == null) {
+                        this.val$dataSource.setResult(Boolean.valueOf((j0Var.n() || j0Var.p() || !j0Var.l().booleanValue()) ? false : true));
                         return null;
                     }
                     return (Void) invokeL2.objValue;

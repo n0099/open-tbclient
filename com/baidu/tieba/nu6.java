@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActivityPage.ActivityPageReqIdl;
-import tbclient.ActivityPage.DataReq;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nu6 implements tc5<ActivityPageReqIdl> {
+public class nu6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile nu6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final nc5 b;
+    public Map<String, FunAdSidConfigData> a;
 
-    public nu6(String str, String str2) {
+    public nu6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,50 +34,108 @@ public class nu6 implements tc5<ActivityPageReqIdl> {
                 return;
             }
         }
-        this.b = new nc5(false);
-        this.a = str2;
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(c());
     }
 
-    @Override // com.baidu.tieba.tc5
-    public void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.tc5
-    public nc5 c() {
+    public static nu6 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (nc5) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (nu6.class) {
+                    if (b == null) {
+                        b = new nu6();
+                    }
+                }
+            }
+            return b;
+        }
+        return (nu6) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tc5
-    /* renamed from: d */
-    public ActivityPageReqIdl b(boolean z) {
-        InterceptResult invokeZ;
+    public final FunAdSidConfigData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.activity_name = this.a;
-                builder.pn = Integer.valueOf(this.b.c);
-                builder.rn = 20;
-                builder.scr_h = Integer.valueOf(ri.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(ri.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) ri.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(sn4.c().e());
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ye5.a(builder, true);
-                }
-                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
+            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+            funAdSidConfigData.parserJson(jSONObject);
+            return funAdSidConfigData;
         }
-        return (ActivityPageReqIdl) invokeZ.objValue;
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public FunAdSidConfigData b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str)) {
+                return null;
+            }
+            return this.a.get(str);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final Map<String, FunAdSidConfigData> c() {
+        InterceptResult invokeV;
+        FunAdSidConfigData d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : ou6.e().c()) {
+                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
+                    hashMap.put(str, d);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final FunAdSidConfigData d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            JSONObject jSONObject = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = ou6.g().getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return a(jSONObject);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) || this.a == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.a.put(str, funAdSidConfigData);
+        g(str);
+    }
+
+    public final void g(String str) {
+        FunAdSidConfigData funAdSidConfigData;
+        JSONObject json;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+            return;
+        }
+        EditorHelper.putString(ou6.g(), str, json.toString());
     }
 }

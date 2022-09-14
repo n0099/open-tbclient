@@ -2,7 +2,6 @@ package com.qq.e.comm.managers.plugin;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -200,7 +199,7 @@ public class PM {
                         StringUtil.writeTo("lock", b2);
                     }
                     if (b2.exists()) {
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(b2, rw.c);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(b2, "rw");
                         pm.g = randomAccessFile;
                         FileLock tryLock = randomAccessFile.getChannel().tryLock();
                         pm.h = tryLock;

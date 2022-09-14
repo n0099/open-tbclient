@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m91;
-import com.baidu.tieba.v81;
+import com.baidu.tieba.jb1;
+import com.baidu.tieba.sa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                m91.c++;
+                jb1.c++;
                 if (this.b.f != null) {
                     this.b.f.a(this.a);
                 }
@@ -134,23 +134,23 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             }
             linearLayout.setGravity(16);
             linearLayout.setPadding(b(getContext(), 10.0f), 0, 0, 0);
-            linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08044c);
+            linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080454);
             linearLayout.setEnabled(true ^ installmentEntity.isSelected());
             TextView textView = new TextView(getContext());
             textView.setTextSize(11.0f);
             if (installmentEntity.isSelected()) {
-                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608d5));
+                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608ef));
             } else {
-                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060ad3));
+                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060aed));
             }
             textView.setText(installmentEntity.getTitle() == null ? "" : installmentEntity.getTitle());
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             linearLayout.addView(textView);
             TextView textView2 = new TextView(getContext());
             if (installmentEntity.isSelected()) {
-                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608d5));
+                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608ef));
             } else {
-                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608d6));
+                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608f0));
             }
             textView2.setTextSize(11.0f);
             textView2.setText(installmentEntity.getDisplay() != null ? installmentEntity.getDisplay() : "");
@@ -167,18 +167,18 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c7, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905df);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e9);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905de);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905eb);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913db);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913dd);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913dc);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092358);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a5);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f26);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0919d9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e6, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905f2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fc);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905fe);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913fe);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091400);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913ff);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b1);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fe);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f41);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091a17);
             setOnClickListener(this);
         }
     }
@@ -271,13 +271,13 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             String icon = payChannelEntity.getIcon();
             int isSelected = payChannelEntity.getIsSelected();
             int enable = payChannelEntity.getEnable();
-            v81.b().a(this.a, icon);
+            sa1.b().a(this.a, icon);
             this.b.setText(displayName);
             if (isSelected == 1) {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080448);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080450);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081229);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081268);
                 this.m = false;
             }
             if (1 == enable) {

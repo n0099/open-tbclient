@@ -1,50 +1,31 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.guide.MaskView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ff {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public int e;
+    public long f;
 
-    public static View a(LayoutInflater layoutInflater, gf gfVar) {
-        InterceptResult invokeLL;
+    public ff() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, gfVar)) == null) {
-            View c = gfVar.c(layoutInflater);
-            MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.c = gfVar.getXOffset();
-            layoutParams.d = gfVar.getYOffset();
-            layoutParams.a = gfVar.a();
-            layoutParams.b = gfVar.b();
-            ViewGroup.LayoutParams layoutParams2 = c.getLayoutParams();
-            if (layoutParams2 != null) {
-                ((ViewGroup.LayoutParams) layoutParams).width = layoutParams2.width;
-                ((ViewGroup.LayoutParams) layoutParams).height = layoutParams2.height;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            c.setLayoutParams(layoutParams);
-            return c;
         }
-        return (View) invokeLL.objValue;
-    }
-
-    public static Rect b(View view2, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view2, i, i2)) == null) {
-            int[] iArr = new int[2];
-            view2.getLocationInWindow(iArr);
-            Rect rect = new Rect();
-            rect.set(iArr[0], iArr[1], iArr[0] + view2.getMeasuredWidth(), iArr[1] + view2.getMeasuredHeight());
-            rect.offset(-i, -i2);
-            return rect;
-        }
-        return (Rect) invokeLII.objValue;
     }
 }

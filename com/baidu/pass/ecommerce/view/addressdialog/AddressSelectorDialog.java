@@ -103,7 +103,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003dd);
+        this(context, (int) R.style.obfuscated_res_0x7f1003de);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -370,12 +370,12 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             this.mViewPager.setAdapter(addrListPagerAdapter);
             this.mTabLayout.setViewPager(this.mViewPager, new String[]{"请选择", "", "", ""});
             if (this.mIsDarkMode) {
-                this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609e5));
-                this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609e5));
+                this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_dark_color));
+                this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_dark_color));
                 return;
             }
-            this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609e4));
-            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609e4));
+            this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_color));
+            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_dialog_address_selector_title_text_color));
         }
     }
 
@@ -397,24 +397,24 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     private void setUpView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04e0);
+            setContentView(R.layout.layout_sapi_sdk_dialog_address_selector);
             Window window = getWindow();
             if (window != null) {
                 window.setGravity(80);
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.width = -1;
                 window.setAttributes(attributes);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003df);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003e0);
             }
-            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.obfuscated_res_0x7f091cae);
+            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sapi_sdk_addr_select_tab_layout);
             this.mTabLayout = slidingTabLayout;
             slidingTabLayout.setOnTabSelectListener(this);
-            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609b9));
-            AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.obfuscated_res_0x7f091d56);
+            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.sapi_sdk_common_select_btn_text_color));
+            AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.sapi_sdk_vp_address_list);
             this.mViewPager = addrViewPager;
             this.mRealPagerNumber = 1;
             addrViewPager.setRealPagerNumber(1);
-            findViewById(R.id.obfuscated_res_0x7f091cf2).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
+            findViewById(R.id.sapi_sdk_iv_address_dialog_close).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddressSelectorDialog this$0;
@@ -447,10 +447,10 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             });
             if (this.mIsDarkMode) {
                 Resources resources = getContext().getResources();
-                findViewById(R.id.obfuscated_res_0x7f091cad).setBackgroundResource(R.drawable.obfuscated_res_0x7f081029);
-                ((TextView) findViewById(R.id.obfuscated_res_0x7f091caf)).setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609e5));
-                findViewById(R.id.obfuscated_res_0x7f091cb0).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609e3));
-                this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f081021);
+                findViewById(R.id.sapi_sdk_addr_select_layout).setBackgroundResource(R.drawable.sapi_sdk_dialog_address_selector_dark_bg);
+                ((TextView) findViewById(R.id.sapi_sdk_addr_select_title)).setTextColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_title_text_dark_color));
+                findViewById(R.id.sapi_sdk_addr_select_title_bottom_line).setBackgroundColor(resources.getColor(R.color.sapi_sdk_dialog_address_selector_line_dark_color));
+                this.mTabLayout.setIndicatorColor(R.drawable.sapi_sdk_dialog_address_indicator_checked_dark);
             }
         }
     }
@@ -557,7 +557,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003dd);
+        this(context, (int) R.style.obfuscated_res_0x7f1003de);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -579,7 +579,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean, boolean z) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003dd);
+        this(context, (int) R.style.obfuscated_res_0x7f1003de);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

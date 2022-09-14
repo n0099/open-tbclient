@@ -1,95 +1,127 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes5.dex */
-public class s62 implements r62 {
+public class s62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final l62 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948103290, "Lcom/baidu/tieba/s62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a extends BaseBitmapDataSubscriber {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ int b;
+
+        public a(b bVar, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948103290, "Lcom/baidu/tieba/s62;");
-                return;
-            }
-        }
-        c = kh1.a;
-    }
-
-    public s62(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = i >= 20 ? Math.min(i, 300) : 20;
-        this.b = new o62(10);
-    }
-
-    @Override // com.baidu.tieba.r62
-    public l62 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (l62) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r62
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r62
-    public boolean c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (c) {
-                Log.d("LocalLruStrategy", "prelink url - " + str3);
-            }
-            m62 a = this.b.a(str2, str3);
-            if (a == null) {
-                if (c) {
-                    Log.d("LocalLruStrategy", "url not in LRU, do prelink");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return true;
             }
-            boolean z = System.currentTimeMillis() - a.b >= ((long) (this.a * 1000));
-            if (c) {
-                Log.d("LocalLruStrategy", "url in LRU, time is out - " + z);
-            }
-            return z;
+            this.a = bVar;
+            this.b = i;
         }
-        return invokeLLL.booleanValue;
+
+        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
+        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                super.onCancellation(dataSource);
+                s62.b(this.b, this.a, "download icon fail: onCancellation");
+            }
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                s62.b(this.b, this.a, "download icon fail: onFailureImpl");
+            }
+        }
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(Bitmap bitmap) {
+            Bitmap copy;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                if (bitmap == null || bitmap.isRecycled()) {
+                    s62.b(this.b, this.a, "download icon fail: bitmap is null or is recycled");
+                    return;
+                }
+                try {
+                    if (bitmap.getConfig() == null) {
+                        copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                    } else {
+                        copy = bitmap.copy(bitmap.getConfig(), true);
+                    }
+                    if (this.a != null) {
+                        this.a.a(copy);
+                    }
+                } catch (Exception e) {
+                    int i = this.b;
+                    b bVar = this.a;
+                    s62.b(i, bVar, "download icon fail: " + e.getMessage());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(Bitmap bitmap);
+    }
+
+    public static void b(int i, b bVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, bVar, str) == null) {
+            re3 re3Var = new re3();
+            re3Var.k(4L);
+            re3Var.i(10L);
+            re3Var.f(str);
+            ve3.a().f(re3Var);
+            z93 z93Var = new z93();
+            z93Var.p(re3Var);
+            z93Var.q(r93.n(i));
+            r93.R(z93Var);
+            if (bVar != null) {
+                bVar.a(null);
+            }
+        }
+    }
+
+    public static void c(String str, int i, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, bVar) == null) {
+            Uri C = sg3.C(str);
+            if (C == null) {
+                b(i, bVar, "download icon fail: icon url is null");
+                return;
+            }
+            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, i), UiThreadImmediateExecutorService.getInstance());
+        }
     }
 }

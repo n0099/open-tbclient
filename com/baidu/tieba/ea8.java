@@ -1,122 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class ea8 {
+public class ea8 extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o58 a;
-    public p58 b;
-    public h68 c;
-    public List<cn> d;
-    public ArrayList<pn> e;
-    public BdTypeListView f;
+    public Context a;
+    public a b;
 
-    public ea8(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(boolean z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ea8(Context context, Handler handler) {
+        super(handler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.e = new ArrayList<>();
-        this.f = bdTypeListView;
-        a(tbPageContext);
+        this.a = context;
     }
 
-    public final void a(TbPageContext<?> tbPageContext) {
+    public final void a() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.a = new o58(tbPageContext);
-            this.b = new p58(tbPageContext, z68.b);
-            z48 z48Var = new z48(tbPageContext, this, tbPageContext.getUniqueId());
-            this.c = z48Var;
-            this.b.u(z48Var);
-            this.d.add(this.a);
-            this.d.add(this.b);
-            this.f.a(this.d);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof gn)) {
-            this.f.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        ArrayList<pn> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = false;
-            if (qi.isEmpty(str)) {
-                return false;
-            }
-            if (this.f != null && (arrayList = this.e) != null) {
-                Iterator<pn> it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    pn next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
-                        z = true;
-                        it.remove();
-                        break;
-                    }
-                }
-                if (z) {
-                    ArrayList<pn> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
-                    this.e = mergeDynamicThreadByTime;
-                    this.f.setData(mergeDynamicThreadByTime);
-                    b();
-                }
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d(ArrayList<pn> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (context = this.a) == null) {
             return;
         }
-        this.e.clear();
-        this.e.addAll(arrayList);
-        this.f.setData(this.e);
+        try {
+            int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
+            if (this.b != null) {
+                a aVar = this.b;
+                boolean z = true;
+                if (i != 1) {
+                    z = false;
+                }
+                aVar.a(z);
+            }
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void e() {
-        BdTypeListView bdTypeListView;
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+            a();
         }
-        bdTypeListView.F();
+    }
+
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            a();
+        }
     }
 }

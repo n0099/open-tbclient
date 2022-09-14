@@ -1,38 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class hf7 {
     public static /* synthetic */ Interceptable $ic;
+    public static int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
-    }
-
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null) {
-                if (str.length() != 0) {
-                    try {
-                        if (!str.startsWith("#")) {
-                            str = "#" + str;
-                        }
-                    } catch (Exception unused) {
-                        return Integer.MAX_VALUE;
-                    }
-                }
-                return Color.parseColor(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947821872, "Lcom/baidu/tieba/hf7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return Integer.MAX_VALUE;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947821872, "Lcom/baidu/tieba/hf7;");
+                return;
+            }
         }
-        return invokeL.intValue;
+        a = new int[]{R.color.CAM_X0313, R.color.CAM_X0308, R.color.CAM_X0314, R.color.CAM_X0204};
     }
 }

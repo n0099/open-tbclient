@@ -1,110 +1,77 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.net.NetRequestParam;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hs1 extends zr1 {
+public class hs1 implements NetRequest.RequestInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834179, "Lcom/baidu/tieba/hs1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947834179, "Lcom/baidu/tieba/hs1;");
-                return;
-            }
-        }
-        f = kh1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hs1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
+    public hs1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void x(String str) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
+    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
+    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || str == null || str.length() <= 3145728) {
-            return;
-        }
-        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
-    }
-
-    public static String z(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj instanceof String) {
-                String str = (String) obj;
-                return !TextUtils.isEmpty(str) ? str : "log info is invalid";
-            } else if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                return jSONObject.length() != 0 ? jSONObject.toString() : "log info is invalid";
-            } else {
-                return "log info is invalid";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
+            if (netRequestParam == null) {
+                return false;
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dp1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
-    }
-
-    public at1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f) {
-                Log.d("LogApi", "start logToFile action, params = " + str);
-                x(str);
+            String url = netRequestParam.getUrl();
+            if (TextUtils.isEmpty(url)) {
+                if (netRequestResult != null) {
+                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
+                }
+                return true;
             }
-            Pair<at1, JSONObject> s = s(str);
-            if (!((at1) s.first).isSuccess()) {
-                return (at1) s.first;
+            JsObject jsObject = netRequestParam.getJsObject();
+            if (jsObject != null) {
+                try {
+                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
+                    r2 = propertyIndex > 0 ? jsObject.toString(propertyIndex) : null;
+                    int c = p33.c("request", url, r2);
+                    if (c != 0) {
+                        yu1 Y = ms1.Y(c);
+                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
+                        return true;
+                    }
+                } finally {
+                    if (is1.e() && jsObject != null) {
+                        jsObject.release();
+                    }
+                }
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            ay1.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
-            return at1.f();
+            if (is1.e() && jsObject != null) {
+                jsObject.release();
+            }
+            if (!TextUtils.isEmpty(r2)) {
+                netRequestParam.addHeader("X-SWAN-HOSTSIGN", vy2.b(wy2.h(r2)));
+            }
+            netRequestParam.addHeader("Referer", ns1.d());
+            netRequestParam.addHeader("User-Agent", q94.b().getUserAgent());
+            return false;
         }
-        return (at1) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

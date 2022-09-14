@@ -42,7 +42,7 @@ public class ZeusDialogFragmentV4 extends DialogFragment {
         a.a(ZeusDialogFragmentV4.class);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.g2
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.h2
     @Nullable
     public Context getContext() {
         InterceptResult invokeV;

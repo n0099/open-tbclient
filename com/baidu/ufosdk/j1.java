@@ -1,0 +1,164 @@
+package com.baidu.ufosdk;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ufosdk.ui.NoUnderlineSpan;
+/* loaded from: classes6.dex */
+public class j1 extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+    public TextView b;
+    public TextView c;
+    public View d;
+    public TextView e;
+    public Context f;
+    public String g;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j1 a;
+
+        public a(j1 j1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public String b;
+
+        public b(Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = str;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                intent.setPackage(c.a());
+                intent.setData(Uri.parse(this.b));
+                this.a.startActivity(intent);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j1(Context context, boolean z) {
+        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100421);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = "https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_9309125611591740777%22%2C%22sourceFrom%22%3A%22bjh%22%2C%22url_data%22%3A%22bjhauthor%22%7D";
+        a(context, z);
+    }
+
+    public final void a(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            this.f = context;
+            setCanceledOnTouchOutside(true);
+            setCancelable(true);
+            getWindow().setGravity(17);
+            setContentView(com.baidu.tieba.R.layout.ufo_report_tort_dialog);
+            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.report_tort_layout);
+            this.a = linearLayout;
+            linearLayout.setBackgroundResource(z ? com.baidu.tieba.R.drawable.dialog_report_tort_backgroud_dark : com.baidu.tieba.R.drawable.dialog_report_tort_backgroud);
+            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.report_tort_title);
+            this.b = textView;
+            textView.setTextColor(z ? -11711155 : -13421773);
+            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.report_tort_content);
+            this.c = textView2;
+            SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.dialog_tort_content));
+            spannableString.setSpan(new ForegroundColorSpan(-16776961), 51, 64, 33);
+            spannableString.setSpan(new b(this.f, this.g), 51, 64, 33);
+            textView2.setText(spannableString);
+            this.c.setTextColor(z ? -11711155 : -6710887);
+            this.c.setMovementMethod(LinkMovementMethod.getInstance());
+            TextView textView3 = this.c;
+            CharSequence text = textView3.getText();
+            if (text instanceof Spannable) {
+                ((Spannable) textView3.getText()).setSpan(new NoUnderlineSpan(), 0, text.length(), 17);
+            }
+            View findViewById = findViewById(com.baidu.tieba.R.id.divider_line);
+            this.d = findViewById;
+            findViewById.setBackgroundColor(z ? -13619152 : BdThumbSeekBarView.BUFFERING_PAINT_COLOR);
+            TextView textView4 = (TextView) findViewById(com.baidu.tieba.R.id.know_btn);
+            this.e = textView4;
+            textView4.setTextColor(z ? -11711155 : -13421773);
+            this.e.setOnClickListener(new a(this));
+        }
+    }
+}

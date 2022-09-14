@@ -1,120 +1,99 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.ResponseBody;
-import okio.Buffer;
-import okio.BufferedSource;
-import okio.ForwardingSource;
-import okio.Okio;
-import okio.Source;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class js2 extends ResponseBody {
+public class js2 extends ls2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
-    public final gs2 b;
-    public BufferedSource c;
 
-    /* loaded from: classes4.dex */
-    public class a extends ForwardingSource {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public final /* synthetic */ js2 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(js2 js2Var, Source source) {
-            super(source);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893792, "Lcom/baidu/tieba/js2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {js2Var, source};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Source) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = js2Var;
-            this.a = 0L;
-        }
-
-        @Override // okio.ForwardingSource, okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j)) == null) {
-                long read = super.read(buffer, j);
-                int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
-                this.a += i != 0 ? read : 0L;
-                this.b.b.a(this.a, this.b.a.contentLength(), i == 0);
-                return read;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947893792, "Lcom/baidu/tieba/js2;");
+                return;
             }
-            return invokeLJ.longValue;
         }
+        boolean z = ij1.a;
     }
 
-    public js2(ResponseBody responseBody, gs2 gs2Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public js2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody, gs2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = responseBody;
-        this.b = gs2Var;
     }
 
-    public final Source c(Source source) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ls2
+    public boolean a(gs2 gs2Var, is2 is2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, source)) == null) ? new a(this, source) : (Source) invokeL.objValue;
-    }
-
-    @Override // okhttp3.ResponseBody
-    public long contentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.contentLength() : invokeV.longValue;
-    }
-
-    @Override // okhttp3.ResponseBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.contentType() : (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.ResponseBody
-    public BufferedSource source() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c == null) {
-                this.c = Okio.buffer(c(this.a.source()));
-            }
-            return this.c;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{gs2Var, is2Var, context, unitedSchemeEntity, callbackHandler, y23Var})) == null) {
+            yz1.i("vrvideo", "open, video id:" + is2Var.j + " slave id: " + is2Var.c);
+            d(gs2Var, is2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (BufferedSource) invokeV.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ls2
+    public gs2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            wp2 f = xp2.f(str, str2, str3);
+            if (f == null) {
+                return new gs2(context, is2.h(jSONObject, new is2()));
+            }
+            if (f.i() instanceof gs2) {
+                return (gs2) f.i();
+            }
+            return null;
+        }
+        return (gs2) invokeLLLLL.objValue;
+    }
+
+    public final void d(gs2 gs2Var, is2 is2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, gs2Var, is2Var, unitedSchemeEntity, callbackHandler) == null) {
+            gs2Var.g(is2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

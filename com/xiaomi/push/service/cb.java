@@ -1,7 +1,6 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -80,8 +79,8 @@ public final class cb implements Runnable {
                 try {
                     try {
                         File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                        com.xiaomi.push.ab.m161a(file);
-                        randomAccessFile = new RandomAccessFile(file, rw.c);
+                        com.xiaomi.push.ab.m162a(file);
+                        randomAccessFile = new RandomAccessFile(file, "rw");
                         try {
                             fileLock2 = randomAccessFile.getChannel().lock();
                             ca.c(this.a, this.f966a);

@@ -11,6 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
@@ -23,11 +24,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.le5;
-import com.baidu.tieba.m98;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.sg5;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.ua8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m98 a;
+    public ua8 a;
     public View b;
     public ImageView c;
     public View d;
@@ -80,7 +81,7 @@ public class OperableVideoShareView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || le5.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || sg5.a()) {
                 return;
             }
             if (view2 == this.a.b) {
@@ -127,11 +128,11 @@ public class OperableVideoShareView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.h.getLayoutParams();
             LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.i.getLayoutParams();
             if (z2 && !z) {
-                f = ri.f(getContext(), R.dimen.tbds72);
-                f2 = ri.f(getContext(), R.dimen.tbds52);
+                f = ej.f(getContext(), R.dimen.tbds72);
+                f2 = ej.f(getContext(), R.dimen.tbds52);
             } else {
-                f = ri.f(getContext(), R.dimen.tbds36);
-                f2 = ri.f(getContext(), R.dimen.tbds26);
+                f = ej.f(getContext(), R.dimen.tbds36);
+                f2 = ej.f(getContext(), R.dimen.tbds26);
             }
             layoutParams4.rightMargin = f2;
             layoutParams4.leftMargin = f2;
@@ -192,31 +193,31 @@ public class OperableVideoShareView extends LinearLayout {
     public int getLayoutR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d067e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0695 : invokeV.intValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091e64);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e65);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091e66);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e67);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091e49);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e4a);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907f7);
-            this.i = findViewById(R.id.obfuscated_res_0x7f092508);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b92);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091eb4);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eb5);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091eb6);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eb7);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091e99);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e9a);
+            this.h = findViewById(R.id.divider_line);
+            this.i = findViewById(R.id.obfuscated_res_0x7f092563);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd6);
             this.b.setOnClickListener(this.m);
             this.d.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
             setOnClickListener(this.m);
-            this.c.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08081b, 1, false));
-            this.e.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080817, 1, false));
-            this.g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080818, 1, false));
-            this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08061e, R.color.CAM_X0105, null, false));
-            this.j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.f(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
+            this.c.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080835, 1, false));
+            this.e.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080831, 1, false));
+            this.g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080832, 1, false));
+            this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080633, R.color.CAM_X0105, null, false));
+            this.j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
         }
     }
 
@@ -235,65 +236,65 @@ public class OperableVideoShareView extends LinearLayout {
         }
         String title = this.k.getTitle();
         String tid = this.k.getTid();
-        String str = "https://tieba.baidu.com/p/" + tid + "?share=9105&fr=share";
+        String str = TbConfig.HTTPS_PB_PREFIX + tid + "?share=9105&fr=share";
         String f = f(this.k);
         Uri parse = f == null ? null : Uri.parse(f);
         String str2 = this.k.getAbstract();
-        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f1131), title, str2);
+        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f114e), title, str2);
         ShareItem shareItem = new ShareItem();
-        shareItem.u = title;
-        shareItem.v = format;
+        shareItem.v = title;
+        shareItem.w = format;
         if (!this.k.isUgcThreadType() && this.k.isRealVideoThread() && this.k.getThreadVideoInfo() != null) {
-            shareItem.U = this.k.getThreadVideoInfo().play_count.intValue();
+            shareItem.V = this.k.getThreadVideoInfo().play_count.intValue();
         }
-        shareItem.G = str2;
-        shareItem.w = str;
-        shareItem.r = this.l;
-        shareItem.t = tid;
-        shareItem.I = 3;
-        shareItem.J = this.k.isWorksInfo() ? 11 : 2;
+        shareItem.H = str2;
+        shareItem.x = str;
+        shareItem.s = this.l;
+        shareItem.u = tid;
+        shareItem.J = 3;
+        shareItem.K = this.k.isWorksInfo() ? 11 : 2;
         if (i == 3) {
-            shareItem.K = 1;
+            shareItem.L = 1;
         } else if (i == 2) {
-            shareItem.K = 2;
+            shareItem.L = 2;
         } else if (i == 8) {
-            shareItem.K = 3;
+            shareItem.L = 3;
         } else {
-            shareItem.K = 0;
+            shareItem.L = 0;
         }
-        shareItem.M = valueOf;
-        shareItem.s = forum_name;
-        shareItem.N = tid;
-        shareItem.O = this.k.getNid();
+        shareItem.N = valueOf;
+        shareItem.t = forum_name;
+        shareItem.O = tid;
+        shareItem.P = this.k.getNid();
         shareItem.h = true;
-        shareItem.H = 3;
-        shareItem.P = g(this.k);
+        shareItem.I = 3;
+        shareItem.Q = g(this.k);
         if (parse != null) {
-            shareItem.y = parse;
+            shareItem.z = parse;
         }
-        shareItem.W = OriginalThreadInfo.ShareInfo.generateShareInfo(this.k);
-        shareItem.Z = ShareItem.ForwardInfo.generateForwardInfo(this.k);
-        shareItem.L = 1;
+        shareItem.X = OriginalThreadInfo.ShareInfo.generateShareInfo(this.k);
+        shareItem.a0 = ShareItem.ForwardInfo.generateForwardInfo(this.k);
+        shareItem.M = 1;
         TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.p0 = this.k.getShareImageUrl();
+        shareItem.q0 = this.k.getShareImageUrl();
         Bundle bundle = new Bundle();
-        bundle.putString("tid", shareItem.N);
-        bundle.putString("fid", shareItem.M);
-        bundle.putInt("obj_type", shareItem.P);
-        bundle.putInt("obj_param1", shareItem.I);
-        bundle.putInt(TiebaStatic.Params.OBJ_PARAM2, shareItem.J);
-        bundle.putInt(TiebaStatic.Params.OBJ_PARAM3, shareItem.K);
-        bundle.putInt("obj_source", shareItem.r);
-        bundle.putInt("obj_locate", shareItem.L);
+        bundle.putString("tid", shareItem.O);
+        bundle.putString("fid", shareItem.N);
+        bundle.putInt("obj_type", shareItem.Q);
+        bundle.putInt("obj_param1", shareItem.J);
+        bundle.putInt(TiebaStatic.Params.OBJ_PARAM2, shareItem.K);
+        bundle.putInt(TiebaStatic.Params.OBJ_PARAM3, shareItem.L);
+        bundle.putInt("obj_source", shareItem.s);
+        bundle.putInt("obj_locate", shareItem.M);
         shareItem.k(bundle);
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-        statisticItem.param("tid", shareItem.N);
+        statisticItem.param("tid", shareItem.O);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("fid", shareItem.M);
+        statisticItem.param("fid", shareItem.N);
         statisticItem.param("obj_locate", this.l);
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, shareItem.K);
-        statisticItem.param("nid", shareItem.O);
-        if (!qi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, shareItem.L);
+        statisticItem.param("nid", shareItem.P);
+        if (!dj.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
         }
         TiebaStatic.log(statisticItem);
@@ -325,11 +326,11 @@ public class OperableVideoShareView extends LinearLayout {
         }
     }
 
-    public void setVideoContainer(m98 m98Var) {
+    public void setVideoContainer(ua8 ua8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m98Var) == null) {
-            this.a = m98Var;
-            this.i.setOnClickListener(m98Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ua8Var) == null) {
+            this.a = ua8Var;
+            this.i.setOnClickListener(ua8Var);
         }
     }
 

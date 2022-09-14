@@ -51,7 +51,7 @@ public class MangaCategoryActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("category_id", i);
+        getIntent().putExtra(CATEGORY_ID, i);
         getIntent().putExtra(CATEGORY_NAME, str);
     }
 }

@@ -338,11 +338,11 @@ public final class FpsDecorator extends FrameRateListener {
         this.displayMetrics = new DisplayMetrics();
         this.isEnable = true;
         this.mainHandler = FpsHandlerThread.INSTANCE.getDefaultMainHandler();
-        this.bestColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060782);
-        this.normalColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060786);
-        this.middleColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060785);
-        this.highColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060784);
-        this.frozenColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060783);
+        this.bestColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060799);
+        this.normalColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079d);
+        this.middleColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079c);
+        this.highColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079b);
+        this.frozenColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079a);
         this.belongColor = this.bestColor;
         this.dropLevel = new int[DropLevel.values().length];
         this.lastTopPage = "default";

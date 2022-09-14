@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,14 +66,14 @@ public class forumRecommendRequestMessage extends NetMessage {
                     while (it.hasNext()) {
                         VisitedForumData next = it.next();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("forum_id", pg.g(next.getForumId(), 0L));
+                        jSONObject.put("forum_id", dh.g(next.getForumId(), 0L));
                         jSONObject.put("visit_time", next.getVisitedTime());
                         jSONArray.put(jSONObject);
                     }
                 }
                 builder.visit_history = jSONArray.toString();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ye5.a(builder, true);
+                    fh5.a(builder, true);
                 }
                 ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
                 builder2.data = builder.build(false);

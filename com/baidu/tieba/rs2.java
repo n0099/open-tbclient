@@ -1,65 +1,111 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rs2 implements Interceptor {
+public class rs2 extends et1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
 
-    public rs2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rs2(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public void a(HashMap<String, String> hashMap) {
+    @Override // com.baidu.tieba.br1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap == null || hashMap.size() < 1) {
-                return;
-            }
-            this.a = hashMap;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public yu1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap != null && hashMap.size() >= 1) {
-                Request.Builder newBuilder = chain.request().newBuilder();
-                for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                    newBuilder.addHeader(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#changeMenuStyle", false);
+            Pair<yu1, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((yu1) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("type");
+                if (TextUtils.isEmpty(optString)) {
+                    return new yu1(202);
                 }
-                return chain.proceed(newBuilder.build());
+                int y = y(optString);
+                lo2 U = lo2.U();
+                if (U == null) {
+                    return new yu1(1001);
+                }
+                h22 V = U.V();
+                if (V == null) {
+                    return new yu1(1001);
+                }
+                e22 m = V.m();
+                if (m == null) {
+                    return new yu1(1001);
+                }
+                f94 O1 = m.O1();
+                if (O1 == null) {
+                    if (m instanceof l22) {
+                        ((l22) m).j3(y);
+                        return yu1.f();
+                    }
+                    return new yu1(1001);
+                }
+                O1.e(y);
+                O1.y();
+                return yu1.f();
             }
-            return chain.proceed(chain.request());
+            return new yu1(202);
         }
-        return (Response) invokeL.objValue;
+        return (yu1) invokeL.objValue;
+    }
+
+    public final int y(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1866956286) {
+                if (hashCode == -838846263 && str.equals("update")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("webDegrade")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                return c != 1 ? 12 : 20;
+            }
+            return 19;
+        }
+        return invokeL.intValue;
     }
 }

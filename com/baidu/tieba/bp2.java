@@ -1,254 +1,144 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.os.Handler;
-import android.os.Message;
-import android.provider.MediaStore;
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
+import com.baidu.tieba.dp2;
+import com.baidu.tieba.ep2;
+import com.baidu.tieba.fp2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bp2 implements Runnable {
+public class bp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ap2> a;
-    public ArrayList<MediaModel> b;
-    public String c;
-    public Handler d;
+    public final List<dp2> a;
 
-    public bp2(String str, Handler handler) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652581, "Lcom/baidu/tieba/bp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947652581, "Lcom/baidu/tieba/bp2;");
+                return;
+            }
+        }
+        b = ij1.a;
+    }
+
+    public bp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, handler};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = str;
-        this.d = handler;
+        this.a = new ArrayList();
+        e();
     }
 
-    public final void a() {
+    @Nullable
+    public final ep2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.c, "video")) {
-            return;
-        }
-        Cursor cursor = null;
-        try {
-            try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
-            } catch (Exception e) {
-                if (po2.a) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
+            ep2.a aVar = new ep2.a();
+            aVar.e(str);
+            aVar.g(i);
+            aVar.c(i2);
+            aVar.b(str2);
+            aVar.f(obj);
+            ep2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
+                    return null;
                 }
+                return null;
             }
-            if (cursor == null) {
-                return;
-            }
-            while (cursor.moveToNext()) {
-                String string = cursor.getString(cursor.getColumnIndex("_data"));
-                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
-                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
-                File file = new File(string);
-                if (file.exists() && (po2.d || !qo2.d(string))) {
-                    ImageModel imageModel = new ImageModel(string);
-                    imageModel.setAddDate(j);
-                    imageModel.setSize(j2);
-                    d(file, imageModel);
+            return a;
+        }
+        return (ep2) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public final fp2 b(int i, @NonNull String str, @NonNull Object obj) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
+            fp2.a aVar = new fp2.a();
+            aVar.e(i);
+            aVar.d(str);
+            aVar.b(obj);
+            fp2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
                 }
+                return null;
             }
-        } finally {
-            ch4.d(null);
+            return a;
         }
+        return (fp2) invokeILL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00e3 */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x009f, code lost:
-        if (r11 != null) goto L30;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r15v0, types: [java.lang.Object, com.baidu.tieba.bp2] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b() {
-        Throwable th;
-        Cursor cursor;
-        Exception e;
-        MediaMetadataRetriever mediaMetadataRetriever;
-        Throwable th2;
+    @NonNull
+    public List<dp2> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ?? r1 = "Image";
-            if (TextUtils.equals(this.c, "Image")) {
-                return;
-            }
-            try {
-                try {
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
-                } catch (Throwable th3) {
-                    th = th3;
-                    ch4.d(r1);
-                    throw th;
-                }
-            } catch (Exception e2) {
-                cursor = null;
-                e = e2;
-            } catch (Throwable th4) {
-                r1 = 0;
-                th = th4;
-                ch4.d(r1);
-                throw th;
-            }
-            if (cursor == null) {
-                ch4.d(cursor);
-                return;
-            }
-            while (cursor.moveToNext()) {
-                try {
-                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
-                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
-                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
-                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
-                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
-                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
-                    if (i <= 0 || i2 <= 0) {
-                        try {
-                            mediaMetadataRetriever = new MediaMetadataRetriever();
-                            try {
-                                try {
-                                    mediaMetadataRetriever.setDataSource(string);
-                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
-                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
-                                    i = Integer.parseInt(extractMetadata);
-                                    i2 = Integer.parseInt(extractMetadata2);
-                                } catch (Exception e3) {
-                                    e = e3;
-                                    if (po2.a) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Throwable th5) {
-                                th2 = th5;
-                                if (mediaMetadataRetriever != null) {
-                                    mediaMetadataRetriever.release();
-                                }
-                                throw th2;
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            mediaMetadataRetriever = null;
-                        } catch (Throwable th6) {
-                            mediaMetadataRetriever = null;
-                            th2 = th6;
-                        }
-                        mediaMetadataRetriever.release();
-                    }
-                    File file = new File(string);
-                    if (file.exists()) {
-                        VideoModel videoModel = new VideoModel(string);
-                        videoModel.setAddDate(j);
-                        videoModel.setDuration(j2);
-                        videoModel.setSize(j3);
-                        videoModel.setWidth(i);
-                        videoModel.setHeight(i2);
-                        d(file, videoModel);
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                    if (po2.a) {
-                        e.printStackTrace();
-                    }
-                    ch4.d(cursor);
-                }
-            }
-            ch4.d(cursor);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.a) : (List) invokeV.objValue;
     }
 
-    public final void c(ArrayList<ap2> arrayList) {
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            Iterator<ap2> it = arrayList.iterator();
-            while (it.hasNext()) {
-                ap2 next = it.next();
-                next.i(new File(next.b()).lastModified());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            fp2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
+            if (b2 == null) {
+                return false;
             }
-            Collections.sort(arrayList);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
+            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
+            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
+            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
+            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
+            dp2.a aVar = new dp2.a();
+            aVar.c(b2);
+            aVar.a(arrayList);
+            dp2 b3 = aVar.b();
+            if (b3 == null) {
+                return false;
+            }
+            return this.a.add(b3);
         }
+        return invokeV.booleanValue;
     }
 
-    public final void d(File file, MediaModel mediaModel) {
-        String name;
-        String path;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
-            if (file.getParentFile() != null) {
-                name = file.getParentFile().getName();
-                path = file.getParent();
-            } else {
-                name = file.getName();
-                path = file.getPath();
-            }
-            ap2 ap2Var = new ap2();
-            ap2Var.h(name);
-            ap2Var.g(path);
-            int indexOf = this.a.indexOf(ap2Var);
-            if (indexOf >= 0) {
-                this.a.get(indexOf).a(mediaModel);
-            } else {
-                ap2Var.a(mediaModel);
-                this.a.add(ap2Var);
-            }
-            this.b.add(mediaModel);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a();
-            b();
-            c(this.a);
-            ap2 ap2Var = new ap2();
-            ap2Var.h(qo2.b(AppRuntime.getAppContext(), this.c));
-            ap2Var.d = this.b;
-            this.a.add(0, ap2Var);
-            Iterator<ap2> it = this.a.iterator();
-            while (it.hasNext()) {
-                Collections.sort(it.next().f());
-            }
-            Handler handler = this.d;
-            if (handler != null) {
-                Message obtainMessage = handler.obtainMessage(0);
-                obtainMessage.obj = this.a;
-                this.d.sendMessage(obtainMessage);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
+            yz1.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
         }
     }
 }

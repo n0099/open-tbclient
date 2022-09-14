@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.ef9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ObjectInput;
-/* compiled from: lambda */
+import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class jf9 implements ol9 {
+public class jf9 implements IDataSourceView.IPlayerDataSourceView, ef9.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ jf9 a = new jf9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ jf9() {
-    }
+    public abstract void c();
 
-    @Override // com.baidu.tieba.ol9
-    public final Object a(ObjectInput objectInput) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objectInput)) == null) ? sg9.h(objectInput) : invokeL.objValue;
-    }
+    public abstract void d(float f);
+
+    public abstract void e(int i);
+
+    public abstract void f();
 }

@@ -1,64 +1,88 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.guide.TaskGuideData;
 import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes3.dex */
-public final class aq extends kq {
+public final class aq {
     public static /* synthetic */ Interceptable $ic;
+    public static final aq a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public int e;
 
-    public /* synthetic */ aq(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, (i2 & 2) != 0 ? taskInfo.getSingleKey() : str, (i2 & 4) != 0 ? 8 : i, (i2 & 8) != 0 ? null : num, (i2 & 16) != 0 ? null : str2);
-    }
-
-    @Override // com.baidu.tieba.yq
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskResetAction" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kq
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
-        super(str, num, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448299901, "Lcom/baidu/tieba/aq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448299901, "Lcom/baidu/tieba/aq;");
                 return;
             }
         }
-        this.d = str;
-        this.e = i;
+        a = new aq();
+    }
+
+    public aq() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final void a(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
+        xu f;
+        pu d;
+        pu d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, taskInfo, taskStatus) == null) {
+            ou v = BDPTask.m.v();
+            if (v != null && (d2 = v.d()) != null) {
+                d2.b(taskInfo.getSingleKey(), kr.c.a());
+            }
+            ou v2 = BDPTask.m.v();
+            if (v2 != null && (d = v2.d()) != null) {
+                d.a(taskInfo.getSingleKey());
+            }
+            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
+            String c = yu.a.c(taskStatus);
+            ou v3 = BDPTask.m.v();
+            if (v3 == null || (f = v3.f()) == null) {
+                return;
+            }
+            f.a(str, "icon_clk", yu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
+        }
+    }
+
+    public final void b(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
+        xu f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, taskInfo, taskStatus) == null) {
+            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
+            String c = yu.a.c(taskStatus);
+            ou v = BDPTask.m.v();
+            if (v == null || (f = v.f()) == null) {
+                return;
+            }
+            f.a(str, "close_clk", yu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
+        }
     }
 }

@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.AnyThread;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,157 +12,224 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kv2 implements em2 {
+public class kv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ kv2 a;
 
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kv2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-648426236, "Lcom/baidu/tieba/kv2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-648426236, "Lcom/baidu/tieba/kv2$b;");
+        public a(kv2 kv2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kv2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new kv2(null);
+            this.a = kv2Var;
         }
-    }
 
-    public /* synthetic */ kv2(a aVar) {
-        this();
-    }
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f != null) {
+                    this.a.f.onFail(exc.getMessage());
+                    return;
+                }
+                yz1.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+            }
+        }
 
-    public static kv2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (kv2) invokeV.objValue;
-    }
-
-    @Nullable
-    @UiThread
-    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeCommon;
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
-            View d = d(i);
-            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
-                if (layoutParams2 == null) {
-                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    yz1.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) == 0) {
+                    this.a.f.a(jSONObject.optJSONObject("data"));
                 } else {
-                    layoutParams2.width = layoutParams.width;
-                    layoutParams2.height = layoutParams.height;
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
                 }
-                d.setLayoutParams(layoutParams2);
             }
-            if (d == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                View inflate = LayoutInflater.from(hk2.c()).inflate(i, viewGroup, z);
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (em2.a) {
-                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-                return inflate;
-            }
-            return d;
         }
-        return (View) invokeCommon.objValue;
-    }
 
-    @AnyThread
-    public void c(@LayoutRes int... iArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) || iArr == null || iArr.length == 0) {
-            return;
-        }
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            int length = iArr.length;
-            LayoutInflater from = LayoutInflater.from(hk2.c());
-            for (int i : iArr) {
-                View inflate = from.inflate(i, (ViewGroup) null);
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList == null) {
-                    copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response == null || response.body() == null) {
+                    return null;
                 }
-                copyOnWriteArrayList.add(inflate);
-                this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
+                return yf3.d(response.body().string());
             }
-            if (em2.a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-            }
-        } catch (Exception e) {
-            if (em2.a) {
-                Log.d("SwanPerformance", Log.getStackTraceString(e));
-            }
+            return (JSONObject) invokeLI.objValue;
         }
     }
 
-    @Nullable
-    @AnyThread
-    public View d(@LayoutRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            View view2 = null;
-            try {
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
-                    view2 = copyOnWriteArrayList.remove(0);
-                }
-            } catch (Exception e) {
-                if (em2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+
+        void onFail(String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926466, "Lcom/baidu/tieba/kv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (em2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("tryObtainLayoutByResId resId = ");
-                sb.append(i);
-                sb.append(view2 == null ? " cache view is null" : " adopt cached view");
-                Log.d("SwanPerformance", sb.toString());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926466, "Lcom/baidu/tieba/kv2;");
+                return;
             }
-            return view2;
         }
-        return (View) invokeI.objValue;
+        boolean z = ij1.a;
+        h = String.format("%s/ma/pay_check", sz1.b());
+        i = fu2.a;
     }
 
     public kv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+        g();
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
+        }
+        this.b.put(str, str2);
+    }
+
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
+            }
+            this.a = qg3.b(this.a, this.c);
+            ba4 ba4Var = new ba4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            ba4Var.c = this.b;
+            ba4Var.g = true;
+            yz1.b("PayCheckRequest", "start paycheck request : " + this.e);
+            ca4.g().e(ba4Var);
+        }
+    }
+
+    public void d(@NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = gc4.i(h);
+            this.a = i2;
+            this.a = uz1.b(i2);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", fg3.b());
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String O = x23.K().q().O();
+            try {
+                JSONObject jSONObject = this.e;
+                if (TextUtils.isEmpty(O)) {
+                    O = "";
+                }
+                jSONObject.put("appkey", O);
+            } catch (JSONException e) {
+                yz1.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.put("order_info", jSONObject);
+            this.d = true;
+        } catch (JSONException e) {
+            yz1.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
+        }
     }
 }

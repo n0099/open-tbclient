@@ -39,9 +39,9 @@ public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c2e);
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902bf);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902c0);
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902be);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c7c);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902c7);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902c8);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902c6);
     }
 }

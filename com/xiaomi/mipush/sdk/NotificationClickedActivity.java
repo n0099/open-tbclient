@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -78,7 +77,6 @@ public final class NotificationClickedActivity extends Activity {
                 registerReceiver(adVar, intentFilter, d.a(this), null);
             } catch (Exception unused) {
             }
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

@@ -1,148 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.poly.widget.WechatSignAutoRenewActivity;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.widget.TextView;
+import com.baidu.tieba.g21;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class v71 implements oa1 {
+public final class v71 {
     public static /* synthetic */ Interceptable $ic;
-    public static v71 c;
+    public static final char[] a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public boolean b;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v71 this$0;
-
-        public b(v71 v71Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193593, "Lcom/baidu/tieba/v71;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v71Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.this$0 = v71Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
-                this.this$0.b = false;
-                try {
-                    int intExtra = intent.getIntExtra("code", 0);
-                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
-                    intent2.putExtra("code", intExtra);
-                    PolyActivity.g.startActivity(intent2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public /* synthetic */ b(v71 v71Var, a aVar) {
-            this(v71Var);
-        }
-    }
-
-    public v71() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948193593, "Lcom/baidu/tieba/v71;");
                 return;
             }
         }
-        this.b = false;
+        char[] cArr = {21704};
+        a = cArr;
+        b = new String(cArr);
     }
 
-    public static v71 d() {
-        InterceptResult invokeV;
+    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (v71.class) {
-                    if (c == null) {
-                        c = new v71();
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
+            Intrinsics.checkNotNullParameter(subTag, "subTag");
+            if (TextUtils.isEmpty(subTag)) {
+                subTag = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
+            }
+            return subTag;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2) {
+        InterceptResult invokeCommon;
+        float e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2)})) == null) {
+            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                if (textView.getMeasuredWidth() > 0) {
+                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
+                } else {
+                    e = ((g21.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
                 }
+                float f = e - ((i - 1) * 10);
+                Intrinsics.checkNotNull(str);
+                int length = str.length() + 1;
+                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
+                if (f < textView.getPaint().measureText(spannableStringBuilder.toString())) {
+                    String a2 = a(spannableStringBuilder.toString(), b, f, textView.getPaint(), drawable.getIntrinsicWidth());
+                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
+                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                    spannableStringBuilder2.setSpan(new u71(drawable), a2.length() - b.length(), a2.length(), 17);
+                    return spannableStringBuilder2;
+                }
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                spannableStringBuilder.setSpan(new u71(drawable), length, spannableStringBuilder.length(), 17);
+                return spannableStringBuilder;
             }
-            return c;
+            return new SpannableStringBuilder("");
         }
-        return (v71) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oa1
-    public void a(Activity activity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            aa1.b("WECHAT signWechatAutoRenew appId=" + str);
-            c81 a2 = s71.a();
-            if (a2 == null) {
-                return;
-            }
-            if (!a2.b(activity)) {
-                ya1.f(activity, "您没有安装微信，请选择其他支付方式");
-                activity.finish();
-                return;
-            }
-            this.b = true;
-            f();
-            e();
-            a2.a(activity, str, str2);
-            activity.finish();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new b(this, null);
-            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
-        }
-        try {
-            PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 }

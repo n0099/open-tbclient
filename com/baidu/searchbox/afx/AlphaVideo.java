@@ -12,7 +12,7 @@ import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
 import com.baidu.searchbox.afx.gl.AlphaVideoRenderer;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.IPlayer;
-import com.baidu.searchbox.afx.proxy.VideoPlayerProxy;
+import com.baidu.searchbox.afx.proxy.MediaPlayerProxy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,9 +48,9 @@ public class AlphaVideo extends GLTextureView {
                 return;
             }
         }
-        VideoPlayerProxy videoPlayerProxy = new VideoPlayerProxy();
-        this.mPlayer = videoPlayerProxy;
-        videoPlayerProxy.setGLTextureView(this);
+        MediaPlayerProxy mediaPlayerProxy = new MediaPlayerProxy();
+        this.mPlayer = mediaPlayerProxy;
+        mediaPlayerProxy.setGLTextureView(this);
         this.mIsKeepLastFrame = false;
         init();
     }
@@ -128,19 +128,36 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
+    @Override // com.baidu.searchbox.afx.gl.GLTextureView
     public void destroy() {
-        IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.destroy();
+            IPlayer iPlayer = this.mPlayer;
+            if (iPlayer != null) {
+                iPlayer.destroy();
+                this.mPlayer = null;
+            }
         }
-        iPlayer.destroy();
+    }
+
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            IPlayer iPlayer = this.mPlayer;
+            if (iPlayer == null) {
+                return 0;
+            }
+            return iPlayer.getCurrentPosition();
+        }
+        return invokeV.intValue;
     }
 
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
             if (iPlayer != null) {
                 return iPlayer.getDuration();
@@ -153,7 +170,7 @@ public class AlphaVideo extends GLTextureView {
     public int getFps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
             if (iPlayer != null) {
                 return iPlayer.getFps();
@@ -166,7 +183,7 @@ public class AlphaVideo extends GLTextureView {
     public boolean isDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
             return iPlayer != null && iPlayer.isDestroyed();
         }
@@ -176,7 +193,7 @@ public class AlphaVideo extends GLTextureView {
     public boolean isPaused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
             return iPlayer != null && iPlayer.isPaused();
         }
@@ -186,7 +203,7 @@ public class AlphaVideo extends GLTextureView {
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
             return iPlayer != null && iPlayer.isPlaying();
         }
@@ -196,7 +213,7 @@ public class AlphaVideo extends GLTextureView {
     public boolean isStopped() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
             return iPlayer != null && iPlayer.isStopped();
         }
@@ -206,24 +223,21 @@ public class AlphaVideo extends GLTextureView {
     @Override // com.baidu.searchbox.afx.gl.GLTextureView, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDetachedFromWindow();
         }
     }
 
-    @Override // com.baidu.searchbox.afx.gl.GLTextureView
-    public void onPause() {
+    @Override // android.view.View
+    public void onWindowFocusChanged(boolean z) {
+        IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onPause();
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.gl.GLTextureView
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onResume();
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            super.onWindowFocusChanged(z);
+            if (!z || getVisibility() != 0 || (iPlayer = this.mPlayer) == null || iPlayer.isNotPrepared() || isDestroyed()) {
+                return;
+            }
+            requestRender();
         }
     }
 
@@ -448,9 +462,9 @@ public class AlphaVideo extends GLTextureView {
                 return;
             }
         }
-        VideoPlayerProxy videoPlayerProxy = new VideoPlayerProxy();
-        this.mPlayer = videoPlayerProxy;
-        videoPlayerProxy.setGLTextureView(this);
+        MediaPlayerProxy mediaPlayerProxy = new MediaPlayerProxy();
+        this.mPlayer = mediaPlayerProxy;
+        mediaPlayerProxy.setGLTextureView(this);
         this.mIsKeepLastFrame = false;
         init();
     }

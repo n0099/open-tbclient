@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +66,7 @@ public class HardwareProxy {
                 while (networkInterfaces.hasMoreElements()) {
                     NetworkInterface nextElement = networkInterfaces.nextElement();
                     if (nextElement.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = nextElement.getHardwareAddress();
+                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(nextElement);
                         String byte2MacString = hardwareAddress != null ? byte2MacString(hardwareAddress) : null;
                         return TextUtils.isEmpty(byte2MacString) ? "" : byte2MacString;
                     }

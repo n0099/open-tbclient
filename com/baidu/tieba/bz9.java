@@ -3,78 +3,150 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bz9<T> extends ev9<T> {
+public final class bz9 implements xw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zu9<T> e;
+    public List<xw9> a;
+    public volatile boolean b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public bz9(ev9<? super T> ev9Var) {
-        this(ev9Var, true);
+    public bz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ev9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((ev9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.zu9
-    public void onCompleted() {
+    public static void c(Collection<xw9> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.onCompleted();
+        if (!(interceptable == null || interceptable.invokeL(65539, null, collection) == null) || collection == null) {
+            return;
+        }
+        ArrayList arrayList = null;
+        for (xw9 xw9Var : collection) {
+            try {
+                xw9Var.unsubscribe();
+            } catch (Throwable th) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                arrayList.add(th);
+            }
+        }
+        cx9.d(arrayList);
+    }
+
+    public void a(xw9 xw9Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, xw9Var) == null) || xw9Var.isUnsubscribed()) {
+            return;
+        }
+        if (!this.b) {
+            synchronized (this) {
+                if (!this.b) {
+                    List list = this.a;
+                    if (list == null) {
+                        list = new LinkedList();
+                        this.a = list;
+                    }
+                    list.add(xw9Var);
+                    return;
+                }
+            }
+        }
+        xw9Var.unsubscribe();
+    }
+
+    public void b(xw9 xw9Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xw9Var) == null) || this.b) {
+            return;
+        }
+        synchronized (this) {
+            List<xw9> list = this.a;
+            if (!this.b && list != null) {
+                boolean remove = list.remove(xw9Var);
+                if (remove) {
+                    xw9Var.unsubscribe();
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.zu9
-    public void onError(Throwable th) {
+    @Override // com.baidu.tieba.xw9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.e.onError(th);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xw9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
+            return;
+        }
+        synchronized (this) {
+            if (this.b) {
+                return;
+            }
+            this.b = true;
+            List<xw9> list = this.a;
+            this.a = null;
+            c(list);
         }
     }
 
-    @Override // com.baidu.tieba.zu9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.onNext(t);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bz9(ev9<? super T> ev9Var, boolean z) {
-        super(ev9Var, z);
+    public bz9(xw9... xw9VarArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ev9Var, Boolean.valueOf(z)};
+            Object[] objArr = {xw9VarArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedList(Arrays.asList(xw9VarArr));
+    }
+
+    public bz9(xw9 xw9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xw9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ev9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new az9(ev9Var);
+        LinkedList linkedList = new LinkedList();
+        this.a = linkedList;
+        linkedList.add(xw9Var);
     }
 }

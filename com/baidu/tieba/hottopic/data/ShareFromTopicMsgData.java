@@ -3,6 +3,7 @@ package com.baidu.tieba.hottopic.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.data.ShareBaseMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -130,7 +131,7 @@ public class ShareFromTopicMsgData extends ShareBaseMsgData {
                 jSONObject.put("shareSourceUrl", this.linkUrl);
                 jSONObject.put("type", "5");
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.title + " https://tieba.baidu.com/p/?share=9105");
+                jSONArray.put(this.title + " " + TbConfig.HTTPS_PB_PREFIX + "?share=9105");
                 jSONArray.put("1");
                 jSONArray.put(jSONObject);
                 return jSONArray.toString();

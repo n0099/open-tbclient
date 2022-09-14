@@ -18,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.biometrics.base.utils.Base64Utils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
@@ -107,12 +106,12 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d20);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091ce6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d49);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d51);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf6);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf5);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d6e);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d34);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d97);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9f);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d44);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d43);
             if ("1".equals(this.B)) {
                 this.f.setVisibility(8);
                 this.g.setVisibility(0);
@@ -124,7 +123,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             } else {
                 a(true, IdCardOcrResult.CODE_PAGE_PARAMS_ERROR, IdCardOcrResult.MESSAGE_PAGE_PARAMS_ERROR, "", "");
             }
-            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091ce8)).setOnClickListener(this);
+            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d36)).setOnClickListener(this);
         }
     }
 
@@ -453,7 +452,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public void onClick(View view2) {
         Camera.Parameters parameters;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091ce8 || this.j == null || (parameters = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091d36 || this.j == null || (parameters = this.i) == null) {
             return;
         }
         Camera.Size previewSize = parameters.getPreviewSize();
@@ -474,12 +473,11 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0487);
+            setContentView(R.layout.obfuscated_res_0x7f0d048b);
             this.u = CoreViewRouter.getInstance().getIdCardOcrCallback();
             a();
             b();
             e();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

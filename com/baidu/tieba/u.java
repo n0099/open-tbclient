@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.PathClassLoader;
 import java.io.File;
 /* loaded from: classes6.dex */
-public class u implements r {
+public class u extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,22 +26,25 @@ public class u implements r {
         }
     }
 
-    @Override // com.baidu.tieba.r
-    public boolean a(Context context, File file) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.w
+    public Class c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, file)) == null) ? s.f((String[]) s.g((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath()) : invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r
-    public void b(Context context, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, file) == null) {
-            PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
-            String[] strArr = (String[]) s.g(pathClassLoader, "mLibPaths");
-            if (strArr != null) {
-                s.e(pathClassLoader, "mLibPaths", s.c(String.class, strArr, file.getAbsolutePath()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return Class.forName("dalvik.system.DexPathList$NativeLibraryElement");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.w
+    public Object d(Class cls, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, file)) == null) ? t.b(cls, new Class[]{File.class}, new Object[]{file}) : invokeLL.objValue;
     }
 }

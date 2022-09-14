@@ -9,13 +9,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu8;
+import com.baidu.tieba.lw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, uu8.b {
+public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, lw8.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -37,7 +37,7 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
         void m0();
 
-        void u();
+        void v();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,14 +61,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         b();
     }
 
-    @Override // com.baidu.tieba.uu8.b
+    @Override // com.baidu.tieba.lw8.b
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b07);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b24);
             } else {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b08);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b25);
             }
         }
     }
@@ -76,15 +76,15 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0502, this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091280);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09128d);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091256);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09126e);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090edb);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ef0);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec5);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0515, this);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09129e);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ab);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091274);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09128c);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ef6);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f0b);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecc);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee1);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
@@ -107,16 +107,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         int id = view2.getId();
         this.j = view2;
         StatisticItem statisticItem = new StatisticItem("c12495");
-        if (id == R.id.obfuscated_res_0x7f090edb) {
+        if (id == R.id.obfuscated_res_0x7f090ef6) {
             this.i.F0();
             statisticItem.param("obj_type", 6);
-        } else if (id == R.id.obfuscated_res_0x7f090ef0) {
-            this.i.u();
+        } else if (id == R.id.obfuscated_res_0x7f090f0b) {
+            this.i.v();
             statisticItem.param("obj_type", 4);
-        } else if (id == R.id.obfuscated_res_0x7f090eb1) {
+        } else if (id == R.id.obfuscated_res_0x7f090ecc) {
             this.i.m0();
             statisticItem.param("obj_type", 3);
-        } else if (id == R.id.obfuscated_res_0x7f090ec5) {
+        } else if (id == R.id.obfuscated_res_0x7f090ee1) {
             this.i.U0();
             statisticItem.param("obj_type", 2);
         }

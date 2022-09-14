@@ -1,199 +1,150 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes3.dex */
 public class e2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements IResult<ProductListResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IResult a;
-
-        public a(IResult iResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onSuccess(productListResult, payCallBackBean);
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onFail(i, str, payCallBackBean);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements IResult<MyBalanceResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IResult a;
-
-        public b(IResult iResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onSuccess(myBalanceResult, payCallBackBean);
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onFail(i, str, payCallBackBean);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements IResult<BannerConfigResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IResult a;
-
-        public c(IResult iResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onSuccess(bannerConfigResult, payCallBackBean);
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onFail(i, str, payCallBackBean);
-        }
-    }
-
-    public static void a(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, getBannerConfigReqParams, iResult) == null) {
-            IAppPayService b2 = n2a.b(getBannerConfigReqParams.getAppId(), getBannerConfigReqParams.getUsedChannel());
-            if (b2 == null) {
-                RLog.error("PayModelManager", "queryBannerConfig null appPayService", new Object[0]);
-            } else {
-                b2.queryBannerConfigRequest(getBannerConfigReqParams, new c(iResult));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                String str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "ro.build.hw_emui_api_level");
+                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
+                    return 0;
+                }
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
             }
         }
+        return invokeV.intValue;
     }
 
-    public static void b(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, queryCurrencyReqParams, iResult) == null) {
-            IAppPayService b2 = n2a.b(queryCurrencyReqParams.getAppId(), queryCurrencyReqParams.getUsedChannel());
-            if (b2 == null) {
-                RLog.error("PayModelManager", "queryMyBalance null appPayService", new Object[0]);
-            } else {
-                b2.queryMyBalance(queryCurrencyReqParams, new b(iResult));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? g() ? f("ro.build.version.emui", "") : "" : (String) invokeV.objValue;
     }
 
-    public static void c(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, queryCurrencyReqParams, iResult) == null) {
-            IMiddlePayService c2 = n2a.c(queryCurrencyReqParams.getAppId(), queryCurrencyReqParams.getUsedChannel());
-            if (c2 == null) {
-                RLog.error("PayModelManager", "queryProductList null middlePayService", new Object[0]);
-            } else {
-                c2.queryProductList(queryCurrencyReqParams, new a(iResult));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "") : (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j() ? f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "") : "" : (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? l() ? f("ro.miui.ui.version.name", "") : "" : (String) invokeV.objValue;
+    }
+
+    public static String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            try {
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+            } catch (Exception unused) {
+                return str2;
             }
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a() > 0 : invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b().contains("EmotionUI_3.0") : invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String b = b();
+            return "EmotionUI 3".equals(b) || b.contains("EmotionUI_3.1");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c().toLowerCase().contains("flyme") : invokeV.booleanValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        int intValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            String d = d();
+            if (d.isEmpty()) {
+                return false;
+            }
+            try {
+                if (d.toLowerCase().contains("os")) {
+                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
+                } else {
+                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
+                }
+                return intValue >= 4;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? !TextUtils.isEmpty(f("ro.miui.ui.version.name", "")) : invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            String e = e();
+            if (e.isEmpty()) {
+                return false;
+            }
+            try {
+                return Integer.valueOf(e.substring(1)).intValue() >= 6;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? "OPPO".equals(Build.MANUFACTURER) : invokeV.booleanValue;
     }
 }

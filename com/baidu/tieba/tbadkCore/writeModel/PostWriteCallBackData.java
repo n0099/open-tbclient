@@ -3,15 +3,16 @@ package com.baidu.tieba.tbadkCore.writeModel;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
-import com.baidu.tieba.br4;
-import com.baidu.tieba.d15;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.gt4;
+import com.baidu.tieba.m35;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pg;
 import com.baidu.tieba.video.VideoTitleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,10 +45,10 @@ public class PostWriteCallBackData implements Serializable {
     public int isCopyTWZhibo;
     public boolean isDyamicCallback;
     public CustomDialogData mActDialogData;
-    public d15 mAdverSegmentData;
+    public m35 mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public br4 mReplyPrivacyTip;
+    public gt4 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -58,6 +59,7 @@ public class PostWriteCallBackData implements Serializable {
     public String questionMsg;
     public ArrayList<String> sensitiveWords;
     public String threadId;
+    public BdToastData toast;
     public String video_id;
     public WriteData writeDataForVideo;
 
@@ -157,7 +159,7 @@ public class PostWriteCallBackData implements Serializable {
     public int getInviteesNumberInt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? pg.e(this.inviteesNumber, 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? dh.e(this.inviteesNumber, 0) : invokeV.intValue;
     }
 
     public int getIsCopyTWZhibo() {
@@ -196,10 +198,10 @@ public class PostWriteCallBackData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.questionMsg : (String) invokeV.objValue;
     }
 
-    public br4 getReplyPrivacyTip() {
+    public gt4 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mReplyPrivacyTip : (br4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mReplyPrivacyTip : (gt4) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -214,199 +216,212 @@ public class PostWriteCallBackData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.threadId : (String) invokeV.objValue;
     }
 
+    public BdToastData getToast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.toast : (BdToastData) invokeV.objValue;
+    }
+
     public VideoEasterEggData getVideoEasterEggData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mVideoEasterEggData : (VideoEasterEggData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mVideoEasterEggData : (VideoEasterEggData) invokeV.objValue;
     }
 
     public String getVideoid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.video_id : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.video_id : (String) invokeV.objValue;
     }
 
-    public d15 getmAdverSegmentData() {
+    public m35 getmAdverSegmentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mAdverSegmentData : (d15) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mAdverSegmentData : (m35) invokeV.objValue;
     }
 
     public boolean isDyamicCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.isDyamicCallback : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.isDyamicCallback : invokeV.booleanValue;
     }
 
     public boolean isErrorLinkCountExceedLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.errorCode == 3300001 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.errorCode == 3300001 : invokeV.booleanValue;
     }
 
     public boolean isErrorShowApplyMemberDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.errorCode == 3300003 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.errorCode == 3300003 : invokeV.booleanValue;
     }
 
     public boolean isSensitiveError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.errorCode == 220015 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.errorCode == 220015 : invokeV.booleanValue;
     }
 
     public void setAccessState(AccessState accessState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, accessState) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, accessState) == null) {
             this.accessState = accessState;
         }
     }
 
     public void setActivityDialog(CustomDialogData customDialogData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, customDialogData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, customDialogData) == null) {
             this.mActDialogData = customDialogData;
         }
     }
 
     public void setColorMsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             this.colorMsg = str;
         }
     }
 
     public void setContriInfo(ContriInfo contriInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, contriInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, contriInfo) == null) {
             this.mContriInfo = contriInfo;
         }
     }
 
     public void setDyamicCallback(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             this.isDyamicCallback = z;
         }
     }
 
     public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             this.errorCode = i;
         }
     }
 
     public void setErrorString(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
             this.errorString = str;
         }
     }
 
     public void setGeneralTabId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.generalTabId = i;
         }
     }
 
     public void setIconStampData(IconStampData iconStampData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, iconStampData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, iconStampData) == null) {
             this.iconStampData = iconStampData;
         }
     }
 
     public void setInviteesNumber(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.inviteesNumber = str;
         }
     }
 
     public void setIsCopyTWZhibo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             this.isCopyTWZhibo = i;
         }
     }
 
     public void setPostId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
             this.postId = str;
         }
     }
 
     public void setPreMsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
             this.preMsg = str;
         }
     }
 
     public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
             this.proZone = i;
         }
     }
 
     public void setQuestionExp(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
             this.questionExp = str;
         }
     }
 
     public void setQuestionMsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.questionMsg = str;
         }
     }
 
-    public void setReplyPrivacyTip(br4 br4Var) {
+    public void setReplyPrivacyTip(gt4 gt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, br4Var) == null) {
-            this.mReplyPrivacyTip = br4Var;
+        if (interceptable == null || interceptable.invokeL(1048620, this, gt4Var) == null) {
+            this.mReplyPrivacyTip = gt4Var;
         }
     }
 
     public void setSensitiveWords(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, arrayList) == null) {
             this.sensitiveWords = arrayList;
         }
     }
 
     public void setThreadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
             this.threadId = str;
+        }
+    }
+
+    public void setToast(BdToastData bdToastData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, bdToastData) == null) {
+            this.toast = bdToastData;
         }
     }
 
     public void setVideoEasterEggData(VideoEasterEggData videoEasterEggData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, videoEasterEggData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, videoEasterEggData) == null) {
             this.mVideoEasterEggData = videoEasterEggData;
         }
     }
 
     public void setVideoid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
             this.video_id = str;
         }
     }
 
-    public void setmAdverSegmentData(d15 d15Var) {
+    public void setmAdverSegmentData(m35 m35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, d15Var) == null) {
-            this.mAdverSegmentData = d15Var;
+        if (interceptable == null || interceptable.invokeL(1048626, this, m35Var) == null) {
+            this.mAdverSegmentData = m35Var;
         }
     }
 

@@ -21,6 +21,7 @@ import androidx.constraintlayout.solver.widgets.HelperWidget;
 import androidx.constraintlayout.widget.ConstraintAttribute;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Constraints;
+import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -566,61 +567,61 @@ public class ConstraintSet {
             }
             SparseIntArray sparseIntArray = new SparseIntArray();
             mapToConstant = sparseIntArray;
-            sparseIntArray.append(R$styleable.Layout_layout_constraintLeft_toLeftOf, 24);
-            mapToConstant.append(R$styleable.Layout_layout_constraintLeft_toRightOf, 25);
-            mapToConstant.append(R$styleable.Layout_layout_constraintRight_toLeftOf, 28);
-            mapToConstant.append(R$styleable.Layout_layout_constraintRight_toRightOf, 29);
-            mapToConstant.append(R$styleable.Layout_layout_constraintTop_toTopOf, 35);
-            mapToConstant.append(R$styleable.Layout_layout_constraintTop_toBottomOf, 34);
-            mapToConstant.append(R$styleable.Layout_layout_constraintBottom_toTopOf, 4);
-            mapToConstant.append(R$styleable.Layout_layout_constraintBottom_toBottomOf, 3);
-            mapToConstant.append(R$styleable.Layout_layout_constraintBaseline_toBaselineOf, 1);
-            mapToConstant.append(R$styleable.Layout_layout_editor_absoluteX, 6);
-            mapToConstant.append(R$styleable.Layout_layout_editor_absoluteY, 7);
-            mapToConstant.append(R$styleable.Layout_layout_constraintGuide_begin, 17);
-            mapToConstant.append(R$styleable.Layout_layout_constraintGuide_end, 18);
-            mapToConstant.append(R$styleable.Layout_layout_constraintGuide_percent, 19);
-            mapToConstant.append(R$styleable.Layout_android_orientation, 26);
-            mapToConstant.append(R$styleable.Layout_layout_constraintStart_toEndOf, 31);
-            mapToConstant.append(R$styleable.Layout_layout_constraintStart_toStartOf, 32);
-            mapToConstant.append(R$styleable.Layout_layout_constraintEnd_toStartOf, 10);
-            mapToConstant.append(R$styleable.Layout_layout_constraintEnd_toEndOf, 9);
-            mapToConstant.append(R$styleable.Layout_layout_goneMarginLeft, 13);
-            mapToConstant.append(R$styleable.Layout_layout_goneMarginTop, 16);
-            mapToConstant.append(R$styleable.Layout_layout_goneMarginRight, 14);
-            mapToConstant.append(R$styleable.Layout_layout_goneMarginBottom, 11);
-            mapToConstant.append(R$styleable.Layout_layout_goneMarginStart, 15);
-            mapToConstant.append(R$styleable.Layout_layout_goneMarginEnd, 12);
-            mapToConstant.append(R$styleable.Layout_layout_constraintVertical_weight, 38);
-            mapToConstant.append(R$styleable.Layout_layout_constraintHorizontal_weight, 37);
-            mapToConstant.append(R$styleable.Layout_layout_constraintHorizontal_chainStyle, 39);
-            mapToConstant.append(R$styleable.Layout_layout_constraintVertical_chainStyle, 40);
-            mapToConstant.append(R$styleable.Layout_layout_constraintHorizontal_bias, 20);
-            mapToConstant.append(R$styleable.Layout_layout_constraintVertical_bias, 36);
-            mapToConstant.append(R$styleable.Layout_layout_constraintDimensionRatio, 5);
-            mapToConstant.append(R$styleable.Layout_layout_constraintLeft_creator, 76);
-            mapToConstant.append(R$styleable.Layout_layout_constraintTop_creator, 76);
-            mapToConstant.append(R$styleable.Layout_layout_constraintRight_creator, 76);
-            mapToConstant.append(R$styleable.Layout_layout_constraintBottom_creator, 76);
-            mapToConstant.append(R$styleable.Layout_layout_constraintBaseline_creator, 76);
-            mapToConstant.append(R$styleable.Layout_android_layout_marginLeft, 23);
-            mapToConstant.append(R$styleable.Layout_android_layout_marginRight, 27);
-            mapToConstant.append(R$styleable.Layout_android_layout_marginStart, 30);
-            mapToConstant.append(R$styleable.Layout_android_layout_marginEnd, 8);
-            mapToConstant.append(R$styleable.Layout_android_layout_marginTop, 33);
-            mapToConstant.append(R$styleable.Layout_android_layout_marginBottom, 2);
-            mapToConstant.append(R$styleable.Layout_android_layout_width, 22);
-            mapToConstant.append(R$styleable.Layout_android_layout_height, 21);
-            mapToConstant.append(R$styleable.Layout_layout_constraintCircle, 61);
-            mapToConstant.append(R$styleable.Layout_layout_constraintCircleRadius, 62);
-            mapToConstant.append(R$styleable.Layout_layout_constraintCircleAngle, 63);
-            mapToConstant.append(R$styleable.Layout_layout_constraintWidth_percent, 69);
-            mapToConstant.append(R$styleable.Layout_layout_constraintHeight_percent, 70);
-            mapToConstant.append(R$styleable.Layout_chainUseRtl, 71);
-            mapToConstant.append(R$styleable.Layout_barrierDirection, 72);
-            mapToConstant.append(R$styleable.Layout_barrierMargin, 73);
-            mapToConstant.append(R$styleable.Layout_constraint_referenced_ids, 74);
-            mapToConstant.append(R$styleable.Layout_barrierAllowsGoneWidgets, 75);
+            sparseIntArray.append(39, 24);
+            mapToConstant.append(40, 25);
+            mapToConstant.append(42, 28);
+            mapToConstant.append(43, 29);
+            mapToConstant.append(48, 35);
+            mapToConstant.append(47, 34);
+            mapToConstant.append(21, 4);
+            mapToConstant.append(20, 3);
+            mapToConstant.append(18, 1);
+            mapToConstant.append(56, 6);
+            mapToConstant.append(57, 7);
+            mapToConstant.append(28, 17);
+            mapToConstant.append(29, 18);
+            mapToConstant.append(30, 19);
+            mapToConstant.append(0, 26);
+            mapToConstant.append(44, 31);
+            mapToConstant.append(45, 32);
+            mapToConstant.append(27, 10);
+            mapToConstant.append(26, 9);
+            mapToConstant.append(60, 13);
+            mapToConstant.append(63, 16);
+            mapToConstant.append(61, 14);
+            mapToConstant.append(58, 11);
+            mapToConstant.append(62, 15);
+            mapToConstant.append(59, 12);
+            mapToConstant.append(51, 38);
+            mapToConstant.append(37, 37);
+            mapToConstant.append(36, 39);
+            mapToConstant.append(50, 40);
+            mapToConstant.append(35, 20);
+            mapToConstant.append(49, 36);
+            mapToConstant.append(25, 5);
+            mapToConstant.append(38, 76);
+            mapToConstant.append(46, 76);
+            mapToConstant.append(41, 76);
+            mapToConstant.append(19, 76);
+            mapToConstant.append(17, 76);
+            mapToConstant.append(3, 23);
+            mapToConstant.append(5, 27);
+            mapToConstant.append(7, 30);
+            mapToConstant.append(8, 8);
+            mapToConstant.append(4, 33);
+            mapToConstant.append(6, 2);
+            mapToConstant.append(1, 22);
+            mapToConstant.append(2, 21);
+            mapToConstant.append(22, 61);
+            mapToConstant.append(24, 62);
+            mapToConstant.append(23, 63);
+            mapToConstant.append(55, 69);
+            mapToConstant.append(34, 70);
+            mapToConstant.append(11, 71);
+            mapToConstant.append(10, 72);
+            mapToConstant.append(12, 73);
+            mapToConstant.append(13, 74);
+            mapToConstant.append(9, 75);
         }
 
         public Layout() {
@@ -810,7 +811,7 @@ public class ConstraintSet {
         public void fillFromAttributeList(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.Layout);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Layout);
                 this.mApply = true;
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
@@ -1061,12 +1062,12 @@ public class ConstraintSet {
             }
             SparseIntArray sparseIntArray = new SparseIntArray();
             mapToConstant = sparseIntArray;
-            sparseIntArray.append(R$styleable.Motion_motionPathRotate, 1);
-            mapToConstant.append(R$styleable.Motion_pathMotionArc, 2);
-            mapToConstant.append(R$styleable.Motion_transitionEasing, 3);
-            mapToConstant.append(R$styleable.Motion_drawPath, 4);
-            mapToConstant.append(R$styleable.Motion_animate_relativeTo, 5);
-            mapToConstant.append(R$styleable.Motion_motionStagger, 6);
+            sparseIntArray.append(2, 1);
+            mapToConstant.append(4, 2);
+            mapToConstant.append(5, 3);
+            mapToConstant.append(1, 4);
+            mapToConstant.append(0, 5);
+            mapToConstant.append(3, 6);
         }
 
         public Motion() {
@@ -1107,7 +1108,7 @@ public class ConstraintSet {
         public void fillFromAttributeList(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.Motion);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Motion);
                 this.mApply = true;
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
@@ -1187,19 +1188,19 @@ public class ConstraintSet {
         public void fillFromAttributeList(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.PropertySet);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.PropertySet);
                 this.mApply = true;
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
-                    if (index == R$styleable.PropertySet_android_alpha) {
+                    if (index == 1) {
                         this.alpha = obtainStyledAttributes.getFloat(index, this.alpha);
-                    } else if (index == R$styleable.PropertySet_android_visibility) {
+                    } else if (index == 0) {
                         this.visibility = obtainStyledAttributes.getInt(index, this.visibility);
                         this.visibility = ConstraintSet.VISIBILITY_FLAGS[this.visibility];
-                    } else if (index == R$styleable.PropertySet_visibilityMode) {
+                    } else if (index == 4) {
                         this.mVisibilityMode = obtainStyledAttributes.getInt(index, this.mVisibilityMode);
-                    } else if (index == R$styleable.PropertySet_motionProgress) {
+                    } else if (index == 3) {
                         this.mProgress = obtainStyledAttributes.getFloat(index, this.mProgress);
                     }
                 }
@@ -1253,17 +1254,17 @@ public class ConstraintSet {
             }
             SparseIntArray sparseIntArray = new SparseIntArray();
             mapToConstant = sparseIntArray;
-            sparseIntArray.append(R$styleable.Transform_android_rotation, 1);
-            mapToConstant.append(R$styleable.Transform_android_rotationX, 2);
-            mapToConstant.append(R$styleable.Transform_android_rotationY, 3);
-            mapToConstant.append(R$styleable.Transform_android_scaleX, 4);
-            mapToConstant.append(R$styleable.Transform_android_scaleY, 5);
-            mapToConstant.append(R$styleable.Transform_android_transformPivotX, 6);
-            mapToConstant.append(R$styleable.Transform_android_transformPivotY, 7);
-            mapToConstant.append(R$styleable.Transform_android_translationX, 8);
-            mapToConstant.append(R$styleable.Transform_android_translationY, 9);
-            mapToConstant.append(R$styleable.Transform_android_translationZ, 10);
-            mapToConstant.append(R$styleable.Transform_android_elevation, 11);
+            sparseIntArray.append(6, 1);
+            mapToConstant.append(7, 2);
+            mapToConstant.append(8, 3);
+            mapToConstant.append(4, 4);
+            mapToConstant.append(5, 5);
+            mapToConstant.append(0, 6);
+            mapToConstant.append(1, 7);
+            mapToConstant.append(2, 8);
+            mapToConstant.append(3, 9);
+            mapToConstant.append(9, 10);
+            mapToConstant.append(10, 11);
         }
 
         public Transform() {
@@ -1316,7 +1317,7 @@ public class ConstraintSet {
         public void fillFromAttributeList(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.Transform);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Transform);
                 this.mApply = true;
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
@@ -1387,92 +1388,92 @@ public class ConstraintSet {
         VISIBILITY_FLAGS = new int[]{0, 4, 8};
         SparseIntArray sparseIntArray = new SparseIntArray();
         mapToConstant = sparseIntArray;
-        sparseIntArray.append(R$styleable.Constraint_layout_constraintLeft_toLeftOf, 25);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintLeft_toRightOf, 26);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintRight_toLeftOf, 29);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintRight_toRightOf, 30);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintTop_toTopOf, 36);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintTop_toBottomOf, 35);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintBottom_toTopOf, 4);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintBottom_toBottomOf, 3);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintBaseline_toBaselineOf, 1);
-        mapToConstant.append(R$styleable.Constraint_layout_editor_absoluteX, 6);
-        mapToConstant.append(R$styleable.Constraint_layout_editor_absoluteY, 7);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintGuide_begin, 17);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintGuide_end, 18);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintGuide_percent, 19);
-        mapToConstant.append(R$styleable.Constraint_android_orientation, 27);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintStart_toEndOf, 32);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintStart_toStartOf, 33);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintEnd_toStartOf, 10);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintEnd_toEndOf, 9);
-        mapToConstant.append(R$styleable.Constraint_layout_goneMarginLeft, 13);
-        mapToConstant.append(R$styleable.Constraint_layout_goneMarginTop, 16);
-        mapToConstant.append(R$styleable.Constraint_layout_goneMarginRight, 14);
-        mapToConstant.append(R$styleable.Constraint_layout_goneMarginBottom, 11);
-        mapToConstant.append(R$styleable.Constraint_layout_goneMarginStart, 15);
-        mapToConstant.append(R$styleable.Constraint_layout_goneMarginEnd, 12);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintVertical_weight, 40);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintHorizontal_weight, 39);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintHorizontal_chainStyle, 41);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintVertical_chainStyle, 42);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintHorizontal_bias, 20);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintVertical_bias, 37);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintDimensionRatio, 5);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintLeft_creator, 82);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintTop_creator, 82);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintRight_creator, 82);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintBottom_creator, 82);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintBaseline_creator, 82);
-        mapToConstant.append(R$styleable.Constraint_android_layout_marginLeft, 24);
-        mapToConstant.append(R$styleable.Constraint_android_layout_marginRight, 28);
-        mapToConstant.append(R$styleable.Constraint_android_layout_marginStart, 31);
-        mapToConstant.append(R$styleable.Constraint_android_layout_marginEnd, 8);
-        mapToConstant.append(R$styleable.Constraint_android_layout_marginTop, 34);
-        mapToConstant.append(R$styleable.Constraint_android_layout_marginBottom, 2);
-        mapToConstant.append(R$styleable.Constraint_android_layout_width, 23);
-        mapToConstant.append(R$styleable.Constraint_android_layout_height, 21);
-        mapToConstant.append(R$styleable.Constraint_android_visibility, 22);
-        mapToConstant.append(R$styleable.Constraint_android_alpha, 43);
-        mapToConstant.append(R$styleable.Constraint_android_elevation, 44);
-        mapToConstant.append(R$styleable.Constraint_android_rotationX, 45);
-        mapToConstant.append(R$styleable.Constraint_android_rotationY, 46);
-        mapToConstant.append(R$styleable.Constraint_android_rotation, 60);
-        mapToConstant.append(R$styleable.Constraint_android_scaleX, 47);
-        mapToConstant.append(R$styleable.Constraint_android_scaleY, 48);
-        mapToConstant.append(R$styleable.Constraint_android_transformPivotX, 49);
-        mapToConstant.append(R$styleable.Constraint_android_transformPivotY, 50);
-        mapToConstant.append(R$styleable.Constraint_android_translationX, 51);
-        mapToConstant.append(R$styleable.Constraint_android_translationY, 52);
-        mapToConstant.append(R$styleable.Constraint_android_translationZ, 53);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintWidth_default, 54);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintHeight_default, 55);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintWidth_max, 56);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintHeight_max, 57);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintWidth_min, 58);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintHeight_min, 59);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintCircle, 61);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintCircleRadius, 62);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintCircleAngle, 63);
-        mapToConstant.append(R$styleable.Constraint_animate_relativeTo, 64);
-        mapToConstant.append(R$styleable.Constraint_transitionEasing, 65);
-        mapToConstant.append(R$styleable.Constraint_drawPath, 66);
-        mapToConstant.append(R$styleable.Constraint_transitionPathRotate, 67);
-        mapToConstant.append(R$styleable.Constraint_motionStagger, 79);
-        mapToConstant.append(R$styleable.Constraint_android_id, 38);
-        mapToConstant.append(R$styleable.Constraint_motionProgress, 68);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintWidth_percent, 69);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintHeight_percent, 70);
-        mapToConstant.append(R$styleable.Constraint_chainUseRtl, 71);
-        mapToConstant.append(R$styleable.Constraint_barrierDirection, 72);
-        mapToConstant.append(R$styleable.Constraint_barrierMargin, 73);
-        mapToConstant.append(R$styleable.Constraint_constraint_referenced_ids, 74);
-        mapToConstant.append(R$styleable.Constraint_barrierAllowsGoneWidgets, 75);
-        mapToConstant.append(R$styleable.Constraint_pathMotionArc, 76);
-        mapToConstant.append(R$styleable.Constraint_layout_constraintTag, 77);
-        mapToConstant.append(R$styleable.Constraint_visibilityMode, 78);
-        mapToConstant.append(R$styleable.Constraint_layout_constrainedWidth, 80);
-        mapToConstant.append(R$styleable.Constraint_layout_constrainedHeight, 81);
+        sparseIntArray.append(58, 25);
+        mapToConstant.append(59, 26);
+        mapToConstant.append(61, 29);
+        mapToConstant.append(62, 30);
+        mapToConstant.append(67, 36);
+        mapToConstant.append(66, 35);
+        mapToConstant.append(40, 4);
+        mapToConstant.append(39, 3);
+        mapToConstant.append(37, 1);
+        mapToConstant.append(75, 6);
+        mapToConstant.append(76, 7);
+        mapToConstant.append(47, 17);
+        mapToConstant.append(48, 18);
+        mapToConstant.append(49, 19);
+        mapToConstant.append(0, 27);
+        mapToConstant.append(63, 32);
+        mapToConstant.append(64, 33);
+        mapToConstant.append(46, 10);
+        mapToConstant.append(45, 9);
+        mapToConstant.append(79, 13);
+        mapToConstant.append(82, 16);
+        mapToConstant.append(80, 14);
+        mapToConstant.append(77, 11);
+        mapToConstant.append(81, 15);
+        mapToConstant.append(78, 12);
+        mapToConstant.append(70, 40);
+        mapToConstant.append(56, 39);
+        mapToConstant.append(55, 41);
+        mapToConstant.append(69, 42);
+        mapToConstant.append(54, 20);
+        mapToConstant.append(68, 37);
+        mapToConstant.append(44, 5);
+        mapToConstant.append(57, 82);
+        mapToConstant.append(65, 82);
+        mapToConstant.append(60, 82);
+        mapToConstant.append(38, 82);
+        mapToConstant.append(36, 82);
+        mapToConstant.append(5, 24);
+        mapToConstant.append(7, 28);
+        mapToConstant.append(23, 31);
+        mapToConstant.append(24, 8);
+        mapToConstant.append(6, 34);
+        mapToConstant.append(8, 2);
+        mapToConstant.append(3, 23);
+        mapToConstant.append(4, 21);
+        mapToConstant.append(2, 22);
+        mapToConstant.append(13, 43);
+        mapToConstant.append(26, 44);
+        mapToConstant.append(21, 45);
+        mapToConstant.append(22, 46);
+        mapToConstant.append(20, 60);
+        mapToConstant.append(18, 47);
+        mapToConstant.append(19, 48);
+        mapToConstant.append(14, 49);
+        mapToConstant.append(15, 50);
+        mapToConstant.append(16, 51);
+        mapToConstant.append(17, 52);
+        mapToConstant.append(25, 53);
+        mapToConstant.append(71, 54);
+        mapToConstant.append(50, 55);
+        mapToConstant.append(72, 56);
+        mapToConstant.append(51, 57);
+        mapToConstant.append(73, 58);
+        mapToConstant.append(52, 59);
+        mapToConstant.append(41, 61);
+        mapToConstant.append(43, 62);
+        mapToConstant.append(42, 63);
+        mapToConstant.append(29, 64);
+        mapToConstant.append(107, 65);
+        mapToConstant.append(83, 66);
+        mapToConstant.append(108, 67);
+        mapToConstant.append(104, 79);
+        mapToConstant.append(1, 38);
+        mapToConstant.append(103, 68);
+        mapToConstant.append(74, 69);
+        mapToConstant.append(53, 70);
+        mapToConstant.append(30, 71);
+        mapToConstant.append(28, 72);
+        mapToConstant.append(31, 73);
+        mapToConstant.append(32, 74);
+        mapToConstant.append(27, 75);
+        mapToConstant.append(105, 76);
+        mapToConstant.append(102, 77);
+        mapToConstant.append(109, 78);
+        mapToConstant.append(35, 80);
+        mapToConstant.append(34, 81);
     }
 
     public ConstraintSet() {
@@ -1523,7 +1524,7 @@ public class ConstraintSet {
             while (i2 < split.length) {
                 String trim = split[i2].trim();
                 try {
-                    i = R$id.class.getField(trim).getInt(null);
+                    i = R.id.class.getField(trim).getInt(null);
                 } catch (Exception unused) {
                     i = 0;
                 }
@@ -1547,7 +1548,7 @@ public class ConstraintSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, context, attributeSet)) == null) {
             Constraint constraint = new Constraint();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.Constraint);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Constraint);
             populateConstraint(context, constraint, obtainStyledAttributes);
             obtainStyledAttributes.recycle();
             return constraint;
@@ -1583,7 +1584,7 @@ public class ConstraintSet {
             int indexCount = typedArray.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 int index = typedArray.getIndex(i);
-                if (index != R$styleable.Constraint_android_id && R$styleable.Constraint_android_layout_marginStart != index && R$styleable.Constraint_android_layout_marginEnd != index) {
+                if (index != 1 && 23 != index && 24 != index) {
                     constraint.motion.mApply = true;
                     constraint.layout.mApply = true;
                     constraint.propertySet.mApply = true;

@@ -1,134 +1,178 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.v52;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import com.baidubce.http.Headers;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class x52 extends o52 implements j52 {
+public class x52 extends y52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean D;
     public transient /* synthetic */ FieldHolder $fh;
-    public g52 b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251284, "Lcom/baidu/tieba/x52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948251284, "Lcom/baidu/tieba/x52;");
+                return;
+            }
+        }
+        D = ij1.a;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x52(@NonNull Context context, d52 d52Var) {
-        super(context, d52Var);
+    public x52(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, d52Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (d52) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new y52();
     }
 
-    @Override // com.baidu.tieba.v52
-    @SuppressLint({"BDThrowableCheck"})
-    public WebResourceResponse a(@NonNull v52.a aVar) {
-        InterceptResult invokeL;
-        String str;
+    @Override // com.baidu.tieba.y52, com.baidu.tieba.ta4
+    public void C(sb4 sb4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d = aVar.d();
-            if (!d(aVar)) {
-                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
+        if (interceptable == null || interceptable.invokeL(1048576, this, sb4Var) == null) {
+            super.C(sb4Var);
+            if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + sb4Var.toString());
             }
-            if (j52.a) {
-                Log.d("HybridIntercept", "intercept file = " + d);
+            H0("checkForUpdate", false);
+            m0(sb4Var.a);
+            if (o62.m(sb4Var)) {
+                o62.c(this.o);
             }
-            String c = c(d);
-            if (TextUtils.isEmpty(c)) {
-                if (j52.a) {
-                    throw new IllegalArgumentException("file path can't be null, src = " + d);
+        }
+    }
+
+    @Override // com.baidu.tieba.ta4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            if (this.n != null) {
+                u0();
+                H0("checkForUpdate", false);
+                o62.c(this.o);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.y52, com.baidu.tieba.ta4
+    public void G(gg4 gg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gg4Var) == null) {
+            super.G(gg4Var);
+            H0("checkForUpdate", gg4Var != null && gg4Var.f());
+        }
+    }
+
+    @Override // com.baidu.tieba.ta4
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            super.H(str, i);
+            dc4 a = dc4.a(str);
+            if (a == null) {
+                return;
+            }
+            boolean b = fg4.b(a.c());
+            yz1.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
+            if (b) {
+                oz2 e = oz2.e();
+                qz2 qz2Var = new qz2(129);
+                qz2Var.f(true);
+                e.h(qz2Var);
+            }
+        }
+    }
+
+    public final void H0(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(this.o)) {
+            return;
+        }
+        a62.f(str, this.o, z);
+    }
+
+    @Override // com.baidu.tieba.c62
+    public int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.y52
+    public PMSDownloadType k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? PMSDownloadType.ASYNC : (PMSDownloadType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y52
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.v0();
+            this.p.add(new UbcFlowEvent("na_start_update_db"));
+            re3 F0 = F0();
+            this.p.add(new UbcFlowEvent("na_end_update_db"));
+            if (F0 == null) {
+                if (D) {
+                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
                 }
-                return null;
+                H0("updateReady", true);
+                A0("main_async_download", "0");
+                o62.c(this.o);
+            } else if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
             }
-            File file = new File(c);
-            if (file.exists() && file.isFile()) {
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        str = "text/css";
-                    } else {
-                        str = c.endsWith(".js") ? "application/javascript" : "text/plan";
-                    }
-                    return b(str, fileInputStream);
-                } catch (Throwable th) {
-                    if (j52.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(th));
-                    }
+        }
+    }
+
+    @Override // com.baidu.tieba.y52
+    public void w0(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
+            H0("updateFailed", false);
+            if (th instanceof PkgDownloadError) {
+                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
+                if (D) {
+                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
                 }
+            } else if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
             }
-            ay1.c("HybridIntercept", "file intercept error, src = " + d);
-            return null;
         }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public final WebResourceResponse b(String str, InputStream inputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
-            return new WebResourceResponse(true, str, "UTF-8", 200, "ok", hashMap, new BufferedInputStream(inputStream));
-        }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
-
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            if (str.startsWith("interceptfile://") && str.length() > 16) {
-                str = str.substring(16);
-            }
-            if (j52.a) {
-                Log.d("HybridIntercept", "file request url = " + str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean d(@NonNull v52.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (aVar.c()) {
-                return this.b.a(aVar);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

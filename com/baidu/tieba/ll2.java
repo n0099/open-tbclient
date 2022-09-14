@@ -1,62 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextWatcher;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class ll2 implements pl2 {
+public class ll2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ll2 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public TextWatcher a;
+    public SwanEditText b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946647, "Lcom/baidu/tieba/ll2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947946647, "Lcom/baidu/tieba/ll2;");
+                return;
+            }
+        }
+        boolean z = ij1.a;
+    }
 
     public ll2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = -1;
     }
 
-    public JSONObject d(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public static ll2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", str);
-                jSONObject.put("value", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (ll2.class) {
+                    if (c == null) {
+                        c = new ll2();
+                    }
+                }
             }
-            return jSONObject;
+            return c;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (ll2) invokeV.objValue;
     }
 
-    public boolean e(String str) {
+    public SwanEditText a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == -1) {
-                hk2.g0().getSwitch(str, 0);
-                this.a = 0;
-            }
-            return this.a == 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            SwanEditText swanEditText = new SwanEditText(context);
+            this.b = swanEditText;
+            return swanEditText;
         }
-        return invokeL.booleanValue;
+        return (SwanEditText) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
+        }
+    }
+
+    public SwanEditText c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SwanEditText) invokeV.objValue;
+    }
+
+    public TextWatcher e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (TextWatcher) invokeV.objValue;
+    }
+
+    public void f(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
+            this.a = textWatcher;
+        }
     }
 }

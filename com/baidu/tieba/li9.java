@@ -1,31 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class li9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface li9 {
+    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947943981, "Lcom/baidu/tieba/li9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947943981, "Lcom/baidu/tieba/li9;");
-                return;
-            }
-        }
-        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
-    }
+    void a(String str, String str2, int i, ki9 ki9Var);
+
+    void b(List<String> list, String str, long j, JSONObject jSONObject);
+
+    void c(String str, String str2, JSONObject jSONObject);
+
+    void d(String str, String str2, ki9 ki9Var);
+
+    void e(List<String> list, String str, long j, ki9 ki9Var);
 }

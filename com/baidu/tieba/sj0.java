@@ -1,71 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class sj0 {
+public class sj0 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        double d;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sj0() {
+        super(mi0.b(), "nad.core.download.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            yx0.f(jSONObject, "downStatus", str);
-            try {
-                d = Double.parseDouble(str2) * 100.0d;
-            } catch (Exception unused) {
-                d = 0.0d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((Context) objArr[0], (String) objArr[1], (SQLiteDatabase.CursorFactory) objArr[2], ((Integer) objArr[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            yx0.e(jSONObject, "process", Math.round(d));
-            yx0.f(jSONObject, "uri", str3);
-            yx0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
-            return jSONObject.toString();
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static void b(@Nullable wg0 wg0Var, boolean z, @Nullable Map<String, String> map) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{wg0Var, Boolean.valueOf(z), map}) == null) || wg0Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            m01[] m01VarArr = {new sz0().b()};
+            for (int i = 0; i < 1; i++) {
+                m01 m01Var = m01VarArr[i];
+                sQLiteDatabase.execSQL(j01.b(m01Var));
+                Iterator<String> it = j01.a(m01Var).iterator();
+                while (it.hasNext()) {
+                    sQLiteDatabase.execSQL(it.next());
+                }
+            }
         }
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        zx0.e(map, "status", z ? "0" : "202");
-        zx0.e(map, "message", z ? "调用成功" : "");
-        wg0Var.a(z, map);
     }
 
-    public static void c(@Nullable wg0 wg0Var, String str, String str2, String str3, String str4) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, wg0Var, str, str2, str3, str4) == null) || wg0Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
-        JSONObject jSONObject = new JSONObject();
-        yx0.f(jSONObject, "uri", str2);
-        yx0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        yx0.f(jSONObject, "downStatus", str4);
-        hashMap.put("data", jSONObject.toString());
-        b(wg0Var, true, hashMap);
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : yx0.c(str).optString("bt_info") : (String) invokeL.objValue;
     }
 }

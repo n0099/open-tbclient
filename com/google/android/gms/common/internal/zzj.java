@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.jn9;
-import com.baidu.tieba.tn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,15 +13,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@SafeParcelable.Class(creator = "ConnectionInfoCreator")
 /* loaded from: classes7.dex */
 public final class zzj extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzj> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.Field(id = 1)
     public Bundle zza;
+    @SafeParcelable.Field(id = 2)
     public Feature[] zzb;
+    @SafeParcelable.Field(defaultValue = "0", id = 3)
     public int zzc;
     @Nullable
+    @SafeParcelable.Field(id = 4)
     public ConnectionTelemetryConfiguration zzd;
 
     static {
@@ -39,7 +44,7 @@ public final class zzj extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new tn9();
+        CREATOR = new zzk();
     }
 
     public zzj() {
@@ -56,7 +61,8 @@ public final class zzj extends AbstractSafeParcelable {
         }
     }
 
-    public zzj(Bundle bundle, Feature[] featureArr, int i, @Nullable ConnectionTelemetryConfiguration connectionTelemetryConfiguration) {
+    @SafeParcelable.Constructor
+    public zzj(@SafeParcelable.Param(id = 1) Bundle bundle, @SafeParcelable.Param(id = 2) Feature[] featureArr, @SafeParcelable.Param(id = 3) int i, @Nullable @SafeParcelable.Param(id = 4) ConnectionTelemetryConfiguration connectionTelemetryConfiguration) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,12 +87,12 @@ public final class zzj extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.d(parcel, 1, this.zza, false);
-            jn9.m(parcel, 2, this.zzb, i, false);
-            jn9.g(parcel, 3, this.zzc);
-            jn9.j(parcel, 4, this.zzd, i, false);
-            jn9.b(parcel, a);
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeBundle(parcel, 1, this.zza, false);
+            SafeParcelWriter.writeTypedArray(parcel, 2, this.zzb, i, false);
+            SafeParcelWriter.writeInt(parcel, 3, this.zzc);
+            SafeParcelWriter.writeParcelable(parcel, 4, this.zzd, i, false);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 }

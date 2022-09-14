@@ -1,68 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
-public class bb3 extends x23 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bb3 {
+    String a(String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bb3(x13 x13Var) {
-        super(x13Var, "/swanAPI/stopCompass");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    boolean b(String str);
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                ay1.c("compass", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "stopCompass --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                ay1.c("compass", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "stopCompass --- illegal context");
-                }
-                return false;
-            } else {
-                ay1.i("compass", "stop listen compass");
-                za3.i().q();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
+    String c(String str);
+
+    @NonNull
+    cb3 d();
+
+    String e(String str);
+
+    String f();
+
+    String g(String str);
+
+    String h(String str);
+
+    String i(String str);
+
+    boolean j(String str, boolean z);
+
+    String k();
+
+    boolean l(String str);
+
+    String m(String str);
 }

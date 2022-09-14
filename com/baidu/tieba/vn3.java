@@ -1,88 +1,179 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-@Service
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class vn3 implements ym1 {
+public class vn3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Method a;
+    public Method b;
+    public Object c;
 
-    public vn3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246510, "Lcom/baidu/tieba/vn3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246510, "Lcom/baidu/tieba/vn3;");
+                return;
+            }
+        }
+        d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
+    }
+
+    public vn3(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ym1
-    public xd4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? un3.b().a() : (xd4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ym1
-    public void b(e72 e72Var, c72 c72Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e72Var, c72Var) == null) || c72Var == null) {
+        if (cls == null) {
             return;
         }
-        if (e72Var != null && !TextUtils.isEmpty(e72Var.a)) {
-            String str = e72Var.a;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 1195918653) {
-                if (hashCode == 1825003424 && str.equals("by_click")) {
-                    c = 0;
-                }
-            } else if (str.equals("by_silent")) {
-                c = 1;
+        try {
+            this.c = a(context, cls);
+            Method i3 = c74.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
             }
-            if (c != 0) {
-                if (c != 1) {
-                    c72Var.onFail();
-                    return;
-                } else {
-                    un3.b().b(true, c72Var);
-                    return;
-                }
-            } else if (e72Var.b) {
-                un3.b().b(false, c72Var);
-                return;
-            } else {
-                un3.b().b(true, c72Var);
-                return;
+            Method i4 = c74.i(cls, "perfLockRelease", new Class[0]);
+            this.b = i4;
+            if (i4 != null) {
+                i4.setAccessible(true);
             }
+        } catch (Throwable unused) {
         }
-        c72Var.onFail();
     }
 
-    @Override // com.baidu.tieba.ym1
+    public static vn3 b(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                cls = d();
+                try {
+                    a74.c(cls);
+                } catch (Throwable unused) {
+                }
+            } catch (Throwable unused2) {
+                cls = null;
+            }
+            return new vn3(cls, context);
+        }
+        return (vn3) invokeL.objValue;
+    }
+
+    public static Class<?> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String[] strArr = d;
+            for (int i = 0; i < strArr.length; i++) {
+                try {
+                    return c74.a(strArr[i]);
+                } catch (Throwable unused) {
+                }
+            }
+            return null;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public final Object a(@Nullable Context context, @NonNull Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
+            Object obj = null;
+            try {
+                Constructor c = c74.c(cls, Context.class);
+                if (c != null) {
+                    obj = c.newInstance(context);
+                }
+            } catch (Throwable unused) {
+            }
+            if (obj == null) {
+                try {
+                    return c74.m(cls);
+                } catch (Throwable unused2) {
+                    return obj;
+                }
+            }
+            return obj;
+        }
+        return invokeLL.objValue;
+    }
+
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || pa2.d.w() || (pa2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && u72.U().s0()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.c == null || this.a == null || this.b == null) ? false : true : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ym1
-    public boolean d() {
+    public int e(int i, int... iArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, iArr)) == null) {
+            if (c()) {
+                try {
+                    Object invoke = this.a.invoke(this.c, Integer.valueOf(i), iArr);
+                    if (invoke == null) {
+                        return -1;
+                    }
+                    return ((Integer) invoke).intValue();
+                } catch (Throwable unused) {
+                    return -1;
+                }
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !un3.b().c() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c()) {
+                try {
+                    Object invoke = this.b.invoke(this.c, new Object[0]);
+                    if (invoke == null) {
+                        return -1;
+                    }
+                    return ((Integer) invoke).intValue();
+                } catch (Throwable unused) {
+                    return -1;
+                }
+            }
+            return -1;
+        }
+        return invokeV.intValue;
     }
 }

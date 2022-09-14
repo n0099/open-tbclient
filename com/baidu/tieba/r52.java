@@ -1,102 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v52;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class r52 implements v52.a {
+public class r52 extends br1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<o52> a;
-    public String b;
-    public Map<String, String> c;
-    public int d;
-    public boolean e;
-    public String f;
 
-    public r52(CopyOnWriteArrayList<o52> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r52(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = copyOnWriteArrayList;
-        this.b = str;
-        this.c = map;
-        this.d = i;
-        this.e = z;
     }
 
-    @Override // com.baidu.tieba.v52.a
-    public void a(String str) {
+    @Override // com.baidu.tieba.br1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v52.a
-    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.br1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
-            if (this.d >= this.a.size()) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
+    }
+
+    public yu1 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#preloadStatus", false);
+            if (y23.b0() == null) {
+                return new yu1(1001, "SwanApp is null");
             }
-            return this.a.get(this.d).a(new r52(this.a, this.b, this.c, this.d + 1, z));
-        }
-        return (WebResourceResponse) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.v52.a
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.v52.a
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v52.a
-    public String getMimeType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(this.f)) {
-                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
+            Pair<yu1, JSONObject> s = s(str);
+            yu1 yu1Var = (yu1) s.first;
+            if (yu1Var.isSuccess()) {
+                o52.c().j((JSONObject) s.second);
+                return yu1.f();
             }
-            return this.f;
+            return yu1Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v52.a
-    public Map<String, String> getRequestHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (Map) invokeV.objValue;
+        return (yu1) invokeL.objValue;
     }
 }

@@ -11,8 +11,8 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kh1;
-import com.baidu.tieba.mz2;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.k13;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean x;
@@ -47,10 +47,10 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public boolean t;
     public float u;
     public boolean v;
-    public mz2<T> w;
+    public k13<T> w;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class HEADERTYPE {
         public static final /* synthetic */ HEADERTYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +177,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class d {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -246,7 +246,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface e<V extends View> {
         void a(PullToRefreshBaseNew<V> pullToRefreshBaseNew);
 
@@ -255,7 +255,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         void c(PullToRefreshBaseNew<V> pullToRefreshBaseNew);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -337,7 +337,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                 return;
             }
         }
-        x = kh1.a;
+        x = ij1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -541,10 +541,10 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (LoadingLayout) invokeV.objValue;
     }
 
-    public mz2<T> getRefreshableFactory() {
+    public k13<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : (mz2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : (k13) invokeV.objValue;
     }
 
     public T getRefreshableView() {

@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes3.dex */
 public class dr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq4 a;
-    public List<qo4> b;
-    public List<ro4> c;
-    public List<aq4> d;
+    public String a;
+    public long b;
 
     public dr4() {
         Interceptable interceptable = $ic;
@@ -30,36 +30,27 @@ public class dr4 {
         }
     }
 
-    public void a(SeniorLottery seniorLottery) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, seniorLottery) == null) || seniorLottery == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        bq4 bq4Var = new bq4();
-        this.a = bq4Var;
-        bq4Var.a(seniorLottery.theme);
-        this.b = new ArrayList();
-        int size = seniorLottery.award_info.size();
-        for (int i = 0; i < size; i++) {
-            qo4 qo4Var = new qo4();
-            qo4Var.a(seniorLottery.award_info.get(i));
-            this.b.add(qo4Var);
+        try {
+            this.a = jSONObject.optString("book_id", "0");
+            this.b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+            jSONObject.optInt("book_type", 0);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
-        String str = seniorLottery.myaward;
-        this.c = new ArrayList();
-        int size2 = seniorLottery.luck_users.size();
-        for (int i2 = 0; i2 < size2; i2++) {
-            ro4 ro4Var = new ro4();
-            ro4Var.a(seniorLottery.luck_users.get(i2));
-            this.c.add(ro4Var);
+    }
+
+    public void b(BookThread bookThread) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) == null) || bookThread == null) {
+            return;
         }
-        String str2 = seniorLottery.act_desc;
-        this.d = new ArrayList();
-        int size3 = seniorLottery.act_regular.size();
-        for (int i3 = 0; i3 < size3; i3++) {
-            aq4 aq4Var = new aq4();
-            aq4Var.a(seniorLottery.act_regular.get(i3));
-            this.d.add(aq4Var);
-        }
+        this.a = bookThread.book_id;
+        this.b = bookThread.chapter_id.longValue();
+        bookThread.book_type.intValue();
     }
 }

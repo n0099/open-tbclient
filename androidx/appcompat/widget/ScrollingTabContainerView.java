@@ -26,12 +26,12 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -171,7 +171,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TabView(ScrollingTabContainerView scrollingTabContainerView, Context context, ActionBar.Tab tab, boolean z) {
-            super(context, null, R$attr.actionBarTabStyle);
+            super(context, null, R.attr.obfuscated_res_0x7f040051);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,7 +192,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             int[] iArr = {16842964};
             this.BG_ATTRS = iArr;
             this.mTab = tab;
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, null, iArr, R$attr.actionBarTabStyle, 0);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, null, iArr, R.attr.obfuscated_res_0x7f040051, 0);
             if (obtainStyledAttributes.hasValue(0)) {
                 setBackgroundDrawable(obtainStyledAttributes.getDrawable(0));
             }
@@ -316,7 +316,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 boolean z = !TextUtils.isEmpty(text);
                 if (z) {
                     if (this.mTextView == null) {
-                        AppCompatTextView appCompatTextView = new AppCompatTextView(getContext(), null, R$attr.actionBarTabTextStyle);
+                        AppCompatTextView appCompatTextView = new AppCompatTextView(getContext(), null, R.attr.obfuscated_res_0x7f040052);
                         appCompatTextView.setEllipsize(TextUtils.TruncateAt.END);
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                         layoutParams2.gravity = 16;
@@ -457,7 +457,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            AppCompatSpinner appCompatSpinner = new AppCompatSpinner(getContext(), null, R$attr.actionDropDownStyle);
+            AppCompatSpinner appCompatSpinner = new AppCompatSpinner(getContext(), null, R.attr.obfuscated_res_0x7f040056);
             appCompatSpinner.setLayoutParams(new LinearLayoutCompat.LayoutParams(-2, -1));
             appCompatSpinner.setOnItemSelectedListener(this);
             return appCompatSpinner;
@@ -469,7 +469,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            LinearLayoutCompat linearLayoutCompat = new LinearLayoutCompat(getContext(), null, R$attr.actionBarTabBarStyle);
+            LinearLayoutCompat linearLayoutCompat = new LinearLayoutCompat(getContext(), null, R.attr.obfuscated_res_0x7f040050);
             linearLayoutCompat.setMeasureWithLargestChildEnabled(true);
             linearLayoutCompat.setGravity(17);
             linearLayoutCompat.setLayoutParams(new LinearLayoutCompat.LayoutParams(-2, -1));

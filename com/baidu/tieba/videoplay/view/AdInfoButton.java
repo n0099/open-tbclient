@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ms4;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -184,8 +184,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof ms4) {
-                    ((ms4) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof tu4) {
+                    ((tu4) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -217,8 +217,8 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new RelativeLayout(context);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, ri.f(context, R.dimen.tbds86));
-            layoutParams.bottomMargin = ri.f(context, R.dimen.M_H_X006);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, ej.f(context, R.dimen.tbds86));
+            layoutParams.bottomMargin = ej.f(context, R.dimen.M_H_X006);
             this.a.setLayoutParams(layoutParams);
             this.a.setGravity(17);
             RelativeLayout relativeLayout = new RelativeLayout(context);
@@ -226,14 +226,14 @@ public class AdInfoButton extends RelativeLayout {
             ImageView imageView = new ImageView(context);
             this.b = imageView;
             imageView.setId(R.id.obfuscated_res_0x7f0900a9);
-            int f = ri.f(context, R.dimen.tbds42);
+            int f = ej.f(context, R.dimen.tbds42);
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(f, f));
             relativeLayout.addView(this.b);
             this.c = new EMTextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a9);
             layoutParams2.addRule(15);
-            layoutParams2.leftMargin = ri.f(context, R.dimen.M_W_X002);
+            layoutParams2.leftMargin = ej.f(context, R.dimen.M_W_X002);
             this.c.setLayoutParams(layoutParams2);
             relativeLayout.addView(this.c);
             this.a.addView(relativeLayout);
@@ -246,23 +246,23 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e == AdChannel.CSJ) {
-                ns4 d = ns4.d(this.a);
+                uu4 d = uu4.d(this.a);
                 d.n(R.string.J_X05);
                 d.m(0);
                 d.f(R.color.CAM_X0614);
             } else {
-                ns4 d2 = ns4.d(this.a);
+                uu4 d2 = uu4.d(this.a);
                 d2.n(R.string.J_X05);
                 d2.m(0);
                 d2.f(R.color.CAM_X0302);
             }
             AdType adType = this.d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806da, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806f4, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08078e, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0807a8, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
-            ns4 d3 = ns4.d(this.c);
+            uu4 d3 = uu4.d(this.c);
             d3.z(R.dimen.T_X08);
             d3.v(R.color.CAM_X0101);
         }

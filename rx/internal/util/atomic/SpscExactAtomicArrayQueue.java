@@ -2,7 +2,7 @@ package rx.internal.util.atomic;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yx9;
+import com.baidu.tieba.qz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6210984603741293445L;
@@ -25,7 +25,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpscExactAtomicArrayQueue(int i) {
-        super(yx9.b(i));
+        super(qz9.b(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

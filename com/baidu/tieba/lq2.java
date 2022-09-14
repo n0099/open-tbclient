@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.animation.Interpolator;
+import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,11 +11,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lq2 extends nq2 {
+public class lq2 extends Scroller {
     public static /* synthetic */ Interceptable $ic;
+    public static final Interpolator b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    /* loaded from: classes4.dex */
+    public static class a implements Interpolator {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                float f2 = f - 1.0f;
+                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
+            }
+            return invokeF.floatValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,22 +62,23 @@ public class lq2 extends nq2 {
                 return;
             }
         }
-        boolean z = kh1.a;
+        b = new a();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lq2(String str) {
-        super(str);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public lq2(Context context) {
+        this(context, b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (Interpolator) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -57,43 +86,43 @@ public class lq2 extends nq2 {
         }
     }
 
-    @Override // com.baidu.tieba.nq2
-    public boolean a(iq2 iq2Var, kq2 kq2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeCommon;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{iq2Var, kq2Var, context, unitedSchemeEntity, callbackHandler, a13Var})) == null) {
-            ay1.i("vrvideo", "open, video id:" + kq2Var.j + " slave id: " + kq2Var.c);
-            d(iq2Var, kq2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a = z;
         }
-        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nq2
-    public iq2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // android.widget.Scroller
+    public void startScroll(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if (this.a) {
+                super.startScroll(i, i2, i3, i4, 0);
+            } else {
+                super.startScroll(i, i2, i3, i4, i5);
             }
-            yn2 f = zn2.f(str, str2, str3);
-            if (f == null) {
-                return new iq2(context, kq2.h(jSONObject, new kq2()));
-            }
-            if (f.i() instanceof iq2) {
-                return (iq2) f.i();
-            }
-            return null;
         }
-        return (iq2) invokeLLLLL.objValue;
     }
 
-    public final void d(iq2 iq2Var, kq2 kq2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lq2(Context context, Interpolator interpolator) {
+        super(context, interpolator);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, iq2Var, kq2Var, unitedSchemeEntity, callbackHandler) == null) {
-            iq2Var.g(kq2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, interpolator};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Interpolator) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
     }
 }

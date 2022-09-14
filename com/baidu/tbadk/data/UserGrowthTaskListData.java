@@ -2,7 +2,6 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +69,7 @@ public class UserGrowthTaskListData implements Serializable {
         public int sceneId;
         @SerializedName("scene_task_key")
         public String sceneTaskKey;
-        @SerializedName(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY)
+        @SerializedName("start_time")
         public long startTime;
         public int status;
         @SerializedName("target_num")

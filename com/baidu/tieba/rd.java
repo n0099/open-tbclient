@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.lang.reflect.Type;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class rd implements nd {
+public class rd implements od {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
+    public Map<String, Object> a;
 
-    public rd(List<Object> list) {
+    public rd(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,13 +30,43 @@ public class rd implements nd {
                 return;
             }
         }
-        this.a = list;
+        this.a = map;
     }
 
-    @Override // com.baidu.tieba.nd
-    public Object a(de deVar) {
+    @Override // com.baidu.tieba.od
+    public void a(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            this.a.put(str, obj);
+        }
+    }
+
+    @Override // com.baidu.tieba.od
+    public Object b(String str, Type type) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
+            Object c = c(str);
+            if (c != null) {
+                re reVar = new re(type);
+                be a = ve.a(c);
+                return a != null ? a.a(reVar) : c;
+            }
+            return c;
+        }
+        return invokeLL.objValue;
+    }
+
+    public Object c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) ? ce.c(this.a, deVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.a.get(str) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.od
+    public Set<String> getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.keySet() : (Set) invokeV.objValue;
     }
 }

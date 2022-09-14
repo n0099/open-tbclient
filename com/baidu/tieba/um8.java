@@ -1,201 +1,152 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import tbclient.App;
 /* loaded from: classes6.dex */
-public class um8 extends tm8 {
+public class um8 extends PostData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile wm8 g;
-    public volatile boolean h;
-    public int i;
+    public AdvertAppInfo T0;
+    public boolean U0;
+    public String V0;
+    public String W0;
+    public String X0;
+    public long Y0;
+    public int Z0;
+    public boolean a1;
+    public int b1;
+    public int c1;
 
-    /* loaded from: classes6.dex */
-    public class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        public a(um8 um8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {um8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable);
-                thread.setName("VideoUploadThread@" + this.a);
-                this.a = this.a + 1;
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RandomAccessFile a;
-        public final /* synthetic */ ArrayList b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ CountDownLatch g;
-        public final /* synthetic */ um8 h;
-
-        public b(um8 um8Var, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {um8Var, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = um8Var;
-            this.a = randomAccessFile;
-            this.b = arrayList;
-            this.c = i;
-            this.d = i2;
-            this.e = str;
-            this.f = i3;
-            this.g = countDownLatch;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                wm8 h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
-                if (h != null) {
-                    if (h.b != 0) {
-                        this.h.g.b = h.b;
-                        this.h.g.c = h.c;
-                    }
-                    if (!StringUtils.isNull(h.a)) {
-                        this.h.g.a = h.a;
-                    }
-                    synchronized (this.h) {
-                        um8.k(this.h);
-                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
-                    }
-                }
-                this.g.countDown();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public um8(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
+    public um8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new wm8();
+        this.U0 = false;
     }
 
-    public static /* synthetic */ int k(um8 um8Var) {
-        int i = um8Var.i;
-        um8Var.i = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.tm8
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.tm8
-    public boolean c() {
+    public AdvertAppInfo getAdvertAppInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.T0 : (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tm8
-    public wm8 g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    public int getPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            int size = arrayList.size();
-            CountDownLatch countDownLatch = new CountDownLatch(size);
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                for (int i2 = 0; i2 < size; i2++) {
-                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
-                }
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                threadPoolExecutor.shutdown();
-                try {
-                    randomAccessFile.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                return this.g;
-            } catch (FileNotFoundException unused) {
-                return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            if (advertAppInfo == null) {
+                return 0;
             }
+            return dh.e(advertAppInfo.f, 0);
         }
-        return (wm8) invokeLLI.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!up4.c().g() && (advertAppInfo = this.T0) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
+                return AdvertAppInfo.x;
+            }
+            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.U0) {
+                return AdvertAppInfo.x;
+            }
+            AdvertAppInfo advertAppInfo2 = this.T0;
+            if (advertAppInfo2 != null && advertAppInfo2.h != null) {
+                int i = advertAppInfo2.c;
+                if (i != 1001 && i != -1001) {
+                    if (m1() != null) {
+                        return AdvertAppInfo.z;
+                    }
+                    return null;
+                }
+                return AdvertAppInfo.x;
+            }
+            return AdvertAppInfo.x;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public String j1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            return advertAppInfo == null ? "" : advertAppInfo.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String k1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            return advertAppInfo == null ? "" : advertAppInfo.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.U0 ? "PB_BANNER" : this.a1 ? "VIDEO_PB" : "PB" : (String) invokeV.objValue;
+    }
+
+    public AdvertAppInfo.ILegoAdvert m1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            if (advertAppInfo == null) {
+                return null;
+            }
+            return advertAppInfo.h;
+        }
+        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
+    }
+
+    public boolean n1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            return advertAppInfo != null && advertAppInfo.n() == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void o1(App app) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, app) == null) {
+            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+            this.T0 = advertAppInfo;
+            advertAppInfo.s(app);
+            this.T0.j = l1();
+        }
     }
 }

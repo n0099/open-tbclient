@@ -1,145 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class om4 extends WebChromeClient {
+public class om4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public vl8 b;
 
-    public om4(d9 d9Var) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
             }
-        }
-        this.a = d9Var;
-    }
-
-    public final void a(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) || webView == null || qi.isEmpty(str) || qi.isEmpty(str2)) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT >= 19) {
-            webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
-            return;
-        }
-        webView.loadUrl("javascript:" + str + "('" + str2 + "')");
-    }
-
-    public void b(vl8 vl8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vl8Var) == null) {
-            this.b = vl8Var;
+            addParam.eventStat();
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public View getVideoLoadingProgressView() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            d9 d9Var = this.a;
-            if (d9Var == null || !ug.f(d9Var)) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
             }
-            return super.onJsAlert(webView, str, str2, jsResult);
+            addParam.eventStat();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            d9 d9Var = this.a;
-            if (d9Var == null || !ug.f(d9Var)) {
-                return true;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
+            if (!StringUtils.isNull(b)) {
+                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
             }
-            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            if (!StringUtils.isNull(a)) {
+                addParam.addParam("obj_locate", a);
+            }
+            addParam.eventStat();
+            b = null;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, webView, str, str2, jsResult)) == null) {
-            d9 d9Var = this.a;
-            if (d9Var == null || !ug.f(d9Var)) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
             }
-            return super.onJsConfirm(webView, str, str2, jsResult);
+            a = str;
+            addParam.eventStat();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        vl8 vl8Var;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!py4.a(str) && str2.startsWith("tiebaapp")) {
-                yl8 yl8Var = new yl8();
-                yl8Var.v(cm8.b(str2));
-                yl8Var.x(301);
-                a(webView, yl8Var.c(), yl8Var.d());
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(a)) {
+                addParam.addParam("obj_locate", a);
             }
-            if (py4.a(str) && (vl8Var = this.b) != null && vl8Var.onJsPrompt(str2, jsPromptResult)) {
-                return true;
-            }
-            jsPromptResult.cancel();
-            return true;
+            a = null;
+            addParam.eventStat();
         }
-        return invokeLLLLL.booleanValue;
     }
 }

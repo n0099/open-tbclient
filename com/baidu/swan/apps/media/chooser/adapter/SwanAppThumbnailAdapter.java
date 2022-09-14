@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hk2;
+import com.baidu.tieba.fm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,9 +59,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09083c);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09025d);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09025c);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090851);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090264);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090263);
         }
     }
 
@@ -123,7 +123,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            hk2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            fm2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -133,7 +133,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0819, viewGroup, false)) : (a) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0833, viewGroup, false)) : (a) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

@@ -1,56 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.player.remote.BDRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public interface uy0 {
+public class uy0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-
-        public a(long j, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = i;
+    public static void a(@Nullable String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener, @Nullable CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener, getNetHandleListener}) == null) || CyberPlayerManager.isCoreLoaded(i)) {
+            return;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
+        Context b = mq0.b();
+        jj0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
+        try {
+            if (TextUtils.isEmpty(str)) {
+                str = mi0.a().g();
             }
-            return (String) invokeV.objValue;
+            CyberPlayerManager.install(b, str, (String) null, i, z ? BDRemotePlayerService.class : null, map, installListener);
+            if (getNetHandleListener != null) {
+                CyberPlayerManager.setNetHandleListener(getNetHandleListener);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-
-    a a(bz0 bz0Var, sy0... sy0VarArr);
-
-    void beginTransaction();
-
-    void endTransaction();
-
-    void setTransactionSuccessful();
-
-    int update(bz0 bz0Var, sy0... sy0VarArr);
 }

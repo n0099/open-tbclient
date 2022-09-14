@@ -3,15 +3,15 @@ package com.baidu.tbadk.abtest.helper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.of;
-import com.baidu.tieba.vc1;
+import com.baidu.tieba.cg;
+import com.baidu.tieba.se1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NetExperimentFetcher extends vc1<of> {
+public class NetExperimentFetcher extends se1<cg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,7 +23,7 @@ public class NetExperimentFetcher extends vc1<of> {
     }
 
     /* loaded from: classes3.dex */
-    public static final class NetExperimentImpl implements of {
+    public static final class NetExperimentImpl implements cg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,21 +41,21 @@ public class NetExperimentFetcher extends vc1<of> {
             }
         }
 
-        @Override // com.baidu.tieba.of
+        @Override // com.baidu.tieba.cg
         public boolean netABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UbsABTestHelper.isNetABTest() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.of
+        @Override // com.baidu.tieba.cg
         public boolean netBdABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UbsABTestHelper.isBdNetABTest() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.of
+        @Override // com.baidu.tieba.cg
         public boolean qaHttpsTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -83,10 +83,10 @@ public class NetExperimentFetcher extends vc1<of> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.vc1
-    public of createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.se1
+    public cg createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (of) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (cg) invokeV.objValue;
     }
 }

@@ -1,25 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tieba.gx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes4.dex */
-public class f08 {
+/* loaded from: classes3.dex */
+public abstract class f08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<j08> a;
+    public TbPageContext a;
+    public v16 b;
+    public gx.a c;
+    public OriginalThreadInfo d;
+    public int e;
 
-    public f08() {
+    public f08(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,62 +33,27 @@ public class f08 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.e = 3;
+        this.a = tbPageContext;
     }
 
-    public ArrayList<j08> a() {
-        InterceptResult invokeV;
+    public abstract View a();
+
+    public abstract void b(TbPageContext tbPageContext, int i);
+
+    public abstract void c(OriginalThreadInfo originalThreadInfo);
+
+    public void d(gx.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.c = aVar;
+        }
     }
 
-    public final boolean b(ExcContent excContent) {
-        InterceptResult invokeL;
+    public void e(v16 v16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
-            long longValue = excContent.type.longValue();
-            return longValue == 2 || longValue == 0 || longValue == 1;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
-        m08 m08Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        loop0: while (true) {
-            m08Var = null;
-            for (ExcContent excContent : list) {
-                if (excContent != null && excContent.type != null) {
-                    if (b(excContent)) {
-                        i08 a = l08.a(tbPageContext, excContent);
-                        if (a == null) {
-                            continue;
-                        } else if (a.a()) {
-                            if (m08Var != null) {
-                                this.a.add(m08Var);
-                            }
-                            this.a.add(a);
-                        } else {
-                            if (m08Var == null) {
-                                m08Var = new m08();
-                            }
-                            m08Var.c(a.b());
-                        }
-                    } else {
-                        if (m08Var != null) {
-                            this.a.add(m08Var);
-                        }
-                        this.a.add(l08.b(excContent));
-                    }
-                }
-            }
-            break loop0;
-        }
-        if (m08Var != null) {
-            this.a.add(m08Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, v16Var) == null) {
+            this.b = v16Var;
         }
     }
 }

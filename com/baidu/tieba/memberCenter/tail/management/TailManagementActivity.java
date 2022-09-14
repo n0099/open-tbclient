@@ -5,9 +5,9 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gm7;
-import com.baidu.tieba.jm7;
-import com.baidu.tieba.km7;
+import com.baidu.tieba.qn7;
+import com.baidu.tieba.tn7;
+import com.baidu.tieba.un7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gm7 a;
-    public jm7 b;
-    public km7 c;
-    public gm7.f d;
+    public qn7 a;
+    public tn7 b;
+    public un7 c;
+    public qn7.f d;
     public View.OnClickListener e;
 
     /* loaded from: classes5.dex */
-    public class a implements gm7.f {
+    public class a implements qn7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.baidu.tieba.gm7.f
+        @Override // com.baidu.tieba.qn7.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -134,12 +134,12 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0841);
-            this.b = new jm7(getPageContext());
-            this.a = new gm7(getPageContext(), this.b, this.d);
-            km7 km7Var = new km7(this, this.e);
-            this.c = km7Var;
-            km7Var.d(this.a);
+            setContentView(R.layout.obfuscated_res_0x7f0d085b);
+            this.b = new tn7(getPageContext());
+            this.a = new qn7(getPageContext(), this.b, this.d);
+            un7 un7Var = new un7(this, this.e);
+            this.c = un7Var;
+            un7Var.d(this.a);
             this.c.e(false, this.b.h().size() == 0);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();

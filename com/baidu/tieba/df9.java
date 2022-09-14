@@ -1,128 +1,111 @@
 package com.baidu.tieba;
 
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
+import com.faceunity.gles.GeneratedTexture;
 /* loaded from: classes3.dex */
-public class df9 {
+public class df9 extends MediaBaseRenderer implements sf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public long b;
+    public int[] b;
+    public int c;
+    public float d;
 
-    public df9(long j, int i) {
+    public df9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = j;
-        this.a = i;
+        this.b = new int[1];
     }
 
-    public static df9 b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        long j;
-        int i3;
+    @Override // com.baidu.tieba.sf9
+    public void a(mf9 mf9Var, SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            if (i >= i2) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, mf9Var, surfaceTexture) == null) {
+            int i = this.mSurfaceViewHeight;
+            int i2 = this.mSurfaceViewWidth;
+            float f = this.mRatio;
+            int i3 = i - ((int) (i2 * f));
+            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
+                b();
+                GLES20.glBindFramebuffer(36160, this.c);
+                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                GLES20.glClear(16640);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
+                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
+                GLES20.glBindFramebuffer(36160, 0);
+                mf9Var.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
+            } else if (this.mTextureMode == 1) {
+                mf9Var.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
+            } else {
+                mf9Var.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
             }
-            long j2 = 0;
-            int i4 = i;
-            while (i4 < i2) {
-                char charAt = str.charAt(i4);
-                if (charAt < '0' || charAt > '9') {
-                    if (charAt >= 'A' && charAt <= 'F') {
-                        j = j2 * 16;
-                        i3 = charAt - 'A';
-                    } else if (charAt < 'a' || charAt > 'f') {
-                        break;
-                    } else {
-                        j = j2 * 16;
-                        i3 = charAt - 'a';
-                    }
-                    j2 = j + i3 + 10;
-                } else {
-                    j2 = (j2 * 16) + (charAt - '0');
-                }
-                if (j2 > 4294967295L) {
-                    return null;
-                }
-                i4++;
-            }
-            if (i4 == i) {
-                return null;
-            }
-            return new df9(j2, i4);
+            mf9Var.f(surfaceTexture);
         }
-        return (df9) invokeLII.objValue;
     }
 
-    public static df9 c(String str, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i >= i2) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d != this.mRatio) {
+                c();
             }
-            if (z) {
-                char charAt = str.charAt(i);
-                if (charAt != '+') {
-                    r1 = charAt == '-';
-                }
-                i++;
+            if (this.a == 0) {
+                this.a = this.mFullScreen2D.createTexture2DObject();
+                int i = this.mSurfaceViewWidth;
+                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
+                GLES20.glBindTexture(3553, 0);
+                GLES20.glGenFramebuffers(1, this.b, 0);
+                this.c = this.b[0];
+                this.d = this.mRatio;
             }
-            long j = 0;
-            int i3 = i;
-            while (i3 < i2) {
-                char charAt2 = str.charAt(i3);
-                if (charAt2 < '0' || charAt2 > '9') {
-                    break;
-                }
-                if (r1) {
-                    j = (j * 10) - (charAt2 - '0');
-                    if (j < -2147483648L) {
-                        return null;
-                    }
-                } else {
-                    j = (j * 10) + (charAt2 - '0');
-                    if (j > 2147483647L) {
-                        return null;
-                    }
-                }
-                i3++;
-            }
-            if (i3 == i) {
-                return null;
-            }
-            return new df9(j, i3);
         }
-        return (df9) invokeCommon.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
+            return;
+        }
+        GLES20.glDeleteFramebuffers(1, this.b, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
+        this.a = 0;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onDestroyInGlThread() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (int) this.b : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroyInGlThread();
+            c();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onPauseInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPauseInGlThread();
+            c();
+        }
     }
 }

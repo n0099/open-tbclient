@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.w19;
+import com.baidu.tieba.vd5;
+import com.baidu.tieba.z59;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w19 k;
+    public z59 k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -67,7 +67,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public mb5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public vd5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -77,22 +77,22 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (stringExtra == null) {
                     stringExtra = "";
                 }
-                this.k = new w19(linearLayout, navigationBar, this, stringExtra);
+                this.k = new z59(linearLayout, navigationBar, this, stringExtra);
             }
             return this.k;
         }
-        return (mb5) invokeLL.objValue;
+        return (vd5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public View.OnClickListener G0() {
+    public View.OnClickListener R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (View.OnClickListener) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void P0() {
+    public void Z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
@@ -103,9 +103,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            w19 w19Var = this.k;
-            if (w19Var != null) {
-                w19Var.onDestroy();
+            z59 z59Var = this.k;
+            if (z59Var != null) {
+                z59Var.onDestroy();
             }
         }
     }

@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b67;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.i77;
+import com.baidu.tieba.sj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements b67 {
+public class FloatNewRecordView extends RelativeLayout implements i77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -121,47 +121,47 @@ public class FloatNewRecordView extends RelativeLayout implements b67 {
     public final void b(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d079b, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b5, this);
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902df);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916cd);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916ce);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903df);
+            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902e7);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091702);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091703);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903eb);
             this.d = imageView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
             layoutParams.width = -1;
-            layoutParams.height = ri.d(context, 117.0f);
-            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902e1);
+            layoutParams.height = ej.d(context, 117.0f);
+            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902e9);
             this.e = audioCircleProgress;
             audioCircleProgress.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
-            this.e.setArcWidth(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds30));
+            this.e.setArcWidth(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds30));
             this.e.setBgColor(SkinManager.getColor(R.color.CAM_X0211));
-            this.e.setPadding(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds6));
+            this.e.setPadding(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds6));
             this.a.addAnimatorListener(this.h);
             this.a.setAnimation(R.raw.obfuscated_res_0x7f110024);
             this.a.setImageAssetsFolder("lottie_audio_recoding/");
             this.a.setRepeatCount(-1);
-            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906cd)).getLayoutParams()).topMargin = (ri.i(TbadkCoreApplication.getInst()) * 36) / 100;
+            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906e3)).getLayoutParams()).topMargin = (ej.i(TbadkCoreApplication.getInst()) * 36) / 100;
             a();
         }
     }
 
     public final void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || ej.b - i > 10000 || this.f) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || sj.b - i > 10000 || this.f) {
             return;
         }
-        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0afd), Integer.valueOf(((ej.b - i) / 1000) + 1)));
+        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b13), Integer.valueOf(((sj.b - i) / 1000) + 1)));
     }
 
-    @Override // com.baidu.tieba.b67
+    @Override // com.baidu.tieba.i77
     public void closeRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.b67
+    @Override // com.baidu.tieba.i77
     public void closeRecordTooShort() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -176,9 +176,9 @@ public class FloatNewRecordView extends RelativeLayout implements b67 {
         this.a.cancelAnimation();
         this.a.setVisibility(8);
         this.b.setVisibility(0);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b01));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b17));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080947, R.color.CAM_X0310, null);
+        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080963, R.color.CAM_X0310, null);
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
         WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
         this.f = true;
@@ -191,9 +191,9 @@ public class FloatNewRecordView extends RelativeLayout implements b67 {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b02));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b18));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080948, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080964, R.color.CAM_X0319, null);
             this.g = false;
         }
     }
@@ -205,7 +205,7 @@ public class FloatNewRecordView extends RelativeLayout implements b67 {
         }
         this.a.setVisibility(0);
         this.b.setVisibility(8);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af9));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b0f));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
         this.a.playAnimation();
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -214,7 +214,7 @@ public class FloatNewRecordView extends RelativeLayout implements b67 {
         this.g = true;
     }
 
-    @Override // com.baidu.tieba.b67
+    @Override // com.baidu.tieba.i77
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -227,58 +227,58 @@ public class FloatNewRecordView extends RelativeLayout implements b67 {
         }
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public void onDeletedVoice(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public void onSendVoice(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public void onShowRecordTime(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.e.setProgress((i / 1.0f) / ej.b);
+            this.e.setProgress((i / 1.0f) / sj.b);
             c(i);
         }
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public void onShowRecording(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public void onStartedRecorder(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj
+    @Override // com.baidu.tieba.uj
     public void onStopingRecorder() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {

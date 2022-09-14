@@ -1,57 +1,35 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kz1 extends ProviderDelegation {
+public final class kz1 extends fy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String L;
+    public int M;
+    public String N;
+    public String O;
+    public boolean P;
+    public boolean Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
+    public int U;
+    public int V;
+    public boolean W;
+    public boolean X;
 
-    /* loaded from: classes4.dex */
-    public class a implements uf3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ kz1 b;
-
-        public a(kz1 kz1Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kz1Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kz1Var;
-            this.a = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.uf3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.d(this.a) : (Bundle) invokeV.objValue;
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kz1() {
+        super("textArea", "componentId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,43 +37,135 @@ public class kz1 extends ProviderDelegation {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.L = "";
+        this.N = "";
+        this.O = "";
+    }
+
+    private void i() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
+            return;
+        }
+        int g = pg3.g(c(jSONObject, "minHeight", 0.0f));
+        if (g < 0) {
+            g = 0;
+        }
+        this.U = g;
+        int g2 = pg3.g(c(this.j, "maxHeight", 2.1474836E9f));
+        if (g2 < 0) {
+            g2 = Integer.MAX_VALUE;
+        }
+        this.V = g2;
+    }
+
+    @Override // com.baidu.tieba.fy1, com.baidu.tieba.ky1, com.baidu.tieba.my1, com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public void a(JSONObject jSONObject) throws JSONException {
+        et2 et2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("value");
+        this.L = jSONObject.optString("placeholder");
+        o(jSONObject);
+        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
+        this.Q = optBoolean;
+        if (optBoolean && (et2Var = this.h) != null) {
+            et2Var.j(-2);
+            this.h.k(true);
+        }
+        boolean optBoolean2 = jSONObject.optBoolean("fixed");
+        this.R = optBoolean2;
+        et2 et2Var2 = this.h;
+        if (et2Var2 != null) {
+            et2Var2.i(optBoolean2);
+        }
+        this.S = jSONObject.optBoolean("showConfirmBar", true);
+        this.T = jSONObject.optBoolean("adjustPosition", true);
+        this.W = jSONObject.optBoolean("disabled", false);
+        this.X = jSONObject.optInt("confirmHold") == 1;
+        i();
+    }
+
+    @Override // com.baidu.tieba.fy1, com.baidu.tieba.ky1, com.baidu.tieba.my1, com.baidu.tieba.oy1
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.W = jSONObject.optBoolean("disabled", this.W);
+            this.L = jSONObject.optString("placeholder", this.L);
+            this.t = jSONObject.optString("value", this.t);
+            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
+            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
+            this.T = jSONObject.optBoolean("adjustPosition", this.T);
+            n(jSONObject);
+            p(jSONObject);
+            o(jSONObject);
+            i();
+        }
+    }
+
+    public final void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
+            this.Q = optBoolean;
+            et2 et2Var = this.h;
+            if (et2Var != null) {
+                if (optBoolean) {
+                    et2Var.j(-2);
+                    this.h.k(true);
+                    return;
+                }
+                int c = et2Var.c();
+                int i = this.K;
+                if (i > 0) {
+                    c = i;
+                }
+                this.h.j(c);
+                this.h.k(false);
             }
         }
     }
 
-    public final Bundle d(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    public final void o(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            mz1 mz1Var = new mz1();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i == 1) {
-                bundle2.putBoolean(TiebaStatic.LogFields.RESULT, mz1Var.shouldAcceptCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 2) {
-                bundle2.putBoolean(TiebaStatic.LogFields.RESULT, mz1Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 3) {
-                mz1Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                return bundle2;
-            } else if (i != 4) {
-                return bundle2;
-            } else {
-                bundle2.putString(TiebaStatic.LogFields.RESULT, mz1Var.getCookie(string));
-                return bundle2;
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) == null) {
+            return;
         }
-        return (Bundle) invokeL.objValue;
+        this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
+        this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+        this.O = optJSONObject.optString("color");
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    public final void p(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) rf3.b(new a(this, bundle)) : (Bundle) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
+            this.R = optBoolean;
+            et2 et2Var = this.h;
+            if (et2Var != null) {
+                et2Var.i(optBoolean);
+            }
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.P = z;
+        }
     }
 }

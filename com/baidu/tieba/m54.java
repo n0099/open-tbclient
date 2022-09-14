@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +12,64 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m54 extends l54<mn2> {
+public class m54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && 200 == i) {
+                try {
+                    if (TextUtils.isEmpty(str)) {
+                        return;
+                    }
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (!m54.a || jSONObject.optInt("errno") == 0) {
+                        return;
+                    }
+                    Log.e("SwanGameNowUtils", "report game history error");
+                } catch (JSONException unused) {
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -28,45 +84,30 @@ public class m54 extends l54<mn2> {
                 return;
             }
         }
-        boolean z = kh1.a;
+        a = ij1.a;
     }
 
-    public m54() {
+    public static void b() {
+        y23 M;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (M = y23.M()) == null) {
+            return;
         }
-    }
-
-    public static m54 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new m54() : (m54) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l54
-    public boolean b(Context context, mn2 mn2Var, jn2 jn2Var, a13 a13Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, mn2Var, jn2Var, a13Var, jSONObject)) == null) ? d(context, mn2Var, jn2Var, a13Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final boolean d(Context context, mn2 mn2Var, jn2 jn2Var, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, mn2Var, jn2Var, a13Var)) == null) {
-            ay1.i("map", "MapCreateAction start");
-            boolean a = i54.b().a(context, mn2Var);
-            ay1.i("map", "MapCreateAction end");
-            return a;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("cuid", fm2.h0().i(fm2.c()));
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("game", M.O());
+            jSONObject2.put("type", 0);
+            jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject2);
+            jSONObject.put("app_infos", jSONArray);
+            str = jSONObject.toString();
+        } catch (Exception unused) {
+            str = "";
         }
-        return invokeLLLL.booleanValue;
+        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) M.i0().postRequest().cookieManager(fm2.q().a())).url(pz3.b().l())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).requestFrom(16)).requestFrom(1606)).build().executeAsync(new a());
     }
 }

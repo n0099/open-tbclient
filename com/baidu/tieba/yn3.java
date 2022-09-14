@@ -1,27 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class yn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xn3 a;
+    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized xn3 a() {
-        InterceptResult invokeV;
-        xn3 xn3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (yn3.class) {
-                if (a == null) {
-                    a = new xn3();
-                }
-                xn3Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335883, "Lcom/baidu/tieba/yn3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return xn3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948335883, "Lcom/baidu/tieba/yn3;");
+                return;
+            }
         }
-        return (xn3) invokeV.objValue;
+        try {
+            a = c74.i(c74.b("android.os.SystemProperties", true), "get", String.class);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Method method = a;
+            if (method != null) {
+                try {
+                    return (String) method.invoke(null, str);
+                } catch (Throwable unused) {
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

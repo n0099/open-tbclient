@@ -1,88 +1,139 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class ob4 extends ea4<ub4> {
-    public static /* synthetic */ Interceptable $ic;
+public class ob4 extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile ob4 b = null;
+    public static final int c = 12;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Class<?>, gb4> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948026472, "Lcom/baidu/tieba/ob4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948026472, "Lcom/baidu/tieba/ob4;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ob4() {
+        this("ai_apps_pms.db", c);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        c();
+    }
+
+    public static ob4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (ob4.class) {
+                    if (b == null) {
+                        b = new ob4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ob4) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ConcurrentHashMap<Class<?>, gb4> concurrentHashMap = new ConcurrentHashMap<>();
+            this.a = concurrentHashMap;
+            concurrentHashMap.put(xb4.class, new kb4());
+            this.a.put(yb4.class, new lb4());
+            this.a.put(PMSAppInfo.class, new hb4());
+            this.a.put(vb4.class, new jb4());
+            this.a.put(tb4.class, new ib4());
+            this.a.put(zb4.class, new mb4());
+            this.a.put(ac4.class, new nb4());
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b = null;
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            for (gb4 gb4Var : this.a.values()) {
+                gb4Var.a(sQLiteDatabase);
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+            for (gb4 gb4Var : this.a.values()) {
+                gb4Var.onUpgrade(sQLiteDatabase, i, i2);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ob4(t84 t84Var, ec4 ec4Var) {
-        super(t84Var, ec4Var);
+    public ob4(String str, int i) {
+        super(AppRuntime.getAppContext(), str, null, i, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t84Var, ec4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((t84) objArr2[0], (ec4) objArr2[1]);
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ea4
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getplugin" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: v */
-    public boolean f(ub4 ub4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ub4Var)) == null) {
-            if (ub4Var == null) {
-                return false;
-            }
-            z94 z94Var = ub4Var.a;
-            return z94Var == null || z94Var.a();
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: w */
-    public s94 t(ub4 ub4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ub4Var)) == null) {
-            this.a.E();
-            ge4 ge4Var = new ge4();
-            q(ub4Var.a, ge4Var);
-            if (ge4Var.n() == 0) {
-                this.a.F();
-                return null;
-            }
-            this.a.G(ge4Var);
-            ja4.c(ub4Var, this.a);
-            return null;
-        }
-        return (s94) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: x */
-    public ub4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? fe4.h(jSONObject) : (ub4) invokeL.objValue;
     }
 }

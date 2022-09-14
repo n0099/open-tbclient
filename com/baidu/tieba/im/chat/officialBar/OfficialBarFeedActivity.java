@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
-import com.baidu.tieba.g87;
+import com.baidu.tieba.da7;
 import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
-import com.baidu.tieba.j87;
-import com.baidu.tieba.w87;
+import com.baidu.tieba.n97;
+import com.baidu.tieba.q97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -97,7 +97,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onListDataLoad(List<w87> list, List<g87> list2) {
+    public void onListDataLoad(List<da7> list, List<n97> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, list2) == null) {
             this.a.r(list, list2);
@@ -118,7 +118,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<j87> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<q97> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, longSparseArray) == null) {
             this.a.s(longSparseArray);

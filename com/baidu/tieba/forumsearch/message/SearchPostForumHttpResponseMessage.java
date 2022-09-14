@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.le6;
+import com.baidu.tieba.bg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.SearchPostForum.SearchPostForumResIdl;
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public le6 mSearchData;
+    public bg6 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumHttpResponseMessage(int i) {
@@ -37,10 +37,10 @@ public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public le6 getSearchData() {
+    public bg6 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSearchData : (le6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSearchData : (bg6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,8 +59,8 @@ public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
         if (getError() != 0 || getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) || searchPostForumResIdl.data == null) {
             return;
         }
-        le6 le6Var = new le6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-        this.mSearchData = le6Var;
-        le6Var.b(searchPostForumResIdl.data);
+        bg6 bg6Var = new bg6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+        this.mSearchData = bg6Var;
+        bg6Var.b(searchPostForumResIdl.data);
     }
 }

@@ -175,7 +175,7 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AudioPlayData m67clone() {
+    public AudioPlayData m68clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -1,5 +1,8 @@
 package com.baidu.searchbox.task.async.homeready;
 
+import android.os.Build;
+import android.os.Looper;
+import android.os.MessageQueue;
 import android.webkit.WebSettings;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -8,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.a40;
-import com.baidu.tieba.q10;
-import com.baidu.tieba.su4;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.c50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +49,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 return "";
             }
             String str2 = split[1];
-            if (StringUtils.isNull(str2) || (b = new a40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+            if (StringUtils.isNull(str2) || (b = new c50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
                 return "";
             }
             try {
@@ -64,20 +67,57 @@ public class MainTabLoadFinishTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             Loki.startTrack();
+            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.task.async.homeready.MainTabLoadFinishTask.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MainTabLoadFinishTask this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.os.MessageQueue.IdleHandler
+                public boolean queueIdle() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        try {
+                            if (Build.VERSION.SDK_INT >= 17) {
+                                bx4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                                return false;
+                            }
+                            return false;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return false;
+                        }
+                    }
+                    return invokeV.booleanValue;
+                }
+            });
             try {
-                su4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst().getContext());
+                String q = bx4.k().q("key_last_cached_oid", "");
+                if (StringUtils.isNull(q) || !q.equals(lastCachedOid)) {
+                    bx4.k().y("key_last_cached_oid", lastCachedOid);
+                    bx4.k().y("key_last_cached_real_oid", getRealOaid(lastCachedOid));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
-            }
-            try {
-                String f = q10.e(TbadkCoreApplication.getInst().getContext()).f();
-                String q = su4.k().q("key_last_cached_oid", "");
-                if (StringUtils.isNull(q) || !q.equals(f)) {
-                    su4.k().y("key_last_cached_oid", f);
-                    su4.k().y("key_last_cached_real_oid", getRealOaid(f));
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
         }
     }

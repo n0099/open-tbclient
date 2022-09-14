@@ -1,123 +1,202 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.py;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class dc5 extends xb5<jr4, ThreadCardViewHolder<jr4>> {
+public class dc5 {
     public static /* synthetic */ Interceptable $ic;
+    public static dc5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public List<String> b;
 
-    /* loaded from: classes3.dex */
-    public class a implements zn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc5 a;
-
-        public a(dc5 dc5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dc5Var;
-        }
-
-        @Override // com.baidu.tieba.zn
-        public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof jr4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadData threadData = ((jr4) pnVar).t;
-                threadData.objType = 1;
-                ThreadCardUtils.jumpToPB((go4) threadData, view2.getContext(), this.a.A(), false);
-                ((ThreadCardViewHolder) view2.getTag()).a().o(new py.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_ITEM);
+    public dc5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = i(bx4.k().q("key_need_add_source_stat_list", ""));
+        this.b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: M */
-    public ThreadCardViewHolder<jr4> onCreateViewHolder(ViewGroup viewGroup) {
+    public static void b(Context context, StatisticItem statisticItem, kc5 kc5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, kc5Var) == null) || kc5Var == null || statisticItem == null || TextUtils.isEmpty(statisticItem.getKey())) {
+            return;
+        }
+        bc5 k = kc5Var.k();
+        if (k == null || k.f()) {
+            k = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        }
+        if (k != null && !k.f()) {
+            c(statisticItem, k);
+        }
+        TbPageExtraHelper.printLog(statisticItem.toString());
+    }
+
+    public static void c(StatisticItem statisticItem, bc5 bc5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, statisticItem, bc5Var) == null) || statisticItem == null || bc5Var == null || TextUtils.isEmpty(statisticItem.getKey())) {
+            return;
+        }
+        String a = bc5Var.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
+        }
+        String a2 = cc5.a(bc5Var.d(), a, 6);
+        if (TextUtils.isEmpty(a2) || statisticItem.hasParam("page_source")) {
+            return;
+        }
+        statisticItem.param("page_source", a2);
+    }
+
+    public static dc5 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (dc5.class) {
+                    if (c == null) {
+                        c = new dc5();
+                    }
+                }
+            }
+            return c;
+        }
+        return (dc5) invokeV.objValue;
+    }
+
+    public final void a(StatisticItem statisticItem) {
+        Activity currentActivity;
+        bc5 currentVisiblePageExtra;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
+            return;
+        }
+        String a = currentVisiblePageExtra.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
+        }
+        String b = currentVisiblePageExtra.b();
+        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
+            statisticItem.param("page_tag", b);
+        }
+        ArrayList<String> d = currentVisiblePageExtra.d();
+        String a2 = cc5.a(d, a, 6);
+        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof hc5)) {
+            List<String> currentPageSourceKeyList = ((hc5) currentActivity).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList instanceof ArrayList) {
+                a2 = cc5.a((ArrayList) currentPageSourceKeyList, a, 6);
+                statisticItem.delete("common_exp_source_pb_comment");
+            }
+        }
+        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+            statisticItem.param("page_source", a2);
+        }
+        TbPageExtraHelper.printLog(statisticItem.toString());
+    }
+
+    public final <T> List<T> d(T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            ey.b bVar = new ey.b(this.c.getPageActivity(), false);
-            lx lxVar = new lx(this.c.getPageActivity());
-            lxVar.x(true);
-            lxVar.t();
-            bVar.h(lxVar);
-            ey k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
-            k.r(A());
-            ThreadCardViewHolder<jr4> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.mPageId);
-            setOnAdapterItemClickListener(new a(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: N */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jr4 jr4Var, ThreadCardViewHolder<jr4> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jr4Var, threadCardViewHolder})) == null) {
-            if (jr4Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (threadData = jr4Var.t) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
+            if (tArr == null || tArr.length == 0) {
                 return null;
             }
-            threadData.statFloor = getPositionByType(i) + 1;
-            threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(jr4Var);
-            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.getView();
+            ArrayList arrayList = new ArrayList(tArr.length);
+            for (T t : tArr) {
+                if (t != null && !TextUtils.isEmpty(t.toString())) {
+                    arrayList.add(t);
+                }
+            }
+            return arrayList;
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public void e(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) || statisticItem == null || statisticItem.hasParam("page_source")) {
+            return;
+        }
+        if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
+            a(statisticItem);
+        }
+    }
+
+    public boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.b) && !dj.isEmpty(str)) {
+                for (String str2 : this.b) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.a) && !dj.isEmpty(str)) {
+                for (String str2 : this.a) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final List<String> i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return null;
+            }
+            return d(str.split(","));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = i(str);
+            if (str == null) {
+                str = "";
+            }
+            bx4.k().y("key_need_add_source_stat_list", str);
+        }
     }
 }

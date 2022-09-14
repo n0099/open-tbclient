@@ -22,14 +22,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.ij;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
-import com.baidu.tieba.np7;
-import com.baidu.tieba.pp7;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.wj;
+import com.baidu.tieba.xq7;
+import com.baidu.tieba.zq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
     }
 
     /* loaded from: classes5.dex */
-    public class b implements pp7 {
+    public class b implements zq7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleThreadEmotionHorizontalView a;
@@ -109,32 +109,32 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
             this.a = singleThreadEmotionHorizontalView;
         }
 
-        @Override // com.baidu.tieba.pp7
+        @Override // com.baidu.tieba.zq7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                ri.M(this.a.h.getPageActivity(), R.string.obfuscated_res_0x7f0f0501);
+                ej.M(this.a.h.getPageActivity(), R.string.obfuscated_res_0x7f0f050d);
                 this.a.j();
             }
         }
 
-        @Override // com.baidu.tieba.pp7
+        @Override // com.baidu.tieba.zq7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 if (i > 0 && i < 100) {
-                    ri.K(this.a.h.getPageActivity(), ij.a(R.string.obfuscated_res_0x7f0f0d2f));
+                    ej.K(this.a.h.getPageActivity(), wj.a(R.string.obfuscated_res_0x7f0f0d49));
                 } else if (i >= 100) {
-                    ri.J(this.a.h.getPageActivity(), R.string.obfuscated_res_0x7f0f04fc);
+                    ej.J(this.a.h.getPageActivity(), R.string.obfuscated_res_0x7f0f0508);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.pp7
+        @Override // com.baidu.tieba.zq7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                ri.M(this.a.h.getPageActivity(), R.string.obfuscated_res_0x7f0f04fc);
+                ej.M(this.a.h.getPageActivity(), R.string.obfuscated_res_0x7f0f0508);
                 this.a.i();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
@@ -177,9 +177,9 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
                 }
                 this.a = view2;
                 view2.setEnabled(false);
-                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090897);
-                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908bb);
-                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090884);
+                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908ac);
+                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908d0);
+                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090899);
                 this.d = findViewById;
                 findViewById.setVisibility(8);
             }
@@ -190,7 +190,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc3);
+                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be0);
                     this.b.K(singleEmotionData.thumbnail, 10, false);
                 }
                 if (i2 == 0) {
@@ -286,7 +286,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0252, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0256, (ViewGroup) null);
                     aVar = new a(view2);
                     view2.setTag(aVar);
                 } else {
@@ -331,8 +331,8 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
     public final void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ViewHelper.checkUpIsLogin(this.h.getPageActivity())) {
-            if (np7.o().q()) {
-                ri.M(this.h.getPageActivity(), R.string.obfuscated_res_0x7f0f05eb);
+            if (xq7.o().q()) {
+                ej.M(this.h.getPageActivity(), R.string.obfuscated_res_0x7f0f05f8);
                 return;
             }
             EmotionPackageData emotionPackageData = this.g;
@@ -350,18 +350,18 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0261, this);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0265, this);
             this.c = viewGroup;
-            this.a = (HListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908a1);
-            this.b = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0908a8);
-            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f0908bc);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09089c);
+            this.a = (HListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b6);
+            this.b = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0908bd);
+            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f0908d1);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0908b1);
             this.d = textView;
             textView.setOnClickListener(this);
             setOnClickListener(this);
             this.a.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
             this.a.setOnItemClickListener(new a(this));
-            this.a.setSelector(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081211));
+            this.a.setSelector(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08123c));
             c cVar = new c(this.h);
             this.f = cVar;
             this.a.setAdapter((ListAdapter) cVar);
@@ -398,7 +398,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (textView = this.d) == null) {
             return;
         }
-        textView.setText(R.string.obfuscated_res_0x7f0f056c);
+        textView.setText(R.string.obfuscated_res_0x7f0f0578);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
         this.d.setBackgroundDrawable(null);
         this.d.setEnabled(false);
@@ -410,7 +410,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (textView = this.d) == null) {
             return;
         }
-        textView.setText(R.string.obfuscated_res_0x7f0f0560);
+        textView.setText(R.string.obfuscated_res_0x7f0f056c);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
         SkinManager.setBackgroundResource(this.d, R.drawable.bg_emotion_download);
         this.d.setEnabled(true);
@@ -422,7 +422,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (textView = this.d) == null) {
             return;
         }
-        textView.setText(R.string.obfuscated_res_0x7f0f056d);
+        textView.setText(R.string.obfuscated_res_0x7f0f0579);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
         this.d.setBackgroundDrawable(null);
         this.d.setEnabled(false);
@@ -434,7 +434,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
         if (!(interceptable == null || interceptable.invokeL(1048583, this, view2) == null) || this.g == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f09089c && view2.isShown()) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f0908b1 && view2.isShown()) {
             f();
         } else {
             e();

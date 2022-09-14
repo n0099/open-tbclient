@@ -44,13 +44,13 @@ public abstract class VirtualLayout extends ConstraintHelper {
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             super.init(attributeSet);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
-                    if (index == R$styleable.ConstraintLayout_Layout_android_visibility) {
+                    if (index == 6) {
                         this.mApplyVisibilityOnAttach = true;
-                    } else if (index == R$styleable.ConstraintLayout_Layout_android_elevation) {
+                    } else if (index == 13) {
                         this.mApplyElevationOnAttach = true;
                     }
                 }

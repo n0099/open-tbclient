@@ -1,22 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.TaskState;
+import com.baidu.bdtask.framework.ui.toast.ToastViewData;
+import com.baidu.tieba.kt;
+import com.baidu.tieba.lt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class lq {
+public final class lq<VD extends ToastViewData, VM extends kt<VD>, View extends lt<VM>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public final VM b;
+    public final VD c;
 
-    public abstract ys a();
-
-    public final void b(TaskState taskState, Function0<Unit> function0) {
+    public lq(View view2, VM vm, VD vd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskState, function0) == null) {
-            throw null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, vm, vd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = view2;
+        this.b = vm;
+        this.c = vd;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a(this.b);
+            this.b.b(this.c);
         }
     }
 }

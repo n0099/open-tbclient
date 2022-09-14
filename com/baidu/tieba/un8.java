@@ -1,42 +1,47 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class un8 implements Comparable<un8> {
+public class un8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public un8() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948216874, "Lcom/baidu/tieba/un8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948216874, "Lcom/baidu/tieba/un8;");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(un8 un8Var) {
+    public static String a(String str) {
         InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, un8Var)) == null) ? this.a - un8Var.a : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
+                return null;
+            }
+            for (String str2 : split) {
+                if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
+                    int indexOf = str2.indexOf("=") + 1;
+                    return indexOf < str2.length() ? str2.substring(indexOf, str2.length()) : "";
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d();
 }

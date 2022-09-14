@@ -5,13 +5,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cf7;
-import com.baidu.tieba.df7;
-import com.baidu.tieba.ef7;
-import com.baidu.tieba.hf7;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ig7;
+import com.baidu.tieba.jg7;
+import com.baidu.tieba.kg7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ng7;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements cf7<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements ig7<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -40,8 +40,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements cf7<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public ef7 c;
-        public df7 d;
+        public kg7 c;
+        public jg7 d;
 
         public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -61,17 +61,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements cf7<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                ef7 ef7Var = new ef7();
-                this.c = ef7Var;
-                ef7Var.d = jSONObject.optString("rText");
+                kg7 kg7Var = new kg7();
+                this.c = kg7Var;
+                kg7Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    df7 df7Var = new df7(optJSONObject);
-                    this.d = df7Var;
-                    if (df7Var.k()) {
+                    jg7 jg7Var = new jg7(optJSONObject);
+                    this.d = jg7Var;
+                    if (jg7Var.k()) {
                         return;
                     }
                     this.d = null;
@@ -212,8 +212,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements cf7<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = hf7.b(optJSONObject.optString("descColor", ""));
-                bVar.f = hf7.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = ng7.b(optJSONObject.optString("descColor", ""));
+                bVar.f = ng7.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -300,16 +300,16 @@ public class PlayPicInfoCard extends BaseCardInfo implements cf7<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cf7
+    @Override // com.baidu.tieba.ig7
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) || playPicInfoCard == null || tbPageContext == null) {
             return;
         }
-        int k = ri.k(TbadkCoreApplication.getInst());
+        int k = ej.k(TbadkCoreApplication.getInst());
         int i = (int) (k * playPicInfoCard.ratio);
         for (b bVar : this.imageResList) {
-            lg.h().k(bVar.b, 17, null, k, i, tbPageContext.getUniqueId(), new Object[0]);
+            zg.h().k(bVar.b, 17, null, k, i, tbPageContext.getUniqueId(), new Object[0]);
         }
     }
 }

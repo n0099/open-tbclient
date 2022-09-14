@@ -119,7 +119,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091035);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091053);
         }
     }
 

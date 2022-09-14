@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.album.MediaFileInfo;
+import android.graphics.Bitmap;
 /* loaded from: classes3.dex */
 public interface a09 {
-    boolean a(int i, MediaFileInfo mediaFileInfo);
+    void a(int i, Bitmap bitmap);
 }

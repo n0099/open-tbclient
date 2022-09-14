@@ -1,126 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.xl2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class w14 {
+public final class w14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public w14() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && z03.K().k() == 1 && !d()) {
-            fu2.p("startup").F(new UbcFlowEvent(str));
-        }
-    }
-
-    public static void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) || jSONArray == null || jSONArray.length() == 0) {
-            return;
-        }
-        HybridUbcFlow p = fu2.p("startup");
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("id");
-                long optLong = optJSONObject.optLong("timestamp");
-                if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-                    ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
-                    ubcFlowEvent.h(optLong);
-                    p.F(ubcFlowEvent);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static long c() {
+    public final boolean a() {
         InterceptResult invokeV;
-        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            a13 M = a13.M();
-            if (M == null || (w = M.w()) == null) {
-                return 0L;
-            }
-            zd2 Q = w.Q();
-            if (Q instanceof ax3) {
-                return ((ax3) Q).f1();
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            a13 M = a13.M();
-            if (M == null || (w = M.w()) == null) {
-                return false;
-            }
-            zd2 Q = w.Q();
-            if (Q instanceof ax3) {
-                return ((ax3) Q).j1();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ku2 d = d();
+            if (d != null) {
+                return d.a();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static void e(String str, xl2.a aVar) {
-        Bundle P;
+    public final void b(WebSocketTask task) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) || aVar == null || d() || (P = aVar.P()) == null || P.getLong("page_display_flag_for_statistic") <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            Intrinsics.checkNotNullParameter(task, "task");
+            ku2 d = d();
+            if (d != null) {
+                d.b(task);
+            }
         }
-        long l = aVar.l("launch_time", 0L);
-        long currentTimeMillis = System.currentTimeMillis();
-        d83 d83Var = new d83();
-        d83Var.a = t73.n(aVar.G());
-        d83Var.f = aVar.H();
-        d83Var.c = aVar.T();
-        d83Var.b = "launch";
-        d83Var.e = "realcancel";
-        d83Var.q = String.valueOf(currentTimeMillis - l);
-        d83Var.a("reason", str);
-        d83Var.a("errorList", q14.c().d());
-        d83Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
-        t73.onEvent(d83Var);
-        P.remove("page_display_flag_for_statistic");
     }
 
-    public static void f(xl2.a aVar) {
-        Bundle P;
+    public final void c(String taskId) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, aVar) == null) || aVar == null || !d() || (P = aVar.P()) == null || P.getLong("page_display_flag_for_statistic") <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
+            Intrinsics.checkNotNullParameter(taskId, "taskId");
+            ku2 d = d();
+            if (d != null) {
+                d.c(taskId);
+            }
         }
-        long l = aVar.l("launch_time", 0L);
-        long currentTimeMillis = System.currentTimeMillis();
-        d83 d83Var = new d83();
-        d83Var.a = t73.n(aVar.G());
-        d83Var.f = aVar.H();
-        d83Var.c = aVar.T();
-        d83Var.b = "launch";
-        d83Var.e = "realsuccess";
-        d83Var.r = String.valueOf(currentTimeMillis - l);
-        d83Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
-        t73.onEvent(d83Var);
-        P.remove("page_display_flag_for_statistic");
+    }
+
+    public final ku2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            y23 M = y23.M();
+            if (M != null) {
+                return M.m0();
+            }
+            return null;
+        }
+        return (ku2) invokeV.objValue;
     }
 }

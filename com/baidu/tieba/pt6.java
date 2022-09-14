@@ -1,67 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetGiftList.PresentCategoryList;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes5.dex */
-public class pt6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public ArrayList<Integer> c;
+public interface pt6 {
+    boolean b(int i);
 
-    public pt6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void d(FrsViewData frsViewData, int i);
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public ArrayList<Integer> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public void d(PresentCategoryList presentCategoryList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, presentCategoryList) == null) || presentCategoryList == null) {
-            return;
-        }
-        this.a = presentCategoryList.category_id.intValue();
-        this.b = presentCategoryList.category_name;
-        List<Integer> list = presentCategoryList.gift_ids;
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        this.c = arrayList;
-        arrayList.addAll(presentCategoryList.gift_ids);
-    }
+    void f(int i);
 }

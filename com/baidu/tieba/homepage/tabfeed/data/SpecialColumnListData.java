@@ -7,8 +7,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.dq4;
-import com.baidu.tieba.go4;
+import com.baidu.tieba.is4;
+import com.baidu.tieba.lq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes4.dex */
-public class SpecialColumnListData extends go4 implements Parcelable {
+public class SpecialColumnListData extends lq4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -119,14 +119,14 @@ public class SpecialColumnListData extends go4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListData : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.go4
-    public dq4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.lq4
+    public is4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (dq4) invokeV.objValue;
+        return (is4) invokeV.objValue;
     }
 
     public List<SpecialColumnItemData> getResultData() {
@@ -135,7 +135,7 @@ public class SpecialColumnListData extends go4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResultListData : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.go4
+    @Override // com.baidu.tieba.lq4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class SpecialColumnListData extends go4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

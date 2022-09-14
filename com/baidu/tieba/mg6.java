@@ -1,88 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
-public class mg6 extends cf {
+public class mg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<FrsTabInfo> a;
+    public final List<y85> b;
+    public Context c;
+    public String d;
+    public String e;
+    public String f;
 
-    public mg6() {
+    public mg6(Context context, List<FrsTabInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = list;
+        this.b = new LinkedList();
+        this.c = context;
     }
 
-    public static boolean isOn() {
+    public void a(y85 y85Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, y85Var) == null) || y85Var == null || y85Var.b() == null) {
+            return;
+        }
+        for (y85 y85Var2 : this.b) {
+            if (y85Var2 != null && y85Var2.b() != null && y85Var2.b().e == y85Var.b().e) {
+                return;
+            }
+        }
+        this.b.add(y85Var);
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType("official_thread_enable_delete_switch") == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
-    public void changeSettingByType(int i) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public List<FrsTabInfo> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public List<y85> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.cf
-    public String[] getCrashKeys() {
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
-    public int getDefaultType() {
-        InterceptResult invokeV;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cf
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f = str;
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cf
-    public String getName() {
-        InterceptResult invokeV;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "official_thread_enable_delete_switch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cf
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.e = str;
         }
-        return invokeV.intValue;
     }
 }

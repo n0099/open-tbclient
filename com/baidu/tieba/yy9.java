@@ -1,100 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 /* loaded from: classes6.dex */
-public final class yy9 implements xu9, fv9 {
+public final class yy9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xu9 a;
-    public fv9 b;
-    public boolean c;
 
-    public yy9(xu9 xu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xu9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements PrivilegedAction<ClassLoader> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.security.PrivilegedAction
+        /* renamed from: a */
+        public ClassLoader run() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ClassLoader.getSystemClassLoader() : (ClassLoader) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948346640, "Lcom/baidu/tieba/yy9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948346640, "Lcom/baidu/tieba/yy9;");
                 return;
             }
         }
-        this.a = xu9Var;
+        int d = d();
+        a = d;
+        b = d != 0;
     }
 
-    @Override // com.baidu.tieba.fv9
-    public boolean isUnsubscribed() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c || this.b.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.xu9
-    public void onCompleted() {
+    public static ClassLoader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
-            return;
-        }
-        this.c = true;
-        try {
-            this.a.onCompleted();
-        } catch (Throwable th) {
-            kv9.e(th);
-            throw new OnCompletedFailedException(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.xu9
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            fz9.j(th);
-            if (this.c) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (System.getSecurityManager() == null) {
+                return ClassLoader.getSystemClassLoader();
             }
-            this.c = true;
+            return (ClassLoader) AccessController.doPrivileged(new a());
+        }
+        return (ClassLoader) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                this.a.onError(th);
-            } catch (Throwable th2) {
-                kv9.e(th2);
-                throw new OnErrorFailedException(new CompositeException(th, th2));
+                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
+            } catch (Exception unused) {
+                return 0;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.xu9
-    public void onSubscribe(fv9 fv9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fv9Var) == null) {
-            this.b = fv9Var;
-            try {
-                this.a.onSubscribe(this);
-            } catch (Throwable th) {
-                kv9.e(th);
-                fv9Var.unsubscribe();
-                onError(th);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fv9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.unsubscribe();
-        }
+        return invokeV.intValue;
     }
 }

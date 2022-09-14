@@ -19,7 +19,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x11;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.p31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -292,7 +293,7 @@ public class BdThumbSeekBar extends View {
                 return;
             }
         }
-        y = x11.d(0.0f);
+        y = p31.d(0.0f);
         z = BdSeekBarStyle.LINE;
     }
 
@@ -878,7 +879,7 @@ public class BdThumbSeekBar extends View {
         this.x = true;
         this.c = context;
         setClickable(true);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e3});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c61.NadBdThumbSeekBar);
         int i5 = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
         if (i5 == 1) {
@@ -891,23 +892,23 @@ public class BdThumbSeekBar extends View {
         Paint paint = new Paint();
         this.d = paint;
         paint.setAntiAlias(true);
-        this.d.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06086f));
+        this.d.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060882));
         Paint paint2 = new Paint();
         this.r = paint2;
         paint2.setAntiAlias(true);
-        this.r.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060871));
+        this.r.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060884));
         Paint paint3 = new Paint();
         this.s = paint3;
         paint3.setAntiAlias(true);
-        this.s.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060870));
+        this.s.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060883));
         this.o = 100.0f;
         this.p = 0.0f;
         this.q = 0;
         if (this.c != null) {
             if (this.k == null) {
-                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e05);
+                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e24);
             }
-            this.l = x11.a(0.0f);
+            this.l = p31.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);

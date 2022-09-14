@@ -5,7 +5,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.h.i;
 import com.baidu.ar.h.k;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +50,7 @@ public final class Downloader {
         byte[] bArr = new byte[8192];
         BufferedInputStream bufferedInputStream = null;
         try {
-            randomAccessFile = new RandomAccessFile(str, rw.c);
+            randomAccessFile = new RandomAccessFile(str, "rw");
             try {
                 randomAccessFile.seek(0L);
                 BufferedInputStream bufferedInputStream2 = new BufferedInputStream(inputStream, 8192);

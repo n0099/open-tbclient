@@ -1,84 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class cb2 extends bb2 {
+public abstract class cb2 implements db2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ContentValues d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cb2(@Nullable Map<String, String> map) {
-        super("lifecycle", map);
+    public cb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bb2, com.baidu.tieba.ab2
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("cuid", hk2.h0().i(hk2.c()));
-            map.put("mtjCuid", hk2.h0().i(hk2.c()));
-            ContentValues contentValues = this.d;
-            if (contentValues != null) {
-                for (String str : contentValues.keySet()) {
-                    Object obj = this.d.get(str);
-                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                        map.put(str, String.valueOf(obj));
-                    } else {
-                        map.put(str, obj);
-                    }
-                }
-                return;
-            }
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cb2(@NonNull ContentValues contentValues) {
-        super("lifecycle", null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = contentValues;
+    }
+
+    @Override // com.baidu.tieba.db2
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.db2
+    public void c(ga2 ga2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ga2Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.db2
+    public void d(ga2 ga2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ga2Var) == null) {
+        }
     }
 }

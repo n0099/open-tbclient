@@ -1,215 +1,126 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.SparseArray;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.d92;
+import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes3.dex */
-public final class ew2 {
+public class ew2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile ew2 d;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> a;
-    public Set<String> b;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947748681, "Lcom/baidu/tieba/ew2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947748681, "Lcom/baidu/tieba/ew2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947748681, "Lcom/baidu/tieba/ew2;")) == null) {
+            return;
         }
-        c = kh1.a;
-    }
-
-    public ew2() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947748681, "Lcom/baidu/tieba/ew2;");
+        }
+    }
+
+    public static void a(String str, @Nullable ys2 ys2Var) {
+        y23 M;
+        vn2.a Y;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, ys2Var) == null) || (M = y23.M()) == null || (Y = M.Y()) == null) {
+            return;
+        }
+        HybridUbcFlow q = dw2.q("route", str);
+        q.D("appid", Y.H());
+        q.D("swan", dc3.i(Y.j0(), Y.G()));
+        q.D("net", SwanAppNetworkUtils.f().type);
+        q.D("appversion", Y.v1());
+        q.D("thirdversion", Y.w1());
+        q.D("mobile", of3.c());
+        q.D("scheme", Y.W());
+        q.D("launchid", Y.V());
+        q.E("from", "swan");
+        q.D("web_widget_state", "0");
+        q.A();
+        if (ys2Var != null) {
+            q.E("na_multi_jump_dst_path", ys2Var.a());
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            lt2.j(true);
+            dw2.s("route", str);
+            HybridUbcFlow q = dw2.q("route", str);
+            q.F(new UbcFlowEvent("na_first_receive_action"));
+            q.D("sub_state", "0");
+            a = System.currentTimeMillis();
+        }
+    }
+
+    public static void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
+            dl2.c(i);
+            HybridUbcFlow q = dw2.q("route", str);
+            if (i != 6 && i != 4 && i != 1) {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE);
+            } else {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
+            }
+            q.E("type", Integer.valueOf(i));
+            g22 H = lo2.U().H();
+            q.E("na_multi_jump_src_path", H != null ? H.m3().a() : "");
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && TextUtils.equals(dw2.q("route", str).h("sub_state"), "1")) {
+            dw2.q("route", str).F(new UbcFlowEvent("na_end_sub_package_download"));
+        }
+    }
+
+    public static void e(d92.e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eVar, str) == null) {
+            dw2.q("route", str).F(new UbcFlowEvent("na_pre_load_slave_ok"));
+            if (eVar == null) {
                 return;
             }
-        }
-        this.a = new SparseArray<>();
-        this.b = new HashSet();
-    }
-
-    @NonNull
-    public static int[] b(@NonNull Activity activity, @Nullable String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return new int[0];
+            ep1 ep1Var = eVar.a;
+            if (ep1Var != null) {
+                ep1Var.v(str);
             }
-            int[] iArr = new int[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                iArr[i] = uh4.a(activity, strArr[i]) ? 0 : -1;
-            }
-            return iArr;
+            HybridUbcFlow q = dw2.q("route", str);
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
+            ubcFlowEvent.h(eVar.d);
+            q.F(ubcFlowEvent);
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
+            ubcFlowEvent2.h(eVar.e);
+            q.F(ubcFlowEvent2);
         }
-        return (int[]) invokeLL.objValue;
     }
 
-    public static ew2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (ew2.class) {
-                    if (d == null) {
-                        d = new ew2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (ew2) invokeV.objValue;
-    }
-
-    @Nullable
-    public static String d(@NonNull Activity activity, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
-            int length = strArr.length;
-            for (int i = 0; i < length; i++) {
-                String str = strArr[i];
-                if (!uh4.a(activity, str) && (ie4.f(activity, str) || !e(str))) {
-                    return str;
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            i93 a2 = o93.a();
-            return a2.getBoolean("first#" + str, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void g(String str) {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            i93 a2 = o93.a();
-            a2.putBoolean("first#" + str, true);
-        }
-    }
-
-    public final boolean a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (strArr == null || strArr.length <= 0) {
-                return true;
-            }
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.b.contains(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i, strArr, iArr) == null) {
-            boolean z = !a(strArr);
-            if (Build.VERSION.SDK_INT >= 23) {
-                h(activity, strArr, iArr);
-            }
-            a aVar = this.a.get(i);
-            if (aVar != null) {
-                this.a.remove(i);
-                if ((aVar instanceof zv2) && z) {
-                    aVar = ((zv2) aVar).s();
-                }
-                aVar.onRequestPermissionsResult(i, strArr, iArr);
-            }
-            if (c) {
-                Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-                StringBuilder sb = new StringBuilder();
-                sb.append("onRequestPermissionsResult grantResults: ");
-                sb.append(Arrays.toString(iArr));
-                Log.d("SwanAppPermission", sb.toString());
-            }
-        }
-    }
-
-    @RequiresApi(api = 23)
-    public final void h(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
-        int length;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, strArr, iArr) == null) || Build.VERSION.SDK_INT < 23 || activity == null || (length = strArr.length) != iArr.length || length <= 0) {
-            return;
-        }
-        for (int i = 0; i < length; i++) {
-            int i2 = iArr[i];
-            String str = strArr[i];
-            if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                this.b.add(str);
-            }
-        }
-    }
-
-    @TargetApi(23)
-    public void requestPermissions(Activity activity, int i, @NonNull String[] strArr, a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048579, this, activity, i, strArr, aVar) == null) || aVar == null || activity == null) {
-            return;
-        }
-        String d2 = d(activity, strArr);
-        if (d2 != null) {
-            this.a.put(i, aVar);
-            activity.requestPermissions(strArr, i);
-            g(d2);
-        } else {
-            aVar.onRequestPermissionsResult(i, strArr, b(activity, strArr));
-        }
-        if (c) {
-            Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+            HybridUbcFlow q = dw2.q("route", str);
+            q.F(new UbcFlowEvent("web_widget_first_screen_finish"));
+            q.D("web_widget_state", "1");
+            q.T();
         }
     }
 }

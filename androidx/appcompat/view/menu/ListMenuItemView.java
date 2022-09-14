@@ -16,15 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$id;
-import androidx.appcompat.R$layout;
-import androidx.appcompat.R$styleable;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +53,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListMenuItemView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.listMenuViewStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,7 +94,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     private void insertCheckBox() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            CheckBox checkBox = (CheckBox) getInflater().inflate(R$layout.abc_list_menu_item_checkbox, (ViewGroup) this, false);
+            CheckBox checkBox = (CheckBox) getInflater().inflate(R.layout.obfuscated_res_0x7f0d000e, (ViewGroup) this, false);
             this.mCheckBox = checkBox;
             addContentView(checkBox);
         }
@@ -106,7 +103,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     private void insertIconView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            ImageView imageView = (ImageView) getInflater().inflate(R$layout.abc_list_menu_item_icon, (ViewGroup) this, false);
+            ImageView imageView = (ImageView) getInflater().inflate(R.layout.obfuscated_res_0x7f0d000f, (ViewGroup) this, false);
             this.mIconView = imageView;
             addContentView(imageView, 0);
         }
@@ -115,7 +112,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     private void insertRadioButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            RadioButton radioButton = (RadioButton) getInflater().inflate(R$layout.abc_list_menu_item_radio, (ViewGroup) this, false);
+            RadioButton radioButton = (RadioButton) getInflater().inflate(R.layout.obfuscated_res_0x7f0d0011, (ViewGroup) this, false);
             this.mRadioButton = radioButton;
             addContentView(radioButton);
         }
@@ -169,20 +166,20 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             ViewCompat.setBackground(this, this.mBackground);
-            TextView textView = (TextView) findViewById(R$id.title);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
             this.mTitleView = textView;
             int i = this.mTextAppearance;
             if (i != -1) {
                 textView.setTextAppearance(this.mTextAppearanceContext, i);
             }
-            this.mShortcutView = (TextView) findViewById(R$id.shortcut);
-            ImageView imageView = (ImageView) findViewById(R$id.submenuarrow);
+            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ebc);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fa3);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);
             }
-            this.mGroupDivider = (ImageView) findViewById(R$id.group_divider);
-            this.mContent = (LinearLayout) findViewById(R$id.content);
+            this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cfb);
+            this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906e3);
         }
     }
 
@@ -376,13 +373,13 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
                 return;
             }
         }
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R$styleable.MenuView, i, 0);
-        this.mBackground = obtainStyledAttributes.getDrawable(R$styleable.MenuView_android_itemBackground);
-        this.mTextAppearance = obtainStyledAttributes.getResourceId(R$styleable.MenuView_android_itemTextAppearance, -1);
-        this.mPreserveIconSpacing = obtainStyledAttributes.getBoolean(R$styleable.MenuView_preserveIconSpacing, false);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, androidx.appcompat.R.styleable.MenuView, i, 0);
+        this.mBackground = obtainStyledAttributes.getDrawable(5);
+        this.mTextAppearance = obtainStyledAttributes.getResourceId(1, -1);
+        this.mPreserveIconSpacing = obtainStyledAttributes.getBoolean(7, false);
         this.mTextAppearanceContext = context;
-        this.mSubMenuArrow = obtainStyledAttributes.getDrawable(R$styleable.MenuView_subMenuArrow);
-        TypedArray obtainStyledAttributes2 = context.getTheme().obtainStyledAttributes(null, new int[]{16843049}, R$attr.dropDownListViewStyle, 0);
+        this.mSubMenuArrow = obtainStyledAttributes.getDrawable(8);
+        TypedArray obtainStyledAttributes2 = context.getTheme().obtainStyledAttributes(null, new int[]{16843049}, R.attr.obfuscated_res_0x7f040264, 0);
         this.mHasListDivider = obtainStyledAttributes2.hasValue(0);
         obtainStyledAttributes.recycle();
         obtainStyledAttributes2.recycle();

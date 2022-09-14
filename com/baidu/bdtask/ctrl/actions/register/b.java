@@ -1,7 +1,7 @@
 package com.baidu.bdtask.ctrl.actions.register;
 
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.yq;
+import com.baidu.tieba.mr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public final class b {
         }
     }
 
-    public final Function2<Function1<? super yq, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super yq, Unit>, Function1<yq, Unit>>> a() {
+    public final Function2<Function1<? super mr, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super mr, Unit>, Function1<mr, Unit>>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TaskRegisterMiddleware$taskRegisterMiddleWare$1.INSTANCE : (Function2) invokeV.objValue;

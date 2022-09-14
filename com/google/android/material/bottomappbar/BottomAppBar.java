@@ -59,9 +59,7 @@ import java.util.List;
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANIMATION_DURATION = 300;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100346 = 2131755846;
+    public static final int DEF_STYLE_RES = 2131755847;
     public static final int FAB_ALIGNMENT_MODE_CENTER = 0;
     public static final int FAB_ALIGNMENT_MODE_END = 1;
     public static final int FAB_ANIMATION_MODE_SCALE = 0;
@@ -1263,7 +1261,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100346), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1367,7 +1365,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             }
         };
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f04029f, R.attr.obfuscated_res_0x7f0402a0, R.attr.obfuscated_res_0x7f0402a1, R.attr.obfuscated_res_0x7f0402a2, R.attr.obfuscated_res_0x7f0402a3, R.attr.obfuscated_res_0x7f040307, R.attr.obfuscated_res_0x7f040519, R.attr.obfuscated_res_0x7f04051c, R.attr.obfuscated_res_0x7f04051e}, i, obfuscated_res_0x7f100346, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.BottomAppBar, i, DEF_STYLE_RES, new int[0]);
         ColorStateList colorStateList = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0);
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.fabAlignmentMode = obtainStyledAttributes.getInt(2, 0);
@@ -1385,7 +1383,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         setElevation(dimensionPixelSize);
         DrawableCompat.setTintList(this.materialShapeDrawable, colorStateList);
         ViewCompat.setBackground(this, this.materialShapeDrawable);
-        ViewUtils.doOnApplyWindowInsets(this, attributeSet, i, obfuscated_res_0x7f100346, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.3
+        ViewUtils.doOnApplyWindowInsets(this, attributeSet, i, DEF_STYLE_RES, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BottomAppBar this$0;

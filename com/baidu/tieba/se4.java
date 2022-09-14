@@ -1,37 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Configuration;
-import android.os.Parcelable;
-import android.util.AttributeSet;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class se4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile se4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final te4<?> a;
+    public final a a;
+    public re4 b;
 
-    public se4(te4<?> te4Var) {
+    /* loaded from: classes5.dex */
+    public static class a extends ij4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_clean_stratey");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public se4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {te4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,242 +54,61 @@ public class se4 {
                 return;
             }
         }
-        this.a = te4Var;
+        this.a = new a();
     }
 
-    public static final se4 b(te4<?> te4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, te4Var)) == null) ? new se4(te4Var) : (se4) invokeL.objValue;
-    }
-
-    public View A(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) ? this.a.e.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.t();
-        }
-    }
-
-    public void C(Parcelable parcelable, List<Fragment> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, parcelable, list) == null) {
-            this.a.e.b0(parcelable, list);
-        }
-    }
-
-    public void D(kf4<String, ye4> kf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kf4Var) == null) {
-            this.a.u(kf4Var);
-        }
-    }
-
-    public kf4<String, ye4> E() {
+    public static se4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.v() : (kf4) invokeV.objValue;
-    }
-
-    public List<Fragment> F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.e.c0() : (List) invokeV.objValue;
-    }
-
-    public Parcelable G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.e.e0() : (Parcelable) invokeV.objValue;
-    }
-
-    public void a(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
-            te4<?> te4Var = this.a;
-            te4Var.e.j(te4Var, te4Var, fragment);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.e.n();
-        }
-    }
-
-    public void d(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
-            this.a.e.o(configuration);
-        }
-    }
-
-    public boolean e(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, menuItem)) == null) ? this.a.e.p(menuItem) : invokeL.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.e.q();
-        }
-    }
-
-    public boolean g(Menu menu, MenuInflater menuInflater) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, menu, menuInflater)) == null) ? this.a.e.r(menu, menuInflater) : invokeLL.booleanValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.a.e.s();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.e.u();
-        }
-    }
-
-    public boolean j(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, menuItem)) == null) ? this.a.e.v(menuItem) : invokeL.booleanValue;
-    }
-
-    public void k(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, menu) == null) {
-            this.a.e.w(menu);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.a.e.x();
-        }
-    }
-
-    public boolean m(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, menu)) == null) ? this.a.e.y(menu) : invokeL.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.a.e.z();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.a.e.A();
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.a.e.B();
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.a.e.C();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.a.c();
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.a.d();
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.a.e(z);
-        }
-    }
-
-    public void u(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048602, this, str, fileDescriptor, printWriter, strArr) == null) {
-            this.a.f(str, fileDescriptor, printWriter, strArr);
-        }
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.a.e.E() : invokeV.booleanValue;
-    }
-
-    public List<Fragment> w(List<Fragment> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, list)) == null) {
-            if (this.a.e.d == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (se4.class) {
+                    if (c == null) {
+                        c = new se4();
+                    }
+                }
             }
-            if (list == null) {
-                list = new ArrayList<>(x());
-            }
-            list.addAll(this.a.e.d);
-            return list;
+            return c;
         }
-        return (List) invokeL.objValue;
+        return (se4) invokeV.objValue;
     }
 
-    public int x() {
+    @NonNull
+    public re4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            ArrayList<Fragment> arrayList = this.a.e.d;
-            if (arrayList == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                synchronized (se4.class) {
+                    if (this.b == null) {
+                        this.b = re4.b(this.a.getString("data", ""));
+                    }
+                }
             }
-            return arrayList.size();
+            return this.b;
         }
-        return invokeV.intValue;
+        return (re4) invokeV.objValue;
     }
 
-    public ue4 y() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.a.g() : (ue4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
     }
 
-    public void z() {
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.a.e.V();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString)) {
+            return;
+        }
+        String optString2 = jSONObject.optString("data");
+        if (TextUtils.isEmpty(optString2)) {
+            return;
+        }
+        this.a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

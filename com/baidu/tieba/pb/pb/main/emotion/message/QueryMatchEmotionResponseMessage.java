@@ -58,7 +58,6 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
                     emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
                     emotionImageData.setWidth(jSONObject.optInt("width"));
                     emotionImageData.setHeight(jSONObject.optInt("height"));
-                    emotionImageData.setMemeContSign(jSONObject.optString("cont_sign"));
                     arrayList.add(emotionImageData);
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -1,56 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class r64 extends t64 {
+public class r64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r64(@NonNull Context context) {
-        super(BaiduMap.e, context.getString(R.string.obfuscated_res_0x7f0f0cff), "com.baidu.BaiduMap");
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINESE).format(new Date(System.currentTimeMillis())) : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t64
-    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) || latLng == null || latLng2 == null) {
-            return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? mb3.a().getString(str, null) : (String) invokeL.objValue;
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            mb3.a().putString(str, str2);
         }
-        Intent intent = new Intent();
-        Uri.Builder buildUpon = Uri.parse("baidumap://map/direction?").buildUpon();
-        buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
-        buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + "," + latLng2.longitude);
-        buildUpon.appendQueryParameter("mode", "driving");
-        buildUpon.appendQueryParameter("target", "1");
-        buildUpon.appendQueryParameter("src", context.getPackageName());
-        intent.setData(buildUpon.build());
-        context.startActivity(intent);
     }
 }

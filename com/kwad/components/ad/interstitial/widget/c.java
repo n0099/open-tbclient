@@ -215,7 +215,7 @@ public final class c extends b {
                 }
             }
         };
-        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0432, this);
+        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0436, this);
         this.mContext = context;
         initView();
     }
@@ -483,10 +483,10 @@ public final class c extends b {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910e8);
-            this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910e9);
-            this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910d2);
-            this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911b7);
+            this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091106);
+            this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091107);
+            this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910f0);
+            this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911d5);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.mRootView, 100);
         }
     }
@@ -535,7 +535,7 @@ public final class c extends b {
                     }
                 }
             });
-            this.ig.a(new a.InterfaceC0537a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            this.ig.a(new a.InterfaceC0542a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c ir;
@@ -558,7 +558,7 @@ public final class c extends b {
                     this.ir = this;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0537a
+                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0542a
                 public final void dL() {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ir.f1080io) {

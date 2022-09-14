@@ -1,80 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.CardAdvertAppEmptyHolder;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.common.GlobalHistogramBinarizer;
+import com.google.zxing.common.HybridBinarizer;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class hc8 extends cn<n06, CardAdvertAppEmptyHolder> implements ac8 {
+public class hc8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hc8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819020, "Lcom/baidu/tieba/hc8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947819020, "Lcom/baidu/tieba/hc8;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        a = new EnumMap(DecodeHintType.class);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(BarcodeFormat.QR_CODE);
+        arrayList.add(BarcodeFormat.AZTEC);
+        arrayList.add(BarcodeFormat.DATA_MATRIX);
+        arrayList.add(BarcodeFormat.PDF_417);
+        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        a.put(DecodeHintType.CHARACTER_SET, IMAudioTransRequest.CHARSET);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public CardAdvertAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view2 = new View(this.a.getPageActivity());
-            view2.setVisibility(8);
-            return new CardAdvertAppEmptyHolder(view2);
-        }
-        return (CardAdvertAppEmptyHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ac8
-    public void setIsFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n06 n06Var, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n06Var, cardAdvertAppEmptyHolder})) == null) {
-            AdvertAppInfo c = n06Var.c();
-            if (c != null) {
-                lo4.e(c.i, n06Var.position, c.c == -1001);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                int i = 1;
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                int i2 = options.outHeight / 800;
+                if (i2 > 0) {
+                    i = i2;
+                }
+                options.inSampleSize = i;
+                options.inJustDecodeBounds = false;
+                return BitmapFactory.decodeFile(str, options);
+            } catch (Exception unused) {
+                return null;
             }
-            return cardAdvertAppEmptyHolder.getView();
         }
-        return (View) invokeCommon.objValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static String b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        RGBLuminanceSource rGBLuminanceSource;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int[] iArr = new int[width * height];
+                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
+            } catch (Exception e) {
+                e = e;
+                rGBLuminanceSource = null;
+            }
+            try {
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                if (rGBLuminanceSource != null) {
+                    try {
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? b(a(str)) : (String) invokeL.objValue;
     }
 }

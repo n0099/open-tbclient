@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,25 +58,25 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 }
             }
             this.a = view2;
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091010);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09102d);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092405);
         }
 
         public void a(SmartApp smartApp) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
                 this.a.setTag(smartApp);
-                if (!qi.isEmpty(smartApp.avatar)) {
+                if (!dj.isEmpty(smartApp.avatar)) {
                     this.b.setPlaceHolder(1);
                     this.b.L(smartApp.avatar, 10, false, false);
                 }
-                if (!qi.isEmpty(smartApp.name)) {
+                if (!dj.isEmpty(smartApp.name)) {
                     this.c.setText(smartApp.name);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f090b);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f091e);
                 }
             }
         }
@@ -163,7 +163,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     public HistoryRecordViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b8, viewGroup, false)) : (HistoryRecordViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d2, viewGroup, false)) : (HistoryRecordViewHolder) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

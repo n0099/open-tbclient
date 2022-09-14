@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.videocache.kwai;
 
-import com.baidu.tieba.rw;
 import com.kwad.sdk.core.videocache.ProxyCacheException;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +26,7 @@ public final class b implements com.kwad.sdk.core.videocache.a {
                 file2 = new File(parentFile, file.getName() + ".download");
             }
             this.file = file2;
-            this.aeX = new RandomAccessFile(this.file, exists ? "r" : rw.c);
+            this.aeX = new RandomAccessFile(this.file, exists ? "r" : "rw");
         } catch (IOException e) {
             throw new ProxyCacheException("Error using file " + file + " as disc cache", e);
         }

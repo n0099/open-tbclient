@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static String cb(Context context) {
         try {

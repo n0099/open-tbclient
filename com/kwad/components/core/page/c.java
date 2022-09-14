@@ -90,12 +90,12 @@ public final class c implements x.b {
         public final boolean FY;
         public final boolean FZ;
 
-        public b(C0577c c0577c) {
+        public b(C0582c c0582c) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0577c};
+                Object[] objArr = {c0582c};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,20 +105,20 @@ public final class c implements x.b {
                     return;
                 }
             }
-            this.FY = c0577c.FY;
-            this.FZ = c0577c.FZ;
-            this.FD = c0577c.FD;
-            this.FC = c0577c.FC;
+            this.FY = c0582c.FY;
+            this.FZ = c0582c.FZ;
+            this.FD = c0582c.FD;
+            this.FC = c0582c.FC;
         }
 
-        public /* synthetic */ b(C0577c c0577c, byte b) {
-            this(c0577c);
+        public /* synthetic */ b(C0582c c0582c, byte b) {
+            this(c0582c);
         }
     }
 
     /* renamed from: com.kwad.components.core.page.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0577c {
+    public static class C0582c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String FC;
@@ -126,7 +126,7 @@ public final class c implements x.b {
         public boolean FY;
         public boolean FZ;
 
-        public C0577c() {
+        public C0582c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,44 +143,44 @@ public final class c implements x.b {
             this.FZ = true;
         }
 
-        public final C0577c aq(String str) {
+        public final C0582c aq(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 this.FC = str;
                 return this;
             }
-            return (C0577c) invokeL.objValue;
+            return (C0582c) invokeL.objValue;
         }
 
-        public final C0577c ar(String str) {
+        public final C0582c ar(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 this.FD = str;
                 return this;
             }
-            return (C0577c) invokeL.objValue;
+            return (C0582c) invokeL.objValue;
         }
 
-        public final C0577c as(boolean z) {
+        public final C0582c as(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
                 this.FY = true;
                 return this;
             }
-            return (C0577c) invokeZ.objValue;
+            return (C0582c) invokeZ.objValue;
         }
 
-        public final C0577c at(boolean z) {
+        public final C0582c at(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
                 this.FZ = false;
                 return this;
             }
-            return (C0577c) invokeZ.objValue;
+            return (C0582c) invokeZ.objValue;
         }
 
         public final b nI() {
@@ -214,7 +214,7 @@ public final class c implements x.b {
         this.mAdTemplate = adTemplate;
         this.FH = i;
         this.FS = z;
-        this.zO = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03fd, (ViewGroup) null);
+        this.zO = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0401, (ViewGroup) null);
         this.FO = com.kwad.sdk.core.config.d.sf();
     }
 
@@ -323,7 +323,7 @@ public final class c implements x.b {
             com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.zO);
             this.mTitleBarHelper = aVar;
             aVar.a(new com.kwad.components.core.kwai.b(bl));
-            this.mTitleBarHelper.a(new a.InterfaceC0575a(this) { // from class: com.kwad.components.core.page.c.5
+            this.mTitleBarHelper.a(new a.InterfaceC0580a(this) { // from class: com.kwad.components.core.page.c.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c FX;
@@ -346,7 +346,7 @@ public final class c implements x.b {
                     this.FX = this;
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0575a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0580a
                 public final void r(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
@@ -364,7 +364,7 @@ public final class c implements x.b {
                     }
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0575a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0580a
                 public final void s(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
@@ -509,14 +509,14 @@ public final class c implements x.b {
     private void initTipBarView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091226);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091244);
             this.mWebTipBarLayout = linearLayout;
             if (this.mNormalMode) {
                 linearLayout.setVisibility(8);
                 return;
             }
-            this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091227);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091228);
+            this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091245);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091246);
             this.mWebTipBarCloseBtn = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.c.6
                 public static /* synthetic */ Interceptable $ic;
@@ -804,13 +804,13 @@ public final class c implements x.b {
         }
         this.FW = bVar.FD;
         this.mNormalMode = (TextUtils.isEmpty(bVar.FC) || TextUtils.isEmpty(bVar.FD)) ? false : true;
-        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09121d);
-        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910d0);
-        this.FI = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09116e);
-        this.FJ = (TextView) findViewById(R.id.obfuscated_res_0x7f09116b);
-        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f09116c);
-        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f09116a);
-        this.FM = (TextView) findViewById(R.id.obfuscated_res_0x7f09116d);
+        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09123b);
+        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ee);
+        this.FI = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09118c);
+        this.FJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091189);
+        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f09118a);
+        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f091188);
+        this.FM = (TextView) findViewById(R.id.obfuscated_res_0x7f09118b);
         initTipBarView();
         c(bVar);
         nA();

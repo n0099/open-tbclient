@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.mobstat.Config;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class ph2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ph2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
+    public Map<String, jj2> a;
 
     public ph2() {
         Interceptable interceptable = $ic;
@@ -27,25 +28,65 @@ public class ph2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+    }
+
+    public static ph2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ph2.class) {
+                    if (b == null) {
+                        b = new ph2();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ph2) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            if (b != null) {
+                b.b();
+            }
+            b = null;
+        }
+    }
+
+    public final synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                yz1.i("RtcRoomWidgetManager", "release");
+                Iterator it = new ArrayList(this.a.values()).iterator();
+                while (it.hasNext()) {
+                    ((jj2) it.next()).onRelease();
+                }
+                this.a.clear();
             }
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public synchronized void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("userId", this.a);
-                jSONObject.put("displayName", this.b);
-                jSONObject.put(Config.EVENT_ATTR, this.c);
-                jSONObject.put("role", this.d);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this) {
+                yz1.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
+                Iterator it = new ArrayList(this.a.values()).iterator();
+                while (it.hasNext()) {
+                    jj2 jj2Var = (jj2) it.next();
+                    if (TextUtils.equals(jj2Var.b(), str)) {
+                        jj2Var.onRelease();
+                    }
+                }
             }
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

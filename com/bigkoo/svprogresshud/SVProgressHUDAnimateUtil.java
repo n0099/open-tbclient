@@ -1,12 +1,11 @@
 package com.bigkoo.svprogresshud;
 
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SVProgressHUDAnimateUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID = -1;
@@ -31,13 +30,13 @@ public class SVProgressHUDAnimateUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (i == 17) {
-                return z ? R.anim.obfuscated_res_0x7f010132 : R.anim.obfuscated_res_0x7f010133;
+                return z ? com.baidu.tieba.R.anim.svfade_in_center : com.baidu.tieba.R.anim.svfade_out_center;
             } else if (i == 48) {
-                return z ? R.anim.obfuscated_res_0x7f010135 : R.anim.obfuscated_res_0x7f010137;
+                return z ? com.baidu.tieba.R.anim.svslide_in_top : com.baidu.tieba.R.anim.svslide_out_top;
             } else if (i != 80) {
                 return -1;
             } else {
-                return z ? R.anim.obfuscated_res_0x7f010134 : R.anim.obfuscated_res_0x7f010136;
+                return z ? com.baidu.tieba.R.anim.svslide_in_bottom : com.baidu.tieba.R.anim.svslide_out_bottom;
             }
         }
         return invokeCommon.intValue;

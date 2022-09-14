@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class f97 extends za {
+public class f97 {
     public static /* synthetic */ Interceptable $ic;
+    public static f97 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f97() {
-        super(202009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,44 +28,197 @@ public class f97 extends za {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wa
-    /* renamed from: c */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public static f97 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage instanceof PushResponseMessage) {
-                if (socketResponsedMessage.getError() == 110000) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-                }
-                PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
-                if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
-                    CustomMessage customMessage = new CustomMessage(2012100);
-                    customMessage.setData(pushResponseMessage.getNotificationData());
-                    MessageManager.getInstance().sendMessage(customMessage);
-                    return null;
-                }
-                List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
-                if (groupMsg != null && groupMsg.size() > 0) {
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (f97.class) {
+                    if (a == null) {
+                        a = new f97();
                     }
                 }
-                return socketResponsedMessage;
             }
-            return null;
+            return a;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (f97) invokeV.objValue;
+    }
+
+    public SQLiteStatement a(String str) {
+        InterceptResult invokeL;
+        SQLiteDatabase c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (c = e97.c()) == null) {
+                return null;
+            }
+            try {
+                return c.compileStatement(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (SQLiteStatement) invokeL.objValue;
+    }
+
+    public void b() {
+        SQLiteDatabase c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (c = e97.c()) == null) {
+            return;
+        }
+        BdLog.i("begin commit transaction");
+        if (c.inTransaction()) {
+            try {
+                c.setTransactionSuccessful();
+                c.endTransaction();
+                return;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
+                BdLog.e(e.getMessage());
+                qw4.a("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+                return;
+            }
+        }
+        BdLog.e("there is no current transaction");
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            SQLiteDatabase c = e97.c();
+            if (c == null) {
+                return false;
+            }
+            try {
+                c.execSQL(str);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                qw4.a("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean delete(String str, String str2, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, strArr)) == null) {
+            SQLiteDatabase c = e97.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return c.delete(str, str2, strArr) > 0;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public Cursor e(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, strArr)) == null) {
+            SQLiteDatabase c = e97.c();
+            if (c == null) {
+                return null;
+            }
+            try {
+                return c.rawQuery(str, strArr);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage() + str);
+                return null;
+            }
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    public void f() {
+        SQLiteDatabase c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (c = e97.c()) == null) {
+            return;
+        }
+        if (c.inTransaction()) {
+            BdLog.e("there is exist transaction");
+            return;
+        }
+        try {
+            c.beginTransaction();
+            BdLog.i("db.beginTransaction");
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
+            BdLog.e(e.getMessage());
+            qw4.a("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+        }
+    }
+
+    public long insert(SQLiteStatement sQLiteStatement) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sQLiteStatement)) == null) {
+            if (sQLiteStatement == null) {
+                return -1L;
+            }
+            try {
+                return sQLiteStatement.executeInsert();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                qw4.a("im", -1L, 0, "im_check: update error:" + e.getMessage(), -1, "", new Object[0]);
+                return -1L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, contentValues, str2, strArr)) == null) {
+            SQLiteDatabase c = e97.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            try {
+                return c.update(str, contentValues, str2, strArr);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                qw4.a("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
+                return -1;
+            }
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public long insert(String str, String str2, ContentValues contentValues) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, contentValues)) == null) {
+            SQLiteDatabase c = e97.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return -1L;
+            }
+            try {
+                return c.insert(str, str2, contentValues);
+            } catch (Exception e) {
+                qw4.a("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
+                BdLog.e(e.getMessage());
+                return -1L;
+            }
+        }
+        return invokeLLL.longValue;
     }
 }

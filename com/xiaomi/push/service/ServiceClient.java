@@ -98,7 +98,7 @@ public class ServiceClient {
         this.f835a = new ArrayList();
         this.f838b = false;
         this.f833a = context.getApplicationContext();
-        if (m574a()) {
+        if (m575a()) {
             com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
             this.f836a = true;
         }
@@ -116,9 +116,9 @@ public class ServiceClient {
             }
             Intent intent2 = new Intent();
             intent2.setPackage("com.xiaomi.xmsf");
-            intent2.setClassName("com.xiaomi.xmsf", m570a());
+            intent2.setClassName("com.xiaomi.xmsf", m571a());
             intent2.putExtra(bk.B, this.f833a.getPackageName());
-            m572a();
+            m573a();
             return intent2;
         }
         return (Intent) invokeV.objValue;
@@ -137,7 +137,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private String m570a() {
+    private String m571a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
@@ -188,7 +188,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m572a() {
+    private void m573a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             this.f833a.getPackageManager().setComponentEnabledSetting(new ComponentName(this.f833a, XMPushService.class), 2, 1);
@@ -196,7 +196,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m573a(Intent intent) {
+    private synchronized void m574a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, intent) == null) {
             synchronized (this) {
@@ -254,7 +254,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m574a() {
+    private boolean m575a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
@@ -319,7 +319,7 @@ public class ServiceClient {
                     if (!TextUtils.isEmpty(a3)) {
                         gk gkVar = new gk("pf", null, null, null);
                         gk gkVar2 = new gk("sent", null, null, null);
-                        gkVar2.m368a(a3);
+                        gkVar2.m369a(a3);
                         gkVar.a(gkVar2);
                         gmVarArr[i].a(gkVar);
                     }
@@ -479,7 +479,7 @@ public class ServiceClient {
                 if (!TextUtils.isEmpty(a3)) {
                     gk gkVar = new gk("pf", null, null, null);
                     gk gkVar2 = new gk("sent", null, null, null);
-                    gkVar2.m368a(a3);
+                    gkVar2.m369a(a3);
                     gkVar.a(gkVar2);
                     gmVar.a(gkVar);
                 }
@@ -505,7 +505,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, bArr, str, str2)) == null) {
             if (!com.xiaomi.push.bj.b(this.f833a) || bArr == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                com.xiaomi.channel.commonutils.logger.b.m89a("Failed to send message: message|userId|chid may be empty, or the network is unavailable.");
+                com.xiaomi.channel.commonutils.logger.b.m90a("Failed to send message: message|userId|chid may be empty, or the network is unavailable.");
                 return false;
             }
             Intent a2 = a();
@@ -575,11 +575,11 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, intent)) == null) {
             try {
-                if (com.xiaomi.push.m.m560a() || Build.VERSION.SDK_INT < 26) {
+                if (com.xiaomi.push.m.m561a() || Build.VERSION.SDK_INT < 26) {
                     this.f833a.startService(intent);
                     return true;
                 }
-                m573a(intent);
+                m574a(intent);
                 return true;
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);

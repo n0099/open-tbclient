@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +83,7 @@ public class PBMediaView extends FrameLayout {
             int a = M.a(context, 15);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a, a);
             layoutParams.gravity = 3;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081268);
+            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0812a7);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }

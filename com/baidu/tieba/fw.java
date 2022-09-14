@@ -1,55 +1,87 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.StatFs;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class fw {
+public class fw extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
+    public static fw b;
     public transient /* synthetic */ FieldHolder $fh;
+    public lw a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304892, "Lcom/baidu/tieba/fw;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fw() {
+        super(null);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448304892, "Lcom/baidu/tieba/fw;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static float a() {
+    public static synchronized fw a() {
         InterceptResult invokeV;
-        long j;
-        StatFs statFs;
+        fw fwVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long j2 = 0;
-            try {
-                statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j = statFs.getBlockSize();
-            } catch (Exception e) {
-                e = e;
-                j = 0;
+            synchronized (fw.class) {
+                if (b == null) {
+                    b = new fw();
+                }
+                fwVar = b;
             }
-            try {
-                j2 = statFs.getAvailableBlocks();
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return ((float) (j2 * j)) / 1024.0f;
-            }
-            return ((float) (j2 * j)) / 1024.0f;
+            return fwVar;
         }
-        return invokeV.floatValue;
+        return (fw) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            super.attachBaseContext(context);
+        }
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            if (vw.c(this)) {
+                return hw.a(str, this);
+            }
+            return super.getSharedPreferences(str, i);
+        }
+        return (SharedPreferences) invokeLI.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.content.ContextWrapper, android.content.Context
+    public lw getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = new lw(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+            }
+            return this.a;
+        }
+        return (lw) invokeV.objValue;
     }
 }

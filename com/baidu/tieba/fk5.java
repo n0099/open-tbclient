@@ -1,25 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface fk5 extends lk5<nk5> {
+public abstract class fk5 implements ek5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ik5 a;
+    public xj5 b;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(nk5 nk5Var, View view2);
-
-        void b(nk5 nk5Var, View view2);
+    public fk5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void a(int i);
+    public void d(ik5 ik5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ik5Var) == null) {
+            this.a = ik5Var;
+        }
+    }
 
-    void c(Object obj);
+    @Override // com.baidu.tieba.ek5
+    public abstract void dismiss();
 
-    View getView();
+    public abstract void e();
 
-    void h(a aVar);
+    public abstract void f();
 
-    void j();
+    public abstract void g();
 
-    void l(int i);
+    public abstract void h(ck5 ck5Var);
 }

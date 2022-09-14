@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class tx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public BreatheTipWidget.PointType a;
     public int b;
+    public int c;
 
     public tx4() {
         Interceptable interceptable = $ic;
@@ -23,19 +24,6 @@ public class tx4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("logined");
-            this.b = jSONObject.optInt("unlogin");
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

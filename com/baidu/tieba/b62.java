@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.tieba.ic3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,184 +13,208 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class b62 implements c62 {
+public class b62 extends g62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<e62> a;
-    public boolean b;
+    public final boolean k;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-965193970, "Lcom/baidu/tieba/b62$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-965193970, "Lcom/baidu/tieba/b62$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947596843, "Lcom/baidu/tieba/b62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[RecordType.values().length];
-            a = iArr;
-            try {
-                iArr[RecordType.APP_ID.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RecordType.APP_VERSION.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947596843, "Lcom/baidu/tieba/b62;");
+                return;
             }
         }
+        l = ij1.a;
     }
 
-    public b62() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public b62(rh3<Exception> rh3Var) {
+        this(rh3Var, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rh3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((rh3) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
     }
 
-    public void a(String str, UbcFlowEvent ubcFlowEvent) {
+    @Override // com.baidu.tieba.ta4
+    public Map<String, String> B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, ubcFlowEvent) == null) && b(str)) {
-            fu2.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Map<String, String> B = super.B();
+            if (this.k && ef4.a) {
+                if (B == null) {
+                    B = new HashMap<>();
+                }
+                B.put("hb_type", "1");
+                B.put("lastsynctime", String.valueOf(ef4.c));
+                B.put("SWAN-TIMEOUT-SETTING", String.valueOf(ef4.b(60) * 1000));
+            }
+            return B;
         }
+        return (Map) invokeV.objValue;
     }
 
-    public final boolean b(String str) {
+    @Override // com.baidu.tieba.g62
+    public int U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.g62
+    public PMSDownloadType V() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PMSDownloadType.SWAN_APP_UPDATE_CORE : (PMSDownloadType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g62
+    public String W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q62.d() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g62
+    public String X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? q62.h() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g62
+    public re3 b0(tb4 tb4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
-    }
-
-    public final void c(HybridUbcFlow hybridUbcFlow, e62 e62Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, e62Var) == null) || hybridUbcFlow == null || e62Var == null) {
-            return;
-        }
-        switch (a.a[e62Var.a.ordinal()]) {
-            case 1:
-                hybridUbcFlow.D("app_id", e62Var.b);
-                return;
-            case 2:
-                hybridUbcFlow.D("app_version", e62Var.b);
-                return;
-            case 3:
-                hybridUbcFlow.E("type", e62Var.c ? "hot" : "cold");
-                return;
-            case 4:
-                hybridUbcFlow.E("source", e62Var.b);
-                return;
-            case 5:
-                hybridUbcFlow.D("msg", e62Var.b);
-                return;
-            case 6:
-                synchronized (this.a) {
-                    this.a.add(e62Var);
-                }
-                return;
-            default:
-                return;
-        }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) && b(str)) {
-            fu2.q(PrefetchEvent.MODULE, str).E("value", z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0);
-        }
-    }
-
-    public void e(String str, e62 e62Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, e62Var) == null) && b(str)) {
-            c(fu2.q(PrefetchEvent.MODULE, str), e62Var);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && b(str)) {
-            fu2.s(PrefetchEvent.MODULE, str);
-            fu2.q(PrefetchEvent.MODULE, str);
-        }
-    }
-
-    public final void g(HybridUbcFlow hybridUbcFlow) {
-        List<e62> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) || hybridUbcFlow == null || (list = this.a) == null || list.size() <= 0) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONArray jSONArray = new JSONArray();
-        synchronized (this.a) {
-            try {
-                for (e62 e62Var : this.a) {
-                    String str = e62Var.b;
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("url", str);
-                    jSONObject2.put("link", e62Var.c ? "1" : "0");
-                    jSONArray.put(jSONObject2);
-                }
-                jSONObject.put("links", jSONArray);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tb4Var)) == null) {
+            if (tb4Var == null) {
+                re3 re3Var = new re3();
+                re3Var.k(14L);
+                re3Var.b(2908L);
+                re3Var.d("小程序Extension包 Extension null");
+                return re3Var;
             }
-            this.a.clear();
+            ee2 ee2Var = new ee2();
+            ee2Var.b = tb4Var.i;
+            ee2Var.a = tb4Var.j;
+            ee2Var.c = tb4Var.a;
+            ee2Var.d = tb4Var.m;
+            if (hd2.b(0, ee2Var) == null) {
+                if (l) {
+                    Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
+                }
+                boolean m = fm2.g0().m();
+                if (l) {
+                    Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + m);
+                }
+                if (m) {
+                    if (l) {
+                        Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
+                    }
+                    kd2 f = hd2.f(0);
+                    if (f == null) {
+                        return null;
+                    }
+                    long g = f.f().g();
+                    if (g > 0) {
+                        if (l) {
+                            Log.d("SwanAppUpdateCore", "发送extension core更新事件");
+                        }
+                        SwanAppMessengerService.sendMessageWithDataToAllClient(121, g);
+                    }
+                }
+                return null;
+            }
+            re3 re3Var2 = new re3();
+            re3Var2.k(14L);
+            re3Var2.b(2908L);
+            re3Var2.d("小程序Extension包更新失败");
+            return re3Var2;
         }
-        if (jSONObject.length() > 0) {
-            hybridUbcFlow.D("prelink", jSONObject.toString());
-        }
+        return (re3) invokeL.objValue;
     }
 
-    public void h(String str) {
+    @Override // com.baidu.tieba.g62
+    public re3 c0(vb4 vb4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
-            this.b = true;
-            HybridUbcFlow q = fu2.q(PrefetchEvent.MODULE, str);
-            g(q);
-            q.A();
-            fu2.s(PrefetchEvent.MODULE, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, vb4Var)) == null) {
+            if (l) {
+                Log.d("SwanAppUpdateCore", "onFrameworkDownloadFinish framework = " + vb4Var);
+            }
+            if (vb4Var == null) {
+                re3 re3Var = new re3();
+                re3Var.k(13L);
+                re3Var.b(2907L);
+                re3Var.d("小程序Core包 Framework null");
+                return re3Var;
+            }
+            ic3.b c = ic3.c(vb4Var, 0);
+            yz1.k("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c);
+            cj4.k(vb4Var.a);
+            if (c.c()) {
+                long e = ic3.e(0);
+                if (e > 0) {
+                    SwanJSVersionUpdateEvent.sendEvent(e);
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(114, e);
+                    return null;
+                }
+                return null;
+            }
+            re3 re3Var2 = new re3();
+            re3Var2.k(13L);
+            re3Var2.b(2907L);
+            re3Var2.d("小程序Core包更新失败");
+            return re3Var2;
         }
+        return (re3) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b62(rh3<Exception> rh3Var, boolean z) {
+        super(rh3Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rh3Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((rh3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.k = z;
     }
 }

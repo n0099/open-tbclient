@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.hg;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg<TbImageView> a;
+    public ug<TbImageView> a;
     public Context b;
     public boolean c;
     public int d;
@@ -74,7 +74,7 @@ public class UserIconBox extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements hg<TbImageView> {
+    public static class b implements vg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -99,7 +99,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.hg
+        @Override // com.baidu.tieba.vg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -108,7 +108,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.hg
+        @Override // com.baidu.tieba.vg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -122,7 +122,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hg
+        @Override // com.baidu.tieba.vg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hg
+        @Override // com.baidu.tieba.vg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -159,7 +159,7 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface c<T extends View> {
-        gg<TbImageView> G();
+        ug<TbImageView> H();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -185,10 +185,10 @@ public class UserIconBox extends LinearLayout {
         f(context);
     }
 
-    public static gg<TbImageView> c(Context context, int i) {
+    public static ug<TbImageView> c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) ? new gg<>(new b(context), i, 0) : (gg) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) ? new ug<>(new b(context), i, 0) : (ug) invokeLI.objValue;
     }
 
     public final boolean b(int i) {
@@ -219,8 +219,8 @@ public class UserIconBox extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            gg<TbImageView> ggVar = this.a;
-            TbImageView b2 = ggVar != null ? ggVar.b() : null;
+            ug<TbImageView> ugVar = this.a;
+            TbImageView b2 = ugVar != null ? ugVar.b() : null;
             return (b2 == null || b2.getParent() != null) ? new TbImageView(context) : b2;
         }
         return (TbImageView) invokeL.objValue;
@@ -245,7 +245,7 @@ public class UserIconBox extends LinearLayout {
             setGravity(16);
             Context context2 = this.b;
             if (context2 instanceof c) {
-                this.a = ((c) context2).G();
+                this.a = ((c) context2).H();
             }
             setOnHierarchyChangeListener(new a(this));
         }

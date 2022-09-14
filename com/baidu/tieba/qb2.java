@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.wj2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.sc2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,37 +21,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class qb2 {
+public class qb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final File a;
-    public static final byte[] b;
+    public static final boolean a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements wj2.c {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ Set a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ re4 c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ sc2.b e;
+        public final /* synthetic */ qb2 f;
 
-        public a(CallbackHandler callbackHandler, String str, String str2) {
+        public a(qb2 qb2Var, Set set, boolean z, re4 re4Var, long j, sc2.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, str, str2};
+                Object[] objArr = {qb2Var, set, Boolean.valueOf(z), re4Var, Long.valueOf(j), bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,54 +64,93 @@ public final class qb2 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.f = qb2Var;
+            this.a = set;
+            this.b = z;
+            this.c = re4Var;
+            this.d = j;
+            this.e = bVar;
         }
 
-        @Override // com.baidu.tieba.wj2.c
-        public void a(int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ay1.k("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.c);
-                if (this.a == null || TextUtils.isEmpty(this.b)) {
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                HashSet hashSet = new HashSet();
+                Set set = this.a;
+                if (set != null) {
+                    hashSet.addAll(set);
                 }
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    File j = qb2.j();
-                    ay1.k("DebugDynamicLibControl", "debug动态库下载成功 file=" + j.getAbsolutePath());
-                    Pair g = qb2.g(j);
-                    if (!((Boolean) g.first).booleanValue()) {
-                        ay1.k("DebugDynamicLibControl", "debug动态库解密失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
-                        return;
-                    } else if (((Boolean) qb2.s((File) g.second).first).booleanValue()) {
-                        qb2.r(true);
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                        return;
-                    } else {
-                        ay1.k("DebugDynamicLibControl", "debug动态库解压失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
+                Set<String> f = ul2.f();
+                hashSet.addAll(f);
+                yz1.k("SwanAppDiskCleaner", "排除正在活动的小程：" + f);
+                Set<String> b = nb2.b();
+                hashSet.addAll(b);
+                yz1.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b);
+                Map<String, PMSAppInfo> v = va4.i().v();
+                if (kb2.c().d().n(v)) {
+                    if (qb2.a) {
+                        Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
+                    }
+                    ul2.d(hashSet, v);
+                    Map m = this.f.m(86400000L, v);
+                    if (m.isEmpty()) {
                         return;
                     }
+                    ArrayList arrayList = new ArrayList(m.keySet());
+                    qb2.k(hashSet, arrayList);
+                    ArrayList arrayList2 = new ArrayList();
+                    ArrayList arrayList3 = new ArrayList();
+                    qb2.l(arrayList, arrayList2, arrayList3);
+                    ArrayList arrayList4 = new ArrayList();
+                    int max = Math.max(10, this.b ? qb2.b : this.c.d);
+                    qb2.r(arrayList3, max, arrayList4);
+                    long j = this.c.e;
+                    qb2.q(arrayList3, j * 3600000, arrayList4, m);
+                    int max2 = Math.max(40, this.b ? qb2.c : this.c.b);
+                    qb2.r(arrayList2, max2, arrayList4);
+                    long j2 = this.c.c;
+                    qb2.q(arrayList2, 3600000 * j2, arrayList4, m);
+                    yz1.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.d + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
+                    kb2.c().d().g(arrayList4, false, false, this.e);
+                    q62.c();
+                    return;
                 }
-                ay1.k("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.a + " cb=" + this.b);
+                yz1.k("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
             }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Comparator<PMSAppInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, pMSAppInfo2)) == null) ? Long.compare(pMSAppInfo2.createTime, pMSAppInfo.createTime) : invokeLL.intValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
@@ -120,246 +167,169 @@ public final class qb2 {
                 return;
             }
         }
-        a = wj2.q();
-        b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
+        a = ij1.a;
+        fm2.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
+        b = 0;
+        fm2.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
+        c = 0;
     }
 
-    public static File d(String str) {
-        InterceptResult invokeL;
+    public qb2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return new File(a.getAbsolutePath() + File.separator + str + File.separator + "debug_dynamic");
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ch4.j(j());
-            ch4.j(k());
-            for (File file : n()) {
-                ch4.j(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void f() {
+    public static void k(Set<String> set, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            r(false);
-            e();
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static Pair<Boolean, File> g(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, file)) != null) {
-            return (Pair) invokeL.objValue;
-        }
-        if (file != null && file.exists()) {
-            File file2 = new File(file.getAbsolutePath() + ".zip");
-            try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                try {
-                    byte[] bArr = new byte[16];
-                    fileInputStream.skip(10L);
-                    fileInputStream.read(bArr, 0, 10);
-                    fileInputStream.skip(5L);
-                    fileInputStream.read(bArr, 10, 6);
-                    fileInputStream.skip(3L);
-                    byte[] bArr2 = new byte[fileInputStream.available()];
-                    fileInputStream.read(bArr2);
-                    file2.deleteOnExit();
-                    file2.createNewFile();
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(b, "AES");
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(2, secretKeySpec, ivParameterSpec);
-                    fileOutputStream.write(cipher.doFinal(bArr2));
-                    fileOutputStream.flush();
-                    Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, file2);
-                    fileOutputStream.close();
-                    fileInputStream.close();
-                    return pair;
-                } finally {
-                }
-            } catch (Exception e) {
-                ay1.l("DebugDynamicLibControl", "debug动态库解密失败: ", e);
-                return new Pair<>(Boolean.FALSE, null);
-            }
-        } else {
-            return new Pair<>(Boolean.FALSE, null);
-        }
-    }
-
-    public static synchronized void h(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, callbackHandler, str2) == null) {
-            synchronized (qb2.class) {
-                if (TextUtils.isEmpty(str)) {
-                    ay1.k("DebugDynamicLibControl", "download url is empty");
-                } else {
-                    wj2.H(str, new a(callbackHandler, str2, str));
-                }
-            }
-        }
-    }
-
-    public static Pair<Boolean, File> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            File d = d(str);
-            if (d.exists() && d.isDirectory()) {
-                return new Pair<>(Boolean.TRUE, d);
-            }
-            return new Pair<>(Boolean.FALSE, null);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static File j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new File(sl2.d().get(0).a, "debugDynamicLib.zip") : (File) invokeV.objValue;
-    }
-
-    public static File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new File(sl2.d().get(0).a, "aiapps_debug_dynamic_lib") : (File) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? o93.a().getBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", false) : invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? l() : invokeV.booleanValue;
-    }
-
-    public static List<File> n() {
-        InterceptResult invokeV;
-        File[] C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : ch4.C(a)) {
-                if (file.isDirectory()) {
-                    File[] C2 = ch4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
-                                arrayList.add(file2);
-                                break;
-                            }
-                            i++;
-                        }
+        if (interceptable == null || interceptable.invokeLL(65546, null, set, list) == null) {
+            if (set != null) {
+                Iterator<String> it = list.iterator();
+                while (it.hasNext()) {
+                    if (set.contains(it.next())) {
+                        it.remove();
                     }
                 }
             }
-            return arrayList;
+            list.remove("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
         }
-        return (List) invokeV.objValue;
+    }
+
+    public static void l(@NonNull List<String> list, @NonNull List<String> list2, @NonNull List<String> list3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, list, list2, list3) == null) {
+            Set<String> i = ba2.i(AppRuntime.getAppContext().getContentResolver());
+            List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
+            HashSet hashSet = new HashSet();
+            for (SwanFavorItemData swanFavorItemData : i2) {
+                hashSet.add(swanFavorItemData.getAppKey());
+            }
+            for (String str : list) {
+                if (!i.contains(str) && !hashSet.contains(str)) {
+                    list3.add(str);
+                } else {
+                    list2.add(str);
+                }
+            }
+        }
+    }
+
+    public static boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? mb3.a().getBoolean("key_disk_force_clean", false) : invokeV.booleanValue;
+    }
+
+    public static boolean o(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) ? System.currentTimeMillis() - mb3.a().getLong("clean_disk_check_time", 0L) < j : invokeJ.booleanValue;
+    }
+
+    public static void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            mb3.a().putBoolean("key_disk_force_clean", z);
+        }
+    }
+
+    public static void q(List<String> list, long j, List<String> list2, Map<String, Long> map) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{list, Long.valueOf(j), list2, map}) == null) {
+            Iterator<String> it = list.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!TextUtils.isEmpty(next) && (l = map.get(next)) != null && j < System.currentTimeMillis() - l.longValue()) {
+                    list2.add(next);
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public static void r(List<String> list, int i, List<String> list2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65552, null, list, i, list2) == null) || list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+            return;
+        }
+        Iterator<String> it = list.iterator();
+        int i2 = 0;
+        while (it.hasNext()) {
+            String next = it.next();
+            if (!TextUtils.isEmpty(next)) {
+                int i3 = i2 + 1;
+                if (i2 >= i) {
+                    list2.add(next);
+                    it.remove();
+                }
+                i2 = i3;
+            }
+        }
+    }
+
+    @AnyThread
+    public synchronized void i(@Nullable Set<String> set, boolean z, sc2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
+            synchronized (this) {
+                j(set, z, bVar);
+            }
+        }
+    }
+
+    @AnyThread
+    public synchronized void j(@Nullable Set<String> set, boolean z, sc2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
+            synchronized (this) {
+                if (!ProcessUtils.isMainProcess()) {
+                    if (a) {
+                        Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
+                    }
+                    return;
+                }
+                yz1.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
+                re4 a2 = se4.b().a();
+                boolean z2 = z && ob2.a();
+                long j = a2.a;
+                if (z2 || !o(3600000 * j)) {
+                    mb3.a().putLong("clean_disk_check_time", System.currentTimeMillis());
+                    ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, bVar), "cleanDiskSpaceOptimized");
+                }
+            }
+        }
     }
 
     @NonNull
-    public static List<String> o() {
-        InterceptResult invokeV;
-        File[] C;
+    @WorkerThread
+    public final Map<String, Long> m(long j, Map<String, PMSAppInfo> map) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : ch4.C(a)) {
-                if (file.isDirectory()) {
-                    File[] C2 = ch4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
-                                arrayList.add(file.getName());
-                                break;
-                            }
-                            i++;
-                        }
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, map)) == null) {
+            if (map != null && !map.isEmpty()) {
+                ArrayList<PMSAppInfo> arrayList = new ArrayList(map.values());
+                Collections.sort(arrayList, new b(null));
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                for (PMSAppInfo pMSAppInfo : arrayList) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long j2 = pMSAppInfo.createTime;
+                    if (currentTimeMillis - j2 > j) {
+                        linkedHashMap.put(pMSAppInfo.appId, Long.valueOf(j2));
                     }
                 }
+                return linkedHashMap;
             }
-            return arrayList;
+            return Collections.emptyMap();
         }
-        return (List) invokeV.objValue;
-    }
-
-    public static void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            r(true);
-        }
-    }
-
-    public static String q(File file) throws Exception {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, file)) == null) {
-            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                ch4.e(listFiles[0], file);
-                ch4.j(listFiles[0]);
-            }
-            return (String) new JSONObject(ch4.E(new File(file, "dynamicLib.json"))).get("name");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
-            o93.a().putBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", z);
-        }
-    }
-
-    public static Pair<Boolean, String> s(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, file)) == null) {
-            String str = "";
-            boolean z = false;
-            try {
-                File k = k();
-                ch4.l(k);
-                if (file.exists() && ch4.U(file.getAbsolutePath(), k.getAbsolutePath())) {
-                    str = q(k);
-                    File d = d(str);
-                    if (d.exists()) {
-                        ch4.j(d);
-                    }
-                    d.mkdirs();
-                    ch4.e(k, d);
-                    ch4.j(k);
-                    ch4.j(file);
-                    z = true;
-                }
-            } catch (Exception e) {
-                ay1.k("DebugDynamicLibControl", "debug动态库解压异常: " + e.toString());
-            }
-            ay1.k("DebugDynamicLibControl", "debug动态库解压结果: unzipSuccess=" + z + " dynamicLibName=" + str);
-            return new Pair<>(Boolean.valueOf(z), str);
-        }
-        return (Pair) invokeL.objValue;
+        return (Map) invokeJL.objValue;
     }
 }

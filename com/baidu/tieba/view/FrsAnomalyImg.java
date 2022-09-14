@@ -19,9 +19,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.lg;
+import com.baidu.tieba.on;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,10 +48,10 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public Shader o;
     public final Matrix p;
     public boolean q;
-    public final kg<an> r;
+    public final yg<on> r;
 
     /* loaded from: classes6.dex */
-    public class a extends kg<an> {
+    public class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsAnomalyImg a;
@@ -74,7 +74,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             this.a = frsAnomalyImg;
         }
 
-        @Override // com.baidu.tieba.kg
+        @Override // com.baidu.tieba.yg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -82,7 +82,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             }
         }
 
-        @Override // com.baidu.tieba.kg
+        @Override // com.baidu.tieba.yg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -91,15 +91,15 @@ public class FrsAnomalyImg extends AppCompatImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(an anVar, String str, int i) {
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, anVar, str, i) == null) || anVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onVar, str, i) == null) || onVar == null) {
                 return;
             }
-            this.a.m = anVar.r();
-            this.a.n = anVar.m();
-            this.a.o = anVar.d();
+            this.a.m = onVar.r();
+            this.a.n = onVar.m();
+            this.a.o = onVar.d();
             this.a.invalidate();
         }
     }
@@ -364,14 +364,14 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public void q(String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, bdUniqueId) == null) {
-            lg.h().k(str, 10, this.r, this.h, this.i, bdUniqueId, new Object[0]);
+            zg.h().k(str, 10, this.r, this.h, this.i, bdUniqueId, new Object[0]);
         }
     }
 
     public final void r() {
         Drawable pureDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080941, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095d, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
             return;
         }
         this.k = pureDrawable.getIntrinsicHeight();

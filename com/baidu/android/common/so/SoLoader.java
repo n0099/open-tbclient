@@ -7,8 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.mn4;
-import com.baidu.tieba.rw;
+import com.baidu.tieba.np4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +54,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = mn4.e();
+        DEBUG = np4.e();
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -142,7 +141,7 @@ public final class SoLoader {
                         }
                     }
                     try {
-                        fileChannel2 = new RandomAccessFile(file2, rw.c).getChannel();
+                        fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         fileChannel2 = null;

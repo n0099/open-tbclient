@@ -38,7 +38,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RequestManager implements LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DECODE_TYPE_BITMAP;
@@ -56,7 +56,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public final TargetTracker targetTracker;
     public final RequestManagerTreeNode treeNode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class ClearTarget extends ViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -370,7 +370,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public void setRequestOptions(@NonNull RequestOptions requestOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, requestOptions) == null) {
-            this.requestOptions = requestOptions.m75clone().autoClone();
+            this.requestOptions = requestOptions.m76clone().autoClone();
         }
     }
 

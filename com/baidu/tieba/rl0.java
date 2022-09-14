@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
 public interface rl0 {
-    void a();
-
-    void b(Bitmap bitmap);
+    <T extends pl0> void a(ul0 ul0Var, sl0<T> sl0Var, T t);
 }

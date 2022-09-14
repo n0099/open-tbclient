@@ -1,68 +1,79 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes4.dex */
-public class l93 extends k93 {
+public final class l93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l93() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aa3 a;
+
+        public a(aa3 aa3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aa3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aa3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                f93.k("1719", this.a.f());
             }
         }
     }
 
-    @Override // com.baidu.tieba.k93
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(j93 j93Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, j93Var)) == null) {
-            Bundle bundle = new Bundle();
-            i93 b = o93.b(j93Var.a);
-            if (b == null) {
-                if (k93.a) {
-                    throw new IllegalArgumentException("illegal sp.");
-                }
-                return bundle;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897667, "Lcom/baidu/tieba/l93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int i = j93Var.b;
-            if (i == 1) {
-                bundle.putInt("result_value", b.getInt(j93Var.c, Integer.parseInt(j93Var.d)));
-            } else if (i == 2) {
-                bundle.putLong("result_value", b.getLong(j93Var.c, Long.parseLong(j93Var.d)));
-            } else if (i == 3) {
-                bundle.putBoolean("result_value", b.getBoolean(j93Var.c, Boolean.parseBoolean(j93Var.d)));
-            } else if (i == 4) {
-                bundle.putString("result_value", b.getString(j93Var.c, j93Var.d));
-            } else if (i != 5) {
-                if (k93.a) {
-                    throw new IllegalArgumentException("wrong info params.");
-                }
-            } else {
-                bundle.putFloat("result_value", b.getFloat(j93Var.c, Float.parseFloat(j93Var.d)));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947897667, "Lcom/baidu/tieba/l93;");
+                return;
             }
-            if (k93.a) {
-                Log.d("SwanAppSpDelegation", "Get: " + j93Var);
-            }
-            return bundle;
         }
-        return (Bundle) invokeL.objValue;
+        a = ij1.a;
+    }
+
+    public static void onEvent(aa3 aa3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, aa3Var) == null) {
+            if (aa3Var == null) {
+                if (a) {
+                    Log.w("SwanAppPermissionDialogUbc", "event is null");
+                    return;
+                }
+                return;
+            }
+            sf3.j(new a(aa3Var), "SwanAppPermissionDialogUbc");
+        }
     }
 }

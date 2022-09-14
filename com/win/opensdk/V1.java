@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import android.widget.Toast;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,13 +51,13 @@ public class V1 {
             } else {
                 if (info.getOpent() == 1) {
                     if (N.d.c) {
-                        Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f15b2), 1).show();
+                        Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d2), 1).show();
                         e1.a(context).c(new f1(info), 5).a();
                         return;
                     }
                     if (!TextUtils.isEmpty(info.getDl_name())) {
                         Context applicationContext = context.getApplicationContext();
-                        Toast.makeText(applicationContext, context.getString(R.string.obfuscated_res_0x7f0f15b6) + info.getDl_name(), 0).show();
+                        Toast.makeText(applicationContext, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d6) + info.getDl_name(), 0).show();
                     }
                     d1 a = e1.a(context);
                     f1 f1Var = new f1(info);

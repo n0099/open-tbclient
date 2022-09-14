@@ -1,93 +1,195 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.text.SpannableStringBuilder;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.sw;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cz7 extends zy7 {
+public class cz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public TextView g;
+    public a19 a;
+    public a19 b;
+    public EditText c;
+    public EditText d;
+    public PostWriteCallBackData e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cz7(TbPageContext tbPageContext, int i) {
-        super(tbPageContext);
+    public cz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        a19 a19Var = new a19();
+        this.a = a19Var;
+        a19Var.j(R.color.CAM_X0101);
+        this.a.h(R.color.cp_cont_h_alpha85);
+        a19 a19Var2 = new a19();
+        this.b = a19Var2;
+        a19Var2.j(R.color.CAM_X0101);
+        this.b.h(R.color.cp_cont_h_alpha85);
     }
 
-    @Override // com.baidu.tieba.zy7
-    public View a() {
-        InterceptResult invokeV;
+    public void a(boolean z) {
+        EditText editText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d020e, (ViewGroup) null);
-            this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0920ac);
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zy7
-    public void b(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (editText = this.c) == null || editText.getText() == null) {
             return;
         }
-        this.e = i;
-        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-    }
-
-    @Override // com.baidu.tieba.zy7
-    public void c(OriginalThreadInfo originalThreadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0d11)));
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        int selectionEnd = this.c.getSelectionEnd();
+        SpannableStringBuilder f = this.a.f(this.c.getText());
+        if (f != null) {
+            this.a.l(true);
+            this.c.setText(f);
+            if (z && this.a.b() >= 0) {
+                this.c.requestFocus();
+                this.c.setSelection(this.a.b());
+            } else {
+                this.c.setSelection(selectionEnd);
+            }
+            a19 a19Var = this.a;
+            a19Var.k(a19Var.b() >= 0);
         }
     }
 
-    @Override // com.baidu.tieba.zy7
-    public void d(sw.a aVar) {
+    public void b(boolean z) {
+        EditText editText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (editText = this.d) == null || editText.getText() == null) {
+            return;
+        }
+        int selectionEnd = this.d.getSelectionEnd();
+        SpannableStringBuilder f = this.b.f(this.d.getText());
+        if (f != null) {
+            this.b.l(true);
+            this.d.setText(f);
+            if (z && this.b.b() >= 0) {
+                this.d.requestFocus();
+                this.d.setSelection(this.b.b());
+            } else {
+                this.d.setSelection(selectionEnd);
+            }
+            a19 a19Var = this.b;
+            a19Var.k(a19Var.b() >= 0);
         }
     }
 
-    @Override // com.baidu.tieba.zy7
-    public void e(h06 h06Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h06Var) == null) {
-            super.e(h06Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.n(null);
+            this.a.i(null);
+            this.a.k(false);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.n(null);
+            this.b.i(null);
+            this.b.k(false);
+        }
+    }
+
+    public a19 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (a19) invokeV.objValue;
+    }
+
+    public EditText f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (EditText) invokeV.objValue;
+    }
+
+    public a19 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (a19) invokeV.objValue;
+    }
+
+    public PostWriteCallBackData h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (PostWriteCallBackData) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.g();
+            this.b.g();
+            if (this.a.d()) {
+                a(false);
+            }
+            if (this.b.d()) {
+                b(false);
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.c = null;
+            this.d = null;
+        }
+    }
+
+    public void k(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, postWriteCallBackData) == null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.a.i(postWriteCallBackData.getSensitiveWords());
+        this.a.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.a.a())) {
+            return;
+        }
+        a(true);
+        this.e = postWriteCallBackData;
+    }
+
+    public void l(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, postWriteCallBackData) == null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.b.i(postWriteCallBackData.getSensitiveWords());
+        this.b.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.b.a())) {
+            return;
+        }
+        b(true);
+    }
+
+    public void m(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
+            this.c = editText;
+        }
+    }
+
+    public void n(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
+            this.d = editText;
         }
     }
 }

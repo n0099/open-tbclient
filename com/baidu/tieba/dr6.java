@@ -1,202 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.LongSparseArray;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: TabBarLogic.java */
 /* loaded from: classes3.dex */
-public class dr6 {
+public final /* synthetic */ class dr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public er6 a;
-    public LongSparseArray<Integer> b;
-    public km6 c;
-    public cr6 d;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wr6 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(dr6 dr6Var, wr6 wr6Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dr6Var, wr6Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wr6Var;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                wr6 wr6Var = this.a;
-                if (wr6Var != null) {
-                    wr6Var.o(this.b, this.c);
-                }
-                TiebaStatic.log(new StatisticItem("c13982").param("fid", this.c).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            }
-        }
-    }
-
-    public dr6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.a = new er6();
-        this.b = new LongSparseArray<>();
-    }
-
-    public int a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j == 0) {
-                return 0;
-            }
-            Integer num = this.b.get(j);
-            if (num == null) {
-                this.b.put(j, 1);
-                return 1;
-            }
-            this.b.put(j, Integer.valueOf(num.intValue() + 1));
-            return num.intValue() + 1;
-        }
-        return invokeJ.intValue;
-    }
-
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j == 0) {
-            return;
-        }
-        this.b.remove(j);
-    }
-
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.a.b(str, str2);
-        }
-    }
-
-    public void d() {
-        km6 km6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (km6Var = this.c) == null) {
-            return;
-        }
-        km6Var.m();
-    }
-
-    public er6 e() {
+    @NonNull
+    public static fr6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (er6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new er6() : (fr6) invokeV.objValue;
     }
 
-    public void f(Activity activity, String str, String str2) {
+    @ColorInt
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, str2) == null) && activity != null && this.d.c()) {
-            if (this.c == null) {
-                this.c = new km6(activity, R.id.obfuscated_res_0x7f090b2c);
-            }
-            this.c.p(str);
-            this.c.q(str2);
-            this.c.r();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SkinManager.getColor(R.color.CAM_X0107) : invokeV.intValue;
     }
 
-    public boolean g(String str, String str2) {
-        InterceptResult invokeLL;
-        er6 er6Var;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || (er6Var = this.a) == null) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - er6Var.f(str, str2);
-            if (currentTimeMillis < 3600000) {
-                return false;
-            }
-            if (this.a.e(str, str2) <= 3 || currentTimeMillis >= 2592000000L) {
-                long c = this.a.c(str, str2);
-                if (c == 0 || System.currentTimeMillis() - c > 604800000) {
-                    return this.a.d(str, str2);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void h(Activity activity, String str, String str2, String str3, wr6 wr6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, str3, wr6Var) == null) || activity == null) {
-            return;
-        }
-        if (this.c == null) {
-            this.c = new km6(activity, R.id.obfuscated_res_0x7f090b30);
-        }
-        if (!StringUtils.isNull(str3)) {
-            this.c.n(str3);
-        }
-        this.c.o(new a(this, wr6Var, str, str2));
-        this.c.s();
-        TiebaStatic.log(new StatisticItem("c13894").param("fid", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
-    }
-
-    public dr6(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.d = new cr6(str, str2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UtilHelper.getDimenPixelSize(R.dimen.tbds42) : invokeV.intValue;
     }
 }

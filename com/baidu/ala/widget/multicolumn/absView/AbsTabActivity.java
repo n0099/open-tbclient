@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +97,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
         bVar.b = fragmentTabIndicator;
-        this.mTabHost.c(bVar);
+        this.mTabHost.a(bVar);
     }
 
     private void initTabSpec() {
@@ -115,13 +115,13 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 createAndAddTabSpec(item, pageType, tabTitle, false);
             }
         }
-        this.mTabHost.o();
+        this.mTabHost.l();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091601);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09162a);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (!this.isSupportNight) {
@@ -130,7 +130,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 this.mNavigationBar.onCenterTextOnChangeSkin(0);
             }
             setNavigationBar(this.mNavigationBar);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091fc3);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092013);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setVisibility(0);
             this.mTabHost.setup(getSupportFragmentManager());
@@ -231,11 +231,11 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 }
             });
             this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.mTabHost.u();
+            this.mTabHost.q();
             this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.CAM_X0105));
             this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
-            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(ri.f(getActivity(), R.dimen.obfuscated_res_0x7f070258));
-            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(ri.f(getActivity(), R.dimen.obfuscated_res_0x7f070224));
+            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(ej.f(getActivity(), R.dimen.obfuscated_res_0x7f070258));
+            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(ej.f(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
             initTabSpec();
             this.mTabHost.setCurrentTab(getCurrentIndex());
@@ -272,7 +272,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                     i2 = R.color.CAM_X0105;
                 }
                 fragmentTabWidget.setDiverColor(resources.getColor(i2));
-                this.mTabHost.s(i);
+                this.mTabHost.p(i);
             }
         }
     }

@@ -1,18 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.i73;
-import com.baidu.tieba.xl2;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.setting.oauth.TaskState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,13 +13,139 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v73 extends ax2 {
+public abstract class v73<ResultDataT> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b83<ResultDataT> a;
+    public final Set<rh3<b83<ResultDataT>>> b;
+    public final LinkedList<x73> c;
+    public boolean d;
+    public boolean e;
+
+    /* loaded from: classes6.dex */
+    public class a extends x73 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v73 c;
+
+        public a(v73 v73Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v73Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = v73Var;
+        }
+
+        @Override // com.baidu.tieba.x73
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.c.k()) {
+                    return true;
+                }
+                w73.k("initialPrepare failed", Boolean.TRUE);
+                throw new OAuthException(10001);
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends x73 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v73 c;
+
+        public b(v73 v73Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v73Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = v73Var;
+        }
+
+        @Override // com.baidu.tieba.x73
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.c.j()) {
+                    return true;
+                }
+                w73.k("finalPrepare failed", Boolean.TRUE);
+                if (v73.f) {
+                    throw new OAuthException(10001);
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rh3 a;
+        public final /* synthetic */ v73 b;
+
+        public c(v73 v73Var, rh3 rh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v73Var, rh3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = v73Var;
+            this.a = rh3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            rh3 rh3Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (rh3Var = this.a) == null) {
+                return;
+            }
+            rh3Var.a(this.b.a);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +160,7 @@ public class v73 extends ax2 {
                 return;
             }
         }
-        f = kh1.a;
+        f = ij1.a;
     }
 
     public v73() {
@@ -54,97 +173,201 @@ public class v73 extends ax2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new b83<>();
+        this.b = new HashSet();
+        this.c = new LinkedList<>();
+        this.d = false;
+        this.e = false;
+    }
+
+    public final synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                i();
             }
         }
     }
 
-    public static boolean e(@Nullable String str) {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b bVar = new b(this);
+            bVar.h(this);
+            bVar.g();
+            this.e = true;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(null);
+        }
+    }
+
+    @NonNull
+    public v73 call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TaskState.INIT == e()) {
+                s(TaskState.CALLING);
+                n();
+            }
+            return this;
+        }
+        return (v73) invokeV.objValue;
+    }
+
+    public void d(@Nullable Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
+            if (exc instanceof OAuthException) {
+                this.a.c = (OAuthException) exc;
+            } else if (exc != null) {
+                w73.t("OAuthTask#finish", exc.getMessage());
+                this.a.c = new OAuthException(exc, 10001);
+            }
+            if (!this.a.c() && f && exc != null) {
+                exc.printStackTrace();
+            }
+            s(TaskState.FINISHED);
+            w73.k(toString(), Boolean.FALSE);
+            g();
+            this.b.clear();
+        }
+    }
+
+    public TaskState e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.b : (TaskState) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a aVar = new a(this);
+            aVar.h(this);
+            aVar.g();
+            this.d = true;
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            for (rh3<b83<ResultDataT>> rh3Var : this.b) {
+                w73.l(new c(this, rh3Var));
+            }
+        }
+    }
+
+    public v73 h(@NonNull x73 x73Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TextUtils.isEmpty(str) || TextUtils.equals("0", str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x73Var)) == null) {
+            x73Var.h(this);
+            this.c.offer(x73Var);
+            return this;
+        }
+        return (v73) invokeL.objValue;
     }
 
-    public static void f(String str, String str2, @Nullable JSONObject jSONObject) {
-        Intent intent;
+    public abstract void i();
+
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, jSONObject) == null) && e(str2)) {
-            JSONObject jSONObject2 = new JSONObject();
-            String str3 = StringUtil.NULL_STRING;
-            if (str2 == null) {
-                str2 = StringUtil.NULL_STRING;
-            }
-            try {
-                jSONObject2.put("version", str2);
-                jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str == null ? StringUtil.NULL_STRING : str);
-                a13 M = a13.M();
-                if (M != null) {
-                    xl2.a Y = M.Y();
-                    jSONObject2.put("launchInfo", Y == null ? StringUtil.NULL_STRING : Y.I1());
-                    SwanAppActivity w = M.w();
-                    xl2 xl2Var = null;
-                    if (w != null && (intent = w.getIntent()) != null) {
-                        xl2Var = xl2.d1(intent);
-                    }
-                    if (xl2Var != null) {
-                        str3 = xl2Var.I1();
-                    }
-                    jSONObject2.put("launchInfoIntent", str3);
-                } else {
-                    jSONObject2.put("swanApp", StringUtil.NULL_STRING);
-                }
-                jSONObject2.put("stackTrace", ue3.y());
-                if (jSONObject != null) {
-                    jSONObject2.put("reportExtInfo", jSONObject);
-                }
-            } catch (JSONException e) {
-                if (f) {
-                    e.printStackTrace();
-                }
-            }
-            vx2 y = z03.K().y();
-            if (y != null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("key_swan_appid", str);
-                bundle.putString("key_report_info", jSONObject2.toString());
-                y.W(bundle, v73.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l(x73 x73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, x73Var) == null) {
+            if (x73Var.c()) {
+                n();
+            } else {
+                d(x73Var.b());
             }
         }
     }
 
-    @Override // com.baidu.tieba.ax2
-    public void b(@NonNull Bundle bundle) {
-        x72 o;
+    public abstract ResultDataT m(JSONObject jSONObject) throws JSONException;
+
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String string = bundle.getString("key_swan_appid", "");
-            String string2 = bundle.getString("key_report_info", "");
-            String str = TextUtils.isEmpty(string2) ? "" : string2;
-            JSONObject jSONObject = null;
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (!TaskState.CALLING.equals(e())) {
                 if (f) {
-                    Log.e("VersionBusinessUbc", "execCall: ", e);
+                    w73.k("IllegalState on prepare", Boolean.FALSE);
                 }
-                e.printStackTrace();
+            } else if (!this.d) {
+                f();
+            } else if (!this.c.isEmpty()) {
+                this.c.poll().g();
+            } else if (!this.e) {
+                b();
+            } else {
+                a();
             }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
+        }
+    }
+
+    public v73<ResultDataT> o(rh3<b83<ResultDataT>> rh3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, rh3Var)) == null) {
+            if (this.a.b.isCallbackAvailable()) {
+                this.b.add(rh3Var);
             }
-            if (!TextUtils.isEmpty(string) && (o = SwanAppDbControl.f(AppRuntime.getAppContext()).o(string)) != null) {
-                try {
-                    jSONObject.put("appDbInfo", o.a());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (f) {
-                Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
-            }
-            i73.b bVar = new i73.b(10002);
-            bVar.i(jSONObject.toString());
-            bVar.m();
-            c();
+            return this;
+        }
+        return (v73) invokeL.objValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.a.b = TaskState.INIT;
+            this.d = false;
+            this.e = false;
+        }
+    }
+
+    public v73<ResultDataT> q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this : (v73) invokeL.objValue;
+    }
+
+    public void r(ResultDataT resultdatat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, resultdatat) == null) {
+            this.a.a = resultdatat;
+        }
+    }
+
+    public final void s(TaskState taskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
+            this.a.b = taskState;
         }
     }
 }

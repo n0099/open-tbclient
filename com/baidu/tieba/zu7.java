@@ -1,28 +1,58 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes6.dex */
-public interface zu7 {
-    void c(boolean z);
+public class zu7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    void d(View.OnLongClickListener onLongClickListener);
+    public zu7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.b = "";
+    }
 
-    void e(View.OnClickListener onClickListener);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
 
-    void f(boolean z);
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
 
-    void k(View.OnClickListener onClickListener);
-
-    void l(int i);
-
-    void n(TbRichTextView.y yVar);
-
-    void o(String str);
-
-    void q(boolean z);
-
-    void r(kt7 kt7Var);
-
-    void setFromCDN(boolean z);
+    public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
+            return;
+        }
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        forumHeadlineImgInfo.rank_num.intValue();
+        String str2 = forumHeadlineImgInfo.rank_up_info;
+        this.b = forumHeadlineImgInfo.rank_url;
+    }
 }

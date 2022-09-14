@@ -1,135 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.app.Activity;
+import android.app.Application;
+import android.view.MotionEvent;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BlockPopInfo;
 /* loaded from: classes6.dex */
 public class vr8 {
     public static /* synthetic */ Interceptable $ic;
-    public static BlockPopInfo c;
-    public static BlockPopInfo d;
+    public static vr8 mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public CustomMessageListener b;
+    public a mICrabSdk;
 
     /* loaded from: classes6.dex */
-    public class a implements vr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void a(Application application);
 
-        public a(vr8 vr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        void b(Exception exc);
 
-        @Override // com.baidu.tieba.vr4.e
-        public void onClick(vr4 vr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
-                vr4Var.dismiss();
-            }
-        }
+        void c(String str);
+
+        void d(String str);
+
+        void e(String str);
+
+        void f(MotionEvent motionEvent, Activity activity);
+
+        void onPause(Activity activity);
+
+        void onResume(Activity activity);
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements vr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfo a;
-        public final /* synthetic */ vr8 b;
-
-        public b(vr8 vr8Var, BlockPopInfo blockPopInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vr8Var, blockPopInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vr8Var;
-            this.a = blockPopInfo;
-        }
-
-        @Override // com.baidu.tieba.vr4.e
-        public void onClick(vr4 vr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
-                this.b.e(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(vr8 vr8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vr8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
-            }
-            vr8.g(null);
-            vr8.f(null);
-        }
-    }
-
-    public vr8(TbPageContext tbPageContext) {
+    public vr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -139,92 +50,116 @@ public class vr8 {
                 return;
             }
         }
-        c cVar = new c(this, 2005016);
-        this.b = cVar;
-        this.a = tbPageContext;
-        tbPageContext.registerListener(cVar);
+        this.mICrabSdk = getCrabSdk();
     }
 
-    public static void f(BlockPopInfo blockPopInfo) {
+    private a getCrabSdk() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
-            d = blockPopInfo;
-        }
-    }
-
-    public static void g(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
-            c = blockPopInfo;
-        }
-    }
-
-    public final boolean b(BlockPopInfo blockPopInfo) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, blockPopInfo)) == null) {
-            if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
-                BdToast b2 = BdToast.b(this.a.getPageActivity(), blockPopInfo.appeal_msg);
-                b2.f(BdToast.ToastIcon.FAILURE);
-                b2.c(3000);
-                b2.i();
-                return true;
-            } else if (blockPopInfo == null || blockPopInfo.can_post.intValue() != 0) {
-                return false;
-            } else {
-                if ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1) {
-                    if (blockPopInfo.ahead_type.intValue() == 1) {
-                        String str = blockPopInfo.block_info;
-                        String str2 = blockPopInfo.ok_info;
-                        if (!qi.isEmpty(str) && !qi.isEmpty(str2)) {
-                            h(blockPopInfo);
-                        } else {
-                            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0829));
-                            b3.f(BdToast.ToastIcon.FAILURE);
-                            b3.c(3000);
-                            b3.i();
-                        }
-                    } else if (blockPopInfo.ahead_type.intValue() == 2) {
-                        e(blockPopInfo);
-                    }
-                    return true;
-                }
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, a.class)) == null) {
+                return null;
             }
+            return (a) runTask.getData();
         }
-        return invokeL.booleanValue;
+        return (a) invokeV.objValue;
     }
 
-    public boolean c() {
+    public static vr8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(d) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (mInstance == null) {
+                synchronized (vr8.class) {
+                    if (mInstance == null) {
+                        mInstance = new vr8();
+                    }
+                }
+            }
+            return mInstance;
+        }
+        return (vr8) invokeV.objValue;
     }
 
-    public boolean d() {
+    private boolean isCrabSdkSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b(c) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final void e(BlockPopInfo blockPopInfo) {
+    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, blockPopInfo) == null) || blockPopInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) || (aVar = this.mICrabSdk) == null) {
             return;
         }
-        AntiHelper.p(this.a.getPageActivity(), blockPopInfo.ahead_url);
+        aVar.f(motionEvent, activity);
     }
 
-    public final void h(BlockPopInfo blockPopInfo) {
+    public void initSdk(Application application) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, blockPopInfo) == null) || blockPopInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) || (aVar = this.mICrabSdk) == null) {
             return;
         }
-        vr4 vr4Var = new vr4(this.a.getPageActivity());
-        vr4Var.setMessage(blockPopInfo.block_info);
-        vr4Var.setNegativeButton(blockPopInfo.ok_info, new a(this));
-        vr4Var.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
-        vr4Var.create(this.a).show();
+        aVar.a(application);
+    }
+
+    public void onPause(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.onPause(activity);
+    }
+
+    public void onResume(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.onResume(activity);
+    }
+
+    public void setFlutterPath(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.c(str);
+    }
+
+    public void setLastFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.e(str);
+    }
+
+    public void setOpenFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.d(str);
+    }
+
+    public void uploadException(Exception exc) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, exc) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.b(exc);
     }
 }

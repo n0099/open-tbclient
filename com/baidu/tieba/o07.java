@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class o07 extends m07 {
+public class o07 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    public static volatile List<Long> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,30 +26,22 @@ public class o07 extends m07 {
                 return;
             }
         }
-        f = BdUniqueId.gen();
+        a = new ArrayList();
     }
 
-    public o07() {
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
+            if (a.size() > 300) {
+                a.remove(0);
             }
+            a.add(Long.valueOf(j));
         }
-        j(sz5.g());
-        l("percard#");
     }
 
-    @Override // com.baidu.tieba.r06, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static boolean b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? a.contains(Long.valueOf(j)) : invokeJ.booleanValue;
     }
 }

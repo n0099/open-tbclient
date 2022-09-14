@@ -3,12 +3,12 @@ package com.baidu.searchbox.taskmanager;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.tieba.et4;
+import com.baidu.tieba.ch5;
+import com.baidu.tieba.fw7;
+import com.baidu.tieba.gc;
+import com.baidu.tieba.mv4;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.sb;
 import com.baidu.tieba.tblauncher.SchemaRouteActivity;
-import com.baidu.tieba.uu7;
-import com.baidu.tieba.ve5;
 import com.baidu.tieba.yunpush.YunPushProxyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,38 +36,38 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(ve5 ve5Var) {
+    public void onFinish(ch5 ch5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ve5Var) == null) || ve5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ch5Var) == null) || ch5Var == null) {
             return;
         }
-        Intent intent = ve5Var.b;
+        Intent intent = ch5Var.b;
         boolean z = false;
         if (intent != null) {
             String action = intent.getAction();
             Set<String> categories = intent.getCategories();
             if (action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
-                et4.a().b = true;
+                mv4.a().b = true;
                 z = true;
             }
             String className = intent.getComponent() != null ? intent.getComponent().getClassName() : "";
             if (TextUtils.equals(className, SchemaRouteActivity.class.getName())) {
                 String dataString = intent.getDataString();
                 if (!TextUtils.isEmpty(dataString) && dataString.contains(PbModel.UNIDISPATCH_PB)) {
-                    z = uu7.a().b();
-                    et4.a().a = z;
+                    z = fw7.a().b();
+                    mv4.a().a = z;
                 }
             }
             if (TextUtils.equals(className, YunPushProxyActivity.class.getName())) {
                 if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(intent.getDataString()).find()) {
-                    z = uu7.a().b();
-                    et4.a().a = z;
+                    z = fw7.a().b();
+                    mv4.a().a = z;
                 }
             }
         }
         if (z) {
             return;
         }
-        sb.b().e();
+        gc.b().e();
     }
 }

@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.av9;
-import com.baidu.tieba.cw9;
-import com.baidu.tieba.tv9;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.sw9;
+import com.baidu.tieba.ux9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements av9 {
+/* loaded from: classes9.dex */
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements sw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -657299606803478389L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cw9<?, ?> parent;
+    public final ux9<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(cw9<?, ?> cw9Var) {
+    public OperatorEagerConcatMap$EagerOuterProducer(ux9<?, ?> ux9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cw9Var};
+            Object[] objArr = {ux9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,10 +30,10 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
                 return;
             }
         }
-        this.parent = cw9Var;
+        this.parent = ux9Var;
     }
 
-    @Override // com.baidu.tieba.av9
+    @Override // com.baidu.tieba.sw9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -41,7 +41,7 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
             if (i < 0) {
                 throw new IllegalStateException("n >= 0 required but it was " + j);
             } else if (i > 0) {
-                tv9.b(this, j);
+                lx9.b(this, j);
                 this.parent.g();
             }
         }

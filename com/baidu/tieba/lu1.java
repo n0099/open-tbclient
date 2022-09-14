@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class lu1 extends gu1 {
+public abstract class lu1 implements mu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
-    public Paint b;
-    public PorterDuffXfermode c;
+    public List<BasePendingOperation> a;
 
     public lu1() {
         Interceptable interceptable = $ic;
@@ -32,35 +27,20 @@ public class lu1 extends gu1 {
                 return;
             }
         }
-        this.b = new Paint();
-        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.gu1
-    public void a(hu1 hu1Var, Canvas canvas) {
+    public void b(BasePendingOperation basePendingOperation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hu1Var, canvas) == null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            this.a.add(basePendingOperation);
         }
-        this.b.setXfermode(this.c);
-        canvas.drawRect(this.a, this.b);
     }
 
-    @Override // com.baidu.tieba.gu1
-    public void b(JSONArray jSONArray) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = re3.g((float) jSONArray.optDouble(0));
-                    int g2 = re3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, re3.g((float) jSONArray.optDouble(2)) + g, re3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (kh1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
         }
     }
 }

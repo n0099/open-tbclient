@@ -1,37 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e03;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lu3 {
+public class lu3 extends yy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e03 a;
+    public String f;
+    public String g;
+    public JSONObject h;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-        public final /* synthetic */ DialogInterface.OnClickListener e;
-        public final /* synthetic */ lu3 f;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ lu3 b;
 
-        public a(lu3 lu3Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+        public a(lu3 lu3Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lu3Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
+                Object[] objArr = {lu3Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,27 +41,141 @@ public class lu3 {
                     return;
                 }
             }
-            this.f = lu3Var;
-            this.a = activity;
-            this.b = str;
-            this.c = str2;
-            this.d = z;
-            this.e = onClickListener;
+            this.b = lu3Var;
+            this.a = jSONObject;
         }
 
+        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // java.lang.Runnable
         public void run() {
+            char c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f.a != null && this.f.a.isShowing()) {
-                    this.f.a.dismiss();
+                xt3.n().G(this.b.h);
+                String str = this.b.f;
+                switch (str.hashCode()) {
+                    case -1261560102:
+                        if (str.equals("queryStatus")) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -625158317:
+                        if (str.equals("deleteDownload")) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -606050596:
+                        if (str.equals("resumeAllDownload")) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -534830837:
+                        if (str.equals("queryAllStatus")) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -451216226:
+                        if (str.equals("pauseDownload")) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -417021581:
+                        if (str.equals("pauseAllDownload")) {
+                            c = 7;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 184711125:
+                        if (str.equals("resumeDownload")) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1554935562:
+                        if (str.equals("startDownload")) {
+                            c = 0;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
                 }
-                Activity activity = this.a;
-                if (activity == null || activity.isFinishing()) {
+                switch (c) {
+                    case 0:
+                        this.b.w(this.a);
+                        return;
+                    case 1:
+                        this.b.t(this.a);
+                        return;
+                    case 2:
+                        this.b.s();
+                        return;
+                    case 3:
+                        this.b.r(this.a);
+                        return;
+                    case 4:
+                        this.b.v(this.a);
+                        return;
+                    case 5:
+                        this.b.p(this.a);
+                        return;
+                    case 6:
+                        this.b.u();
+                        return;
+                    case 7:
+                        this.b.q();
+                        return;
+                    default:
+                        this.b.setResult(new su3(31009, "invalid operation"));
+                        return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements ru3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lu3 a;
+
+        public b(lu3 lu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                e03.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
-                this.f.a = d.X();
+            }
+            this.a = lu3Var;
+        }
+
+        @Override // com.baidu.tieba.ru3
+        public void a(tu3 tu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, tu3Var) == null) {
+                this.a.setResult(tu3Var);
             }
         }
     }
@@ -80,39 +194,92 @@ public class lu3 {
         }
     }
 
-    public final e03.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeCommon;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setResult(tu3 tu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
-            e03.a aVar = new e03.a(activity);
-            aVar.x(str);
-            aVar.a();
-            aVar.n(new ig3());
-            aVar.m(z);
-            aVar.Q(R.color.obfuscated_res_0x7f060a66);
-            aVar.f(true);
-            aVar.P(str2, onClickListener);
-            return aVar;
+        if (interceptable == null || interceptable.invokeL(65548, this, tu3Var) == null) {
+            this.d.clear();
+            if (tu3Var != null) {
+                this.d.putString("functionType", tu3Var.a());
+                this.d.putString("resultData", tu3Var.b());
+                this.d.putInt("resultStatus", tu3Var.c());
+                if (tu3Var.d()) {
+                    if (!TextUtils.equals(this.f, "startDownload")) {
+                        zu3.a(this.g, this.f, "success", null, new xu3(this.h));
+                    }
+                } else {
+                    zu3.a(this.g, this.f, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(tu3Var.c()), new xu3(this.h));
+                }
+            }
+            c();
         }
-        return (e03.a) invokeCommon.objValue;
     }
 
-    public void e() {
-        e03 e03Var;
+    @Override // com.baidu.tieba.yy2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (e03Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            this.f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
+            this.h = yf3.d(bundle.getString("ubc_params", ""));
+            JSONObject d = yf3.d(bundle.getString("data", ""));
+            this.g = d.optString("packageName");
+            au3.d.execute(new a(this, d));
         }
-        if (e03Var.isShowing()) {
-            this.a.dismiss();
-        }
-        this.a = null;
     }
 
-    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+    public final void p(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
-            ue3.a0(new a(this, activity, str, str2, z, onClickListener));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            xt3.n().m(jSONObject, new b(this));
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            xt3.n().u();
+        }
+    }
+
+    public final void r(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            xt3.n().v(jSONObject, new b(this));
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            xt3.n().w(new b(this));
+        }
+    }
+
+    public final void t(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            xt3.n().x(jSONObject, new b(this));
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            xt3.n().D();
+        }
+    }
+
+    public final void v(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            xt3.n().E(jSONObject, new b(this));
+        }
+    }
+
+    public final void w(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            xt3.n().H(jSONObject.optString("url"), jSONObject.optString("packageName"), jSONObject.optString("apkId"), new b(this));
         }
     }
 }

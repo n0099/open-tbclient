@@ -1,103 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GameCodeList;
-import tbclient.ItemGameCode;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.ss.android.download.api.constant.BaseConstants;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tn6 extends go4 {
+public class tn6 extends cw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<GameCodeList> b;
+    public aw4 c;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187021, "Lcom/baidu/tieba/tn6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948187021, "Lcom/baidu/tieba/tn6;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public tn6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tn6(aw4 aw4Var, String str) {
+        super(aw4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aw4Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((aw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
+        this.c = aw4Var;
+        this.d = str;
     }
 
-    public List<GameCodeList> c() {
-        InterceptResult invokeV;
+    @dw4(isAsync = false, value = "downloadGame")
+    private void downloadGame(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.go4
-    public dq4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (dq4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.go4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        String optString = jSONObject.optString("packageName");
+        String optString2 = jSONObject.optString(TTDownloadField.TT_DOWNLOAD_URL);
+        String optString3 = jSONObject.optString("imageUrl");
+        if (StringUtils.isNull(optString)) {
+            return;
         }
-        return (ThreadData) invokeV.objValue;
+        if (!BdNetTypeUtil.isNetWorkAvailable()) {
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c59);
+            return;
+        }
+        if (StringUtils.isNull(optString2)) {
+            g(optString);
+        } else {
+            be8.n().E(optString, optString2, optString, 0, be8.o(optString).intValue(), null, true, false, true, optString3, null, null);
+        }
+        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.d) ? "" : this.d));
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.cw4
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_DOWNLOAD_GAME" : (String) invokeV.objValue;
     }
 
-    public void h(ItemGameCode itemGameCode) {
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, itemGameCode) == null) {
-            this.a = itemGameCode.unclaimed_num.intValue();
-            this.b = new ArrayList(itemGameCode.game_code_list);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + str));
+            try {
+                if (!(this.c.getContext() instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                this.c.getContext().startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

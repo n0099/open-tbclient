@@ -1,115 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ar9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.ProtoAdapter;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public final class yq9<E extends ar9> extends ProtoAdapter<E> {
+public final class yq9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<E> a;
-    public Method b;
+    public final Context a;
+    public final ir9 b;
+    public volatile boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yq9(Class<E> cls) {
-        super(FieldEncoding.VARINT, cls);
+    public yq9(Context context, ir9 ir9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {context, ir9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
+        this.a = context;
+        this.b = ir9Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: a */
-    public E decode(wq9 wq9Var) throws IOException {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wq9Var)) == null) {
-            int l = wq9Var.l();
-            try {
-                E e = (E) d().invoke(null, Integer.valueOf(l));
-                if (e != null) {
-                    return e;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = true;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.c) {
+                if (br9.d().h(this.a)) {
+                    this.b.a(com.google.ar.core.p.c);
+                    return;
                 }
-                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw new AssertionError(e2);
+                try {
+                    Thread.sleep(200L);
+                } catch (InterruptedException unused) {
+                }
             }
         }
-        return (E) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public void encode(xq9 xq9Var, E e) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xq9Var, e) == null) {
-            xq9Var.q(e.getValue());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public int encodedSize(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) ? xq9.i(e.getValue()) : invokeL.intValue;
-    }
-
-    public final Method d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.b;
-            if (method != null) {
-                return method;
-            }
-            try {
-                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
-                this.b = method2;
-                return method2;
-            } catch (NoSuchMethodException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (Method) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof yq9) && ((yq9) obj).a == this.a : invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 }

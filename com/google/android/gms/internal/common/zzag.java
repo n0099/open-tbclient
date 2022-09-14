@@ -2,13 +2,6 @@ package com.google.android.gms.internal.common;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ap9;
-import com.baidu.tieba.bp9;
-import com.baidu.tieba.to9;
-import com.baidu.tieba.uo9;
-import com.baidu.tieba.vo9;
-import com.baidu.tieba.wo9;
-import com.baidu.tieba.xo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +18,7 @@ import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
 public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
-    public static final xo9<Object> zza;
+    public static final zzak<Object> zza;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +34,7 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
                 return;
             }
         }
-        zza = new uo9(zzai.zza, 0);
+        zza = new zzae(zzai.zza, 0);
     }
 
     public zzag() {
@@ -86,11 +79,11 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
                 if (!it.hasNext()) {
                     return zzm(next);
                 }
-                to9 to9Var = new to9(4);
-                to9Var.c(next);
-                to9Var.d(it);
-                to9Var.c = true;
-                return zzi(to9Var.a, to9Var.b);
+                zzad zzadVar = new zzad(4);
+                zzadVar.zzb((zzad) next);
+                zzadVar.zzc(it);
+                zzadVar.zzc = true;
+                return zzi(zzadVar.zza, zzadVar.zzb);
             }
             throw null;
         }
@@ -111,7 +104,7 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
             }
             Object[] array2 = collection.toArray();
             int length = array2.length;
-            vo9.a(array2, length);
+            zzah.zza(array2, length);
             return zzi(array2, length);
         }
         return (zzag) invokeL.objValue;
@@ -128,7 +121,7 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, e)) == null) {
             Object[] objArr = {e};
-            vo9.a(objArr, 1);
+            zzah.zza(objArr, 1);
             return zzi(objArr, 1);
         }
         return (zzag) invokeL.objValue;
@@ -139,7 +132,7 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, e, e2)) == null) {
             Object[] objArr = {e, e2};
-            vo9.a(objArr, 2);
+            zzah.zza(objArr, 2);
             return zzi(objArr, 2);
         }
         return (zzag) invokeLL.objValue;
@@ -186,7 +179,7 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
                 if (size == list.size()) {
                     if (list instanceof RandomAccess) {
                         for (int i = 0; i < size; i++) {
-                            if (ap9.a(get(i), list.get(i))) {
+                            if (zzr.zza(get(i), list.get(i))) {
                             }
                         }
                         return true;
@@ -196,7 +189,7 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
                     while (true) {
                         if (it.hasNext()) {
                             if (it2.hasNext()) {
-                                if (!ap9.a(it.next(), it2.next())) {
+                                if (!zzr.zza(it.next(), it2.next())) {
                                     break;
                                 }
                             } else {
@@ -320,10 +313,10 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
     }
 
     @Override // com.google.android.gms.internal.common.zzac
-    public final wo9<E> zze() {
+    public final zzaj<E> zze() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? listIterator(0) : (wo9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? listIterator(0) : (zzaj) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -333,7 +326,7 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048592, this, i, i2)) == null) {
-            bp9.c(i, i2, size());
+            zzs.zzc(i, i2, size());
             int i3 = i2 - i;
             if (i3 == size()) {
                 return this;
@@ -349,13 +342,13 @@ public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.List
     /* renamed from: zzo */
-    public final xo9<E> listIterator(int i) {
+    public final zzak<E> listIterator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            bp9.b(i, size(), "index");
-            return isEmpty() ? (xo9<E>) zza : new uo9(this, i);
+            zzs.zzb(i, size(), "index");
+            return isEmpty() ? (zzak<E>) zza : new zzae(this, i);
         }
-        return (xo9) invokeI.objValue;
+        return (zzak) invokeI.objValue;
     }
 }

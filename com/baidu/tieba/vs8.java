@@ -1,99 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetCardByCategory.ThemeCardInMain;
+import tbclient.ThemeCardPropMain;
 /* loaded from: classes6.dex */
-public abstract class vs8 {
+public class vs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public boolean h;
+    public String a;
+    public ArrayList<yr8> b;
 
-    public vs8(BaseActivity baseActivity, String str, String str2) {
+    public vs8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = str2;
-        this.a = baseActivity;
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || qi.isEmpty(this.g)) {
-            return;
-        }
-        FileHelper.deleteFile(new File(this.g));
-    }
-
-    public boolean b() {
+    public ArrayList<yr8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
     }
 
-    public void c() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void c(ThemeCardInMain themeCardInMain) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) == null) || themeCardInMain == null) {
+            return;
         }
-    }
-
-    public void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            a();
+        this.a = themeCardInMain.card_category;
+        List<ThemeCardPropMain> list = themeCardInMain.props;
+        if (list == null || list.size() <= 0) {
+            return;
         }
-    }
-
-    public abstract void e();
-
-    public void f(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
-            a();
-        }
-    }
-
-    public void g(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            a();
-        }
-    }
-
-    public abstract void h();
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
+        this.b = new ArrayList<>();
+        for (ThemeCardPropMain themeCardPropMain : list) {
+            if (themeCardPropMain != null) {
+                yr8 yr8Var = new yr8();
+                yr8Var.k(themeCardPropMain);
+                this.b.add(yr8Var);
+            }
         }
     }
 }

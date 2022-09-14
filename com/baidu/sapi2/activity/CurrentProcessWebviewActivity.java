@@ -20,7 +20,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
@@ -93,22 +92,22 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             if (this.a) {
                 setTheme(R.style.obfuscated_res_0x7f10017c);
             }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f0925fa);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c3);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921ce);
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092657);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
+            ImageView imageView = (ImageView) findViewById(R.id.title_btn_left_iv);
             this.mLeftBtnIv = imageView;
             imageView.setOnClickListener(this);
-            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921dd);
-            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f0921d5);
-            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d58);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.title_left_btn_layout);
+            this.dividerLine = findViewById(R.id.title_divider_line);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.sapi_title_bg_layout);
             this.mTitle.setText(this.c);
             if (this.b) {
-                if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091f3f)) != null) {
+                if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.stub_bottom_back)) != null) {
                     this.bottomBackView = viewStub.inflate();
-                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c75);
-                    this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091d57);
-                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c77);
-                    this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cc1);
+                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.sapi_bottom_back);
+                    this.mBottomBackTvText = (TextView) findViewById(R.id.sapi_textview_back);
+                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.sapi_layout_bottom_back);
+                    this.mBottomDividerLine = (ImageView) findViewById(R.id.sapi_sdk_bottom_divider_line);
                     this.mBottomBackBtnIv.setOnClickListener(this);
                     this.mBottomBackTvText.setOnClickListener(this);
                     ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
@@ -125,26 +124,26 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
                 ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.getTextZoom());
             }
             if (this.a) {
-                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c8));
-                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081007);
-                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c5));
-                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c8));
-                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c8));
+                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f08102b);
+                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
+                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
                 ImageView imageView2 = this.mBottomBackBtnIv;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081007);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08102b);
                 }
                 RelativeLayout relativeLayout = this.mBottomBgLayout;
                 if (relativeLayout != null) {
-                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c8));
+                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
                 }
                 TextView textView = this.mBottomBackTvText;
                 if (textView != null) {
-                    textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c5));
+                    textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
                 }
                 ImageView imageView3 = this.mBottomDividerLine;
                 if (imageView3 != null) {
-                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c8));
+                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
                 }
             }
             a();
@@ -177,11 +176,10 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             if (this.configuration == null) {
                 this.configuration = SapiAccountManager.getInstance().getConfignation();
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d04f1);
+            setContentView(R.layout.obfuscated_res_0x7f0d0503);
             a(true);
             b();
             c();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -215,7 +213,7 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
                 ProgressBar progressBar = new ProgressBar(this, null, 16842872);
                 this.progressBar = progressBar;
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(this, 2.0f), 0, 0));
-                this.progressBar.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e8));
+                this.progressBar.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a02));
                 this.e.addView(this.progressBar);
             } catch (Throwable th) {
                 Log.e(th);

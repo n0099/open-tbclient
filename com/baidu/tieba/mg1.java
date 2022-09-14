@@ -1,55 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Base64;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.Thread;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public final class mg1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class mg1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static ThreadPoolExecutor a;
+    public static LinkedBlockingQueue<Runnable> b;
+    public static final ThreadFactory c;
+    public static final RejectedExecutionHandler d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-            } catch (Throwable th) {
-                lg1.d(th);
+    /* loaded from: classes5.dex */
+    public static class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+
+        /* renamed from: com.baidu.tieba.mg1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0335a implements Thread.UncaughtExceptionHandler {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0335a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
+
+            @Override // java.lang.Thread.UncaughtExceptionHandler
+            public void uncaughtException(Thread thread, Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
+                    Log.i("ThreadPoolFactory", "线程名字=" + thread.getName() + "线程crash信息", th);
+                }
             }
-            a = ze1.f(context).J();
-            return a;
         }
-        return (String) invokeL.objValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new AtomicInteger(1);
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable, "TaskScheduler #" + this.a.getAndIncrement());
+                thread.setUncaughtExceptionHandler(new C0335a(this));
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cf1 cf1Var = new cf1(context);
-                String c = cf1Var.c();
-                if (!TextUtils.isEmpty(c)) {
-                    return new String(jg1.b("30212102dicudiab".getBytes(), Base64.decode(c, 10), true), "UTF-8");
+    /* loaded from: classes5.dex */
+    public static class b implements RejectedExecutionHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                String a2 = cf1Var.a();
-                if (TextUtils.isEmpty(a2)) {
-                    return "";
-                }
-                cf1Var.b(new String(Base64.encode(jg1.a("30212102dicudiab".getBytes(), a2.getBytes("UTF-8")), 10), "UTF-8"));
-                return a2;
-            } catch (Throwable th) {
-                lg1.d(th);
-                return "";
             }
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.util.concurrent.RejectedExecutionHandler
+        public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
+                Log.w("ThreadPoolFactory", "Exceeded ThreadPoolExecutor pool size");
+                synchronized (this) {
+                    if (mg1.a == null) {
+                        LinkedBlockingQueue unused = mg1.b = new LinkedBlockingQueue();
+                        ThreadPoolExecutor unused2 = mg1.a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, mg1.b, mg1.c);
+                    }
+                }
+                mg1.a.execute(runnable);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947971602, "Lcom/baidu/tieba/mg1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947971602, "Lcom/baidu/tieba/mg1;");
+                return;
+            }
+        }
+        c = new a();
+        d = new b();
+    }
+
+    public static ScheduledThreadPoolExecutor f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? new ScheduledThreadPoolExecutor(i, c) : (ScheduledThreadPoolExecutor) invokeI.objValue;
+    }
+
+    public static ThreadPoolExecutor g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i2, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), c);
+            threadPoolExecutor.setRejectedExecutionHandler(d);
+            return threadPoolExecutor;
+        }
+        return (ThreadPoolExecutor) invokeII.objValue;
     }
 }

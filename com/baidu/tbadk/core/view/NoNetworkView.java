@@ -13,14 +13,15 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -138,7 +139,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            if (pi.z()) {
+            if (BdNetTypeUtil.isNetWorkAvailable()) {
                 setIsHasNetwork(true);
             } else {
                 setIsHasNetwork(false);
@@ -184,16 +185,16 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a1);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fc);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09060f);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040362});
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.noNetworkView);
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
             try {
-                if (pi.z()) {
+                if (BdNetTypeUtil.isNetWorkAvailable()) {
                     update(false);
                     setIsHasNetwork(true);
                     return;
@@ -206,11 +207,11 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         }
     }
 
-    public void d(d9<?> d9Var, int i) {
+    public void d(r9<?> r9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, d9Var, i) == null) {
-            if (d9Var instanceof TbPageContext) {
-                TbPageContext tbPageContext = (TbPageContext) d9Var;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, r9Var, i) == null) {
+            if (r9Var instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) r9Var;
                 tbPageContext.getLayoutMode().l(i == 1);
                 tbPageContext.getLayoutMode().k(this);
             }
@@ -228,7 +229,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d064d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d0664 : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -277,7 +278,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c79);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c92);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -291,7 +292,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0ce1);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0cfb);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

@@ -1,37 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.content.Context;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.adlanding.customer.WebViewContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wp1 extends tp1 {
+public class wp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WebViewContainer a;
+    public Context b;
+    public boolean c;
+    public double d;
+    public ValueAnimator e;
+    public float f;
+    public qr2 g;
+    public int h;
+    public boolean i;
+    public WebViewContainer.b j;
+    public WebViewContainer.c k;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements WebViewContainer.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g02 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ wp1 d;
+        public final /* synthetic */ wp1 a;
 
-        public a(wp1 wp1Var, g02 g02Var, String str, String str2) {
+        public a(wp1 wp1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wp1Var, g02Var, str, str2};
+                Object[] objArr = {wp1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,44 +51,30 @@ public class wp1 extends tp1 {
                     return;
                 }
             }
-            this.d = wp1Var;
-            this.a = g02Var;
-            this.b = str;
-            this.c = str2;
+            this.a = wp1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.b
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g02 g02Var = this.a;
-                boolean z = true;
-                if (!((g02Var == null || !g02Var.w2(this.b, true)) ? false : false)) {
-                    ay1.c("NavigationBarApi", "set title fail");
-                    this.d.d(this.c, new at1(1001));
-                }
-                this.d.d(this.c, new at1(0));
+                this.a.j(false);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public class b implements WebViewContainer.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g02 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ wp1 f;
+        public final /* synthetic */ wp1 a;
 
-        public b(wp1 wp1Var, g02 g02Var, String str, String str2, String str3, JSONObject jSONObject) {
+        public b(wp1 wp1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wp1Var, g02Var, str, str2, str3, jSONObject};
+                Object[] objArr = {wp1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -88,54 +84,81 @@ public class wp1 extends tp1 {
                     return;
                 }
             }
-            this.f = wp1Var;
-            this.a = g02Var;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = jSONObject;
+            this.a = wp1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.c
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g02 g02Var = this.a;
-                if (g02Var != null && g02Var.E2(this.b, true)) {
-                    if (!this.a.u2(SwanAppConfigData.t(this.d), true)) {
-                        ay1.c("NavigationBarApi", "set title background fail");
-                        this.f.d(this.c, new at1(1001));
-                        return;
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.a == null) {
+                return;
+            }
+            this.a.j((((double) this.a.a.getTopMargin()) * 1.0d) / (((double) this.a.h) * 1.0d) >= (z ? 1.0d - this.a.d : this.a.d));
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements WebViewContainer.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wp1 a;
+
+        public c(wp1 wp1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wp1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wp1Var;
+        }
+
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.a
+        public boolean a(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                if (!z || this.a.a.getTopMargin() > this.a.h) {
+                    if (z || this.a.a.getTopMargin() < this.a.a.getMinTopMargin()) {
+                        return false;
                     }
-                    JSONObject jSONObject = this.e;
-                    if (jSONObject != null) {
-                        this.a.s2(jSONObject.optInt("duration"), this.e.optString("timingFunc"));
-                        ay1.i("NavigationBarApi", "set action bar animator");
-                    }
-                    this.f.d(this.c, new at1(0));
-                    return;
+                    this.a.j(true);
+                    return true;
                 }
-                ay1.c("NavigationBarApi", "set title color fail");
-                this.f.d(this.c, new at1(1001));
+                this.a.j(false);
+                return true;
             }
+            return invokeZ.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements Runnable {
+    public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g02 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ wp1 d;
+        public float a;
+        public int b;
+        public int c;
+        public int d;
+        public float e;
+        public int f;
+        public final /* synthetic */ boolean g;
+        public final /* synthetic */ wp1 h;
 
-        public c(wp1 wp1Var, g02 g02Var, String str, boolean z) {
+        public d(wp1 wp1Var, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wp1Var, g02Var, str, Boolean.valueOf(z)};
+                Object[] objArr = {wp1Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -145,170 +168,209 @@ public class wp1 extends tp1 {
                     return;
                 }
             }
-            this.d = wp1Var;
-            this.a = g02Var;
-            this.b = str;
-            this.c = z;
+            this.h = wp1Var;
+            this.g = z;
+            this.a = 0.0f;
+            this.b = this.h.h - this.h.a.getTopMargin();
+            int topMargin = this.h.a.getTopMargin() - this.h.a.getMinTopMargin();
+            this.c = topMargin;
+            topMargin = this.g ? this.b : topMargin;
+            this.d = topMargin;
+            this.e = topMargin * this.h.f;
+            this.f = this.h.a.getTopMargin();
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean S1;
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g02 g02Var = this.a;
-                if (g02Var == null) {
-                    ay1.c("NavigationBarApi", "swanAppFragment is null");
-                    this.d.d(this.b, new at1(1001));
-                    return;
-                }
-                if (this.c) {
-                    S1 = g02Var.N2();
-                } else {
-                    S1 = g02Var.S1();
-                }
-                if (!S1) {
-                    String str = this.c ? "show" : "hide";
-                    ay1.c("NavigationBarApi", str + " navigation loading progressbar fail");
-                    this.d.d(this.b, new at1(1001));
-                    return;
-                }
-                this.d.d(this.b, new at1(0));
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || this.h.a == null || valueAnimator == null) {
+                return;
             }
+            float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+            int i = (int) ((this.h.c ? this.d : this.e) * (floatValue - this.a));
+            if (this.g) {
+                i = 0 - i;
+            }
+            this.f -= i;
+            this.h.a.scrollBy(0, i);
+            this.h.a.setTopMargin(this.f);
+            this.a = floatValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wp1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
+    /* loaded from: classes6.dex */
+    public class e extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ wp1 b;
+
+        public e(wp1 wp1Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wp1Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wp1Var;
+            this.a = z;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.b.a == null) {
+                return;
+            }
+            this.b.i(this.a);
+        }
+    }
+
+    public wp1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = true;
+        this.d = 0.25d;
+        this.i = true;
+        this.j = new a(this);
+        this.k = new b(this);
+        this.b = context;
     }
 
-    public at1 A(String str) {
-        InterceptResult invokeL;
+    public final void h() {
+        ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#setNavigationBarTitle", false);
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                if (jSONObject == null) {
-                    return new at1(1001);
-                }
-                String optString = jSONObject.optString("title");
-                j02 V = nm2.U().V();
-                if (V == null) {
-                    ay1.c("NavigationBarApi", "manager is null");
-                    return new at1(1001);
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    p("cb is empty", null, true);
-                    return new at1(1001, "cb is empty");
-                }
-                ue3.e0(new a(this, V.m(), optString, optString2));
-                return at1.f();
-            }
-            return at1Var;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (valueAnimator = this.e) == null) {
+            return;
         }
-        return (at1) invokeL.objValue;
+        valueAnimator.cancel();
     }
 
-    public at1 B(String str) {
-        InterceptResult invokeL;
+    public final void i(boolean z) {
+        WebViewContainer webViewContainer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#showNavigationBarLoading", false);
-            a13 b0 = a13.b0();
-            if (b0 != null && b0.n0()) {
-                return new at1(1001, "ui operation does not supported when app is invisible.");
-            }
-            return x(str, true);
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (webViewContainer = this.a) == null || this.g == null) {
+            return;
         }
-        return (at1) invokeL.objValue;
+        if (z) {
+            if (this.c) {
+                webViewContainer.scrollBy(0, -(this.h - webViewContainer.getTopMargin()));
+                this.a.setTopMargin(this.h);
+            }
+            if (!this.g.n() && !this.g.m()) {
+                this.g.s();
+            }
+            this.i = true;
+            return;
+        }
+        if (this.c) {
+            webViewContainer.scrollBy(0, webViewContainer.getTopMargin() - this.a.getMinTopMargin());
+            WebViewContainer webViewContainer2 = this.a;
+            webViewContainer2.setTopMargin(webViewContainer2.getMinTopMargin());
+        }
+        if (this.g.n()) {
+            this.g.p();
+        }
+        this.i = false;
     }
 
-    @Override // com.baidu.tieba.dp1
-    public String j() {
+    public final void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.h <= 0 || this.a == null || this.g == null) {
+            return;
+        }
+        n(z);
+    }
+
+    public WebViewContainer k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigationBarApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WebViewContainer webViewContainer = new WebViewContainer(this.b);
+            this.a = webViewContainer;
+            webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+            this.a.setClipChildren(false);
+            this.a.setLayerType(2, null);
+            this.a.setTopLimit(this.h);
+            this.a.setTopMargin(this.h);
+            this.a.setAutoScroll2TopListener(this.j);
+            this.a.setOnUpListener(this.k);
+            this.a.setMinFlingVelocity(1000);
+            this.a.setUpYVelocityRatio(3.5f);
+            this.a.setInterceptFlingListener(new c(this));
+            return this.a;
+        }
+        return (WebViewContainer) invokeV.objValue;
     }
 
-    public final at1 x(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            j02 V = nm2.U().V();
-            if (V == null) {
-                ay1.c("NavigationBarApi", "manager is null");
-                return new at1(1001);
-            }
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    p("cb is empty", null, true);
-                    return new at1(1001, "cb is empty");
-                }
-                ue3.e0(new c(this, V.m(), optString, z));
-                return at1.f();
-            }
-            return at1Var;
-        }
-        return (at1) invokeLZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.booleanValue;
     }
 
-    public at1 y(String str) {
-        InterceptResult invokeL;
+    public final boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            q("#hideNavigationBarLoading", false);
-            return x(str, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ValueAnimator valueAnimator = this.e;
+            return valueAnimator != null && valueAnimator.isRunning();
         }
-        return (at1) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public at1 z(String str) {
-        InterceptResult invokeL;
+    public final void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#setNavigationBarColor", false);
-            j02 V = nm2.U().V();
-            if (V == null) {
-                ay1.c("NavigationBarApi", "manager is null");
-                return new at1(1001);
-            }
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    p("cb is empty", null, true);
-                    return new at1(1001, "cb is empty");
-                }
-                ue3.e0(new b(this, V.m(), jSONObject.optString("frontColor"), optString, jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR), jSONObject.optJSONObject("animation")));
-                return at1.f();
-            }
-            return at1Var;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.a == null || m()) {
+            return;
         }
-        return (at1) invokeL.objValue;
+        h();
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.e = ofFloat;
+        ofFloat.setDuration(100L);
+        this.e.setInterpolator(new AccelerateDecelerateInterpolator());
+        if (this.a.getYVelocity() >= 0.0f) {
+            this.f = this.a.getYVelocity() / 4000.0f;
+        } else {
+            this.f = (-this.a.getYVelocity()) / 4000.0f;
+        }
+        this.f = Math.min(this.f, 1.0f);
+        this.e.addUpdateListener(new d(this, z));
+        this.e.addListener(new e(this, z));
+        this.e.start();
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void p(qr2 qr2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qr2Var) == null) {
+            this.g = qr2Var;
+        }
     }
 }

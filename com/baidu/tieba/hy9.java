@@ -1,132 +1,118 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tw9;
+import com.baidu.tieba.uw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class hy9<E> extends my9<E> {
+public final class hy9<T> implements uw9.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final uw9.c<T> a;
+    public final tw9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hy9(int i) {
-        super(i);
+    /* loaded from: classes4.dex */
+    public static final class a<T> extends vw9<T> implements dx9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final vw9<? super T> b;
+        public final tw9.a c;
+        public T d;
+        public Throwable e;
+
+        public a(vw9<? super T> vw9Var, tw9.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vw9Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vw9Var;
+            this.c = aVar;
+        }
+
+        @Override // com.baidu.tieba.vw9
+        public void b(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                this.e = th;
+                this.c.b(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.vw9
+        public void c(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                this.d = t;
+                this.c.b(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.dx9
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                try {
+                    Throwable th = this.e;
+                    if (th != null) {
+                        this.e = null;
+                        this.b.b(th);
+                    } else {
+                        T t = this.d;
+                        this.d = null;
+                        this.b.c(t);
+                    }
+                } finally {
+                    this.c.unsubscribe();
+                }
+            }
+        }
+    }
+
+    public hy9(uw9.c<T> cVar, tw9 tw9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {cVar, tw9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = cVar;
+        this.b = tw9Var;
     }
 
-    public final long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? vy9.a.d(this, jy9.h) : invokeV.longValue;
+    @Override // com.baidu.tieba.uw9.c, com.baidu.tieba.ex9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((vw9) ((vw9) obj));
     }
 
-    public final long i() {
-        InterceptResult invokeV;
+    public void call(vw9<? super T> vw9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? vy9.a.d(this, ny9.g) : invokeV.longValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() == h() : invokeV.booleanValue;
-    }
-
-    public final void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            vy9.a.i(this, jy9.h, j);
-        }
-    }
-
-    public final void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            vy9.a.i(this, ny9.g, j);
-        }
-    }
-
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
-            if (e != null) {
-                E[] eArr = this.b;
-                long j = this.producerIndex;
-                long a = a(j);
-                if (e(eArr, a) != null) {
-                    return false;
-                }
-                f(eArr, a, e);
-                k(j + 1);
-                return true;
-            }
-            throw new NullPointerException("null elements not allowed");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? d(a(this.consumerIndex)) : (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue, com.baidu.tieba.xx9
-    public E poll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j = this.consumerIndex;
-            long a = a(j);
-            E[] eArr = this.b;
-            E e = e(eArr, a);
-            if (e == null) {
-                return null;
-            }
-            f(eArr, a, null);
-            j(j + 1);
-            return e;
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) != null) {
-            return invokeV.intValue;
-        }
-        long h = h();
-        while (true) {
-            long i = i();
-            long h2 = h();
-            if (h == h2) {
-                return (int) (i - h2);
-            }
-            h = h2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vw9Var) == null) {
+            tw9.a createWorker = this.b.createWorker();
+            a aVar = new a(vw9Var, createWorker);
+            vw9Var.a(createWorker);
+            vw9Var.a(aVar);
+            this.a.call(aVar);
         }
     }
 }

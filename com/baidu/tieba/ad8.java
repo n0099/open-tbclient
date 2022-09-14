@@ -1,48 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import android.content.Context;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class ad8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+public interface ad8 {
 
-    public ad8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
+        int a(Context context, String[] strArr);
     }
 
-    public static ad8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ad8 ad8Var = new ad8();
-            jSONObject.optString("brand_name");
-            ad8Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-            ad8Var.b = jSONObject.optString("button_scheme");
-            ad8Var.c = jSONObject.optString("cmd_scheme");
-            return ad8Var;
-        }
-        return (ad8) invokeL.objValue;
+    /* loaded from: classes3.dex */
+    public interface b {
+        int a(Context context, Map<String, String> map);
     }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface d {
+    }
+
+    boolean a(String str);
+
+    void b(Context context, String[] strArr, boolean z, Bundle bundle);
+
+    boolean c(Context context, String[] strArr, Bundle bundle);
 }

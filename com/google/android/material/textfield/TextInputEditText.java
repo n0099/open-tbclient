@@ -282,7 +282,7 @@ public class TextInputEditText extends AppCompatEditText {
             }
         }
         this.parentRect = new Rect();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406ec}, i, R.style.obfuscated_res_0x7f100338, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, com.google.android.material.R.styleable.TextInputEditText, i, R.style.obfuscated_res_0x7f100339, new int[0]);
         setTextInputLayoutFocusedRectEnabled(obtainStyledAttributes.getBoolean(0, false));
         obtainStyledAttributes.recycle();
     }

@@ -1,63 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class yw0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -2;
+public class yw0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948344439, "Lcom/baidu/tieba/yw0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public yw0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948344439, "Lcom/baidu/tieba/yw0;");
-        }
-    }
-
-    public static void a(ClarityUrlList clarityUrlList) {
-        ClarityUrlList.c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
-            Iterator it = clarityUrlList.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    cVar = null;
-                    break;
-                }
-                cVar = (ClarityUrlList.c) it.next();
-                if ("auto".equals(cVar.c())) {
-                    break;
-                }
-            }
-            if (cVar != null) {
-                clarityUrlList.remove(cVar);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static lv0 b(ClarityUrlList clarityUrlList, double d) {
-        InterceptResult invokeCommon;
+    public static yw0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
-            a(clarityUrlList);
-            int f = lx0.f(a);
-            a = f;
-            return lx0.g(clarityUrlList, f, d, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                yw0 yw0Var = new yw0();
+                jSONObject.optString("type_text");
+                jSONObject.optString("text");
+                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
+                jSONObject.optString("cmd");
+                return yw0Var;
+            }
+            return null;
         }
-        return (lv0) invokeCommon.objValue;
+        return (yw0) invokeL.objValue;
+    }
+
+    public static List<yw0> b(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        yw0 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return null;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && (a = a(optJSONObject)) != null) {
+                    arrayList.add(a);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

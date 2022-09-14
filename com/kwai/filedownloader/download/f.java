@@ -1,5 +1,5 @@
 package com.kwai.filedownloader.download;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface f {
     void DB();
 

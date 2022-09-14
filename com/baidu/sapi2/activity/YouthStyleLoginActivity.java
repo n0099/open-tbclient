@@ -36,11 +36,11 @@ public class YouthStyleLoginActivity extends LoginActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04f7);
+            setContentView(R.layout.obfuscated_res_0x7f0d0509);
             this.mNeedSetContentView = false;
             super.onCreate(bundle);
-            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091d67);
-            this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f091006);
+            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091db5);
+            this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f091022);
             this.I.setDirectionMode(4);
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);
             SapiWebView sapiWebView = ((LoginActivity) this).sapiWebView;

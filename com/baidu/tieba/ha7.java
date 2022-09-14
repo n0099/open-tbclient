@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import androidx.collection.LongSparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryMessage;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ha7 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
+public class ha7 extends nb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t77 a;
-    public int b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ha7() {
+        super(202003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,65 +30,93 @@ public class ha7 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(t77.h(), 2001145);
     }
 
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
+    public final void c(GroupMsgData groupMsgData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) || groupMsgData == null || groupMsgData.getGroupInfo() == null) {
+            return;
         }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
+        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
     }
 
-    public final void b(t77 t77Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t77Var, i) == null) {
-            this.a = t77Var;
-            this.b = i;
-        }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kb
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof LoadHistoryMessage)) {
-                if (this.a == null) {
-                    return a(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
+            MessageSyncMessage messageSyncMessage = null;
+            if (socketResponsedMessage instanceof ResponsePullMessage) {
+                if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
                 }
-                LoadHistoryMessage.a data = customMessage.getData();
-                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
-                LinkedList<ChatMessage> g = this.a.g(data.d, data.a, data.b, data.c);
-                if (g == null) {
-                    return a(this.b);
+                if (messageSyncMessage != null) {
+                    qw4.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
                 }
-                LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-                if (data.a == null) {
-                    aVar.c = true;
-                } else {
-                    aVar.c = false;
+                if (socketResponsedMessage.getError() == 110000) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
                 }
-                aVar.b = g;
-                aVar.a = data.d;
-                try {
-                    loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (groupMsg != null && groupMsg.size() > 0) {
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                            c(groupMsgData);
+                        }
+                    }
                 }
-                return loadHistoryResponsedMessage;
+                if (!e(responsePullMessage)) {
+                    fa7.l().n();
+                }
+                return socketResponsedMessage;
             }
-            return a(this.b);
+            return null;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
+    }
+
+    public final boolean e(ResponsePullMessage responsePullMessage) {
+        InterceptResult invokeL;
+        Long l;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
+            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    return false;
+                }
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
+                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
+                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
+                    LongSparseArray<Long> r = y97.o().r();
+                    boolean z = false;
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && z97.a(groupMsgData.getGroupInfo().getCustomType()) && (l = r.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
+                            if (l.longValue() > l2.longValue()) {
+                                z = true;
+                            }
+                            if (groupMsgData.hasMore()) {
+                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
+                            }
+                        }
+                    }
+                    if (z && longSparseArray.size() > 0) {
+                        fa7.l().r(longSparseArray);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.kwai.filedownloader;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface w {
     void Df();
 

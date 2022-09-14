@@ -1,124 +1,243 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.http.HttpConfig;
+import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.searchbox.network.outback.statistics.RecordObserver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class pg {
+public final class pg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile boolean a;
+    public final e b;
+    public final c c;
+    public final d d;
 
-    public static boolean a(@Nullable Object obj, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
-            try {
-                if (obj instanceof Boolean) {
-                    return ((Boolean) obj).booleanValue();
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final pg a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(260336856, "Lcom/baidu/tieba/pg$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                return obj instanceof String ? Boolean.parseBoolean((String) obj) : z;
-            } catch (Exception unused) {
-                return z;
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(260336856, "Lcom/baidu/tieba/pg$b;");
+                    return;
+                }
             }
+            a = new pg(null);
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            if (str == null) {
-                return z;
-            }
-            try {
-                return Boolean.parseBoolean(str);
-            } catch (Exception unused) {
-                return z;
+    /* loaded from: classes5.dex */
+    public static class c implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return invokeLZ.booleanValue;
+
+        public final void a(NetworkStatRecord networkStatRecord) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && networkStatRecord.subFrom == 8927) {
+                networkStatRecord.from = qg.a(networkStatRecord.url);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ext", networkStatRecord.toUBCJson());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent("1625", jSONObject);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
+                a(networkStatRecord);
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
     }
 
-    public static double c(String str, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d)})) == null) {
-            if (str == null) {
-                return d;
-            }
-            try {
-                return Double.parseDouble(str);
-            } catch (Exception unused) {
-                return d;
+    /* loaded from: classes5.dex */
+    public static class d implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return invokeCommon.doubleValue;
+
+        public final void a(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, networkStatRecord, i) == null) && networkStatRecord != null && i == DoRecordManager.FAILED_MSG && networkStatRecord.subFrom == 8927) {
+                networkStatRecord.from = qg.a(networkStatRecord.url);
+                JSONObject uBCJson = networkStatRecord.toUBCJson();
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent(HttpConfig.UBC_HTTP_EXCEPTION_ID, uBCJson.toString());
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
+                a(networkStatRecord, i);
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
     }
 
-    public static float d(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+    /* loaded from: classes5.dex */
+    public static class e implements RecordObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return invokeLF.floatValue;
+
+        public final void a(NetworkStatRecord networkStatRecord) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && b(networkStatRecord)) {
+                networkStatRecord.from = qg.a(networkStatRecord.url);
+                JSONObject uBCJson = networkStatRecord.toUBCJson();
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager != null) {
+                    uBCManager.onEvent(HttpConfig.UBC_HTTP_ID, uBCJson.toString());
+                }
+            }
+        }
+
+        public final boolean b(NetworkStatRecord networkStatRecord) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord)) == null) ? networkStatRecord.from != 3 && networkStatRecord.subFrom == 8927 && new Random().nextInt(100) < 20 : invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
+        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) {
+                a(networkStatRecord);
+            }
+        }
+
+        public /* synthetic */ e(a aVar) {
+            this();
+        }
     }
 
-    public static int e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
-            }
-        }
-        return invokeLI.intValue;
+    public /* synthetic */ pg(a aVar) {
+        this();
     }
 
-    public static int f(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public static pg a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str, i2);
-            } catch (Exception unused) {
-                return i;
-            }
-        }
-        return invokeLII.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (pg) invokeV.objValue;
     }
 
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (!this.a) {
+                    this.a = true;
+                    DoRecordManager.getInstance().attach(this.b);
+                    DoRecordManager.getInstance().attach(this.c);
+                    DoRecordManager.getInstance().attach(this.d);
+                }
             }
         }
-        return invokeLJ.longValue;
+    }
+
+    public pg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = new e(null);
+        this.c = new c(null);
+        this.d = new d(null);
     }
 }

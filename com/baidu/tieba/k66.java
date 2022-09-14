@@ -1,94 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.emotion.editortool.EmotionTabHost;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class k66 extends w25 {
+public final class k66 {
     public static /* synthetic */ Interceptable $ic;
+    public static final k66 a;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<d46> d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k66(Context context, int i, boolean z) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0534), 5, i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865086, "Lcom/baidu/tieba/k66;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947865086, "Lcom/baidu/tieba/k66;");
+                return;
+            }
+        }
+        a = new k66();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
+    }
+
+    public k66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08099d;
-        this.e = R.drawable.obfuscated_res_0x7f08099e;
-        this.h = R.drawable.obfuscated_res_0x7f08099f;
-        this.i = false;
-        this.j = true;
-        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
-        emotionTabHost.setShowBigEmotion(z);
-        this.m = emotionTabHost;
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1, 34, 35};
     }
 
-    @Override // com.baidu.tieba.w25
-    public void e(boolean z) {
+    public final d46 a(e46 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ((EmotionTabHost) this.m).setShowUserCollect(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.w25
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ((EmotionTabHost) this.m).setShowDiyEmotion(z);
-            super.f(z);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k66(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0534), 5, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            d46 acquire = d.acquire();
+            if (acquire == null) {
+                acquire = null;
+            } else {
+                acquire.l(data);
+                acquire.p(player.m().w());
             }
+            return acquire == null ? new d46(data, player) : acquire;
         }
-        this.d = R.drawable.obfuscated_res_0x7f08099d;
-        this.e = R.drawable.obfuscated_res_0x7f080804;
-        this.h = R.drawable.obfuscated_res_0x7f08099f;
-        this.i = false;
-        this.j = true;
-        this.m = new EmotionTabHost(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1, 34, 35};
+        return (d46) invokeLL.objValue;
+    }
+
+    public final PointF b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            return acquire == null ? new PointF() : acquire;
+        }
+        return (PointF) invokeV.objValue;
+    }
+
+    public final RectF c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            return acquire == null ? new RectF() : acquire;
+        }
+        return (RectF) invokeV.objValue;
     }
 }

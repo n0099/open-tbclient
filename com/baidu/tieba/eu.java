@@ -1,49 +1,72 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.guide.TaskGuideData;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class eu implements zr {
+public final class eu extends zt<TaskGuideData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bu a;
 
-    public eu() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eu(bu buVar) {
+        super(buVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {buVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((bu) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = buVar;
     }
 
-    @Override // com.baidu.tieba.zr
-    public void a(String str, String str2) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            com.baidu.bdtask.service.cache.storage.c.i.a().d(str2, str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "guide" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zr
-    public String a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zt
+    /* renamed from: c */
+    public TaskGuideData a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object b = com.baidu.bdtask.service.cache.storage.c.i.a().b(str);
-            if (!(b instanceof String)) {
-                b = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
+                zt a = this.a.a("ui");
+                String optString = jSONObject.optString("ui");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
+                TaskUIData taskUIData = (TaskUIData) a.a(optString);
+                if (taskUIData != null) {
+                    return new TaskGuideData(optInt, taskUIData);
+                }
+                return new TaskGuideData(0, null, 3, null);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new TaskGuideData(0, null, 3, null);
             }
-            return (String) b;
         }
-        return (String) invokeL.objValue;
+        return (TaskGuideData) invokeL.objValue;
     }
 }

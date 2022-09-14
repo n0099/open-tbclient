@@ -1,132 +1,92 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.fragment.app.Fragment;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class mp8 extends bb {
+public class mp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final fo8 b;
+    public TbPageContext a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+    public mp8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, sn8Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.f;
+        this.a = tbPageContext;
+        MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public final void a() {
-        fo8 fo8Var;
+    public void a(Intent intent, ip8 ip8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fo8Var = this.b) == null || fo8Var.a() == null || this.a.C != 1) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, intent, ip8Var) == null) || intent == null) {
             return;
         }
-        this.b.a().f();
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        MainTabActivity mainTabActivity = this.a;
-        if (currentActivity != mainTabActivity || mainTabActivity.D.intValue() == 1) {
-            return;
-        }
-        this.b.a().k();
-    }
-
-    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        fo8 fo8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
-                this.a.C = profileHttpResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.C == 1 && (fo8Var = this.b) != null && fo8Var.a() != null) {
-                    this.b.a().f();
-                    this.b.a().k();
-                }
-                a();
-                q28.a().d(profileHttpResponseMessage.GetUser().virtual_image_info);
-                d();
+        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+        if (!TextUtils.isEmpty(stringExtra)) {
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f04d7);
+            ws4 ws4Var = new ws4();
+            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
+            int i = 1;
+            if (matcher.find()) {
+                ws4Var.c = matcher.group(1);
             }
-            if (profileHttpResponseMessage == null || profileHttpResponseMessage.getMemberBlockInfo() == null) {
-                return;
+            if (stringExtra.equals(string)) {
+                ws4Var.a = 1;
+            } else {
+                ws4Var.a = 2;
+                ws4Var.b = stringExtra;
             }
-            this.a.N = profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1;
-            this.a.O = profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1;
-            TbSingleton.getInstance().setUserBan(profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() == 1);
-        }
-    }
-
-    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
-                this.a.C = profileSocketResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.C == 1) {
-                    fo8 fo8Var = this.b;
-                    if (fo8Var != null && fo8Var.a() != null) {
-                        this.b.a().f();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, ws4Var));
+            if (stringExtra.equals(string)) {
+                intent.putExtra("sub_locate_type", 1);
+                i = 2;
+            } else {
+                intent.putExtra("sub_locate_type", stringExtra);
+            }
+            if (ip8Var != null && ip8Var.B() != null) {
+                ip8Var.B().setCurrentTabByType(i);
+                FragmentTabHost.b g = ip8Var.B().g(i);
+                if (g != null) {
+                    Fragment fragment = g.c;
+                    if (fragment instanceof pp4) {
+                        ((pp4) fragment).c1(intent);
                     }
-                    a();
                 }
-                q28.a().d(profileSocketResponseMessage.GetUser().virtual_image_info);
-                d();
             }
-            if (profileSocketResponseMessage == null || profileSocketResponseMessage.getMemberBlockInfo() == null) {
-                return;
-            }
-            this.a.N = profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1;
-            this.a.O = profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1;
-            TbSingleton.getInstance().setUserBan(profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() == 1);
         }
+        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
+        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
     }
 
-    public final void d() {
-        fo8 fo8Var;
+    public boolean b(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fo8Var = this.b) == null) {
-            return;
-        }
-        fo8Var.a().j().G();
-    }
-
-    @Override // com.baidu.tieba.bb
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
-            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
-                if (z) {
-                    c((ProfileSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                    b((ProfileHttpResponseMessage) responsedMessage);
-                }
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) ? intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) == 1 : invokeL.booleanValue;
     }
 }

@@ -1,49 +1,60 @@
 package com.baidu.tieba;
 
-import android.animation.TypeEvaluator;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes5.dex */
-public class o67 implements TypeEvaluator<q67> {
+public class o67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q67 a;
+    public long a;
 
-    public o67(q67 q67Var) {
+    public o67() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {q67Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = q67Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public q67 evaluate(float f, q67 q67Var, q67 q67Var2) {
-        InterceptResult invokeCommon;
+    public void a(UserInfo userInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), q67Var, q67Var2})) == null) {
-            float f2 = 1.0f - f;
-            float f3 = f2 * f2;
-            float f4 = 2.0f * f * f2;
-            q67 q67Var3 = this.a;
-            float f5 = f * f;
-            return new q67((int) ((q67Var.a * f3) + (q67Var3.a * f4) + (q67Var2.a * f5)), (int) ((f3 * q67Var.b) + (f4 * q67Var3.b) + (f5 * q67Var2.b)));
+        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
+            this.a = userInfo.user_id.longValue();
+            String str = userInfo.user_name;
+            String str2 = userInfo.portrait;
         }
-        return (q67) invokeCommon.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            return obj != null && o67.class == obj.getClass() && this.a == ((o67) obj).a;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.a;
+            return (int) (j ^ (j >>> 32));
+        }
+        return invokeV.intValue;
     }
 }

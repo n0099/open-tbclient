@@ -147,7 +147,7 @@ public class QrLoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04f6);
+                setContentView(R.layout.obfuscated_res_0x7f0d0508);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -175,7 +175,7 @@ public class QrLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.setupViews();
-            setTitle(R.string.obfuscated_res_0x7f0f107f);
+            setTitle(R.string.obfuscated_res_0x7f0f109c);
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.QrLoginActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

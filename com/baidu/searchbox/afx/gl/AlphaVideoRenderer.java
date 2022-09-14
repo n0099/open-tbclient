@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.gl;
 
+import android.annotation.SuppressLint;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
@@ -75,6 +76,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         Matrix.setIdentityM(this.mSTMatrix, 0);
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void checkGlError(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
@@ -141,14 +143,14 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     private void prepareSurface() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            GLES20.glTexParameterf(36197, 10241, 9728.0f);
+            GLES20.glTexParameterf(36197, 10240, 9729.0f);
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             int i = iArr[0];
             GLES20.glActiveTexture(33984);
             GLES20.glBindTexture(36197, i);
             checkGlError("glBindTexture textureID");
-            GLES20.glTexParameterf(36197, 10241, 9728.0f);
-            GLES20.glTexParameterf(36197, 10240, 9729.0f);
             SurfaceTexture surfaceTexture = new SurfaceTexture(i);
             this.mSurfaceTexture = surfaceTexture;
             surfaceTexture.setOnFrameAvailableListener(this);
@@ -252,6 +254,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
+    @SuppressLint({"BDThrowableCheck"})
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, gl10, eGLConfig) == null) {

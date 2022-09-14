@@ -1,26 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class lz1 extends c63 {
+public class lz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,110 +27,108 @@ public class lz1 extends c63 {
                 return;
             }
         }
-        b = kh1.a;
+        boolean z = ij1.a;
     }
 
-    public lz1() {
+    @Nullable
+    public static <C extends ny1> C a(oy1 oy1Var) {
+        InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, oy1Var)) == null) {
+            if (oy1Var == null) {
+                rz1.a("Component-Finder", "find a null component: null model");
+                return null;
             }
+            String d = oy1Var.d();
+            String str = oy1Var.c;
+            if (TextUtils.isEmpty(str)) {
+                yz1.c("Component-Finder", "find a null " + d + " : slaveId is empty");
+                return null;
+            }
+            oz1 d2 = d(str);
+            if (d2 == null) {
+                yz1.c("Component-Finder", "find a null " + d + " : null component context");
+                return null;
+            }
+            String str2 = oy1Var.b;
+            if (TextUtils.isEmpty(str2)) {
+                yz1.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<ny1> list = d2.a().c.get(oy1Var.a);
+                if (list == null) {
+                    yz1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    yz1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
+                } else {
+                    yz1.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
+                }
+            } else {
+                c = (C) d2.a().b.get(str2);
+            }
+            if (c == null) {
+                yz1.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
+            }
+            return c;
         }
-        this.a = null;
-        this.a = new mz1();
+        return (C) invokeL.objValue;
     }
 
-    public final Bundle a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    @Nullable
+    public static <C extends ny1> C b(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", i);
-            bundle.putString("param1", str);
-            bundle.putString("param2", str2);
-            return bundle;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            oz1 d = d(str);
+            if (d == null) {
+                yz1.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
+            }
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                yz1.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
+            }
+            return c;
         }
-        return (Bundle) invokeLLI.objValue;
+        return (C) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.c63, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
+    @Nullable
+    public static oz1 c(oy1 oy1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.getCookie(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, oy1Var)) == null) {
+            if (oy1Var == null) {
+                rz1.a("Component-Finder", "find component context with a null model");
+                return null;
             }
-            px2 c = nx2.c(kz1.class, a(str, "", 4));
-            if (c.a()) {
-                String string = c.a.getString(TiebaStatic.LogFields.RESULT);
-                if (b) {
-                    Log.d("DelegationCookieManager", "getCookie cookie : " + string);
-                }
-                return string;
-            }
-            return "";
+            return d(oy1Var.c);
         }
-        return (String) invokeL.objValue;
+        return (oz1) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
+    @Nullable
+    public static oz1 d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldAcceptCookie(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                yz1.c("Component-Finder", "find component context with a null slave id");
+                return null;
             }
-            px2 c = nx2.c(kz1.class, a(str, str2, 1));
-            if (c.a()) {
-                return c.a.getBoolean(TiebaStatic.LogFields.RESULT);
+            gp1 A = lo2.U().A(str);
+            if (A instanceof ep1) {
+                return ((ep1) A).c0();
             }
-            return false;
+            return null;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldSendCookie(str, str2);
-            }
-            px2 c = nx2.c(kz1.class, a(str, str2, 2));
-            if (c.a()) {
-                return c.a.getBoolean(TiebaStatic.LogFields.RESULT);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                this.a.storeCookie(str, list);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", 3);
-            bundle.putString("param1", str);
-            bundle.putStringArrayList("param2", (ArrayList) list);
-            nx2.c(kz1.class, bundle);
-            if (b) {
-                Log.d("DelegationCookieManager", "set cookies for " + str);
-            }
-        }
+        return (oz1) invokeL.objValue;
     }
 }

@@ -1,86 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsFunction;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g34 {
+public class g34 extends f34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
 
-    public g34() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g34(v33 v33Var) {
+        super(v33Var, "/swanAPI/hideShareMenu", "hideShareMenu");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((v33) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static g34 d(ht1 ht1Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f34
+    public boolean k(@NonNull i34 i34Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ht1Var)) == null) {
-            if (ht1Var == null) {
-                return null;
-            }
-            g34 g34Var = new g34();
-            JsFunction u = ht1Var.u("onCheckForUpdate");
-            g34Var.a = u;
-            if (u != null) {
-                u.setReleaseMode(false);
-            }
-            JsFunction u2 = ht1Var.u("onUpdateReady");
-            g34Var.b = u2;
-            if (u2 != null) {
-                u2.setReleaseMode(false);
-            }
-            JsFunction u3 = ht1Var.u("onUpdateFailed");
-            g34Var.c = u3;
-            if (u3 != null) {
-                u3.setReleaseMode(false);
-            }
-            return g34Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i34Var, unitedSchemeEntity, callbackHandler)) == null) {
+            i34Var.a();
+            j(unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (g34) invokeL.objValue;
-    }
-
-    public void a(h34 h34Var) {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h34Var) == null) || (jsFunction = this.a) == null) {
-            return;
-        }
-        jsFunction.call(h34Var);
-    }
-
-    public void b() {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jsFunction = this.c) == null) {
-            return;
-        }
-        jsFunction.call();
-    }
-
-    public void c() {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jsFunction = this.b) == null) {
-            return;
-        }
-        jsFunction.call();
+        return invokeLLL.booleanValue;
     }
 }

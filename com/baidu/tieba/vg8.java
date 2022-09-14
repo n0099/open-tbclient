@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vg8 {
+public class vg8 implements p25 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ug8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ug8 a() {
-        InterceptResult invokeV;
-        ug8 ug8Var;
+    public vg8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (vg8.class) {
-                if (a == null) {
-                    a = new ug8();
-                }
-                ug8Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ug8Var;
         }
-        return (ug8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p25
+    public o25 a(Context context, n25 n25Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, n25Var)) == null) ? new ug8(context, n25Var) : (o25) invokeLL.objValue;
     }
 }

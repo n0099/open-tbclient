@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k03;
-import com.baidu.tieba.kh1;
+import com.baidu.tieba.i23;
+import com.baidu.tieba.ij1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BdContextMenuView extends FrameLayout implements k03.g {
+public class BdContextMenuView extends FrameLayout implements i23.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -82,7 +82,7 @@ public class BdContextMenuView extends FrameLayout implements k03.g {
                 return;
             }
         }
-        boolean z = kh1.a;
+        boolean z = ij1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,11 +113,11 @@ public class BdContextMenuView extends FrameLayout implements k03.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080136));
+            setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080137));
             ListView listView = new ListView(this.b);
             this.c = listView;
             listView.setCacheColorHint(0);
-            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06039c));
+            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06039d));
             this.c.setDividerHeight(1);
             this.c.setSelector(new ColorDrawable(0));
             addView(this.c, new FrameLayout.LayoutParams(-1, -1));

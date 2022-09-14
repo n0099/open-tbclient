@@ -3,8 +3,8 @@ package com.baidu.tieba.pushdialog.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ac8;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
-import com.baidu.tieba.sa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sa8 mData;
+    public ac8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogSocketResMsg(int i) {
@@ -49,9 +49,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    sa8 sa8Var = new sa8();
-                    this.mData = sa8Var;
-                    sa8Var.e(getLockWindowMsgResIdl.data);
+                    ac8 ac8Var = new ac8();
+                    this.mData = ac8Var;
+                    ac8Var.e(getLockWindowMsgResIdl.data);
                 }
                 return getLockWindowMsgResIdl;
             } catch (IOException unused) {
@@ -61,9 +61,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public sa8 getData() {
+    public ac8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (sa8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (ac8) invokeV.objValue;
     }
 }

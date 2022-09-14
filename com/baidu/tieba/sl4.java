@@ -1,132 +1,156 @@
 package com.baidu.tieba;
 
-import android.content.ContentUris;
-import android.content.Context;
-import android.database.Cursor;
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
+import android.os.Build;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class sl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public a b;
-    public c c;
-    public final Context d;
+    public ActiveCenterData a;
+    public boolean b;
+    public boolean c;
+    public final f d;
+    public final g e;
+    public final i f;
+    public final b g;
+    public final h h;
+    public final d i;
+    public final c j;
 
     /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<Object, Integer, List<rl4>> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final tl4 a;
-        public final /* synthetic */ sl4 b;
+    }
 
-        public a(sl4 sl4Var, tl4 tl4Var) {
+    /* loaded from: classes5.dex */
+    public class b extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sl4 c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(sl4 sl4Var, int i) {
+            super(sl4Var, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sl4Var, tl4Var};
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((sl4) objArr2[0], ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = sl4Var;
-            this.a = tl4Var;
+            this.c = sl4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public List<rl4> doInBackground(Object... objArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.sl4.e
+        public void a() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.b.f() : (List) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(List<rl4> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                super.onPostExecute(list);
-                tl4 tl4Var = this.a;
-                if (tl4Var != null) {
-                    tl4Var.a(list);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
+        @Override // com.baidu.tieba.sl4.e
+        public void d(TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreExecute();
-                tl4 tl4Var = this.a;
-                if (tl4Var != null) {
-                    tl4Var.onPreLoad();
-                }
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.c.a == null || this.c.a.mission == null) {
+                return;
             }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.c.a.mission.final_reward_url});
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(List<ImageFileInfo> list);
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
+    public class c extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ul4 a;
-        public final String b;
-        public String c;
-        public List<rl4> d;
-        public int e;
-        public b f;
-        public final /* synthetic */ sl4 g;
+        public final /* synthetic */ sl4 c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(sl4 sl4Var, int i) {
+            super(sl4Var, i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((sl4) objArr2[0], ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sl4Var;
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void d(TbPageContext<?> tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.c.a == null || this.c.a.mission == null) {
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.c.a.mission.final_reward_url});
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a implements b {
+        public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+            public final /* synthetic */ TbPageContext a;
 
-            public a(c cVar) {
+            public a(d dVar, TbPageContext tbPageContext) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {dVar, tbPageContext};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -136,419 +160,510 @@ public class sl4 {
                         return;
                     }
                 }
-                this.a = cVar;
+                this.a = tbPageContext;
             }
 
-            @Override // com.baidu.tieba.sl4.b
-            public void a(List<ImageFileInfo> list) {
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                    this.a.publishProgress(list);
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ww4.e(this.a.getPageActivity(), 1);
                 }
             }
         }
 
-        public c(sl4 sl4Var, String str, ul4 ul4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(sl4 sl4Var, int i) {
+            super(sl4Var, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sl4Var, str, ul4Var};
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((sl4) objArr2[0], ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.g = sl4Var;
-            this.e = 1;
-            this.f = new a(this);
-            this.a = ul4Var;
-            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.sl4.e
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                if (this.b.equals(rl4.f)) {
-                    List<rl4> f = this.g.f();
-                    this.d = f;
-                    if (f != null) {
-                        for (rl4 rl4Var : f) {
-                            String b = rl4Var.b();
-                            if (!TextUtils.isEmpty(b)) {
-                                e(arrayList, this.f, b);
-                            }
-                        }
-                    }
-                    return arrayList;
-                }
-                e(arrayList, this.f, this.b);
-                return arrayList;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        public final void d(List<ImageFileInfo> list, b bVar, String str, Context context, Uri uri) {
-            boolean z;
-            boolean z2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, bVar, str, context, uri) == null) || list == null) {
-                return;
-            }
-            Cursor cursor = null;
-            cursor = null;
-            try {
-                Cursor query = context.getContentResolver().query(uri, new String[]{"_id", "bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
-                try {
-                    if (query.moveToFirst()) {
-                        int columnIndex = query.getColumnIndex("_data");
-                        int columnIndex2 = query.getColumnIndex("bucket_display_name");
-                        Uri withAppendedId = ContentUris.withAppendedId(uri, query.getLong(query.getColumnIndex("_id")));
-                        String uri2 = withAppendedId != null ? withAppendedId.toString() : null;
-                        do {
-                            String string = query.getString(columnIndex);
-                            try {
-                                this.c = query.getString(columnIndex2);
-                                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                imageFileInfo.setAlbumnId(str);
-                                imageFileInfo.setContentUriStr(uri2);
-                                imageFileInfo.setFilePath(string);
-                                File file = new File(string);
-                                if (file.exists() && file.isFile() && file.length() > 0) {
-                                    if (string.toLowerCase().endsWith(".gif") && FileHelper.isGifImage(string)) {
-                                        if (li.u(file) <= 3145728) {
-                                            z = true;
-                                        }
-                                    } else if (FileHelper.checkIsLongImage(string)) {
-                                        z = false;
-                                        z2 = true;
-                                        imageFileInfo.setIsGif(z);
-                                        imageFileInfo.setIsLong(z2);
-                                        imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file.lastModified()));
-                                        list.add(imageFileInfo);
-                                        f(list, bVar);
-                                    } else {
-                                        z = false;
-                                    }
-                                    z2 = false;
-                                    imageFileInfo.setIsGif(z);
-                                    imageFileInfo.setIsLong(z2);
-                                    imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file.lastModified()));
-                                    list.add(imageFileInfo);
-                                    f(list, bVar);
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                cursor = query;
-                                try {
-                                    BdLog.detailException(e);
-                                    og.a(cursor);
-                                    return;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    og.a(cursor);
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                cursor = query;
-                                og.a(cursor);
-                                throw th;
-                            }
-                        } while (query.moveToNext());
-                    }
-                    og.a(query);
-                } catch (Exception e2) {
-                    e = e2;
-                } catch (Throwable th3) {
-                    th = th3;
-                }
-            } catch (Exception e3) {
-                e = e3;
-            } catch (Throwable th4) {
-                th = th4;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        public final void e(List<ImageFileInfo> list, b bVar, String str) {
+        @Override // com.baidu.tieba.sl4.e
+        public void d(TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, list, bVar, str) == null) || list == null) {
-                return;
-            }
-            d(list, bVar, str, this.g.d, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            if (list == null || list.size() <= 0) {
-                d(list, bVar, str, this.g.d, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-            }
-        }
-
-        public final void f(List<ImageFileInfo> list, b bVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, bVar) == null) || list == null || bVar == null) {
-                return;
-            }
-            int i = this.e;
-            if (i != 1 && i != 2) {
-                if (list.size() / this.e > 500) {
-                    if (bVar != null) {
-                        bVar.a(list);
-                    }
-                    this.e++;
-                }
-            } else if (list.size() / this.e > 50) {
-                if (bVar != null) {
-                    bVar.a(list);
-                }
-                this.e++;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: g */
-        public void onPostExecute(List<ImageFileInfo> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-                super.onPostExecute(list);
-                ul4 ul4Var = this.a;
-                if (ul4Var != null) {
-                    ul4Var.a(this.d, list, this.c);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: h */
-        public void onProgressUpdate(List<ImageFileInfo>... listArr) {
-            ul4 ul4Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, listArr) == null) {
-                super.onProgressUpdate(listArr);
-                if (listArr.length <= 0 || (ul4Var = this.a) == null) {
-                    return;
-                }
-                ul4Var.a(this.d, listArr[0], this.c);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                super.onPreCancel();
-                ul4 ul4Var = this.a;
-                if (ul4Var != null) {
-                    ul4Var.onPreLoad();
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+                gh.a().postDelayed(new a(this, tbPageContext), 100L);
             }
         }
     }
 
-    public sl4(Context context) {
+    /* loaded from: classes5.dex */
+    public abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ sl4 b;
+
+        public e(sl4 sl4Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sl4Var;
+            this.a = i;
+        }
+
+        public abstract void a();
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && c()) {
+                a();
+            }
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.b.a == null || this.b.a.mission == null || this.b.a.getCurTaskType() != this.a) ? false : true : invokeV.booleanValue;
+        }
+
+        public abstract void d(TbPageContext<?> tbPageContext);
+
+        public void e(TbPageContext<?> tbPageContext) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) && c()) {
+                d(tbPageContext);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ul4 c;
+        public final /* synthetic */ sl4 d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(sl4 sl4Var, int i) {
+            super(sl4Var, i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((sl4) objArr2[0], ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = sl4Var;
+            this.c = new ul4();
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null || this.d.a == null) {
+                return;
+            }
+            this.c.a();
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void d(TbPageContext<?> tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.c == null || this.d.a == null) {
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.d.a.mission.final_reward_url});
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean c;
+        public final /* synthetic */ sl4 d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(sl4 sl4Var, int i) {
+            super(sl4Var, i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((sl4) objArr2[0], ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = sl4Var;
+            this.c = false;
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f() && !this.c) {
+                this.d.n();
+                this.c = true;
+            }
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void d(TbPageContext<?> tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+                Activity pageActivity = tbPageContext.getPageActivity();
+                try {
+                    Intent intent = new Intent();
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    if (Build.VERSION.SDK_INT >= 9) {
+                        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                        intent.setData(Uri.fromParts("package", pageActivity.getPackageName(), null));
+                    }
+                    pageActivity.startActivity(intent);
+                } catch (Exception unused) {
+                }
+            }
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sl4 c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(sl4 sl4Var, int i) {
+            super(sl4Var, i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((sl4) objArr2[0], ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sl4Var;
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void d(TbPageContext<?> tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.c.a == null || this.c.a.mission == null) {
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.c.a.mission.final_reward_url});
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class i extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sl4 c;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ TbPageContext a;
+
+            public a(i iVar, TbPageContext tbPageContext) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {iVar, tbPageContext};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = tbPageContext;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ww4.e(this.a.getPageActivity(), 1);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public i(sl4 sl4Var, int i) {
+            super(sl4Var, i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((sl4) objArr2[0], ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sl4Var;
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.n();
+            }
+        }
+
+        @Override // com.baidu.tieba.sl4.e
+        public void d(TbPageContext<?> tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+                gh.a().postDelayed(new a(this, tbPageContext), 100L);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class j {
+        public static /* synthetic */ Interceptable $ic;
+        public static sl4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-428568408, "Lcom/baidu/tieba/sl4$j;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-428568408, "Lcom/baidu/tieba/sl4$j;");
+                    return;
+                }
+            }
+            a = new sl4(null);
+        }
+    }
+
+    public /* synthetic */ sl4(a aVar) {
+        this();
+    }
+
+    public static sl4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j.a : (sl4) invokeV.objValue;
+    }
+
+    public ActiveCenterData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ActiveCenterData) invokeV.objValue;
+    }
+
+    public b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (b) invokeV.objValue;
+    }
+
+    public c d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (c) invokeV.objValue;
+    }
+
+    public d e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (d) invokeV.objValue;
+    }
+
+    public f g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (f) invokeV.objValue;
+    }
+
+    public g h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (g) invokeV.objValue;
+    }
+
+    public h i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (h) invokeV.objValue;
+    }
+
+    public i j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (i) invokeV.objValue;
+    }
+
+    public void k(TbPageContext<?> tbPageContext) {
+        ActiveCenterData activeCenterData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) || (activeCenterData = this.a) == null) {
+            return;
+        }
+        int curTaskType = activeCenterData.getCurTaskType();
+        if (curTaskType == 12) {
+            g().e(tbPageContext);
+            g().b();
+        } else if (curTaskType == 6) {
+            h().e(tbPageContext);
+        } else if (curTaskType == 10) {
+            j().e(tbPageContext);
+            j().b();
+        } else if (curTaskType == 7) {
+            c().e(tbPageContext);
+        } else if (curTaskType == 5) {
+            i().e(tbPageContext);
+        } else if (curTaskType == 9) {
+            e().e(tbPageContext);
+        } else if (curTaskType == 13) {
+            d().e(tbPageContext);
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.c && el4.w().I()) {
+            this.c = true;
+        }
+    }
+
+    public void n() {
+        ActiveCenterData activeCenterData;
+        ActiveCenterData.ActiveCenterMissionData activeCenterMissionData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (activeCenterData = this.a) == null || (activeCenterMissionData = activeCenterData.mission) == null) {
+            return;
+        }
+        int i2 = activeCenterMissionData.active_id;
+        int i3 = activeCenterMissionData.mission_id;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(String.valueOf(i2), String.valueOf(i3));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        String jSONObject2 = jSONObject.toString();
+        CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
+        completeTaskReqMsg.completeId = jSONObject2;
+        MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+    }
+
+    public sl4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = TbConfig.getTempDirName();
-        this.d = context;
-    }
-
-    public void c() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.b) == null) {
+        this.b = true;
+        this.c = false;
+        this.d = new f(this, 12);
+        this.e = new g(this, 6);
+        this.f = new i(this, 10);
+        this.g = new b(this, 7);
+        this.h = new h(this, 5);
+        this.i = new d(this, 9);
+        this.j = new c(this, 13);
+        if (el4.w().r()) {
+            this.b = bx4.k().h("key_delete_mission_home_entrance", true);
             return;
         }
-        aVar.cancel();
-        this.b = null;
-    }
-
-    public void d() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.cancel();
-        this.c = null;
-    }
-
-    public final List<rl4> e(Context context, List<rl4> list, Uri uri, HashSet<String> hashSet) {
-        InterceptResult invokeLLLL;
-        int i;
-        File[] listFiles;
-        Matcher matcher;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, list, uri, hashSet)) == null) {
-            Cursor cursor = null;
-            if (context == null) {
-                return null;
-            }
-            Pattern compile = Pattern.compile("image\\/\\w+", 2);
-            List<rl4> arrayList = list == null ? new ArrayList<>() : list;
-            try {
-                try {
-                    cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "bucket_display_name", "_data", "count(*)"}, "mime_type like 'image/%') GROUP BY 1,(2", null, "date_added DESC");
-                    if (cursor.moveToFirst()) {
-                        int columnIndex = cursor.getColumnIndex("bucket_id");
-                        int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
-                        int columnIndex3 = cursor.getColumnIndex("_data");
-                        int columnIndex4 = cursor.getColumnIndex("count(*)");
-                        do {
-                            String string = cursor.getString(columnIndex);
-                            String string2 = cursor.getString(columnIndex2);
-                            String string3 = cursor.getString(columnIndex3);
-                            cursor.getString(columnIndex4);
-                            String substring = string3.substring(0, string3.lastIndexOf("/"));
-                            if (hashSet != null) {
-                                if (!hashSet.contains(substring)) {
-                                    hashSet.add(substring);
-                                }
-                            }
-                            File file = new File(substring);
-                            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                                i = 0;
-                                for (File file2 : listFiles) {
-                                    String j = j(file2.getAbsolutePath());
-                                    if (j != null && (matcher = compile.matcher(j)) != null && matcher.matches()) {
-                                        i++;
-                                    }
-                                }
-                            } else {
-                                i = 0;
-                            }
-                            if (i != 0) {
-                                rl4 rl4Var = new rl4();
-                                rl4Var.h(string);
-                                rl4Var.i(i + "");
-                                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                File file3 = new File(string3);
-                                if (file3.exists() && file3.isFile()) {
-                                    imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file3.lastModified()));
-                                }
-                                imageFileInfo.setFilePath(string3);
-                                rl4Var.k(imageFileInfo);
-                                rl4Var.l(string2);
-                                if (string2 != null && string2.equals(this.a)) {
-                                    arrayList.add(0, rl4Var);
-                                } else {
-                                    arrayList.add(rl4Var);
-                                }
-                            }
-                        } while (cursor.moveToNext());
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-                return arrayList;
-            } finally {
-                og.a(cursor);
-            }
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public final List<rl4> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashSet<String> hashSet = new HashSet<>();
-            return e(this.d, e(this.d, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean g(tl4 tl4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tl4Var)) == null) {
-            if (tl4Var == null) {
-                return false;
-            }
-            c();
-            a aVar = new a(this, tl4Var);
-            this.b = aVar;
-            aVar.setPriority(3);
-            this.b.execute(new Object[0]);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final String h(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            int lastIndexOf2 = str.lastIndexOf(35);
-            if (lastIndexOf2 > 0) {
-                str = str.substring(0, lastIndexOf2);
-            }
-            int lastIndexOf3 = str.lastIndexOf(63);
-            if (lastIndexOf3 > 0) {
-                str = str.substring(0, lastIndexOf3);
-            }
-            int lastIndexOf4 = str.lastIndexOf(47);
-            if (lastIndexOf4 >= 0) {
-                str = str.substring(lastIndexOf4 + 1);
-            }
-            return (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) < 0 || lastIndexOf >= str.length() + (-1)) ? "" : str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean i(String str, ul4 ul4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, ul4Var)) == null) {
-            if (ul4Var == null) {
-                return false;
-            }
-            d();
-            c cVar = new c(this, str, ul4Var);
-            this.c = cVar;
-            cVar.setPriority(3);
-            this.c.execute(new Void[0]);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            String h = h(str);
-            if (h != null) {
-                return MimeTypeMap.getSingleton().getMimeTypeFromExtension(h.toLowerCase(Locale.getDefault()));
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        this.b = true;
+        bx4.k().u("key_delete_mission_home_entrance", true);
     }
 }

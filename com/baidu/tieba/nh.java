@@ -1,493 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
-import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class nh {
+public class nh extends qf {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nh j;
-    public static final Handler k;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public Context d;
-    public c e;
-    public BdStatSwitchData f;
-    public oh g;
-    public b h;
-    public vi i;
-
-    /* loaded from: classes5.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                Object obj = message.obj;
-                if (obj instanceof BdUploadStatMsgData) {
-                    zh.i().r(((BdUploadStatMsgData) obj).parentType);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh this$0;
-
-        public c(nh nhVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nhVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = nhVar;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Serializable serializableExtra;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
-                return;
-            }
-            String action = intent.getAction();
-            if ("com.baidu.adp.stats.background".equals(action)) {
-                BdStatisticsManager.getInstance().save();
-                if (this.this$0.a) {
-                    zh.i().f();
-                }
-            } else if ("com.baidu.adp.stats.switch".equals(action)) {
-                if (this.this$0.a) {
-                    return;
-                }
-                this.this$0.p();
-                zh.i().s();
-            } else if (!"com.baidu.adp.stats.updatecmd".equals(action) || this.this$0.a || (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) == null || !(serializableExtra instanceof BdUploadStatMsgData)) {
-            } else {
-                BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;
-                if (bdUploadStatMsgData.parentType == null && bdUploadStatMsgData.childType == null) {
-                    return;
-                }
-                String str = TextUtils.isEmpty(bdUploadStatMsgData.childType) ? bdUploadStatMsgData.parentType : bdUploadStatMsgData.childType;
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                this.this$0.f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-                this.this$0.l(bdUploadStatMsgData);
-            }
-        }
-
-        public /* synthetic */ c(nh nhVar, a aVar) {
-            this(nhVar);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh a;
-
-        public d(nh nhVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nhVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nhVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public BdStatSwitchData doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-                if (this.a.g.a()) {
-                    bdStatSwitchData.parserJson(this.a.g.b);
-                }
-                this.a.b = false;
-                if (this.a.a) {
-                    nh nhVar = this.a;
-                    if (nhVar.t(nhVar.g.b)) {
-                        String w = this.a.w();
-                        if (!TextUtils.isEmpty(w) && !w.equals(this.a.g.b)) {
-                            this.a.b = true;
-                            bdStatSwitchData.parserJson(w);
-                            this.a.g.b(w);
-                        }
-                    }
-                }
-                return bdStatSwitchData;
-            }
-            return (BdStatSwitchData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdStatSwitchData) == null) {
-                super.onPostExecute(bdStatSwitchData);
-                if (bdStatSwitchData == null) {
-                    return;
-                }
-                this.a.f = bdStatSwitchData;
-                if (this.a.a && this.a.b && !BdBaseApplication.getInst().checkInterrupt()) {
-                    this.a.z();
-                    zh.i().s();
-                }
-                b bVar = this.a.h;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        public /* synthetic */ d(nh nhVar, a aVar) {
-            this(nhVar);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448312115, "Lcom/baidu/tieba/nh;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448312115, "Lcom/baidu/tieba/nh;");
-                return;
-            }
-        }
-        k = new a(Looper.getMainLooper());
-    }
 
     public nh() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = false;
-        this.c = null;
-        this.f = new BdStatSwitchData();
-        this.g = new oh();
-        this.h = null;
     }
 
-    public static nh o() {
+    public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (j == null) {
-                synchronized (nh.class) {
-                    if (j == null) {
-                        j = new nh();
-                    }
-                }
-            }
-            return j;
-        }
-        return (nh) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType("android_should_open_ubc_log") == 1 : invokeV.booleanValue;
     }
 
-    public void A(vi viVar) {
+    @Override // com.baidu.tieba.qf
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, viVar) == null) {
-            this.i = viVar;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    public boolean B(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return true;
-            }
-            return this.f.smallFlowUpload(gh.g(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean k(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bdUploadStatMsgData)) == null) {
-            if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || bdUploadStatMsgData == null) {
-                return false;
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                str = str2;
-            }
-            if (this.f.getTmpSwitchConfData(str) == null) {
-                this.f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-                y(bdUploadStatMsgData);
-                l(bdUploadStatMsgData);
-                return true;
-            }
-            long j2 = bdUploadStatMsgData.deadLineTime;
-            if (0 == j2) {
-                this.f.rmTmpSwitchConfData(str);
-                return false;
-            } else if (0 < j2) {
-                this.f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-                y(bdUploadStatMsgData);
-                l(bdUploadStatMsgData);
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void l(BdUploadStatMsgData bdUploadStatMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUploadStatMsgData) == null) {
-            long currentTimeMillis = bdUploadStatMsgData.deadLineTime - System.currentTimeMillis();
-            if (currentTimeMillis < 0) {
-                return;
-            }
-            long j2 = currentTimeMillis - 3000;
-            if (j2 > 0) {
-                currentTimeMillis = j2;
-            }
-            Message obtainMessage = k.obtainMessage();
-            obtainMessage.what = 1;
-            obtainMessage.obj = bdUploadStatMsgData;
-            k.removeMessages(1);
-            k.sendMessageDelayed(obtainMessage, currentTimeMillis);
-        }
-    }
-
-    public int m(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) ? TextUtils.isEmpty(str) ? i : this.f.geUploadCycle(str, i) : invokeLI.intValue;
-    }
-
-    public ArrayList<String> n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f.getChiledTypes(str) : (ArrayList) invokeL.objValue;
-    }
-
-    public void p() {
-        vi viVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (viVar = this.i) != null && viVar.isAgreePrivacyPolicy()) {
-            d dVar = new d(this, null);
-            dVar.setPriority(4);
-            dVar.execute(new Object[0]);
-        }
-    }
-
-    public int q(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) ? TextUtils.isEmpty(str) ? i : this.f.getMaxAlertCount(str, i) : invokeLI.intValue;
-    }
-
-    public void r(boolean z, String str, Context context, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, context, bVar}) == null) {
-            this.a = z;
-            this.c = str;
-            this.d = context;
-            try {
-                if (this.e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
-                    this.e = new c(this, null);
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction("com.baidu.adp.stats.background");
-                    intentFilter.addAction("com.baidu.adp.stats.switch");
-                    intentFilter.addAction("com.baidu.adp.stats.updatecmd");
-                    intentFilter.addAction("com.baidu.adp.stats.uploadallfile");
-                    this.d.registerReceiver(this.e, intentFilter);
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            this.h = bVar;
-        }
-    }
-
-    public boolean s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return this.f.isExactWriteFile(gh.g(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) || System.currentTimeMillis() - this.g.a >= 86400000 : invokeL.booleanValue;
-    }
-
-    public boolean u(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return this.f.isUpload(gh.g(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return this.f.isWrite(gh.g(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String w() {
+    @Override // com.baidu.tieba.qf
+    public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                return null;
-            }
-            try {
-                vf g = new dg().g(this.c, 3, 30000, -1);
-                if (g != null) {
-                    return new String(g.i, IMAudioTransRequest.CHARSET);
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (String) invokeV.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public boolean x(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.qf
+    public int getDefaultType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return this.f.onlyWifiUpload(gh.g(str), str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
         }
-        return invokeLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final void y(BdUploadStatMsgData bdUploadStatMsgData) {
+    @Override // com.baidu.tieba.qf
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, bdUploadStatMsgData) == null) && this.a) {
-            Intent intent = new Intent("com.baidu.adp.stats.updatecmd");
-            intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.d.sendBroadcast(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
         }
+        return invokeV.intValue;
     }
 
-    public final void z() {
+    @Override // com.baidu.tieba.qf
+    public String getName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.a) {
-            Intent intent = new Intent("com.baidu.adp.stats.switch");
-            intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.d.sendBroadcast(intent);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "android_should_open_ubc_log" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qf
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
         }
+        return invokeV.intValue;
     }
 }

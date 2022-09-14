@@ -3,20 +3,14 @@ package com.google.android.gms.common.internal;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.zzn;
-import com.google.android.gms.common.zzq;
-import com.google.android.gms.common.zzs;
 import com.google.android.gms.dynamic.IObjectWrapper;
-import com.google.android.gms.internal.common.zza;
 /* loaded from: classes7.dex */
-public final class zzad extends zza implements zzaf {
+public final class zzad extends com.google.android.gms.internal.common.zza implements zzaf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,32 +36,32 @@ public final class zzad extends zza implements zzaf {
     }
 
     @Override // com.google.android.gms.common.internal.zzaf
-    public final zzq zze(zzn zznVar) throws RemoteException {
+    public final com.google.android.gms.common.zzq zze(com.google.android.gms.common.zzn zznVar) throws RemoteException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zznVar)) == null) {
             Parcel zza = zza();
-            yo9.c(zza, zznVar);
+            com.google.android.gms.internal.common.zzc.zzc(zza, zznVar);
             Parcel zzB = zzB(6, zza);
-            zzq zzqVar = (zzq) yo9.a(zzB, zzq.CREATOR);
+            com.google.android.gms.common.zzq zzqVar = (com.google.android.gms.common.zzq) com.google.android.gms.internal.common.zzc.zza(zzB, com.google.android.gms.common.zzq.CREATOR);
             zzB.recycle();
             return zzqVar;
         }
-        return (zzq) invokeL.objValue;
+        return (com.google.android.gms.common.zzq) invokeL.objValue;
     }
 
     @Override // com.google.android.gms.common.internal.zzaf
-    public final boolean zzf(zzs zzsVar, IObjectWrapper iObjectWrapper) throws RemoteException {
+    public final boolean zzf(com.google.android.gms.common.zzs zzsVar, IObjectWrapper iObjectWrapper) throws RemoteException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zzsVar, iObjectWrapper)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zzsVar, iObjectWrapper)) == null) {
             Parcel zza = zza();
-            yo9.c(zza, zzsVar);
-            yo9.e(zza, iObjectWrapper);
+            com.google.android.gms.internal.common.zzc.zzc(zza, zzsVar);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
             Parcel zzB = zzB(5, zza);
-            boolean f = yo9.f(zzB);
+            boolean zzf = com.google.android.gms.internal.common.zzc.zzf(zzB);
             zzB.recycle();
-            return f;
+            return zzf;
         }
         return invokeLL.booleanValue;
     }
@@ -76,11 +70,11 @@ public final class zzad extends zza implements zzaf {
     public final boolean zzg() throws RemoteException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Parcel zzB = zzB(7, zza());
-            boolean f = yo9.f(zzB);
+            boolean zzf = com.google.android.gms.internal.common.zzc.zzf(zzB);
             zzB.recycle();
-            return f;
+            return zzf;
         }
         return invokeV.booleanValue;
     }

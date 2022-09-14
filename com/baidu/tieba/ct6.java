@@ -1,30 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.os.Handler;
+import android.view.View;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ct6 {
+public class ct6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ct6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, FunAdSidConfigData> a;
+    public int a;
+    public boolean b;
+    public TbPageContext c;
+    public View d;
+    public PopupWindow e;
+    public Handler f;
+    public Runnable g;
 
-    public ct6() {
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ct6 a;
+
+        /* renamed from: com.baidu.tieba.ct6$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class RunnableC0225a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0225a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.e == null) {
+                    return;
+                }
+                this.a.a.j();
+            }
+        }
+
+        public a(ct6 ct6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ct6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ct6Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null || this.a.d == null) {
+                return;
+            }
+            Activity pageActivity = this.a.c.getPageActivity();
+            int f = ej.f(pageActivity, R.dimen.obfuscated_res_0x7f070258);
+            ct6 ct6Var = this.a;
+            View h = ct6Var.h(pageActivity, ct6Var.a);
+            int[] iArr = new int[2];
+            this.a.d.getLocationInWindow(iArr);
+            int f2 = ej.f(pageActivity, R.dimen.obfuscated_res_0x7f070207);
+            int f3 = (iArr[1] - f) + ej.f(pageActivity, R.dimen.obfuscated_res_0x7f0701be);
+            this.a.e = new PopupWindow(h, -2, f);
+            this.a.e.showAtLocation(this.a.d, 53, f2, f3);
+            this.a.f.postDelayed(new RunnableC0225a(this), 3000L);
+        }
+    }
+
+    public ct6(TbPageContext tbPageContext, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,108 +121,79 @@ public class ct6 {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(c());
+        this.a = R.string.obfuscated_res_0x7f0f02be;
+        this.f = new Handler();
+        this.g = new a(this);
+        this.c = tbPageContext;
+        this.b = z;
     }
 
-    public static ct6 e() {
-        InterceptResult invokeV;
+    public final View h(Activity activity, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ct6.class) {
-                    if (b == null) {
-                        b = new ct6();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, activity, i)) == null) {
+            TextView textView = new TextView(activity);
+            int f = ej.f(activity, R.dimen.obfuscated_res_0x7f0701d5);
+            textView.setPadding(f, 0 - activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b), f, 0);
+            textView.setHeight(activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07026f));
+            textView.setGravity(17);
+            textView.setTextSize(0, ej.f(activity, R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setText(i);
+            textView.setOnClickListener(this);
+            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f0802f2);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            textView.setOnClickListener(this);
+            return textView;
         }
-        return (ct6) invokeV.objValue;
+        return (View) invokeLI.objValue;
     }
 
-    public final FunAdSidConfigData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-            funAdSidConfigData.parserJson(jSONObject);
-            return funAdSidConfigData;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.removeCallbacksAndMessages(null);
+            j();
         }
-        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public FunAdSidConfigData b(String str) {
-        InterceptResult invokeL;
+    public void j() {
+        PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str)) {
-                return null;
-            }
-            return this.a.get(str);
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public final Map<String, FunAdSidConfigData> c() {
-        InterceptResult invokeV;
-        FunAdSidConfigData d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : dt6.e().c()) {
-                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
-                    hashMap.put(str, d);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final FunAdSidConfigData d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            JSONObject jSONObject = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = dt6.g().getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return a(jSONObject);
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) || this.a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.e) == null) {
             return;
         }
-        this.a.put(str, funAdSidConfigData);
-        g(str);
+        popupWindow.dismiss();
+        this.e = null;
     }
 
-    public final void g(String str) {
-        FunAdSidConfigData funAdSidConfigData;
-        JSONObject json;
+    public void k(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (this.c == null || view2 == null || StringUtils.isNull(currentAccount)) {
+                return;
+            }
+            this.d = view2;
+            if (this.b) {
+                this.a = R.string.obfuscated_res_0x7f0f02be;
+                String str = currentAccount + "frs_god_new_post_tip_count";
+                int l = bx4.k().l(str, 0);
+                if (l >= 3) {
+                    this.b = false;
+                    return;
+                }
+                bx4.k().w(str, l + 1);
+                this.b = false;
+                this.f.postDelayed(this.g, 500L);
+            }
         }
-        EditorHelper.putString(dt6.g(), str, json.toString());
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            j();
+        }
     }
 }

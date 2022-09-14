@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class jk2 implements jd4 {
+public class jk2 extends sg2<jl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,25 +27,23 @@ public class jk2 implements jd4 {
         }
     }
 
-    @Override // com.baidu.tieba.jd4
-    public String a() {
+    @Override // com.baidu.tieba.sg2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? je2.e() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoSarDen" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jd4
-    public void b(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sg2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jl2 jl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            je2.f(jSONObject);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jl2Var) == null) {
+            command.ret = jl2Var.getVideoSarDen();
+            String str = command.what;
+            d(jl2Var, str, "SarDen: " + command.ret, false);
         }
-    }
-
-    @Override // com.baidu.tieba.jd4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? je2.c() : (String) invokeV.objValue;
     }
 }

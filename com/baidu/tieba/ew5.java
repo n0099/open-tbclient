@@ -4,65 +4,34 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ew5 extends cn<uw5, CardViewHolder<zx5>> {
+public class ew5 extends qn<yw5, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uw5 a;
-        public final /* synthetic */ ew5 b;
-
-        public a(ew5 ew5Var, uw5 uw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ew5Var, uw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ew5Var;
-            this.a = uw5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.t(this.a);
-            }
-        }
-    }
+    public TbPageContext<?> a;
+    public ws5 b;
+    public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ew5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), uw5.b);
+    public ew5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,51 +46,43 @@ public class ew5 extends cn<uw5, CardViewHolder<zx5>> {
         this.a = tbPageContext;
     }
 
-    public final void t(uw5 uw5Var) {
-        rw5 c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uw5Var) == null) || uw5Var == null || (c = uw5Var.c()) == null || c.b() == null) {
-            return;
-        }
-        if (!c.c()) {
-            TiebaStatic.log("c11864");
-        } else {
-            TiebaStatic.log("c11857");
-        }
-        String q = su4.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
-        if (q == null) {
-            return;
-        }
-        if (q.endsWith("/")) {
-            q = q.substring(0, q.length() - 1);
-        }
-        km4.o(this.a.getPageActivity(), q);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public CardViewHolder<zx5> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new CardViewHolder<>(new zx5(this.a)) : (CardViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.a);
+            alaGameFrsGameLiveDoubleView.t(this.c);
+            return new AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder(alaGameFrsGameLiveDoubleView);
+        }
+        return (AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uw5 uw5Var, CardViewHolder<zx5> cardViewHolder) {
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yw5 yw5Var, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uw5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yw5Var, alaGameFrsGameLiveDoubleViewHolder})) == null) {
+            alaGameFrsGameLiveDoubleViewHolder.a.i(yw5Var);
+            alaGameFrsGameLiveDoubleViewHolder.a.u(this.b);
+            vs5.b().a(new StatisticItem("c12115").param("obj_id", yw5Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(yw5Var.a.getThreadAlaInfo().appId) ? yw5Var.a.getThreadAlaInfo().appId : ""));
+            ThreadData threadData = yw5Var.b;
+            if (threadData != null) {
+                vs5.b().a(new StatisticItem("c12115").param("obj_id", yw5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(threadData.getThreadAlaInfo().appId) ? "" : yw5Var.b.getThreadAlaInfo().appId));
             }
-            cardViewHolder.a().i(uw5Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.a().k.setOnClickListener(new a(this, uw5Var));
-            return cardViewHolder.a().h();
+            return alaGameFrsGameLiveDoubleViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void u(ws5 ws5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ws5Var) == null) {
+            this.b = ws5Var;
+        }
     }
 }

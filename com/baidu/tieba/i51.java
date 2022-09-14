@@ -1,17 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.nadcore.model.AdBaseModel;
 /* loaded from: classes4.dex */
 public interface i51 {
-    void a(AdBaseModel adBaseModel);
+    void a(String str, String str2);
 
-    void b(AdBaseModel adBaseModel);
+    void cancel();
 
-    void c(AdBaseModel adBaseModel);
-
-    void d(AdBaseModel adBaseModel);
-
-    void e(AdBaseModel adBaseModel, String str);
-
-    void f(AdBaseModel adBaseModel);
+    void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4);
 }

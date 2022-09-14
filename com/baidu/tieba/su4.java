@@ -1,701 +1,507 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Looper;
-import android.os.MessageQueue;
-import android.os.Process;
+import android.app.Application;
+import android.content.res.ColorStateList;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tbadk.core.elementsMaven.Direction;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class su4 {
     public static /* synthetic */ Interceptable $ic;
-    public static su4 f;
-    public static ContentResolver g;
-    public static HashMap<String, String> h;
+    public static final HashMap<String, HashMap<String, Integer>> a;
+    public static final SparseArray<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public SharedPreferences b;
-    public String c;
-    public ConcurrentHashMap<String, Object> d;
-    public String e;
 
-    /* loaded from: classes5.dex */
-    public class a implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ su4 a;
-
-        public a(su4 su4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163895, "Lcom/baidu/tieba/su4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {su4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = su4Var;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.e();
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Uri a;
-        public final /* synthetic */ ContentValues b;
-        public final /* synthetic */ su4 c;
-
-        public b(su4 su4Var, Uri uri, ContentValues contentValues) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {su4Var, uri, contentValues};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = su4Var;
-            this.a = uri;
-            this.b = contentValues;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                this.c.G(this.a, this.b);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Uri a;
-        public final /* synthetic */ su4 b;
-
-        public c(su4 su4Var, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {su4Var, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = su4Var;
-            this.a = uri;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                this.b.g(this.a);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    public su4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163895, "Lcom/baidu/tieba/su4;");
                 return;
             }
         }
-        this.e = null;
-        this.d = new ConcurrentHashMap<>();
-        HashMap<String, String> hashMap = new HashMap<>();
-        h = hashMap;
-        hashMap.put(ru4.a, "settings");
-        h.put(ru4.b, "remote_settings");
-        h.put(ru4.c, "bdservice_settings");
-        h.put(ru4.d, ru4.g);
-        h.put(ru4.e, ru4.h);
-        h.put(ru4.f, ru4.i);
-        g = TbadkCoreApplication.getInst().getContentResolver();
+        a = new HashMap<>();
+        b = new SparseArray<>();
     }
 
-    public static synchronized su4 k() {
-        InterceptResult invokeV;
-        su4 su4Var;
+    public static Drawable A(View view2, Drawable drawable, String[] strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (su4.class) {
-                if (f == null) {
-                    f = new su4();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, drawable, strArr)) == null) {
+            if (strArr != null && strArr.length == 3) {
+                String[] split = strArr[2].split(",");
+                if (split.length == 2) {
+                    tu4 tu4Var = (tu4) c(drawable).clone();
+                    tu4Var.L(j(strArr[0]));
+                    tu4Var.M(n(strArr[1]));
+                    tu4Var.I(n(split[0]));
+                    tu4Var.J(n(split[1]));
+                    return tu4Var.n(view2);
                 }
-                su4Var = f;
+                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
             }
-            return su4Var;
+            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
         }
-        return (su4) invokeV.objValue;
+        return (Drawable) invokeLLL.objValue;
     }
 
-    public static String o(String str) {
-        InterceptResult invokeL;
+    public static float[] B(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return str + "_" + TbadkCoreApplication.getCurrentAccount();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void A(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-            Uri parse = Uri.parse(i() + str);
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(str, String.valueOf(j));
-            F(parse, contentValues);
-        }
-    }
-
-    public final void B(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            Uri parse = Uri.parse(i() + str);
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(str, str2);
-            F(parse, contentValues);
-        }
-    }
-
-    public final void C(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            Uri parse = Uri.parse(i() + str);
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(str, String.valueOf(z));
-            F(parse, contentValues);
-        }
-    }
-
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (c(str)) {
-                E(str);
-            } else if (this.d.containsKey(str)) {
-                this.d.remove(str);
-            } else {
-                SharedPreferences p = p();
-                this.b = p;
-                EditorHelper.remove(p, str);
-            }
-        }
-    }
-
-    public final void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            f(Uri.parse(i() + str));
-        }
-    }
-
-    public void F(Uri uri, ContentValues contentValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, uri, contentValues) == null) {
-            if (ri.C()) {
-                new b(this, uri, contentValues).execute(new Void[0]);
-            } else {
-                G(uri, contentValues);
-            }
-        }
-    }
-
-    public final void G(Uri uri, ContentValues contentValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, uri, contentValues) == null) {
-            try {
-                g.insert(uri, contentValues);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public void H() {
-        SharedPreferences.Editor edit;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.d.isEmpty()) {
-            return;
-        }
-        SharedPreferences p = p();
-        this.b = p;
-        if (p == null || (edit = p.edit()) == null) {
-            return;
-        }
-        for (Map.Entry<String, Object> entry : this.d.entrySet()) {
-            if (entry != null) {
-                String valueOf = String.valueOf(entry.getKey());
-                Object value = entry.getValue();
-                if (value instanceof String) {
-                    edit.putString(valueOf, (String) value);
-                } else if (value instanceof Integer) {
-                    edit.putInt(valueOf, ((Integer) value).intValue());
-                } else if (value instanceof Long) {
-                    edit.putLong(valueOf, ((Long) value).longValue());
-                } else if (value instanceof Boolean) {
-                    edit.putBoolean(valueOf, ((Boolean) value).booleanValue());
-                } else if (value instanceof Float) {
-                    edit.putFloat(valueOf, ((Float) value).floatValue());
-                }
-            }
-        }
-        edit.commit();
-        this.d.clear();
-    }
-
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (str != null && str.length() != 0) {
-                int length = ru4.j.length;
-                for (int i = 0; i < length; i++) {
-                    if (str.equals(ru4.j[i])) {
-                        return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            String[] F = F(i);
+            float[] fArr = new float[4];
+            if (F != null && F.length == 3) {
+                String[] split = F[2].split(",");
+                if (split.length == 2) {
+                    fArr[0] = j(F[0]);
+                    fArr[1] = n(F[1]);
+                    fArr[2] = n(split[0]);
+                    fArr[3] = n(split[1]);
+                    if (fArr[1] == 0.0f) {
+                        fArr[1] = 0.01f;
                     }
+                    return fArr;
                 }
+                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
             }
-            return false;
+            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
         }
-        return invokeL.booleanValue;
+        return (float[]) invokeI.objValue;
     }
 
-    public void d() {
+    public static Drawable C(Drawable drawable, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SharedPreferences p = p();
-            this.b = p;
-            SharedPreferences.Editor edit = p.edit();
-            if (edit != null) {
-                edit.clear();
-                edit.commit();
-            }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, drawable, i, i2)) == null) {
+            tu4 c = c(drawable);
+            c.z();
+            GradientDrawable l = c.l(i2);
+            l.setColor(h(i));
+            l.setStroke((int) c.t(), zk8.a(c.s(), c.r()));
+            GradientDrawable l2 = c.l(i2);
+            l2.setColor(zk8.a(h(i), SkinManager.RESOURCE_ALPHA_PRESS));
+            l2.setStroke((int) c.t(), zk8.a(c.s(), SkinManager.RESOURCE_ALPHA_PRESS * c.r()));
+            GradientDrawable l3 = c.l(i2);
+            l3.setColor(zk8.a(h(i), SkinManager.RESOURCE_ALPHA_DISABLE));
+            l3.setStroke((int) c.t(), zk8.a(c.s(), SkinManager.RESOURCE_ALPHA_DISABLE * c.r()));
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
+            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
+            stateListDrawable.addState(new int[]{-16842910}, l3);
+            stateListDrawable.addState(new int[0], l);
+            return stateListDrawable;
         }
+        return (Drawable) invokeLII.objValue;
     }
 
-    public void e() {
-        SharedPreferences.Editor edit;
+    public static Drawable D(Drawable drawable, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.d.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, drawable, i, i2, i3)) == null) {
+            tu4 c = c(drawable);
+            c.z();
+            GradientDrawable l = c.l(i3);
+            l.setColor(h(i));
+            l.setStroke((int) c.t(), zk8.a(c.s(), c.r()));
+            GradientDrawable l2 = c.l(i3);
+            l2.setColor(h(i2));
+            l2.setStroke((int) c.t(), zk8.a(c.s(), SkinManager.RESOURCE_ALPHA_PRESS * c.r()));
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
+            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
+            stateListDrawable.addState(new int[0], l);
+            return stateListDrawable;
         }
-        SharedPreferences p = p();
-        this.b = p;
-        if (p == null || (edit = p.edit()) == null) {
-            return;
-        }
-        for (Map.Entry<String, Object> entry : this.d.entrySet()) {
-            if (entry != null) {
-                String valueOf = String.valueOf(entry.getKey());
-                Object value = entry.getValue();
-                if (value instanceof String) {
-                    edit.putString(valueOf, (String) value);
-                } else if (value instanceof Integer) {
-                    edit.putInt(valueOf, ((Integer) value).intValue());
-                } else if (value instanceof Long) {
-                    edit.putLong(valueOf, ((Long) value).longValue());
-                } else if (value instanceof Boolean) {
-                    edit.putBoolean(valueOf, ((Boolean) value).booleanValue());
-                } else if (value instanceof Float) {
-                    edit.putFloat(valueOf, ((Float) value).floatValue());
-                }
-            }
-        }
-        if (Build.VERSION.SDK_INT >= 9) {
-            edit.apply();
-        } else {
-            edit.commit();
-        }
-        this.d.clear();
+        return (Drawable) invokeLIII.objValue;
     }
 
-    public void f(Uri uri) {
+    public static String E(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, uri) == null) {
-            if (ri.C()) {
-                new c(this, uri).execute(new Void[0]);
-            } else {
-                g(uri);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            int idByABTest = EMABTest.getIdByABTest(i, EMABTest.TYPE_STRING);
+            return idByABTest == 0 ? "" : TbadkCoreApplication.getInst().getResources().getString(idByABTest);
         }
+        return (String) invokeI.objValue;
     }
 
-    public final void g(Uri uri) {
+    public static String[] F(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, uri) == null) {
-            try {
-                g.delete(uri, null, null);
-            } catch (SecurityException e) {
-                BdLog.detailException(e);
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? TbadkCoreApplication.getInst().getResources().getStringArray(EMABTest.getIdByABTest(i, "array")) : (String[]) invokeI.objValue;
+    }
+
+    public static ColorStateList G(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? SkinManager.createColorStateList(i) : (ColorStateList) invokeI.objValue;
+    }
+
+    public static Typeface H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if ("bold".equals(str)) {
+                return Typeface.DEFAULT_BOLD;
             }
+            return Typeface.DEFAULT;
         }
+        return (Typeface) invokeL.objValue;
     }
 
-    public boolean h(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public static float[] I(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
-            if (c(str)) {
-                String s = s(str);
-                if (s == null) {
-                    return z;
-                }
-                try {
-                    return Boolean.parseBoolean(s);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    return z;
-                }
-            }
-            Object obj = this.d.get(str);
-            if (obj instanceof Boolean) {
-                return ((Boolean) obj).booleanValue();
-            }
-            SharedPreferences p = p();
-            this.b = p;
-            return p.getBoolean(str, z);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f)) == null) {
+            float[] fArr = new float[8];
+            Arrays.fill(fArr, f);
+            return fArr;
         }
-        return invokeLZ.booleanValue;
+        return (float[]) invokeF.objValue;
     }
 
-    public String i() {
-        InterceptResult invokeV;
+    public static float a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.e == null) {
-                String packageName = AppRuntime.getAppContext().getPackageName();
-                if ("com.baidu.tieba".equals(packageName)) {
-                    this.e = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
-                } else {
-                    this.e = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
-                }
-            }
-            return this.e;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? dh.d(E(i), 0.0f) : invokeI.floatValue;
     }
 
-    public ContentResolver j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? g : (ContentResolver) invokeV.objValue;
-    }
-
-    public int l(String str, int i) {
+    public static Drawable b(Drawable drawable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, str, i)) == null) {
-            if (c(str)) {
-                String s = s(str);
-                if (s == null) {
-                    return i;
-                }
-                try {
-                    return Integer.parseInt(s);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    return i;
-                }
-            }
-            Object obj = this.d.get(str);
-            if (obj instanceof Integer) {
-                return ((Integer) obj).intValue();
-            }
-            SharedPreferences p = p();
-            this.b = p;
-            return p.getInt(str, i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.A(a(i));
+            return tu4Var;
         }
-        return invokeLI.intValue;
+        return (Drawable) invokeLI.objValue;
     }
 
-    public long m(String str, long j) {
-        InterceptResult invokeLJ;
+    public static tu4 c(Drawable drawable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048593, this, str, j)) == null) {
-            if (c(str)) {
-                String s = s(str);
-                if (s == null) {
-                    return j;
-                }
-                try {
-                    return Long.parseLong(s);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    return j;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, drawable)) == null) {
+            if (drawable instanceof tu4) {
+                return (tu4) drawable;
             }
-            Object obj = this.d.get(str);
-            if (obj instanceof Long) {
-                return ((Long) obj).longValue();
+            return tu4.y();
+        }
+        return (tu4) invokeL.objValue;
+    }
+
+    public static tu4 d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) {
+            Drawable background = view2.getBackground();
+            if (background instanceof tu4) {
+                return (tu4) background;
             }
-            SharedPreferences p = p();
-            this.b = p;
+            return tu4.y();
+        }
+        return (tu4) invokeL.objValue;
+    }
+
+    public static Drawable e(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.D(a(i));
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable f(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.E(h(i));
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable g(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.F(m(i));
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static int h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) ? SkinManager.getColor(i) : invokeI.intValue;
+    }
+
+    public static Drawable i(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.B(h(i));
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static int j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) ? h(s(str, "color")) : invokeL.intValue;
+    }
+
+    public static Drawable k(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.P(z(E(i).split(",")));
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable l(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.G(i);
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static int m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) ? UtilHelper.getDimenPixelSize(i) : invokeI.intValue;
+    }
+
+    public static int n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+            return m(s("tbds" + str, EMABTest.TYPE_DIMEN));
+        }
+        return invokeL.intValue;
+    }
+
+    public static String o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
             try {
-                return p.getLong(str, j);
-            } catch (ClassCastException e2) {
-                BdLog.e(e2);
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
-    }
-
-    public final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            String str = ru4.a;
-            ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity");
-            if (activityManager != null) {
-                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
-                int myPid = Process.myPid();
-                if (runningAppProcesses != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                            return runningAppProcessInfo.processName;
-                        }
-                    }
-                    return str;
+                String str = b.get(i);
+                if (str == null) {
+                    str = i == 0 ? "" : TbadkCoreApplication.getInst().getResources().getResourceEntryName(i);
+                    b.put(i, str);
                 }
                 return str;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                bg9.g(e);
+                return "";
             }
-            return str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public synchronized SharedPreferences p() {
-        InterceptResult invokeV;
-        SharedPreferences sharedPreferences;
+    public static Drawable p(Drawable drawable, Direction direction, int[] iArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this) {
-                if (this.c == null || this.c.length() == 0) {
-                    if (this.a == null || this.a.length() == 0) {
-                        this.a = n();
-                    }
-                    if (h.containsKey(this.a)) {
-                        this.c = h.get(this.a);
-                    } else {
-                        this.c = "settings";
-                    }
-                }
-                sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences(this.c, 0);
-            }
-            return sharedPreferences;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65561, null, drawable, direction, iArr)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            q(iArr);
+            tu4Var.C(iArr);
+            tu4Var.H(direction);
+            return tu4Var;
         }
-        return (SharedPreferences) invokeV.objValue;
+        return (Drawable) invokeLLL.objValue;
     }
 
-    public String q(String str, String str2) {
+    public static int[] q(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, iArr)) == null) {
+            int length = iArr.length;
+            for (int i = 0; i < length; i++) {
+                iArr[i] = h(iArr[i]);
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static int[] r(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, strArr)) == null) {
+            int length = strArr.length;
+            int[] iArr = new int[length];
+            for (int i = 0; i < length; i++) {
+                iArr[i] = j(strArr[i]);
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static int s(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) {
-            if (c(str)) {
-                String s = s(str);
-                return s != null ? s : str2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, str, str2)) == null) {
+            HashMap<String, Integer> hashMap = a.get(str2);
+            if (hashMap == null) {
+                hashMap = new HashMap<>();
+                a.put(str2, hashMap);
             }
-            Object obj = this.d.get(str);
-            if (obj instanceof String) {
-                return (String) obj;
+            Integer num = hashMap.get(str);
+            if (num == null) {
+                num = Integer.valueOf(TbadkCoreApplication.getInst().getResources().getIdentifier(str, str2, TbadkCoreApplication.getInst().getPackageName()));
+                hashMap.put(str, num);
             }
-            SharedPreferences p = p();
-            this.b = p;
-            return p.getString(str, str2);
+            return num.intValue();
         }
-        return (String) invokeLL.objValue;
+        return invokeLL.intValue;
     }
 
-    public String r(Uri uri) {
+    public static Drawable t(Drawable drawable, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, drawable, strArr)) == null) {
+            if (strArr != null && strArr.length == 3) {
+                String[] split = strArr[0].split(",");
+                String[] split2 = strArr[1].split(",");
+                String str = strArr[2];
+                tu4 tu4Var = (tu4) c(drawable).clone();
+                if (!TextUtils.isEmpty(str)) {
+                    tu4Var.H(Direction.valueOf(str.toUpperCase()));
+                }
+                tu4Var.C(r(split));
+                tu4Var.K(u(split2));
+                return tu4Var;
+            }
+            throw new IndexOutOfBoundsException("Please check the number of mask resource!");
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public static float[] u(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, uri)) == null) {
-            try {
-                return g.getType(uri);
-            } catch (SecurityException e) {
-                BdLog.detailException(e);
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, strArr)) == null) {
+            int min = Math.min(strArr.length, 4);
+            float[] fArr = new float[min];
+            for (int i = 0; i < min; i++) {
+                fArr[i] = dh.d(strArr[i], 0.0f);
             }
+            return fArr;
         }
-        return (String) invokeL.objValue;
+        return (float[]) invokeL.objValue;
     }
 
-    public final String s(String str) {
+    public static Drawable v(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65567, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.E(i);
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable w(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65568, null, drawable, i)) == null) {
+            tu4 tu4Var = (tu4) c(drawable).clone();
+            tu4Var.B(i);
+            return tu4Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static float x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            return r(Uri.parse(i() + str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
+            if (str.endsWith("H")) {
+                return Float.parseFloat(str.substring(0, str.length() - 1));
+            }
+            return n(str);
         }
-        return (String) invokeL.objValue;
+        return invokeL.floatValue;
     }
 
-    public boolean t(String str) {
+    public static float[] y(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65570, null, i)) == null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (app == null) {
+                return I(0.0f);
+            }
+            String[] split = app.getString(i).split(",");
+            int min = Math.min(split.length, 4);
+            float[] fArr = new float[8];
+            for (int i2 = 0; i2 < min; i2++) {
+                float x = x(split[i2]);
+                int i3 = i2 * 2;
+                fArr[i3] = x;
+                fArr[i3 + 1] = x;
+            }
+            return fArr;
+        }
+        return (float[]) invokeI.objValue;
+    }
+
+    public static float[] z(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (c(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, strArr)) == null) {
+            int min = Math.min(strArr.length, 4);
+            float[] fArr = new float[8];
+            for (int i = 0; i < min; i++) {
+                float x = x(strArr[i]);
+                int i2 = i * 2;
+                fArr[i2] = x;
+                fArr[i2 + 1] = x;
             }
-            return this.d.containsKey(str) || p().contains(str);
+            return fArr;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void u(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048600, this, str, z) == null) {
-            if (c(str)) {
-                C(str, z);
-            } else if (ri.C()) {
-                v(str, Boolean.valueOf(z));
-            } else {
-                SharedPreferences p = p();
-                this.b = p;
-                SharedPreferences.Editor edit = p.edit();
-                edit.putBoolean(str, z);
-                edit.commit();
-            }
-        }
-    }
-
-    public final void v(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048601, this, str, obj) == null) || str == null || obj == null) {
-            return;
-        }
-        this.d.put(str, obj);
-        Looper.myQueue().addIdleHandler(new a(this));
-    }
-
-    public void w(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048602, this, str, i) == null) {
-            if (c(str)) {
-                z(str, i);
-            } else if (ri.C()) {
-                v(str, Integer.valueOf(i));
-            } else {
-                SharedPreferences p = p();
-                this.b = p;
-                SharedPreferences.Editor edit = p.edit();
-                edit.putInt(str, i);
-                edit.commit();
-            }
-        }
-    }
-
-    public void x(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048603, this, str, j) == null) {
-            if (c(str)) {
-                A(str, j);
-            } else if (ri.C()) {
-                v(str, Long.valueOf(j));
-            } else {
-                SharedPreferences p = p();
-                this.b = p;
-                SharedPreferences.Editor edit = p.edit();
-                edit.putLong(str, j);
-                edit.commit();
-            }
-        }
-    }
-
-    public void y(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, str, str2) == null) {
-            if (c(str)) {
-                B(str, str2);
-            } else if (StringUtil.NULL_STRING.equals(str2)) {
-                D(str);
-            } else if (ri.C()) {
-                v(str, str2);
-            } else {
-                SharedPreferences p = p();
-                this.b = p;
-                SharedPreferences.Editor edit = p.edit();
-                edit.putString(str, str2);
-                edit.commit();
-            }
-        }
-    }
-
-    public final void z(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048605, this, str, i) == null) {
-            Uri parse = Uri.parse(i() + str);
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(str, String.valueOf(i));
-            F(parse, contentValues);
-        }
+        return (float[]) invokeL.objValue;
     }
 }

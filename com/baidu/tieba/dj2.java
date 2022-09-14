@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes3.dex */
-public class dj2 extends ue2<lj2> {
+public class dj2 extends sg2<jj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,23 +27,29 @@ public class dj2 extends ue2<lj2> {
         }
     }
 
-    @Override // com.baidu.tieba.ue2
+    @Override // com.baidu.tieba.sg2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updateVideoRect" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "unsubscribeRemoteStream" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ue2
+    @Override // com.baidu.tieba.sg2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull lj2 lj2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jj2 jj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, lj2Var) == null) {
-            lj2Var.L(command.arg1, command.arg2, command.arg3, command.arg4);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jj2Var) == null) {
             String str = command.what;
-            d(lj2Var, str, "Rect: (" + command.arg1 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg4 + SmallTailInfo.EMOTION_SUFFIX, false);
+            d(jj2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Long) {
+                long longValue = ((Long) obj).longValue();
+                if (hj2.a(longValue)) {
+                    jj2Var.j(longValue);
+                }
+            }
         }
     }
 }

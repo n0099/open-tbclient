@@ -2,7 +2,7 @@ package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tf;
+import com.baidu.tieba.hg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,9 +96,9 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         return invokeV.booleanValue;
     }
 
-    public void logStatInBackground(int i, tf tfVar) {
+    public void logStatInBackground(int i, hg hgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, tfVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, hgVar) == null) {
         }
     }
 

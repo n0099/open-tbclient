@@ -1,28 +1,36 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.constant.WBConstants;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sv4 extends TBSpecificationButtonConfig {
+public abstract class sv4 implements wv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    public final aw4 a;
+    public final HashMap<String, Method> b;
 
-    public sv4() {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.sv4 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public sv4(aw4 aw4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,108 +40,151 @@ public class sv4 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.i = true;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
-        this.u = false;
-        this.n = this.o;
-        this.m = this.l;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? r(f) : (Drawable) invokeF.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    @Deprecated
-    public void i(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
-            u(i, iconType);
+        this.a = aw4Var;
+        this.b = new HashMap<>();
+        b(getClass());
+        if (this.b.isEmpty()) {
+            throw new IllegalStateException("No native methods found!");
         }
     }
 
-    public void p(@ColorRes int i) {
+    @Override // com.baidu.tieba.wv4
+    public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
+        Object invoke;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0904;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
+            Method method = this.b.get(str);
+            if (method != null) {
+                dw4 dw4Var = (dw4) method.getAnnotation(dw4.class);
+                String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
+                try {
+                    Class<?>[] parameterTypes = method.getParameterTypes();
+                    if (!dw4Var.isAsync()) {
+                        if (parameterTypes.length == 2) {
+                            invoke = method.invoke(this, optString, jSONObject);
+                        } else if (parameterTypes.length == 1) {
+                            invoke = method.invoke(this, jSONObject);
+                        } else if (parameterTypes.length == 0) {
+                            tv4.a("native method " + getClass().getSimpleName() + ":" + dw4Var.value() + " ignored all parameters.");
+                            invoke = method.invoke(this, new Object[0]);
+                        } else {
+                            e(str, jSONObject2, "500", "parameters too much!");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(optString)) {
+                            return;
+                        }
+                        d(optString, (JSONObject) invoke);
+                        return;
+                    } else if (parameterTypes.length == 2) {
+                        method.invoke(this, optString, jSONObject);
+                        return;
+                    } else if (parameterTypes.length == 1) {
+                        method.invoke(this, jSONObject);
+                        if (TextUtils.isEmpty(optString)) {
+                            return;
+                        }
+                        d(optString, null);
+                        return;
+                    } else if (parameterTypes.length == 0) {
+                        tv4.a("native method " + getClass().getSimpleName() + ":" + dw4Var.value() + " ignored all parameters.");
+                        method.invoke(this, new Object[0]);
+                        if (TextUtils.isEmpty(optString)) {
+                            return;
+                        }
+                        d(optString, null);
+                        return;
+                    } else {
+                        e(str, jSONObject2, "500", "parameters too much!");
+                        return;
+                    }
+                } catch (IllegalAccessException e) {
+                    tv4.a("native method call error:" + e.getMessage());
+                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT, "IllegalAccessException:" + e.getMessage());
+                    return;
+                } catch (InvocationTargetException e2) {
+                    tv4.a("native method call error:" + e2.getMessage());
+                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC, "InvocationTargetException:" + e2.getMessage());
+                    return;
+                } catch (Exception e3) {
+                    tv4.a("native method call error:" + e3.getMessage());
+                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG, "Native call exception:" + e3.getMessage());
+                    return;
+                }
             }
+            e(str, jSONObject2, "403", "method " + str + " not exists");
         }
     }
 
-    public void q(@ColorRes int i) {
+    public final void b(Class<? extends sv4> cls) {
+        Method[] declaredMethods;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = i;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls) == null) {
+            for (Method method : cls.getDeclaredMethods()) {
+                dw4 dw4Var = (dw4) method.getAnnotation(dw4.class);
+                if (dw4Var != null) {
+                    String value = dw4Var.value();
+                    String str = TextUtils.isEmpty(value) ? null : value;
+                    if (dw4Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
+                        throw new IllegalArgumentException("Method with async flag should return void.");
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = method.getName();
+                    }
+                    method.setAccessible(true);
+                    this.b.put(str, method);
+                }
             }
-        }
-    }
-
-    public final Drawable r(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            if (this.u) {
-                return s(f);
+            Class<? super Object> superclass = cls.getSuperclass();
+            if (superclass == null || superclass == cls) {
+                return;
             }
-            return t(f);
+            b(superclass);
         }
-        return (Drawable) invokeF.objValue;
     }
 
-    public final Drawable s(float f) {
-        InterceptResult invokeF;
-        GradientDrawable gradientDrawable;
+    public void c(Message<?> message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            int color = SkinManager.getColor(this.r, this.d);
-            int[] iArr = {lj8.c(color), color};
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.s);
-                gradientDrawable.setColors(iArr);
-            } else {
-                gradientDrawable = new GradientDrawable(this.s, iArr);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+            pv4.a(message);
+        }
+    }
+
+    public void d(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
+            if (TextUtils.isEmpty(str)) {
+                tv4.a("sendResponseToJS got empty callbackId.");
+                return;
             }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+            HashMap hashMap = new HashMap(4);
+            hashMap.put("errNo", "0");
+            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "success");
+            if (jSONObject != null) {
+                hashMap.put("data", jSONObject);
+            }
+            this.a.c(bw4.k(str, hashMap));
         }
-        return (Drawable) invokeF.objValue;
     }
 
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
+    public final void e(String str, JSONObject jSONObject, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, jSONObject, str2, str3) == null) {
+            String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
+            if (TextUtils.isEmpty(optString)) {
+                tv4.a("method " + str + " not found!");
+                return;
+            }
+            HashMap hashMap = new HashMap(4);
+            hashMap.put("errNo", str2);
+            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str3);
+            this.a.c(bw4.k(optString, hashMap));
         }
-        return (Drawable) invokeF.objValue;
     }
 
-    public void u(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
-            this.e[0] = i;
-            this.f = iconType;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
     }
 }

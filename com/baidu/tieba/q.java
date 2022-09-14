@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class q implements r {
+public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -24,35 +22,16 @@ public class q implements r {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 10;
+        this.b = 2;
     }
 
-    @Override // com.baidu.tieba.r
-    public boolean a(Context context, File file) {
-        InterceptResult invokeLL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, file)) == null) {
-            Object g = s.g(s.g(context.getClassLoader(), "pathList"), "nativeLibraryDirectories");
-            if (g instanceof File[]) {
-                return s.f((File[]) g, file);
-            }
-            return ((ArrayList) g).contains(file);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r
-    public void b(Context context, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, file) == null) {
-            Object g = s.g(context.getClassLoader(), "pathList");
-            Object g2 = s.g(g, "nativeLibraryDirectories");
-            if (g2 instanceof File[]) {
-                s.e(g, "nativeLibraryDirectories", s.c(File.class, (File[]) g2, file));
-            } else {
-                ((ArrayList) g2).add(file);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 }

@@ -1,30 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class vx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iz8 a;
-    public iz8 b;
-    public EditText c;
-    public EditText d;
-    public PostWriteCallBackData e;
+    public final int a;
+    public BdTypeListView b;
+    public boolean c;
+    public int d;
+    public int e;
+    public a f;
 
-    public vx7() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+    }
+
+    public vx7(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,162 +43,65 @@ public class vx7 {
                 return;
             }
         }
-        iz8 iz8Var = new iz8();
-        this.a = iz8Var;
-        iz8Var.j(R.color.CAM_X0101);
-        this.a.h(R.color.cp_cont_h_alpha85);
-        iz8 iz8Var2 = new iz8();
-        this.b = iz8Var2;
-        iz8Var2.j(R.color.CAM_X0101);
-        this.b.h(R.color.cp_cont_h_alpha85);
+        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.d = -1;
+        this.e = -1;
+        this.b = bdTypeListView;
     }
 
-    public void a(boolean z) {
-        EditText editText;
+    public final int a(List<Cdo> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (editText = this.c) == null || editText.getText() == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i != -1) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    if ((list.get(i3) instanceof PostData) && ((PostData) list.get(i3)).getType() == PostData.K0 && (i2 = i2 + 1) == i) {
+                        return i3;
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeLI.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = a(this.b.getData(), yt7.b().c());
+        }
+    }
+
+    public void c(int i, int i2) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.b == null || this.c || !yt7.b().e() || yt7.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
             return;
         }
-        int selectionEnd = this.c.getSelectionEnd();
-        SpannableStringBuilder f = this.a.f(this.c.getText());
-        if (f != null) {
-            this.a.l(true);
-            this.c.setText(f);
-            if (z && this.a.b() >= 0) {
-                this.c.requestFocus();
-                this.c.setSelection(this.a.b());
-            } else {
-                this.c.setSelection(selectionEnd);
-            }
-            iz8 iz8Var = this.a;
-            iz8Var.k(iz8Var.b() >= 0);
+        if (this.d <= 0) {
+            this.d = this.b.getHeight() - this.a;
         }
-    }
-
-    public void b(boolean z) {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (editText = this.d) == null || editText.getText() == null) {
+        if (this.d <= 0) {
             return;
         }
-        int selectionEnd = this.d.getSelectionEnd();
-        SpannableStringBuilder f = this.b.f(this.d.getText());
-        if (f != null) {
-            this.b.l(true);
-            this.d.setText(f);
-            if (z && this.b.b() >= 0) {
-                this.d.requestFocus();
-                this.d.setSelection(this.b.b());
-            } else {
-                this.d.setSelection(selectionEnd);
-            }
-            iz8 iz8Var = this.b;
-            iz8Var.k(iz8Var.b() >= 0);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.n(null);
-            this.a.i(null);
-            this.a.k(false);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.n(null);
-            this.b.i(null);
-            this.b.k(false);
-        }
-    }
-
-    public iz8 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (iz8) invokeV.objValue;
-    }
-
-    public EditText f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (EditText) invokeV.objValue;
-    }
-
-    public iz8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (iz8) invokeV.objValue;
-    }
-
-    public PostWriteCallBackData h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (PostWriteCallBackData) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.g();
-            this.b.g();
-            if (this.a.d()) {
-                a(false);
-            }
-            if (this.b.d()) {
-                b(false);
+        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 != headerViewsCount || childAt.getTop() <= this.d) {
+                a aVar = this.f;
+                if (aVar != null) {
+                    aVar.a();
+                }
+                this.c = true;
             }
         }
     }
 
-    public void j() {
+    public void d(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    public void k(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, postWriteCallBackData) == null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.a.i(postWriteCallBackData.getSensitiveWords());
-        this.a.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.a.a())) {
-            return;
-        }
-        a(true);
-        this.e = postWriteCallBackData;
-    }
-
-    public void l(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, postWriteCallBackData) == null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.b.i(postWriteCallBackData.getSensitiveWords());
-        this.b.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.b.a())) {
-            return;
-        }
-        b(true);
-    }
-
-    public void m(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
-            this.c = editText;
-        }
-    }
-
-    public void n(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
-            this.d = editText;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f = aVar;
         }
     }
 }

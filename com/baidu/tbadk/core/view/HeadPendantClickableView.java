@@ -116,7 +116,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                 if (this.a.m.getResource() != 1) {
                     if (this.a.m.getResource() != 2) {
                         if (this.a.m.getResource() == 5) {
-                            personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
+                            personInfoActivityConfig.setVideoPersonFrom("topic_detail");
                         }
                     } else {
                         personInfoActivityConfig.setVideoPersonFrom("frs");
@@ -217,12 +217,12 @@ public class HeadPendantClickableView extends HeadPendantView {
         }
         this.m = threadData;
         MetaData author = threadData.getAuthor();
-        setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f11af));
+        setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f11cc));
         getHeadView().setUserId(author.getUserId());
         getHeadView().setUserName(author.getUserName());
         getHeadView().setUrl(author.getAvater());
         if (author.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
-            getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f3e), 24, false);
+            getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f64), 24, false);
         } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
             getHeadView().K(author.getAvater(), 10, false);
         } else if (z) {

@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsTabInfo;
+import org.json.JSONObject;
+import tbclient.ItemManage.DataRes;
+import tbclient.ManageInfo;
 /* loaded from: classes4.dex */
-public class g76 {
+public class g76 implements gb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<f76> a;
+    public List<x66> a;
+    public List<x66> b;
+    public Integer c;
 
     public g76() {
         Interceptable interceptable = $ic;
@@ -24,25 +29,47 @@ public class g76 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
+    }
+
+    public void a(g76 g76Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, g76Var) == null) {
+            this.a.addAll(g76Var.a);
+            this.b = g76Var.b;
+            this.c = g76Var.c;
         }
     }
 
-    public void a(List<FrsTabInfo> list) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
+            for (ManageInfo manageInfo : dataRes.manage_list) {
+                this.a.add(x66.c(manageInfo));
             }
-            this.a.clear();
-            if (list == null) {
-                return;
+            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
+                this.b.add(x66.c(manageInfo2));
             }
-            for (FrsTabInfo frsTabInfo : list) {
-                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.a.add(new f76(frsTabInfo));
-                }
-            }
+            this.c = dataRes.has_more;
+        }
+    }
+
+    @Override // com.baidu.tieba.gb5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gb5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
         }
     }
 }

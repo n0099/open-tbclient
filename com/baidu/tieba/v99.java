@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public interface v99 extends Runnable {
+public interface v99 {
+    void a(int i);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void b(DownloadException downloadException);
+    String b(boolean z);
 
-        void onConnectCanceled();
+    String c(String str);
 
-        void onConnectPaused();
+    int d();
 
-        void onConnected(long j, long j2, boolean z);
+    String e(String str);
 
-        void onConnecting();
-    }
+    Context getAppContext();
 
-    void cancel();
+    int getInt(String str, int i);
 
-    boolean isCanceled();
+    long getLong(String str, long j);
 
-    boolean isPaused();
+    boolean isDebug();
 
-    void pause();
+    void putInt(String str, int i);
+
+    void putLong(String str, long j);
+
+    void putString(String str, String str2);
 }

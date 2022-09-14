@@ -1,14 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes5.dex */
-public class sl8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-
-    public abstract void a(Canvas canvas);
+public interface sl8 {
+    boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i);
 }

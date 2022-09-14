@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.bx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class PreLoadVideoSwitchManager {
         this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(su4.k().q("video_sync_switch_json", ""));
+            parseJson(bx4.k().q("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -100,7 +100,7 @@ public class PreLoadVideoSwitchManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (VideoPreLoadSwitch.isOn()) {
-                return !this.isWifi || pi.H();
+                return !this.isWifi || BdNetTypeUtil.isWifiNet();
             }
             VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
             return false;
@@ -117,7 +117,7 @@ public class PreLoadVideoSwitchManager {
             }
             try {
                 parseJson(str);
-                su4.k().y("video_sync_switch_json", str);
+                bx4.k().y("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

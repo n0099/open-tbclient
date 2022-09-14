@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k11;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,29 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class n11 {
     public static /* synthetic */ Interceptable $ic;
-    public static final n11 b;
+    public static m11 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, k11.b> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949499, "Lcom/baidu/tieba/n11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947949499, "Lcom/baidu/tieba/n11;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947949499, "Lcom/baidu/tieba/n11;")) == null) {
+            return;
         }
-        b = new n11();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947949499, "Lcom/baidu/tieba/n11;");
+        }
     }
 
     public n11() {
@@ -44,39 +39,26 @@ public class n11 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap();
     }
 
-    public static n11 b() {
+    public static m11 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (n11) invokeV.objValue;
-    }
-
-    public void a(int i, k11.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bVar) == null) {
-            synchronized (n11.class) {
-                this.a.put(Integer.valueOf(i), bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (n11.class) {
+                    if (a == null) {
+                        a = (m11) ServiceManager.getService(m11.a);
+                    }
+                    if (a == null) {
+                        a = m11.b;
+                    }
+                }
             }
+            return a;
         }
-    }
-
-    public k11.b c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.get(Integer.valueOf(i)) : (k11.b) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (n11.class) {
-                this.a.remove(Integer.valueOf(i));
-            }
-        }
+        return (m11) invokeV.objValue;
     }
 }

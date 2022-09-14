@@ -1,141 +1,126 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class v34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public String backgroundColor;
-    @V8JavascriptField
-    public String borderColor;
-    @V8JavascriptField
-    public double borderRadius;
-    @V8JavascriptField
-    public int borderWidth;
-    @V8JavascriptField
-    public String color;
-    @V8JavascriptField
-    public double fontSize;
-    @V8JavascriptField
-    public String fontWeight;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public boolean hidden;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int lineHeight;
-    @V8JavascriptField
-    public double opacity;
-    @V8JavascriptField
-    public String textAlign;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void r();
-    }
-
-    public v34(@NonNull ht1 ht1Var) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ht1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && x23.K().k() == 1 && !d()) {
+            dw2.p("startup").F(new UbcFlowEvent(str));
         }
-        this.fontSize = 16.0d;
-        this.opacity = 1.0d;
-        a(ht1Var);
     }
 
-    public static int c(@ColorInt int i) {
-        InterceptResult invokeI;
+    public static void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            float f = (((-16777216) & i) >>> 24) / 255.0f;
-            return f > 0.0f ? Color.argb(255, (int) ((((16711680 & i) >> 16) * f) + 0.5d), (int) ((((65280 & i) >> 8) * f) + 0.5d), (int) (((i & 255) * f) + 0.5d)) : i;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) || jSONArray == null || jSONArray.length() == 0) {
+            return;
         }
-        return invokeI.intValue;
-    }
-
-    public final void a(@NonNull ht1 ht1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ht1Var) == null) {
-            this.left = ht1Var.r("left", this.left);
-            this.top = ht1Var.r("top", this.top);
-            this.width = ht1Var.r("width", this.width);
-            this.height = ht1Var.r("height", this.height);
-            this.backgroundColor = ht1Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
-            this.borderColor = ht1Var.C("borderColor", this.borderColor);
-            this.borderRadius = ht1Var.n("borderRadius", this.borderRadius);
-            this.borderWidth = ht1Var.r("borderWidth", this.borderWidth);
-            this.fontSize = ht1Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
-            this.lineHeight = ht1Var.r("lineHeight", this.lineHeight);
-            this.textAlign = ht1Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
-            this.fontWeight = ht1Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
-            this.hidden = ht1Var.m("hidden", this.hidden);
-            this.opacity = ht1Var.n(NativeConstants.OPACITY, this.opacity);
-            this.color = ht1Var.C("color", this.color);
-            if (kh1.a) {
-                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
+        HybridUbcFlow p = dw2.p("startup");
+        for (int i = 0; i < jSONArray.length(); i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("id");
+                long optLong = optJSONObject.optLong("timestamp");
+                if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+                    ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
+                    ubcFlowEvent.h(optLong);
+                    p.F(ubcFlowEvent);
+                }
             }
         }
     }
 
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (kh1.a) {
-                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.r();
-            }
-        }
-    }
-
-    public String toString() {
+    public static long c() {
         InterceptResult invokeV;
+        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            y23 M = y23.M();
+            if (M == null || (w = M.w()) == null) {
+                return 0L;
+            }
+            xf2 Q = w.Q();
+            if (Q instanceof zy3) {
+                return ((zy3) Q).f1();
+            }
+            return 0L;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            y23 M = y23.M();
+            if (M == null || (w = M.w()) == null) {
+                return false;
+            }
+            xf2 Q = w.Q();
+            if (Q instanceof zy3) {
+                return ((zy3) Q).j1();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void e(String str, vn2.a aVar) {
+        Bundle P;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) || aVar == null || d() || (P = aVar.P()) == null || P.getLong("page_display_flag_for_statistic") <= 0) {
+            return;
+        }
+        long l = aVar.l("launch_time", 0L);
+        long currentTimeMillis = System.currentTimeMillis();
+        ba3 ba3Var = new ba3();
+        ba3Var.a = r93.n(aVar.G());
+        ba3Var.f = aVar.H();
+        ba3Var.c = aVar.T();
+        ba3Var.b = "launch";
+        ba3Var.e = "realcancel";
+        ba3Var.q = String.valueOf(currentTimeMillis - l);
+        ba3Var.a("reason", str);
+        ba3Var.a("errorList", p34.c().d());
+        ba3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+        r93.onEvent(ba3Var);
+        P.remove("page_display_flag_for_statistic");
+    }
+
+    public static void f(vn2.a aVar) {
+        Bundle P;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, aVar) == null) || aVar == null || !d() || (P = aVar.P()) == null || P.getLong("page_display_flag_for_statistic") <= 0) {
+            return;
+        }
+        long l = aVar.l("launch_time", 0L);
+        long currentTimeMillis = System.currentTimeMillis();
+        ba3 ba3Var = new ba3();
+        ba3Var.a = r93.n(aVar.G());
+        ba3Var.f = aVar.H();
+        ba3Var.c = aVar.T();
+        ba3Var.b = "launch";
+        ba3Var.e = "realsuccess";
+        ba3Var.r = String.valueOf(currentTimeMillis - l);
+        ba3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+        r93.onEvent(ba3Var);
+        P.remove("page_display_flag_for_statistic");
     }
 }

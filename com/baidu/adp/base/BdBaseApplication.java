@@ -4,13 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.os.Handler;
-import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f9;
-import com.baidu.tieba.z8;
+import com.baidu.tieba.n9;
+import com.baidu.tieba.t9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +25,6 @@ public class BdBaseApplication extends Application {
     public static BdBaseApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public long lastGcTime;
-    public Handler mAppInitHandler;
     public Context mContext;
     public boolean mHasCheckedNewUserStatus;
     public boolean mIsDebugMode;
@@ -175,28 +172,22 @@ public class BdBaseApplication extends Application {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Resources resources = f9.a().getResources();
+            Resources resources = t9.a().getResources();
             return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
         }
         return (Resources) invokeV.objValue;
     }
 
-    public void handleInitMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, message) == null) {
-        }
-    }
-
     public boolean isDebugMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mIsDebugMode : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIsDebugMode : invokeV.booleanValue;
     }
 
     public boolean isSmallFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (!this.mIsSmallFlow || (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 <= this.mSmallFlowInterval) {
                 return this.mIsSmallFlow;
             }
@@ -207,8 +198,8 @@ public class BdBaseApplication extends Application {
 
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            z8.g().q();
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            n9.g().q();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;
@@ -220,28 +211,28 @@ public class BdBaseApplication extends Application {
     @Override // android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onCreate();
         }
     }
 
     public void setIsSmallFlow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.mIsSmallFlow = z;
         }
     }
 
     public void setSmallFlowInterval(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
             this.mSmallFlowInterval = j;
         }
     }
 
     public void setStartSmallFlowTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
             this.mStartSmallFlowTime = j;
         }
     }

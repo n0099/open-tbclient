@@ -4,13 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.x25;
+import com.baidu.tieba.g55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ICommonTabHost extends LinearLayout implements x25 {
+public abstract class ICommonTabHost extends LinearLayout implements g55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

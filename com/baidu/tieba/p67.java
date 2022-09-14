@@ -1,7 +1,93 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface p67 {
-    void a();
 
-    void b();
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Hottopic.RelateForum;
+/* loaded from: classes5.dex */
+public class p67 extends b26 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<Cdo> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948014072, "Lcom/baidu/tieba/p67;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948014072, "Lcom/baidu/tieba/p67;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public p67() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
+
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<Cdo> list = this.a;
+            if (list == null || list.size() == 0) {
+                return 0;
+            }
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void parserProtobuf(List<RelateForum> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() == 0) {
+            return;
+        }
+        this.showTopDivider = true;
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fce);
+        this.a = new ArrayList();
+        for (RelateForum relateForum : list) {
+            if (!StringUtils.isNull(relateForum.forum_name)) {
+                RelateForumItemData relateForumItemData = new RelateForumItemData();
+                relateForumItemData.parserProtobuf(relateForum);
+                this.a.add(relateForumItemData);
+            }
+        }
+    }
 }

@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.tieba.au;
-import com.baidu.tieba.bu;
-import com.baidu.tieba.gs;
-import com.baidu.tieba.vq;
+import com.baidu.tieba.jr;
+import com.baidu.tieba.ou;
+import com.baidu.tieba.pu;
+import com.baidu.tieba.us;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,14 +56,14 @@ public final class DoubleBtnDialog$initExtraView$2 extends Lambda implements Fun
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
-        au v;
-        gs b;
-        bu d;
+        ou v;
+        us b;
+        pu d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            au v2 = BDPTask.m.v();
+            ou v2 = BDPTask.m.v();
             if (v2 != null && (d = v2.d()) != null) {
-                d.b(this.$data.getTaskInfoSingleKey(), vq.c.a());
+                d.b(this.$data.getTaskInfoSingleKey(), jr.c.a());
             }
             if (!TextUtils.isEmpty(this.$data.getCancelBtnSchema()) && (v = BDPTask.m.v()) != null && (b = v.b()) != null) {
                 b.a(this.$data.getCancelBtnSchema(), 1);

@@ -1,63 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.cf5;
+import com.baidu.tieba.df5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vf5 {
+public abstract class vf5<Q extends cf5, P extends df5> extends uf5 implements yf5<P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    @NonNull
-    public Runnable b;
 
-    public vf5(@NonNull Runnable runnable) {
+    public vf5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {runnable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = runnable;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a) {
-                return false;
-            }
-            this.a = true;
-            this.b.run();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public abstract void e();
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a) {
-                this.b.run();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract void i(BdUniqueId bdUniqueId);
+
+    public abstract void j(ce5 ce5Var);
 }

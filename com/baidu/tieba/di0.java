@@ -1,50 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.utils.LruCache;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class di0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final LruCache<String, String> a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface di0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "cmd");
+    public static final di0 b = new ci0();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947705374, "Lcom/baidu/tieba/di0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947705374, "Lcom/baidu/tieba/di0;");
-                return;
-            }
-        }
-        a = new LruCache<>();
-    }
+    boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable ei0 ei0Var);
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.get(str) : (String) invokeL.objValue;
-    }
+    void b(String str, String str2, gi0 gi0Var);
 
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            a.put(str, str2);
-        }
-    }
+    String[] c();
 
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.remove(str);
-        }
-    }
+    boolean d(Context context, String str);
 }

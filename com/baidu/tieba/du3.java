@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class du3 {
+public class du3 extends ev3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile du3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<fu3> a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public du3() {
+        super("getAvailableSpace");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,56 +22,28 @@ public class du3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList();
     }
 
-    public static du3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ev3
+    public yu1 a(@NonNull JSONObject jSONObject, @NonNull cg2 cg2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (du3.class) {
-                    if (b == null) {
-                        b = new du3();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cg2Var)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("data", mg3.c());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return b;
+            cg2Var.a(jSONObject2);
+            return null;
         }
-        return (du3) invokeV.objValue;
-    }
-
-    public void a(fu3 fu3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, fu3Var) == null) || fu3Var == null || this.a.contains(fu3Var)) {
-            return;
-        }
-        this.a.add(fu3Var);
-    }
-
-    public void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            for (fu3 fu3Var : this.a) {
-                if (i == 16) {
-                    fu3Var.c();
-                } else if (i == 17) {
-                    fu3Var.b(str);
-                }
-                d(fu3Var);
-            }
-        }
-    }
-
-    public void d(fu3 fu3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fu3Var) == null) && this.a.contains(fu3Var)) {
-            this.a.remove(fu3Var);
-        }
+        return (yu1) invokeLL.objValue;
     }
 }

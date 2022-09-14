@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -176,7 +177,7 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
                     jSONObject.put("shareSourceUrl", this.shareSourceUrl);
                 }
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.title + " https://tieba.baidu.com/p/" + this.threadId + "?share=9105");
+                jSONArray.put(this.title + " " + TbConfig.HTTPS_PB_PREFIX + this.threadId + "?share=9105");
                 jSONArray.put("1");
                 jSONArray.put(jSONObject);
                 return jSONArray.toString();

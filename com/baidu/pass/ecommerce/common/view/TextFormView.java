@@ -46,9 +46,9 @@ public class TextFormView extends FrameLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04dd, (ViewGroup) this, true);
-            this.mTextView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cd3);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091cce);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_sapi_sdk_common_text_form, (ViewGroup) this, true);
+            this.mTextView = (TextView) inflate.findViewById(R.id.sapi_sdk_common_title_tv);
+            this.mBottomLine = inflate.findViewById(R.id.sapi_sdk_common_bottom_line);
             this.mTextView.setText(this.mTextStr);
             this.mBottomLine.setVisibility(this.mIsShowBottomLine ? 0 : 4);
         }
@@ -57,8 +57,8 @@ public class TextFormView extends FrameLayout {
     public void setDarkMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060947));
-            this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060941));
+            this.mTextView.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
+            this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
         }
     }
 
@@ -81,7 +81,7 @@ public class TextFormView extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040017, R.attr.obfuscated_res_0x7f040035}, i, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, com.baidu.sapi2.ecommerce.R.styleable.SapiSdkTextFormView, i, 0);
         this.mTextStr = obtainStyledAttributes.getString(0);
         this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(1, true);
         obtainStyledAttributes.recycle();

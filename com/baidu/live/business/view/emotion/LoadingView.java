@@ -10,8 +10,8 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.refresh.LoadAnimStrategy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb0;
-import com.baidu.tieba.n80;
+import com.baidu.tieba.hc0;
+import com.baidu.tieba.q90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -59,8 +59,8 @@ public class LoadingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setGravity(17);
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d052d, (ViewGroup) this, true);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0913f1);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0542, (ViewGroup) this, true);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091415);
             this.b = lottieAnimationView;
             if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                 return;
@@ -73,20 +73,20 @@ public class LoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = n80.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
-            layoutParams.height = n80.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
+            layoutParams.width = q90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
+            layoutParams.height = q90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
             this.b.setLayoutParams(layoutParams);
             this.b.setImageAssetsFolder(LoadAnimStrategy.getInstance().loadingLottieImgRes);
-            String i = bb0.f().i(str);
-            if (TextUtils.isEmpty(i)) {
-                int j = bb0.f().j(str);
-                if (j != 0) {
-                    this.b.setAnimation(j);
+            String j = hc0.f().j(str);
+            if (TextUtils.isEmpty(j)) {
+                int k = hc0.f().k(str);
+                if (k != 0) {
+                    this.b.setAnimation(k);
                     return;
                 }
                 return;
             }
-            this.b.setAnimation(i);
+            this.b.setAnimation(j);
         }
     }
 

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +43,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         }
         this.a = context;
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0909f2);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090a0c);
     }
 
     public void a() {
@@ -68,7 +68,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
             return;
         }
         this.b.removeAllViews();
-        if (qi.isEmpty(threadData.getForum_name())) {
+        if (dj.isEmpty(threadData.getForum_name())) {
             return;
         }
         ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);

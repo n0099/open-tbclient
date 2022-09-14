@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.se8;
+import com.baidu.tieba.cg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.SimpleUser;
 public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public se8 privacyData;
+    public cg8 privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacyHttpMessage(int i) {
@@ -37,13 +37,13 @@ public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new se8();
+        this.privacyData = new cg8();
     }
 
-    public se8 getPrivacyData() {
+    public cg8 getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privacyData : (se8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privacyData : (cg8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,96 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
+import android.graphics.Color;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 /* loaded from: classes6.dex */
-public class u54 extends l54<on2> {
+public class u54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    @V8JavascriptField
+    public String backgroundColor;
+    @V8JavascriptField
+    public String borderColor;
+    @V8JavascriptField
+    public double borderRadius;
+    @V8JavascriptField
+    public int borderWidth;
+    @V8JavascriptField
+    public String color;
+    @V8JavascriptField
+    public double fontSize;
+    @V8JavascriptField
+    public String fontWeight;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public boolean hidden;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int lineHeight;
+    @V8JavascriptField
+    public double opacity;
+    @V8JavascriptField
+    public String textAlign;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161973, "Lcom/baidu/tieba/u54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161973, "Lcom/baidu/tieba/u54;");
-                return;
-            }
-        }
-        boolean z = kh1.a;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void r();
     }
 
-    public u54() {
+    public u54(@NonNull fv1 fv1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fv1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.fontSize = 16.0d;
+        this.opacity = 1.0d;
+        a(fv1Var);
+    }
+
+    public static int c(@ColorInt int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            float f = (((-16777216) & i) >>> 24) / 255.0f;
+            return f > 0.0f ? Color.argb(255, (int) ((((16711680 & i) >> 16) * f) + 0.5d), (int) ((((65280 & i) >> 8) * f) + 0.5d), (int) (((i & 255) * f) + 0.5d)) : i;
+        }
+        return invokeI.intValue;
+    }
+
+    public final void a(@NonNull fv1 fv1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fv1Var) == null) {
+            this.left = fv1Var.r("left", this.left);
+            this.top = fv1Var.r("top", this.top);
+            this.width = fv1Var.r("width", this.width);
+            this.height = fv1Var.r("height", this.height);
+            this.backgroundColor = fv1Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
+            this.borderColor = fv1Var.C("borderColor", this.borderColor);
+            this.borderRadius = fv1Var.n("borderRadius", this.borderRadius);
+            this.borderWidth = fv1Var.r("borderWidth", this.borderWidth);
+            this.fontSize = fv1Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
+            this.lineHeight = fv1Var.r("lineHeight", this.lineHeight);
+            this.textAlign = fv1Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
+            this.fontWeight = fv1Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
+            this.hidden = fv1Var.m("hidden", this.hidden);
+            this.opacity = fv1Var.n(NativeConstants.OPACITY, this.opacity);
+            this.color = fv1Var.C("color", this.color);
+            if (ij1.a) {
+                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
             }
         }
     }
 
-    public static u54 e() {
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (ij1.a) {
+                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
+            }
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.r();
+            }
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new u54() : (u54) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l54
-    /* renamed from: d */
-    public boolean b(Context context, on2 on2Var, jn2 jn2Var, a13 a13Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, on2Var, jn2Var, a13Var, jSONObject)) == null) ? g(context, on2Var, jn2Var, a13Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final Bundle f(on2 on2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on2Var)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("slaveId", on2Var.c);
-            bundle.putDouble("latitude", on2Var.j.a);
-            bundle.putDouble("longitude", on2Var.j.b);
-            bundle.putDouble("scale", on2Var.k);
-            bundle.putString("name", on2Var.z);
-            bundle.putString("address", on2Var.A);
-            bundle.putStringArrayList("ignoredApps", on2Var.B);
-            return bundle;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
         }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public final boolean g(Context context, on2 on2Var, jn2 jn2Var, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, on2Var, jn2Var, a13Var)) == null) {
-            ay1.i("map", "OpenLocationAction start");
-            if (!on2Var.isValid()) {
-                ay1.c("map", "model is invalid");
-                return false;
-            }
-            g64.r3(f(on2Var)).v3();
-            ay1.i("map", "OpenLocationAction end");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

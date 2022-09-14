@@ -1,415 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
+import android.widget.ListView;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.imMessageCenter.mention.FeedData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import tbclient.AgreeList;
-import tbclient.NewFloorInfo;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes5.dex */
-public class oc7 extends BaseCardInfo {
+public class oc7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId A;
-    public static final BdUniqueId B;
-    public static final BdUniqueId C;
-    public static final BdUniqueId D;
-    public static final BdUniqueId E;
-    public static final BdUniqueId F;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public MetaData b;
-    public String c;
-    public long d;
-    public String e;
-    public String f;
-    public OriginalThreadInfo g;
-    public String h;
-    public MetaData i;
-    public int j;
-    public String k;
-    public String l;
-    public long m;
-    public long n;
-    public boolean o;
-    public String p;
-    public MetaData q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public BaijiahaoData u;
-    public String v;
-    public int w;
-    public String x;
-    public List<NewFloorInfo> y;
-    public TbRichText z;
+    public final ArrayList<nc7> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948027526, "Lcom/baidu/tieba/oc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ListView a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ nc7 c;
+        public final /* synthetic */ ChatMessage d;
+        public final /* synthetic */ ChatMessage e;
+
+        public a(oc7 oc7Var, ListView listView, List list, nc7 nc7Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oc7Var, listView, list, nc7Var, chatMessage, chatMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948027526, "Lcom/baidu/tieba/oc7;");
-                return;
+            this.a = listView;
+            this.b = list;
+            this.c = nc7Var;
+            this.d = chatMessage;
+            this.e = chatMessage2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.getLastVisiblePosition() == this.b.size() - 1) {
+                this.c.b(this.a, this.d, this.e);
             }
         }
-        A = BdUniqueId.gen();
-        B = BdUniqueId.gen();
-        C = BdUniqueId.gen();
-        D = BdUniqueId.gen();
-        E = BdUniqueId.gen();
-        F = BdUniqueId.gen();
-        BdUniqueId.gen();
     }
 
     public oc7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new MetaData();
-        this.q = new MetaData();
-        this.t = false;
-        this.z = null;
+        ArrayList<nc7> arrayList = new ArrayList<>(2);
+        this.a = arrayList;
+        arrayList.add(new mc7());
+        this.a.add(new pc7());
     }
 
-    public MetaData A() {
-        InterceptResult invokeV;
+    public void a(MsglistModel msglistModel, ListView listView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (MetaData) invokeV.objValue;
-    }
-
-    public String B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.v : (String) invokeV.objValue;
-    }
-
-    public String C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public MetaData D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (MetaData) invokeV.objValue;
-    }
-
-    public String E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.k : (String) invokeV.objValue;
-    }
-
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.r : invokeV.booleanValue;
-    }
-
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j == 71 : invokeV.booleanValue;
-    }
-
-    public boolean H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : invokeV.booleanValue;
-    }
-
-    public void I(FeedData feedData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, feedData) == null) || feedData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) || msglistModel == null || msglistModel.getData() == null) {
             return;
         }
-        this.b = feedData.getReplyer();
-        this.d = feedData.getTime();
-        this.l = feedData.getPost_id();
-        this.s = feedData.getHasAgree();
-        if (!feedData.isHideForumName()) {
-            this.h = feedData.getFname();
-        }
-        this.k = feedData.getThread_id();
-        this.m = feedData.getFromForumId();
-        this.j = feedData.getThread_Type();
-        this.e = feedData.getContent();
-        this.o = feedData.getIsFloor();
-        this.c = feedData.getPostFrom();
-        this.p = feedData.getQuote_pid();
-        this.r = feedData.isNew();
-        this.i = feedData.getThreadAuthor();
-        this.t = feedData.isBjh();
-        this.u = feedData.getBaijiahaoData();
-        OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        this.g = originalThreadInfo;
-        originalThreadInfo.f = this.k;
-        originalThreadInfo.e = this.m;
-        originalThreadInfo.k = this.j;
-        originalThreadInfo.c = feedData.getThreadImgUrl();
-        OriginalThreadInfo originalThreadInfo2 = this.g;
-        originalThreadInfo2.o = this.t;
-        originalThreadInfo2.p = this.u;
-        this.y = feedData.getNewReplayInfo();
-        this.w = feedData.getType();
-        this.q = feedData.getQuote_user();
-        if (feedData.getType() == 1) {
-            this.g.n = feedData.getQuote_pid();
-            if (feedData.getQuote_user() == null) {
-                str = "";
-            } else if (StringHelper.equals(feedData.getQuote_user().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0aad);
-            } else {
-                str = feedData.getQuote_user().getName_show();
-            }
-            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fe5, new Object[]{str, feedData.getQuote_content()});
-            if (TextUtils.isGraphic(this.g.g)) {
-                OriginalThreadInfo originalThreadInfo3 = this.g;
-                originalThreadInfo3.g = originalThreadInfo3.g.replace("\n", " ");
-            }
-            if (feedData.getIsFloor()) {
-                this.a = D;
-            } else {
-                this.a = E;
-            }
-        } else {
-            this.g.n = "0";
-            if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
-                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1150, new Object[]{feedData.getOriginalThreadInfo().b});
-            } else {
-                this.g.g = feedData.getTitle();
-            }
-            this.a = F;
-        }
-        this.g.s();
-    }
-
-    public void J(AgreeList agreeList) {
-        User user;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, agreeList) == null) || agreeList == null) {
+        List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
+        if (ListUtils.isEmpty(chatMessages)) {
             return;
         }
-        this.n = agreeList.id.longValue();
-        MetaData metaData = new MetaData();
-        this.b = metaData;
-        metaData.parserProtobuf(agreeList.agreeer);
-        this.d = agreeList.time.intValue() * 1000;
-        Post post = agreeList.post_info;
-        if (post != null) {
-            this.l = String.valueOf(post.id);
-            if (!ListUtils.isEmpty(agreeList.post_info.content) && ListUtils.getItem(agreeList.post_info.content, 0) != null && (user = agreeList.post_info.author) != null) {
-                String str = user.name_show;
-                if (qi.isEmpty(str)) {
-                    str = agreeList.post_info.author.name;
-                }
-                this.f = str + "：" + agreeList.post_info.content.get(0).text;
-            }
-            this.p = agreeList.post_info.quote_id;
-        }
-        ThreadData threadData = new ThreadData();
-        threadData.parserProtobuf(agreeList.thread_info);
-        this.g = OriginalThreadInfo.m(threadData);
-        this.i = threadData.getAuthor();
-        this.h = threadData.getForum_name();
-        this.k = threadData.getId();
-        this.m = threadData.getFid();
-        this.j = threadData.threadType;
-        this.t = threadData.isUgcThreadType();
-        this.u = threadData.getBaijiahaoData();
-        this.v = "c12927";
-        if (threadData.isQuestionsAndAnswersThread()) {
-            if (agreeList.type.intValue() == 3) {
-                this.a = A;
-                this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e6);
+        ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
+        ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
+        Iterator<nc7> it = this.a.iterator();
+        while (it.hasNext()) {
+            nc7 next = it.next();
+            if (next.a(chatMessage, chatMessage2)) {
+                listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
                 return;
             }
-            this.a = B;
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e2);
-        } else if (agreeList.type.intValue() == 3) {
-            this.a = A;
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e7);
-            if (this.t) {
-                this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e3);
-            }
-        } else if (agreeList.type.intValue() == 4) {
-            this.a = C;
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e4);
-            String str2 = agreeList.virtual_image_url;
-            this.x = str2;
-            OriginalThreadInfo originalThreadInfo = this.g;
-            originalThreadInfo.c = str2;
-            originalThreadInfo.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b5a);
-            OriginalThreadInfo originalThreadInfo2 = this.g;
-            originalThreadInfo2.a = 5;
-            originalThreadInfo2.k = 70;
-        } else {
-            this.a = B;
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e5);
         }
-    }
-
-    public void K(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.r = z;
-        }
-    }
-
-    public void L(TbRichText tbRichText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tbRichText) == null) {
-            this.z = tbRichText;
-        }
-    }
-
-    public void M(TbRichText tbRichText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, tbRichText) == null) {
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m : invokeV.longValue;
-    }
-
-    public BaijiahaoData getBaijiahaoData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.u : (BaijiahaoData) invokeV.objValue;
-    }
-
-    public int getCardType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.w : invokeV.intValue;
-    }
-
-    public int getThreadType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public long getTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.a : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.s : invokeV.booleanValue;
-    }
-
-    public boolean isBjh() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.t : invokeV.booleanValue;
-    }
-
-    public TbRichText j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.z : (TbRichText) invokeV.objValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.n : invokeV.longValue;
-    }
-
-    public List<NewFloorInfo> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.y : (List) invokeV.objValue;
-    }
-
-    public OriginalThreadInfo r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.g : (OriginalThreadInfo) invokeV.objValue;
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.l : (String) invokeV.objValue;
-    }
-
-    public String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.p : (String) invokeV.objValue;
-    }
-
-    public MetaData z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.q : (MetaData) invokeV.objValue;
     }
 }

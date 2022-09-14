@@ -1,150 +1,125 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.SeekBar;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.switchs.ChunkUploadSwitch;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class zn8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 524288;
+    public static int d = 6144000;
+    public static int e = 524288;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public SeekBar b;
-    public View c;
-    public int d;
-    public ViewTreeObserver.OnGlobalLayoutListener e;
+    public do8 a;
+    public uo7 b;
 
-    /* loaded from: classes6.dex */
-    public class a implements SeekBar.OnSeekBarChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(zn8 zn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948365829, "Lcom/baidu/tieba/zn8;")) == null) {
+            return;
         }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                a98 a98Var = new a98();
-                a98Var.a = 1;
-                a98Var.b = i;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, a98Var));
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081246));
-                a98 a98Var = new a98();
-                a98Var.a = 2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, a98Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081247));
-                a98 a98Var = new a98();
-                a98Var.a = 3;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, a98Var));
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948365829, "Lcom/baidu/tieba/zn8;");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn8 a;
-
-        public b(zn8 zn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zn8Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
-                if (layoutParams.bottomMargin != this.a.d) {
-                    layoutParams.bottomMargin = this.a.c.getHeight() - ri.f(this.a.a, R.dimen.tbds16);
-                    this.a.b.setLayoutParams(layoutParams);
-                    this.a.d = layoutParams.bottomMargin;
-                }
-            }
-        }
-    }
-
-    public zn8(BaseFragmentActivity baseFragmentActivity, View view2) {
+    public zn8(uo7 uo7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {uo7Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = -1;
-        this.e = new b(this);
-        this.a = baseFragmentActivity;
-        this.c = view2;
-        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f09250a);
-        this.b = seekBar;
-        seekBar.setOnSeekBarChangeListener(new a(this));
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
+        this.b = uo7Var;
     }
 
-    public void f(boolean z) {
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.b.setVisibility(z ? 0 : 4);
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            if (i <= 0) {
+                d = 6144000;
+            } else {
+                d = i;
+            }
         }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            if (i <= 0) {
+                c = 524288;
+            } else {
+                c = i;
+            }
+        }
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            if (i <= 0) {
+                e = 524288;
+            } else {
+                e = i;
+            }
+        }
+    }
+
+    public void a() {
+        do8 do8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (do8Var = this.a) == null) {
+            return;
+        }
+        do8Var.cancel();
+    }
+
+    public VideoFinishResult e(String str, String str2, int i, go8 go8Var) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, go8Var)) == null) {
+            try {
+                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
+                    this.a = new fo8(str2, e, this.b);
+                } else {
+                    this.a = new eo8(str, c, d, this.b);
+                }
+                this.a.a(go8Var);
+                return this.a.b(str2, i);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                uo7 uo7Var = this.b;
+                if (uo7Var != null) {
+                    uo7Var.f(306, -4399, oo7.a(e2));
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (VideoFinishResult) invokeLLIL.objValue;
     }
 }

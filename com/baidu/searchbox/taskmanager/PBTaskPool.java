@@ -38,6 +38,7 @@ import com.baidu.searchbox.task.async.privacy.LaunchWithPrivacyTask;
 import com.baidu.searchbox.task.async.privacy.LogoTask;
 import com.baidu.searchbox.task.async.privacy.NightPluginTask;
 import com.baidu.searchbox.task.sync.appcreate.InitAccountTask;
+import com.baidu.searchbox.task.sync.appcreate.InitAdvertDbTask;
 import com.baidu.searchbox.task.sync.appcreate.InitAppSettingTask;
 import com.baidu.searchbox.task.sync.appcreate.InitBDPlayerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitBearTask;
@@ -62,10 +63,8 @@ import com.baidu.searchbox.task.sync.appcreate.InitVersionTask;
 import com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask;
 import com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask;
 import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
-import com.baidu.searchbox.task.sync.privacy.SyncAccountTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,24 +103,16 @@ public class PBTaskPool extends BaseTaskPool {
                 arrayList.add(new WebViewDataDirectorySuffixTask());
                 arrayList.add(new InitSyncSwitchTask());
                 arrayList.add(new InitFHTask());
-                if (LaunchUpApplicationSwitch.getIsOn()) {
-                    arrayList.add(new InitMutiProcessManagerTask());
-                }
+                arrayList.add(new InitMutiProcessManagerTask());
             } else if (i == 1) {
                 arrayList.add(new InitVersionTask());
                 arrayList.add(new InitGlobalDataTask());
                 arrayList.add(new InitLokiTask());
                 arrayList.add(new InitCmdRouterAndStaticTask());
-                if (!LaunchUpApplicationSwitch.getIsOn()) {
-                    arrayList.add(new InitMutiProcessManagerTask());
-                }
                 arrayList.add(new InitMessageManagerTask());
                 arrayList.add(new InitAccountTask());
                 arrayList.add(new InitSDKTask());
                 arrayList.add(new InitStatisticTask());
-                if (!LaunchUpApplicationSwitch.getIsOn()) {
-                    arrayList.add(new InitDiskStatTask());
-                }
                 arrayList.add(new InitUBCTask());
             }
             return arrayList;
@@ -165,9 +156,7 @@ public class PBTaskPool extends BaseTaskPool {
                 }
             } else if (i == 3) {
                 arrayList.add(new InitEmotionsTask());
-                if (LaunchUpApplicationSwitch.getIsOn()) {
-                    arrayList.add(new InitDiskStatTask());
-                }
+                arrayList.add(new InitDiskStatTask());
                 arrayList.add(new InitFlutterNpsPluginTask());
             }
             return arrayList;
@@ -188,11 +177,9 @@ public class PBTaskPool extends BaseTaskPool {
                     arrayList.add(new NightPluginTask());
                 }
                 arrayList.add(new LogoTask());
+                arrayList.add(new InitAdvertDbTask());
             } else if (i == 1) {
                 arrayList.add(new InitSDKWithPrivacyTask());
-                if (!LaunchUpApplicationSwitch.getIsOn()) {
-                    arrayList.add(new SyncAccountTask());
-                }
             } else if (i == 3) {
                 arrayList.add(new MainTabLoadFinishTask());
                 arrayList.add(new GetYYCloudTask());

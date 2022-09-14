@@ -2,9 +2,9 @@ package com.baidu.bdtask.service.cache;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.cr;
-import com.baidu.tieba.ft;
-import com.baidu.tieba.zr;
+import com.baidu.tieba.ns;
+import com.baidu.tieba.qr;
+import com.baidu.tieba.tt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +170,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
             if (m != null) {
                 byte[] bytes = m.getBytes(charset);
                 Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
-                String newFingerprint = ft.b(bytes, false);
+                String newFingerprint = tt.b(bytes, false);
                 str = this.this$0.c;
                 if (Intrinsics.areEqual(newFingerprint, str)) {
                     DebugTrace.a.c(AnonymousClass1.INSTANCE);
@@ -180,7 +180,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
                 Intrinsics.checkExpressionValueIsNotNull(newFingerprint, "newFingerprint");
                 bVar.c = newFingerprint;
                 DebugTrace.a.c(new AnonymousClass2(this, m));
-                zr c = cr.c.c();
+                ns c = qr.c.c();
                 str2 = this.this$0.a;
                 c.a(m, str2);
                 return;

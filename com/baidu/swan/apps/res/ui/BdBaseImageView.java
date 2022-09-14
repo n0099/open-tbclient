@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fe3;
+import com.baidu.tieba.dg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,13 +48,13 @@ public class BdBaseImageView extends ImageView {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Color.alpha(fe3.d(getContext())) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Color.alpha(dg3.d(getContext())) != 0 : invokeV.booleanValue;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a || this.b != fe3.d(getContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a || this.b != dg3.d(getContext()) : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -62,8 +62,8 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (b()) {
-                fe3.b(getContext(), getDrawable());
-                this.b = fe3.d(getContext());
+                dg3.b(getContext(), getDrawable());
+                this.b = dg3.d(getContext());
                 this.a = false;
             }
             super.draw(canvas);
@@ -75,7 +75,7 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (a()) {
-                fe3.c(getContext(), getDrawable(), i);
+                dg3.c(getContext(), getDrawable(), i);
             } else {
                 super.setImageAlpha(i);
             }

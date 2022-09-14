@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.NgWebView;
+import android.os.Looper;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,109 +12,124 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y22 extends SwanAppWebViewManager implements Object<NgWebView>, w22 {
+public class y22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
+    public static long a;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String w;
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
+
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                y22.c(this.a, this.b);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278192, "Lcom/baidu/tieba/y22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278192, "Lcom/baidu/tieba/y22;");
-                return;
-            }
-        }
-        x = kh1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y22(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.w = g32.b();
-    }
-
-    @Override // com.baidu.tieba.w22
-    public void C(o72 o72Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, o72Var) == null) || o72Var == null) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948278192, "Lcom/baidu/tieba/y22;")) == null) {
             return;
         }
-        if (x) {
-            Log.d("SwanAppMasterManager", "pathList item: " + o72Var.b);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        this.b.getSettings().setCodeCacheSetting(tz1.a("appjs", o72Var.b));
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void L0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948278192, "Lcom/baidu/tieba/y22;");
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void V0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.in1
-    public String a() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.w : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b < 2 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w22
-    public yz1 e() {
-        InterceptResult invokeV;
+    public static void c(@StringRes int i, int i2) {
+        SwanAppActivity activity;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? r() : (yz1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.in1
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            super.loadUrl(str);
+        if (!(interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) || (activity = lo2.U().getActivity()) == null || activity.isFinishing()) {
+            return;
+        }
+        if (i2 != 1) {
+            q23.f(activity, i).G();
+        } else {
+            q23.f(activity, i).I();
         }
     }
 
-    @Override // com.baidu.tieba.w22
-    public void o(int i) {
+    public static void d(@StringRes int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                c(i, i2);
+            } else {
+                sg3.a0(new a(i, i2));
+            }
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.in1
-    public void onJSLoaded() {
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            u72.U().w0(true);
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            b = 0;
+            a = 0L;
+        }
+    }
+
+    public static void f(@StringRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            g(i, 0);
+        }
+    }
+
+    public static synchronized void g(@StringRes int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            synchronized (y22.class) {
+                int i3 = b;
+                if (i3 != 0) {
+                    if (i3 == 1 && (a + 5000) - System.currentTimeMillis() < 0) {
+                        b = 2;
+                        d(i, i2);
+                        a32.g("toast提示个数已达2个");
+                    }
+                } else {
+                    b = 1;
+                    a = System.currentTimeMillis();
+                    d(i, i2);
+                }
+            }
         }
     }
 }

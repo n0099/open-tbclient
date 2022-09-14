@@ -1,149 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.wj2;
-import com.baidu.tieba.zj2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class t42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public q42 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131159, "Lcom/baidu/tieba/t42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements qa2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qa2 a;
+
+        public a(t42 t42Var, qa2 qa2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t42Var, qa2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948131159, "Lcom/baidu/tieba/t42;");
+            this.a = qa2Var;
+        }
+
+        @Override // com.baidu.tieba.qa2
+        public void a(ga2 ga2Var) {
+            qa2 qa2Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, ga2Var) == null) || (qa2Var = this.a) == null) {
+                return;
+            }
+            qa2Var.a(ga2Var);
+        }
+    }
+
+    public t42() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
+        this.a = new q42(f02.d().getPath(), f02.b);
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public ga2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? a(wj2.e.i(str, str2).getPath()) : (String) invokeLL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            File a2 = ik2.g().a(str, str2);
-            if (a2 != null) {
-                return c(a2.getPath());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q42 q42Var = this.a;
+            if (q42Var != null) {
+                return q42Var.d();
             }
             return null;
         }
-        return (String) invokeLL.objValue;
+        return (ga2) invokeV.objValue;
     }
 
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public void b() {
+        q42 q42Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str, str2);
-                if (file.exists()) {
-                    return file.getPath();
-                }
-                if (file.mkdirs()) {
-                    return file.getPath();
-                }
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (q42Var = this.a) == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        q42Var.e();
+        this.a = null;
     }
 
-    public static boolean f(List<y94> list) {
-        InterceptResult invokeL;
+    public void c(qa2 qa2Var) {
+        q42 q42Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return false;
-            }
-            return list.get(0).r;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qa2Var) == null) || (q42Var = this.a) == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(y94 y94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, y94Var)) == null) {
-            if (y94Var == null || TextUtils.isEmpty(y94Var.o)) {
-                return false;
-            }
-            return h(new File(y94Var.a), new File(wj2.e.i(y94Var.o, String.valueOf(y94Var.i)).getPath(), y94Var.p));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(File file, File file2) {
-        InterceptResult invokeLL;
-        boolean U;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
-            if (file != null && file2 != null) {
-                if (!file.exists()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
-                    }
-                    return false;
-                } else if (!file2.exists() && !file2.mkdirs()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
-                    }
-                    return false;
-                } else {
-                    zj2.c j = zj2.j(file);
-                    int i = j.b;
-                    if (i != -1) {
-                        U = zj2.d(j.a, file2, i).a;
-                    } else {
-                        U = ch4.U(file.getAbsolutePath(), file2.getAbsolutePath());
-                    }
-                    if (U) {
-                        if (a) {
-                            Log.i("SubPkgDownloadUtil", "分包解压成功");
-                            return true;
-                        }
-                        return true;
-                    } else if (a) {
-                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        q42Var.f(new a(this, qa2Var));
     }
 }

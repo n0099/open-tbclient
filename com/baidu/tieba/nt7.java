@@ -1,60 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Item;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class nt7 implements pn {
+public class nt7 implements uz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId c;
+    public static nt7 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Item a;
-    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948014072, "Lcom/baidu/tieba/nt7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948014072, "Lcom/baidu/tieba/nt7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public nt7(Item item) {
+    public nt7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = item;
     }
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
+    public static synchronized nt7 d() {
         InterceptResult invokeV;
+        nt7 nt7Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (nt7.class) {
+                if (a == null) {
+                    a = new nt7();
+                }
+                nt7Var = a;
+            }
+            return nt7Var;
+        }
+        return (nt7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uz4
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                SapiAccountManager.getInstance().logout();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.uz4
+    public void b(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (TextUtils.isEmpty(accountData.getID()) || loginAccounts == null || loginAccounts.size() <= 0) {
+                return;
+            }
+            for (SapiAccount sapiAccount : loginAccounts) {
+                if (accountData.getID().equals(sapiAccount.uid)) {
+                    SapiAccountManager.getInstance().validate(sapiAccount);
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.uz4
+    public void c(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
+                SapiAccountManager.getInstance().logout();
+                return;
+            }
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (loginAccounts == null || loginAccounts.size() <= 0) {
+                return;
+            }
+            for (SapiAccount sapiAccount : loginAccounts) {
+                if (accountData.getID().equals(sapiAccount.uid)) {
+                    SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                    return;
+                }
+            }
+        }
     }
 }

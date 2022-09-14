@@ -1,73 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bd9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDFactory";
-    public static boolean c;
+public class bd9 implements jd9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fd9 a;
+    public oc9 a;
+    public float b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641266, "Lcom/baidu/tieba/bd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947641266, "Lcom/baidu/tieba/bd9;");
-                return;
-            }
-        }
-        c = yc9.e();
-    }
-
-    public bd9(Context context) {
+    public bd9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int a = zc9.a();
-        if (c) {
-            String str = b;
-            Log.e(str, "UnionIDFactory manufacturer:" + a);
-        }
-        if (a == 10001) {
-            this.a = new hd9(context);
-        } else if (a != 10002) {
-            this.a = new id9(context);
-        } else {
-            if (c) {
-                Log.e(b, "UnionIDFactory XMUnionID");
+        this.b = 1.0f;
+        this.c = true;
+    }
+
+    @Override // com.baidu.tieba.jd9
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            oc9 oc9Var = this.a;
+            if (oc9Var == null || !oc9Var.putBytes(bArr, i)) {
+                return 0;
             }
-            this.a = new jd9(context);
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.jd9
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jd9
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (oc9) rg9.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
+            }
+            oc9 oc9Var = this.a;
+            if (oc9Var != null) {
+                oc9Var.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
+            }
+            return false;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jd9
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            oc9 oc9Var = this.a;
+            return oc9Var != null ? oc9Var.getOutPutBytes() : new byte[0];
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            oc9 oc9Var = this.a;
+            if (oc9Var != null) {
+                oc9Var.setSpeed(f);
+            }
         }
     }
 
-    public fd9 a() {
+    @Override // com.baidu.tieba.jd9
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (fd9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jd9
+    public void c() {
+        oc9 oc9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (oc9Var = this.a) == null) {
+            return;
+        }
+        oc9Var.flush();
+    }
+
+    @Override // com.baidu.tieba.jd9
+    public void d() {
+        oc9 oc9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (oc9Var = this.a) == null) {
+            return;
+        }
+        oc9Var.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.jd9
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
     }
 }

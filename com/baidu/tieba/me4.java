@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class me4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+    public static je4 a(Node node) {
+        InterceptResult invokeL;
+        Class<? extends je4> processor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, intent, bundle) == null) {
-            context.startActivity(intent, bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, node)) == null) {
+            if (node == null || (processor = node.getProcessor()) == null) {
+                return null;
+            }
+            try {
+                return processor.newInstance();
+            } catch (IllegalAccessException | InstantiationException unused) {
+                return null;
+            }
         }
-    }
-
-    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, intent, i, bundle) == null) {
-            activity.startActivityForResult(intent, i, bundle);
-        }
+        return (je4) invokeL.objValue;
     }
 }

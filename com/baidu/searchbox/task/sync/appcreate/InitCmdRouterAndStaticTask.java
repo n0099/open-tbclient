@@ -4,9 +4,9 @@ import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.at4;
-import com.baidu.tieba.su4;
-import com.baidu.tieba.wa5;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.fd5;
+import com.baidu.tieba.iv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,8 +35,8 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            at4.a();
-            wa5.b().u(System.currentTimeMillis() - currentTimeMillis);
+            iv4.a();
+            fd5.b().u(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -44,7 +44,7 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (su4.k().l("static_opt_open", 0) > 0) {
+            if (bx4.k().l("static_opt_open", 0) > 0) {
                 CmdRouter.init(TbadkCoreApplication.getInst());
             }
             initTasks();

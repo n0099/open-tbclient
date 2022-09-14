@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.i39;
-import com.baidu.tieba.u57;
+import com.baidu.tieba.b77;
+import com.baidu.tieba.l79;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,13 +25,13 @@ import tbclient.GetRecommendTopic.TopicList;
 public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bb a;
+    public final pb a;
     public b b;
     public boolean c;
-    public List<u57> d;
+    public List<b77> d;
 
     /* loaded from: classes6.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTopicModel a;
@@ -58,13 +58,13 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             this.a = selectTopicModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof i39)) {
-                    this.a.D(((i39) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof l79)) {
+                    this.a.D(((l79) responsedMessage).getTopicList());
                 }
             }
         }
@@ -72,7 +72,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(@NonNull List<u57> list);
+        void a(@NonNull List<b77> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -87,7 +87,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -119,7 +119,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
         this.d = new ArrayList();
         for (TopicList topicList : list) {
-            this.d.add(new u57(topicList));
+            this.d.add(new b77(topicList));
         }
         b bVar = this.b;
         if (bVar != null) {

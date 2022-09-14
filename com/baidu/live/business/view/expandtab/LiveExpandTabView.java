@@ -14,19 +14,20 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.view.expandtab.LiveExpandTabAdapter;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n80;
-import com.baidu.tieba.t80;
+import com.baidu.tieba.q90;
+import com.baidu.tieba.w90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001:\u0002'(B'\b\u0007\u0012\u0006\u0010!\u001a\u00020 \u0012\n\b\u0002\u0010#\u001a\u0004\u0018\u00010\"\u0012\b\b\u0002\u0010$\u001a\u00020\u0013¢\u0006\u0004\b%\u0010&J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0015\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\n\u001a\u00020\u00022\b\u0010\t\u001a\u0004\u0018\u00010\u0005¢\u0006\u0004\b\n\u0010\bJ\r\u0010\u000b\u001a\u00020\u0002¢\u0006\u0004\b\u000b\u0010\u0004J\u0015\u0010\u000e\u001a\u00020\u00022\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u000e\u0010\u000fJ#\u0010\u0015\u001a\u00020\u00022\f\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0015\u0010\u0016R\u0018\u0010\r\u001a\u0004\u0018\u00010\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\r\u0010\u0017R\u0018\u0010\u0019\u001a\u0004\u0018\u00010\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0019\u0010\u001aR\u0018\u0010\u001c\u001a\u0004\u0018\u00010\u001b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0018\u0010\u001e\u001a\u0004\u0018\u00010\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001e\u0010\u001f¨\u0006)"}, d2 = {"Lcom/baidu/live/business/view/expandtab/LiveExpandTabView;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "", "dismiss", "()V", "", "scene", "initView", "(Ljava/lang/String;)V", "uiMode", "onDarkModeChange", "onFontSizeChanged", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabView$LiveExpandTabViewListener;", "listener", "setLiveExpandTabViewListener", "(Lcom/baidu/live/business/view/expandtab/LiveExpandTabView$LiveExpandTabViewListener;)V", "", "Lcom/baidu/live/business/model/data/LiveTabEntity;", "tabs", "", "selectPos", "setTabs", "(Ljava/util/List;I)V", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabView$LiveExpandTabViewListener;", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter;", "mAdapter", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter;", "Landroidx/recyclerview/widget/RecyclerView;", "mRvList", "Landroidx/recyclerview/widget/RecyclerView;", "mScene", "Ljava/lang/String;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "LiveExpandTabItemDecoration", "LiveExpandTabViewListener", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001:\u0002'(B'\b\u0007\u0012\u0006\u0010!\u001a\u00020 \u0012\n\b\u0002\u0010#\u001a\u0004\u0018\u00010\"\u0012\b\b\u0002\u0010$\u001a\u00020\u0013¢\u0006\u0004\b%\u0010&J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0015\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\n\u001a\u00020\u00022\b\u0010\t\u001a\u0004\u0018\u00010\u0005¢\u0006\u0004\b\n\u0010\bJ\r\u0010\u000b\u001a\u00020\u0002¢\u0006\u0004\b\u000b\u0010\u0004J\u0015\u0010\u000e\u001a\u00020\u00022\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u000e\u0010\u000fJ#\u0010\u0015\u001a\u00020\u00022\f\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0015\u0010\u0016R\u0018\u0010\r\u001a\u0004\u0018\u00010\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\r\u0010\u0017R\u0018\u0010\u0019\u001a\u0004\u0018\u00010\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0019\u0010\u001aR\u0018\u0010\u001c\u001a\u0004\u0018\u00010\u001b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0018\u0010\u001e\u001a\u0004\u0018\u00010\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001e\u0010\u001f¨\u0006)"}, d2 = {"Lcom/baidu/live/business/view/expandtab/LiveExpandTabView;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "", "dismiss", "()V", "", "scene", "initView", "(Ljava/lang/String;)V", "uiMode", "onDarkModeChange", "onFontSizeChanged", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabView$LiveExpandTabViewListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setLiveExpandTabViewListener", "(Lcom/baidu/live/business/view/expandtab/LiveExpandTabView$LiveExpandTabViewListener;)V", "", "Lcom/baidu/live/business/model/data/LiveTabEntity;", "tabs", "", "selectPos", "setTabs", "(Ljava/util/List;I)V", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabView$LiveExpandTabViewListener;", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter;", "mAdapter", "Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter;", "Landroidx/recyclerview/widget/RecyclerView;", "mRvList", "Landroidx/recyclerview/widget/RecyclerView;", "mScene", "Ljava/lang/String;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "LiveExpandTabItemDecoration", "LiveExpandTabViewListener", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveExpandTabView extends ConstraintLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -232,12 +233,12 @@ public final class LiveExpandTabView extends ConstraintLayout {
             this.d = str;
             RecyclerView recyclerView = this.a;
             if (recyclerView != null) {
-                t80 t80Var = t80.a;
+                w90 w90Var = w90.a;
                 Context context = recyclerView.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                recyclerView.setBackgroundDrawable(t80Var.c(context, str));
+                recyclerView.setBackgroundDrawable(w90Var.c(context, str));
                 recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 4));
-                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(n80.b(recyclerView.getContext(), 14.0f)));
+                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(q90.b(recyclerView.getContext(), 14.0f)));
                 LiveExpandTabAdapter liveExpandTabAdapter = new LiveExpandTabAdapter(str);
                 liveExpandTabAdapter.i(new c(this, str));
                 this.b = liveExpandTabAdapter;
@@ -252,10 +253,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (recyclerView = this.a) == null) {
             return;
         }
-        t80 t80Var = t80.a;
+        w90 w90Var = w90.a;
         Context context = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context, "context");
-        recyclerView.setBackgroundDrawable(t80Var.c(context, this.d));
+        recyclerView.setBackgroundDrawable(w90Var.c(context, this.d));
     }
 
     public final void e() {
@@ -303,11 +304,11 @@ public final class LiveExpandTabView extends ConstraintLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0525, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d053a, (ViewGroup) this, true);
         setClickable(true);
         setDescendantFocusability(393216);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091332);
-        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060789));
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091350);
+        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0607a0));
         setOnClickListener(new a(this));
     }
 }

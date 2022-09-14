@@ -15,8 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InterceptTouchRecyclerView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterceptTouchRecyclerView(@NonNull Context context) {
@@ -38,8 +36,8 @@ public class InterceptTouchRecyclerView extends RecyclerView {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x001c, code lost:
-        if (r2 != 3) goto L11;
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0017, code lost:
+        if (r0 != 3) goto L10;
      */
     @Override // android.view.ViewGroup, android.view.View
     /*
@@ -49,28 +47,17 @@ public class InterceptTouchRecyclerView extends RecyclerView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            int x = (int) motionEvent.getX();
-            int y = (int) motionEvent.getY();
+            motionEvent.getX();
+            motionEvent.getY();
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        boolean z = x - this.a < 0;
-                        if (Math.abs(y - this.b) > Math.abs(x - this.a)) {
-                            getParent().requestDisallowInterceptTouchEvent(false);
-                        } else if (z && canScrollHorizontally(1)) {
-                            getParent().requestDisallowInterceptTouchEvent(true);
-                        } else if (!z && canScrollHorizontally(-1)) {
-                            getParent().requestDisallowInterceptTouchEvent(true);
-                        } else {
-                            getParent().requestDisallowInterceptTouchEvent(false);
-                        }
+                        getParent().requestDisallowInterceptTouchEvent(true);
                     }
                 }
                 getParent().requestDisallowInterceptTouchEvent(false);
             } else {
-                this.a = x;
-                this.b = y;
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
             return super.dispatchTouchEvent(motionEvent);

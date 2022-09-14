@@ -58,7 +58,7 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
     public int getLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04d8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.layout_sapi_sdk_address_option_dialog : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -67,11 +67,11 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (this.optionOnClickListener != null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091cb1) {
+                if (id == R.id.sapi_sdk_addr_set_default) {
                     this.optionOnClickListener.onOptionClick(1001);
-                } else if (id == R.id.obfuscated_res_0x7f091c84) {
+                } else if (id == R.id.sapi_sdk_addr_copy) {
                     this.optionOnClickListener.onOptionClick(1003);
-                } else if (id == R.id.obfuscated_res_0x7f091c8f) {
+                } else if (id == R.id.sapi_sdk_addr_del) {
                     this.optionOnClickListener.onOptionClick(1002);
                 }
             }
@@ -84,28 +84,28 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.setDefaultView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cb1);
-            this.setDefaultViewBottomLine = view2.findViewById(R.id.obfuscated_res_0x7f091cb2);
-            this.copyView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.setDefaultView = (TextView) view2.findViewById(R.id.sapi_sdk_addr_set_default);
+            this.setDefaultViewBottomLine = view2.findViewById(R.id.sapi_sdk_addr_set_default_bottom_line);
+            this.copyView = (TextView) view2.findViewById(R.id.sapi_sdk_addr_copy);
             this.setDefaultView.setOnClickListener(this);
             this.copyView.setOnClickListener(this);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c8f);
-            TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ca9);
+            TextView textView = (TextView) view2.findViewById(R.id.sapi_sdk_addr_del);
+            TextView textView2 = (TextView) view2.findViewById(R.id.sapi_sdk_addr_option_cancel);
             textView.setOnClickListener(this);
             textView2.setOnClickListener(this);
             if (this.isDarkMode) {
                 Resources resources = getResources();
-                this.setDefaultView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081069);
-                this.setDefaultView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609c0));
-                this.setDefaultViewBottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060941));
-                this.copyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
-                this.copyView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609c0));
-                view2.findViewById(R.id.obfuscated_res_0x7f091c85).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060941));
-                textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609b0));
-                view2.findViewById(R.id.obfuscated_res_0x7f091c91).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060941));
-                textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
-                textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609c0));
+                this.setDefaultView.setBackgroundResource(R.drawable.sapi_sdk_option_top_round_bg_selector_dark);
+                this.setDefaultView.setTextColor(resources.getColor(R.color.sapi_sdk_common_select_dialog_item_text_dark_color));
+                this.setDefaultViewBottomLine.setBackgroundColor(resources.getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
+                this.copyView.setBackgroundResource(R.drawable.sapi_sdk_option_common_bg_selector_dark);
+                this.copyView.setTextColor(resources.getColor(R.color.sapi_sdk_common_select_dialog_item_text_dark_color));
+                view2.findViewById(R.id.sapi_sdk_addr_copy_bottom_line).setBackgroundColor(resources.getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
+                textView.setBackgroundResource(R.drawable.sapi_sdk_option_common_bg_selector_dark);
+                textView.setTextColor(resources.getColor(R.color.sapi_sdk_common_del_item_text_dark_color));
+                view2.findViewById(R.id.sapi_sdk_addr_del_bottom_line).setBackgroundColor(resources.getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
+                textView2.setBackgroundResource(R.drawable.sapi_sdk_option_common_bg_selector_dark);
+                textView2.setTextColor(resources.getColor(R.color.sapi_sdk_common_select_dialog_item_text_dark_color));
             }
             Bundle arguments = getArguments();
             if (arguments != null ? arguments.getBoolean(KEY_IS_DEFAULT_ADDR, false) : false) {

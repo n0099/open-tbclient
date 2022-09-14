@@ -1,41 +1,26 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentMultiView;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes6.dex */
-public class vm6 implements wm6 {
+public abstract class vm6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TbPageContext b;
-    public List<LiveFuseForumData> c;
-    public String d;
-    public String e;
+    public zm6 a;
+    public boolean b;
 
-    public vm6(TbPageContext tbPageContext) {
+    public vm6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,139 +30,165 @@ public class vm6 implements wm6 {
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.b = true;
     }
 
-    @Override // com.baidu.tieba.wm6
-    public void a(int i, LiveFuseForumData liveFuseForumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, liveFuseForumData) == null) {
-            TiebaStatic.log(new StatisticItem("c14701").param("obj_type", f(i, liveFuseForumData)).param("fid", this.d));
-            String str = liveFuseForumData.schema;
-            if (str == null || !str.startsWith("bdtiebalive")) {
-                return;
-            }
-            k("c14708", liveFuseForumData.yyext);
-        }
-    }
-
-    @Override // com.baidu.tieba.wm6
-    public void b(int i, LiveFuseForumData liveFuseForumData, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), liveFuseForumData, Integer.valueOf(i2)}) == null) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{liveFuseForumData.schema});
-        }
-    }
-
-    @Override // com.baidu.tieba.wm6
-    public void c(int i, LiveFuseForumData liveFuseForumData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveFuseForumData) == null) || liveFuseForumData == null) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink(this.b, new String[]{ri.P(liveFuseForumData.schema, "from=key_from_frs_card")});
-        TiebaStatic.log(new StatisticItem("c14702").param("obj_type", f(i, liveFuseForumData)).param("fid", this.d));
-        String str = liveFuseForumData.schema;
-        if (str == null || !str.startsWith("bdtiebalive")) {
-            return;
-        }
-        k("c14709", liveFuseForumData.yyext);
-    }
-
-    public void d() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        ((xm6) view2).b(this.c, this);
-    }
-
-    public void e(List<LiveFuseForumData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.c = list;
-        if (list.size() == 1) {
-            this.a = new HeaderComponentSingleView(this.b.getPageActivity());
-        } else {
-            this.a = new HeaderComponentMultiView(this.b.getPageActivity());
-        }
-    }
-
-    public final int f(int i, LiveFuseForumData liveFuseForumData) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, liveFuseForumData)) == null) {
-            if (i == 1) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 1;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 3;
-                }
-            } else if (i == 2) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 2;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 4;
-                }
-            }
-            return 0;
-        }
-        return invokeIL.intValue;
-    }
-
-    public View g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (View) invokeV.objValue;
-    }
-
-    public final JSONObject h(String str) {
+    public final View a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            zm6 zm6Var = this.a;
+            if (zm6Var == null) {
+                return view2;
             }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void i() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        ((xm6) view2).a();
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            this.d = str;
-            this.e = str2;
-        }
-    }
-
-    public final void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("fid", this.d);
-            statisticItem.addParam("fname", this.e);
-            JSONObject h = h(str2);
-            if (h != null) {
-                statisticItem.param("obj_param1", h.optBoolean("is_yy_game") ? "3" : "2").param(TiebaStatic.Params.OBJ_PARAM2, h.optString(TiebaStatic.YYParams.YYLIVEID)).param("liveid", h.optString("liveid")).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, h.optString(TiebaStatic.YYParams.YYSID)).param(TiebaStatic.YYParams.YYSSID, h.optString(TiebaStatic.YYParams.YYSSID)).param(TiebaStatic.YYParams.YYUID, h.optString(TiebaStatic.YYParams.YYUID)).param("template_id", h.optString("template_id")).param(TiebaStatic.YYParams.YYLIVEID, h.optString(TiebaStatic.YYParams.YYLIVEID)).param(TiebaStatic.Params.VID, h.optString(TiebaStatic.Params.VID));
+            if (view2 == null || view2 != zm6Var.getArrowView()) {
+                view2 = this.a.getArrowView();
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
+                }
             }
-            TiebaStatic.log(statisticItem);
+            this.a.a(view2);
+            return view2;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public abstract int b();
+
+    public abstract Object c(int i);
+
+    public abstract int d();
+
+    public abstract long e(int i);
+
+    public int f(int i) {
+        InterceptResult invokeI;
+        int arrowIndex;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            zm6 zm6Var = this.a;
+            if (zm6Var == null || !zm6Var.b() || i < (arrowIndex = this.a.getArrowIndex())) {
+                return i;
+            }
+            if (i == arrowIndex) {
+                return -1;
+            }
+            return i - 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public abstract View g(int i, View view2, ViewGroup viewGroup);
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (h()) {
+                if (this.b) {
+                    b = this.a.getArrowIndex();
+                } else {
+                    zm6 zm6Var = this.a;
+                    if (zm6Var != null && zm6Var.b()) {
+                        b = b();
+                    } else {
+                        return b();
+                    }
+                }
+                return b + 1;
+            }
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (h()) {
+                int f = f(i);
+                if (f >= 0) {
+                    return c(f);
+                }
+                return c(i);
+            }
+            return c(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (h()) {
+                int f = f(i);
+                if (f >= 0) {
+                    return e(f);
+                }
+                return e(i);
+            }
+            return e(i);
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        int arrowIndex;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? (h() && (arrowIndex = this.a.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0 : invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
+            if (getItemViewType(i) == 0) {
+                return g(f(i), view2, viewGroup);
+            }
+            return a(view2);
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? h() ? 2 : 1 : invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            zm6 zm6Var = this.a;
+            return zm6Var != null && zm6Var.b() && b() - 1 > this.a.getArrowIndex();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(zm6 zm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, zm6Var) == null) {
+            this.a = zm6Var;
+        }
+    }
+
+    public abstract void j(int i);
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.b = z;
         }
     }
 }

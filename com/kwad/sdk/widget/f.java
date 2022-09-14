@@ -5,7 +5,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f implements GestureDetector.OnGestureListener, View.OnTouchListener {
     public MotionEvent arc;
     public c ard;

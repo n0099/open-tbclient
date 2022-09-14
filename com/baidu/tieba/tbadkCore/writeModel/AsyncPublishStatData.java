@@ -34,6 +34,7 @@ public class AsyncPublishStatData implements Serializable {
     public long imageUploadDuration;
     public float imageUploadRate;
     public AsyncPublishImagesStatData imagesData;
+    public int isNewWritePage;
     public int needImageParallel;
     public long parentId;
     public long sendThreadDuration;
@@ -79,6 +80,7 @@ public class AsyncPublishStatData implements Serializable {
             }
             this.id = writeData.startPublishTime();
             this.startTime = writeData.startPublishTime();
+            this.isNewWritePage = writeData.isNewWritePage() ? 1 : 0;
             return;
         }
         throw new RuntimeException("writeData must is async mode(has startPublishTime)");
@@ -92,6 +94,7 @@ public class AsyncPublishStatData implements Serializable {
             jSONObject.put("id", this.id);
             jSONObject.put("parentId", this.parentId);
             jSONObject.put(FetchLog.START_TIME, this.startTime);
+            jSONObject.put("isNewWritePage", this.isNewWritePage);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
@@ -113,6 +116,7 @@ public class AsyncPublishStatData implements Serializable {
             jSONObject.put("haveImage", this.haveImage);
             jSONObject.put("haveVideo", this.haveVideo);
             jSONObject.put("haveVoice", this.haveVoice);
+            jSONObject.put("isNewWritePage", this.isNewWritePage);
             AsyncPublishImagesStatData asyncPublishImagesStatData = this.imagesData;
             if (asyncPublishImagesStatData != null) {
                 jSONObject.put("imagesData", asyncPublishImagesStatData.toJson());

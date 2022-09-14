@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,11 +12,11 @@ public class kz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String filePath;
+    public double clientX;
     @V8JavascriptField
-    public int statusCode;
+    public double clientY;
     @V8JavascriptField
-    public String tempFilePath;
+    public int identifier;
 
     public kz3() {
         Interceptable interceptable = $ic;
@@ -31,11 +32,30 @@ public class kz3 {
         }
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj instanceof kz3) {
+                kz3 kz3Var = (kz3) obj;
+                return this.identifier == kz3Var.identifier && this.clientX == kz3Var.clientX && this.clientY == kz3Var.clientY;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode() : invokeV.intValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ResponseData{statusCode=" + this.statusCode + ",tempFilePath=" + this.tempFilePath + ",filePath=" + this.filePath + "}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
         }
         return (String) invokeV.objValue;
     }

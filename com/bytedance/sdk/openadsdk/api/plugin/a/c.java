@@ -45,30 +45,35 @@ public class c {
     public c() {
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x007a, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0083 */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x007b, code lost:
         if (r5 != null) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x007c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
         r5.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0089, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x008a, code lost:
         if (r5 == null) goto L26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x008c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x008d, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0091 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r0v0 */
+    /* JADX WARN: Type inference failed for: r0v1, types: [javax.net.ssl.HttpsURLConnection] */
+    /* JADX WARN: Type inference failed for: r0v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String a(boolean z, String str, byte[] bArr) {
         HttpsURLConnection httpsURLConnection;
-        HttpsURLConnection httpsURLConnection2 = null;
+        ?? r0 = 0;
         try {
-            URL url = new URL(str);
-            HttpsURLConnection.setDefaultSSLSocketFactory(a(b()));
-            httpsURLConnection = (HttpsURLConnection) url.openConnection();
             try {
+                URL url = new URL(str);
+                HttpsURLConnection.setDefaultSSLSocketFactory(a(b()));
+                httpsURLConnection = (HttpsURLConnection) url.openConnection();
                 try {
                     httpsURLConnection.setConnectTimeout(5000);
                     httpsURLConnection.setHostnameVerifier(com.bytedance.sdk.openadsdk.api.plugin.a.a.a);
@@ -100,10 +105,10 @@ public class c {
                 }
             } catch (Throwable th) {
                 th = th;
-                httpsURLConnection2 = httpsURLConnection;
-                if (httpsURLConnection2 != null) {
+                r0 = str;
+                if (r0 != 0) {
                     try {
-                        httpsURLConnection2.disconnect();
+                        r0.disconnect();
                     } catch (Exception unused2) {
                     }
                 }
@@ -114,7 +119,7 @@ public class c {
             httpsURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
-            if (httpsURLConnection2 != null) {
+            if (r0 != 0) {
             }
             throw th;
         }

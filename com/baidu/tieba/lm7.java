@@ -1,140 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.DLauncher;
-import com.baidu.tieba.y45;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import tbclient.AutoPayInfo;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipInfo;
+import tbclient.GetVipInfo.VipUpgrade;
+import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes4.dex */
-public class lm7 extends y45 {
+public class lm7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<s25> m;
 
-    /* loaded from: classes4.dex */
-    public class a implements y45.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lm7 a;
-
-        public a(lm7 lm7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947947763, "Lcom/baidu/tieba/lm7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lm7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = lm7Var;
-        }
-
-        @Override // com.baidu.tieba.y45.a
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-                DLauncher B = this.a.B(i);
-                if (B.getLayoutParams() == null) {
-                    B.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-                }
-                return B;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947947763, "Lcom/baidu/tieba/lm7;");
+                return;
             }
-            return (View) invokeILL.objValue;
         }
+        a = BdUniqueId.gen();
     }
 
-    public lm7() {
+    public lm7(DataRes dataRes) {
+        VipUser vipUser;
+        VipUpgrade vipUpgrade;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataRes};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.m25
-    public void A(l25 l25Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l25Var) == null) {
-        }
-    }
-
-    public final DLauncher B(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0 || i >= c()) {
-                return null;
-            }
-            return (DLauncher) this.m.get(i);
-        }
-        return (DLauncher) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.y45
-    public void a() {
-        LinkedList<s25> linkedList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linkedList = this.m) == null) {
+        if (dataRes == null || (vipUser = dataRes.user) == null || (vipUpgrade = dataRes.upgrade) == null) {
             return;
         }
-        linkedList.clear();
-        this.m = null;
+        String str = vipUser.card_id;
+        String str2 = vipUser.total_scores_link;
+        String str3 = vipUser.speed_link;
+        String str4 = vipUser.task_scores_link;
+        vipUser.task_scores.intValue();
+        String str5 = vipUser.name;
+        vipUser.id.longValue();
+        String str6 = vipUser.portrait;
+        String str7 = vipUser.name_show;
+        String str8 = vipUser.vip_link;
+        VipInfo vipInfo = vipUser.vipInfo;
+        if (vipInfo != null) {
+            String str9 = vipInfo.icon_url;
+            vipInfo.s_time.intValue();
+            vipUser.vipInfo.e_time.intValue();
+            vipUser.now_time.intValue();
+            vipUser.vipInfo.v_status.intValue();
+            vipUser.vipInfo.v_level.intValue();
+            vipUser.vipInfo.ext_score.intValue();
+            vipUser.vipInfo.a_score.intValue();
+            vipUser.vipInfo.n_score.intValue();
+        }
+        dataRes.today_get_score.intValue();
+        dataRes.today_unget_score.intValue();
+        vipUpgrade.normal.intValue();
+        vipUpgrade.pay.intValue();
+        AutoPayInfo autoPayInfo = dataRes.autopay_info;
     }
 
-    @Override // com.baidu.tieba.y45
-    public int c() {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinkedList<s25> linkedList = this.m;
-            if (linkedList != null) {
-                return linkedList.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.y45
-    public void n(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            o(4);
-            v(2);
-            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
-            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            x(new a(this));
-            h().b(this);
-        }
-    }
-
-    public void z(LinkedList<s25> linkedList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
-            this.m = linkedList;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

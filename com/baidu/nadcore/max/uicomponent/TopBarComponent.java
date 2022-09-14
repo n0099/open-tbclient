@@ -10,10 +10,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.account.AccountRestoreActivity;
-import com.baidu.tieba.bg0;
-import com.baidu.tieba.em0;
-import com.baidu.tieba.fm0;
-import com.baidu.tieba.gm0;
+import com.baidu.tieba.jh0;
+import com.baidu.tieba.qn0;
+import com.baidu.tieba.rn0;
+import com.baidu.tieba.sn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,13 +56,13 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gm0 gm0Var = (gm0) this.a.j().p(gm0.class);
-                if (gm0Var != null) {
+                sn0 sn0Var = (sn0) this.a.j().p(sn0.class);
+                if (sn0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    gm0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
+                    sn0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
                 }
-                this.a.i().finish();
+                this.a.h().finish();
             }
         }
     }
@@ -118,7 +118,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void h(ViewGroup parent) {
+    public void g(ViewGroup parent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parent) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
@@ -137,9 +137,9 @@ public final class TopBarComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onRelease();
-            bg0.f(this.d);
+            jh0.e(this.d);
             this.d = null;
-            bg0.f(this.e);
+            jh0.e(this.e);
             this.e = null;
         }
     }
@@ -147,13 +147,13 @@ public final class TopBarComponent extends AbsComponentPlugin {
     public final void p(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) && this.d == null) {
-            em0 a2 = fm0.a();
+            qn0 a2 = rn0.a();
             Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
             a2.b();
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e9, viewGroup, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0600, viewGroup, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…e(layoutId, parent, true)");
-            this.d = inflate != null ? (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914ac) : null;
-            AdImageView adImageView = inflate != null ? (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ad) : null;
+            this.d = inflate != null ? (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914d1) : null;
+            AdImageView adImageView = inflate != null ? (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d2) : null;
             this.e = adImageView;
             if (adImageView != null) {
                 adImageView.setOnClickListener(new a(this));

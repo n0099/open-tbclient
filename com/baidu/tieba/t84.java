@@ -1,224 +1,214 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sb4;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.Polyline;
+import com.baidu.mapapi.map.PolylineOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.route.DrivingRouteLine;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class t84 implements q84 {
+public class t84 extends v84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public DrivingRouteLine d;
 
-    public t84() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135065, "Lcom/baidu/tieba/t84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135065, "Lcom/baidu/tieba/t84;");
+                return;
+            }
+        }
+        e = ij1.a;
+        f = Color.argb(178, 0, 78, 255);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t84(BaiduMap baiduMap) {
+        super(baiduMap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BaiduMap) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = null;
     }
 
-    public p84<y94> A() {
+    @Override // com.baidu.tieba.v84
+    public final List<OverlayOptions> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+            if (this.d == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            List<DrivingRouteLine.DrivingStep> allStep = this.d.getAllStep();
+            if (allStep != null && allStep.size() > 0) {
+                for (DrivingRouteLine.DrivingStep drivingStep : allStep) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("index", allStep.indexOf(drivingStep));
+                    if (drivingStep.getEntrance() != null) {
+                        arrayList.add(new MarkerOptions().position(drivingStep.getEntrance().getLocation()).anchor(0.5f, 0.5f).zIndex(10).rotate(360 - drivingStep.getDirection()).extraInfo(bundle).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080177)));
+                    }
+                    if (allStep.indexOf(drivingStep) == allStep.size() - 1 && drivingStep.getExit() != null) {
+                        arrayList.add(new MarkerOptions().position(drivingStep.getExit().getLocation()).anchor(0.5f, 0.5f).zIndex(10).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080177)));
+                    }
+                }
+            }
+            if (allStep != null && allStep.size() > 0) {
+                int size = allStep.size();
+                ArrayList arrayList2 = new ArrayList();
+                ArrayList arrayList3 = new ArrayList();
+                for (int i = 0; i < size; i++) {
+                    List<LatLng> wayPoints = allStep.get(i).getWayPoints();
+                    if (i == size - 1) {
+                        arrayList2.addAll(wayPoints);
+                    } else {
+                        arrayList2.addAll(wayPoints.subList(0, wayPoints.size() - 1));
+                    }
+                    wayPoints.size();
+                    int[] trafficList = allStep.get(i).getTrafficList();
+                    if (trafficList != null && trafficList.length > 0) {
+                        for (int i2 : trafficList) {
+                            arrayList3.add(Integer.valueOf(i2));
+                        }
+                    }
+                }
+                boolean z = arrayList3.size() > 0;
+                PolylineOptions zIndex = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true).color(f() != 0 ? f() : f).zIndex(0);
+                if (z) {
+                    zIndex.customTextureList(e());
+                }
+                arrayList.add(zIndex);
+            }
+            return arrayList;
         }
-        return (p84) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public Map<String, String> B() {
+    public List<BitmapDescriptor> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_blue_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_green_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_yellow_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_red_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_nofocus.png"));
+            return arrayList;
         }
-        return (Map) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void C(s94 s94Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s94Var) == null) {
-        }
-    }
+    public abstract int f();
 
-    public void D() {
+    public boolean g(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public void G(ge4 ge4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ge4Var) == null) {
-        }
-    }
-
-    public void H(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
-        }
-    }
-
-    public void I(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.q84
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.r84
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (set.contains("event_performance_ubc")) {
-                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
-                set.remove("event_performance_ubc");
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.d.getAllStep() == null || this.d.getAllStep().get(i) == null || !e) {
+                return false;
             }
-            return bundle2;
+            Log.i("baidumapsdk", "DrivingRouteOverlay onRouteNodeClick");
+            return false;
         }
-        return (Bundle) invokeLL.objValue;
+        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q84
-    public void n(@Nullable String str, @Nullable String str2) {
+    public void h(DrivingRouteLine drivingRouteLine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, drivingRouteLine) == null) {
+            this.d = drivingRouteLine;
         }
     }
 
-    public s84 p() {
-        InterceptResult invokeV;
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            for (Overlay overlay : this.c) {
+                if (overlay instanceof Polyline) {
+                    ((Polyline) overlay).setFocus(z);
+                    return;
+                }
+            }
         }
-        return (s84) invokeV.objValue;
     }
 
-    public p84<z94> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return null;
-        }
-        return (p84) invokeV.objValue;
-    }
-
-    public p84<t94> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (p84) invokeV.objValue;
-    }
-
-    public p84<v94> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (p84) invokeV.objValue;
-    }
-
-    public Map<String, String> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public p84<x94> u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return null;
-        }
-        return (p84) invokeV.objValue;
-    }
-
-    public l84<sb4.a> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return null;
-        }
-        return (l84) invokeV.objValue;
-    }
-
-    public sd4 w(String str) {
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
+    public final boolean onMarkerClick(Marker marker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, marker)) == null) {
+            for (Overlay overlay : this.c) {
+                if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
+                    g(marker.getExtraInfo().getInt("index"));
+                }
+            }
+            return true;
         }
-        return (sd4) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public p84<z94> x() {
-        InterceptResult invokeV;
+    @Override // com.baidu.mapapi.map.BaiduMap.OnPolylineClickListener
+    public boolean onPolylineClick(Polyline polyline) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, polyline)) == null) {
+            Iterator<Overlay> it = this.c.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z = false;
+                    break;
+                }
+                Overlay next = it.next();
+                if ((next instanceof Polyline) && next.equals(polyline)) {
+                    z = true;
+                    break;
+                }
+            }
+            i(z);
+            return true;
         }
-        return (p84) invokeV.objValue;
-    }
-
-    public Map<String, String> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public p84<aa4> z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return null;
-        }
-        return (p84) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

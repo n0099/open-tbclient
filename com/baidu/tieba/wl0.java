@@ -1,77 +1,146 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.NestedEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class wl0 implements ch0 {
+public final class wl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NestedEvent a;
-    public final int b;
-    public final int c;
-    public final int d;
+    public final oz0 a;
+    public final Map<String, String> b;
+    @NonNull
+    public final Map<String, Map<String, String>> c;
+    public volatile boolean d;
 
-    public wl0(NestedEvent type, float f, int i, int i2, int i3) {
+    public wl0() {
+        String[] a;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
-    }
-
-    @Override // com.baidu.tieba.ch0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = wl0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedMoveViewEvent::class.java.simpleName");
-            return simpleName;
+        this.b = new ConcurrentHashMap(128);
+        this.c = new ConcurrentHashMap(8);
+        this.a = rz0.a().b("nad.cold.launch.config");
+        for (String str : dm0.a().a()) {
+            String string = this.a.getString(str, null);
+            if (string != null) {
+                lz0.e(this.b, str, string);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final int b() {
+    @NonNull
+    public Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Map) invokeV.objValue;
     }
 
-    public final int c() {
+    @NonNull
+    public Map<String, Map<String, String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Map) invokeV.objValue;
     }
 
-    public final int d() {
-        InterceptResult invokeV;
+    public final void c(@NonNull JSONObject jSONObject) {
+        String[] a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.b.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                lz0.e(this.b, next, jSONObject.optString(next));
+            }
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            for (String str : dm0.a().a()) {
+                String str2 = (String) lz0.b(this.b, str);
+                if (str2 != null) {
+                    edit.putString(str, str2);
+                }
+            }
+            edit.apply();
+            SharedPreferences.Editor edit2 = rz0.a().b("nad.launch.config.global").edit();
+            edit2.clear();
+            for (String str3 : this.b.keySet()) {
+                String str4 = (String) lz0.b(this.b, str3);
+                if (str4 != null) {
+                    edit2.putString(str3, str4);
+                }
+            }
+            edit2.apply();
+        }
     }
 
-    public final NestedEvent getType() {
-        InterceptResult invokeV;
+    public final void d(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (NestedEvent) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            this.c.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                HashMap hashMap = null;
+                if (!TextUtils.isEmpty(optString)) {
+                    hashMap = new HashMap(8);
+                    JSONObject c = kz0.c(optString);
+                    Iterator<String> keys2 = c.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        lz0.e(hashMap, next2, c.optString(next2));
+                    }
+                }
+                if (hashMap != null) {
+                    lz0.e(this.c, next, hashMap);
+                    rz0 a = rz0.a();
+                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
+                    edit.clear();
+                    for (String str : hashMap.keySet()) {
+                        String str2 = (String) hashMap.get(str);
+                        if (str2 != null) {
+                            edit.putString(str, str2);
+                        }
+                    }
+                    edit.apply();
+                }
+            }
+        }
+    }
+
+    public void update(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            String optString = jSONObject.optString("global");
+            if (!TextUtils.isEmpty(optString)) {
+                c(kz0.c(optString));
+            }
+            String optString2 = jSONObject.optString("place_conf");
+            if (TextUtils.isEmpty(optString2)) {
+                return;
+            }
+            d(kz0.c(optString2));
+        }
     }
 }

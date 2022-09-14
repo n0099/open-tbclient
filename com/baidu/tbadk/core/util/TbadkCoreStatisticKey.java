@@ -67,6 +67,8 @@ public class TbadkCoreStatisticKey {
     public static final String INVOKE_AS = "c10007";
     public static final String KEY_AD_FLOAT_LAYER_CLICK = "c14428";
     public static final String KEY_AD_FLOAT_LAYER_SHOW = "c14427";
+    public static final String KEY_AD_RETARGET_TIPS_CLICK = "c14965";
+    public static final String KEY_AD_RETARGET_TIPS_SHOW = "c14964";
     public static final String KEY_AGREE_SUCCESS_CLICK = "c14179";
     public static final String KEY_AIAPPS_CALL_NATIVE = "c13561";
     public static final String KEY_AIAPPS_START = "c13606";

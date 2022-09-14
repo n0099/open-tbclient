@@ -1,32 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.gs4;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class f96 extends es4 {
+public class f96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext k;
-    public Context l;
-    public ViewEventCenter m;
-    public final gs4 n;
-    public a76 o;
-    public final List<cs4> p;
-    public final gs4.e q;
+    public TbPageContext a;
+    public View b;
+    public RankListViewController.RankListViewHolder c;
+    public TextView d;
+    public TextView e;
+    public String f;
+    public int g;
+    public View.OnClickListener h;
 
     /* loaded from: classes4.dex */
-    public class a implements gs4.e {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f96 a;
@@ -49,90 +53,92 @@ public class f96 extends es4 {
             this.a = f96Var;
         }
 
-        @Override // com.baidu.tieba.gs4.e
-        public void i0(gs4 gs4Var, int i, View view2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, gs4Var, i, view2) == null) {
-                this.a.dismiss();
-                if (!pi.z()) {
-                    ri.M(this.a.l, R.string.obfuscated_res_0x7f0f0c41);
-                } else if (i == 2) {
-                    this.a.m.dispatchMvcEvent(new b95(4, this.a.o, null, null));
-                } else if (i == 1) {
-                    this.a.m.dispatchMvcEvent(new b95(13, this.a.o, null, null));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (TextUtils.isEmpty(this.a.f)) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a51);
+                    return;
                 }
+                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
+                if (this.a.g == 0) {
+                    return;
+                }
+                if (this.a.g != 2) {
+                    if (this.a.g == 1) {
+                        StatisticItem statisticItem = new StatisticItem("c13669");
+                        statisticItem.param("obj_locate", 2);
+                        TiebaStatic.log(statisticItem);
+                        return;
+                    }
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13658");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("obj_locate", 2);
+                TiebaStatic.log(statisticItem2);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f96(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
-        super(tbPageContext);
+    public f96(TbPageContext tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewEventCenter};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = new a(this);
-        this.k = tbPageContext;
-        this.l = tbPageContext.getPageActivity();
-        this.m = viewEventCenter;
-        this.p = new ArrayList();
-        gs4 gs4Var = new gs4(this.l);
-        this.n = gs4Var;
-        gs4Var.n(this.q);
-        h(this.n);
+        this.h = new a(this);
+        this.a = tbPageContext;
+        this.b = view2;
+        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f0924d8));
+        this.c = rankListViewHolder;
+        rankListViewHolder.i(1);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c9c);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b50);
+        this.e = textView;
+        textView.setTextSize(0, ej.f(this.a.getPageActivity(), R.dimen.tbfontsize46));
+        this.d.setOnClickListener(this.h);
     }
 
-    public final void o() {
-        List<cs4> list;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.o == null || (list = this.p) == null || this.n == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.c.f(i);
+            SkinManager.setBackgroundColor(this.c.itemView, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
         }
-        list.clear();
-        this.p.add(new cs4(1, p(this.o.l() == 1 ? R.string.obfuscated_res_0x7f0f037d : R.string.obfuscated_res_0x7f0f1437, new Object[0]), this.n));
-        this.p.add(new cs4(2, p(R.string.obfuscated_res_0x7f0f04ac, new Object[0]), this.n));
-        this.n.j(this.p);
     }
 
-    public final String p(int i, Object... objArr) {
-        InterceptResult invokeIL;
+    public void e(i96 i96Var) {
+        h96 h96Var;
+        MetaData metaData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, objArr)) == null) {
-            Context context = this.l;
-            if (context == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i96Var) == null) {
+            if (i96Var != null && (h96Var = i96Var.c) != null && (metaData = h96Var.f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
+                this.b.setVisibility(0);
+                this.c.c(i96Var.c);
+                this.c.e();
+                this.f = i96Var.e;
+                return;
             }
-            return context.getString(i, objArr);
+            this.b.setVisibility(8);
         }
-        return (String) invokeIL.objValue;
     }
 
-    public void q() {
-        gs4 gs4Var;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gs4Var = this.n) == null) {
-            return;
-        }
-        gs4Var.i();
-    }
-
-    public void r(a76 a76Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, a76Var) == null) {
-            this.o = a76Var;
-            o();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.g = i;
         }
     }
 }

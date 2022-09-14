@@ -6,13 +6,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.cn3;
-import com.baidu.tieba.oo5;
-import com.baidu.tieba.y8;
-import com.baidu.tieba.zd3;
+import com.baidu.tieba.ar5;
+import com.baidu.tieba.bp3;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.xf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -89,22 +88,20 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        oo5.a();
-        cn3.a(uri);
+        ar5.a();
+        bp3.a(uri);
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            y8.b(this);
+            m9.b(this);
             super.onCreate(bundle);
-            if (zd3.a(this)) {
-                LogUtil.logActivity(this, "onCreate");
+            if (xf3.a(this)) {
                 return;
             }
             a();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -130,7 +127,7 @@ public class SwanEntryActivity extends Activity {
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (y8.d(this) && y8.a(i)) {
+            if (m9.d(this) && m9.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

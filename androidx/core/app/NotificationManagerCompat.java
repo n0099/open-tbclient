@@ -20,7 +20,6 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
-import android.provider.Settings;
 import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
 import androidx.annotation.GuardedBy;
@@ -31,6 +30,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -507,7 +507,7 @@ public final class NotificationManagerCompat {
         Set<String> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String string = Settings.Secure.getString(context.getContentResolver(), "enabled_notification_listeners");
+            String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), "enabled_notification_listeners");
             synchronized (sEnabledNotificationListenersLock) {
                 if (string != null) {
                     if (!string.equals(sEnabledNotificationListeners)) {

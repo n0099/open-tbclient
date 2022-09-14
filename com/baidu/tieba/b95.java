@@ -1,99 +1,118 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b95 {
     public static /* synthetic */ Interceptable $ic;
+    public static b95 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public BdUniqueId c;
-    public r85 d;
-    public d95 e;
-    public Object f;
+    public final HashMap<Integer, Object> a;
+    public final us4 b;
 
-    public b95(int i, r85 r85Var, d95 d95Var, q85 q85Var) {
+    /* loaded from: classes3.dex */
+    public interface a {
+        Object build();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947599819, "Lcom/baidu/tieba/b95;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947599819, "Lcom/baidu/tieba/b95;");
+        }
+    }
+
+    public b95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), r85Var, d95Var, q85Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.a = i;
-        this.d = r85Var;
-        this.e = d95Var;
+        this.a = new HashMap<>();
+        this.b = new us4();
     }
 
-    public r85 a() {
+    public static b95 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (r85) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (b95.class) {
+                    if (c == null) {
+                        c = new b95();
+                    }
+                }
+            }
+            return c;
+        }
+        return (b95) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void a(int i, Object obj) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public Object c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.objValue;
-    }
-
-    public d95 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (d95) invokeV.objValue;
-    }
-
-    public BdUniqueId e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void g(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            this.f = obj;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+            this.a.put(Integer.valueOf(i), obj);
         }
     }
 
-    public void h(d95 d95Var) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, d95Var) == null) {
-            this.e = d95Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.a();
+            this.a.clear();
         }
     }
 
-    public void i(BdUniqueId bdUniqueId) {
+    public Object c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.get(Integer.valueOf(i)) : invokeI.objValue;
+    }
+
+    public Object d(int i, a aVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, aVar)) == null) {
+            Object obj = this.a.get(Integer.valueOf(i));
+            if ((!PreInitMainTabViewSwitch.getIsOn() || obj == null) && aVar != null) {
+                obj = aVar.build();
+            }
+            this.a.remove(Integer.valueOf(i));
+            if (obj == null && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("ViewCache must have return value.");
+            }
+            return obj;
         }
+        return invokeIL.objValue;
+    }
+
+    public us4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (us4) invokeV.objValue;
     }
 }

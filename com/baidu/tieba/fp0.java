@@ -1,9 +1,17 @@
 package com.baidu.tieba;
+
+import android.app.Application;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface fp0 {
-    int b();
+public class fp0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean isPause();
-
-    boolean isPlaying();
+    public static void a(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, application) == null) {
+            le1.b(application);
+        }
+    }
 }

@@ -224,7 +224,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onCreate();
-            this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ec);
+            this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09120a);
         }
     }
 }

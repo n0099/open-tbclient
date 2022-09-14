@@ -1,224 +1,330 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppPosInfo;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class nd8 {
     public static /* synthetic */ Interceptable $ic;
-    public static nd8 f;
+    public static volatile boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public String d;
-    public String e;
 
-    public nd8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements TbImageView.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbImageView a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ float c;
+
+        public a(TbImageView tbImageView, int i, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbImageView, Integer.valueOf(i), Float.valueOf(f)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbImageView;
+            this.b = i;
+            this.c = f;
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.g
+        public void a(String str, boolean z) {
+            ViewGroup.LayoutParams layoutParams;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || (layoutParams = this.a.getLayoutParams()) == null) {
                 return;
             }
+            layoutParams.height = this.b;
+            float f = this.c;
+            if (f <= 0.0f) {
+                f = 2.0f;
+            }
+            layoutParams.width = (int) (layoutParams.height * f);
+            this.a.setLayoutParams(layoutParams);
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                this.a.setAlpha(0.8f);
+            }
         }
-        this.e = su4.k().q("asp_shown_info", "");
+
+        @Override // com.baidu.tbadk.widget.TbImageView.g
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
     }
 
-    public static nd8 e() {
-        InterceptResult invokeV;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947998727, "Lcom/baidu/tieba/nd8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947998727, "Lcom/baidu/tieba/nd8;");
+        }
+    }
+
+    public static int a(Context context, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                synchronized (em8.class) {
-                    if (f == null) {
-                        f = new nd8();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, str3, str4)) == null) {
+            if (TextUtils.isEmpty(str4) || !qo5.a(str4)) {
+                Bundle bundle = new Bundle();
+                bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, str2);
+                bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, str3);
+                if (str.startsWith("tieba://deeplink?")) {
+                    Uri parse = Uri.parse(str);
+                    int m = m(parse, context);
+                    if (m != 1000) {
+                        if (e(context, parse.getQueryParameter("wap"), bundle)) {
+                            return m;
+                        }
+                        return 0;
                     }
+                    return 1000;
                 }
+                return e(context, str, bundle) ? 1 : 0;
             }
-            return f;
+            return 1;
         }
-        return (nd8) invokeV.objValue;
+        return invokeLLLLL.intValue;
     }
 
-    public AppPosInfo a() {
-        InterceptResult invokeV;
+    public static int b(TbPageContext tbPageContext, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AppPosInfo.Builder builder = new AppPosInfo.Builder();
-            builder.ap_mac = d();
-            builder.ap_connected = Boolean.valueOf(pi.H());
-            builder.latitude = this.b;
-            builder.longitude = this.a;
-            builder.addr_timestamp = Long.valueOf(this.c);
-            builder.coordinate_type = "bd09ll";
-            builder.asp_shown_info = this.e;
-            MercatorModel.MercatorData e = MercatorModel.d().e();
-            if (e != null) {
-                builder.mercator_lat = e.C();
-                builder.mercator_lon = e.D();
-                builder.mercator_city = Integer.valueOf(e.z());
-                builder.mercator_radius = e.F();
-                builder.mercator_time = Long.valueOf(e.G());
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, str, str2, str3, str4)) == null) {
+            if (tbPageContext == null || TextUtils.isEmpty(str)) {
+                return 0;
             }
-            return builder.build(false);
+            return a(tbPageContext.getPageActivity(), str, str2, str3, str4);
         }
-        return (AppPosInfo) invokeV.objValue;
+        return invokeLLLLL.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static int c(Context context, String str, AdvertAppInfo advertAppInfo, String str2) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AppPosInfo c = c();
-            JSONObject jSONObject = new JSONObject();
-            if (c != null) {
-                try {
-                    jSONObject.put("ap_mac", c.ap_mac);
-                    jSONObject.put("ap_connected", c.ap_connected);
-                    jSONObject.put("latitude", c.latitude);
-                    jSONObject.put("longitude", c.longitude);
-                    jSONObject.put("addr_timestamp", c.addr_timestamp);
-                    jSONObject.put("coordinate_type", c.coordinate_type);
-                    jSONObject.put("asp_shown_info", c.asp_shown_info);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LAT, c.mercator_lat);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LON, c.mercator_lon);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_CITY, c.mercator_city);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_RADIUS, c.mercator_radius);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_TIME, c.mercator_time);
-                    jSONObject.put("mercator_province_name", c.mercator_province_name);
-                    jSONObject.put("mercator_city_name", c.mercator_city_name);
-                    jSONObject.put("mercator_district_name", c.mercator_district_name);
-                } catch (JSONException unused) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, str, advertAppInfo, str2)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                return 0;
+            }
+            md8.l().j(advertAppInfo);
+            return qo5.a(str2) ? 1 : 0;
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public static boolean d(Context context, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, hashMap)) == null) {
+            if (context == null || hashMap == null) {
+                return false;
+            }
+            md8.l().k(hashMap, context);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean e(@NonNull Context context, String str, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, bundle)) == null) {
+            String[] strArr = {str};
+            ad8 c = md8.l().c();
+            if (c == null) {
+                return false;
+            }
+            if (c.a(str)) {
+                c.b(context, strArr, true, bundle);
+                return true;
+            }
+            return c.c(context, strArr, bundle);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void f(String str, TbImageView tbImageView, float f, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, tbImageView, Float.valueOf(f), Integer.valueOf(i)}) == null) || tbImageView == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            tbImageView.setVisibility(8);
+            return;
+        }
+        tbImageView.setDefaultResource(0);
+        tbImageView.setDefaultBgResource(0);
+        tbImageView.K(str, 10, false);
+        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+        if (layoutParams != null) {
+            layoutParams.height = i;
+            if (f <= 0.0f) {
+                f = 2.0f;
+            }
+            layoutParams.width = (int) (layoutParams.height * f);
+            tbImageView.setLayoutParams(layoutParams);
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                tbImageView.setAlpha(0.8f);
+            }
+        }
+        tbImageView.setVisibility(0);
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.startsWith("tieba://deeplink?");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            switch (i) {
+                case 1000:
+                case 1001:
+                case 1002:
+                case 1003:
+                case 1004:
+                case 1005:
+                case 1006:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 8192) != null;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int j(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, uri)) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(uri);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            try {
+                if (context.getPackageManager().resolveActivity(intent, 65536) == null) {
+                    return 1004;
                 }
+                context.startActivity(intent);
+                return 1000;
+            } catch (Exception unused) {
+                return 1006;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
+        return invokeLL.intValue;
     }
 
-    public AppPosInfo c() {
-        InterceptResult invokeV;
+    public static void k(String str, TbImageView tbImageView, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AppPosInfo.Builder builder = new AppPosInfo.Builder();
-            builder.ap_mac = d();
-            builder.ap_connected = Boolean.valueOf(pi.H());
-            String str = this.b;
-            builder.latitude = str;
-            builder.longitude = this.a;
-            if (qi.isEmpty(str) || qi.isEmpty(this.a)) {
-                String q = su4.k().q("key_last_receive_location_latitude_and_longitude", "");
-                if (!qi.isEmpty(q)) {
-                    String[] split = q.split(",");
-                    if (split.length >= 2) {
-                        builder.latitude = split[0];
-                        builder.longitude = split[1];
-                    }
+        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{str, tbImageView, Float.valueOf(f), Integer.valueOf(i)}) == null) || tbImageView == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            tbImageView.setVisibility(8);
+            return;
+        }
+        tbImageView.setDefaultResource(0);
+        tbImageView.setDefaultBgResource(0);
+        tbImageView.K(str, 10, false);
+        tbImageView.setEvent(new a(tbImageView, i, f));
+    }
+
+    public static boolean l(String str, @NonNull Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, context)) == null) ? (TextUtils.isEmpty(str) || UrlSchemaJumpHelper.isHitBlackList(str) || j(context, Uri.parse(str)) != 1000) ? false : true : invokeLL.booleanValue;
+    }
+
+    public static int m(Uri uri, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, uri, context)) == null) {
+            try {
+                String queryParameter = uri.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                if (TextUtils.isEmpty(queryParameter)) {
+                    return 1003;
                 }
-            }
-            builder.addr_timestamp = Long.valueOf(this.c);
-            builder.coordinate_type = "BD09LL";
-            builder.asp_shown_info = this.e;
-            MercatorModel.MercatorData e = MercatorModel.d().e();
-            if (e != null) {
-                builder.mercator_lat = e.C();
-                builder.mercator_lon = e.D();
-                builder.mercator_city = Integer.valueOf(e.z());
-                builder.mercator_radius = e.F();
-                builder.mercator_time = Long.valueOf(e.G());
-                builder.mercator_province_name = e.E();
-                builder.mercator_city_name = e.A();
-                builder.mercator_district_name = e.B();
-            }
-            return builder.build(false);
-        }
-        return (AppPosInfo) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.d)) {
-                f();
-            }
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            if (PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadWifiState(applicationContext)) {
-                try {
-                    WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
-                    if (connectionInfo != null) {
-                        this.d = connectionInfo.getBSSID();
-                    } else {
-                        this.d = "";
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                return j(context, Uri.parse(queryParameter));
+            } catch (Exception unused) {
+                return 1003;
             }
         }
+        return invokeLL.intValue;
     }
 
-    public void g() {
+    public static void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            su4.k().y("asp_shown_info", this.e);
+        if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || gm5.a().o() || a) {
+            return;
         }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.c = j;
+        AdvertAppInfo.v.set(true);
+        a = true;
+        String[] strArr = {"com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic"};
+        for (int i = 0; i < 2; i++) {
+            try {
+                Class.forName(strArr[i]);
+            } catch (Throwable unused) {
+            }
         }
     }
 }

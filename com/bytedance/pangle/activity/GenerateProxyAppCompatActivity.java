@@ -55,7 +55,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1165,7 +1164,6 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048657, this, bundle) == null) {
             c.a(this, bundle);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

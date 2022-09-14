@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.jy4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.zv4;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.TagInfo;
 /* loaded from: classes4.dex */
-public class CardItemInfoTagLayout extends FrameLayout implements jx {
+public class CardItemInfoTagLayout extends FrameLayout implements xx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
@@ -82,14 +82,14 @@ public class CardItemInfoTagLayout extends FrameLayout implements jx {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
                 if (i != 0) {
                     if (i == this.a.e.size() - 1) {
-                        rect.set(0, 0, ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
+                        rect.set(0, 0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
                         return;
                     } else {
-                        rect.set(0, 0, ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+                        rect.set(0, 0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
                         return;
                     }
                 }
-                rect.set(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0, ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+                rect.set(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
             }
         }
     }
@@ -144,7 +144,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements jx {
                             if (tBSpecificationBtn.a instanceof HashMap) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.a)));
                                 if (valueOf instanceof Integer) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new zv4(2, valueOf.intValue())));
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new jy4(2, valueOf.intValue())));
                                 }
                             }
                         }
@@ -172,18 +172,18 @@ public class CardItemInfoTagLayout extends FrameLayout implements jx {
                 }
                 this.b = bVar;
                 FrameLayout frameLayout = (FrameLayout) view2;
-                qv4 qv4Var = new qv4();
-                qv4Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
-                qv4Var.h(R.color.CAM_X0107);
-                qv4Var.g(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-                qv4Var.f(0);
-                qv4Var.t(R.color.CAM_X0105);
-                qv4Var.j(1, 0);
-                qv4Var.n(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-                qv4Var.m(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+                ay4 ay4Var = new ay4();
+                ay4Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
+                ay4Var.h(R.color.CAM_X0107);
+                ay4Var.g(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+                ay4Var.f(0);
+                ay4Var.t(R.color.CAM_X0105);
+                ay4Var.j(1, 0);
+                ay4Var.n(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+                ay4Var.m(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
                 TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(view2.getContext());
                 this.a = tBSpecificationBtn;
-                tBSpecificationBtn.setConfig(qv4Var);
+                tBSpecificationBtn.setConfig(ay4Var);
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 }
@@ -290,7 +290,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements jx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            setPadding(0, ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), 0, 0);
+            setPadding(0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), 0, 0);
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
             this.a = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
@@ -298,7 +298,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements jx {
             this.a.setNestedScrollingEnabled(false);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             this.c = new View(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds52), -1);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds52), -1);
             layoutParams.gravity = 5;
             this.c.setLayoutParams(layoutParams);
             addView(this.c);
@@ -308,7 +308,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.xx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

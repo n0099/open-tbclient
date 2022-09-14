@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
 public class nn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashSet<String> a;
+    public String b;
 
-    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
+    public nn8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
-            on8.b(mainTabScheduleStrategy);
-        }
-    }
-
-    public static void b(Runnable runnable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
-            on8.f(new tn8(runnable, i));
-        }
-    }
-
-    public static void c(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
-            on8.f(new vn8(view2, i));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

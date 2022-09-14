@@ -1,293 +1,92 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rl9.a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.nl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdLoadListener;
-import com.fun.ad.sdk.FunAdLoader;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.SidSessionMeta;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public abstract class rl9<S extends a> implements FunAdLoader {
+public class rl9 extends FunNativeAd2Bridger<am9, com.fun.module.csj.g0> {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public S b;
+    public final TTNativeAd.AdInteractionListener b;
+    public final /* synthetic */ nl9 c;
 
-    /* loaded from: classes5.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final SidSessionMeta a;
-        public final com.fun.h0 b;
-        public FunAdLoadListener c;
-
-        public a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            SidSessionMeta sidSessionMeta = new SidSessionMeta(str, i);
-            this.a = sidSessionMeta;
-            this.b = new com.fun.h0(sidSessionMeta, str2);
-        }
-
-        public abstract void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
-
-        public final void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                com.fun.h0 h0Var = this.b;
-                h0Var.getClass();
-                h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, str);
-                this.c.onError(this.a.sid);
-                g();
-            }
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c == null : invokeV.booleanValue;
-        }
-
-        public abstract boolean d(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
-
-        public abstract FunSplashAd e(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.b.b("ldr_ld_succeed", new Object[0]);
-                this.c.onAdLoaded(this.a.sid);
-                g();
-            }
-        }
-
-        public abstract void g();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948125610, "Lcom/baidu/tieba/rl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948125610, "Lcom/baidu/tieba/rl9;");
-                return;
-            }
-        }
-        c = !rl9.class.desiredAssertionStatus();
-    }
-
-    public rl9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rl9(nl9 nl9Var, ReporterPidLoader reporterPidLoader, am9 am9Var) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nl9Var, reporterPidLoader, am9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Object();
+        this.c = nl9Var;
+        this.b = new nl9.b(nl9Var, am9Var);
     }
 
-    public static /* synthetic */ int e(PidLoader pidLoader, PidLoader pidLoader2) {
-        return -Double.compare(pidLoader.getBiddingOrBasePrices(), pidLoader2.getBiddingOrBasePrices());
-    }
-
-    public final PidLoader a(PidLoader pidLoader, PidLoader pidLoader2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pidLoader, pidLoader2)) == null) {
-            if (pidLoader == null && pidLoader2 == null) {
-                return null;
-            }
-            return (pidLoader != null && (pidLoader2 == null || pidLoader.getBiddingOrBasePrices() >= pidLoader2.getBiddingOrBasePrices())) ? pidLoader : pidLoader2;
-        }
-        return (PidLoader) invokeLL.objValue;
-    }
-
-    public final S b() {
-        InterceptResult invokeV;
-        S s;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.a) {
-                s = this.b;
-                if (s == null) {
-                    s = f();
-                    if (!c && s == null) {
-                        throw new AssertionError();
-                    }
-                    this.b = s;
-                }
-            }
-            return s;
-        }
-        return (S) invokeV.objValue;
-    }
-
-    public final <N> N c(List<PidLoader> list, List<PidLoader> list2, dg9<N> dg9Var, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, dg9Var, str)) != null) {
-            return (N) invokeLLLL.objValue;
-        }
-        LinkedList<PidLoader> d = d(list);
-        Collections.sort(d, kf9.a);
-        LinkedList<PidLoader> d2 = d(list2);
-        PidLoader poll = d.poll();
-        PidLoader poll2 = d2.poll();
-        while (true) {
-            if (poll == null && poll2 == null) {
-                return null;
-            }
-            PidLoader a2 = a(poll, poll2);
-            double biddingOrBasePrices = a2.getBiddingOrBasePrices();
-            if (a2 == poll) {
-                poll = d.poll();
-            } else {
-                poll2 = d2.poll();
-            }
-            PidLoader pidLoader = poll;
-            PidLoader pidLoader2 = poll2;
-            PidLoader a3 = a(pidLoader, pidLoader2);
-            a2.setBiddingResult(a2.getBiddingOrBasePrices(), a3 != null ? a3.getBiddingOrBasePrices() : biddingOrBasePrices, 1);
-            N a4 = dg9Var.a(a2, str);
-            if (a4 != null) {
-                return a4;
-            }
-            poll = pidLoader;
-            poll2 = pidLoader2;
-        }
-    }
-
-    public final LinkedList<PidLoader> d(List<PidLoader> list) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.g0, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.csj.g0 createExpressView(am9 am9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            LinkedList<PidLoader> linkedList = new LinkedList<>();
-            for (PidLoader pidLoader : list) {
-                if (pidLoader.isLoaded()) {
-                    linkedList.add(pidLoader);
-                }
-            }
-            return linkedList;
-        }
-        return (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, am9Var)) == null) ? ol9.a((TTNativeAd) am9Var.a) : (View) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public void destroy() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, am9 am9Var, BaseNativeAd2<am9, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null) {
-                    s.g();
-                }
-                this.b = null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, am9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.c.g(activity, am9Var, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
         }
     }
 
-    public abstract S f();
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final void load(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, am9 am9Var, BaseNativeAd2<am9, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null && !s.c()) {
-                    com.fun.h0 h0Var = s.b;
-                    h0Var.getClass();
-                    h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, "irr");
-                    s.g();
-                }
-                this.b = null;
-            }
-            S b = b();
-            b.getClass();
-            if (funAdLoadListener == null) {
-                throw new IllegalArgumentException();
-            }
-            b.b.b("ldr_ld_start", new Object[0]);
-            b.c = funAdLoadListener;
-            b.a(context, funAdSlot, funAdLoadListener);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public void recycleListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null) {
-                    s.g();
-                }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, am9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            am9 am9Var2 = am9Var;
+            nl9 nl9Var = this.c;
+            FunNativeAdListenerHelper<am9, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = nl9Var.f;
+            pid = nl9Var.mPid;
+            funNativeAdListenerHelper.startShow(am9Var2, str, pid, this.b, funAdInteractionListener);
+            com.fun.module.csj.g0 expressView = baseNativeAd2.getExpressView();
+            if (expressView != null) {
+                this.c.f(activity, am9Var2, expressInflater.inflate(), expressView, this.b);
+            } else if (FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("The image mode of ad is not support!");
+            } else {
+                LogPrinter.e("The image mode of ad is not support!", new Object[0]);
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, t, str, funAdInteractionListener)) == null) {
-            S b = b();
-            b.b.b("ldr_sh_start", new Object[0]);
-            return b.d(activity, t, funAdInteractionListener);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, t, str, funAdInteractionListener)) == null) {
-            S b = b();
-            b.b.b("ldr_sh_start", new Object[0]);
-            return b.e(activity, t, funAdInteractionListener);
-        }
-        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

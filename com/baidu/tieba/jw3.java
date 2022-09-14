@@ -1,107 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jw3 extends i82 {
+public class jw3 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements V8Engine.WorkerFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jw3 a;
-
-        public a(jw3 jw3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jw3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jw3Var;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
-        public V8Engine onCreateWorker() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                kw3 kw3Var = new kw3(this.a.getInitBasePath());
-                kw3Var.H0();
-                kw3Var.t(new u82(kw3Var));
-                kw3Var.G0(new v82(kw3Var));
-                return kw3Var.l0();
-            }
-            return (V8Engine) invokeV.objValue;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw3(@NonNull String str, @NonNull f92 f92Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, f92Var, v8ThreadDelegatePolicy);
+    public jw3(ia2 ia2Var) {
+        super(ia2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, f92Var, v8ThreadDelegatePolicy};
+            Object[] objArr = {ia2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (f92) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        V8Engine v8Engine = this.a;
-        if (v8Engine == null) {
-            return;
+        lw3.o().w(this);
+    }
+
+    public void x(int i, String str) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("state", i);
+            jSONObject.put("msg", str);
+            JSEvent jSEvent = new JSEvent("antiaddiction");
+            jSEvent.data = jSONObject;
+            if (ij1.a) {
+                Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
+            }
+            dispatchEvent(jSEvent);
         }
-        v8Engine.setWorkerFactoryDelegate(new a(this));
-    }
-
-    @Override // com.baidu.tieba.i82
-    public EventTarget C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jv3(this) : (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k82, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.i82
-    @NonNull
-    public EventTarget z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new gv3(this) : (EventTarget) invokeV.objValue;
     }
 }

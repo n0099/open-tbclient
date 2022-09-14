@@ -1,62 +1,158 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rg3 extends x23 {
+public class rg3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rg3(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher) {
-        super(unitedSchemeBaseDispatcher, "/swanAPI/debug/setWebDegradeDebugHost");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeBaseDispatcher};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948120619, "Lcom/baidu/tieba/rg3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948120619, "Lcom/baidu/tieba/rg3;");
                 return;
             }
         }
+        a = ij1.a;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            JSONObject a = x23.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                ay1.c("Api-SetWebDegradeDebugHostAction", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? y23.M() != null ? y23.M().b : "" : (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mf3.b(mf3.a(), "yyyy-MM-dd") : (String) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            JSONObject d = d(a());
+            if (d != null) {
+                return d.optInt("launch_count", 0);
             }
-            String optString = a.optString("host");
-            if (TextUtils.isEmpty(optString)) {
-                o93.a().edit().remove("web_mode_host_key").apply();
-                return true;
-            }
-            o93.a().edit().putString("web_mode_host_key", optString).apply();
-            return true;
+            return 0;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public static JSONObject d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String string = mb3.a().getString("dailyInfo", "");
+            if (a) {
+                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
+            }
+            JSONObject jSONObject = null;
+            try {
+                JSONObject jSONObject2 = TextUtils.isEmpty(string) ? new JSONObject() : new JSONObject(string);
+                if (f(jSONObject2)) {
+                    jSONObject2.put("date", b());
+                }
+                jSONObject = jSONObject2.optJSONObject(str);
+                if (jSONObject == null) {
+                    jSONObject2.put(str, new JSONObject());
+                    mb3.a().putString("dailyInfo", jSONObject2.toString());
+                    return jSONObject;
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            JSONObject d = d(a());
+            long optLong = d != null ? d.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
+            if (d != null) {
+                return d.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
+            String b = b();
+            String optString = jSONObject.optString("date", "");
+            return TextUtils.isEmpty(optString) || !optString.equals(b);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
+        }
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            i(a(), "visit_duration", Long.valueOf(e()));
+        }
+    }
+
+    public static void i(String str, String str2, Object obj) {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
+            String string = mb3.a().getString("dailyInfo", "");
+            if (a) {
+                Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
+            }
+            try {
+                if (TextUtils.isEmpty(string)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(string);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject(str);
+                if (optJSONObject != null) {
+                    optJSONObject.put(str2, obj);
+                } else {
+                    jSONObject.put(str, new JSONObject());
+                }
+                mb3.a().putString("dailyInfo", jSONObject.toString());
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                }
+            }
+        }
     }
 }

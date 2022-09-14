@@ -32,7 +32,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0169a a;
+    public HandlerC0168a a;
     public com.baidu.sofire.j.a b;
     public Context c;
     public com.baidu.sofire.h.a d;
@@ -41,13 +41,13 @@ public class a {
 
     /* renamed from: com.baidu.sofire.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC0169a extends Handler {
+    public class HandlerC0168a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0169a(a aVar, Looper looper) {
+        public HandlerC0168a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -229,19 +229,18 @@ public class a {
         }
         this.f = 0L;
         this.c = context.getApplicationContext();
-        this.a = new HandlerC0169a(this, h.a());
+        this.a = new HandlerC0168a(this, h.a());
         this.b = com.baidu.sofire.j.a.a(this.c);
         this.d = new com.baidu.sofire.h.a(this.c);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00ee */
-    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x00f3 */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ee, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00f0 */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00f0, code lost:
         if (r6 != null) goto L63;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:112:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0136  */
+    /* JADX WARN: Removed duplicated region for block: B:113:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0138  */
     /* JADX WARN: Type inference failed for: r7v0, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r7v1, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r7v2, types: [java.util.List] */

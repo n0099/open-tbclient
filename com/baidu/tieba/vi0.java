@@ -1,73 +1,139 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vi0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vi0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "deviceInfo.bag");
+    public static final vi0 b = new a();
 
-    public vi0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements vi0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public cp0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (cp0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public cp0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (cp0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public cp0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (cp0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public cp0 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return null;
+            }
+            return (cp0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public cp0 e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return null;
+            }
+            return (cp0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public cp0 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return null;
+            }
+            return (cp0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public cp0 g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return (cp0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vi0
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    public final JSONObject a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", eh0.a().t());
-            map.put("uid", eh0.a().p());
-            map.put("cuid", eh0.a().b());
-            if (Build.VERSION.SDK_INT >= 17) {
-                map.put("ua", eh0.e());
-            }
-            map.put("model", Build.MODEL);
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            map.put("_os_version", Build.VERSION.RELEASE);
-            map.put("nt", String.valueOf(new io0().c()));
-            map.put("imei", eh0.a().s());
-            map.put(HttpRequest.ANDROID_ID, eh0.a().a());
-            map.put("ssl", "1");
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                yx0.f(jSONObject, entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
+    @Nullable
+    cp0 a();
 
-    public void b(Map<String, String> map, lo0<wi0> lo0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, lo0Var) == null) {
-            so0 f = so0.f(j11.a(a(map).toString().getBytes()));
-            to0 to0Var = new to0();
-            to0Var.a("Content-Encoding", "gzip");
-            to0Var.a("Content-Type", "application/json");
-            to0Var.k("https://afdconf.baidu.com/afd/download");
-            to0Var.g(3000);
-            to0Var.i(3000);
-            to0Var.j(3000);
-            to0Var.f(f);
-            ao0.b().a().a(to0Var, lo0Var);
-        }
-    }
+    @Nullable
+    cp0 b();
+
+    @Nullable
+    cp0 c();
+
+    @Nullable
+    cp0 d();
+
+    @Nullable
+    cp0 e();
+
+    @Nullable
+    cp0 f();
+
+    @Nullable
+    cp0 g();
+
+    @Nullable
+    boolean h();
 }

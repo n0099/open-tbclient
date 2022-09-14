@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.Log;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,32 +10,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class se1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
+public abstract class se1<T> implements te1<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public Map<String, String> b;
-    public SharedPreferences c;
+    public T mCachedInstance;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948148426, "Lcom/baidu/tieba/se1;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948148426, "Lcom/baidu/tieba/se1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948148426, "Lcom/baidu/tieba/se1;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948148426, "Lcom/baidu/tieba/se1;");
-        }
+        DEBUG = AppConfig.isDebug();
     }
 
     public se1() {
@@ -48,67 +43,31 @@ public class se1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-        }
-    }
+    public abstract T createService() throws ServiceNotFoundException;
 
-    public String b(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
+    @Override // com.baidu.tieba.te1
+    public final T getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (i == d) {
-                str2 = this.a.get(str);
-            } else if (i == e) {
-                str2 = this.b.get(str);
-            } else {
-                if (i == f) {
-                    SharedPreferences sharedPreferences = this.c;
-                    if (sharedPreferences != null) {
-                        str2 = sharedPreferences.getString(str, "");
-                    } else {
-                        Log.e("TAG", "prefs data store is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.mCachedInstance == null) {
+                    try {
+                        this.mCachedInstance = createService();
+                    } catch (ServiceNotFoundException e) {
+                        if (DEBUG) {
+                            e.printStackTrace();
+                            throw e;
+                        }
                     }
                 }
-                str2 = null;
             }
-            return str2 == null ? "" : str2;
+            return this.mCachedInstance;
         }
-        return (String) invokeIL.objValue;
-    }
-
-    public void c(SharedPreferences sharedPreferences) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
-            this.c = sharedPreferences;
-        }
-    }
-
-    public void d(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
-            if (i == d) {
-                this.a.put(str, str2);
-            } else if (i == e) {
-                this.b.put(str, str2);
-            } else if (i == f) {
-                SharedPreferences sharedPreferences = this.c;
-                if (sharedPreferences != null) {
-                    sharedPreferences.edit().putString(str, str2).commit();
-                } else {
-                    Log.e("TAG", "prefs data store is null");
-                }
-            }
-        }
+        return (T) invokeV.objValue;
     }
 }

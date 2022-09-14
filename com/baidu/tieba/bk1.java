@@ -1,14 +1,20 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes3.dex */
-public class bk1 implements om1 {
+public class bk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ym1 a;
 
     public bk1() {
         Interceptable interceptable = $ic;
@@ -24,13 +30,23 @@ public class bk1 implements om1 {
         }
     }
 
-    @Override // com.baidu.tieba.om1
-    public boolean a() {
+    @NonNull
+    public ym1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+            if (this.a == null) {
+                this.a = b();
+            }
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (ym1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public ym1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new tj3() : (ym1) invokeV.objValue;
     }
 }

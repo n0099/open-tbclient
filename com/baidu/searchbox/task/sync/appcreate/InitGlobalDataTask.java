@@ -4,7 +4,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.util.ChannelInitHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,13 +32,10 @@ public class InitGlobalDataTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (TbadkCoreApplication.getClientId() == null || !LaunchUpApplicationSwitch.getIsOn()) {
+            if (TbadkCoreApplication.getClientId() == null) {
                 TbadkCoreApplication.setClientId(TbadkCoreApplication.getInst().readClientId(TbadkCoreApplication.getInst().getContext()));
             }
-            if (TbadkCoreApplication.getInst().getImei() == null || !LaunchUpApplicationSwitch.getIsOn()) {
-                TbadkCoreApplication.getInst().initImei();
-            }
-            if (LaunchUpApplicationSwitch.getIsOn() && ChannelInitHelper.hasInitFinish()) {
+            if (ChannelInitHelper.hasInitFinish()) {
                 return;
             }
             ChannelInitHelper.init();

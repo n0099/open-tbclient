@@ -35,7 +35,7 @@ public class du extends dt {
 
     @Override // com.xiaomi.push.dt, com.xiaomi.push.al.a
     /* renamed from: a */
-    public hl mo207a() {
+    public hl mo208a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hl.w : (hl) invokeV.objValue;
@@ -43,7 +43,7 @@ public class du extends dt {
 
     @Override // com.xiaomi.push.dt, com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo207a() {
+    public String mo208a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "23" : (String) invokeV.objValue;
@@ -54,7 +54,7 @@ public class du extends dt {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ram:" + j.m534a() + ",rom:" + j.m537b() + "|ramOriginal:" + j.m539c() + ",romOriginal:" + j.d();
+            return "ram:" + j.m535a() + ",rom:" + j.m538b() + "|ramOriginal:" + j.m540c() + ",romOriginal:" + j.d();
         }
         return (String) invokeV.objValue;
     }

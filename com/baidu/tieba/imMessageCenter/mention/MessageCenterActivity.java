@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.z8;
+import com.baidu.tieba.n9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,14 +54,14 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!z8.g().i("MainTabActivity")) {
+            if (!n9.g().i("MainTabActivity")) {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             }
             super.finish();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.hc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             super.onNewIntent(intent);
             MessageCenterFragment messageCenterFragment = this.b;
             if (messageCenterFragment != null) {
-                messageCenterFragment.z1(intent);
+                messageCenterFragment.x1(intent);
             }
         }
     }

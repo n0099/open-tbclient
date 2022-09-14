@@ -1,278 +1,316 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jb9;
+import androidx.media2.session.SessionCommand;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Map;
+import java.util.UUID;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.protocol.HTTP;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fb9 {
+public final class fb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
-    public float f;
-    public jb9 g;
-    public jb9.f h;
-    public jb9.b i;
-    public jb9.e j;
-    public pb9 k;
-    public String l;
-    public int m;
-    public SurfaceTexture n;
-    public int o;
-    public int p;
-    public qb9 q;
-    public boolean r;
-    public boolean s;
-    public int t;
-    public int u;
-    public boolean v;
 
-    public fb9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
-        this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-        this.c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
-        this.d = 1;
-        this.e = 1.0f;
-        this.f = 0.0f;
-        this.p = -100;
-        this.s = false;
-        this.t = 10000;
-        this.u = 30;
+    /* loaded from: classes4.dex */
+    public interface a<T> {
+        void a(T t);
+
+        void a(String str);
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Not initialized variable reg: 7, insn: 0x017a: MOVE  (r5 I:??[OBJECT, ARRAY]) = (r7 I:??[OBJECT, ARRAY]), block:B:53:0x017a */
+    public static String a(File file, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            jb9 jb9Var = this.g;
-            if (jb9Var != null) {
-                jb9Var.c();
-                this.g.l(null);
-            }
-            return this.l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            this.f = f;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.o = i;
-        }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || i <= 0 || i2 <= 0) {
-            return;
-        }
-        if (this.o <= 0) {
-            this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
-        }
-        this.a = i;
-        this.b = i2;
-        if (i2 > i) {
-            int i3 = this.o;
-            i2 = ((i2 * i3) / i) - (((i3 * i2) / i) % 16);
-            i = i3;
-        } else if (i2 < i) {
-            int i4 = this.o;
-            i = ((i * i4) / i2) - (((i4 * i) / i2) % 16);
-            i2 = i4;
-        }
-        this.a = i;
-        this.b = i2;
-    }
-
-    public void e(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
-            this.n = surfaceTexture;
-        }
-    }
-
-    public void f(jb9.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.i = bVar;
-        }
-    }
-
-    public void g(jb9.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.j = eVar;
-        }
-    }
-
-    public void h(pb9 pb9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pb9Var) == null) {
-            this.k = pb9Var;
-        }
-    }
-
-    public void i(qb9 qb9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qb9Var) == null) {
-            this.q = qb9Var;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.l = str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
+            String uuid = UUID.randomUUID().toString();
+            InputStream inputStream2 = null;
             try {
-                jb9 jb9Var = new jb9();
-                this.g = jb9Var;
-                jb9Var.d(this.e);
-                this.g.B(this.p);
-                if (this.f != 0.0f) {
-                    this.g.A(this.f);
-                }
-                this.g.l(this.h);
-                this.g.i(this.i);
-                this.g.k(this.j);
-                this.g.r(this.q);
-                this.g.E(this.r);
-                this.g.I(this.s);
-                this.g.s(this.v);
             } catch (Throwable th) {
-                yb9.c("VideoRecorder", th.toString());
+                th = th;
+                inputStream2 = inputStream;
             }
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.v = z;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.r = z;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.m++;
             try {
-                if (this.g != null && this.g.u(2)) {
-                    File file = new File(this.l);
-                    if (!file.getParentFile().exists()) {
-                        file.getParentFile().mkdirs();
+                try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    httpURLConnection.setReadTimeout(20000);
+                    httpURLConnection.setConnectTimeout(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD);
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setRequestProperty("Accept-Charset", IMAudioTransRequest.CHARSET);
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                    httpURLConnection.setRequestProperty("Content-Type", IMAudioTransRequest.CONTENT_TYPE + ";boundary=" + uuid);
+                    httpURLConnection.setRequestProperty("token", sa9.h().i());
+                    if (file != null) {
+                        DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                        StringBuffer stringBuffer = new StringBuffer();
+                        stringBuffer.append("--");
+                        stringBuffer.append(uuid);
+                        stringBuffer.append("\r\n");
+                        stringBuffer.append("Content-Disposition: form-data; name=\"txt\"; filename=\"" + file.getName() + "\"\r\n");
+                        StringBuilder sb = new StringBuilder("Content-Type: application/octet-stream; charset=utf-8");
+                        sb.append("\r\n");
+                        stringBuffer.append(sb.toString());
+                        stringBuffer.append("\r\n");
+                        dataOutputStream.write(stringBuffer.toString().getBytes("UTF-8"));
+                        fileInputStream = new FileInputStream(file);
+                        try {
+                            byte[] bArr = new byte[8192];
+                            while (true) {
+                                int read = fileInputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                dataOutputStream.write(bArr, 0, read);
+                            }
+                            fileInputStream.close();
+                            dataOutputStream.write("\r\n".getBytes("UTF-8"));
+                            dataOutputStream.write(("--" + uuid + "--\r\n").getBytes("UTF-8"));
+                            dataOutputStream.flush();
+                            dataOutputStream.close();
+                            if (httpURLConnection.getResponseCode() == 200) {
+                                InputStream inputStream3 = httpURLConnection.getInputStream();
+                                StringBuffer stringBuffer2 = new StringBuffer();
+                                while (true) {
+                                    int read2 = inputStream3.read();
+                                    if (read2 == -1) {
+                                        break;
+                                    }
+                                    stringBuffer2.append((char) read2);
+                                }
+                                inputStream3.close();
+                                httpURLConnection.disconnect();
+                                String stringBuffer3 = stringBuffer2.toString();
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return stringBuffer3;
+                            }
+                            tb9.b(file.getAbsolutePath() + "     上传文件失败…………");
+                            httpURLConnection.disconnect();
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                            return null;
+                        } catch (IOException e3) {
+                            e = e3;
+                            bc9.d(e);
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
+                        } catch (Exception e4) {
+                            e = e4;
+                            bc9.d(e);
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
+                        }
                     }
-                    if (this.f == 90.0f || this.f == 270.0f) {
-                        int i = this.a;
-                        this.a = this.b;
-                        this.b = i;
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            } catch (IOException e6) {
+                e = e6;
+                fileInputStream = null;
+            } catch (Exception e7) {
+                e = e7;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (inputStream2 != null) {
+                    try {
+                        inputStream2.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
                     }
-                    this.g.j(new jb9.d(file, this.a, this.b, this.c, this.u, null, this.n.getTimestamp(), this.t));
                 }
-                if (this.g == null || this.m % this.d != 0 || this.k == null) {
-                    return;
+                throw th;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, str, str2)) != null) {
+            return (String) invokeLL.objValue;
+        }
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+            httpURLConnection.setRequestProperty("Content-Type", "application/json");
+            httpURLConnection.setRequestProperty("Accept-Charset", IMAudioTransRequest.CHARSET);
+            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str.toString().getBytes("UTF-8").length));
+            httpURLConnection.setReadTimeout(20000);
+            httpURLConnection.setConnectTimeout(10000);
+            httpURLConnection.setRequestProperty("token", sa9.h().i());
+            httpURLConnection.connect();
+            OutputStream outputStream = httpURLConnection.getOutputStream();
+            outputStream.write(str.getBytes("UTF-8"));
+            outputStream.flush();
+            outputStream.close();
+            if (httpURLConnection.getResponseCode() == 200) {
+                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                StringBuffer stringBuffer = new StringBuffer("");
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine != null) {
+                        stringBuffer.append(new String(readLine.getBytes("UTF-8"), IMAudioTransRequest.CHARSET));
+                    } else {
+                        bufferedReader.close();
+                        inputStreamReader.close();
+                        httpURLConnection.disconnect();
+                        return stringBuffer.toString();
+                    }
                 }
-                this.k.a(this.g, this.n);
-            } catch (Throwable th) {
-                yb9.c("VideoRecorder", th.toString());
+            } else {
+                tb9.b("上传log失败    ");
+                httpURLConnection.disconnect();
+                return null;
+            }
+        } catch (Exception e) {
+            tb9.b("上传log失败    " + e.getMessage());
+            bc9.d(e);
+            return null;
+        }
+    }
+
+    public static boolean c(String str, a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) {
+            try {
+            } catch (Exception e) {
+                bc9.d(e);
+            }
+            if (str == null) {
+                if (aVar != null) {
+                    aVar.a("-1");
+                }
+                return false;
+            }
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.getString("status").equals("0")) {
+                if (aVar != null) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject != null) {
+                        aVar.a((a) optJSONObject);
+                        return true;
+                    }
+                    aVar.a((a) jSONObject.optJSONArray("data"));
+                    return true;
+                }
+                return true;
+            } else if (jSONObject.getString("status").equals("1")) {
+                if (aVar != null) {
+                    aVar.a(jSONObject.optString("status"));
+                }
+                tb9.b("net status  error ");
+                return false;
+            } else {
+                if (jSONObject.getString("status").equals("2")) {
+                    mb9.h(sa9.h().getContext());
+                    tb9.b("net  token error ");
+                    return false;
+                }
+                if (aVar != null) {
+                    aVar.a("-1");
+                }
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public void o(int i) {
+    public static String d(String str, Map<String, Object> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.u = i;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, str, map)) != null) {
+            return (String) invokeLL.objValue;
         }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.t = i;
-        }
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            jb9 jb9Var = this.g;
-            if (jb9Var != null) {
-                return jb9Var.u(1);
+        String str2 = "";
+        if (map.size() > 0) {
+            StringBuffer stringBuffer = new StringBuffer();
+            if (!map.isEmpty()) {
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    if (stringBuffer.length() <= 0) {
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("=");
+                        stringBuffer.append(entry.getValue());
+                    } else {
+                        stringBuffer.append("&");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("=");
+                        stringBuffer.append(entry.getValue());
+                    }
+                }
+                str2 = stringBuffer.toString();
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public void t(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
-            this.e = f;
-            if (Math.abs(f - 3.0f) < 0.01f) {
-                this.d = 2;
-                return;
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setConnectTimeout(10000);
+            httpURLConnection.setReadTimeout(20000);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setRequestProperty("token", sa9.h().i());
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), IMAudioTransRequest.CHARSET));
+            printWriter.write(str2);
+            printWriter.flush();
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = bufferedInputStream.read(bArr);
+                if (read != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                    byteArrayOutputStream.flush();
+                } else {
+                    printWriter.close();
+                    bufferedInputStream.close();
+                    String byteArrayOutputStream2 = byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET);
+                    byteArrayOutputStream.close();
+                    return byteArrayOutputStream2;
+                }
             }
-            int i = (Math.abs(this.e - 2.0f) > 0.01f ? 1 : (Math.abs(this.e - 2.0f) == 0.01f ? 0 : -1));
-            this.d = 1;
+        } catch (Exception e) {
+            bc9.e(e);
+            return null;
         }
     }
 }

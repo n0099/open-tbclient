@@ -1,103 +1,85 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.Locale;
 /* loaded from: classes6.dex */
 public final class x79 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SampleResult a(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253423, "Lcom/baidu/tieba/x79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948253423, "Lcom/baidu/tieba/x79;");
+                return;
+            }
+        }
+        a = new Object();
+    }
+
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && !str.equals("")) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 79) {
-                    switch (hashCode) {
-                        case 2126:
-                            if (str.equals("C1")) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 2127:
-                            if (str.equals("C2")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 2128:
-                            if (str.equals("C3")) {
-                                c = 7;
-                                break;
-                            }
-                            break;
-                        default:
-                            switch (hashCode) {
-                                case 2653:
-                                    if (str.equals("T1")) {
-                                        c = 0;
-                                        break;
-                                    }
-                                    break;
-                                case 2654:
-                                    if (str.equals("T2")) {
-                                        c = 1;
-                                        break;
-                                    }
-                                    break;
-                                case 2655:
-                                    if (str.equals("T3")) {
-                                        c = 2;
-                                        break;
-                                    }
-                                    break;
-                                case 2656:
-                                    if (str.equals("T4")) {
-                                        c = 3;
-                                        break;
-                                    }
-                                    break;
-                                case 2657:
-                                    if (str.equals("T5")) {
-                                        c = 4;
-                                        break;
-                                    }
-                                    break;
-                            }
-                    }
-                } else if (str.equals("O")) {
-                    c = '\b';
-                }
-                switch (c) {
-                    case 0:
-                        return SampleResult.T1;
-                    case 1:
-                        return SampleResult.T2;
-                    case 2:
-                        return SampleResult.T3;
-                    case 3:
-                        return SampleResult.T4;
-                    case 4:
-                        return SampleResult.T5;
-                    case 5:
-                        return SampleResult.C1;
-                    case 6:
-                        return SampleResult.C2;
-                    case 7:
-                        return SampleResult.C3;
-                    case '\b':
-                        return SampleResult.OTHERE;
-                    default:
-                        return SampleResult.OTHERE;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(b(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
             }
-            return SampleResult.OTHERE;
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
+            }
+            sb.append("; TurboNet/");
+            sb.append("53.0.2785.116");
+            sb.append(')');
+            return sb.toString();
         }
-        return (SampleResult) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
+                    try {
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException unused) {
+                        throw new IllegalStateException("Cannot determine package version");
+                    }
+                }
+                i = b;
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

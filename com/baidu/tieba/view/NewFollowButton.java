@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c9;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rk8;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.fm8;
+import com.baidu.tieba.q9;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,10 +32,10 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean A;
     public int B;
     public boolean C;
-    public qv4 D;
-    public qv4 E;
+    public ay4 D;
+    public ay4 E;
     public LikeModel F;
-    public rk8 G;
+    public fm8 G;
     public b H;
     public boolean I;
     public Animation J;
@@ -44,8 +44,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public TbPageContext<?> q;
     public TBSpecificationButtonConfig r;
     public TBSpecificationButtonConfig s;
-    public c9 t;
-    public rk8.a u;
+    public q9 t;
+    public fm8.a u;
     public boolean v;
     public int w;
     public int x;
@@ -102,7 +102,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     }
 
     /* loaded from: classes6.dex */
-    public class b extends c9 implements rk8.a {
+    public class b extends q9 implements fm8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFollowButton a;
@@ -125,7 +125,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             this.a = newFollowButton;
         }
 
-        @Override // com.baidu.tieba.rk8.a
+        @Override // com.baidu.tieba.fm8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -136,7 +136,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.rk8.a
+        @Override // com.baidu.tieba.fm8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -149,17 +149,17 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.c9
+        @Override // com.baidu.tieba.q9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 if (this.a.F.getErrorCode() == 22) {
-                    ri.N(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f0828));
+                    ej.N(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f083b));
                     this.a.I = false;
                 } else if (obj == null) {
                     this.a.I = false;
                 } else if (this.a.F.getErrorCode() != 0) {
-                    ri.N(this.a.q.getPageActivity(), this.a.F.getErrorString());
+                    ej.N(this.a.q.getPageActivity(), this.a.F.getErrorString());
                     this.a.I = false;
                 } else {
                     NewFollowButton newFollowButton = this.a;
@@ -203,17 +203,17 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.I || this.q == null) {
             return;
         }
-        if (!ri.D()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c40));
+        if (!ej.D()) {
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c59));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
                 this.H = new b(this, null);
             }
             if (this.G == null) {
-                rk8 rk8Var = new rk8();
-                this.G = rk8Var;
-                rk8Var.b(this.H);
+                fm8 fm8Var = new fm8();
+                this.G = fm8Var;
+                fm8Var.b(this.H);
             }
             this.I = true;
             this.G.c(this.o, this.p);
@@ -227,9 +227,9 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.s;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.E == null) {
-                        qv4 qv4Var = new qv4();
-                        this.E = qv4Var;
-                        qv4Var.t(R.color.CAM_X0109);
+                        ay4 ay4Var = new ay4();
+                        this.E = ay4Var;
+                        ay4Var.t(R.color.CAM_X0109);
                         this.E.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                     }
                     setConfig(this.E);
@@ -237,14 +237,14 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig);
                 }
                 setClickable(this.v);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc0));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
             } else {
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.r;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.D == null) {
-                        qv4 qv4Var2 = new qv4();
-                        this.D = qv4Var2;
-                        qv4Var2.r(R.color.CAM_X0302);
+                        ay4 ay4Var2 = new ay4();
+                        this.D = ay4Var2;
+                        ay4Var2.r(R.color.CAM_X0302);
                         if (this.y) {
                             this.D.g(this.x);
                             this.D.i(this.z, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -256,7 +256,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig2);
                 }
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ac));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
             }
             k();
             this.C = z;
@@ -297,8 +297,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.I || this.q == null) {
             return;
         }
-        if (!ri.D()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c40));
+        if (!ej.D()) {
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c59));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
@@ -309,7 +309,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 this.F = likeModel;
                 likeModel.setLoadDataCallBack(this.H);
             }
-            if (qi.isForumName(this.o)) {
+            if (dj.isForumName(this.o)) {
                 this.I = true;
                 this.F.M();
                 this.F.Q(this.o, String.valueOf(this.p));

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nf5;
 import com.baidu.tieba.view.AlaPlayAnimationView;
+import com.baidu.tieba.wh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,11 +57,11 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e7, (ViewGroup) this, true);
-            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901c9);
-            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901ca);
-            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090222);
-            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09022e);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) this, true);
+            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901ca);
+            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901cb);
+            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090223);
+            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090235);
             initHeaderImg();
         }
     }
@@ -97,14 +97,14 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
-        if (nf5.d(str) > 10) {
-            str = nf5.n(str, 10) + StringHelper.STRING_MORE;
+        if (wh5.d(str) > 10) {
+            str = wh5.n(str, 10) + StringHelper.STRING_MORE;
         }
         if (alaUserInfoData != null) {
             this.alaCardUserHeadImg.K(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0206), StringHelper.numFormatOverWan(threadData.getThreadAlaInfo().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0208), StringHelper.numFormatOverWan(threadData.getThreadAlaInfo().audience_count)));
     }
 
     public void setUserHeadImgVisible(int i) {

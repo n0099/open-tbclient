@@ -15,7 +15,8 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lj8;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +65,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = lj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = zk8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -85,7 +86,7 @@ public class RadiusProgressView extends View {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843062, 16843063, 16843176, R.attr.obfuscated_res_0x7f0405a3, R.attr.obfuscated_res_0x7f040639});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.RadiusProgressView);
         this.b = obtainStyledAttributes.getDimensionPixelSize(2, this.b);
         this.c = obtainStyledAttributes.getInt(1, this.c);
         this.e = obtainStyledAttributes.getColor(4, this.e);
@@ -106,7 +107,7 @@ public class RadiusProgressView extends View {
             int i = this.b;
             canvas.drawRoundRect(rectF, i, i, this.a);
             canvas.restore();
-            this.g = lj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+            this.g = zk8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
             this.h = SkinManager.getColor(R.color.CAM_X0336);
             this.f = SkinManager.getColor(R.color.CAM_X0336);
             PointF pointF = this.k;
@@ -203,7 +204,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = lj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = zk8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -244,7 +245,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = lj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = zk8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();

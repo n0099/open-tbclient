@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.ApsConstants;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageDownloadCallback;
-import com.baidu.nps.interfa.IPackageGetCallback;
-import com.baidu.nps.pm.IBundleInfo;
-import com.baidu.searchbox.pms.bean.DegradeData;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.bean.ResultData;
-import com.baidu.searchbox.pms.callback.PackageCallback;
-import com.baidu.searchbox.pms.download.DownloadOptions;
-import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.BundleInfoGroup;
+import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.nps.utils.SourceData;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,117 +19,47 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class tl {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean e;
+    public static boolean b;
+    public static boolean c;
+    public static tl d;
     public transient /* synthetic */ FieldHolder $fh;
-    public IPackageGetCallback a;
-    public volatile ResultData b;
-    public volatile ErrorInfo c;
-    public RequestParams.Channel d;
+    public volatile hm a;
 
     /* loaded from: classes6.dex */
-    public class a implements PackageCallback {
+    public static class a implements l81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPackageGetCallback a;
-        public final /* synthetic */ tl b;
 
-        public a(tl tlVar, IPackageGetCallback iPackageGetCallback) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tlVar, iPackageGetCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tlVar;
-            this.a = iPackageGetCallback;
-        }
-
-        @Override // com.baidu.searchbox.pms.callback.PackageCallback
-        public void onDegradeData(DegradeData degradeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.pms.callback.PackageCallback
-        public void onFetchError(ErrorInfo errorInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                this.b.n(errorInfo, this.a);
-            }
-        }
-
-        @Override // com.baidu.searchbox.pms.callback.PackageCallback
-        public void onResultData(ResultData resultData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                this.b.o(resultData, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements PackageCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tl a;
-
-        public b(tl tlVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tlVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tlVar;
-        }
-
-        @Override // com.baidu.searchbox.pms.callback.PackageCallback
-        public void onDegradeData(DegradeData degradeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.pms.callback.PackageCallback
-        public void onFetchError(ErrorInfo errorInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                synchronized (this.a) {
-                    this.a.c = errorInfo;
-                    this.a.p();
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.pms.callback.PackageCallback
-        public void onResultData(ResultData resultData) {
+        @Override // com.baidu.tieba.l81
+        public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                synchronized (this.a) {
-                    boolean unused = tl.e = true;
-                    this.a.b = resultData;
-                    this.a.p();
-                }
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.l81
+        public void onResult(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("Plug-in predownload status{\"code\": " + i + ", \"msg\": " + str + "}");
             }
         }
     }
@@ -141,16 +67,17 @@ public class tl {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448318005, "Lcom/baidu/tieba/tl;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318005, "Lcom/baidu/tieba/tl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318005, "Lcom/baidu/tieba/tl;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448318005, "Lcom/baidu/tieba/tl;");
-        }
+        d = new tl();
     }
 
     public tl() {
@@ -167,143 +94,98 @@ public class tl {
         }
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? e : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && hm.m()) {
+            c = true;
+            NPSPackageManager.getInstance().downloadAllBundles();
+        }
     }
 
-    public final List<IBundleInfo> g(List<PackageInfo> list) {
-        InterceptResult invokeL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list == null || list.isEmpty()) {
-                return null;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || b) {
+            return;
+        }
+        b = true;
+        NPSPackageManager.getInstance().fetchBundleInfo();
+    }
+
+    public static tl e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d : (tl) invokeV.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a();
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            if (str != null && str.trim().length() != 0) {
+                SourceData sourceData = new SourceData();
+                sourceData.source = "";
+                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
+            } else if (BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("PackageName of Plug-in is null.");
             }
-            for (PackageInfo packageInfo : list) {
-                arrayList.add(new dl(packageInfo));
+        }
+    }
+
+    @NonNull
+    public List<BundleInfo> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<String, BundleInfoGroup> entry : NPSPackageManager.getInstance().getAllBundleGroup().entrySet()) {
+                BundleInfoGroup value = entry.getValue();
+                BundleInfo bundleByType = value.getBundleByType(3);
+                if (bundleByType == null) {
+                    bundleByType = value.getBundleByType(2);
+                }
+                if (bundleByType != null) {
+                    arrayList.add(bundleByType);
+                }
             }
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final PackageInfo h(IBundleInfo iBundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iBundleInfo)) == null) {
-            PackageInfo packageInfo = new PackageInfo();
-            packageInfo.channelId = ApsConstants.TYPE_ANDROID_PLUGIN;
-            packageInfo.packageName = iBundleInfo.getPackageName();
-            packageInfo.md5 = iBundleInfo.getMd5();
-            packageInfo.downloadUrl = iBundleInfo.getDownloadUrl();
-            packageInfo.isSilence = 1;
-            return packageInfo;
-        }
-        return (PackageInfo) invokeL.objValue;
-    }
-
-    public void i(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
-            PackageInfo h = h(iBundleInfo);
-            h.filePath = str;
-            DownloadOptions downloadOptions = new DownloadOptions();
-            downloadOptions.saveToDb = false;
-            if (i == 49) {
-                if (pi.H()) {
-                    PmsManager.getInstance().download(h, downloadOptions, new el(iPackageDownloadCallback));
-                    return;
-                } else {
-                    iPackageDownloadCallback.onPackageDownloadFail(h.packageName, -1, "no wifi");
-                    return;
-                }
-            }
-            PmsManager.getInstance().download(h, downloadOptions, new el(iPackageDownloadCallback));
-        }
-    }
-
-    public final void j(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, list, iPackageGetCallback) == null) {
-            RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(ApsConstants.RUN_TYPE_ANDROID_PLUGIN);
-            RequestParams.Channel channel = new RequestParams.Channel();
-            channel.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
-            ArrayList arrayList = new ArrayList();
-            for (IBundleInfo iBundleInfo : list) {
-                arrayList.add(iBundleInfo.getPackageName());
-            }
-            channel.setPackageNames(arrayList);
-            channel.setCallback(new a(this, iPackageGetCallback));
-            requestParams.addChannel(channel);
-            PmsManager.getInstance().execute(requestParams);
-        }
-    }
-
-    public void k(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, iPackageGetCallback) == null) {
-            if (list == null || list.isEmpty()) {
-                synchronized (this) {
-                    this.a = iPackageGetCallback;
-                    p();
-                }
-                return;
-            }
-            j(list, iPackageGetCallback);
-        }
-    }
-
-    public RequestParams.Channel l() {
+    public RequestParams.Channel d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequestParams.Channel channel = this.d;
-            if (channel != null) {
-                return channel;
-            }
-            RequestParams.Channel channel2 = new RequestParams.Channel();
-            this.d = channel2;
-            channel2.setFetchAllPackages(true);
-            this.d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
-            this.d.setCallback(new b(this));
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            g();
+            return this.a.l();
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
 
-    public final void n(ErrorInfo errorInfo, IPackageGetCallback iPackageGetCallback) {
+    public hm f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, errorInfo, iPackageGetCallback) == null) {
-            iPackageGetCallback.onBundleInfoGetFail(errorInfo.code, errorInfo.errorMsg);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            g();
+            return this.a;
         }
+        return (hm) invokeV.objValue;
     }
 
-    public final void o(ResultData resultData, IPackageGetCallback iPackageGetCallback) {
+    public final synchronized void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, resultData, iPackageGetCallback) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(resultData.addList);
-            arrayList.addAll(resultData.updateList);
-            iPackageGetCallback.onBundleInfoGetSuccess(g(arrayList));
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a == null) {
-            return;
-        }
-        if (this.c != null) {
-            n(this.c, this.a);
-            this.a = null;
-            this.c = null;
-        } else if (this.b != null) {
-            o(this.b, this.a);
-            this.a = null;
-            this.b = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new hm();
+                }
+            }
         }
     }
 }

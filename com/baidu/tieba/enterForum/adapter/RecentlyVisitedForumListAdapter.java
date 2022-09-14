@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -174,21 +174,21 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.g = recentlyVisitedForumListAdapter;
             view2.setOnClickListener(new a(this, recentlyVisitedForumListAdapter));
             view2.setOnLongClickListener(new b(this, recentlyVisitedForumListAdapter));
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092242);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a60);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092296);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a7a);
             this.d = barImageView;
             barImageView.setShowOval(true);
             this.d.setShowOuterBorder(false);
             this.d.setShowInnerBorder(true);
-            this.d.setStrokeWith(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds3));
+            this.d.setStrokeWith(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds3));
             this.d.setStrokeColorResId(R.color.CAM_X0401);
             this.d.setPlaceHolderAutoChangeSkinType(1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a74);
-            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091b79);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a53);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8e);
+            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091bbb);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6d);
             this.e.setThreeDotMode(2);
             this.e.setEnterForumStyle(true);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090778);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09078f);
             this.f = imageView;
             imageView.setOnClickListener(new c(this, recentlyVisitedForumListAdapter));
         }
@@ -261,7 +261,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d074e, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0768, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
     }
 
     public void i(LinkedList<VisitedForumData> linkedList) {
@@ -316,7 +316,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             return;
         }
         String forumName = visitedForumData.getForumName();
-        if (qi.isEmpty(forumName)) {
+        if (dj.isEmpty(forumName)) {
             forumName = "";
         }
         forumViewHolder.b.setText(forumName);

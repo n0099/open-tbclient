@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Registry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUCKET_APPEND_ALL = "legacy_append";
@@ -55,7 +55,7 @@ public class Registry {
     public final Pools.Pool<List<Throwable>> throwableListPool;
     public final TranscoderRegistry transcoderRegistry;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class MissingComponentException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class Registry {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class NoImageHeaderParserException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class Registry {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NoModelLoaderAvailableException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public class Registry {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NoResultEncoderAvailableException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +177,7 @@ public class Registry {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NoSourceEncoderAvailableException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

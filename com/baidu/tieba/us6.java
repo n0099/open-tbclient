@@ -1,41 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
 /* loaded from: classes6.dex */
 public class us6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<qs6> a(List<VoiceRoom> list) {
-        InterceptResult invokeL;
+    public static void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (VoiceRoom voiceRoom : list) {
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    qs6 qs6Var = new qs6();
-                    qs6Var.a = voiceRoom.room_name;
-                    qs6Var.c = String.valueOf(voiceRoom.talker_num);
-                    qs6Var.d = String.valueOf(voiceRoom.joined_num);
-                    qs6Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
-                    }
-                    qs6Var.b = arrayList2;
-                    arrayList.add(qs6Var);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLI(65536, null, str, i) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
+            statisticItem.addParam("obj_source", 32);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_type", i);
+            TiebaStatic.log(statisticItem);
         }
-        return (List) invokeL.objValue;
     }
 }

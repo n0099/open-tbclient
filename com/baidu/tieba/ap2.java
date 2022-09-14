@@ -1,130 +1,182 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public class ap2 implements Comparable<Object> {
+public class ap2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final ap2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public ArrayList<MediaModel> d;
+    public final AtomicBoolean a;
+    public final List<xo2> b;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622790, "Lcom/baidu/tieba/ap2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947622790, "Lcom/baidu/tieba/ap2;");
+                return;
+            }
+        }
+        c = ij1.a;
+        d = new ap2();
+    }
 
     public ap2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicBoolean(false);
+        ge1<xo2> ge1Var = new zo2().a;
+        this.b = ge1Var == null ? null : ge1Var.getList();
+    }
+
+    public static ap2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d : (ap2) invokeV.objValue;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
             }
         }
     }
 
-    public void a(MediaModel mediaModel) {
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaModel) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN : invokeV.booleanValue;
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
             }
-            this.d.add(mediaModel);
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // java.lang.Comparable
-    public int compareTo(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? Long.valueOf(((ap2) obj).e()).compareTo(Long.valueOf(this.c)) : invokeL.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.size() : invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj instanceof ap2) {
-                return this.a.equals(((ap2) obj).a);
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (xo2 xo2Var : this.b) {
+                    if (current == xo2Var.b()) {
+                        xo2Var.a(true, activity);
+                    }
+                }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ArrayList<MediaModel> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
         }
     }
 
-    public void h(String str) {
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (xo2 xo2Var : this.b) {
+                    if (current == xo2Var.b()) {
+                        xo2Var.a(false, activity);
+                    }
+                }
+            }
         }
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? super.hashCode() : invokeV.intValue;
-    }
+    /* loaded from: classes3.dex */
+    public class b extends go2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ ap2 b;
 
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.c = j;
+        public b(ap2 ap2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ap2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ap2Var;
+            this.a = 0;
         }
-    }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "MediaDir [firstImgPath=, dirName=" + this.a + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
+        @Override // com.baidu.tieba.go2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
+                }
+            }
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.tieba.go2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
+                }
+            }
+        }
+
+        public /* synthetic */ b(ap2 ap2Var, a aVar) {
+            this(ap2Var);
+        }
     }
 }

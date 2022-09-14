@@ -1,11 +1,11 @@
 package rx.internal.schedulers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fv9;
-import com.baidu.tieba.fz9;
-import com.baidu.tieba.jx9;
-import com.baidu.tieba.lv9;
-import com.baidu.tieba.sz9;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.dx9;
+import com.baidu.tieba.k1a;
+import com.baidu.tieba.x0a;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,28 +15,28 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes8.dex */
-public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, fv9 {
+/* loaded from: classes9.dex */
+public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, xw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3962399486978279857L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lv9 action;
-    public final jx9 cancel;
+    public final dx9 action;
+    public final bz9 cancel;
 
-    /* loaded from: classes8.dex */
-    public static final class Remover extends AtomicBoolean implements fv9 {
+    /* loaded from: classes9.dex */
+    public static final class Remover extends AtomicBoolean implements xw9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final sz9 parent;
+        public final k1a parent;
         public final ScheduledAction s;
 
-        public Remover(ScheduledAction scheduledAction, sz9 sz9Var) {
+        public Remover(ScheduledAction scheduledAction, k1a k1aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scheduledAction, sz9Var};
+                Object[] objArr = {scheduledAction, k1aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,17 +47,17 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 }
             }
             this.s = scheduledAction;
-            this.parent = sz9Var;
+            this.parent = k1aVar;
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.s.isUnsubscribed() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
@@ -66,20 +66,20 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static final class Remover2 extends AtomicBoolean implements fv9 {
+    /* loaded from: classes9.dex */
+    public static final class Remover2 extends AtomicBoolean implements xw9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final jx9 parent;
+        public final bz9 parent;
         public final ScheduledAction s;
 
-        public Remover2(ScheduledAction scheduledAction, jx9 jx9Var) {
+        public Remover2(ScheduledAction scheduledAction, bz9 bz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scheduledAction, jx9Var};
+                Object[] objArr = {scheduledAction, bz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,17 +90,17 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 }
             }
             this.s = scheduledAction;
-            this.parent = jx9Var;
+            this.parent = bz9Var;
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.s.isUnsubscribed() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
@@ -109,8 +109,8 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes8.dex */
-    public final class a implements fv9 {
+    /* loaded from: classes9.dex */
+    public final class a implements xw9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Future<?> a;
@@ -135,14 +135,14 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
             this.a = future;
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.isCancelled() : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.fv9
+        @Override // com.baidu.tieba.xw9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -155,12 +155,12 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public ScheduledAction(lv9 lv9Var) {
+    public ScheduledAction(dx9 dx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lv9Var};
+            Object[] objArr = {dx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -170,25 +170,25 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = lv9Var;
-        this.cancel = new jx9();
+        this.action = dx9Var;
+        this.cancel = new bz9();
     }
 
-    public void add(fv9 fv9Var) {
+    public void add(xw9 xw9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fv9Var) == null) {
-            this.cancel.a(fv9Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, xw9Var) == null) {
+            this.cancel.a(xw9Var);
         }
     }
 
-    public void addParent(sz9 sz9Var) {
+    public void addParent(k1a k1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sz9Var) == null) {
-            this.cancel.a(new Remover(this, sz9Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, k1aVar) == null) {
+            this.cancel.a(new Remover(this, k1aVar));
         }
     }
 
-    @Override // com.baidu.tieba.fv9
+    @Override // com.baidu.tieba.xw9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,13 +218,13 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     public void signalError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-            fz9.j(th);
+            x0a.j(th);
             Thread currentThread = Thread.currentThread();
             currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
         }
     }
 
-    @Override // com.baidu.tieba.fv9
+    @Override // com.baidu.tieba.xw9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.cancel.isUnsubscribed()) {
@@ -240,19 +240,19 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public void addParent(jx9 jx9Var) {
+    public void addParent(bz9 bz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jx9Var) == null) {
-            this.cancel.a(new Remover2(this, jx9Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bz9Var) == null) {
+            this.cancel.a(new Remover2(this, bz9Var));
         }
     }
 
-    public ScheduledAction(lv9 lv9Var, sz9 sz9Var) {
+    public ScheduledAction(dx9 dx9Var, k1a k1aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lv9Var, sz9Var};
+            Object[] objArr = {dx9Var, k1aVar};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -262,16 +262,16 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = lv9Var;
-        this.cancel = new jx9(new Remover(this, sz9Var));
+        this.action = dx9Var;
+        this.cancel = new bz9(new Remover(this, k1aVar));
     }
 
-    public ScheduledAction(lv9 lv9Var, jx9 jx9Var) {
+    public ScheduledAction(dx9 dx9Var, bz9 bz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lv9Var, jx9Var};
+            Object[] objArr = {dx9Var, bz9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -281,7 +281,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = lv9Var;
-        this.cancel = new jx9(new Remover2(this, jx9Var));
+        this.action = dx9Var;
+        this.cancel = new bz9(new Remover2(this, bz9Var));
     }
 }

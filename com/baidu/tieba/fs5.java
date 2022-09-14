@@ -1,98 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes4.dex */
-public class fs5 extends hz5<wr5> {
+public class fs5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fs5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TbImageView k;
-    public TbImageView l;
-    public View m;
-    public wr5 n;
+    public IWXAPI a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fs5(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947774721, "Lcom/baidu/tieba/fs5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947774721, "Lcom/baidu/tieba/fs5;");
+        }
+    }
+
+    public fs5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.m = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e3f);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e3e);
-        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090e3d);
-        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090e3c);
-        this.l = tbImageView;
-        tbImageView.setAutoChangeStyle(true);
-        this.l.setDefaultResource(17170445);
-        this.l.setDefaultBgResource(17170445);
-        this.k.setOnClickListener(this);
-        this.j.setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.hz5
-    public int d() {
+    public static fs5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0837 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hz5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
-            SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
-            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802e6);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (fs5.class) {
+                    if (b == null) {
+                        b = new fs5();
+                    }
+                }
+            }
+            return b;
         }
+        return (fs5) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
-            return;
-        }
-        e().a(view2, this.n);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
-    /* renamed from: r */
-    public void i(wr5 wr5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, wr5Var) == null) {
-            this.n = wr5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
+            this.a = createWXAPI;
+            createWXAPI.registerApp("wx7088ea0f777314d2");
         }
     }
 }

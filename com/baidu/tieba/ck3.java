@@ -1,160 +1,223 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tieba.ha4;
+import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ck3 extends fa4<String> {
+public class ck3 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ha4.a a;
 
-    public ck3(ha4.a aVar) {
+    /* loaded from: classes3.dex */
+    public class a implements kj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ck3 a;
+
+        public a(ck3 ck3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ck3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ck3Var;
+        }
+
+        @Override // com.baidu.tieba.kj1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
+                    this.a.l();
+                    return;
+                }
+                this.a.mResult.putString("errorMsg", "login failed");
+                this.a.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ck3 a;
+
+        public b(ck3 ck3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ck3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ck3Var;
+        }
+
+        @Override // com.baidu.tieba.ck3.d
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    this.a.mResult.putString("errorMsg", "addressId == null");
+                    this.a.finish();
+                }
+                this.a.m(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ck3.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.mResult.putString("errorMsg", "choose addressId failed");
+                this.a.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ck3 a;
+
+        public c(ck3 ck3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ck3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ck3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.mResult.putString("errorMsg", exc.getMessage());
+                this.a.finish();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (jSONObject != null && jSONObject.optInt("errno", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    this.a.mResult.putString("address_info", optJSONObject.toString());
+                    this.a.finish();
+                    return;
+                }
+                this.a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
+                this.a.finish();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                return yf3.d(response.body().string());
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a(String str);
+
+        void b();
+    }
+
+    public ck3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = aVar;
     }
 
-    public final boolean a() {
+    public static String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? String.format("%s/ma/address/detail", "https://mbd.baidu.com") : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ha4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
-            this.a.b(str, str2, jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zi3.d(getAgent(), new b(this));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: c */
-    public void onSuccess(String str, int i) {
+    public final void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            if (vj3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
-            }
-            if (this.a == null) {
-                return;
-            }
-            bk3 l = bk3.l();
-            if (TextUtils.equals(str, "recovery")) {
-                if (l.m().b()) {
-                    l.m().a();
-                    l.d.i(true);
-                    pk3 pk3Var = l.d;
-                    if (pk3Var instanceof nk3) {
-                        ((nk3) pk3Var).j();
-                        return;
-                    }
-                    return;
-                }
-                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
-                return;
-            }
-            l.m().k();
-            pk3 pk3Var2 = l.d;
-            if (pk3Var2 instanceof nk3) {
-                nk3 nk3Var = (nk3) pk3Var2;
-                if (l.k()) {
-                    if (l.d.b == 1) {
-                        ak3.a(MimeTypes.BASE_TYPE_APPLICATION);
-                        this.a.c(str, i);
-                        nk3Var.h = 0;
-                        return;
-                    }
-                    int i2 = nk3Var.h;
-                    nk3Var.h = i2 + 1;
-                    if (i2 < 3) {
-                        nk3Var.j();
-                        return;
-                    }
-                    ha4.a aVar = this.a;
-                    aVar.onFail(new IOException("request fail : " + str));
-                    nk3Var.h = 0;
-                    return;
-                }
-                this.a.c(str, i);
-                nk3Var.h = 0;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            ca4.g().getRequest().url(uz1.v(k())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(fm2.q().a()).build().executeAsync(new c(this));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: d */
-    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-        InterceptResult invokeLIL;
-        String string;
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
-            if (response == null || response.body() == null) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!zi3.E(getAgent())) {
+                zi3.L(getAgent(), null, new a(this));
+                return false;
             }
-            bk3 l = bk3.l();
-            if (TextUtils.equals(response.headers().get("Bdtls"), "recovery")) {
-                l.m().s(0);
-                return "recovery";
-            }
-            if (l.k()) {
-                string = l.d.g(response.body().bytes());
-                if (vj3.a) {
-                    Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
-                }
-            } else {
-                string = response.body().string();
-            }
-            b(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
-            return string;
+            l();
+            return false;
         }
-        return (String) invokeLIL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.ha4.a
-    public void onFail(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (vj3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
-            }
-            if (a()) {
-                this.a.onFail(exc);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ha4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a()) {
-            this.a.onStart();
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,176 +1,216 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public final class y79 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1000;
-    public static boolean b = true;
+public class y79 extends InputStream {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
+    public InputStream a;
+    public z79 b;
+    public long c;
+    public boolean d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948283214, "Lcom/baidu/tieba/y79;")) == null) {
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283214, "Lcom/baidu/tieba/y79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948283214, "Lcom/baidu/tieba/y79;");
+                return;
+            }
+        }
+        e = y79.class.getName();
+    }
+
+    public y79(InputStream inputStream, z79 z79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, z79Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = 0L;
+        this.d = false;
+        this.a = inputStream;
+        this.b = z79Var;
+    }
+
+    @Override // java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return this.a.available();
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948283214, "Lcom/baidu/tieba/y79;");
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
-            c(2, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
-            c(5, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void c(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            if (!TextUtils.isEmpty(str2)) {
-                int length = str2.length();
-                int i2 = a;
-                if (length >= i2) {
-                    if (i == 1) {
-                        Log.v(str, str2.substring(0, i2));
-                    } else if (i == 2) {
-                        Log.d(str, str2.substring(0, i2));
-                    } else if (i == 3) {
-                        Log.i(str, str2.substring(0, i2));
-                    } else if (i == 4) {
-                        Log.w(str, str2.substring(0, i2));
-                    } else if (i == 5) {
-                        Log.e(str, str2.substring(0, i2));
-                    }
-                } else if (i == 1) {
-                    Log.v(str, str2);
-                } else if (i == 2) {
-                    Log.d(str, str2);
-                } else if (i == 3) {
-                    Log.i(str, str2);
-                } else if (i == 4) {
-                    Log.w(str, str2);
-                } else if (i != 5) {
-                    Log.d(str, str2);
-                } else {
-                    Log.e(str, str2);
-                }
-            }
-            if (th != null) {
-                String f = f(th);
-                if (TextUtils.isEmpty(f)) {
-                    return;
-                }
-                if (i == 1) {
-                    Log.v(str, f);
-                } else if (i == 2) {
-                    Log.d(str, f);
-                } else if (i == 3) {
-                    Log.i(str, f);
-                } else if (i == 4) {
-                    Log.w(str, f);
-                } else if (i != 5) {
-                    Log.d(str, str2);
-                } else {
-                    Log.e(str, f);
-                }
-            }
-        }
-    }
-
-    public static void d(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
-            c(2, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
-            c(4, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static String f(Throwable th) {
-        InterceptResult invokeL;
-        PrintWriter printWriter;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, th)) != null) {
-            return (String) invokeL.objValue;
-        }
-        StringWriter stringWriter = null;
+        this.d = true;
         try {
-            StringWriter stringWriter2 = new StringWriter();
             try {
-                printWriter = new PrintWriter(stringWriter2);
-                try {
-                    th.printStackTrace(printWriter);
-                    printWriter.flush();
-                    stringWriter2.flush();
-                    String stringWriter3 = stringWriter2.toString();
-                    try {
-                        stringWriter2.close();
-                    } catch (Throwable th2) {
-                        th2.printStackTrace();
-                    }
-                    printWriter.close();
-                    return stringWriter3;
-                } catch (Throwable th3) {
-                    th = th3;
-                    stringWriter = stringWriter2;
-                    try {
-                        th.printStackTrace();
-                        return "";
-                    } finally {
-                        if (stringWriter != null) {
-                            try {
-                                stringWriter.close();
-                            } catch (Throwable th4) {
-                                th4.printStackTrace();
-                            }
-                        }
-                        if (printWriter != null) {
-                            printWriter.close();
-                        }
-                    }
+                if (this.a.read() == -1) {
+                    this.b.onComplete(this.c);
+                } else {
+                    this.b.a(this.c);
                 }
-            } catch (Throwable th5) {
-                th = th5;
-                printWriter = null;
+                this.a.close();
+            } catch (Exception unused) {
+                this.a.close();
+            } catch (Throwable th) {
+                try {
+                    this.a.close();
+                } catch (Exception e2) {
+                    this.b.b(e2, this.c);
+                }
+                throw th;
             }
-        } catch (Throwable th6) {
-            th = th6;
-            printWriter = null;
+        } catch (Exception e3) {
+            this.b.b(e3, this.c);
         }
     }
 
-    public static void g(boolean z) {
+    @Override // java.io.InputStream
+    public int read(byte[] bArr) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            b = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            if (this.d) {
+                return -1;
+            }
+            try {
+                int read = this.a.read(bArr, 0, bArr.length);
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
         }
+        return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                try {
+                    this.a.reset();
+                } catch (IOException e2) {
+                    this.b.b(e2, this.c);
+                    throw e2;
+                }
+            }
+        }
+    }
+
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            long skip = this.a.skip(j);
+            this.c += skip;
+            return skip;
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (this.d) {
+                return -1;
+            }
+            try {
+                int read = this.a.read(bArr, i, i2);
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
+        }
+        return invokeLII.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d) {
+                return -1;
+            }
+            try {
+                int read = this.a.read();
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
+        }
+        return invokeV.intValue;
     }
 }

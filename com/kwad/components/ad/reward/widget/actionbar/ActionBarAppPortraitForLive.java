@@ -101,7 +101,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     public void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0569a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
+            com.kwad.components.core.c.a.a.a(new a.C0574a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;
@@ -141,8 +141,8 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0477, this);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091143);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d047b, this);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091161);
         }
     }
 

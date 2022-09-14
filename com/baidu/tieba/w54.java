@@ -1,43 +1,61 @@
 package com.baidu.tieba;
 
-import android.animation.TypeEvaluator;
-import com.baidu.mapapi.model.LatLng;
+import android.text.TextUtils;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.oz3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class w54 implements TypeEvaluator<LatLng> {
+public class w54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public w54() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221555, "Lcom/baidu/tieba/w54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948221555, "Lcom/baidu/tieba/w54;");
+                return;
             }
         }
+        boolean z = ij1.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
-        InterceptResult invokeCommon;
+    public static PathType a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
-            double d = latLng.latitude;
-            double d2 = f;
-            double d3 = latLng.longitude;
-            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return PathType.ERROR;
+            }
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                return PathType.RELATIVE;
+            }
+            return PathType.NETWORK;
         }
-        return (LatLng) invokeCommon.objValue;
+        return (PathType) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        File h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            y23 q = x23.K().q();
+            if (q.I() && q.k0() != null && (h = oz3.d.h(q.getAppId(), q.k0())) != null && h.exists()) {
+                return "file://" + h.getAbsolutePath();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 }

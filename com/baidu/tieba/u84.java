@@ -1,41 +1,60 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Color;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.HashSet;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class u84 {
+public class u84 extends t84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle a(@NonNull r84 r84Var, @Nullable Bundle bundle, String... strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, r84Var, bundle, strArr)) == null) {
-            if (bundle == null) {
-                bundle = new Bundle();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948164856, "Lcom/baidu/tieba/u84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (bundle.getLong("timestamp", -1L) < 0) {
-                bundle.putLong("timestamp", System.currentTimeMillis());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948164856, "Lcom/baidu/tieba/u84;");
+                return;
             }
-            return r84Var.m(bundle, new HashSet(Arrays.asList(strArr)));
         }
-        return (Bundle) invokeLLL.objValue;
+        g = Color.parseColor("#26c56c");
     }
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle b(@NonNull r84 r84Var, @NonNull String... strArr) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u84(BaiduMap baiduMap) {
+        super(baiduMap);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, r84Var, strArr)) == null) ? a(r84Var, null, strArr) : (Bundle) invokeLL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((BaiduMap) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.t84
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? g : invokeV.intValue;
     }
 }

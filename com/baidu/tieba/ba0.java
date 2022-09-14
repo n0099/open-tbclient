@@ -1,215 +1,160 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.MarginLayoutParamsCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.WeakHashMap;
 /* loaded from: classes3.dex */
-public class ba0 implements z90 {
+public final class ba0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x90 a;
-        public final /* synthetic */ Object b;
-
-        public a(ba0 ba0Var, x90 x90Var, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ba0Var, x90Var, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x90Var;
-            this.b = obj;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.call(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x90 a;
-        public final /* synthetic */ Object b;
-
-        public b(ba0 ba0Var, x90 x90Var, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ba0Var, x90Var, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x90Var;
-            this.b = obj;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.call(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x90 a;
-        public final /* synthetic */ Object b;
-
-        public c(ba0 ba0Var, x90 x90Var, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ba0Var, x90Var, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x90Var;
-            this.b = obj;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.call(this.b);
-            }
-        }
-    }
-
-    public ba0() {
+    public static int a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Handler(Looper.getMainLooper());
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? b(view2, false) : invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.z90
-    public void a(int i, Object obj, x90 x90Var) {
+    public static int b(View view2, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, obj, x90Var) == null) {
-            if (i == 2) {
-                if (b()) {
-                    x90Var.call(obj);
-                } else {
-                    this.a.post(new a(this, x90Var, obj));
-                }
-            } else if (i != 3) {
-                if (i != 4) {
-                    x90Var.call(obj);
-                } else {
-                    ha0.a(new c(this, x90Var, obj));
-                }
-            } else if (b()) {
-                ha0.a(new b(this, x90Var, obj));
-            } else {
-                x90Var.call(obj);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
+            if (view2 == null) {
+                return 0;
             }
+            return n(view2) ? z ? view2.getLeft() + g(view2) : view2.getLeft() : z ? view2.getRight() - g(view2) : view2.getRight();
         }
+        return invokeLZ.intValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public static int c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return MarginLayoutParamsCompat.getMarginEnd((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
+        }
+        return invokeL.intValue;
     }
 
-    public synchronized void c(WeakHashMap<Object, List<y90>> weakHashMap, Object obj) {
+    public static int d(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, weakHashMap, obj) == null) {
-            synchronized (this) {
-                for (Map.Entry<Object, List<y90>> entry : weakHashMap.entrySet()) {
-                    if (entry != null && entry.getValue() != null) {
-                        for (y90 y90Var : entry.getValue()) {
-                            if (y90Var.b(obj)) {
-                                y90Var.call(obj);
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
             }
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            return MarginLayoutParamsCompat.getMarginStart(marginLayoutParams) + MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
         }
+        return invokeL.intValue;
     }
 
-    public synchronized void d(WeakHashMap<Object, List<y90>> weakHashMap, Object obj, Class<?> cls, int i, x90 x90Var) {
+    public static int e(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{weakHashMap, obj, cls, Integer.valueOf(i), x90Var}) == null) {
-            synchronized (this) {
-                List<y90> list = weakHashMap.containsKey(obj) ? weakHashMap.get(obj) : null;
-                if (list == null) {
-                    list = new ArrayList<>();
-                    weakHashMap.put(obj, list);
-                }
-                list.add(new y90(i, cls, x90Var, this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
             }
+            return MarginLayoutParamsCompat.getMarginStart((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
         }
+        return invokeL.intValue;
     }
 
-    public void e(WeakHashMap<Object, List<y90>> weakHashMap, Object obj) {
+    public static int f(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, weakHashMap, obj) == null) {
-            List<y90> remove = weakHashMap.remove(obj);
-            if (!ma0.c(remove)) {
-                for (y90 y90Var : remove) {
-                    y90Var.a();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
             }
-            remove.clear();
+            return view2.getMeasuredWidth();
         }
+        return invokeL.intValue;
+    }
+
+    public static int g(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return ViewCompat.getPaddingEnd(view2);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getPaddingLeft() + view2.getPaddingRight();
+        }
+        return invokeL.intValue;
+    }
+
+    public static int i(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return ViewCompat.getPaddingStart(view2);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int j(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) ? k(view2, false) : invokeL.intValue;
+    }
+
+    public static int k(View view2, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, view2, z)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return n(view2) ? z ? view2.getRight() - i(view2) : view2.getRight() : z ? view2.getLeft() + i(view2) : view2.getLeft();
+        }
+        return invokeLZ.intValue;
+    }
+
+    public static int l(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getWidth();
+        }
+        return invokeL.intValue;
+    }
+
+    public static int m(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, view2)) == null) ? l(view2) + d(view2) : invokeL.intValue;
+    }
+
+    public static boolean n(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
     }
 }

@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class zd implements nd {
+public class zd implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<Object> a;
+    public Double a;
 
-    public zd(SparseArray<Object> sparseArray) {
+    public zd(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sparseArray};
+            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,13 +27,55 @@ public class zd implements nd {
                 return;
             }
         }
-        this.a = sparseArray;
+        this.a = Double.valueOf(d);
     }
 
-    @Override // com.baidu.tieba.nd
-    public Object a(de deVar) {
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) ? ce.f(this.a, deVar) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            Class<?> a = reVar.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        if (a == Boolean.class || a == Boolean.TYPE) {
+                                            return Boolean.valueOf(this.a.byteValue() == 0);
+                                        } else if (a == String.class) {
+                                            return String.valueOf(this.a);
+                                        } else {
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return wi.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                    }
+                                    return Character.valueOf((char) this.a.intValue());
+                                }
+                                return Double.valueOf(this.a.doubleValue());
+                            }
+                            return Float.valueOf(this.a.floatValue());
+                        }
+                        return Long.valueOf(this.a.longValue());
+                    }
+                    return Integer.valueOf(this.a.intValue());
+                }
+                return Short.valueOf(this.a.shortValue());
+            }
+            return Byte.valueOf(this.a.byteValue());
+        }
+        return invokeL.objValue;
     }
 }

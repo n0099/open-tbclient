@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.magicmusic.videoreverse;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.bg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,7 +122,7 @@ public class VideoReverseManager {
                 WeakReference<OnTimeReverseListener> weakReference = new WeakReference<>(onTimeReverseListener);
                 try {
                 } catch (Exception e) {
-                    yb9.g(e);
+                    bg9.g(e);
                     OnTimeReverseListener onTimeReverseListener2 = weakReference.get();
                     if (onTimeReverseListener2 != null) {
                         String str2 = z ? "MediaCodec点击倒放失败" : "MediaCodec预倒放失败";

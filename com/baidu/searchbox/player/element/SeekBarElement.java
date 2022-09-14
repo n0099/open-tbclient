@@ -79,7 +79,7 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             BdPlayerSeekBar bdPlayerSeekBar = new BdPlayerSeekBar(context, null, 0, 6, null);
-            bdPlayerSeekBar.setId(R.id.obfuscated_res_0x7f090361);
+            bdPlayerSeekBar.setId(R.id.obfuscated_res_0x7f09036c);
             Unit unit = Unit.INSTANCE;
             this.seekBar = bdPlayerSeekBar;
             if (bdPlayerSeekBar == null) {

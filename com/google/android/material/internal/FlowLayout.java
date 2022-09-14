@@ -13,12 +13,12 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class FlowLayout extends ViewGroup {
@@ -65,7 +65,7 @@ public class FlowLayout extends ViewGroup {
     private void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040202, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f040510, R.attr.obfuscated_res_0x7f04075f}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.FlowLayout, 0, 0);
             this.lineSpacing = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.itemSpacing = obtainStyledAttributes.getDimensionPixelSize(2, 0);
             obtainStyledAttributes.recycle();
@@ -94,7 +94,7 @@ public class FlowLayout extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f091c42);
+            Object tag = view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c90);
             if (tag instanceof Integer) {
                 return ((Integer) tag).intValue();
             }
@@ -130,7 +130,7 @@ public class FlowLayout extends ViewGroup {
             for (int i10 = 0; i10 < getChildCount(); i10++) {
                 View childAt = getChildAt(i10);
                 if (childAt.getVisibility() == 8) {
-                    childAt.setTag(R.id.obfuscated_res_0x7f091c42, -1);
+                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c90, -1);
                 } else {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -147,7 +147,7 @@ public class FlowLayout extends ViewGroup {
                         this.rowCount++;
                         i8 = paddingRight;
                     }
-                    childAt.setTag(R.id.obfuscated_res_0x7f091c42, Integer.valueOf(this.rowCount - 1));
+                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c90, Integer.valueOf(this.rowCount - 1));
                     int i11 = i8 + i6;
                     int measuredWidth2 = childAt.getMeasuredWidth() + i11;
                     int measuredHeight = childAt.getMeasuredHeight() + i9;

@@ -1,87 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f9 {
+public class f9 implements e9 {
     public static /* synthetic */ Interceptable $ic;
-    public static f9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Resources a;
+    public final SharedPreferences a;
+    public Context b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302970, "Lcom/baidu/tieba/f9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448302970, "Lcom/baidu/tieba/f9;");
-        }
-    }
-
-    public f9() {
+    public f9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.b = context;
+        this.a = KVStorageFactory.getSharedPreferences("abtesting", 0);
     }
 
-    public static f9 a() {
+    @Override // com.baidu.tieba.e9
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (f9.class) {
-                    if (b == null) {
-                        b = new f9();
-                    }
-                }
-            }
-            return b;
-        }
-        return (f9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("switch_config", "") : (String) invokeV.objValue;
     }
 
-    public synchronized void b(Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, resources) == null) {
-            synchronized (this) {
-                this.a = resources;
-            }
-        }
-    }
-
-    public synchronized Resources getResources() {
+    @Override // com.baidu.tieba.e9
+    public String e() {
         InterceptResult invokeV;
-        Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                resources = this.a;
-            }
-            return resources;
-        }
-        return (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("conf_version", "0") : (String) invokeV.objValue;
     }
 }

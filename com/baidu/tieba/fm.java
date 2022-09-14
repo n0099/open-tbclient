@@ -1,135 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.DegradeData;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.bean.ResultData;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
-import com.baidu.searchbox.pms.download.DownloadOptions;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.utils.DebugUtils;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.ubc.UBCManager;
+import java.util.AbstractMap;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fm extends DefaultPackageCallback {
-    public static /* synthetic */ Interceptable $ic;
+public class fm {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "11446";
+    public static String b = "type";
+    public static String c = "value";
+    public static String d = "ext";
+    public static String e = "suc";
+    public static String f = "fail";
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
-    public hm b;
 
-    public fm(DefaultDownloadCallback defaultDownloadCallback) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304582, "Lcom/baidu/tieba/fm;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = defaultDownloadCallback;
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onDegradeData(DegradeData degradeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
-            super.onDegradeData(degradeData);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448304582, "Lcom/baidu/tieba/fm;");
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onFetchError(ErrorInfo errorInfo) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) || errorInfo == null) {
-            return;
-        }
-        BdLog.e(errorInfo.errorMsg);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.isEmpty(str) ? "-" : str : (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onResultData(ResultData resultData) {
+    public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) || resultData == null) {
-            return;
-        }
-        DebugUtils.log(resultData);
-        ArrayList<PackageInfo> arrayList = new ArrayList();
-        arrayList.addAll(resultData.addList);
-        arrayList.addAll(resultData.updateList);
-        if (!arrayList.isEmpty()) {
-            for (PackageInfo packageInfo : arrayList) {
-                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                    DownloadOptions downloadOptions = new DownloadOptions();
-                    downloadOptions.fileDir = gm.a(packageInfo.name);
-                    PmsManager.getInstance().download(packageInfo, downloadOptions, new em(this.a));
-                }
-            }
-        }
-        arrayList.clear();
-        arrayList.addAll(resultData.configChangeList);
-        arrayList.addAll(resultData.filterList);
-        if (!arrayList.isEmpty()) {
-            for (PackageInfo packageInfo2 : arrayList) {
-                if (packageInfo2 != null && !StringUtils.isNull(packageInfo2.name)) {
-                    if (!packageInfo2.name.contains(".so")) {
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo2.name;
-                        resHashMap.put(str, gm.a(str));
-                    } else if (im.a(BdBaseApplication.getInst().getContext(), gm.a(packageInfo2.name))) {
-                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                        String str2 = packageInfo2.name;
-                        resHashMap2.put(str2, gm.a(str2));
-                        hm hmVar = this.b;
-                        if (hmVar != null) {
-                            hmVar.onSoFileLoaded(packageInfo2.name);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, f);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
                         }
                     }
                 }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-        }
-        if (resultData.invalidList.isEmpty()) {
-            return;
-        }
-        BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
-        if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
-            dm dmVar = new dm();
-            dmVar.setKey("key_res_del");
-            dmVar.execute(resultData.invalidList);
         }
     }
 
-    public fm(DefaultDownloadCallback defaultDownloadCallback, hm hmVar) {
+    public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback, hmVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, e);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
+                        }
+                    }
+                }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
-        this.a = defaultDownloadCallback;
-        this.b = hmVar;
+    }
+
+    public static void d(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+        }
     }
 }

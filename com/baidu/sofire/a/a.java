@@ -57,11 +57,11 @@ public class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0158a extends Callback {
+    public static class C0157a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0158a() {
+        public C0157a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,7 +247,7 @@ public class a {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(13:7|8|9|10|11|12|(1:14)(1:33)|15|(4:(8:17|(1:19)|21|22|23|24|25|27)(1:32)|24|25|27)|20|21|22|23) */
+    /* JADX WARN: Can't wrap try/catch for region: R(16:7|8|9|10|11|12|(1:14)(1:33)|15|(8:17|(1:19)|21|22|23|24|25|27)(1:32)|20|21|22|23|24|25|27) */
     @SuppressLint({"WrongConstant"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -327,7 +327,7 @@ public class a {
                         break;
                     }
                 }
-                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0158a(), new Class[]{Context.class, Intent.class}, context, intent);
+                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0157a(), new Class[]{Context.class, Intent.class}, context, intent);
             } catch (Throwable unused) {
                 int i2 = b.a;
             }

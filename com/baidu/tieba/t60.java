@@ -1,134 +1,304 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.CommonUtils;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.android.imsdk.upload.action.track.Connection;
-import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ProbeTB;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class t60 {
+public class t60 implements p60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpURLConnection a;
+    public int b;
 
-    public t60() {
+    public t60(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpURLConnection};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = 4;
+        this.a = httpURLConnection;
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (httpURLConnection = this.a) == null) {
+            return;
+        }
+        httpURLConnection.disconnect();
+    }
+
+    @Override // com.baidu.tieba.p60
+    public void disconnect() {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (httpURLConnection = this.a) == null) {
+            return;
+        }
+        try {
+            httpURLConnection.disconnect();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
-    public static IMPushPb.Action b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.p60
+    public int getCode() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWCONNECTION).setNewConnection(IMPushPb.NewConnection.newBuilder().setAliasId(601110L).setConnectErrorCode(jSONObject.optString("con_err_code", "")).setTokenBegin(jSONObject.optLong("token_begin", 0L)).setTokenEnd(jSONObject.optLong("token_end", 0L)).setDnsBegin(jSONObject.optLong("dns_begin", 0L)).setDnsEnd(jSONObject.optLong("dns_end", 0L)).setSocketBegin(jSONObject.optLong("socket_begin", 0L)).setSocketEnd(jSONObject.optLong("socket_end", 0L)).setLcpLoginBegin(jSONObject.optLong("login_begin", 0L)).setLcpLoginEnd(jSONObject.optLong("login_end", 0L)).setConnectSource(jSONObject.optString("source", "")).setConnectState(jSONObject.optLong("connect_state", -1L)).setEndTime(jSONObject.optLong("flow_end_time", 0L)).setStartTime(jSONObject.optLong("flow_start_time", 0L)).setRetry(jSONObject.optInt("retry_cout", 0)).setExt(jSONObject.toString()).setNetInfo(IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).build()).build()).build() : (IMPushPb.Action) invokeL.objValue;
-    }
-
-    public static IMPushPb.Action d(String str, String str2, long j, long j2, long j3, String str3, long j4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
-    }
-
-    public static IMPushPb.Action e(long j, long j2, String str, long j3, long j4, String str2, long j5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
-    }
-
-    public static void f(Context context, Connection connection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, connection) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                HashSet hashSet = new HashSet(u60.b(context));
-                hashSet.add(Base64.encodeToString(e(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
-                u60.k(context, hashSet);
-            } catch (Exception e) {
-                w70.c("TrackPbGenerator", "putIMConnectionToActions :", e);
+                return this.a.getResponseCode();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
             }
         }
+        return invokeV.intValue;
     }
 
-    public static void g(Context context, Request request) {
+    @Override // com.baidu.tieba.p60
+    public Map<String, List<String>> getHeaders() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, request) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getHeaderFields() : (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p60
+    public InputStream getInputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                HashSet hashSet = new HashSet(u60.d(context));
-                hashSet.add(Base64.encodeToString(d(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
-                u60.o(context, hashSet);
-            } catch (Exception e) {
-                w70.c("TrackPbGenerator", "putIMRequestToActions :", e);
-            }
-        }
-    }
-
-    public final List<String> a(String str, List<v60> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list != null && !TextUtils.isEmpty(str) && list.size() > 0) {
-                w70.a("TrackPbGenerator", "flow upload details list");
-                for (v60 v60Var : list) {
-                    if (v60Var != null) {
-                        String a = v60Var.a();
-                        if (!TextUtils.isEmpty(a) && a.length() > 0) {
-                            arrayList.add(a);
-                        }
-                    }
+                InputStream inputStream = this.a.getInputStream();
+                if (inputStream == null) {
+                    disconnect();
+                    return inputStream;
                 }
-                w70.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
+                return new BufferedInputStream(new a(this, inputStream));
+            } catch (IOException e) {
+                disconnect();
+                throw e;
             }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        return (InputStream) invokeV.objValue;
     }
 
-    public byte[] c(Context context, String str, List<v60> list, int i) {
-        InterceptResult invokeLLLI;
+    @Override // com.baidu.tieba.p60
+    public String getMessage() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, list, i)) == null) {
-            list.addAll(h70.j(context).g(str, i));
-            List<String> a = a(str, list);
-            if (a != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return this.a.getResponseMessage();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p60
+    public InputStream q() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            InputStream errorStream = getCode() >= 400 ? this.a.getErrorStream() : null;
+            return errorStream != null ? new a(this, errorStream) : errorStream;
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p60
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.p60
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends InputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public InputStream a;
+        public final /* synthetic */ t60 b;
+
+        public a(t60 t60Var, InputStream inputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t60Var, inputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t60Var;
+            this.a = inputStream;
+        }
+
+        public final IOException a(IOException iOException) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iOException)) == null) {
+                this.b.disconnect();
+                return TextUtils.isEmpty(iOException.getMessage()) ? new IOException(iOException.getClass().getName(), iOException) : iOException;
+            }
+            return (IOException) invokeL.objValue;
+        }
+
+        @Override // java.io.InputStream
+        public int available() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
-                    if (a.size() > 0) {
-                        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-                        if (a.size() > 0) {
-                            for (String str2 : a) {
-                                copyOnWriteArrayList.add(b(new JSONObject(str2)));
-                            }
-                        }
-                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, x70.e(context))).setSdkName("lcp").setSdkVersion(2280016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    return this.a.available();
+                } catch (IOException e) {
+                    throw a(e);
                 }
             }
-            return null;
+            return invokeV.intValue;
         }
-        return (byte[]) invokeLLLI.objValue;
+
+        @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                try {
+                    if (read() >= 0) {
+                        this.a.close();
+                        this.b.disconnect();
+                        return;
+                    }
+                    this.a.close();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void mark(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                synchronized (this) {
+                    this.a.mark(i);
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public boolean markSupported() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.markSupported() : invokeV.booleanValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                try {
+                    return this.a.read();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void reset() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                synchronized (this) {
+                    try {
+                        this.a.reset();
+                    } catch (IOException e) {
+                        throw a(e);
+                    }
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public long skip(long j) throws IOException {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                try {
+                    return this.a.skip(j);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeJ.longValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+                try {
+                    return read(bArr, 0, bArr.length);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr, int i, int i2) throws IOException {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
+                try {
+                    return this.a.read(bArr, i, i2);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeLII.intValue;
+        }
     }
 }

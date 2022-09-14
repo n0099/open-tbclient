@@ -1,8 +1,8 @@
 package com.faceunity;
 
 import android.content.Context;
-import com.baidu.tieba.gm;
-import com.baidu.tieba.ru8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.um;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,14 +36,14 @@ public class FaceUnityUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                String b = gm.b("v3.mp3");
+                String b = um.b("v3.mp3");
                 File file = new File(b);
                 if (file.exists() && file.isFile()) {
                     FileInputStream fileInputStream = new FileInputStream(b);
                     fileInputStream.close();
-                    faceunity.fuSetup(new byte[fileInputStream.available()], null, ru8.a());
+                    faceunity.fuSetup(new byte[fileInputStream.available()], null, iw8.a());
                 }
-                String b2 = gm.b("face_beautification.mp3");
+                String b2 = um.b("face_beautification.mp3");
                 File file2 = new File(b2);
                 if (file2.exists() && file2.isFile()) {
                     FileInputStream fileInputStream2 = new FileInputStream(b2);

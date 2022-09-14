@@ -3,11 +3,10 @@ package com.baidu.tbadk.dynamicres.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.kh5;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.uj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +40,7 @@ public class AgreeMaterial extends OrmObject {
         public String tid;
 
         /* loaded from: classes3.dex */
-        public class a implements kh5.a {
+        public class a implements uj5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -64,7 +63,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.kh5.a
+            @Override // com.baidu.tieba.uj5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -78,7 +77,7 @@ public class AgreeMaterial extends OrmObject {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements kh5.a {
+        public class b implements uj5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -101,7 +100,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.kh5.a
+            @Override // com.baidu.tieba.uj5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -138,7 +137,7 @@ public class AgreeMaterial extends OrmObject {
                 Data data = new Data();
                 data.dayRes = jSONObject.optString("resource_day");
                 data.nightRes = jSONObject.optString("resource_night");
-                data.startTime = jSONObject.optString(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+                data.startTime = jSONObject.optString("start_time");
                 data.endTime = jSONObject.optString("end_time");
                 data.fid = jSONObject.optString("fid");
                 data.tid = jSONObject.optString("tid");
@@ -149,12 +148,12 @@ public class AgreeMaterial extends OrmObject {
             return (Data) invokeL.objValue;
         }
 
-        public final void A(String str, kh5.a aVar) {
+        public final void A(String str, uj5.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || StringUtils.isNull(str)) {
                 return;
             }
-            new kh5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
+            new uj5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:30:0x008c, code lost:
@@ -174,8 +173,8 @@ public class AgreeMaterial extends OrmObject {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                long g = pg.g(this.startTime, 0L);
-                long g2 = pg.g(this.endTime, 0L);
+                long g = dh.g(this.startTime, 0L);
+                long g2 = dh.g(this.endTime, 0L);
                 if (currentTimeMillis >= g && currentTimeMillis < g2 && !StringUtils.isNull(this.dayDirName)) {
                     if (AgreeMaterial.A(this.dayDirName + str)) {
                         boolean z = false;

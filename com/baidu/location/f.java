@@ -12,7 +12,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.location.e.k;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,7 +76,7 @@ public class f extends Service {
             try {
                 File file2 = new File(k.j() + "/grtcfrsa.dat");
                 if (file2.exists()) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file2, rw.c);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
                     randomAccessFile.seek(200L);
                     if (randomAccessFile.readBoolean() && randomAccessFile.readBoolean() && (readInt = randomAccessFile.readInt()) != 0) {
                         byte[] bArr = new byte[readInt];

@@ -1,286 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cloudbase.download.exception.DownloadException;
-import com.baidu.tieba.d;
-import com.baidu.tieba.e;
-import com.baidu.tieba.r00;
+import com.baidu.tieba.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.Executor;
+import java.io.RandomAccessFile;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class m implements r00, d.a, e.a {
+public class m extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n00 a;
-    public g b;
-    public Executor c;
-    public String d;
-    public p e;
-    public r00.a f;
-    public int g;
-    public i h;
-    public d i;
-    public List<e> j;
 
-    public m(n00 n00Var, g gVar, Executor executor, String str, p pVar, r00.a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(j jVar, l lVar, f.a aVar) {
+        super(jVar, lVar, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n00Var, gVar, executor, str, pVar, aVar};
+            Object[] objArr = {jVar, lVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((j) objArr2[0], (l) objArr2[1], (f.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = n00Var;
-        this.b = gVar;
-        this.c = executor;
-        this.d = str;
-        this.e = pVar;
-        this.f = aVar;
-        this.h = new i(n00Var.b().toString(), this.a.c(), this.a.a());
-        this.j = new LinkedList();
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.p
+    public RandomAccessFile a(File file, String str, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i iVar = this.h;
-            File file = new File(iVar.b, iVar.a);
-            if (file.exists() && file.isFile()) {
-                file.delete();
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(0L);
+            return randomAccessFile;
         }
+        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    public void b(long j, long j2) {
+    @Override // com.baidu.tieba.p
+    public Map<String, String> b(l lVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            g gVar = this.b;
-            gVar.b.n(j);
-            gVar.b.o(j2);
-            gVar.b.p((int) ((100 * j) / j2));
-            gVar.b.r(104);
-            gVar.a.a(gVar.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
+            return null;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public void c(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
-            if (((h) this.i).d()) {
-                e();
-                return;
-            }
-            if (((h) this.i).c == 106) {
-                h();
-                return;
-            }
-            this.g = 108;
-            g gVar = this.b;
-            gVar.b.m(downloadException);
-            gVar.b.r(108);
-            gVar.a.a(gVar.b);
-            i();
-        }
-    }
-
-    @Override // com.baidu.tieba.r00
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d dVar = this.i;
-            if (dVar != null) {
-                ((h) dVar).c = 107;
-            }
-            Iterator<e> it = this.j.iterator();
-            while (it.hasNext()) {
-                ((o) it.next()).f = 107;
-            }
-            if (this.g != 104) {
-                g();
-            }
-        }
-    }
-
-    public void d(String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Iterator<e> it = this.j.iterator();
-            while (true) {
-                z = false;
-                boolean z2 = true;
-                if (!it.hasNext()) {
-                    z = true;
-                    break;
-                }
-                if (((o) it.next()).e != 105) {
-                    z2 = false;
-                    continue;
-                }
-                if (!z2) {
-                    break;
-                }
-            }
-            if (z) {
-                this.g = 105;
-                g gVar = this.b;
-                gVar.b.r(105);
-                gVar.b.q(str);
-                gVar.a.a(gVar.b);
-                i();
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a();
-            this.g = 107;
-            g gVar = this.b;
-            gVar.b.r(107);
-            gVar.a.a(gVar.b);
-            i();
-        }
-    }
-
-    public void f(DownloadException downloadException) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, downloadException) == null) {
-            Iterator<e> it = this.j.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = true;
-                    break;
-                } else if (((o) it.next()).m()) {
-                    z = false;
-                    break;
-                }
-            }
-            if (z) {
-                this.g = 108;
-                g gVar = this.b;
-                gVar.b.m(downloadException);
-                gVar.b.r(108);
-                gVar.a.a(gVar.b);
-                i();
-            }
-        }
-    }
-
-    public void g() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Iterator<e> it = this.j.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = true;
-                    break;
-                } else if (((o) it.next()).m()) {
-                    z = false;
-                    break;
-                }
-            }
-            if (z) {
-                a();
-                this.g = 107;
-                g gVar = this.b;
-                gVar.b.r(107);
-                gVar.a.a(gVar.b);
-                i();
-            }
-        }
-    }
-
-    public void h() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Iterator<e> it = this.j.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = true;
-                    break;
-                } else if (((o) it.next()).m()) {
-                    z = false;
-                    break;
-                }
-            }
-            if (z) {
-                this.g = 106;
-                g gVar = this.b;
-                gVar.b.r(106);
-                gVar.a.a(gVar.b);
-                i();
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f.a(this.d, this);
-        }
-    }
-
-    @Override // com.baidu.tieba.r00
-    public boolean isRunning() {
+    @Override // com.baidu.tieba.p
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = this.g;
-            return i == 101 || i == 102 || i == 103 || i == 104;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 200;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.r00
-    public void pause() {
+    @Override // com.baidu.tieba.p
+    public void j(l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            d dVar = this.i;
-            if (dVar != null) {
-                ((h) dVar).c = 106;
-            }
-            Iterator<e> it = this.j.iterator();
-            while (it.hasNext()) {
-                ((o) it.next()).f = 106;
-            }
-            if (this.g != 104) {
-                h();
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.r00
-    public void start() {
+    @Override // com.baidu.tieba.p
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.g = 101;
-            g gVar = this.b;
-            gVar.b.r(101);
-            gVar.b.a().h();
-            h hVar = new h(this.a.c(), this);
-            this.i = hVar;
-            this.c.execute(hVar);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? m.class.getSimpleName() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p
+    public void l(l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lVar) == null) {
         }
     }
 }

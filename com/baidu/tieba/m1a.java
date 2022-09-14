@@ -1,31 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes5.dex */
-public class m1a implements q3a {
+public final class m1a implements xw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsViewEventHandler a;
-    public u0a b;
-    public Activity c;
+    public final SequentialSubscription a;
 
-    public m1a(AbsViewEventHandler absViewEventHandler, u0a u0aVar, Activity activity, IYYPayResultView iYYPayResultView) {
+    public m1a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {absViewEventHandler, u0aVar, activity, iYYPayResultView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,28 +26,32 @@ public class m1a implements q3a {
                 return;
             }
         }
-        RLog.info("PayResultDialogListener", "create PayResultDialogListener");
-        this.a = absViewEventHandler;
-        this.b = u0aVar;
-        this.c = activity;
+        this.a = new SequentialSubscription();
     }
 
-    @Override // com.baidu.tieba.q3a
-    public void a(CancelType cancelType) {
+    public void a(xw9 xw9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
-            this.b.c(cancelType, this.a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, xw9Var) == null) {
+            if (xw9Var != null) {
+                this.a.update(xw9Var);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
         }
     }
 
-    @Override // com.baidu.tieba.q3a
-    public boolean b(DialogInterface dialogInterface) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xw9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) {
-            return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xw9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
-        return invokeL.booleanValue;
     }
 }

@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
-import android.view.Window;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.ActivityUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.UUID;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class jd3 {
+public class jd3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,119 +38,82 @@ public final class jd3 {
                 return;
             }
         }
-        a = kh1.a;
+        c = ij1.a;
     }
 
-    public static void a(Activity activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jd3(v33 v33Var) {
+        super(v33Var, "/swanAPI/getSystemRiskInfo");
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
-            return;
-        }
-        Window window = activity.getWindow();
-        window.clearFlags(1024);
-        int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-        if (wz2.b) {
-            systemUiVisibility |= 5120;
-        }
-        window.getDecorView().setSystemUiVisibility(systemUiVisibility);
-    }
-
-    public static void b(Activity activity, Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null || dialog == null || dialog.getWindow() == null || dialog.getWindow().getDecorView() == null) {
-            return;
-        }
-        dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 5894;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
-    }
-
-    public static void e(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
-            return;
-        }
-        Window window = activity.getWindow();
-        window.setFlags(1024, 1024);
-        window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
-    }
-
-    public static void f(Activity activity, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
-            h(activity, intent, true);
-        }
-    }
-
-    public static boolean g(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) ? h(context, intent, false) : invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) ? i(context, intent, z, true) : invokeLLZ.booleanValue;
-    }
-
-    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f122f, 0).show();
-                    return false;
-                }
-                return false;
-            } catch (SecurityException e) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f122f, 0).show();
-                }
-                if (a) {
-                    Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void j(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
-            if (a) {
-                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
-            }
-            if (activity == null || activity.isDestroyed()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (Build.VERSION.SDK_INT >= 21) {
-                activity.finishAndRemoveTask();
-            } else {
-                activity.finish();
-            }
         }
+    }
+
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            vm1 h0 = fm2.h0();
+            JSONObject jSONObject = new JSONObject();
+            if (context == null) {
+                try {
+                    context = fm2.c();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            String str = "";
+            jSONObject.put(DpStatConstants.KEY_USER_ID, h0 == null ? "" : h0.h(context));
+            jSONObject.put("zid", h0 == null ? "" : fm2.G0().a(context));
+            jSONObject.put("idfa", "");
+            jSONObject.put("imei", sg3.r());
+            jSONObject.put("appkey", y23Var == null ? "" : y23Var.O());
+            jSONObject.put("os", "android");
+            jSONObject.put("osVersion", Build.VERSION.RELEASE);
+            jSONObject.put("hostName", context.getPackageName());
+            jSONObject.put("hostVersion", sg3.D());
+            jSONObject.put("model", Build.MODEL);
+            jSONObject.put("uuid", kj4.b(context).a());
+            jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+            if (h0 != null) {
+                str = h0.i(context);
+            }
+            jSONObject.put("cuid", str);
+            if (c) {
+                Log.d("GetSystemRiskInfoAction", jSONObject.toString());
+            }
+            String b = tj4.b(UUID.randomUUID().toString().getBytes(), false);
+            String a = qf3.a(b, jSONObject.toString(), UBCEncryptor.TRANSFORMATION, "4c6579b50ff05adb");
+            String d = qf3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
+            if (c) {
+                Log.d("GetSystemRiskInfoAction", "aesKey=" + b + ", aesValue=" + a + ", rsaKey=" + d);
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("key", d);
+                jSONObject3.put("value", a);
+                jSONObject2.put("content", jSONObject3);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -7,10 +7,10 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.trusts.zone.TrustSubject;
-import com.baidu.tieba.g40;
-import com.baidu.tieba.p30;
-import com.baidu.tieba.s40;
-import com.baidu.tieba.y30;
+import com.baidu.tieba.a50;
+import com.baidu.tieba.i50;
+import com.baidu.tieba.r40;
+import com.baidu.tieba.u50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public class TrustSubjectManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g40.a a;
+    public i50.a a;
     public Context b;
     public TrustSubject c;
 
@@ -106,7 +106,7 @@ public class TrustSubjectManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
-        public g40 b;
+        public i50 b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -332,145 +332,102 @@ public class TrustSubjectManager {
         }
     }
 
-    public final y30 a() {
+    public final a50 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? p30.a(s40.a, s40.b) : (y30) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? r40.a(u50.a, u50.b) : (a50) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x0178, code lost:
-        r7 = r12;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x016b A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x011c A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x011e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x00cf A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final d b(y30 y30Var) {
+    public final d b(a50 a50Var) {
         InterceptResult invokeL;
-        TrustSubject trustSubject;
         boolean z;
+        TrustSubject trustSubject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y30Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a50Var)) == null) {
             d dVar = new d();
-            TrustSubject trustSubject2 = this.c;
-            if (trustSubject2.r()) {
-                HashMap hashMap = new HashMap();
-                hashMap.put(trustSubject2.a, trustSubject2);
-                HashSet hashSet = new HashSet();
-                long j = 3;
-                long j2 = 1;
-                if (trustSubject2.j().b(3L) == 1) {
-                    hashSet.add(trustSubject2);
+            List<ResolveInfo> queryBroadcastReceivers = this.b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.HELIOS"), 0);
+            ArrayList arrayList = new ArrayList();
+            HashSet hashSet = new HashSet();
+            ArrayList arrayList2 = new ArrayList();
+            if (queryBroadcastReceivers != null) {
+                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                    if (resolveInfo.activityInfo.packageName.equals(this.c.a)) {
+                        trustSubject = this.c;
+                    } else {
+                        TrustSubject trustSubject2 = new TrustSubject(resolveInfo.activityInfo.packageName, this.b, this.a);
+                        trustSubject2.v();
+                        trustSubject = trustSubject2;
+                    }
+                    arrayList2.add(trustSubject);
+                    boolean u = trustSubject.u();
+                    if (!u || trustSubject.a().a(3L) == 0) {
+                        trustSubject.d(a50Var);
+                    }
+                    if (trustSubject.a().a(3L) == 1) {
+                        hashSet.add(trustSubject);
+                        if (!u || trustSubject.a().a(384L) == 0) {
+                            trustSubject.g();
+                        }
+                        if (trustSubject.a().a(384L) == 128) {
+                            arrayList.add(trustSubject);
+                        }
+                    }
                 }
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(trustSubject2);
-                TrustSubject trustSubject3 = trustSubject2;
-                TrustSubject trustSubject4 = null;
-                while (true) {
-                    if (trustSubject4 != null && trustSubject4.equals(trustSubject3)) {
-                        break;
-                    }
-                    e a2 = e.a(trustSubject3);
-                    List<String> b2 = a2 != null ? a2.b() : null;
-                    if (b2 == null || hashMap.keySet().containsAll(b2)) {
-                        break;
-                    }
-                    ArrayList arrayList2 = new ArrayList();
-                    Iterator<String> it = b2.iterator();
-                    while (true) {
-                        boolean z2 = true;
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        String next = it.next();
-                        if (!hashMap.containsKey(next)) {
-                            TrustSubject trustSubject5 = trustSubject2.a.equals(next) ? trustSubject2 : new TrustSubject(next, this.b, this.a);
-                            hashMap.put(next, trustSubject5);
-                            if (trustSubject5.s()) {
-                                trustSubject5.l();
-                                arrayList.add(trustSubject5);
-                                boolean q = trustSubject5.q();
-                                if (!q || trustSubject5.j().b(j) == 0) {
-                                    trustSubject5.d(y30Var);
-                                }
-                                if (trustSubject5.j().b(j) == 1) {
-                                    hashSet.add(trustSubject5);
-                                    if (q && trustSubject5.j().b(384L) != 0) {
-                                        z2 = false;
-                                    }
-                                    if (z2) {
-                                        trustSubject5.x();
-                                    }
-                                    if (trustSubject5.j().b(384L) == 128) {
-                                        arrayList2.add(trustSubject5);
-                                    }
-                                    j2 = 1;
-                                    j = 3;
-                                } else {
-                                    j2 = 1;
-                                }
-                            } else {
-                                j2 = 1;
-                            }
-                        }
-                    }
-                    long j3 = j2;
-                    Collections.sort(arrayList2, TrustSubject.h);
-                    Iterator it2 = arrayList2.iterator();
-                    while (true) {
-                        if (!it2.hasNext()) {
-                            break;
-                        }
-                        trustSubject = (TrustSubject) it2.next();
-                        if (trustSubject.q()) {
-                            long b3 = trustSubject.j().b(48L);
-                            if (b3 != 0) {
-                                if (b3 == 32) {
-                                    continue;
-                                } else if (b3 != 16 || trustSubject.j().b(64L) == 64) {
-                                    z = false;
-                                    if (z || trustSubject.v()) {
-                                        if (!trustSubject.p()) {
-                                            if (trustSubject.n() > trustSubject3.n()) {
-                                            }
-                                        }
-                                    }
+            }
+            TrustSubject trustSubject3 = null;
+            Collections.sort(arrayList, TrustSubject.h);
+            Iterator it = arrayList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                TrustSubject trustSubject4 = (TrustSubject) it.next();
+                if (trustSubject4.u()) {
+                    long a2 = trustSubject4.a().a(48L);
+                    if (a2 != 0) {
+                        if (a2 == 32) {
+                            continue;
+                        } else if (a2 != 16 || trustSubject4.a().a(64L) == 64) {
+                            z = false;
+                            if (z || trustSubject4.h()) {
+                                if (!trustSubject4.p()) {
+                                    trustSubject3 = trustSubject4;
+                                    break;
                                 }
                             }
                         }
-                        z = true;
-                        if (z) {
-                        }
-                        if (!trustSubject.p()) {
-                        }
                     }
-                    trustSubject4 = trustSubject3;
-                    j2 = j3;
-                    trustSubject3 = trustSubject;
-                    j = 3;
                 }
-                for (TrustSubject trustSubject6 : arrayList) {
-                    if (!trustSubject6.equals(trustSubject3)) {
-                        trustSubject6.h();
-                        trustSubject6.i();
-                    }
-                    trustSubject6.w();
-                    trustSubject6.g();
-                    trustSubject6.u();
+                z = true;
+                if (z) {
                 }
-                d(arrayList);
-                ArrayList arrayList3 = new ArrayList(hashSet);
-                if (trustSubject3 != null) {
-                    e(arrayList3, trustSubject3);
+                if (!trustSubject4.p()) {
                 }
-                Collections.sort(arrayList3, TrustSubject.g);
-                dVar.a = arrayList3;
-                if (trustSubject3 != null) {
-                    trustSubject3.t();
-                    dVar.b = trustSubject3;
+            }
+            for (TrustSubject trustSubject5 : arrayList2) {
+                if (!trustSubject5.equals(trustSubject3)) {
+                    trustSubject5.j();
+                    trustSubject5.k();
                 }
-                return dVar;
+                trustSubject5.q();
+                trustSubject5.l();
+                trustSubject5.w();
+            }
+            d(arrayList2);
+            ArrayList arrayList3 = new ArrayList(hashSet);
+            if (trustSubject3 != null) {
+                e(arrayList3, trustSubject3);
+            }
+            Collections.sort(arrayList3, TrustSubject.g);
+            dVar.a = arrayList3;
+            if (trustSubject3 != null) {
+                trustSubject3.i();
+                dVar.b = trustSubject3;
             }
             return dVar;
         }
@@ -507,9 +464,9 @@ public class TrustSubjectManager {
         }
         Iterator<TrustSubject> it = list.iterator();
         while (it.hasNext()) {
-            Set<String> k = it.next().k();
-            if (k != null && k.size() > 0) {
-                Iterator<String> it2 = k.iterator();
+            Set<String> t = it.next().t();
+            if (t != null && t.size() > 0) {
+                Iterator<String> it2 = t.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -526,102 +483,140 @@ public class TrustSubjectManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.b = aVar.a;
-            g40.a f2 = aVar.b.d().f("tz");
+            i50.a f2 = aVar.b.d().f("tz");
             this.a = f2;
             f2.a();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:93:0x011e A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x00cf A[SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0173, code lost:
+        r7 = r12;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x0166 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:132:0x0117 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final d g(y30 y30Var) {
+    public final d g(a50 a50Var) {
         InterceptResult invokeL;
-        boolean z;
         TrustSubject trustSubject;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, y30Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a50Var)) == null) {
             d dVar = new d();
-            List<ResolveInfo> queryBroadcastReceivers = this.b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.HELIOS"), 0);
-            ArrayList arrayList = new ArrayList();
-            HashSet hashSet = new HashSet();
-            ArrayList arrayList2 = new ArrayList();
-            if (queryBroadcastReceivers != null) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    if (resolveInfo.activityInfo.packageName.equals(this.c.a)) {
-                        trustSubject = this.c;
-                    } else {
-                        TrustSubject trustSubject2 = new TrustSubject(resolveInfo.activityInfo.packageName, this.b, this.a);
-                        trustSubject2.l();
-                        trustSubject = trustSubject2;
-                    }
-                    arrayList2.add(trustSubject);
-                    boolean q = trustSubject.q();
-                    if (!q || trustSubject.j().b(3L) == 0) {
-                        trustSubject.d(y30Var);
-                    }
-                    if (trustSubject.j().b(3L) == 1) {
-                        hashSet.add(trustSubject);
-                        if (!q || trustSubject.j().b(384L) == 0) {
-                            trustSubject.x();
-                        }
-                        if (trustSubject.j().b(384L) == 128) {
-                            arrayList.add(trustSubject);
-                        }
-                    }
+            TrustSubject trustSubject2 = this.c;
+            if (trustSubject2.r()) {
+                HashMap hashMap = new HashMap();
+                hashMap.put(trustSubject2.a, trustSubject2);
+                HashSet hashSet = new HashSet();
+                long j = 3;
+                long j2 = 1;
+                if (trustSubject2.a().a(3L) == 1) {
+                    hashSet.add(trustSubject2);
                 }
-            }
-            TrustSubject trustSubject3 = null;
-            Collections.sort(arrayList, TrustSubject.h);
-            Iterator it = arrayList.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                TrustSubject trustSubject4 = (TrustSubject) it.next();
-                if (trustSubject4.q()) {
-                    long b2 = trustSubject4.j().b(48L);
-                    if (b2 != 0) {
-                        if (b2 == 32) {
-                            continue;
-                        } else if (b2 != 16 || trustSubject4.j().b(64L) == 64) {
-                            z = false;
-                            if (z || trustSubject4.v()) {
-                                if (!trustSubject4.p()) {
-                                    trustSubject3 = trustSubject4;
-                                    break;
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(trustSubject2);
+                TrustSubject trustSubject3 = trustSubject2;
+                TrustSubject trustSubject4 = null;
+                while (true) {
+                    if (trustSubject4 != null && trustSubject4.equals(trustSubject3)) {
+                        break;
+                    }
+                    e a2 = e.a(trustSubject3);
+                    List<String> b2 = a2 != null ? a2.b() : null;
+                    if (b2 == null || hashMap.keySet().containsAll(b2)) {
+                        break;
+                    }
+                    ArrayList arrayList2 = new ArrayList();
+                    Iterator<String> it = b2.iterator();
+                    while (true) {
+                        boolean z2 = false;
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        String next = it.next();
+                        if (!hashMap.containsKey(next)) {
+                            TrustSubject trustSubject5 = trustSubject2.a.equals(next) ? trustSubject2 : new TrustSubject(next, this.b, this.a);
+                            hashMap.put(next, trustSubject5);
+                            if (trustSubject5.s()) {
+                                trustSubject5.v();
+                                arrayList.add(trustSubject5);
+                                boolean u = trustSubject5.u();
+                                if (!u || trustSubject5.a().a(j) == 0) {
+                                    trustSubject5.d(a50Var);
                                 }
+                                if (trustSubject5.a().a(j) == 1) {
+                                    hashSet.add(trustSubject5);
+                                    if ((!u || trustSubject5.a().a(384L) == 0) ? true : true) {
+                                        trustSubject5.g();
+                                    }
+                                    if (trustSubject5.a().a(384L) == 128) {
+                                        arrayList2.add(trustSubject5);
+                                    }
+                                }
+                                j2 = 1;
+                                j = 3;
+                            } else {
+                                j2 = 1;
                             }
                         }
                     }
+                    long j3 = j2;
+                    Collections.sort(arrayList2, TrustSubject.h);
+                    Iterator it2 = arrayList2.iterator();
+                    while (true) {
+                        if (!it2.hasNext()) {
+                            break;
+                        }
+                        trustSubject = (TrustSubject) it2.next();
+                        if (trustSubject.u()) {
+                            long a3 = trustSubject.a().a(48L);
+                            if (a3 != 0) {
+                                if (a3 == 32) {
+                                    continue;
+                                } else if (a3 != 16 || trustSubject.a().a(64L) == 64) {
+                                    z = false;
+                                    if (z || trustSubject.h()) {
+                                        if (!trustSubject.p()) {
+                                            if (trustSubject.n() > trustSubject3.n()) {
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        z = true;
+                        if (z) {
+                        }
+                        if (!trustSubject.p()) {
+                        }
+                    }
+                    trustSubject4 = trustSubject3;
+                    j2 = j3;
+                    trustSubject3 = trustSubject;
+                    j = 3;
                 }
-                z = true;
-                if (z) {
+                for (TrustSubject trustSubject6 : arrayList) {
+                    if (!trustSubject6.equals(trustSubject3)) {
+                        trustSubject6.j();
+                        trustSubject6.k();
+                    }
+                    trustSubject6.q();
+                    trustSubject6.l();
+                    trustSubject6.w();
                 }
-                if (!trustSubject4.p()) {
+                d(arrayList);
+                ArrayList arrayList3 = new ArrayList(hashSet);
+                if (trustSubject3 != null) {
+                    e(arrayList3, trustSubject3);
                 }
-            }
-            for (TrustSubject trustSubject5 : arrayList2) {
-                if (!trustSubject5.equals(trustSubject3)) {
-                    trustSubject5.h();
-                    trustSubject5.i();
+                Collections.sort(arrayList3, TrustSubject.g);
+                dVar.a = arrayList3;
+                if (trustSubject3 != null) {
+                    trustSubject3.i();
+                    dVar.b = trustSubject3;
                 }
-                trustSubject5.w();
-                trustSubject5.g();
-                trustSubject5.u();
-            }
-            d(arrayList2);
-            ArrayList arrayList3 = new ArrayList(hashSet);
-            if (trustSubject3 != null) {
-                e(arrayList3, trustSubject3);
-            }
-            Collections.sort(arrayList3, TrustSubject.g);
-            dVar.a = arrayList3;
-            if (trustSubject3 != null) {
-                trustSubject3.t();
-                dVar.b = trustSubject3;
+                return dVar;
             }
             return dVar;
         }
@@ -632,26 +627,28 @@ public class TrustSubjectManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             TrustSubject trustSubject = new TrustSubject(this.b.getPackageName(), this.b, this.a);
-            trustSubject.l();
-            boolean q = trustSubject.q();
-            boolean z = true;
-            if (!q || trustSubject.j().b(3L) == 0) {
+            trustSubject.v();
+            boolean u = trustSubject.u();
+            boolean z = false;
+            boolean z2 = true;
+            if (!u || trustSubject.a().a(3L) == 0) {
                 trustSubject.d(a());
             }
-            if (!q || trustSubject.j().b(384L) == 0) {
-                trustSubject.x();
+            if (!u || trustSubject.a().a(384L) == 0) {
+                trustSubject.g();
             }
-            if (q) {
-                long b2 = trustSubject.j().b(48L);
-                if (b2 != 0 && (b2 == 32 || b2 != 16 || trustSubject.j().b(64L) == 64)) {
-                    z = false;
+            if (u) {
+                long a2 = trustSubject.a().a(48L);
+                if (a2 == 0 || (a2 != 32 && a2 == 16 && trustSubject.a().a(64L) != 64)) {
+                    z = true;
                 }
+                z2 = z;
             }
-            if (z) {
-                trustSubject.v();
+            if (z2) {
+                trustSubject.h();
             }
+            trustSubject.q();
             trustSubject.w();
-            trustSubject.u();
             this.c = trustSubject;
         }
     }
@@ -667,17 +664,17 @@ public class TrustSubjectManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar)) == null) {
-            y30 a2 = a();
+            a50 a2 = a();
             int i = cVar.a;
             if (i == 1) {
-                return g(a2);
-            }
-            if (i == 2) {
                 return b(a2);
             }
-            d g = g(a2);
-            List<TrustSubject> list = g.a;
-            return (list == null || list.size() == 0) ? b(a2) : g;
+            if (i == 2) {
+                return g(a2);
+            }
+            d b2 = b(a2);
+            List<TrustSubject> list = b2.a;
+            return (list == null || list.size() == 0) ? g(a2) : b2;
         }
         return (d) invokeL.objValue;
     }

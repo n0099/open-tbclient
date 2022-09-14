@@ -1,540 +1,479 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.cmic.sso.sdk.auth.AuthnHelper;
-import com.cmic.sso.sdk.auth.TokenListener;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ff1 extends if1 {
+public class ff1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AuthnHelper s;
-    public long t;
-    public long u;
-    public boolean v;
+    public JSONObject a;
 
     /* loaded from: classes4.dex */
-    public class a extends gf1 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ ff1 e;
-
-        public a(ff1 ff1Var, long j, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff1Var, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = ff1Var;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-        }
-
-        @Override // com.cmic.sso.sdk.auth.TokenListener
-        public void onGetTokenComplete(JSONObject jSONObject) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                long currentTimeMillis = System.currentTimeMillis() - a();
-                int optInt = jSONObject.optInt("resultCode", -1);
-                if (!this.e.D(optInt, this.b) || (i = this.c) != 0) {
-                    this.e.C(jSONObject, this.b);
-                } else {
-                    this.e.v(this.b, this.d, i + 1);
-                }
-                nf1.c().j();
-                ff1 ff1Var = this.e;
-                bg1.c(ff1Var.a, ff1Var.c, optInt, currentTimeMillis, this.d, "");
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements TokenListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ ff1 b;
+        public JSONObject a;
 
-        public b(ff1 ff1Var, int i) {
+        public b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ff1Var, Integer.valueOf(i)};
+                Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ff1Var;
-            this.a = i;
+            this.a = new JSONObject();
+            F("material_type", str);
+            F("material_url", str2);
         }
 
-        @Override // com.cmic.sso.sdk.auth.TokenListener
-        public void onGetTokenComplete(JSONObject jSONObject) {
+        public b A(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.b.G(jSONObject, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends gg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ff1 d;
-
-        public c(ff1 ff1Var, JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff1Var, jSONObject, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ff1Var;
-            this.b = jSONObject;
-            this.c = i;
-        }
-
-        @Override // com.baidu.tieba.gg1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 try {
-                    int optInt = this.b.optInt("resultCode", -1);
-                    String optString = this.b.optString("authTypeDes", "");
-                    if (optInt == 103000) {
-                        this.d.u = System.currentTimeMillis();
-                        this.d.h = this.b.optString("token", "");
-                        this.d.e(this.c, 0, 0, this.d.c, "preVerify success", 3);
-                    } else if (optInt == 105312 && this.d.c != this.d.d) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("pre verify");
-                        sb.append(" error, wrong sim operator");
-                        this.d.e(this.c, 3, 2002, this.d.c, sb.toString(), 3);
-                    } else {
-                        ff1 ff1Var = this.d;
-                        int i = this.c;
-                        int i2 = this.d.c;
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append("pre verify");
-                        sb2.append(" error.");
-                        sb2.append(optString);
-                        ff1Var.e(i, 2, optInt, i2, sb2.toString(), 3);
+                    this.a.put("skip_btn_width", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b B(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                try {
+                    this.a.put("skipTime", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b C(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                try {
+                    this.a.put("small_logo_height", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b D(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                try {
+                    this.a.put("small_logo_width", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b E(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+                try {
+                    this.a.put("style", jSONObject);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public final void F(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+                try {
+                    this.a.put(str, str2);
+                } catch (Throwable unused) {
+                }
+            }
+        }
+
+        public ff1 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ff1(this.a, null) : (ff1) invokeV.objValue;
+        }
+
+        public b b(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                try {
+                    this.a.put("ad_click_opt", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+                try {
+                    this.a.put("ad_label", str);
+                    if (TextUtils.isEmpty(str)) {
+                        this.a.put("hide_ad_logo", false);
                     }
-                } catch (Throwable th) {
-                    lg1.d(th);
-                    ff1 ff1Var2 = this.d;
-                    int i3 = this.c;
-                    int i4 = ff1Var2.c;
-                    ff1Var2.e(i3, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, i4, "cm on handle pre verify unknown error.", 3);
+                } catch (JSONException unused) {
                 }
+                return this;
             }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d extends gg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ff1 d;
-
-        public d(ff1 ff1Var, JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff1Var, jSONObject, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ff1Var;
-            this.b = jSONObject;
-            this.c = i;
+            return (b) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.gg1
-        public void b() {
+        public b d(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
                 try {
-                    int optInt = this.b.optInt("resultCode", -1);
-                    String optString = this.b.optString("desc", "");
-                    if (optInt == 103000) {
-                        this.d.t = System.currentTimeMillis();
-                        this.d.g = this.b.optString("securityphone", "");
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.d.a(this.d.g));
-                        this.d.e(this.c, 0, 0, this.d.c, jSONObject.toString(), 1);
-                    } else if (optInt == 105312 && this.d.c != this.d.d) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("pre login");
-                        sb.append(" error, wrong sim operator");
-                        this.d.e(this.c, 3, 2002, this.d.c, sb.toString(), 1);
-                    } else {
-                        ff1 ff1Var = this.d;
-                        int i = this.c;
-                        int i2 = this.d.c;
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append("pre login");
-                        sb2.append(" error.");
-                        sb2.append(optString);
-                        ff1Var.e(i, 2, optInt, i2, sb2.toString(), 1);
-                    }
-                } catch (Throwable th) {
-                    lg1.d(th);
-                    ff1 ff1Var2 = this.d;
-                    int i3 = this.c;
-                    int i4 = ff1Var2.c;
-                    ff1Var2.e(i3, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, i4, "cm on handle pre login unknown error.", 1);
+                    this.a.put("ad_label_height", i);
+                } catch (JSONException unused) {
                 }
+                return this;
             }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e extends gg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ff1 d;
-
-        public e(ff1 ff1Var, JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff1Var, jSONObject, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ff1Var;
-            this.b = jSONObject;
-            this.c = i;
+            return (b) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.gg1
-        public void b() {
+        public b e(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
                 try {
-                    int optInt = this.b.has("resultCode") ? this.b.optInt("resultCode", -1) : -1;
-                    if (optInt == 103000) {
-                        this.d.e = this.b.optString("token");
-                        this.d.b(this.c);
-                        return;
-                    }
-                    String optString = this.b.optString("resultDesc", "");
-                    ff1 ff1Var = this.d;
-                    int i = this.c;
-                    int i2 = this.d.c;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("error:");
-                    sb.append(optString);
-                    ff1Var.d(i, 2, optInt, i2, sb.toString());
-                } catch (Throwable th) {
-                    lg1.d(th);
-                    ff1 ff1Var2 = this.d;
-                    ff1Var2.d(this.c, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, ff1Var2.c, "cm on handle login unknown error.");
+                    this.a.put("ad_label_width", i);
+                } catch (JSONException unused) {
                 }
+                return this;
             }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class f extends gg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ff1 c;
-
-        public f(ff1 ff1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ff1Var;
-            this.b = i;
+            return (b) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.gg1
-        public void b() {
+        public b f(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
                 try {
-                    this.c.g(this.b, this.c.c, this.c.h);
-                } catch (Throwable th) {
-                    lg1.d(th);
-                    ff1 ff1Var = this.c;
-                    ff1Var.n(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, ff1Var.c, "cm on handle verify unknown error.");
+                    this.a.put("bottom_logo_height", i);
+                } catch (JSONException unused) {
                 }
+                return this;
             }
+            return (b) invokeI.objValue;
+        }
+
+        public b g(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                try {
+                    this.a.put("close_type", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b h(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                try {
+                    this.a.put("bitmapDisplayMode", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b i(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+                try {
+                    this.a.put("full_screen", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b j(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+                F("gesture_lottie_url", str);
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b k(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+                try {
+                    this.a.put("gesture_lottie_sensitivity", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b l(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+                try {
+                    this.a.put("gesture_lottie_type", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b m(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+                try {
+                    this.a.put("host_big_logo_res_id", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b n(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+                try {
+                    this.a.put("host_small_logo_res_id", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b o(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
+                try {
+                    this.a.put("show_host_small_logo", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b p(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, jSONObject)) == null) {
+                try {
+                    this.a.put("inner_style", jSONObject);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b q(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+                F("lottie_url", str);
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b r(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+                try {
+                    this.a.put("mantleActionText", str);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b s(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+                try {
+                    this.a.put("mantleBottomMargin", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b t(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+                F("prod", str);
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b u(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
+                try {
+                    this.a.put("shake_direction_count", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b v(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+                try {
+                    this.a.put("shake_update_interval", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b w(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
+                try {
+                    this.a.put("lottie_show", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b x(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048605, this, z)) == null) {
+                try {
+                    this.a.put("show_wifi_view", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b y(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
+                try {
+                    this.a.put("skip_btn_height", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b z(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+                try {
+                    this.a.put("skip_btn_type", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class g implements TokenListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ ff1 b;
-
-        public g(ff1 ff1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ff1Var;
-            this.a = i;
-        }
-
-        @Override // com.cmic.sso.sdk.auth.TokenListener
-        public void onGetTokenComplete(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.b.y(jSONObject, this.a);
-            }
-        }
+    public /* synthetic */ ff1(JSONObject jSONObject, a aVar) {
+        this(jSONObject);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff1(Context context) {
-        super(context);
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
+    }
+
+    public ff1(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = 0L;
-        this.u = 0L;
-        this.v = false;
-        this.c = 1;
-    }
-
-    public final void C(JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i) == null) {
-            ig1.c().b(new d(this, jSONObject, i));
-        }
-    }
-
-    public final boolean D(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            return ze1.f(this.a).b() && ze1.f(this.a).m("k_retry_code_cm", i) && ef1.c().h(i2);
-        }
-        return invokeII.booleanValue;
-    }
-
-    public final void E(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ig1.c().b(new f(this, i));
-        }
-    }
-
-    public final void G(JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, jSONObject, i) == null) {
-            ig1.c().b(new c(this, jSONObject, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.if1
-    public void h(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, context, i) == null) {
-            super.h(context, i);
-            if (!ze1.f(this.a).c()) {
-                e(i, 3, 997, this.c, "pre verify error. sdk stop run.", 3);
-            } else if (!r()) {
-                e(i, 3, 2006, this.c, "pre verify error. cm has not valid config.", 3);
-            } else if (ze1.f(this.a).p0()) {
-                if (!this.v) {
-                    AuthnHelper authnHelper = AuthnHelper.getInstance(this.a);
-                    this.s = authnHelper;
-                    authnHelper.setOverTime(8000L);
-                    this.v = true;
-                }
-                this.s.mobileAuth(if1.k, if1.l, new b(this, i));
-            } else {
-                e(i, 3, 994, this.c, "pre verify error. cm sdk stop run.", 3);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.if1
-    public void i(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, context, i, i2) == null) {
-            super.i(context, i, i2);
-            if (!ze1.f(this.a).c()) {
-                e(i2, 3, 997, this.c, "pre login error. sdk stop run.", 1);
-            } else if (!r()) {
-                e(i2, 3, 2006, this.c, "pre login error. cm has not valid config.", 1);
-            } else if (ze1.f(this.a).p0()) {
-                if (!this.v) {
-                    System.currentTimeMillis();
-                    AuthnHelper authnHelper = AuthnHelper.getInstance(this.a);
-                    this.s = authnHelper;
-                    authnHelper.setOverTime(8000L);
-                    AuthnHelper.setDebugMode(df1.c());
-                    this.v = true;
-                }
-                v(i2, i, 0);
-            } else {
-                e(i2, 3, 994, this.c, "pre login error. cm sdk stop run.", 1);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.if1
-    public void j(Context context, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.j(context, i, j);
-            c(i, 2);
-            this.s.loginAuth(if1.k, if1.l, new g(this, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.if1
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.t == 0 || System.currentTimeMillis() - this.t >= TimeUnit.HOURS.toMillis(1L) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.if1
-    public void p(Context context, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.p(context, i, j);
-            c(i, 4);
-            E(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.if1
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? System.currentTimeMillis() - this.u > 115000 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.if1
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.e = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.if1
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.h = null;
-            this.u = 0L;
-        }
-    }
-
-    public final void v(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048588, this, i, i2, i3) == null) {
-            this.s.getPhoneInfo(if1.k, if1.l, new a(this, System.currentTimeMillis(), i, i3, i2));
-        }
-    }
-
-    public final void y(JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, jSONObject, i) == null) {
-            ig1.c().b(new e(this, jSONObject, i));
-        }
+        this.a = jSONObject;
     }
 }

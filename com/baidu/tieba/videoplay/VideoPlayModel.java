@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -17,12 +18,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce5;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ao4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.jg5;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.zl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -149,8 +149,8 @@ public class VideoPlayModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (!pi.z()) {
-                ri.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c40));
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                ej.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c59));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -182,7 +182,7 @@ public class VideoPlayModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -209,13 +209,13 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<zl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<ao4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<zl4> it = videoRecordList.iterator();
+                        Iterator<ao4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            zl4 next = it.next();
+                            ao4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -250,7 +250,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", ce5.a());
+        httpMessage.addParam("app_transmit_data", jg5.a());
         sendMessage(httpMessage);
     }
 
@@ -287,7 +287,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", ce5.a());
+            httpMessage.addParam("app_transmit_data", jg5.a());
             sendMessage(httpMessage);
         }
     }

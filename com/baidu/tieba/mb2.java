@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.mc2;
-import com.baidu.tieba.pc2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,14 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class mb2<P extends mc2, R extends pc2> {
+public abstract class mb2 implements xo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public P a;
-    @NonNull
-    public R b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,103 +28,39 @@ public abstract class mb2<P extends mc2, R extends pc2> {
                 return;
             }
         }
-        c = kh1.a;
+        a = ij1.a;
     }
 
-    public mb2(@NonNull P p, @NonNull R r) {
+    public mb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p, r};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = p;
-        this.b = r;
     }
 
-    public <T extends gc2> Exception a(T t) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xo2
+    public void a(boolean z, Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
+        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && ob2.a() && !z) {
+            long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
+            boolean B = pg3.B();
+            if (a) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             }
-            return this.b.e(t);
-        }
-        return (Exception) invokeL.objValue;
-    }
-
-    public abstract String b(int i);
-
-    @Nullable
-    public abstract ExtensionCore c();
-
-    @NonNull
-    public ExtensionCore d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int c2 = this.a.a.c();
-            if (rc2.f(c2)) {
-                ExtensionCore extensionCore = new ExtensionCore();
-                extensionCore.extensionCoreVersionCode = 0L;
-                extensionCore.extensionCoreVersionName = "0";
-                extensionCore.extensionCorePath = b(c2);
-                extensionCore.extensionCoreType = 2;
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
-                }
-                return extensionCore;
+            if (B) {
+                boolean n = qb2.n();
+                yz1.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
+                kb2.c().d().u(null, n, 16);
+                qb2.p(false);
             }
-            ExtensionCore h = this.a.h();
-            ExtensionCore f = this.b.f();
-            if (h.extensionCoreVersionCode < f.extensionCoreVersionCode && f.isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + f.toString());
-                }
-                return f;
-            }
-            if (c) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + h.toString());
-            }
-            return h;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    @NonNull
-    public P e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (P) invokeV.objValue;
-    }
-
-    @NonNull
-    public R f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (R) invokeV.objValue;
-    }
-
-    public void g(@Nullable tf3<Exception> tf3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tf3Var) == null) {
-            this.a.p(tf3Var);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.q();
         }
     }
 }

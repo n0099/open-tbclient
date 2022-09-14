@@ -1,69 +1,89 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Locale;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "BdPlayerUtils")
 /* loaded from: classes5.dex */
-public class my0 extends ly0 {
+public final class my0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public my0() {
+    public static final int a(View view2, float f) {
+        InterceptResult invokeLF;
+        Context context;
+        Resources resources;
+        DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
+            return (int) ((f * ((view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null || (displayMetrics = resources.getDisplayMetrics()) == null) ? 1.0f : displayMetrics.density)) + 0.5f);
+        }
+        return invokeLF.intValue;
+    }
+
+    public static final String b(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
+                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
+                return format;
+            }
+            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
+            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
+            return format2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    @JvmOverloads
+    public static final int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
+    }
+
+    @JvmOverloads
+    public static final int d(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            if (str == null || str.length() == 0) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                qy0.f("parseInt catch exception:", e);
+                return i;
             }
         }
+        return invokeLI.intValue;
     }
 
-    public my0 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("cr", str);
-            return this;
+    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
-        return (my0) invokeL.objValue;
-    }
-
-    public my0 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("ci", str);
-            return this;
-        }
-        return (my0) invokeL.objValue;
-    }
-
-    public my0 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            d("ext", str);
-            return this;
-        }
-        return (my0) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oy0
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String sb = this.a.toString();
-            return !TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext");
-        }
-        return invokeV.booleanValue;
+        return d(str, i);
     }
 }

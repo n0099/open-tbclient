@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class w03 extends ContextWrapper implements d13 {
+public class w03 extends aa3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w03() {
-        super(AppRuntime.getApplication());
+    public static void onEvent(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            vn2.a W = x23.K().q().W();
+            ba3 ba3Var = new ba3();
+            ba3Var.b = str;
+            ba3Var.a = r93.n(W.G());
+            ba3Var.f = W.H();
+            ba3Var.c = W.T();
+            r93.x("1088", ba3Var);
         }
     }
 }

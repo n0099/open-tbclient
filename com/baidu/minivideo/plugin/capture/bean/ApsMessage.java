@@ -91,22 +91,22 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
                 jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("status", this.status);
-                    jSONObject.put("msg", this.msg);
-                    jSONObject.put("type", this.type);
-                    T data = getData();
-                    if (data != null) {
-                        jSONObject.put("data", data.toJson());
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return jSONObject;
+            } catch (Exception e2) {
+                jSONObject = null;
+                e = e2;
+            }
+            try {
+                jSONObject.put("status", this.status);
+                jSONObject.put("msg", this.msg);
+                jSONObject.put("type", this.type);
+                T data = getData();
+                if (data != null) {
+                    jSONObject.put("data", data.toJson());
                 }
             } catch (Exception e3) {
-                jSONObject = null;
                 e = e3;
+                e.printStackTrace();
+                return jSONObject;
             }
             return jSONObject;
         }

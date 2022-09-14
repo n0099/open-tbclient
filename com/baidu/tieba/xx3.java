@@ -1,44 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
-public class xx3 implements oy3 {
+public class xx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xx3() {
+    public static void a(fx3 fx3Var, JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, fx3Var, jsObject) == null) {
+            yx3 yx3Var = new yx3();
+            fv1 F = fv1.F(jsObject);
+            if (F == null) {
+                F = new fv1();
             }
+            boolean z = false;
+            if (fx3Var == null) {
+                yx3Var.errMsg = "openCustomerServiceConversation:fail";
+                k54.call(F, false, yx3Var);
+                return;
+            }
+            if (iz3.c()) {
+                y23 M = y23.M();
+                if (M != null) {
+                    String str = "{\"appKey\":\"" + M.O() + "\"}";
+                    if (SchemeRouter.invoke(fm2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
+                        yx3Var.errMsg = "openCustomerServiceConversation:ok";
+                        z = true;
+                    } else {
+                        yx3Var.errMsg = "openCustomerServiceConversation:fail";
+                    }
+                } else {
+                    yx3Var.errMsg = "openCustomerServiceConversation:fail";
+                }
+            } else {
+                yx3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
+            }
+            k54.call(F, z, yx3Var);
         }
-    }
-
-    @Override // com.baidu.tieba.oy3
-    public void a(n14 n14Var, m14 m14Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, n14Var, m14Var) == null) || m14Var == null) {
-            return;
-        }
-        m14Var.a(n14Var, "Method 'shareVideo' is not implemented.");
-    }
-
-    @Override // com.baidu.tieba.oy3
-    public void b(e14 e14Var, d14 d14Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e14Var, d14Var) == null) || d14Var == null) {
-            return;
-        }
-        d14Var.a(e14Var, "Method 'clipVideo' is not implemented.");
     }
 }

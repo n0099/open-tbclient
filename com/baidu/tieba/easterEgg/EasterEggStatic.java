@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,11 +28,11 @@ public class EasterEggStatic {
 
         /* renamed from: com.baidu.tieba.easterEgg.EasterEggStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0238a implements Runnable {
+        public class RunnableC0243a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0238a(a aVar) {
+            public RunnableC0243a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class EasterEggStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                sg.a().postDelayed(new RunnableC0238a(this), 10000L);
+                gh.a().postDelayed(new RunnableC0243a(this), 10000L);
             }
         }
     }

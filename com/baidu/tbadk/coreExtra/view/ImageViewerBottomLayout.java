@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mo4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.t95;
+import com.baidu.tieba.bc5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.rq4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -63,7 +63,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     /* loaded from: classes3.dex */
     public interface b {
-        void m();
+        void n();
     }
 
     /* loaded from: classes3.dex */
@@ -84,7 +84,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 return;
             }
         }
-        r = ri.f(TbadkApplication.getInst(), R.dimen.tbds130);
+        r = ej.f(TbadkApplication.getInst(), R.dimen.tbds130);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -116,25 +116,25 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03c4, (ViewGroup) this, true);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09240d);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09240e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09240c);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03c8, (ViewGroup) this, true);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092468);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092469);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092467);
             this.d.setVisibility(8);
-            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080823, null);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090e96);
+            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f08083d, null);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090eb1);
             this.e = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f08de);
+            textView.setText(R.string.obfuscated_res_0x7f0f08f1);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
-            this.e.setBackground(SkinManager.createShapeDrawableFromColor(ri.f(context, R.dimen.tbds38), SkinManager.getColor(R.color.CAM_X0615)));
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e95);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090672);
+            this.e.setBackground(SkinManager.createShapeDrawableFromColor(ej.f(context, R.dimen.tbds38), SkinManager.getColor(R.color.CAM_X0615)));
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090eb0);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090685);
             this.h = imageView;
-            WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080916, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090675);
+            WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090688);
             this.i = textView2;
             textView2.setText("0");
-            AgreeView agreeView = (AgreeView) findViewById(R.id.obfuscated_res_0x7f090150);
+            AgreeView agreeView = (AgreeView) findViewById(R.id.obfuscated_res_0x7f090151);
             this.g = agreeView;
             agreeView.setResourceId(R.raw.obfuscated_res_0x7f110021, R.raw.obfuscated_res_0x7f110037);
             this.g.setIsFromBigpic(true);
@@ -147,16 +147,16 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             } else {
                 this.g.getImgAgree().setAlpha(1.0f);
             }
-            mo4 mo4Var = new mo4();
-            mo4Var.b = 13;
-            mo4Var.h = 10;
-            this.g.setStatisticData(mo4Var);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e35);
+            rq4 rq4Var = new rq4();
+            rq4Var.b = 13;
+            rq4Var.h = 10;
+            this.g.setStatisticData(rq4Var);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e85);
             this.j = imageView2;
-            WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-            ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f09081e);
+            WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f08094e, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090833);
             this.k = imageView3;
-            WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f0809ca, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f0809e5, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         }
     }
 
@@ -208,7 +208,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 }
                 ImageView imageView = this.j;
                 if (imageView != null) {
-                    WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+                    WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08094e, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
                     return;
                 }
                 return;
@@ -221,14 +221,14 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f05d7));
-                WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f0807cf, null);
+                this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f05e4));
+                WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f0807e9, null);
                 this.f.setVisibility(8);
                 this.e.setVisibility(8);
                 return;
             }
-            this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f063d));
-            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080823, null);
+            this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0650));
+            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f08083d, null);
             this.f.setVisibility(0);
             this.e.setVisibility(0);
         }
@@ -252,7 +252,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 } else if (view2 == this.k) {
                     b bVar = this.o;
                     if (bVar != null) {
-                        bVar.m();
+                        bVar.n();
                     }
                     if (this.a != null) {
                         TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "2").param("post_id", this.a.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.forumId));
@@ -260,16 +260,16 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                     }
                     return;
                 } else if (view2 == this.d) {
-                    if (this.b.getText().toString().equals(getContext().getString(R.string.obfuscated_res_0x7f0f05d7))) {
-                        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f063d));
-                        WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080823, null);
+                    if (this.b.getText().toString().equals(getContext().getString(R.string.obfuscated_res_0x7f0f05e4))) {
+                        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0650));
+                        WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f08083d, null);
                         a aVar = this.m;
                         if (aVar != null) {
                             aVar.a(this, true);
                         }
                     } else {
-                        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f05d7));
-                        WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f0807cf, null);
+                        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f05e4));
+                        WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f0807e9, null);
                         a aVar2 = this.m;
                         if (aVar2 != null) {
                             aVar2.a(this, false);
@@ -296,7 +296,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 }
                 TiebaStatic.log(statisticItem);
             }
-            t95 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            bc5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             StatisticItem statisticItem2 = new StatisticItem("c12942");
             statisticItem2.param("obj_type", "2");
             statisticItem2.param("obj_locate", "12");

@@ -1,23 +1,43 @@
 package com.baidu.tieba;
 
-import java.util.ArrayList;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface vb9 {
+public abstract class vb9 implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onCompletion();
-
-        boolean onError(int i, int i2, Object obj);
-
-        boolean onInfo(int i, int i2, Object obj);
+    public vb9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void release();
+    public abstract void a();
 
-    void setListener(a aVar);
-
-    void setSource(ArrayList<String> arrayList);
-
-    void start();
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                a();
+            } catch (Exception e) {
+                bc9.e(e);
+                if (e.getMessage() != null) {
+                    tb9.b(e.getMessage());
+                }
+            }
+        }
+    }
 }

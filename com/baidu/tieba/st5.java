@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ColorDrawable;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernEmptyViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class st5 {
+public class st5 extends qn<iv5, LiveTabConcernEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public TbPageContext c;
-    public gt5 d;
-    public View e;
+    public TbPageContext a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public st5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), iv5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,86 +30,39 @@ public abstract class st5 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        int k = ri.k(tbPageContext.getPageActivity());
-        this.a = k;
-        this.b = (int) ((k * 9.0d) / 16.0d);
+        this.a = tbPageContext;
     }
 
-    public void a(ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public LiveTabConcernEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
-            return;
-        }
-        viewGroup.removeAllViews();
-        viewGroup.addView(c());
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new LiveTabConcernEmptyViewHolder(new eu5(this.a, viewGroup)) : (LiveTabConcernEmptyViewHolder) invokeL.objValue;
     }
 
-    public void b(gt5 gt5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, iv5 iv5Var, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
+        InterceptResult invokeCommon;
+        eu5 eu5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gt5Var) == null) {
-            this.d = gt5Var;
-        }
-    }
-
-    public abstract View c();
-
-    public abstract void d();
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.e = new View(this.c.getPageActivity());
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
-            this.e.setBackgroundDrawable(new ColorDrawable(this.c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public abstract boolean f(gt5 gt5Var);
-
-    public abstract void g(boolean z);
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int k = ri.k(this.c.getPageActivity());
-            this.a = k;
-            this.b = (int) ((k * 9.0d) / 16.0d);
-            View view2 = this.e;
-            if (view2 != null) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-                layoutParams.width = this.a;
-                layoutParams.height = this.b;
-                this.e.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iv5Var, liveTabConcernEmptyViewHolder})) == null) {
+            if (liveTabConcernEmptyViewHolder == null || (eu5Var = liveTabConcernEmptyViewHolder.a) == null) {
+                return null;
             }
+            eu5Var.i(iv5Var);
+            return liveTabConcernEmptyViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
-
-    public abstract void i(int i);
-
-    public abstract void j();
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    public abstract void m();
-
-    public abstract void n();
 }

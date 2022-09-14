@@ -1,73 +1,118 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.live.business.refresh.LoadAnimStrategy;
+import com.baidu.live.business.view.emotion.EmotionStrategy;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class su5 extends cn<yu5, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+public class su5 {
     public static /* synthetic */ Interceptable $ic;
+    public static su5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public kq5 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public su5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final su5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-420227176, "Lcom/baidu/tieba/su5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-420227176, "Lcom/baidu/tieba/su5$b;");
+                    return;
+                }
+            }
+            a = new su5(null);
+        }
+    }
+
+    public /* synthetic */ su5(a aVar) {
+        this();
+    }
+
+    public static su5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                a = b.a;
+            }
+            return a;
+        }
+        return (su5) invokeV.objValue;
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 1 ? "night" : i == 4 ? "dark" : "day" : (String) invokeI.objValue;
+    }
+
+    public void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            if (!LiveFeedPageSdk.getInstance().isInit()) {
+                LoadAnimStrategy.getInstance().pullDownLottieResId = R.raw.lottie_common_pull_refresh;
+                LoadAnimStrategy.getInstance().pullDownLottieResId1 = R.raw.obfuscated_res_0x7f110031;
+                LoadAnimStrategy.getInstance().pullDownLottieResId2 = R.raw.obfuscated_res_0x7f110032;
+                LoadAnimStrategy.getInstance().pullDownLottieResId3 = R.raw.obfuscated_res_0x7f110031;
+                LoadAnimStrategy.getInstance().pullEndFrame = 15;
+                LoadAnimStrategy.getInstance().loopStartFrame = 15;
+                LoadAnimStrategy.getInstance().loopEndFrame = 30;
+                LoadAnimStrategy.getInstance().lottieTotalFrame = 30;
+                LoadAnimStrategy.getInstance().setLoadMoreAnimStrategy("live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json");
+                LoadAnimStrategy.getInstance().setLoadingLottieResId(R.raw.lottie_full_screen_refresh, R.raw.obfuscated_res_0x7f11003e, R.raw.obfuscated_res_0x7f11003f, R.raw.obfuscated_res_0x7f11003e, "", 67.0f, 67.0f);
+                EmotionStrategy.getInstance().setEmptyImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                EmotionStrategy.getInstance().setErrorImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                EmotionStrategy.getInstance().setNetworkImageRes(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
+                EmotionStrategy.getInstance().setPlaceHolderRes(R.drawable.obfuscated_res_0x7f080cf9, R.drawable.obfuscated_res_0x7f080cfa, R.drawable.obfuscated_res_0x7f080cf8, R.drawable.obfuscated_res_0x7f080cf9);
+                LiveFeedPageSdk.getInstance().initNetWork(new pk7());
+                LiveFeedPageSdk.getInstance().initHostInfo("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
+                LiveFeedPageSdk.getInstance().initInvoke(new tu5());
+                LiveFeedPageSdk.getInstance().setInit();
+            }
+            LiveFeedPageSdk.getInstance().setContext(context);
+            if (LiveFeedPageSdk.getInstance().getInvoker() == null || TextUtils.isEmpty(LiveFeedPageSdk.getInstance().getInvoker().getUIMode())) {
+                return;
+            }
+            LiveFeedPageSdk.getInstance().updateUiMode(LiveFeedPageSdk.getInstance().getInvoker().getUIMode());
+        }
+    }
+
+    public su5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a)) : (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yu5 yu5Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yu5Var, alaGameFrsGameViewHolder})) == null) {
-            alaGameFrsGameViewHolder.a.i(yu5Var);
-            alaGameFrsGameViewHolder.a.t(this.b);
-            return alaGameFrsGameViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void u(kq5 kq5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kq5Var) == null) {
-            this.b = kq5Var;
         }
     }
 }

@@ -29,10 +29,10 @@ public class AppDetailInfoActivity extends Activity {
     }
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe8);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092338);
-        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09189a);
-        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d4);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091004);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092390);
+        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0918d0);
+        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f7);
         if (this.g.isEmpty()) {
             this.d.setVisibility(8);
             this.b.setVisibility(0);
@@ -69,7 +69,7 @@ public class AppDetailInfoActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0887);
+        setContentView(R.layout.obfuscated_res_0x7f0d08a1);
         if (a()) {
             b();
         } else {

@@ -255,7 +255,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         }
         LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100368;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100369;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -885,7 +885,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         };
         this.skipCheckedStateTracker = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04062b}, i, DEF_STYLE_RES, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, com.google.android.material.R.styleable.MaterialButtonToggleGroup, i, DEF_STYLE_RES, new int[0]);
         setSingleSelection(obtainStyledAttributes.getBoolean(2, false));
         this.checkedId = obtainStyledAttributes.getResourceId(0, -1);
         this.selectionRequired = obtainStyledAttributes.getBoolean(1, false);

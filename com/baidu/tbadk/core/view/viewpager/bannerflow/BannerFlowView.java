@@ -8,13 +8,13 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.vw4;
-import com.baidu.tieba.ww4;
-import com.baidu.tieba.yw4;
-import com.baidu.tieba.zw4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.fz4;
+import com.baidu.tieba.gz4;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.jz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public vw4 c;
-    public zw4 d;
+    public fz4 c;
+    public jz4 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,8 +54,8 @@ public class BannerFlowView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806d8));
-            this.b.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806d7));
+            this.b.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806f2));
+            this.b.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806f1));
         }
     }
 
@@ -67,25 +67,25 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new vw4(context, this.a, this.b, null);
-            this.d = new zw4(context, yw4.a);
+            this.c = new fz4(context, this.a, this.b, null);
+            this.d = new jz4(context, iz4.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
-            layoutParams.setMargins(0, 0, ri.f(context, R.dimen.obfuscated_res_0x7f0701d5), ri.f(context, R.dimen.obfuscated_res_0x7f0701be));
+            layoutParams.setMargins(0, 0, ej.f(context, R.dimen.obfuscated_res_0x7f0701d5), ej.f(context, R.dimen.obfuscated_res_0x7f0701be));
             addView(this.b, layoutParams);
             View view2 = new View(context);
             this.e = view2;
             view2.setBackgroundColor(SkinManager.getColor(R.color.common_color_10043));
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, ri.f(context, R.dimen.obfuscated_res_0x7f070198));
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, ej.f(context, R.dimen.obfuscated_res_0x7f070198));
             layoutParams2.gravity = 80;
             addView(this.e, layoutParams2);
         }
     }
 
-    public void setData(List<pn> list) {
+    public void setData(List<Cdo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a.removeAllViews();
@@ -100,13 +100,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(ww4.a<yw4, zw4.a> aVar) {
-        zw4 zw4Var;
+    public void setOnItemClickListener(gz4.a<iz4, jz4.a> aVar) {
+        jz4 jz4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (zw4Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (jz4Var = this.d) == null) {
             return;
         }
-        zw4Var.e(aVar);
+        jz4Var.e(aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

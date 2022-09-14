@@ -1,67 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes6.dex */
-public class u83 extends x23 {
+public class u83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u83(x13 x13Var) {
-        super(x13Var, "/swanAPI/removeStorageSync");
+    public static void a(JSONObject jSONObject, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, str) == null) {
+            x83.l(true, str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("stability_config");
+            if (optJSONObject == null) {
                 return;
+            }
+            yz1.b("SwanAppStabilityConfig", "stabilityConfigJo=" + optJSONObject);
+            x83.n(str, optJSONObject.optInt("_SwanStartupStability_"));
+            x83.k(str, optJSONObject.optInt("obtain_interval_ms", 500));
+            int optInt = optJSONObject.optInt("auto_obtain_data_len", 0);
+            if (optInt > 0) {
+                x83.i(str, true);
+                x83.j(str, optInt);
             }
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public static void b(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String Q = br1.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            a13Var.f0().g().remove(Q);
-            wc3.h.update();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-            return true;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            x83.m(true, str);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void c(JSONObject jSONObject, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, str) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("performance_type");
+        if (TextUtils.equals(optString, CloudStabilityUBCUtils.VALUE_TYPE)) {
+            a(jSONObject, str);
+        } else if (TextUtils.equals(optString, "stabilityProfile")) {
+            b(str);
+        }
     }
 }

@@ -1,242 +1,151 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Base64;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.net.URI;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.GeneralSecurityException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes4.dex */
-public class lg3 extends z13 {
+public class lg3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lg3(x13 x13Var) {
-        super(x13Var, "/swanAPI/animView");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((x13) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941873, "Lcom/baidu/tieba/lg3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947941873, "Lcom/baidu/tieba/lg3;");
                 return;
             }
         }
+        a = ij1.a;
     }
 
-    @Override // com.baidu.tieba.z13
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/animView" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) ? b(file, str, null) : invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.z13
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, a13 a13Var) {
-        InterceptResult invokeLLLLL;
+    public static boolean b(File file, String str, fh3 fh3Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, a13Var)) == null) {
-            vw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                g83.b("animView", 1001, "model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ay1.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.j()) {
-                g83.b("animView", 1001, "parse insert params, but invalid", 201, "parse insert params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ay1.c("AbsSwanAppWidget", "parse insert params, but invalid");
-                return false;
-            } else {
-                String r = r(q.t, a13Var);
-                if (TextUtils.isEmpty(r)) {
-                    g83.b("animView", 1001, "AnimConfData is invalid", 201, "parse insert params, anim data is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is null");
-                    return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, fh3Var)) == null) {
+            boolean z = file == null;
+            if (z || !file.exists() || TextUtils.isEmpty(str)) {
+                if (fh3Var != null) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("zipfile: isEmpty=");
+                    sb.append(z);
+                    sb.append("; exists=");
+                    sb.append(z ? "" : Boolean.valueOf(file.exists()));
+                    fh3Var.a = sb.toString();
                 }
-                if (nm2.U().N()) {
-                    try {
-                        new JSONObject(r);
-                    } catch (Throwable th) {
-                        g83.b("animView", 1001, "parse insert params, anim data is not json", 201, "parse insert params, anim data is not json");
-                        if (x23.b) {
-                            th.printStackTrace();
-                        }
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is not json");
-                        return false;
-                    }
-                }
-                rw1 insert = new uw1(context, q, r).insert();
-                boolean a = insert.a();
-                ay1.i("AbsSwanAppWidget", "insert anim view success = " + a);
+                return false;
+            }
+            ReadableByteChannel readableByteChannel = null;
+            try {
+                readableByteChannel = Channels.newChannel(new FileInputStream(file));
+                return d(readableByteChannel, str, fh3Var);
+            } catch (IOException e) {
                 if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    g83.b("animView", UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, "insert anim view, but failure: " + insert.b, 1001, "insert anim view, but failure: " + insert.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-                    ay1.c("AbsSwanAppWidget", "insert anim view, but failure: " + insert.b);
+                    e.printStackTrace();
                 }
-                return a;
+                return false;
+            } finally {
+                cj4.d(readableByteChannel);
             }
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.z13
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, a13 a13Var) {
-        InterceptResult invokeLLLLL;
+    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, a13Var)) == null) {
-            vw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                g83.b("animView", 1001, "model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ay1.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.isValid()) {
-                g83.b("animView", 1001, "parse remove params, but invalid", 201, "parse remove params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ay1.c("AbsSwanAppWidget", "parse remove params, but invalid");
-                return false;
-            } else {
-                uw1 uw1Var = (uw1) nx1.a(q);
-                if (uw1Var == null) {
-                    g83.b("animView", 2001, "get component is null", 1001, "get component is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    ay1.c("AbsSwanAppWidget", "get component is null");
-                    return false;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) ? d(readableByteChannel, str, null) : invokeLL.booleanValue;
+    }
+
+    public static boolean d(ReadableByteChannel readableByteChannel, String str, fh3 fh3Var) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, fh3Var)) == null) {
+            boolean z = readableByteChannel == null;
+            if (z || TextUtils.isEmpty(str)) {
+                if (fh3Var != null) {
+                    fh3Var.a = "zipSource isNullIs=" + z;
                 }
-                rw1 B = uw1Var.B();
-                boolean a = B.a();
-                ay1.i("AbsSwanAppWidget", "remove anim view success = " + a);
+                return false;
+            }
+            String c = ej4.c(false, readableByteChannel);
+            if (fh3Var != null) {
+                fh3Var.a = c;
+            }
+            try {
+                String str2 = new String(e(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), IMAudioTransRequest.CHARSET);
+                if (fh3Var != null) {
+                    fh3Var.b = str2;
+                }
+                return TextUtils.equals(str2, c);
+            } catch (Exception e) {
                 if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    g83.b("animView", 2001, "remove anim view, but failure: " + B.b, 1001, "remove anim view, but failure: " + B.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-                    ay1.c("AbsSwanAppWidget", "remove anim view, but failure: " + B.b);
+                    Log.i("SwanAppSignChecker", e.toString());
+                    e.printStackTrace();
                 }
-                return a;
+                if (fh3Var != null) {
+                    fh3Var.b = e.getLocalizedMessage();
+                }
+                return false;
             }
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.z13
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, a13 a13Var) {
-        InterceptResult invokeLLLLL;
+    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, a13Var)) == null) {
-            vw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                g83.b("animView", 1001, "update, model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ay1.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.isValid()) {
-                g83.b("animView", 1001, "parse update params, but invalid", 201, "parse update params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ay1.c("AbsSwanAppWidget", "parse update params, but invalid");
-                return false;
-            } else {
-                uw1 uw1Var = (uw1) nx1.a(q);
-                if (uw1Var == null) {
-                    g83.b("animView", 2001, "get component is null", 1001, "get component is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    ay1.c("AbsSwanAppWidget", "get component is null");
-                    return false;
-                }
-                rw1 update = uw1Var.update((uw1) q);
-                boolean a = update.a();
-                ay1.b("AbsSwanAppWidget", "update anim view success = " + a);
-                if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    g83.b("animView", 2001, "update anim view, but failure: " + update.b, 1001, "update anim view, but failure: " + update.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-                    ay1.c("AbsSwanAppWidget", "update anim view, but failure: " + update.b);
-                }
-                return a;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, publicKey);
+            return cipher.doFinal(bArr);
         }
-        return invokeLLLLL.booleanValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Nullable
-    public final vw1 q(UnitedSchemeEntity unitedSchemeEntity) {
+    public static PublicKey f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ay1.c("SwanAppAction", "params is null");
-                return null;
-            }
-            vw1 vw1Var = new vw1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
-                vw1Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                ay1.d("SwanAppAction", "model parse exception:", e);
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
+            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+                return null;
             }
-            return vw1Var;
         }
-        return (vw1) invokeL.objValue;
-    }
-
-    public final String r(String str, a13 a13Var) {
-        InterceptResult invokeLL;
-        String L;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, a13Var)) == null) {
-            if (!TextUtils.isEmpty(str) && a13Var != null) {
-                try {
-                    if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        L = i83.M(str, a13Var.b);
-                    } else {
-                        L = i83.L(str, a13Var, a13Var.k0());
-                    }
-                    if (TextUtils.isEmpty(L)) {
-                        return null;
-                    }
-                    File file = new File(L);
-                    if (ch4.y(file)) {
-                        return ch4.E(file);
-                    }
-                    return null;
-                } catch (Exception e) {
-                    if (x23.b) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
+        return (PublicKey) invokeL.objValue;
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.ry6;
-import com.baidu.tieba.wy6;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.c07;
+import com.baidu.tieba.h07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes4.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements ry6 {
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements c07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pn> mMoreTreasureTroveDataList;
+    public List<Cdo> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveScoketResMsg() {
@@ -55,15 +55,15 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
                     setError(error.errorno.intValue());
                     setErrorString(moreTreasureTroveResIdl.error.usermsg);
                 }
-                this.mMoreTreasureTroveDataList = wy6.b(moreTreasureTroveResIdl);
+                this.mMoreTreasureTroveDataList = h07.b(moreTreasureTroveResIdl);
             }
             return moreTreasureTroveResIdl;
         }
         return invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.ry6
-    public List<pn> getDataList() {
+    @Override // com.baidu.tieba.c07
+    public List<Cdo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;

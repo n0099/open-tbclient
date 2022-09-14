@@ -1,29 +1,111 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ri1 {
-    boolean a(View view2, gr2 gr2Var);
+public class ri1 implements si1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static ri1 c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public si1 a;
+    public boolean b;
 
-    boolean b();
+    public ri1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = false;
+    }
 
-    boolean c(View view2, gr2 gr2Var);
+    public static ri1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ri1.class) {
+                    if (c == null) {
+                        c = new ri1();
+                    }
+                }
+            }
+            return c;
+        }
+        return (ri1) invokeV.objValue;
+    }
 
-    boolean d(View view2);
+    @Override // com.baidu.tieba.si1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            si1 si1Var = this.a;
+            if (si1Var == null) {
+                return null;
+            }
+            try {
+                return si1Var.a();
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void e(zf3 zf3Var);
-
-    void f(zf3 zf3Var);
-
-    void g(boolean z);
-
-    Context getContext();
-
-    FrameLayout getRootView();
-
-    boolean h();
-
-    boolean removeView(View view2);
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.si1
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Context context, ti1 ti1Var) {
+        si1 si1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ti1Var) != null) {
+            return;
+        }
+        try {
+            if (this.b) {
+                return;
+            }
+            this.b = true;
+            int ordinal = com.baidu.sso.s.a.a(Build.MANUFACTURER).ordinal();
+            if (ordinal == 0) {
+                si1Var = null;
+            } else if (ordinal == 1) {
+                si1Var = new vi1();
+            } else if (ordinal == 2) {
+                si1Var = new dj1();
+            } else if (ordinal == 3) {
+                si1Var = new bj1();
+            } else if (ordinal != 4) {
+                if (this.a == null) {
+                    this.a.a(context, ti1Var);
+                    return;
+                }
+                return;
+            } else {
+                si1Var = new xi1();
+            }
+            this.a = si1Var;
+            if (this.a == null) {
+            }
+        } catch (Throwable unused) {
+        }
+    }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes3.dex */
-public class bh3 extends ActivityDelegation implements tf3<Bundle> {
+public class bh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<Runnable> a;
+    public Runnable b;
 
     public bh3() {
         Interceptable interceptable = $ic;
@@ -24,35 +24,39 @@ public class bh3 extends ActivityDelegation implements tf3<Bundle> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayDeque();
+        this.b = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tf3
-    /* renamed from: c */
-    public void a(Bundle bundle) {
+    public synchronized boolean a(Runnable runnable) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.mResult.putBundle(TiebaStatic.LogFields.RESULT, bundle);
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean c = zd3.c(this.mParams, "isRealName", false);
-            String g = zd3.g(this.mParams, "swanAppId");
-            if (c) {
-                ah3.H(getAgent(), g, this);
-            } else {
-                ah3.K(getAgent(), g, this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            synchronized (this) {
+                z = true;
+                boolean z2 = runnable == null;
+                if (!z2) {
+                    this.a.offer(runnable);
+                }
+                boolean z3 = this.b == null && !this.a.isEmpty();
+                if (z3) {
+                    while (!this.a.isEmpty()) {
+                        Runnable poll = this.a.poll();
+                        this.b = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.b = null;
+                    }
+                }
+                z = (z2 || !z3) ? false : false;
             }
-            return false;
+            return z;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,23 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
-import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
-@Singleton
-@Service
 /* loaded from: classes3.dex */
-public class dg8 implements ICloudControlRegister {
+public class dg8 extends qf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,16 +25,54 @@ public class dg8 implements ICloudControlRegister {
         }
     }
 
-    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
-    public void registerAllProcessors(DataProcessors dataProcessors) {
+    @Override // com.baidu.tieba.qf
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
-            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
-            dataProcessors.addProcessor(UBCCloudControlProcessor.UBC_KEY, new UBCCloudControlProcessor());
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, MiPushClient.COMMAND_REGISTER);
-            if (runTask != null) {
-                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
+    }
+
+    @Override // com.baidu.tieba.qf
+    public String[] getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qf
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.qf
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.qf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "reply_private_setting_switch" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qf
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

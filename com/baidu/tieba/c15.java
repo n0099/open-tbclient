@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c15 extends za {
+public class c15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c15() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,33 +28,25 @@ public class c15 extends za {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.wa
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
-    }
-
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage != null && socketResponsedMessage.getError() == 110004 && socketResponsedMessage.getCmd() != 1001) {
-                d65.b(0, 0, 0, 1, 11);
-                BdSocketLinkService.startService(true, "be server kicked off");
-            }
-            return socketResponsedMessage;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        this.a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+        this.b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f = jSONObject.optString("downloadNaniTxt", null);
+        this.g = jSONObject.optString("showNaniTailTxt", null);
+        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

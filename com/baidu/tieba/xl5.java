@@ -1,23 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TiebaDatabase;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xl5 {
+public final class xl5 extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WheelView a;
 
-    public static void a(String str) {
+    public xl5(WheelView wheelView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || str == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wheelView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        k9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
-        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
-        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
+        this.a = wheelView;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.a.q(f2);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

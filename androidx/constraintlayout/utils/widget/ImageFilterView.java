@@ -17,7 +17,7 @@ import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -260,28 +260,28 @@ public class ImageFilterView extends AppCompatImageView {
         if (!(interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ImageFilterView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ImageFilterView);
         int indexCount = obtainStyledAttributes.getIndexCount();
-        Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.ImageFilterView_altSrc);
+        Drawable drawable = obtainStyledAttributes.getDrawable(0);
         for (int i = 0; i < indexCount; i++) {
             int index = obtainStyledAttributes.getIndex(i);
-            if (index == R$styleable.ImageFilterView_crossfade) {
+            if (index == 3) {
                 this.mCrossfade = obtainStyledAttributes.getFloat(index, 0.0f);
-            } else if (index == R$styleable.ImageFilterView_warmth) {
+            } else if (index == 8) {
                 setWarmth(obtainStyledAttributes.getFloat(index, 0.0f));
-            } else if (index == R$styleable.ImageFilterView_saturation) {
+            } else if (index == 7) {
                 setSaturation(obtainStyledAttributes.getFloat(index, 0.0f));
-            } else if (index == R$styleable.ImageFilterView_contrast) {
+            } else if (index == 2) {
                 setContrast(obtainStyledAttributes.getFloat(index, 0.0f));
-            } else if (index == R$styleable.ImageFilterView_round) {
+            } else if (index == 5) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     setRound(obtainStyledAttributes.getDimension(index, 0.0f));
                 }
-            } else if (index == R$styleable.ImageFilterView_roundPercent) {
+            } else if (index == 6) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     setRoundPercent(obtainStyledAttributes.getFloat(index, 0.0f));
                 }
-            } else if (index == R$styleable.ImageFilterView_overlay) {
+            } else if (index == 4) {
                 setOverlay(obtainStyledAttributes.getBoolean(index, this.mOverlay));
             }
         }

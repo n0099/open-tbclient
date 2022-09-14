@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.b.g;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i implements d {
     public final b a;
     public final m b;

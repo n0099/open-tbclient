@@ -252,7 +252,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m373a() {
+    public String m374a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -281,7 +281,7 @@ public class gr {
                 sb.append(this.d);
                 sb.append("</text>");
             }
-            for (gk gkVar : m374a()) {
+            for (gk gkVar : m375a()) {
                 sb.append(gkVar.d());
             }
             sb.append("</error>");
@@ -291,7 +291,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<gk> m374a() {
+    public synchronized List<gk> m375a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

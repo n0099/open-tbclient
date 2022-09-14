@@ -1,174 +1,125 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.content.Context;
+import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class q57 extends BaseAdapter {
+public class q57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<s57> b;
-    public LayoutInflater c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public q57(TbPageContext tbPageContext) {
+    public static void a(c26 c26Var, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList();
-        this.c = LayoutInflater.from(tbPageContext.getPageActivity());
-    }
-
-    public final void a(b bVar, View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, bVar, view2, i) == null) || bVar == null || bVar.a == i) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, c26Var, statisticItem) == null) || c26Var == null || c26Var.getThreadData() == null || statisticItem == null) {
             return;
         }
-        SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-        SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0105, 1);
-        bVar.a = i;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.clear();
-            notifyDataSetChanged();
+        if (c26Var.getThreadData().getBaijiahaoData() != null) {
+            BaijiahaoData baijiahaoData = c26Var.getThreadData().getBaijiahaoData();
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData.oriUgcVid);
+            return;
         }
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public s57 getItem(int i) {
-        InterceptResult invokeI;
+    public static boolean b(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.b.get(i) : (s57) invokeI.objValue;
-    }
-
-    public List<s57> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public void e(String str, List<s57> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            this.a = str;
-            this.b.clear();
-            if (list != null) {
-                this.b.addAll(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
+                return false;
             }
-            notifyDataSetChanged();
+            int i = threadData.threadType;
+            return i == 0 || i == 11 || i == 40 || threadData.isUgcThreadType();
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static void c(lq4 lq4Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.size() : invokeV.intValue;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{lq4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) || lq4Var == null || lq4Var.getThreadData() == null || context == null) {
+            return;
+        }
+        ThreadData threadData = lq4Var.getThreadData();
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+        createFromThreadCfg.setFrom("from_video_tab");
+        createFromThreadCfg.setForumName(threadData.getForum_name());
+        createFromThreadCfg.setStartFrom(i);
+        createFromThreadCfg.setVideoOriginArea(rect);
+        if (lq4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(lq4Var.getPbInputLocate());
+        }
+        if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
+            createFromThreadCfg.setNeedPreLoad(true);
+            rg6.update(threadData);
+        }
+        createFromThreadCfg.setVideo_source("video_tab");
+        createFromThreadCfg.setJumpGodReply(z);
+        g16.a(threadData.getTid());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static void d(c26 c26Var) {
+        StatisticItem w;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, c26Var) == null) || c26Var == null || (w = c26Var.w("c13583", true)) == null) {
+            return;
+        }
+        a(c26Var, w);
+        TiebaStatic.log(w);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public static void e(c26 c26Var) {
+        StatisticItem w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            s57 item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d039d, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915f7);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090802);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907fc);
-                view2.setTag(bVar);
-            }
-            bVar.c.setVisibility(i == 0 ? 0 : 8);
-            bVar.b.setText(StringHelper.highLightText(ne5.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.a, R.color.CAM_X0302));
-            a(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c26Var) == null) || c26Var == null || (w = c26Var.w("c13584", true)) == null) {
+            return;
         }
-        return (View) invokeILL.objValue;
+        a(c26Var, w);
+        w.param(TiebaStatic.Params.OBJ_FLOOR, c26Var.position + 1);
+        TiebaStatic.log(w);
     }
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public TextView b;
-        public View c;
-        public View d;
-
-        public b(q57 q57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
+    public static void f(c26 c26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, c26Var) == null) || c26Var == null || (w = c26Var.w("c13585", true)) == null) {
+            return;
         }
+        a(c26Var, w);
+        TiebaStatic.log(w);
+    }
 
-        public /* synthetic */ b(q57 q57Var, a aVar) {
-            this(q57Var);
+    public static void g(c26 c26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, c26Var) == null) || c26Var == null || (w = c26Var.w("c13586", true)) == null) {
+            return;
         }
+        a(c26Var, w);
+        TiebaStatic.log(w);
+    }
+
+    public static void h(c26 c26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, c26Var) == null) || c26Var == null || (w = c26Var.w("c13587", true)) == null) {
+            return;
+        }
+        a(c26Var, w);
+        TiebaStatic.log(w);
     }
 }
